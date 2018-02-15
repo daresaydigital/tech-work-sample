@@ -8,7 +8,7 @@ const Daily = props => (
     <tbody>
       <tr>
         {props.data.map(entry => (
-          <td>
+          <td key={entry.date}>
             <h2>
               <Moment format="dddd, MMM Do">
                 {entry.date}
@@ -24,13 +24,13 @@ const Daily = props => (
 );
 
 Daily.propTypes = {
-  data: PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.shape({
     conditions: PropTypes.string,
     temp: PropTypes.number,
     max: PropTypes.number,
     min: PropTypes.number,
     map: PropTypes.func,
-  }),
+  })),
 };
 
 Daily.defaultProps = {

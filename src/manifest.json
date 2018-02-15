@@ -12,6 +12,7 @@
     "activeTab",
     "storage",
     "geolocation",
+    "contextMenus",
     "<all_urls>"
   ],
   "icons": {

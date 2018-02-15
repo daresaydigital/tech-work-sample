@@ -69,6 +69,22 @@ chrome.storage.sync.get((storedState:AppState) => {
     });
   });
 
+  /* Handle context click */
+  local.onContextClick = function(info, tab){
+    console.log("You have right-clicked something. Good for you.");
+  }
+
+  /* Create context menu item for each context type. */
+  const contexts = ["selection","link"];
+  for (var i = 0; i < contexts.length; i++) {
+    const context = contexts[i];
+    const title = "Search on Weatherwise";
+    const id = chrome.contextMenus.create({
+      "title": title, "contexts":[context],
+      "onclick": local.onContextClick
+    });
+  }
+
   local.dispatchUpdates = function(){
     /* Update current weather conditions */
     local.updateData('weather');

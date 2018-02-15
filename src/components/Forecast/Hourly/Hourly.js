@@ -3,18 +3,14 @@ import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import roundTo from '../../../helpers/roundTo';
 
-/* function roundTo(number, places) {
-  return Math.round(number * (10 ** places)) / (10 ** places);
-} */
-
 const Hourly = props => (
   <table>
     <tbody>
       {props.data.map(entry => (
-        <tr>
+        <tr key={entry.date}>
           <td>
             <h2>
-              <Moment format="h:mm:ss">
+              <Moment format="HH:mm">
                 {entry.date}
               </Moment>
             </h2>
@@ -32,13 +28,13 @@ const Hourly = props => (
 );
 
 Hourly.propTypes = {
-  data: PropTypes.shape({
+  data: PropTypes.arrayOf(PropTypes.shape({
     conditions: PropTypes.string,
     temp: PropTypes.number,
     max: PropTypes.number,
     min: PropTypes.number,
     map: PropTypes.func,
-  }),
+  })),
 };
 
 Hourly.defaultProps = {

@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import Logo from './components/Logo';
 import Weather from './components/Weather';
 import Daily from './components/Forecast/Daily';
+import Hourly from './components/Forecast/Hourly';
 import './styles.css';
 
 class NewTab extends Component {
@@ -50,9 +51,12 @@ class NewTab extends Component {
         <Weather
           data={this.state.frontend.data.weather}
         />
-        {<Daily
+        <Daily
           data={this.state.frontend.data.forecast.daily}
-        />}
+        />
+        <Hourly
+          data={this.state.frontend.data.forecast.hourly}
+        />
       </div>
     );
   }

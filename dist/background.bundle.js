@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 144);
+/******/ 	return __webpack_require__(__webpack_require__.s = 146);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -263,7 +263,7 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(2);
-var normalizeHeaderName = __webpack_require__(153);
+var normalizeHeaderName = __webpack_require__(155);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -573,7 +573,7 @@ module.exports = function bind(fn, thisArg) {
 
 /***/ }),
 
-/***/ 144:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -582,9 +582,9 @@ module.exports = function bind(fn, thisArg) {
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /* declare var chrome: any; */
 
 
-var _htmlEntities = __webpack_require__(145);
+var _htmlEntities = __webpack_require__(147);
 
-var _weather = __webpack_require__(148);
+var _weather = __webpack_require__(150);
 
 var _weather2 = _interopRequireDefault(_weather);
 
@@ -633,6 +633,22 @@ chrome.storage.sync.get(function (storedState) {
       local.setState({ backend: backend });
     });
   });
+
+  /* Handle context click */
+  local.onContextClick = function (info, tab) {
+    console.log("You have right-clicked something. Good for you.");
+  };
+
+  /* Create context menu item for each context type. */
+  var contexts = ["selection", "link"];
+  for (var i = 0; i < contexts.length; i++) {
+    var context = contexts[i];
+    var title = "Search on Weatherwise";
+    var id = chrome.contextMenus.create({
+      "title": title, "contexts": [context],
+      "onclick": local.onContextClick
+    });
+  }
 
   local.dispatchUpdates = function () {
     /* Update current weather conditions */
@@ -760,12 +776,12 @@ chrome.storage.sync.get(function (storedState) {
 
 /***/ }),
 
-/***/ 145:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = {
-  XmlEntities: __webpack_require__(146),
-  Html4Entities: __webpack_require__(147),
+  XmlEntities: __webpack_require__(148),
+  Html4Entities: __webpack_require__(149),
   Html5Entities: __webpack_require__(13),
   AllHtmlEntities: __webpack_require__(13)
 };
@@ -773,7 +789,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 146:
+/***/ 148:
 /***/ (function(module, exports) {
 
 var ALPHA_INDEX = {
@@ -935,7 +951,7 @@ module.exports = XmlEntities;
 
 /***/ }),
 
-/***/ 147:
+/***/ 149:
 /***/ (function(module, exports) {
 
 var HTML_ALPHA = ['apos', 'nbsp', 'iexcl', 'cent', 'pound', 'curren', 'yen', 'brvbar', 'sect', 'uml', 'copy', 'ordf', 'laquo', 'not', 'shy', 'reg', 'macr', 'deg', 'plusmn', 'sup2', 'sup3', 'acute', 'micro', 'para', 'middot', 'cedil', 'sup1', 'ordm', 'raquo', 'frac14', 'frac12', 'frac34', 'iquest', 'Agrave', 'Aacute', 'Acirc', 'Atilde', 'Auml', 'Aring', 'Aelig', 'Ccedil', 'Egrave', 'Eacute', 'Ecirc', 'Euml', 'Igrave', 'Iacute', 'Icirc', 'Iuml', 'ETH', 'Ntilde', 'Ograve', 'Oacute', 'Ocirc', 'Otilde', 'Ouml', 'times', 'Oslash', 'Ugrave', 'Uacute', 'Ucirc', 'Uuml', 'Yacute', 'THORN', 'szlig', 'agrave', 'aacute', 'acirc', 'atilde', 'auml', 'aring', 'aelig', 'ccedil', 'egrave', 'eacute', 'ecirc', 'euml', 'igrave', 'iacute', 'icirc', 'iuml', 'eth', 'ntilde', 'ograve', 'oacute', 'ocirc', 'otilde', 'ouml', 'divide', 'oslash', 'ugrave', 'uacute', 'ucirc', 'uuml', 'yacute', 'thorn', 'yuml', 'quot', 'amp', 'lt', 'gt', 'OElig', 'oelig', 'Scaron', 'scaron', 'Yuml', 'circ', 'tilde', 'ensp', 'emsp', 'thinsp', 'zwnj', 'zwj', 'lrm', 'rlm', 'ndash', 'mdash', 'lsquo', 'rsquo', 'sbquo', 'ldquo', 'rdquo', 'bdquo', 'dagger', 'Dagger', 'permil', 'lsaquo', 'rsaquo', 'euro', 'fnof', 'Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta', 'Eta', 'Theta', 'Iota', 'Kappa', 'Lambda', 'Mu', 'Nu', 'Xi', 'Omicron', 'Pi', 'Rho', 'Sigma', 'Tau', 'Upsilon', 'Phi', 'Chi', 'Psi', 'Omega', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigmaf', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'thetasym', 'upsih', 'piv', 'bull', 'hellip', 'prime', 'Prime', 'oline', 'frasl', 'weierp', 'image', 'real', 'trade', 'alefsym', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'crarr', 'lArr', 'uArr', 'rArr', 'dArr', 'hArr', 'forall', 'part', 'exist', 'empty', 'nabla', 'isin', 'notin', 'ni', 'prod', 'sum', 'minus', 'lowast', 'radic', 'prop', 'infin', 'ang', 'and', 'or', 'cap', 'cup', 'int', 'there4', 'sim', 'cong', 'asymp', 'ne', 'equiv', 'le', 'ge', 'sub', 'sup', 'nsub', 'sube', 'supe', 'oplus', 'otimes', 'perp', 'sdot', 'lceil', 'rceil', 'lfloor', 'rfloor', 'lang', 'rang', 'loz', 'spades', 'clubs', 'hearts', 'diams'];
@@ -1089,51 +1105,6 @@ module.exports = Html4Entities;
 
 /***/ }),
 
-/***/ 148:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _axios = __webpack_require__(149);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-var _serialize = __webpack_require__(168);
-
-var _serialize2 = _interopRequireDefault(_serialize);
-
-var _apikey = __webpack_require__(169);
-
-var _apikey2 = _interopRequireDefault(_apikey);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var weather = function weather(args) {
-  return new Promise(function (resolve, reject) {
-    return navigator.geolocation.getCurrentPosition(function (pos) {
-      return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + (0, _serialize2.default)(args.params) + '&key=' + _apikey2.default).then(function (result) {
-        return resolve(result);
-      }).catch(function (e) {
-        return reject(e);
-      });
-    }, function (e) {
-      return reject(e);
-    });
-  });
-};
-
-module.exports = weather;
-
-/***/ }),
-
-/***/ 149:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(150);
-
-/***/ }),
-
 /***/ 15:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1141,12 +1112,12 @@ module.exports = __webpack_require__(150);
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(2);
-var settle = __webpack_require__(154);
-var buildURL = __webpack_require__(156);
-var parseHeaders = __webpack_require__(157);
-var isURLSameOrigin = __webpack_require__(158);
+var settle = __webpack_require__(156);
+var buildURL = __webpack_require__(158);
+var parseHeaders = __webpack_require__(159);
+var isURLSameOrigin = __webpack_require__(160);
 var createError = __webpack_require__(16);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(159);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(161);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -1243,7 +1214,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(160);
+      var cookies = __webpack_require__(162);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -1329,9 +1300,54 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
+var _axios = __webpack_require__(151);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _serialize = __webpack_require__(170);
+
+var _serialize2 = _interopRequireDefault(_serialize);
+
+var _apikey = __webpack_require__(171);
+
+var _apikey2 = _interopRequireDefault(_apikey);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var weather = function weather(args) {
+  return new Promise(function (resolve, reject) {
+    return navigator.geolocation.getCurrentPosition(function (pos) {
+      return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + (0, _serialize2.default)(args.params) + '&key=' + _apikey2.default).then(function (result) {
+        return resolve(result);
+      }).catch(function (e) {
+        return reject(e);
+      });
+    }, function (e) {
+      return reject(e);
+    });
+  });
+};
+
+module.exports = weather;
+
+/***/ }),
+
+/***/ 151:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(152);
+
+/***/ }),
+
+/***/ 152:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var utils = __webpack_require__(2);
 var bind = __webpack_require__(14);
-var Axios = __webpack_require__(152);
+var Axios = __webpack_require__(154);
 var defaults = __webpack_require__(10);
 
 /**
@@ -1366,14 +1382,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(18);
-axios.CancelToken = __webpack_require__(166);
+axios.CancelToken = __webpack_require__(168);
 axios.isCancel = __webpack_require__(17);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(167);
+axios.spread = __webpack_require__(169);
 
 module.exports = axios;
 
@@ -1383,7 +1399,7 @@ module.exports.default = axios;
 
 /***/ }),
 
-/***/ 151:
+/***/ 153:
 /***/ (function(module, exports) {
 
 /*!
@@ -1411,7 +1427,7 @@ function isSlowBuffer (obj) {
 
 /***/ }),
 
-/***/ 152:
+/***/ 154:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1419,8 +1435,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(10);
 var utils = __webpack_require__(2);
-var InterceptorManager = __webpack_require__(161);
-var dispatchRequest = __webpack_require__(162);
+var InterceptorManager = __webpack_require__(163);
+var dispatchRequest = __webpack_require__(164);
 
 /**
  * Create a new instance of Axios
@@ -1498,7 +1514,7 @@ module.exports = Axios;
 
 /***/ }),
 
-/***/ 153:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1518,7 +1534,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 /***/ }),
 
-/***/ 154:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1552,7 +1568,7 @@ module.exports = function settle(resolve, reject, response) {
 
 /***/ }),
 
-/***/ 155:
+/***/ 157:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1581,7 +1597,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 /***/ }),
 
-/***/ 156:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1657,7 +1673,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 /***/ }),
 
-/***/ 157:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1718,7 +1734,33 @@ module.exports = function parseHeaders(headers) {
 
 /***/ }),
 
-/***/ 158:
+/***/ 16:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(157);
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1794,7 +1836,7 @@ module.exports = (
 
 /***/ }),
 
-/***/ 159:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1838,33 +1880,7 @@ module.exports = btoa;
 
 /***/ }),
 
-/***/ 16:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var enhanceError = __webpack_require__(155);
-
-/**
- * Create an Error with the specified message, config, error code, request and response.
- *
- * @param {string} message The error message.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The created error.
- */
-module.exports = function createError(message, config, code, request, response) {
-  var error = new Error(message);
-  return enhanceError(error, config, code, request, response);
-};
-
-
-/***/ }),
-
-/***/ 160:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1925,7 +1941,7 @@ module.exports = (
 
 /***/ }),
 
-/***/ 161:
+/***/ 163:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1985,18 +2001,18 @@ module.exports = InterceptorManager;
 
 /***/ }),
 
-/***/ 162:
+/***/ 164:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(2);
-var transformData = __webpack_require__(163);
+var transformData = __webpack_require__(165);
 var isCancel = __webpack_require__(17);
 var defaults = __webpack_require__(10);
-var isAbsoluteURL = __webpack_require__(164);
-var combineURLs = __webpack_require__(165);
+var isAbsoluteURL = __webpack_require__(166);
+var combineURLs = __webpack_require__(167);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -2079,7 +2095,7 @@ module.exports = function dispatchRequest(config) {
 
 /***/ }),
 
-/***/ 163:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2107,7 +2123,7 @@ module.exports = function transformData(data, headers, fns) {
 
 /***/ }),
 
-/***/ 164:
+/***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2129,7 +2145,7 @@ module.exports = function isAbsoluteURL(url) {
 
 /***/ }),
 
-/***/ 165:
+/***/ 167:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2151,7 +2167,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 /***/ }),
 
-/***/ 166:
+/***/ 168:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2216,7 +2232,7 @@ module.exports = CancelToken;
 
 /***/ }),
 
-/***/ 167:
+/***/ 169:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2251,7 +2267,20 @@ module.exports = function spread(callback) {
 
 /***/ }),
 
-/***/ 168:
+/***/ 17:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+
+/***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2270,7 +2299,7 @@ module.exports = serialize;
 
 /***/ }),
 
-/***/ 169:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2279,19 +2308,6 @@ module.exports = serialize;
 var API_KEY = '62fc4256-8f8c-11e5-8994-feff819cdc9f';
 
 module.exports = API_KEY;
-
-/***/ }),
-
-/***/ 17:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function isCancel(value) {
-  return !!(value && value.__CANCEL__);
-};
-
 
 /***/ }),
 
@@ -2329,7 +2345,7 @@ module.exports = Cancel;
 
 
 var bind = __webpack_require__(14);
-var isBuffer = __webpack_require__(151);
+var isBuffer = __webpack_require__(153);
 
 /*global toString:true*/
 
