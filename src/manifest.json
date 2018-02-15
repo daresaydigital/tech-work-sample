@@ -23,9 +23,14 @@
   "background":{
     "scripts": ["background.bundle.js"]
   },
-  "web_accessible_resources": ["styles.css"],
   "chrome_url_overrides" : {
     "newtab": "newtab.html"
   },
+  "web_accessible_resources": ["content.bundle.css"],
+  "content_scripts":[{
+    "matches":["https://*/*", "http://*/*"],
+    "css": ["content.bundle.css"],
+    "js": ["content.bundle.js"]
+  }],
     "content_security_policy": "script-src 'self' https://worksample-api.herokuapp.com/; object-src 'self'"
 }

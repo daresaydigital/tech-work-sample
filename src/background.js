@@ -1,4 +1,4 @@
-/* declare var chrome: any; */
+/* global chrome */
 import {XmlEntities} from 'html-entities';
 import weather from './helpers/weather';
 
@@ -69,9 +69,21 @@ chrome.storage.sync.get((storedState:AppState) => {
     });
   });
 
+  /* Send messages to content.js */
+  local.message = function(message){
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+      if(tabs.length > 0){
+        chrome.tabs.sendMessage(tabs[0].id, {message}, function(response) {
+            //console.log("Response is " + response.confirmation);
+            //console.log(response.confirmation);
+        });
+      }
+    });
+  }
+
   /* Handle context click */
   local.onContextClick = function(info, tab){
-    console.log("You have right-clicked something. Good for you.");
+    local.message(`You have right-clicked on "${info.selectionText}". Good for you.`);
   }
 
   /* Create context menu item for each context type. */

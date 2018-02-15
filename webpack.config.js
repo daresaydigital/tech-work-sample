@@ -3,11 +3,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const ExtractMainCSS = new ExtractTextPlugin('bundle.css');
+const ExtractContentCSS = new ExtractTextPlugin('content.bundle.css');
+
 module.exports = {
-  // Entry files for our popup and background pages
+  /* Entry files for newtab and background pages. A popup page could also be included */
   entry: {
     background: './src/background.js',
     newtab: './src/newtab.js',
+    content: './src/content.js',
   },
   /* Extension will be built into ./dist folder, which can
   then be loaded as unpacked extension in Chrome */
@@ -15,10 +19,10 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
   },
-  // Here we define loaders for different file types
+  /* Different loaders for different file types... */
   module: {
     rules: [
-      // We use Babel to transpile JSX
+      /* Use babel to transpile JSX */
       {
         test: /\.js$/,
         include: [
@@ -28,7 +32,15 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
+        exclude: path.resolve(__dirname, './src/content.css'),
+        loader: ExtractMainCSS.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'resolve-url-loader'],
+        }),
+      },
+      {
+        test: /content\.css/,
+        loader: ExtractContentCSS.extract({
           fallback: 'style-loader',
           use: ['css-loader', 'resolve-url-loader'],
         }),
@@ -48,16 +60,18 @@ module.exports = {
     ],
   },
   plugins: [
-    // create CSS file with all used styles
-    new ExtractTextPlugin('bundle.css'),
-    // create popup.html from template and inject styles and script bundles
+    /* Create a CSS file with all used styles except content ones */
+    ExtractMainCSS,
+    /* Create a CSS file with content styles */
+    ExtractContentCSS,
+    /* Create newtab.html from template and inject styles and script bundles */
     new HtmlWebpackPlugin({
       inject: true,
       chunks: ['newtab'],
       filename: 'newtab.html',
       template: './src/template.html',
     }),
-    // copy extension manifest and icons
+    /* Copy manifest file and icons */
     new CopyWebpackPlugin([
       { from: './src/manifest.json' },
       { context: './src/assets', from: 'weatherwise-logo.png', to: 'assets' },
