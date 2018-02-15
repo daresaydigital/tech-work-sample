@@ -1,0 +1,22 @@
+.weatherwise-pedros-logo{
+  margin:20px 20px;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+.weatherwise-pedros-logo svg{
+  width:80px;
+}
+
+@media (max-width:859px){
+  .weatherwise-pedros-logo{
+
+  }
+}
+
+@media (min-width:850px){
+  .weatherwise-pedros-logo{
+
+  }
+}

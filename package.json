@@ -1,0 +1,49 @@
+{
+  "name": "Weatherman",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.17.1",
+    "contentful": "^5.0.5",
+    "image-loader": "0.0.1",
+    "moment": "^2.20.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-html-parser": "^2.0.2",
+    "react-markdown": "^3.1.0",
+    "react-moment": "^0.7.0",
+    "react-pinterest": "^1.2.0",
+    "react-remarkable": "^1.1.3",
+    "react-scripts": "1.0.17",
+    "react-time-format": "0.0.5",
+    "resolve-url-loader": "^2.2.0",
+    "svg-inline-react": "^3.0.0",
+    "webpack": "^3.8.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^3.1.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^4.2.0",
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "image-loader": "0.0.1",
+    "svg-inline-loader": "^0.8.0"
+  }
+}
