@@ -1,7 +1,10 @@
 /* global chrome */
-import {XmlEntities} from 'html-entities';
+import { XmlEntities } from 'html-entities';
 import weather from './helpers/weather';
+import Geocode from 'react-geocode';
 
+/* Remove this before pushing */
+Geocode.setApiKey("API Key goes here");
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
 const interval = 1;
@@ -83,7 +86,28 @@ chrome.storage.sync.get((storedState:AppState) => {
 
   /* Handle context click */
   local.onContextClick = function(info, tab){
-    local.message(`You have right-clicked on "${info.selectionText}". Good for you.`);
+    Geocode.fromAddress(info.selectionText).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+          /* Make sure that the location is not a business, point of interest or something of the like */
+          /* Should I limit this to only results of "locality" type? */
+          if(response.results[0].types.some(x => x === 'political')){
+            local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lng}. Nice.`);
+          } else {
+            local.message(`You have right-clicked on "${info.selectionText}". That doesn't seem to be a place anywhere. Hmm…`);
+          }
+      },
+      error =>{
+        if(error.message.indexOf('ZERO_RESULTS') !== -1){
+          local.message(`You have right-clicked on "${info.selectionText}". That doesn't seem to be a place anywhere. Hmm…`);
+        } else {
+          console.log(error);
+        }
+      }
+    /* ).catch(e => reject(e)), e => reject(e); */
+    ).catch(e => {
+      console.log(e);
+    });
   }
 
   /* Create context menu item for each context type. */
@@ -136,8 +160,6 @@ chrome.storage.sync.get((storedState:AppState) => {
           language:'en',
         }
       }).then(values =>{
-        console.log('Weather API call');
-
         const frontend = state.frontend;
         let entries;
 

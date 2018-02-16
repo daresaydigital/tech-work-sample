@@ -9,9 +9,10 @@ const ExtractContentCSS = new ExtractTextPlugin('content.bundle.css');
 module.exports = {
   /* Entry files for newtab and background pages. A popup page could also be included */
   entry: {
-    background: './src/background.js',
+    // background: './src/background.js',
     newtab: './src/newtab.js',
     content: './src/content.js',
+    background: ['babel-polyfill', './src/background.js'],
   },
   /* Extension will be built into ./dist folder, which can
   then be loaded as unpacked extension in Chrome */
@@ -27,6 +28,8 @@ module.exports = {
         test: /\.js$/,
         include: [
           path.resolve(__dirname, './src'),
+          /* Apparently I neeed to transpile the react-geocode module ¯\_(ツ)_/¯ */
+          path.resolve(__dirname, './node_modules/react-geocode'),
         ],
         use: 'babel-loader',
       },
