@@ -10279,7 +10279,7 @@ var _reactGeocode2 = _interopRequireDefault(_reactGeocode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* Remove this before pushing */
+/* Remove this before pushing. Need to put this in a separate file */
 _reactGeocode2.default.setApiKey("API Key goes here");
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
@@ -10340,16 +10340,17 @@ chrome.storage.sync.get(function (storedState) {
   /* Handle context click */
   local.onContextClick = function (info, tab) {
     _reactGeocode2.default.fromAddress(info.selectionText).then(function (response) {
-      var _response$results$0$g = response.results[0].geometry.location,
-          lat = _response$results$0$g.lat,
-          lng = _response$results$0$g.lng;
+      var latlon = response.results[0].geometry.location;
       /* Make sure that the location is not a business, point of interest or something of the like */
       /* Should I limit this to only results of "locality" type? */
-
       if (response.results[0].types.some(function (x) {
         return x === 'political';
       })) {
-        local.message('You have right-clicked on "' + info.selectionText + '". That\'s in ' + lat + ',' + lng + '. Nice.');
+        local.fetchData('weather', function (entries) {
+          console.log(entries);
+        }, latlon);
+        local.message('Check your backend console…');
+        // local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lon}. Nice.`);
       } else {
         local.message('You have right-clicked on "' + info.selectionText + '". That doesn\'t seem to be a place anywhere. Hmm\u2026');
       }
@@ -10409,16 +10410,41 @@ chrome.storage.sync.get(function (storedState) {
   };
 
   local.updateData = function (endpoint) {
-    (0, _weather2.default)({
+    local.fetchData(endpoint, function (entries) {
+      var frontend = state.frontend;
+      switch (endpoint) {
+        case 'forecast':
+          frontend.data.forecast.hourly = entries;
+          break;
+        case 'forecast/daily':
+          frontend.data.forecast.daily = entries;
+          break;
+        default:
+          frontend.data.weather = entries;
+          break;
+      }
+      local.setState({ frontend: frontend });
+      if (state.backend.port) {
+        state.backend.port.postMessage({ state: state.frontend });
+      }
+    });
+  };
+
+  local.fetchData = function (endpoint, callback, latlon) {
+    var options = {
       'endpoint': endpoint,
       'params': {
         units: 'metric',
         language: 'en'
       }
-    }).then(function (values) {
-      var frontend = state.frontend;
+    };
+    if (latlon) {
+      /* If I pass the location manually, add it to the params */
+      options.params = Object.assign(options.params, latlon);
+    }
+    console.log(options);
+    (0, _weather2.default)(options).then(function (values) {
       var entries = void 0;
-
       switch (endpoint) {
         case 'forecast':
           /* Format each entry, limiting to 12 entries*/
@@ -10432,7 +10458,6 @@ chrome.storage.sync.get(function (storedState) {
               date: entry.dt * 1000
             };
           });
-          frontend.data.forecast.hourly = entries;
           break;
         case 'forecast/daily':
           /* Format each entry, removing the first entry */
@@ -10446,7 +10471,6 @@ chrome.storage.sync.get(function (storedState) {
               date: entry.dt * 1000
             };
           });
-          frontend.data.forecast.daily = entries;
           break;
         default:
           entries = {
@@ -10455,13 +10479,9 @@ chrome.storage.sync.get(function (storedState) {
             min: values['data'].main.temp_max,
             conditions: values['data'].weather[0].description
           };
-          frontend.data.weather = entries;
           break;
       }
-      local.setState({ frontend: frontend });
-      if (state.backend.port) {
-        state.backend.port.postMessage({ state: state.frontend });
-      }
+      callback(entries);
     }, function (e) {
       console.log(e);
     });
@@ -10849,7 +10869,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var weather = function weather(args) {
   return new Promise(function (resolve, reject) {
     return navigator.geolocation.getCurrentPosition(function (pos) {
-      return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + pos.coords.latitude + '&lon=' + pos.coords.longitude + (0, _serialize2.default)(args.params) + '&key=' + _apikey2.default).then(function (result) {
+      return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + (args.params.lat || pos.coords.latitude) + '&lon=' + (args.params.lng || pos.coords.longitude) + (0, _serialize2.default)(args.params) + '&key=' + _apikey2.default).then(function (result) {
         return resolve(result);
       }).catch(function (e) {
         return reject(e);

@@ -3,7 +3,7 @@ import { XmlEntities } from 'html-entities';
 import weather from './helpers/weather';
 import Geocode from 'react-geocode';
 
-/* Remove this before pushing */
+/* Remove this before pushing. Need to put this in a separate file */
 Geocode.setApiKey("API Key goes here");
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
@@ -88,11 +88,15 @@ chrome.storage.sync.get((storedState:AppState) => {
   local.onContextClick = function(info, tab){
     Geocode.fromAddress(info.selectionText).then(
       response => {
-        const { lat, lng } = response.results[0].geometry.location;
+        const latlon = response.results[0].geometry.location;
           /* Make sure that the location is not a business, point of interest or something of the like */
           /* Should I limit this to only results of "locality" type? */
           if(response.results[0].types.some(x => x === 'political')){
-            local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lng}. Nice.`);
+            local.fetchData('weather', entries =>{
+              console.log(entries);
+            }, latlon);
+            local.message('Check your backend console…');
+            // local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lon}. Nice.`);
           } else {
             local.message(`You have right-clicked on "${info.selectionText}". That doesn't seem to be a place anywhere. Hmm…`);
           }
@@ -152,17 +156,42 @@ chrome.storage.sync.get((storedState:AppState) => {
     return new Date(text);
   }
 
-  local.updateData = function(endpoint){
-    weather({
+  local.updateData = (endpoint) =>{
+    local.fetchData(endpoint, entries =>{
+      const frontend = state.frontend;
+      switch(endpoint){
+        case 'forecast':
+          frontend.data.forecast.hourly = entries;
+          break;
+        case 'forecast/daily':
+          frontend.data.forecast.daily = entries;
+          break;
+        default:
+          frontend.data.weather = entries;
+          break;
+      }
+      local.setState({ frontend });
+      if(state.backend.port){
+        state.backend.port.postMessage({state: state.frontend});
+      }
+    });
+  }
+
+  local.fetchData = (endpoint, callback, latlon) => {
+    const options = {
         'endpoint': endpoint,
         'params':{
           units:'metric',
           language:'en',
         }
-      }).then(values =>{
-        const frontend = state.frontend;
+      }
+    if(latlon){
+      /* If I pass the location manually, add it to the params */
+      options.params = Object.assign(options.params, latlon);
+    }
+    console.log(options);
+    weather(options).then( values => {
         let entries;
-
         switch(endpoint){
           case 'forecast':
             /* Format each entry, limiting to 12 entries*/
@@ -174,7 +203,6 @@ chrome.storage.sync.get((storedState:AppState) => {
               /* Save the date in miliseconds*/
               date: entry.dt * 1000,
             }))
-            frontend.data.forecast.hourly = entries;
             break;
           case 'forecast/daily':
             /* Format each entry, removing the first entry */
@@ -186,7 +214,6 @@ chrome.storage.sync.get((storedState:AppState) => {
               /* Save the date in miliseconds*/
               date: entry.dt * 1000,
             }))
-            frontend.data.forecast.daily = entries;
             break;
           default:
             entries = {
@@ -195,14 +222,10 @@ chrome.storage.sync.get((storedState:AppState) => {
               min: values['data'].main.temp_max,
               conditions: values['data'].weather[0].description,
             }
-            frontend.data.weather = entries;
             break;
         }
-        local.setState({ frontend });
-        if(state.backend.port){
-          state.backend.port.postMessage({state: state.frontend});
-        }
-      }, (e)=>{ console.log(e) });
+        callback(entries)
+      } , (e)=>{ console.log(e) });
   }
 
   defaultState = {
