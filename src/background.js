@@ -1,10 +1,10 @@
 /* global chrome */
 import { XmlEntities } from 'html-entities';
 import weather from './helpers/weather';
+import { GEOCODE_KEY } from './helpers/apikey';
 import Geocode from 'react-geocode';
 
-/* Remove this before pushing. Need to put this in a separate file */
-Geocode.setApiKey("API Key goes here");
+Geocode.setApiKey(GEOCODE_KEY);
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
 const interval = 1;
@@ -88,14 +88,14 @@ chrome.storage.sync.get((storedState:AppState) => {
   local.onContextClick = function(info, tab){
     Geocode.fromAddress(info.selectionText).then(
       response => {
-        const latlon = response.results[0].geometry.location;
+        const location = response.results[0].geometry.location;
           /* Make sure that the location is not a business, point of interest or something of the like */
           /* Should I limit this to only results of "locality" type? */
           if(response.results[0].types.some(x => x === 'political')){
+            const {formatted_address} = response.results[0];
             local.fetchData('weather', entries =>{
-              console.log(entries);
-            }, latlon);
-            local.message('Check your backend console…');
+              local.message(`The weather in ${formatted_address}:\n Temp: ${entries.temp}˚\n Max: ${entries.max}˚ | Min: ${entries.min}˚`);
+            }, location);
             // local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lon}. Nice.`);
           } else {
             local.message(`You have right-clicked on "${info.selectionText}". That doesn't seem to be a place anywhere. Hmm…`);
@@ -177,7 +177,7 @@ chrome.storage.sync.get((storedState:AppState) => {
     });
   }
 
-  local.fetchData = (endpoint, callback, latlon) => {
+  local.fetchData = (endpoint, callback, location) => {
     const options = {
         'endpoint': endpoint,
         'params':{
@@ -185,11 +185,10 @@ chrome.storage.sync.get((storedState:AppState) => {
           language:'en',
         }
       }
-    if(latlon){
-      /* If I pass the location manually, add it to the params */
-      options.params = Object.assign(options.params, latlon);
+    if(location){
+      /* If a location object is received, pass it on. */
+      options.location = location;
     }
-    console.log(options);
     weather(options).then( values => {
         let entries;
         switch(endpoint){

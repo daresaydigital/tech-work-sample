@@ -10273,14 +10273,15 @@ var _weather = __webpack_require__(513);
 
 var _weather2 = _interopRequireDefault(_weather);
 
+var _apikey = __webpack_require__(534);
+
 var _reactGeocode = __webpack_require__(535);
 
 var _reactGeocode2 = _interopRequireDefault(_reactGeocode);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-/* Remove this before pushing. Need to put this in a separate file */
-_reactGeocode2.default.setApiKey("API Key goes here");
+_reactGeocode2.default.setApiKey(_apikey.GEOCODE_KEY);
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
 var interval = 1;
@@ -10340,16 +10341,17 @@ chrome.storage.sync.get(function (storedState) {
   /* Handle context click */
   local.onContextClick = function (info, tab) {
     _reactGeocode2.default.fromAddress(info.selectionText).then(function (response) {
-      var latlon = response.results[0].geometry.location;
+      var location = response.results[0].geometry.location;
       /* Make sure that the location is not a business, point of interest or something of the like */
       /* Should I limit this to only results of "locality" type? */
       if (response.results[0].types.some(function (x) {
         return x === 'political';
       })) {
+        var formatted_address = response.results[0].formatted_address;
+
         local.fetchData('weather', function (entries) {
-          console.log(entries);
-        }, latlon);
-        local.message('Check your backend console…');
+          local.message('The weather in ' + formatted_address + ':\n Temp: ' + entries.temp + '\u02DA\n Max: ' + entries.max + '\u02DA | Min: ' + entries.min + '\u02DA');
+        }, location);
         // local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lon}. Nice.`);
       } else {
         local.message('You have right-clicked on "' + info.selectionText + '". That doesn\'t seem to be a place anywhere. Hmm\u2026');
@@ -10430,7 +10432,7 @@ chrome.storage.sync.get(function (storedState) {
     });
   };
 
-  local.fetchData = function (endpoint, callback, latlon) {
+  local.fetchData = function (endpoint, callback, location) {
     var options = {
       'endpoint': endpoint,
       'params': {
@@ -10438,11 +10440,10 @@ chrome.storage.sync.get(function (storedState) {
         language: 'en'
       }
     };
-    if (latlon) {
-      /* If I pass the location manually, add it to the params */
-      options.params = Object.assign(options.params, latlon);
+    if (location) {
+      /* If a location object is received, pass it on. */
+      options.location = location;
     }
-    console.log(options);
     (0, _weather2.default)(options).then(function (values) {
       var entries = void 0;
       switch (endpoint) {
@@ -10862,21 +10863,32 @@ var _serialize2 = _interopRequireDefault(_serialize);
 
 var _apikey = __webpack_require__(534);
 
-var _apikey2 = _interopRequireDefault(_apikey);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var apiConnect = function apiConnect(resolve, reject, args, location) {
+  return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + location.lat + '&lon=' + location.lng + (0, _serialize2.default)(args.params) + '&key=' + _apikey.WEATHER_KEY).then(function (result) {
+    return resolve(result);
+  }).catch(function (e) {
+    return reject(e);
+  });
+};
 
 var weather = function weather(args) {
   return new Promise(function (resolve, reject) {
-    return navigator.geolocation.getCurrentPosition(function (pos) {
-      return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + (args.params.lat || pos.coords.latitude) + '&lon=' + (args.params.lng || pos.coords.longitude) + (0, _serialize2.default)(args.params) + '&key=' + _apikey2.default).then(function (result) {
-        return resolve(result);
-      }).catch(function (e) {
+    if (typeof args.location === 'undefined') {
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        /* Unify the position object structure with the one used by the geocoding API */
+        var location = {
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude
+        };
+        return apiConnect(resolve, reject, args, location);
+      }, function (e) {
         return reject(e);
       });
-    }, function (e) {
-      return reject(e);
-    });
+    } else {
+      apiConnect(resolve, reject, args, args.location);
+    }
   });
 };
 
@@ -11798,8 +11810,9 @@ module.exports = serialize;
 
 
 var WEATHER_KEY = '62fc4256-8f8c-11e5-8994-feff819cdc9f';
+var GEOCODE_KEY = 'AIzaSyCrxzzL3tCuPs0eP_gUmfEfjZ5aGJglC1c';
 
-module.exports = WEATHER_KEY;
+module.exports = { WEATHER_KEY: WEATHER_KEY, GEOCODE_KEY: GEOCODE_KEY };
 
 /***/ }),
 /* 535 */
