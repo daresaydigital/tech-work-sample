@@ -1,17 +1,28 @@
 import axios from 'axios';
+import Geocode from 'react-geocode';
 import serialize from './serialize';
-import { WEATHER_KEY } from './apikey';
+import { WEATHER_KEY, GEOCODE_KEY } from './apikey';
 
-const apiConnect = (resolve, reject, args, location) =>
+Geocode.setApiKey(GEOCODE_KEY);
+
+const apiConnect = (resolve, reject, args, location, formattedAddress) =>
   axios.get(`https://worksample-api.herokuapp.com/${args.endpoint}?lat=${location.lat}&lon=${location.lng}${serialize(args.params)}&key=${WEATHER_KEY}`)
-    .then(result => resolve(result))
+    .then((result) => {
+      const response = result;
+      /* If using geocoding, include parsed location in response */
+      if (formattedAddress) {
+        response.data.location = formattedAddress;
+      }
+      resolve(response);
+    })
     .catch(e => reject(e));
 
 const weather = args =>
   new Promise((resolve, reject) => {
-    if (typeof args.location === 'undefined') {
+    if (typeof args.address === 'undefined') {
+      /* If no address is received, use the navigator geolocation */
       navigator.geolocation.getCurrentPosition((pos) => {
-        /* Unify the position object structure with the one used by the geocoding API */
+        /* Translate the position object structure to the one used by the geocoding API */
         const location = {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
@@ -19,7 +30,25 @@ const weather = args =>
         return apiConnect(resolve, reject, args, location);
       }, e => reject(e));
     } else {
-      apiConnect(resolve, reject, args, args.location);
+      /* Else, geocode address to obtain position */
+      Geocode.fromAddress(args.address).then(
+        (response) => {
+          const { location } = response.results[0].geometry;
+          /* Make sure that the location is not a business,
+          point of interest or something of the like */
+          /* Should I limit this to only results of "locality" type? */
+          if (response.results[0].types.some(x => x === 'political')) {
+            const formattedAddress = response.results[0].formatted_address;
+            apiConnect(resolve, reject, args, location, formattedAddress);
+          } else {
+            const e = new Error('ZERO_RESULTS');
+            reject(e);
+          }
+        },
+        e =>
+          reject(e),
+      ).catch(e =>
+        reject(e));
     }
   });
 

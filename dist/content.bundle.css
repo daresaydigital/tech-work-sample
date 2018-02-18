@@ -1,3 +1,7 @@
-html {
-  background: red;
+.wwise-tooltip {
+  position: absolute;
+}
+
+.wwise-tooltip div {
+  /* background: #FFFFFF; */
 }

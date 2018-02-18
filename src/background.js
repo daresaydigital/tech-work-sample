@@ -1,10 +1,7 @@
 /* global chrome */
 import { XmlEntities } from 'html-entities';
 import weather from './helpers/weather';
-import { GEOCODE_KEY } from './helpers/apikey';
-import Geocode from 'react-geocode';
 
-Geocode.setApiKey(GEOCODE_KEY);
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
 const interval = 1;
@@ -73,45 +70,23 @@ chrome.storage.sync.get((storedState:AppState) => {
   });
 
   /* Send messages to content.js */
-  local.message = function(message){
+  local.message = function(status, content){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       if(tabs.length > 0){
-        chrome.tabs.sendMessage(tabs[0].id, {message}, function(response) {
-            //console.log("Response is " + response.confirmation);
-            //console.log(response.confirmation);
+        chrome.tabs.sendMessage(tabs[0].id, { status, content }, function(response) {
         });
       }
     });
   }
 
   /* Handle context click */
-  local.onContextClick = function(info, tab){
-    Geocode.fromAddress(info.selectionText).then(
-      response => {
-        const location = response.results[0].geometry.location;
-          /* Make sure that the location is not a business, point of interest or something of the like */
-          /* Should I limit this to only results of "locality" type? */
-          if(response.results[0].types.some(x => x === 'political')){
-            const {formatted_address} = response.results[0];
-            local.fetchData('weather', entries =>{
-              local.message(`The weather in ${formatted_address}:\n Temp: ${entries.temp}˚\n Max: ${entries.max}˚ | Min: ${entries.min}˚`);
-            }, location);
-            // local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lon}. Nice.`);
-          } else {
-            local.message(`You have right-clicked on "${info.selectionText}". That doesn't seem to be a place anywhere. Hmm…`);
-          }
-      },
-      error =>{
-        if(error.message.indexOf('ZERO_RESULTS') !== -1){
-          local.message(`You have right-clicked on "${info.selectionText}". That doesn't seem to be a place anywhere. Hmm…`);
-        } else {
-          console.log(error);
-        }
-      }
-    /* ).catch(e => reject(e)), e => reject(e); */
-    ).catch(e => {
-      console.log(e);
-    });
+  local.onContextClick = (info, tab) => {
+    local.fetchData('weather', entries => {
+      local.message( 'ok', entries );
+      local.replaceSelectedText('Chungala');
+    }, e => {
+      local.message( 'error', info.selectionText );
+    }, info.selectionText);
   }
 
   /* Create context menu item for each context type. */
@@ -177,7 +152,7 @@ chrome.storage.sync.get((storedState:AppState) => {
     });
   }
 
-  local.fetchData = (endpoint, callback, location) => {
+  local.fetchData = (endpoint, callback, error, address) => {
     const options = {
         'endpoint': endpoint,
         'params':{
@@ -185,12 +160,13 @@ chrome.storage.sync.get((storedState:AppState) => {
           language:'en',
         }
       }
-    if(location){
-      /* If a location object is received, pass it on. */
-      options.location = location;
+    if(address){
+      /* If an address is received, pass it on. */
+      options.address = address;
     }
     weather(options).then( values => {
         let entries;
+        console.log(values['data']);
         switch(endpoint){
           case 'forecast':
             /* Format each entry, limiting to 12 entries*/
@@ -221,10 +197,14 @@ chrome.storage.sync.get((storedState:AppState) => {
               min: values['data'].main.temp_max,
               conditions: values['data'].weather[0].description,
             }
+            /* When using geocoding, the parsed location should be part of the response */
+            if (values['data'].location) {
+              entries.location = values['data'].location;
+            }
             break;
         }
         callback(entries)
-      } , (e)=>{ console.log(e) });
+      } , (e)=>{ error(e) });
   }
 
   defaultState = {

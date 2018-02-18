@@ -10273,15 +10273,8 @@ var _weather = __webpack_require__(513);
 
 var _weather2 = _interopRequireDefault(_weather);
 
-var _apikey = __webpack_require__(534);
-
-var _reactGeocode = __webpack_require__(535);
-
-var _reactGeocode2 = _interopRequireDefault(_reactGeocode);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactGeocode2.default.setApiKey(_apikey.GEOCODE_KEY);
 /* Interval in minutes between updates. The first update will
 be executed when the clock strikes a multiple of the interval. */
 var interval = 1;
@@ -10327,46 +10320,22 @@ chrome.storage.sync.get(function (storedState) {
   });
 
   /* Send messages to content.js */
-  local.message = function (message) {
+  local.message = function (status, content) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       if (tabs.length > 0) {
-        chrome.tabs.sendMessage(tabs[0].id, { message: message }, function (response) {
-          //console.log("Response is " + response.confirmation);
-          //console.log(response.confirmation);
-        });
+        chrome.tabs.sendMessage(tabs[0].id, { status: status, content: content }, function (response) {});
       }
     });
   };
 
   /* Handle context click */
   local.onContextClick = function (info, tab) {
-    _reactGeocode2.default.fromAddress(info.selectionText).then(function (response) {
-      var location = response.results[0].geometry.location;
-      /* Make sure that the location is not a business, point of interest or something of the like */
-      /* Should I limit this to only results of "locality" type? */
-      if (response.results[0].types.some(function (x) {
-        return x === 'political';
-      })) {
-        var formatted_address = response.results[0].formatted_address;
-
-        local.fetchData('weather', function (entries) {
-          local.message('The weather in ' + formatted_address + ':\n Temp: ' + entries.temp + '\u02DA\n Max: ' + entries.max + '\u02DA | Min: ' + entries.min + '\u02DA');
-        }, location);
-        // local.message(`You have right-clicked on "${info.selectionText}". That's in ${lat},${lon}. Nice.`);
-      } else {
-        local.message('You have right-clicked on "' + info.selectionText + '". That doesn\'t seem to be a place anywhere. Hmm\u2026');
-      }
-    }, function (error) {
-      if (error.message.indexOf('ZERO_RESULTS') !== -1) {
-        local.message('You have right-clicked on "' + info.selectionText + '". That doesn\'t seem to be a place anywhere. Hmm\u2026');
-      } else {
-        console.log(error);
-      }
-    }
-    /* ).catch(e => reject(e)), e => reject(e); */
-    ).catch(function (e) {
-      console.log(e);
-    });
+    local.fetchData('weather', function (entries) {
+      local.message('ok', entries);
+      local.replaceSelectedText('Chungala');
+    }, function (e) {
+      local.message('error', info.selectionText);
+    }, info.selectionText);
   };
 
   /* Create context menu item for each context type. */
@@ -10432,7 +10401,7 @@ chrome.storage.sync.get(function (storedState) {
     });
   };
 
-  local.fetchData = function (endpoint, callback, location) {
+  local.fetchData = function (endpoint, callback, error, address) {
     var options = {
       'endpoint': endpoint,
       'params': {
@@ -10440,12 +10409,13 @@ chrome.storage.sync.get(function (storedState) {
         language: 'en'
       }
     };
-    if (location) {
-      /* If a location object is received, pass it on. */
-      options.location = location;
+    if (address) {
+      /* If an address is received, pass it on. */
+      options.address = address;
     }
     (0, _weather2.default)(options).then(function (values) {
       var entries = void 0;
+      console.log(values['data']);
       switch (endpoint) {
         case 'forecast':
           /* Format each entry, limiting to 12 entries*/
@@ -10479,12 +10449,15 @@ chrome.storage.sync.get(function (storedState) {
             max: values['data'].main.temp_min,
             min: values['data'].main.temp_max,
             conditions: values['data'].weather[0].description
-          };
+            /* When using geocoding, the parsed location should be part of the response */
+          };if (values['data'].location) {
+            entries.location = values['data'].location;
+          }
           break;
       }
       callback(entries);
     }, function (e) {
-      console.log(e);
+      error(e);
     });
   };
 
@@ -10857,17 +10830,28 @@ var _axios = __webpack_require__(514);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _serialize = __webpack_require__(533);
+var _reactGeocode = __webpack_require__(533);
+
+var _reactGeocode2 = _interopRequireDefault(_reactGeocode);
+
+var _serialize = __webpack_require__(534);
 
 var _serialize2 = _interopRequireDefault(_serialize);
 
-var _apikey = __webpack_require__(534);
+var _apikey = __webpack_require__(535);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var apiConnect = function apiConnect(resolve, reject, args, location) {
+_reactGeocode2.default.setApiKey(_apikey.GEOCODE_KEY);
+
+var apiConnect = function apiConnect(resolve, reject, args, location, formattedAddress) {
   return _axios2.default.get('https://worksample-api.herokuapp.com/' + args.endpoint + '?lat=' + location.lat + '&lon=' + location.lng + (0, _serialize2.default)(args.params) + '&key=' + _apikey.WEATHER_KEY).then(function (result) {
-    return resolve(result);
+    var response = result;
+    /* If using geocoding, include parsed location in response */
+    if (formattedAddress) {
+      response.data.location = formattedAddress;
+    }
+    resolve(response);
   }).catch(function (e) {
     return reject(e);
   });
@@ -10875,9 +10859,10 @@ var apiConnect = function apiConnect(resolve, reject, args, location) {
 
 var weather = function weather(args) {
   return new Promise(function (resolve, reject) {
-    if (typeof args.location === 'undefined') {
+    if (typeof args.address === 'undefined') {
+      /* If no address is received, use the navigator geolocation */
       navigator.geolocation.getCurrentPosition(function (pos) {
-        /* Unify the position object structure with the one used by the geocoding API */
+        /* Translate the position object structure to the one used by the geocoding API */
         var location = {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude
@@ -10887,7 +10872,27 @@ var weather = function weather(args) {
         return reject(e);
       });
     } else {
-      apiConnect(resolve, reject, args, args.location);
+      /* Else, geocode address to obtain position */
+      _reactGeocode2.default.fromAddress(args.address).then(function (response) {
+        var location = response.results[0].geometry.location;
+        /* Make sure that the location is not a business,
+        point of interest or something of the like */
+        /* Should I limit this to only results of "locality" type? */
+
+        if (response.results[0].types.some(function (x) {
+          return x === 'political';
+        })) {
+          var formattedAddress = response.results[0].formatted_address;
+          apiConnect(resolve, reject, args, location, formattedAddress);
+        } else {
+          var e = new Error('ZERO_RESULTS');
+          reject(e);
+        }
+      }, function (e) {
+        return reject(e);
+      }).catch(function (e) {
+        return reject(e);
+      });
     }
   });
 };
@@ -11791,36 +11796,6 @@ module.exports = function spread(callback) {
 "use strict";
 
 
-var serialize = function serialize(obj) {
-  var str = [];
-  var arr = Object.entries(obj);
-  arr.forEach(function (key) {
-    str.push(encodeURIComponent(key[0]) + '=' + encodeURIComponent(key[1]));
-  });
-  return '&' + str.join('&');
-};
-
-module.exports = serialize;
-
-/***/ }),
-/* 534 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var WEATHER_KEY = '62fc4256-8f8c-11e5-8994-feff819cdc9f';
-var GEOCODE_KEY = 'AIzaSyCrxzzL3tCuPs0eP_gUmfEfjZ5aGJglC1c';
-
-module.exports = { WEATHER_KEY: WEATHER_KEY, GEOCODE_KEY: GEOCODE_KEY };
-
-/***/ }),
-/* 535 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -12012,6 +11987,36 @@ exports.default = {
     }))();
   }
 };
+
+/***/ }),
+/* 534 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var serialize = function serialize(obj) {
+  var str = [];
+  var arr = Object.entries(obj);
+  arr.forEach(function (key) {
+    str.push(encodeURIComponent(key[0]) + '=' + encodeURIComponent(key[1]));
+  });
+  return '&' + str.join('&');
+};
+
+module.exports = serialize;
+
+/***/ }),
+/* 535 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var WEATHER_KEY = '62fc4256-8f8c-11e5-8994-feff819cdc9f';
+var GEOCODE_KEY = 'AIzaSyCrxzzL3tCuPs0eP_gUmfEfjZ5aGJglC1c';
+
+module.exports = { WEATHER_KEY: WEATHER_KEY, GEOCODE_KEY: GEOCODE_KEY };
 
 /***/ })
 /******/ ]);
