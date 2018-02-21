@@ -1,84 +1,60 @@
-# Work sample - Application developer
 
-## Assignment
+## Getting Started
 
-- Build an awesome weather app that shows the weather at your current  location.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+To run this app, you are going to need to get [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/)
 
-## Minimum requirements
-- Show the weather for your current location
-- Use data from provided API (see API DOCS)
-- Good usability
-- Be visually appealing and follow platform conventions
-- Budget: 8-12 hours
+## Setup
 
-## Assets
-You can find some icon assets at [https://github.com/erikflowers/weather-icons](https://github.com/erikflowers/weather-icons) that you can use if you please. You are more than welcome to use other assets that you feel are better fitted for your solution. We do not expect you to be a designer, but since application development on Daresay most often includes visual interfaces we do expect you to to be well aware of your platforms design guidelines and conventions.
+```
+$ npm install
+```
 
-## Expectations
-###### User experience
-The feature of the app is simple but we expect you to deliver a solution with a high user experience. Imagine this application is to be used by real user with real needs. Maybe your application won’t be as feature-full as many other applications on the market, but at least make it interesting, fun and intuitive to use. Of course you are allowed to extend your applications functionality. We appreciate solutions that exceed our expectations.
+## Configs
 
-###### Code
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
-
-## Delivery
-Fork the repository, code in your fork and make a pull request when done. Also send us an e-mail to let us know when you are done!
-
-### Good luck!
-
----
+You need to set WETHER_API_KEY and GOOGLE_API_KEY in config
+```
+$ cd src/config
+$ gedit index.js
+```
 
 
-# API DOCS
+## Running
 
-## Base url
-http://worksample-api.herokuapp.com
+```
+$ npm start
+```
+## Test
 
+```
+$ npm run test
+```
 
-http://worksample-api.herokuapp.com is a simple wrapper of some of the endpoints provided on http://openweathermap.org/.
+## Build
 
-## Available Endpoints and Documentation
-- http://worksample-api.herokuapp.com/weather [documentation](http://openweathermap.org/current)
-- http://worksample-api.herokuapp.com/forecast [documentation](http://openweathermap.org/forecast5)
-- http://worksample-api.herokuapp.com/forecast/daily [documentation](http://openweathermap.org/forecast16)
+```
+$ npm run build
+```
 
-We always respond in JSON and metrics.
-We also don’t support these features of the OpenWeatherMap API:
+## Contains
 
-- Bulk downloading
-- Search Accuracy (like/accuracy)
-- Limitation of result
-- Units format
-- Multilingual support
-- Callback functions for javascript.
-​
+- [x] [Typescript](https://www.typescriptlang.org/) 2.5
+- [x] [React](https://facebook.github.io/react/) 16.0
+- [x] [Redux](https://github.com/reactjs/redux) 3.7
+- [x] [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 
-## You can use these parameters
+### Build tools
 
-#### API key (mandatory)
-The API-key is required for all API calls. It should have been sent to you together with the instructions asking you to do the work sample.
+- [x] [Webpack](https://webpack.github.io) 3
+  - [x] [Tree Shaking](https://medium.com/@Rich_Harris/tree-shaking-versus-dead-code-elimination-d3765df85c80)
+  - [x] [Webpack Dev Server](https://github.com/webpack/webpack-dev-server)
+- [x] [Awesome Typescript Loader](https://github.com/s-panferov/awesome-typescript-loader)
+- [x] [PostCSS Loader](https://github.com/postcss/postcss-loader)
+  - [x] [CSS next](https://github.com/MoOx/postcss-cssnext)
+  - [x] [CSS modules](https://github.com/css-modules/css-modules)
+- [x] [React Hot Loader](https://github.com/gaearon/react-hot-loader)
+- [x] [ExtractText Plugin](https://github.com/webpack/extract-text-webpack-plugin)
+- [x] [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin)
 
-#### By city name:
-City name and country code divided by comma, use ISO 3166 country codes.
+# License
 
-`?q={city name},{country code}`
-
-`?q={city name}`
-​
-#### By city id:
-List of city ID:s can be downloaded [here](http://bulk.openweathermap.org/sample/)
-
-`?id={id}`
-​
-#### By geographic coordinates:
-Coordinates of the location of your interest
-
-`?lat={lat}&lon={lon}`
-​
-#### By Zip Code
-`?zip={zip code},{country code}`
-
-##An example request:
-
-[http://worksample-api.herokuapp.com/weather?q=Stockholm,SE&key={API_KEY}](http://worksample-api.herokuapp.com/weather?q=Stockholm,SE&key={API_KEY})
+MIT
