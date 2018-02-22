@@ -43,7 +43,7 @@ class NewTab extends Component {
 
   render() {
     return (
-      <div className="da-app">
+      <div className="wwise-app">
         <Logo
           url="http://www.pedroese.com"
           alt="Go to my website, http://www.pedroese.com/"

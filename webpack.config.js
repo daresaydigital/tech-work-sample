@@ -49,7 +49,7 @@ module.exports = {
         }),
       },
       {
-        test: /\.(ico|eot|otf|webp|ttf|woff|woff2)(\?.*)?$/,
+        test: /\.(ico|eot|otf|webp|ttf)(\?.*)?$/,
         use: 'file-loader?limit=100000',
       },
       {
@@ -59,6 +59,10 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-inline-loader',
+      },
+      {
+        test: /\.woff?2$/,
+        loader: 'file-loader?limit=1024&name=assets/fonts/[name].[ext]',
       },
     ],
   },
@@ -78,6 +82,8 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './src/manifest.json' },
       { context: './src/assets', from: 'weatherwise-logo.png', to: 'assets' },
+      { context: './src/assets/fonts', from: 'Barlow Regular.woff2', to: 'assets/fonts' },
+      { context: './src/assets/fonts', from: 'Quicksand Regular.woff2', to: 'assets/fonts' },
     ]),
   ],
 };

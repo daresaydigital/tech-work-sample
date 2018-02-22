@@ -17,6 +17,7 @@
     "react-pinterest": "^1.2.0",
     "react-remarkable": "^1.1.3",
     "react-scripts": "1.0.17",
+    "react-simple-tooltip": "^2.3.0",
     "react-time-format": "0.0.5",
     "react-tooltip": "^3.4.0",
     "resolve-url-loader": "^2.2.0",

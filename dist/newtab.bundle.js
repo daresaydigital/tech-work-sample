@@ -34726,7 +34726,7 @@ var NewTab = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'da-app' },
+        { className: 'wwise-app' },
         _react2.default.createElement(_Logo2.default, {
           url: 'http://www.pedroese.com',
           alt: 'Go to my website, http://www.pedroese.com/'
@@ -34805,7 +34805,7 @@ var Logo = function Logo(props) {
     {
       className: 'weatherwise-pedros-logo',
       href: props.url,
-      title: 'pedroese.com'
+      title: 'Made by Pedro *S*'
     },
     _react2.default.createElement(_svgInlineReact2.default, { src: _pedroS2.default })
   );
@@ -35644,6 +35644,10 @@ var _reactTimeFormat = __webpack_require__(293);
 
 var _reactTimeFormat2 = _interopRequireDefault(_reactTimeFormat);
 
+var _reactMoment = __webpack_require__(120);
+
+var _reactMoment2 = _interopRequireDefault(_reactMoment);
+
 var _propTypes = __webpack_require__(63);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -35689,27 +35693,44 @@ var Weather = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'da-container da-weather' },
-        _react2.default.createElement(
-          'h1',
-          null,
-          _react2.default.createElement(_reactTimeFormat2.default, { value: this.state.time, format: 'hh:mm:ss' })
+        { className: 'wwise-weather' },
+        this.state.time && _react2.default.createElement(
+          'div',
+          { className: 'dateTime' },
+          _react2.default.createElement(
+            _reactMoment2.default,
+            { className: 'moment date', format: 'dddd, MMM Do' },
+            this.state.time
+          ),
+          _react2.default.createElement(
+            _reactMoment2.default,
+            { className: 'moment time', format: 'HH:mm:ss' },
+            this.state.time
+          )
         ),
         _react2.default.createElement(
-          'h3',
+          'h1',
+          { className: 'temp' },
+          roundTo(this.props.data.temp, 1)
+        ),
+        _react2.default.createElement(
+          'h2',
           null,
-          roundTo(this.props.data.temp, 1),
-          '\u02DA ',
           this.props.data.conditions
         ),
         _react2.default.createElement(
-          'p',
-          null,
-          'Max ',
-          roundTo(this.props.data.max, 1),
-          '\u02DA | Min ',
-          roundTo(this.props.data.min, 1),
-          '\u02DA'
+          'div',
+          { className: 'minmax' },
+          _react2.default.createElement(
+            'span',
+            { className: 'temp max' },
+            roundTo(this.props.data.max, 1)
+          ),
+          _react2.default.createElement(
+            'span',
+            { className: 'temp min' },
+            roundTo(this.props.data.min, 1)
+          )
         )
       );
     }

@@ -10332,7 +10332,6 @@ chrome.storage.sync.get(function (storedState) {
   local.onContextClick = function (info, tab) {
     local.fetchData('weather', function (entries) {
       local.message('ok', entries);
-      local.replaceSelectedText('Chungala');
     }, function (e) {
       local.message('error', info.selectionText);
     }, info.selectionText);
@@ -10401,6 +10400,10 @@ chrome.storage.sync.get(function (storedState) {
     });
   };
 
+  local.capitalizeFirstLetter = function (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   local.fetchData = function (endpoint, callback, error, address) {
     var options = {
       'endpoint': endpoint,
@@ -10424,7 +10427,7 @@ chrome.storage.sync.get(function (storedState) {
               temp: entry.main.temp,
               max: entry.main.temp_min,
               min: entry.main.temp_max,
-              conditions: entry.weather[0].description,
+              conditions: local.capitalizeFirstLetter(entry.weather[0].description),
               /* Save the date in miliseconds*/
               date: entry.dt * 1000
             };
@@ -10437,7 +10440,7 @@ chrome.storage.sync.get(function (storedState) {
               temp: entry.temp.day,
               max: entry.temp.min,
               min: entry.temp.max,
-              conditions: entry.weather[0].description,
+              conditions: local.capitalizeFirstLetter(entry.weather[0].description),
               /* Save the date in miliseconds*/
               date: entry.dt * 1000
             };
@@ -10448,7 +10451,7 @@ chrome.storage.sync.get(function (storedState) {
             temp: values['data'].main.temp,
             max: values['data'].main.temp_min,
             min: values['data'].main.temp_max,
-            conditions: values['data'].weather[0].description
+            conditions: local.capitalizeFirstLetter(values['data'].weather[0].description)
             /* When using geocoding, the parsed location should be part of the response */
           };if (values['data'].location) {
             entries.location = values['data'].location;

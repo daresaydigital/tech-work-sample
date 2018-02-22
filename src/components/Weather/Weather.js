@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Time from 'react-time-format';
+import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 
 function roundTo(number, places) {
@@ -23,12 +24,27 @@ export default class Weather extends Component {
 
   render() {
     return (
-      <div className="da-container da-weather">
-        <h1>
-          {<Time value={this.state.time} format="hh:mm:ss" />}
+      <div className="wwise-weather">
+        {this.state.time &&
+          <div className="dateTime">
+            <Moment className="moment date" format="dddd, MMM Do">
+              {this.state.time}
+            </Moment>
+            <Moment className="moment time" format="HH:mm:ss">
+              {this.state.time}
+            </Moment>
+          </div>
+        }
+        <h1 className="temp">
+          {roundTo(this.props.data.temp, 1)}
         </h1>
-        <h3>{roundTo(this.props.data.temp, 1)}˚ {this.props.data.conditions}</h3>
-        <p>Max {roundTo(this.props.data.max, 1)}˚ | Min {roundTo(this.props.data.min, 1)}˚</p>
+        <h2>
+          {this.props.data.conditions}
+        </h2>
+        <div className="minmax">
+          <span className="temp max">{roundTo(this.props.data.max, 1)}</span>
+          <span className="temp min">{roundTo(this.props.data.min, 1)}</span>
+        </div>
       </div>
     );
   }

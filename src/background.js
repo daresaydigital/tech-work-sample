@@ -83,7 +83,6 @@ chrome.storage.sync.get((storedState:AppState) => {
   local.onContextClick = (info, tab) => {
     local.fetchData('weather', entries => {
       local.message( 'ok', entries );
-      local.replaceSelectedText('Chungala');
     }, e => {
       local.message( 'error', info.selectionText );
     }, info.selectionText);
@@ -152,6 +151,10 @@ chrome.storage.sync.get((storedState:AppState) => {
     });
   }
 
+  local.capitalizeFirstLetter = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   local.fetchData = (endpoint, callback, error, address) => {
     const options = {
         'endpoint': endpoint,
@@ -174,7 +177,7 @@ chrome.storage.sync.get((storedState:AppState) => {
               temp: entry.main.temp,
               max: entry.main.temp_min,
               min: entry.main.temp_max,
-              conditions: entry.weather[0].description,
+              conditions: local.capitalizeFirstLetter(entry.weather[0].description),
               /* Save the date in miliseconds*/
               date: entry.dt * 1000,
             }))
@@ -185,7 +188,7 @@ chrome.storage.sync.get((storedState:AppState) => {
               temp: entry.temp.day,
               max: entry.temp.min,
               min: entry.temp.max,
-              conditions: entry.weather[0].description,
+              conditions: local.capitalizeFirstLetter(entry.weather[0].description),
               /* Save the date in miliseconds*/
               date: entry.dt * 1000,
             }))
@@ -195,7 +198,7 @@ chrome.storage.sync.get((storedState:AppState) => {
               temp: values['data'].main.temp,
               max: values['data'].main.temp_min,
               min: values['data'].main.temp_max,
-              conditions: values['data'].weather[0].description,
+              conditions: local.capitalizeFirstLetter(values['data'].weather[0].description),
             }
             /* When using geocoding, the parsed location should be part of the response */
             if (values['data'].location) {

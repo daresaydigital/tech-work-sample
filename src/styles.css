@@ -1,12 +1,70 @@
-html,
-body{
-  color:#FFF;
-  font-size:16px;
-  height:100%;
-  margin:0;
-  width:100%;
+@font-face {
+  font-family: 'Barlow Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Barlow Regular.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: 'Quicksand Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Quicksand Regular.woff2') format('woff2');
+
+}
+
+html,
 body{
-  background-color: #e9e9e9;
+  color:rgba(0, 0, 0, 1);
+  font-size:16px;
+  margin:0;
+  width:100%;
+  font-family: 'Barlow Regular';
+}
+html,
+body,
+#root,
+.wwise-app{
+  height:100%;
+}
+
+h1,
+h2,
+h3,
+h4{
+  font-family: 'Quicksand Regular', sans-serif;
+}
+
+h1{
+  font-size: 6em;
+  margin: 0 0 0.3em;
+}
+
+h2{
+  font-size: 3em;
+  margin: 0.5em 0;
+}
+
+.temp:after{
+  content:'˚';
+}
+
+.max:before{
+  content:'Max ';
+}
+
+.min:before{
+  content:'Min ';
+}
+
+.minmax span{
+  padding: 4px 12px;
+}
+
+.minmax span + span{
+  border-left: solid 1px rgba(0, 0, 0, 1);
+}
+
+.moment{
+  display:block;
 }

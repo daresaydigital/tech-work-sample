@@ -1,7 +1,104 @@
-.wwise-tooltip {
-  position: absolute;
+@font-face {
+  font-family: 'Barlow Regular';
+  font-style: normal;
+  font-weight: 400;
+  /* src: url('./assets/fonts/Barlow.woff2') format('woff2'); */
+  src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/Barlow Regular.woff2') format('woff2');
 }
 
-.wwise-tooltip div {
-  /* background: #FFFFFF; */
+@font-face {
+  font-family: 'Quicksand Regular';
+  font-style: normal;
+  font-weight: 400;
+  /* src: url('./assets/fonts/Quicksand.woff2') format('woff2'); */
+  src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/Quicksand Regular.woff2') format('woff2');
+}
+
+#wwise-anchor {
+  position: relative;
+  visibility: hidden;
+  transition: visibility 0ms linear 300ms;
+  overflow: visible;
+}
+
+#wwise-tooltip::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+  border-top: 1em solid rgba(255, 255, 255, 1);
+  position: absolute;
+  bottom: -1em;
+  left: 1em;
+}
+
+#wwise-tooltip {
+  position: absolute;
+  background: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 1);
+  bottom: 3em;
+  user-select: none;
+  width: 300px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  font-size: 12px;
+  font-family: 'Barlow Regular', sans-serif;
+}
+
+#wwise-tooltip h1,
+#wwise-tooltip h2,
+#wwise-tooltip h3 {
+  font-family: 'Quicksand Regular', sans-serif;
+  font-weight: normal;
+}
+
+#wwise-tooltip h1 {
+  font-size: 2em;
+  margin: 0.5em 0;
+}
+
+#wwise-tooltip h2 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+#wwise-tooltip h3 {
+  font-size: 1.25em;
+  margin: 0.5em 0;
+}
+
+#wwise-anchor.visible {
+  visibility: visible;
+  transition: visibility 0ms linear 0ms;
+}
+
+#wwise-anchor #wwise-tooltip {
+  opacity: 0;
+  animation: fade-out 300ms;
+}
+
+#wwise-anchor.visible #wwise-tooltip {
+  opacity: 1;
+  animation: fade-in 300ms;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }

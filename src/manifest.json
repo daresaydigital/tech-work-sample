@@ -26,9 +26,9 @@
   "chrome_url_overrides" : {
     "newtab": "newtab.html"
   },
-  "web_accessible_resources": ["content.bundle.css"],
+  "web_accessible_resources": ["content.bundle.css", "assets/fonts/*.woff2"],
   "content_scripts":[{
-    "matches":["https://*/*", "http://*/*"],
+    "matches":["https://*/*", "http://*/*", "file://*/*"],
     "css": ["content.bundle.css"],
     "js": ["content.bundle.js"]
   }],
