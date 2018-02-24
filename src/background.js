@@ -172,8 +172,8 @@ chrome.storage.sync.get((storedState:AppState) => {
         console.log(values['data']);
         switch(endpoint){
           case 'forecast':
-            /* Format each entry, limiting to 12 entries*/
-            entries = values['data'].list.slice(0,12).map(entry => ({
+            /* Format each entry, limiting to 9 entries (enough to show 24+ hours) */
+            entries = values['data'].list.slice(0,9).map(entry => ({
               temp: entry.main.temp,
               max: entry.main.temp_min,
               min: entry.main.temp_max,

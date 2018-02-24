@@ -29,6 +29,12 @@
 
 .wwise-weather .time {
   font-size: 2em;
+}.wwise-forecast {
+  text-align: center;
+  width: 100%;
+  padding: 0 50px;
+  align-self: center;
+  outline: solid red 1px;
 }@font-face {
   font-family: 'Barlow Regular';
   font-style: normal;
@@ -50,6 +56,7 @@ body {
   margin: 0;
   width: 100%;
   font-family: 'Barlow Regular';
+  overflow-x: hidden;
 }
 
 html,
@@ -98,4 +105,13 @@ h2 {
 
 .moment {
   display: block;
+}
+
+.wwise-forecast-section {
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  display: flex;
+  align-content: stretch;
 }

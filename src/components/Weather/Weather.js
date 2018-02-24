@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import Time from 'react-time-format';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
-
-function roundTo(number, places) {
-  return Math.round(number * (10 ** places)) / (10 ** places);
-}
+import roundTo from '../../helpers/roundTo';
 
 export default class Weather extends Component {
   constructor() {
@@ -24,7 +21,7 @@ export default class Weather extends Component {
 
   render() {
     return (
-      <div className="wwise-weather">
+      <section className="wwise-weather">
         {this.state.time &&
           <div className="dateTime">
             <Moment className="moment date" format="dddd, MMM Do">
@@ -45,7 +42,7 @@ export default class Weather extends Component {
           <span className="temp max">{roundTo(this.props.data.max, 1)}</span>
           <span className="temp min">{roundTo(this.props.data.min, 1)}</span>
         </div>
-      </div>
+      </section>
     );
   }
 }
@@ -63,9 +60,9 @@ Weather.propTypes = {
 Weather.defaultProps = {
   data: {
     conditions: null,
-    temp: null,
-    max: null,
-    min: null,
+    temp: 0,
+    max: 0,
+    min: 0,
     summary: null,
   },
 };

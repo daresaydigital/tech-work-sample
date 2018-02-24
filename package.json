@@ -21,6 +21,10 @@
     "react-time-format": "0.0.5",
     "react-tooltip": "^3.4.0",
     "resolve-url-loader": "^2.2.0",
+    "scroll": "^2.0.3",
+    "scrollto.js": "^1.0.2",
+    "scrollyo": "^1.1.1",
+    "smooth-scroll-to": "0.0.14",
     "svg-inline-react": "^3.0.0",
     "webpack": "^3.8.1"
   },
