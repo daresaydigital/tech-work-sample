@@ -70,12 +70,3 @@ h2{
 .moment{
   display:block;
 }
-
-.wwise-forecast-section{
-  height:100%;
-  width:100%;
-  white-space: nowrap;
-  overflow-x: auto;
-  display: flex;
-  align-content: stretch;
-}

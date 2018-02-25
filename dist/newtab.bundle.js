@@ -34664,13 +34664,9 @@ var _Weather = __webpack_require__(294);
 
 var _Weather2 = _interopRequireDefault(_Weather);
 
-var _Daily = __webpack_require__(300);
+var _ScrollSection = __webpack_require__(554);
 
-var _Daily2 = _interopRequireDefault(_Daily);
-
-var _Hourly = __webpack_require__(303);
-
-var _Hourly2 = _interopRequireDefault(_Hourly);
+var _ScrollSection2 = _interopRequireDefault(_ScrollSection);
 
 var _Forecast = __webpack_require__(306);
 
@@ -34709,10 +34705,11 @@ var NewTab = function (_Component) {
           }
         }
       },
-      scrollPos: []
+      scrollPos: {
+        left: 0,
+        top: 0
+      }
     };
-    /* this.handleScrollX = this.handleScrollX.bind(this);
-    this.handleScrollY = this.handleScrollY.bind(this); */
     _this.handleScroll = _this.handleScroll.bind(_this);
     return _this;
   }
@@ -34743,33 +34740,26 @@ var NewTab = function (_Component) {
       event.stopPropagation();
       var scrollPos = this.state.scrollPos;
 
-      var defaults = {
-        top: 0,
-        left: 0
-      };
-      var elPos = scrollPos[event.currentTarget] || defaults;
-      if (elPos.left > event.currentTarget.scrollLeft) {
+      if (scrollPos.left > event.currentTarget.scrollLeft) {
         /* Scroll to left */
-        (0, _smoothScrollTo2.default)(0, 300, event.currentTarget, 'horizontal');
-      } else if (elPos.left < event.currentTarget.scrollLeft) {
+        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
+      } else if (scrollPos.left < event.currentTarget.scrollLeft) {
         /* Scroll to right */
-        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 300, event.currentTarget, 'horizontal');
+        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 0, 300, event.currentTarget);
       }
-      if (elPos.top > event.currentTarget.scrollTop) {
+      if (scrollPos.top > event.currentTarget.scrollTop) {
         /* Scroll to top */
-        (0, _smoothScrollTo2.default)(0, 300, event.currentTarget, 'vertical');
-      } else if (elPos.top < event.currentTarget.scrollTop) {
+        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
+      } else if (scrollPos.top < event.currentTarget.scrollTop) {
         /* Scroll to bottom */
-        (0, _smoothScrollTo2.default)(event.currentTarget.scrollHeight, 300, event.currentTarget, 'vertical');
+        (0, _smoothScrollTo2.default)(0, event.currentTarget.scrollHeight, 300, event.currentTarget);
       }
-
-      elPos = {
-        left: event.currentTarget.scrollLeft,
-        top: event.currentTarget.scrollTop
-      };
-
-      scrollPos[event.currentTarget] = elPos;
-      this.setState({ scrollPos: scrollPos });
+      this.setState({
+        scrollPos: {
+          left: event.currentTarget.scrollLeft,
+          top: event.currentTarget.scrollTop
+        }
+      });
     }
   }, {
     key: 'render',
@@ -34782,13 +34772,13 @@ var NewTab = function (_Component) {
           alt: 'Go to my website, http://www.pedroese.com/'
         }),
         _react2.default.createElement(_Weather2.default, {
-          data: this.state.frontend.data.weather
+          data: this.state.frontend.data.weather,
+          opacity: this.state.scrollPos.top
         }),
         _react2.default.createElement(
-          'section',
+          _ScrollSection2.default,
           {
-            className: 'wwise-forecast-section',
-            onScroll: this.handleScroll
+            axis: 'x'
           },
           _react2.default.createElement(_Forecast2.default, {
             data: this.state.frontend.data.forecast.daily,
@@ -34814,6 +34804,9 @@ _reactDom2.default.render(_react2.default.createElement(NewTab, null), document.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* This module is not mine, it's based on the original "Smooth Scroll to" module by
+@hilliu. I modified it to allow scrolling on two axis. Maybe I'll make a pull request...
+See https://www.npmjs.com/package/smooth-scroll-to, for license see https://spdx.org/licenses/MIT.html  */
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -34835,7 +34828,7 @@ var isRunning = false;
 /**
  *  !!Important!! any logic change need take care isRunning
  */
-var smoothScrollTo = function smoothScrollTo(to, duration, el, direction, callback) {
+var smoothScrollTo = function smoothScrollTo(x, y, duration, el, callback) {
     if (isRunning) {
         if ('function' === typeof callback) {
             callback();
@@ -34848,9 +34841,12 @@ var smoothScrollTo = function smoothScrollTo(to, duration, el, direction, callba
     if (!duration) {
         duration = 900;
     }
-    var from = direction === 'vertical' ? el.scrollTop : el.scrollLeft;
-    var go = to - from;
-    if (!go) {
+    var fromX = el.scrollLeft;
+    var fromY = el.scrollTop;
+
+    var goX = x - fromX;
+    var goY = y - fromY;
+    if (!goX && !goY) {
         isRunning = false;
         if ('function' === typeof callback) {
             callback();
@@ -34861,10 +34857,11 @@ var smoothScrollTo = function smoothScrollTo(to, duration, el, direction, callba
     var scrollTo = function scrollTo(timeStamp) {
         beginTimeStamp = beginTimeStamp || timeStamp;
         var elapsedTime = timeStamp - beginTimeStamp;
-        var progress = (0, _easeInOutCubic2.default)(elapsedTime, from, go, duration);
-        el.scrollTop = progress;
-        el.scrollLeft = progress;
-        if (elapsedTime < duration && go) {
+        var progressX = (0, _easeInOutCubic2.default)(elapsedTime, fromX, goX, duration);
+        var progressY = (0, _easeInOutCubic2.default)(elapsedTime, fromY, goY, duration);
+        el.scrollLeft = progressX;
+        el.scrollTop = progressY;
+        if (elapsedTime < duration && (goX || goY)) {
             requestAnimationFrame(scrollTo);
         } else {
             isRunning = false;
@@ -35980,7 +35977,8 @@ Weather.propTypes = {
     max: _propTypes2.default.number,
     min: _propTypes2.default.number,
     summary: _propTypes2.default.string
-  })
+  }),
+  opacity: _propTypes2.default.number
 };
 
 Weather.defaultProps = {
@@ -35990,7 +35988,8 @@ Weather.defaultProps = {
     max: 0,
     min: 0,
     summary: null
-  }
+  },
+  opacity: 1
 };
 
 /***/ }),
@@ -36508,262 +36507,12 @@ webpackContext.id = 298;
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 300 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Daily = __webpack_require__(301);
-
-var _Daily2 = _interopRequireDefault(_Daily);
-
-__webpack_require__(302);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Daily2.default;
-
-/***/ }),
-/* 301 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(12);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(52);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _reactMoment = __webpack_require__(67);
-
-var _reactMoment2 = _interopRequireDefault(_reactMoment);
-
-var _roundTo = __webpack_require__(68);
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Daily = function Daily(props) {
-  return _react2.default.createElement(
-    'table',
-    null,
-    _react2.default.createElement(
-      'tbody',
-      null,
-      _react2.default.createElement(
-        'tr',
-        null,
-        props.data.map(function (entry) {
-          return _react2.default.createElement(
-            'td',
-            { key: entry.date },
-            _react2.default.createElement(
-              'h2',
-              null,
-              _react2.default.createElement(
-                _reactMoment2.default,
-                { format: 'dddd, MMM Do' },
-                entry.date
-              )
-            ),
-            _react2.default.createElement(
-              'h3',
-              null,
-              (0, _roundTo2.default)(entry.temp, 1),
-              '\u02DA ',
-              entry.conditions
-            ),
-            _react2.default.createElement(
-              'p',
-              null,
-              'Max ',
-              (0, _roundTo2.default)(entry.max, 1),
-              '\u02DA | Min ',
-              (0, _roundTo2.default)(entry.min, 1),
-              '\u02DA'
-            )
-          );
-        })
-      )
-    )
-  );
-};
-
-Daily.propTypes = {
-  data: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    conditions: _propTypes2.default.string,
-    temp: _propTypes2.default.number,
-    max: _propTypes2.default.number,
-    min: _propTypes2.default.number,
-    map: _propTypes2.default.func
-  }))
-};
-
-Daily.defaultProps = {
-  data: {
-    conditions: null,
-    temp: null,
-    max: null,
-    min: null,
-    map: null
-  }
-};
-
-exports.default = Daily;
-
-/***/ }),
-/* 302 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 303 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Hourly = __webpack_require__(304);
-
-var _Hourly2 = _interopRequireDefault(_Hourly);
-
-__webpack_require__(305);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Hourly2.default;
-
-/***/ }),
-/* 304 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(12);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(52);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _reactMoment = __webpack_require__(67);
-
-var _reactMoment2 = _interopRequireDefault(_reactMoment);
-
-var _roundTo = __webpack_require__(68);
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Hourly = function Hourly(props) {
-  return _react2.default.createElement(
-    'table',
-    null,
-    _react2.default.createElement(
-      'tbody',
-      null,
-      props.data.map(function (entry) {
-        return _react2.default.createElement(
-          'tr',
-          { key: entry.date },
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement(
-              'h2',
-              null,
-              _react2.default.createElement(
-                _reactMoment2.default,
-                { format: 'HH:mm' },
-                entry.date
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement(
-              'h3',
-              null,
-              (0, _roundTo2.default)(entry.temp, 1),
-              '\u02DA ',
-              entry.conditions
-            )
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement(
-              'p',
-              null,
-              'Max ',
-              (0, _roundTo2.default)(entry.max, 1),
-              '\u02DA | Min ',
-              (0, _roundTo2.default)(entry.min, 1),
-              '\u02DA'
-            )
-          )
-        );
-      })
-    )
-  );
-};
-
-Hourly.propTypes = {
-  data: _propTypes2.default.arrayOf(_propTypes2.default.shape({
-    conditions: _propTypes2.default.string,
-    temp: _propTypes2.default.number,
-    max: _propTypes2.default.number,
-    min: _propTypes2.default.number,
-    map: _propTypes2.default.func
-  }))
-};
-
-Hourly.defaultProps = {
-  data: {
-    conditions: null,
-    temp: null,
-    max: null,
-    min: null,
-    map: null
-  }
-};
-
-exports.default = Hourly;
-
-/***/ }),
-/* 305 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
 /* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -36823,6 +36572,15 @@ var Forecast = function Forecast(props) {
       _react2.default.createElement(
         'tr',
         null,
+        _react2.default.createElement(
+          'td',
+          null,
+          props.opacity
+        )
+      ),
+      _react2.default.createElement(
+        'tr',
+        null,
         props.data.map(function (entry) {
           return _react2.default.createElement(
             'td',
@@ -36877,7 +36635,8 @@ Forecast.propTypes = {
     map: _propTypes2.default.func
   })),
   format: _propTypes2.default.string,
-  minmax: _propTypes2.default.bool
+  minmax: _propTypes2.default.bool,
+  opacity: _propTypes2.default.number
 };
 
 Forecast.defaultProps = {
@@ -36889,7 +36648,8 @@ Forecast.defaultProps = {
     map: null
   },
   format: null,
-  minmax: false
+  minmax: false,
+  opacity: 1
 };
 
 exports.default = Forecast;
@@ -36902,6 +36662,399 @@ exports.default = Forecast;
 
 /***/ }),
 /* 309 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */,
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */,
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */,
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */,
+/* 431 */,
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */,
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */,
+/* 448 */,
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */,
+/* 457 */,
+/* 458 */,
+/* 459 */,
+/* 460 */,
+/* 461 */,
+/* 462 */,
+/* 463 */,
+/* 464 */,
+/* 465 */,
+/* 466 */,
+/* 467 */,
+/* 468 */,
+/* 469 */,
+/* 470 */,
+/* 471 */,
+/* 472 */,
+/* 473 */,
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */,
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */,
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */,
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _ScrollSection = __webpack_require__(555);
+
+var _ScrollSection2 = _interopRequireDefault(_ScrollSection);
+
+__webpack_require__(556);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _ScrollSection2.default;
+
+/***/ }),
+/* 555 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(12);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(52);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _smoothScrollTo = __webpack_require__(283);
+
+var _smoothScrollTo2 = _interopRequireDefault(_smoothScrollTo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollSection = function (_Component) {
+  _inherits(ScrollSection, _Component);
+
+  function ScrollSection() {
+    _classCallCheck(this, ScrollSection);
+
+    var _this = _possibleConstructorReturn(this, (ScrollSection.__proto__ || Object.getPrototypeOf(ScrollSection)).call(this));
+
+    _this.state = {
+      scrollPos: {
+        left: 0,
+        top: 0
+      },
+      opacity: 1
+    };
+    _this.handleScroll = _this.handleScroll.bind(_this);
+    return _this;
+  }
+
+  _createClass(ScrollSection, [{
+    key: 'handleScroll',
+    value: function handleScroll(event) {
+      event.stopPropagation();
+      var scrollPos = this.state.scrollPos;
+
+      if (scrollPos.left > event.currentTarget.scrollLeft) {
+        /* Scroll to left */
+        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
+      } else if (scrollPos.left < event.currentTarget.scrollLeft) {
+        /* Scroll to right */
+        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 0, 300, event.currentTarget);
+      }
+      if (scrollPos.top > event.currentTarget.scrollTop) {
+        /* Scroll to top */
+        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
+      } else if (scrollPos.top < event.currentTarget.scrollTop) {
+        /* Scroll to bottom */
+        (0, _smoothScrollTo2.default)(0, event.currentTarget.scrollHeight, 300, event.currentTarget);
+      }
+      var opacity = void 0;
+      if (this.props.axis === 'x') {
+        opacity = scrollPos.left / (event.currentTarget.scrollWidth / 2);
+      } else {
+        opacity = scrollPos.top / event.currentTarget.scrollHeight;
+      }
+
+      this.setState({
+        scrollPos: {
+          left: event.currentTarget.scrollLeft,
+          top: event.currentTarget.scrollTop
+        },
+        opacity: opacity
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var childrenClones = _react2.default.Children.map(this.props.children, function (child) {
+        return _react2.default.cloneElement(child, { opacity: _this2.state.opacity });
+      });
+      return _react2.default.createElement(
+        'section',
+        {
+          className: 'wwise-forecast-section',
+          onScroll: this.handleScroll
+        },
+        childrenClones
+      );
+    }
+  }]);
+
+  return ScrollSection;
+}(_react.Component);
+
+exports.default = ScrollSection;
+
+
+ScrollSection.propTypes = {
+  opacity: _propTypes2.default.number,
+  children: _propTypes2.default.shape()
+};
+
+ScrollSection.defaultProps = {
+  opacity: 1,
+  children: {}
+};
+
+/***/ }),
+/* 556 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -7,6 +7,11 @@ const Forecast = props => (
   <table className="wwise-forecast">
     <tbody>
       <tr>
+        <td>
+          {props.opacity}
+        </td>
+      </tr>
+      <tr>
         {props.data.map(entry => (
           <td key={entry.date}>
             <div className="dateTime">
@@ -38,6 +43,7 @@ Forecast.propTypes = {
   })),
   format: PropTypes.string,
   minmax: PropTypes.bool,
+  opacity: PropTypes.number,
 };
 
 Forecast.defaultProps = {
@@ -50,6 +56,7 @@ Forecast.defaultProps = {
   },
   format: null,
   minmax: false,
+  opacity: 1,
 };
 
 export default Forecast;

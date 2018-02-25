@@ -1,3 +1,6 @@
+/* This module is not mine, it's based on the original "Smooth Scroll to" module by
+@hilliu. I modified it to allow scrolling on two axis. Maybe I'll make a pull request...
+See https://www.npmjs.com/package/smooth-scroll-to, for license see https://spdx.org/licenses/MIT.html  */
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -17,7 +20,7 @@ var isRunning = false;
 /**
  *  !!Important!! any logic change need take care isRunning
  */
-var smoothScrollTo = function smoothScrollTo(to, duration, el, direction, callback) {
+var smoothScrollTo = function smoothScrollTo(x, y, duration, el, callback) {
     if (isRunning) {
         if ('function' === typeof callback) {
             callback();
@@ -30,9 +33,12 @@ var smoothScrollTo = function smoothScrollTo(to, duration, el, direction, callba
     if (!duration) {
         duration = 900;
     }
-    var from = direction === 'vertical' ? el.scrollTop : el.scrollLeft;
-    var go = to - from;
-    if (!go) {
+    var fromX = el.scrollLeft;
+    var fromY = el.scrollTop;
+
+    var goX = x - fromX;
+    var goY = y - fromY;
+    if (!goX && !goY) {
         isRunning = false;
         if ('function' === typeof callback) {
             callback();
@@ -43,10 +49,11 @@ var smoothScrollTo = function smoothScrollTo(to, duration, el, direction, callba
     var scrollTo = function scrollTo(timeStamp) {
         beginTimeStamp = beginTimeStamp || timeStamp;
         var elapsedTime = timeStamp - beginTimeStamp;
-        var progress = (0, _easeInOutCubic2.default)(elapsedTime, from, go, duration);
-        el.scrollTop = progress;
-        el.scrollLeft = progress;
-        if (elapsedTime < duration && go) {
+        var progressX = (0, _easeInOutCubic2.default)(elapsedTime, fromX, goX, duration);
+        var progressY = (0, _easeInOutCubic2.default)(elapsedTime, fromY, goY, duration);
+        el.scrollLeft = progressX;
+        el.scrollTop = progressY;
+        if (elapsedTime < duration && (goX || goY)) {
             requestAnimationFrame(scrollTo);
         } else {
             isRunning = false;

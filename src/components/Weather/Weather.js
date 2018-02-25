@@ -55,6 +55,7 @@ Weather.propTypes = {
     min: PropTypes.number,
     summary: PropTypes.string,
   }),
+  opacity: PropTypes.number,
 };
 
 Weather.defaultProps = {
@@ -65,4 +66,5 @@ Weather.defaultProps = {
     min: 0,
     summary: null,
   },
+  opacity: 1,
 };

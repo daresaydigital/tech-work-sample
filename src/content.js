@@ -20,10 +20,11 @@ class Content extends Component {
         this.setState({ weather });
         /* Insert the tooltip */
         this.toggleTooltip(true);
+        window.getSelection().removeAllRanges();
       }
       /* sendResponse({ confirmation: 'Weather received!' }); */
     });
-    window.addEventListener('click', (e) => {
+    window.addEventListener('mousedown', (e) => {
       /* Whenever there is a click on the page, the tooltip will be removed */
       this.toggleTooltip(false);
     });
@@ -79,8 +80,13 @@ class Content extends Component {
 
   render() {
     return (
-      <span id="wwise-anchor" className={this.state.isVisible ? 'visible' : ''}>
-        <div id="wwise-tooltip">
+      <span
+        id="wwise-anchor"
+        className={this.state.isVisible ? 'visible' : ''}
+      >
+        <div
+          id="wwise-tooltip"
+        >
           <h1>{this.state.weather.location}</h1>
           <h2>{this.state.weather.temp}˚</h2>
           <h3>{this.state.weather.conditions}</h3>

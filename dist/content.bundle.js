@@ -312,10 +312,11 @@ var Content = function (_Component) {
           _this2.setState({ weather: weather });
           /* Insert the tooltip */
           _this2.toggleTooltip(true);
+          window.getSelection().removeAllRanges();
         }
         /* sendResponse({ confirmation: 'Weather received!' }); */
       });
-      window.addEventListener('click', function (e) {
+      window.addEventListener('mousedown', function (e) {
         /* Whenever there is a click on the page, the tooltip will be removed */
         _this2.toggleTooltip(false);
       });
@@ -336,10 +337,15 @@ var Content = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'span',
-        { id: 'wwise-anchor', className: this.state.isVisible ? 'visible' : '' },
+        {
+          id: 'wwise-anchor',
+          className: this.state.isVisible ? 'visible' : ''
+        },
         _react2.default.createElement(
           'div',
-          { id: 'wwise-tooltip' },
+          {
+            id: 'wwise-tooltip'
+          },
           _react2.default.createElement(
             'h1',
             null,

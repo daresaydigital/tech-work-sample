@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import smoothScrollTo from './modules/smooth-scroll-to';
 import Logo from './components/Logo';
 import Weather from './components/Weather';
-import Daily from './components/Forecast/Daily';
-import Hourly from './components/Forecast/Hourly';
+import ScrollSection from './components/ScrollSection';
 import Forecast from './components/Forecast';
 import './styles.css';
 
@@ -26,10 +25,11 @@ class NewTab extends Component {
           },
         },
       },
-      scrollPos: [],
+      scrollPos: {
+        left: 0,
+        top: 0,
+      },
     };
-    /* this.handleScrollX = this.handleScrollX.bind(this);
-    this.handleScrollY = this.handleScrollY.bind(this); */
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -54,33 +54,26 @@ class NewTab extends Component {
   handleScroll(event) {
     event.stopPropagation();
     const { scrollPos } = this.state;
-    const defaults = {
-      top: 0,
-      left: 0,
-    };
-    let elPos = scrollPos[event.currentTarget] || defaults;
-    if (elPos.left > event.currentTarget.scrollLeft) {
+    if (scrollPos.left > event.currentTarget.scrollLeft) {
       /* Scroll to left */
-      smoothScrollTo(0, 300, event.currentTarget, 'horizontal');
-    } else if (elPos.left < event.currentTarget.scrollLeft) {
+      smoothScrollTo(0, 0, 300, event.currentTarget);
+    } else if (scrollPos.left < event.currentTarget.scrollLeft) {
       /* Scroll to right */
-      smoothScrollTo(event.currentTarget.scrollWidth, 300, event.currentTarget, 'horizontal');
+      smoothScrollTo(event.currentTarget.scrollWidth, 0, 300, event.currentTarget);
     }
-    if (elPos.top > event.currentTarget.scrollTop) {
+    if (scrollPos.top > event.currentTarget.scrollTop) {
       /* Scroll to top */
-      smoothScrollTo(0, 300, event.currentTarget, 'vertical');
-    } else if (elPos.top < event.currentTarget.scrollTop) {
+      smoothScrollTo(0, 0, 300, event.currentTarget);
+    } else if (scrollPos.top < event.currentTarget.scrollTop) {
       /* Scroll to bottom */
-      smoothScrollTo(event.currentTarget.scrollHeight, 300, event.currentTarget, 'vertical');
+      smoothScrollTo(0, event.currentTarget.scrollHeight, 300, event.currentTarget);
     }
-
-    elPos = {
-      left: event.currentTarget.scrollLeft,
-      top: event.currentTarget.scrollTop,
-    };
-
-    scrollPos[event.currentTarget] = elPos;
-    this.setState({ scrollPos });
+    this.setState({
+      scrollPos: {
+        left: event.currentTarget.scrollLeft,
+        top: event.currentTarget.scrollTop,
+      },
+    });
   }
 
   render() {
@@ -92,10 +85,10 @@ class NewTab extends Component {
         />
         <Weather
           data={this.state.frontend.data.weather}
+          opacity={this.state.scrollPos.top}
         />
-        <section
-          className="wwise-forecast-section"
-          onScroll={this.handleScroll}
+        <ScrollSection
+          axis="x"
         >
           <Forecast
             data={this.state.frontend.data.forecast.daily}
@@ -106,7 +99,7 @@ class NewTab extends Component {
             data={this.state.frontend.data.forecast.hourly}
             format="HH:mm - ddd /D"
           />
-        </section>
+        </ScrollSection>
       </div>
     );
   }
