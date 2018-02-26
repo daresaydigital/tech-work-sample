@@ -1,0 +1,7 @@
+{
+  "sourceMaps": "both",
+  "presets": [
+      ["es2015", { "modules": "commonjs"}],
+      "react"
+  ]
+}
