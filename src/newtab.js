@@ -25,12 +25,7 @@ class NewTab extends Component {
           },
         },
       },
-      scrollPos: {
-        left: 0,
-        top: 0,
-      },
     };
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
@@ -44,63 +39,43 @@ class NewTab extends Component {
         local.setState({ frontend, loading: false });
       }
     });
-    document.body.addEventListener('scroll', this.handleScroll, false);
+    // document.body.addEventListener('scroll', this.handleScroll, false);
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('scroll', this.handleScroll, false);
-  }
-
-  handleScroll(event) {
-    event.stopPropagation();
-    const { scrollPos } = this.state;
-    if (scrollPos.left > event.currentTarget.scrollLeft) {
-      /* Scroll to left */
-      smoothScrollTo(0, 0, 300, event.currentTarget);
-    } else if (scrollPos.left < event.currentTarget.scrollLeft) {
-      /* Scroll to right */
-      smoothScrollTo(event.currentTarget.scrollWidth, 0, 300, event.currentTarget);
-    }
-    if (scrollPos.top > event.currentTarget.scrollTop) {
-      /* Scroll to top */
-      smoothScrollTo(0, 0, 300, event.currentTarget);
-    } else if (scrollPos.top < event.currentTarget.scrollTop) {
-      /* Scroll to bottom */
-      smoothScrollTo(0, event.currentTarget.scrollHeight, 300, event.currentTarget);
-    }
-    this.setState({
-      scrollPos: {
-        left: event.currentTarget.scrollLeft,
-        top: event.currentTarget.scrollTop,
-      },
-    });
+    // document.body.removeEventListener('scroll', this.handleScroll, false);
   }
 
   render() {
     return (
-      <div className="wwise-app">
+      <ScrollSection
+        className="wwise-app"
+        element="div"
+      >
         <Logo
           url="http://www.pedroese.com"
           alt="Go to my website, http://www.pedroese.com/"
         />
         <Weather
           data={this.state.frontend.data.weather}
-          opacity={this.state.scrollPos.top}
+          hide
         />
         <ScrollSection
-          axis="x"
+          element="section"
+          className="wwise-slider"
         >
           <Forecast
             data={this.state.frontend.data.forecast.daily}
             format="dddd, MMM Do"
             minmax
+            hide
           />
           <Forecast
             data={this.state.frontend.data.forecast.hourly}
             format="HH:mm - ddd /D"
           />
         </ScrollSection>
-      </div>
+      </ScrollSection>
     );
   }
 }

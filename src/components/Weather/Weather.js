@@ -20,8 +20,15 @@ export default class Weather extends Component {
   }
 
   render() {
+    const style = {
+      opacity: this.props.opacity,
+      /* transform: `translateY(${this.props.top}px)`, */
+    };
     return (
-      <section className="wwise-weather">
+      <section
+        className="wwise-weather"
+        style={this.props.hide ? style : {}}
+      >
         {this.state.time &&
           <div className="dateTime">
             <Moment className="moment date" format="dddd, MMM Do">
@@ -56,6 +63,7 @@ Weather.propTypes = {
     summary: PropTypes.string,
   }),
   opacity: PropTypes.number,
+  hide: PropTypes.bool,
 };
 
 Weather.defaultProps = {
@@ -67,4 +75,5 @@ Weather.defaultProps = {
     summary: null,
   },
   opacity: 1,
+  hide: false,
 };

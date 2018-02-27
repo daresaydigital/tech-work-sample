@@ -4,33 +4,35 @@ import Moment from 'react-moment';
 import roundTo from '../../helpers/roundTo';
 
 const Forecast = props => (
-  <table className="wwise-forecast">
-    <tbody>
-      <tr>
-        <td>
-          {props.opacity}
-        </td>
-      </tr>
-      <tr>
-        {props.data.map(entry => (
-          <td key={entry.date}>
-            <div className="dateTime">
-              <Moment format={props.format}>
-                {entry.date}
-              </Moment>
-            </div>
-            <h3>{roundTo(entry.temp, 1)}˚</h3>
-            <h4>{entry.conditions}</h4>
-            { props.minmax &&
-              <div className="minmax">
-                <span className="temp max">{roundTo(entry.max, 1)}</span>
-                <span className="temp min">{roundTo(entry.min, 1)}</span>
-              </div>}
-          </td>
-        ))}
-      </tr>
-    </tbody>
-  </table>
+  props.data.length > 0 &&
+    <table
+      className={`wwise-forecast ${props.className}`}
+      style={props.hide ? {
+        opacity: props.opacity,
+        /* transform: `translateX(${props.left}px)`, */
+      } : {}}
+    >
+      <tbody>
+        <tr>
+          {props.data.map(entry => (
+            <td key={entry.date}>
+              <div className="dateTime">
+                <Moment format={props.format}>
+                  {entry.date}
+                </Moment>
+              </div>
+              <h3>{roundTo(entry.temp, 1)}˚</h3>
+              <h4>{entry.conditions}</h4>
+              { props.minmax &&
+                <div className="minmax">
+                  <span className="temp max">{roundTo(entry.max, 1)}</span>
+                  <span className="temp min">{roundTo(entry.min, 1)}</span>
+                </div>}
+            </td>
+          ))}
+        </tr>
+      </tbody>
+    </table>
 );
 
 Forecast.propTypes = {
@@ -43,7 +45,9 @@ Forecast.propTypes = {
   })),
   format: PropTypes.string,
   minmax: PropTypes.bool,
+  className: PropTypes.string,
   opacity: PropTypes.number,
+  hide: PropTypes.bool,
 };
 
 Forecast.defaultProps = {
@@ -56,7 +60,9 @@ Forecast.defaultProps = {
   },
   format: null,
   minmax: false,
+  className: '',
   opacity: 1,
+  hide: false,
 };
 
 export default Forecast;

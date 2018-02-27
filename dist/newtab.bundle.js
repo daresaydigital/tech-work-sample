@@ -34704,13 +34704,8 @@ var NewTab = function (_Component) {
             daily: []
           }
         }
-      },
-      scrollPos: {
-        left: 0,
-        top: 0
       }
     };
-    _this.handleScroll = _this.handleScroll.bind(_this);
     return _this;
   }
 
@@ -34727,63 +34722,41 @@ var NewTab = function (_Component) {
           local.setState({ frontend: frontend, loading: false });
         }
       });
-      document.body.addEventListener('scroll', this.handleScroll, false);
+      // document.body.addEventListener('scroll', this.handleScroll, false);
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      document.body.removeEventListener('scroll', this.handleScroll, false);
-    }
-  }, {
-    key: 'handleScroll',
-    value: function handleScroll(event) {
-      event.stopPropagation();
-      var scrollPos = this.state.scrollPos;
-
-      if (scrollPos.left > event.currentTarget.scrollLeft) {
-        /* Scroll to left */
-        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
-      } else if (scrollPos.left < event.currentTarget.scrollLeft) {
-        /* Scroll to right */
-        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 0, 300, event.currentTarget);
-      }
-      if (scrollPos.top > event.currentTarget.scrollTop) {
-        /* Scroll to top */
-        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
-      } else if (scrollPos.top < event.currentTarget.scrollTop) {
-        /* Scroll to bottom */
-        (0, _smoothScrollTo2.default)(0, event.currentTarget.scrollHeight, 300, event.currentTarget);
-      }
-      this.setState({
-        scrollPos: {
-          left: event.currentTarget.scrollLeft,
-          top: event.currentTarget.scrollTop
-        }
-      });
+      // document.body.removeEventListener('scroll', this.handleScroll, false);
     }
   }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'wwise-app' },
+        _ScrollSection2.default,
+        {
+          className: 'wwise-app',
+          element: 'div'
+        },
         _react2.default.createElement(_Logo2.default, {
           url: 'http://www.pedroese.com',
           alt: 'Go to my website, http://www.pedroese.com/'
         }),
         _react2.default.createElement(_Weather2.default, {
           data: this.state.frontend.data.weather,
-          opacity: this.state.scrollPos.top
+          hide: true
         }),
         _react2.default.createElement(
           _ScrollSection2.default,
           {
-            axis: 'x'
+            element: 'section',
+            className: 'wwise-slider'
           },
           _react2.default.createElement(_Forecast2.default, {
             data: this.state.frontend.data.forecast.daily,
             format: 'dddd, MMM Do',
-            minmax: true
+            minmax: true,
+            hide: true
           }),
           _react2.default.createElement(_Forecast2.default, {
             data: this.state.frontend.data.forecast.hourly,
@@ -35919,9 +35892,16 @@ var Weather = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var style = {
+        opacity: this.props.opacity
+        /* transform: `translateY(${this.props.top}px)`, */
+      };
       return _react2.default.createElement(
         'section',
-        { className: 'wwise-weather' },
+        {
+          className: 'wwise-weather',
+          style: this.props.hide ? style : {}
+        },
         this.state.time && _react2.default.createElement(
           'div',
           { className: 'dateTime' },
@@ -35978,7 +35958,8 @@ Weather.propTypes = {
     min: _propTypes2.default.number,
     summary: _propTypes2.default.string
   }),
-  opacity: _propTypes2.default.number
+  opacity: _propTypes2.default.number,
+  hide: _propTypes2.default.bool
 };
 
 Weather.defaultProps = {
@@ -35989,7 +35970,8 @@ Weather.defaultProps = {
     min: 0,
     summary: null
   },
-  opacity: 1
+  opacity: 1,
+  hide: false
 };
 
 /***/ }),
@@ -36563,21 +36545,18 @@ var _roundTo2 = _interopRequireDefault(_roundTo);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Forecast = function Forecast(props) {
-  return _react2.default.createElement(
+  return props.data.length > 0 && _react2.default.createElement(
     'table',
-    { className: 'wwise-forecast' },
+    {
+      className: 'wwise-forecast ' + props.className,
+      style: props.hide ? {
+        opacity: props.opacity
+        /* transform: `translateX(${props.left}px)`, */
+      } : {}
+    },
     _react2.default.createElement(
       'tbody',
       null,
-      _react2.default.createElement(
-        'tr',
-        null,
-        _react2.default.createElement(
-          'td',
-          null,
-          props.opacity
-        )
-      ),
       _react2.default.createElement(
         'tr',
         null,
@@ -36636,7 +36615,9 @@ Forecast.propTypes = {
   })),
   format: _propTypes2.default.string,
   minmax: _propTypes2.default.bool,
-  opacity: _propTypes2.default.number
+  className: _propTypes2.default.string,
+  opacity: _propTypes2.default.number,
+  hide: _propTypes2.default.bool
 };
 
 Forecast.defaultProps = {
@@ -36649,7 +36630,9 @@ Forecast.defaultProps = {
   },
   format: null,
   minmax: false,
-  opacity: 1
+  className: '',
+  opacity: 1,
+  hide: false
 };
 
 exports.default = Forecast;
@@ -36964,6 +36947,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var scrollDuration = 1000;
+
 var ScrollSection = function (_Component) {
   _inherits(ScrollSection, _Component);
 
@@ -36979,36 +36964,38 @@ var ScrollSection = function (_Component) {
       },
       opacity: 1
     };
-    _this.handleScroll = _this.handleScroll.bind(_this);
+    _this.handleWheel = _this.handleWheel.bind(_this);
     return _this;
   }
 
   _createClass(ScrollSection, [{
-    key: 'handleScroll',
-    value: function handleScroll(event) {
-      event.stopPropagation();
+    key: 'handleWheel',
+    value: function handleWheel(event) {
+      event.preventDefault();
       var scrollPos = this.state.scrollPos;
 
-      if (scrollPos.left > event.currentTarget.scrollLeft) {
+
+      if (event.deltaX < 0) {
         /* Scroll to left */
-        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
-      } else if (scrollPos.left < event.currentTarget.scrollLeft) {
+        (0, _smoothScrollTo2.default)(0, 0, scrollDuration, event.currentTarget);
+      } else if (event.deltaX > 0) {
         /* Scroll to right */
-        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 0, 300, event.currentTarget);
+        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 0, scrollDuration, event.currentTarget);
       }
-      if (scrollPos.top > event.currentTarget.scrollTop) {
+      if (event.deltaY < 0) {
         /* Scroll to top */
-        (0, _smoothScrollTo2.default)(0, 0, 300, event.currentTarget);
-      } else if (scrollPos.top < event.currentTarget.scrollTop) {
+        (0, _smoothScrollTo2.default)(0, 0, scrollDuration, event.currentTarget);
+      } else if (event.deltaY > 0) {
         /* Scroll to bottom */
-        (0, _smoothScrollTo2.default)(0, event.currentTarget.scrollHeight, 300, event.currentTarget);
+        (0, _smoothScrollTo2.default)(0, event.currentTarget.scrollHeight, scrollDuration, event.currentTarget);
       }
-      var opacity = void 0;
-      if (this.props.axis === 'x') {
-        opacity = scrollPos.left / (event.currentTarget.scrollWidth / 2);
-      } else {
-        opacity = scrollPos.top / event.currentTarget.scrollHeight;
-      }
+
+      /* The opacity of the first element is determined by the amount of scroll. I calculate it on both
+      axis as a fraction of the total scroll, and then take the largest amount and substract it from 1,
+      so that it is inversely proportional */
+      var xPos = event.currentTarget.scrollTop / (event.currentTarget.scrollHeight / 2);
+      var yPos = event.currentTarget.scrollLeft / (event.currentTarget.scrollWidth / 2);
+      var opacity = xPos > yPos ? 1 - xPos : 1 - yPos;
 
       this.setState({
         scrollPos: {
@@ -37023,16 +37010,36 @@ var ScrollSection = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var childrenClones = _react2.default.Children.map(this.props.children, function (child) {
-        return _react2.default.cloneElement(child, { opacity: _this2.state.opacity });
+      var className = 'wwise-scroll-section ' + this.props.className;
+      var CustomTag = void 0;
+      /* I could just pass the value of the element property to the CustomTag
+      variable, but using a switch ensures that the "element" property always has
+      an expected value and does not break the markup. I can add more available tags
+      tags later on */
+      switch (this.props.element) {
+        case 'section':
+          CustomTag = 'section';
+          break;
+        default:
+          CustomTag = 'div';
+          break;
+      }
+
+      /* Pass on the opacity to children by cloning them */
+      var children = this.props.children.map(function (child) {
+        return _react2.default.cloneElement(child, {
+          opacity: _this2.state.opacity,
+          left: _this2.state.scrollPos.left,
+          top: _this2.state.scrollPos.top
+        });
       });
       return _react2.default.createElement(
-        'section',
+        CustomTag,
         {
-          className: 'wwise-forecast-section',
-          onScroll: this.handleScroll
+          className: className,
+          onWheel: this.handleWheel
         },
-        childrenClones
+        children
       );
     }
   }]);
@@ -37044,13 +37051,15 @@ exports.default = ScrollSection;
 
 
 ScrollSection.propTypes = {
-  opacity: _propTypes2.default.number,
-  children: _propTypes2.default.shape()
+  children: _propTypes2.default.arrayOf(_propTypes2.default.shape()),
+  element: _propTypes2.default.string,
+  className: _propTypes2.default.string
 };
 
 ScrollSection.defaultProps = {
-  opacity: 1,
-  children: {}
+  children: [],
+  element: 'div',
+  className: ''
 };
 
 /***/ }),

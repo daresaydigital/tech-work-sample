@@ -70,3 +70,8 @@ h2{
 .moment{
   display:block;
 }
+
+.wwise-slider{
+  display:flex;
+  align-content: stretch;
+}

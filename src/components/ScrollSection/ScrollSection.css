@@ -1,8 +1,6 @@
-.wwise-forecast-section{
+.wwise-scroll-section{
   height:100%;
   width:100%;
   white-space: nowrap;
   overflow-x: auto;
-  display: flex;
-  align-content: stretch;
 }
