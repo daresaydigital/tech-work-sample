@@ -84,6 +84,7 @@ module.exports = {
       { context: './src/assets', from: 'weatherwise-logo.png', to: 'assets' },
       { context: './src/assets/fonts', from: 'Barlow Regular.woff2', to: 'assets/fonts' },
       { context: './src/assets/fonts', from: 'Quicksand Regular.woff2', to: 'assets/fonts' },
+      { context: './src/assets/fonts', from: 'WeatherIcons Regular.woff2', to: 'assets/fonts' },
     ]),
   ],
 };

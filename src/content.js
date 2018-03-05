@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import './content.css';
+import weatherIcons from './helpers/weatherIcons';
+import roundTo from './helpers/roundTo';
 
 class Content extends Component {
   constructor(props) {
@@ -79,6 +81,10 @@ class Content extends Component {
   }
 
   render() {
+    let weatherStyle = 'clear';
+    if (typeof weatherIcons[this.state.weather.conditions] !== 'undefined') {
+      weatherStyle = weatherIcons[this.state.weather.conditions].className;
+    }
     return (
       <span
         id="wwise-anchor"
@@ -86,11 +92,21 @@ class Content extends Component {
       >
         <div
           id="wwise-tooltip"
+          className={weatherStyle}
         >
-          <h1>{this.state.weather.location}</h1>
+          <h1>
+            <span className="conditions-icon">
+              {weatherIcons[this.state.weather.conditions] &&
+                weatherIcons[this.state.weather.conditions].unicode}
+            </span>
+            {this.state.weather.location}
+          </h1>
           <h2>{this.state.weather.temp}˚</h2>
           <h3>{this.state.weather.conditions}</h3>
-          <p>Min {this.state.weather.min}˚ | Max {this.state.weather.max}˚</p>
+          <div className="minmax">
+            <span className="temp max">{roundTo(this.state.weather.max, 1)}</span>
+            <span className="temp min">{roundTo(this.state.weather.min, 1)}</span>
+          </div>
         </div>
         <span id="wwise-searchTerm" />
       </span>

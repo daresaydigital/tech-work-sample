@@ -4,4 +4,63 @@
   width:100%;
   padding: 0 50px;
   align-self: center;
+  box-sizing: border-box;
+}
+
+.slider-left .wwise-forecast{
+  transition: transform 600ms ease-out, opacity 600ms ease-out 300ms;
+}
+
+.slider-right .wwise-forecast{
+  transition: transform 600ms ease-out 300ms, opacity 600ms ease-out;
+}
+
+.slider-left .wwise-forecast:nth-child(2){
+  transform: translateX(0);
+}
+
+.slider-right .wwise-forecast:nth-child(2){
+  transform: translateX(-100%);
+}
+
+.slider-left .wwise-forecast:first-child{
+  opacity: 1;
+}
+
+.slider-right .wwise-forecast:first-child{
+  opacity: 0;
+}
+
+.wwise-forecast .conditions-icon{
+  font-size: 2em;
+}
+
+@media (max-width:1200px){
+  .wwise-forecast{
+    white-space: normal;
+    padding:40px;
+    flex-shrink:0;
+    margin: auto;
+  }
+  .wwise-forecast,
+  .wwise-forecast tr,
+  .wwise-forecast td{
+    display:inline-block;
+  }
+  .wwise-forecast td{
+    width:25%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width:800px){
+  .wwise-forecast td{
+    width:50%;
+  }
+}
+
+@media (max-width:480px){
+  .wwise-forecast td{
+    width:100%;
+  }
 }

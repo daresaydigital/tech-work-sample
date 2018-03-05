@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Time from 'react-time-format';
 import Moment from 'react-moment';
 import PropTypes from 'prop-types';
 import roundTo from '../../helpers/roundTo';
+import weatherIcons from '../../helpers/weatherIcons';
 
 export default class Weather extends Component {
   constructor() {
@@ -20,15 +20,9 @@ export default class Weather extends Component {
   }
 
   render() {
-    const style = {
-      opacity: this.props.opacity,
-      /* transform: `translateY(${this.props.top}px)`, */
-    };
+    console.log(this.props.data);
     return (
-      <section
-        className="wwise-weather"
-        style={this.props.hide ? style : {}}
-      >
+      <section className="wwise-weather" >
         {this.state.time &&
           <div className="dateTime">
             <Moment className="moment date" format="dddd, MMM Do">
@@ -43,12 +37,17 @@ export default class Weather extends Component {
           {roundTo(this.props.data.temp, 1)}
         </h1>
         <h2>
+          <span className="conditions-icon">
+            {weatherIcons[this.props.data.conditions] &&
+              weatherIcons[this.props.data.conditions].unicode}
+          </span>
           {this.props.data.conditions}
         </h2>
         <div className="minmax">
           <span className="temp max">{roundTo(this.props.data.max, 1)}</span>
           <span className="temp min">{roundTo(this.props.data.min, 1)}</span>
         </div>
+        <span className="cta">Scroll down for an extended forcast</span>
       </section>
     );
   }
@@ -62,8 +61,6 @@ Weather.propTypes = {
     min: PropTypes.number,
     summary: PropTypes.string,
   }),
-  opacity: PropTypes.number,
-  hide: PropTypes.bool,
 };
 
 Weather.defaultProps = {
@@ -74,6 +71,4 @@ Weather.defaultProps = {
     min: 0,
     summary: null,
   },
-  opacity: 1,
-  hide: false,
 };

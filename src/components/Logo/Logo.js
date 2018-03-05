@@ -7,7 +7,7 @@ const Logo = props => (
   <a
     className="weatherwise-pedros-logo"
     href={props.url}
-    title="Made by Pedro *S*"
+    title="By Pedro *S*"
   >
     <InlineSVG src={logoSVG} />
   </a>

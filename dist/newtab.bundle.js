@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 282);
+/******/ 	return __webpack_require__(__webpack_require__.s = 283);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1912,7 +1912,7 @@ function loadLocale(name) {
         try {
             oldLocale = globalLocale._abbr;
             var aliasedRequire = require;
-            __webpack_require__(298)("./" + name);
+            __webpack_require__(295)("./" + name);
             getSetGlobalLocale(oldLocale);
         } catch (e) {}
     }
@@ -4604,7 +4604,7 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(297)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(294)(module)))
 
 /***/ }),
 /* 2 */,
@@ -4810,21 +4810,6 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(83);
-} else {
-  module.exports = __webpack_require__(84);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 
 
 /**
@@ -4863,7 +4848,22 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 14 */,
+/* 13 */,
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(82);
+} else {
+  module.exports = __webpack_require__(83);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ }),
 /* 15 */,
 /* 16 */,
 /* 17 */,
@@ -5078,7 +5078,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -5162,7 +5162,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(34);
   var warning = __webpack_require__(37);
-  var ReactPropTypesSecret = __webpack_require__(57);
+  var ReactPropTypesSecret = __webpack_require__(56);
   var loggedTypeFailures = {};
 }
 
@@ -5213,46 +5213,11 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(288)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(289)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
+/* 52 */,
 /* 53 */,
 /* 54 */,
 /* 55 */,
-/* 56 */,
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5271,7 +5236,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5310,7 +5275,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5325,7 +5290,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -5391,7 +5356,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5433,7 +5398,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5504,7 +5469,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5519,7 +5484,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(87);
+var isTextNode = __webpack_require__(86);
 
 /*eslint-disable no-bitwise */
 
@@ -5547,7 +5512,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5577,32 +5542,409 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(e,t){ true?module.exports=t(__webpack_require__(1),__webpack_require__(12)):"function"==typeof define&&define.amd?define(["moment","react"],t):"object"==typeof exports?exports["react-moment"]=t(require("moment"),require("react")):e["react-moment"]=t(e.moment,e.react)}(this,function(e,t){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var u=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},l=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),c=n(13),f=r(c),s=n(11),p=r(s),d=n(12),y=r(d),m=n(6),v=[p.default.string,p.default.number,p.default.array,p.default.object],h=[p.default.string,p.default.array],b=[p.default.object,p.default.bool],g=function(e){function t(e){o(this,t);var n=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.setTimer=function(){n.clearTimer();var e=n.props.interval;t.pooledTimer||0===e||(n.timer=setInterval(function(){n.update(n.props)},e))},n.clearTimer=function(){!t.pooledTimer&&n.timer&&(clearInterval(n.timer),n.timer=null),t.pooledTimer&&!n.timer&&t.removePooledElement(n)},t.globalMoment||(t.globalMoment=y.default),n.state={content:""},n.timer=null,n}return a(t,e),l(t,null,[{key:"startPooledTimer",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:6e4;t.clearPooledTimer(),t.pooledTimer=setInterval(function(){t.pooledElements.forEach(function(e){0!==e.props.interval&&e.update()})},e)}},{key:"clearPooledTimer",value:function(){t.pooledTimer&&(clearInterval(t.pooledTimer),t.pooledTimer=null,t.pooledElements=[])}},{key:"pushPooledElement",value:function(e){return e instanceof t?void(t.pooledElements.indexOf(e)===-1&&t.pooledElements.push(e)):void console.error("Element not an instance of Moment.")}},{key:"removePooledElement",value:function(e){var n=t.pooledElements.indexOf(e);n!==-1&&t.pooledElements.splice(n,1)}},{key:"getDatetime",value:function(e){var n=e.utc,r=e.unix,o=e.tz,i=e.date,a=e.locale,u=e.parse;i=i||e.children,u=u||t.globalParse,a=t.globalLocale?t.globalLocale:a||t.globalMoment.locale();var l=null;return l=n?t.globalMoment.utc(i,u,a):r?t.globalMoment(1e3*i,u,a):t.globalMoment(i,u,a),o&&(l=l.tz(o)),l}}]),l(t,[{key:"componentWillMount",value:function(){this.update(this.props)}},{key:"componentDidMount",value:function(){this.setTimer(),t.pooledTimer&&t.pushPooledElement(this)}},{key:"componentWillReceiveProps",value:function(e){this.update(e)}},{key:"componentDidUpdate",value:function(e){e.interval!==this.props.interval&&this.setTimer()}},{key:"componentWillUnmount",value:function(){this.clearTimer()}},{key:"update",value:function(e){var n=this;e=e||this.props;var r=e,o=r.fromNow,i=r.from,a=r.add,u=r.subtract,l=r.toNow,c=r.to,f=r.ago,s=r.calendar,p=r.diff,d=r.unit,y=r.decimal,m=e,v=m.format;v=v||t.globalFormat;var h=t.getDatetime(e);a&&h.add(a),u&&h.subtract(u);var b="";b=v?h.format(v):i?h.from(i,f):o?h.fromNow(f):c?h.to(c,f):l?h.toNow(f):s?h.calendar(null,s):p?h.diff(p,d,y):h.toString();var g=t.globalFilter||this.props.filter;b=g(b),this.setState({content:b},function(){n.props.onChange(b)})}},{key:"render",value:function(){var e=(0,m.objectKeyFilter)(this.props,t.propTypes);return f.default.createElement(t.globalElement||this.props.element,u({dateTime:t.getDatetime(this.props)},e),this.state.content)}}]),t}(f.default.Component);g.propTypes={element:p.default.any,date:p.default.oneOfType(v),parse:p.default.oneOfType(h),format:p.default.string,add:p.default.object,subtract:p.default.object,ago:p.default.bool,fromNow:p.default.bool,from:p.default.oneOfType(v),toNow:p.default.bool,to:p.default.oneOfType(v),calendar:p.default.oneOfType(b),unix:p.default.bool,utc:p.default.bool,tz:p.default.string,locale:p.default.string,interval:p.default.number,diff:p.default.oneOfType(v),unit:p.default.string,decimal:p.default.bool,filter:p.default.func,onChange:p.default.func},g.defaultProps={element:"time",fromNow:!1,toNow:!1,calendar:!1,ago:!1,unix:!1,utc:!1,unit:null,decimal:!1,interval:6e4,filter:function(e){return e},onChange:function(){}},g.globalMoment=null,g.globalLocale=null,g.globalFormat=null,g.globalParse=null,g.globalFilter=null,g.globalElement=null,g.pooledElements=[],g.pooledTimer=null,t.default=g},function(e,t){function n(){throw new Error("setTimeout has not been defined")}function r(){throw new Error("clearTimeout has not been defined")}function o(e){if(f===setTimeout)return setTimeout(e,0);if((f===n||!f)&&setTimeout)return f=setTimeout,setTimeout(e,0);try{return f(e,0)}catch(t){try{return f.call(null,e,0)}catch(t){return f.call(this,e,0)}}}function i(e){if(s===clearTimeout)return clearTimeout(e);if((s===r||!s)&&clearTimeout)return s=clearTimeout,clearTimeout(e);try{return s(e)}catch(t){try{return s.call(null,e)}catch(t){return s.call(this,e)}}}function a(){m&&d&&(m=!1,d.length?y=d.concat(y):v=-1,y.length&&u())}function u(){if(!m){var e=o(a);m=!0;for(var t=y.length;t;){for(d=y,y=[];++v<t;)d&&d[v].run();v=-1,t=y.length}d=null,m=!1,i(e)}}function l(e,t){this.fun=e,this.array=t}function c(){}var f,s,p=e.exports={};!function(){try{f="function"==typeof setTimeout?setTimeout:n}catch(e){f=n}try{s="function"==typeof clearTimeout?clearTimeout:r}catch(e){s=r}}();var d,y=[],m=!1,v=-1;p.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];y.push(new l(e,t)),1!==y.length||m||o(u)},l.prototype.run=function(){this.fun.apply(null,this.array)},p.title="browser",p.browser=!0,p.env={},p.argv=[],p.version="",p.versions={},p.on=c,p.addListener=c,p.once=c,p.off=c,p.removeListener=c,p.removeAllListeners=c,p.emit=c,p.prependListener=c,p.prependOnceListener=c,p.listeners=function(e){return[]},p.binding=function(e){throw new Error("process.binding is not supported")},p.cwd=function(){return"/"},p.chdir=function(e){throw new Error("process.chdir is not supported")},p.umask=function(){return 0}},function(e,t){"use strict";function n(e){return function(){return e}}var r=function(){};r.thatReturns=n,r.thatReturnsFalse=n(!1),r.thatReturnsTrue=n(!0),r.thatReturnsNull=n(null),r.thatReturnsThis=function(){return this},r.thatReturnsArgument=function(e){return e},e.exports=r},function(e,t,n){(function(t){"use strict";function n(e,t,n,o,i,a,u,l){if(r(t),!e){var c;if(void 0===t)c=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var f=[n,o,i,a,u,l],s=0;c=new Error(t.replace(/%s/g,function(){return f[s++]})),c.name="Invariant Violation"}throw c.framesToPop=1,c}}var r=function(e){};"production"!==t.env.NODE_ENV&&(r=function(e){if(void 0===e)throw new Error("invariant requires an error message argument")}),e.exports=n}).call(t,n(1))},function(e,t){"use strict";var n="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";e.exports=n},function(e,t,n){(function(t){"use strict";var r=n(2),o=r;if("production"!==t.env.NODE_ENV){var i=function(e){for(var t=arguments.length,n=Array(t>1?t-1:0),r=1;r<t;r++)n[r-1]=arguments[r];var o=0,i="Warning: "+e.replace(/%s/g,function(){return n[o++]});"undefined"!=typeof console&&console.error(i);try{throw new Error(i)}catch(e){}};o=function(e,t){if(void 0===t)throw new Error("`warning(condition, format, ...args)` requires a warning message argument");if(0!==t.indexOf("Failed Composite propType: ")&&!e){for(var n=arguments.length,r=Array(n>2?n-2:0),o=2;o<n;o++)r[o-2]=arguments[o];i.apply(void 0,[t].concat(r))}}}e.exports=o}).call(t,n(1))},function(e,t){"use strict";function n(e,t){var n=Object.keys(t),r=Object.assign({},e);return Object.keys(r).filter(function(e){return n.indexOf(e)!==-1}).forEach(function(e){return delete r[e]}),r}Object.defineProperty(t,"__esModule",{value:!0}),t.objectKeyFilter=n},function(e,t){/*
-	object-assign
-	(c) Sindre Sorhus
-	@license MIT
-	*/
-"use strict";function n(e){if(null===e||void 0===e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}function r(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},n=0;n<10;n++)t["_"+String.fromCharCode(n)]=n;var r=Object.getOwnPropertyNames(t).map(function(e){return t[e]});if("0123456789"!==r.join(""))return!1;var o={};return"abcdefghijklmnopqrst".split("").forEach(function(e){o[e]=e}),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},o)).join("")}catch(e){return!1}}var o=Object.getOwnPropertySymbols,i=Object.prototype.hasOwnProperty,a=Object.prototype.propertyIsEnumerable;e.exports=r()?Object.assign:function(e,t){for(var r,u,l=n(e),c=1;c<arguments.length;c++){r=Object(arguments[c]);for(var f in r)i.call(r,f)&&(l[f]=r[f]);if(o){u=o(r);for(var s=0;s<u.length;s++)a.call(r,u[s])&&(l[u[s]]=r[u[s]])}}return l}},function(e,t,n){(function(t){"use strict";function r(e,n,r,l,c){if("production"!==t.env.NODE_ENV)for(var f in e)if(e.hasOwnProperty(f)){var s;try{o("function"==typeof e[f],"%s: %s type `%s` is invalid; it must be a function, usually from the `prop-types` package, but received `%s`.",l||"React class",r,f,typeof e[f]),s=e[f](n,f,l,r,null,a)}catch(e){s=e}if(i(!s||s instanceof Error,"%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).",l||"React class",r,f,typeof s),s instanceof Error&&!(s.message in u)){u[s.message]=!0;var p=c?c():"";i(!1,"Failed %s type: %s%s",r,s.message,null!=p?p:"")}}}if("production"!==t.env.NODE_ENV)var o=n(3),i=n(5),a=n(4),u={};e.exports=r}).call(t,n(1))},function(e,t,n){"use strict";var r=n(2),o=n(3),i=n(4);e.exports=function(){function e(e,t,n,r,a,u){u!==i&&o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types")}function t(){return e}e.isRequired=e;var n={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t};return n.checkPropTypes=r,n.PropTypes=n,n}},function(e,t,n){(function(t){"use strict";var r=n(2),o=n(3),i=n(5),a=n(7),u=n(4),l=n(8);e.exports=function(e,n){function c(e){var t=e&&(R&&e[R]||e[I]);if("function"==typeof t)return t}function f(e,t){return e===t?0!==e||1/e===1/t:e!==e&&t!==t}function s(e){this.message=e,this.stack=""}function p(e){function r(r,c,f,p,d,y,m){if(p=p||S,y=y||f,m!==u)if(n)o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");else if("production"!==t.env.NODE_ENV&&"undefined"!=typeof console){var v=p+":"+f;!a[v]&&l<3&&(i(!1,"You are manually calling a React.PropTypes validation function for the `%s` prop on `%s`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details.",y,p),a[v]=!0,l++)}return null==c[f]?r?new s(null===c[f]?"The "+d+" `"+y+"` is marked as required "+("in `"+p+"`, but its value is `null`."):"The "+d+" `"+y+"` is marked as required in "+("`"+p+"`, but its value is `undefined`.")):null:e(c,f,p,d,y)}if("production"!==t.env.NODE_ENV)var a={},l=0;var c=r.bind(null,!1);return c.isRequired=r.bind(null,!0),c}function d(e){function t(t,n,r,o,i,a){var u=t[n],l=P(u);if(l!==e){var c=k(u);return new s("Invalid "+o+" `"+i+"` of type "+("`"+c+"` supplied to `"+r+"`, expected ")+("`"+e+"`."))}return null}return p(t)}function y(){return p(r.thatReturnsNull)}function m(e){function t(t,n,r,o,i){if("function"!=typeof e)return new s("Property `"+i+"` of component `"+r+"` has invalid PropType notation inside arrayOf.");var a=t[n];if(!Array.isArray(a)){var l=P(a);return new s("Invalid "+o+" `"+i+"` of type "+("`"+l+"` supplied to `"+r+"`, expected an array."))}for(var c=0;c<a.length;c++){var f=e(a,c,r,o,i+"["+c+"]",u);if(f instanceof Error)return f}return null}return p(t)}function v(){function t(t,n,r,o,i){var a=t[n];if(!e(a)){var u=P(a);return new s("Invalid "+o+" `"+i+"` of type "+("`"+u+"` supplied to `"+r+"`, expected a single ReactElement."))}return null}return p(t)}function h(e){function t(t,n,r,o,i){if(!(t[n]instanceof e)){var a=e.name||S,u=_(t[n]);return new s("Invalid "+o+" `"+i+"` of type "+("`"+u+"` supplied to `"+r+"`, expected ")+("instance of `"+a+"`."))}return null}return p(t)}function b(e){function n(t,n,r,o,i){for(var a=t[n],u=0;u<e.length;u++)if(f(a,e[u]))return null;var l=JSON.stringify(e);return new s("Invalid "+o+" `"+i+"` of value `"+a+"` "+("supplied to `"+r+"`, expected one of "+l+"."))}return Array.isArray(e)?p(n):("production"!==t.env.NODE_ENV?i(!1,"Invalid argument supplied to oneOf, expected an instance of array."):void 0,r.thatReturnsNull)}function g(e){function t(t,n,r,o,i){if("function"!=typeof e)return new s("Property `"+i+"` of component `"+r+"` has invalid PropType notation inside objectOf.");var a=t[n],l=P(a);if("object"!==l)return new s("Invalid "+o+" `"+i+"` of type "+("`"+l+"` supplied to `"+r+"`, expected an object."));for(var c in a)if(a.hasOwnProperty(c)){var f=e(a,c,r,o,i+"."+c,u);if(f instanceof Error)return f}return null}return p(t)}function O(e){function n(t,n,r,o,i){for(var a=0;a<e.length;a++){var l=e[a];if(null==l(t,n,r,o,i,u))return null}return new s("Invalid "+o+" `"+i+"` supplied to "+("`"+r+"`."))}if(!Array.isArray(e))return"production"!==t.env.NODE_ENV?i(!1,"Invalid argument supplied to oneOfType, expected an instance of array."):void 0,r.thatReturnsNull;for(var o=0;o<e.length;o++){var a=e[o];if("function"!=typeof a)return i(!1,"Invalid argument supplied to oneOfType. Expected an array of check functions, but received %s at index %s.",N(a),o),r.thatReturnsNull}return p(n)}function T(){function e(e,t,n,r,o){return j(e[t])?null:new s("Invalid "+r+" `"+o+"` supplied to "+("`"+n+"`, expected a ReactNode."))}return p(e)}function w(e){function t(t,n,r,o,i){var a=t[n],l=P(a);if("object"!==l)return new s("Invalid "+o+" `"+i+"` of type `"+l+"` "+("supplied to `"+r+"`, expected `object`."));for(var c in e){var f=e[c];if(f){var p=f(a,c,r,o,i+"."+c,u);if(p)return p}}return null}return p(t)}function E(e){function t(t,n,r,o,i){var l=t[n],c=P(l);if("object"!==c)return new s("Invalid "+o+" `"+i+"` of type `"+c+"` "+("supplied to `"+r+"`, expected `object`."));var f=a({},t[n],e);for(var p in f){var d=e[p];if(!d)return new s("Invalid "+o+" `"+i+"` key `"+p+"` supplied to `"+r+"`.\nBad object: "+JSON.stringify(t[n],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var y=d(l,p,r,o,i+"."+p,u);if(y)return y}return null}return p(t)}function j(t){switch(typeof t){case"number":case"string":case"undefined":return!0;case"boolean":return!t;case"object":if(Array.isArray(t))return t.every(j);if(null===t||e(t))return!0;var n=c(t);if(!n)return!1;var r,o=n.call(t);if(n!==t.entries){for(;!(r=o.next()).done;)if(!j(r.value))return!1}else for(;!(r=o.next()).done;){var i=r.value;if(i&&!j(i[1]))return!1}return!0;default:return!1}}function x(e,t){return"symbol"===e||("Symbol"===t["@@toStringTag"]||"function"==typeof Symbol&&t instanceof Symbol)}function P(e){var t=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":x(t,e)?"symbol":t}function k(e){if("undefined"==typeof e||null===e)return""+e;var t=P(e);if("object"===t){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return t}function N(e){var t=k(e);switch(t){case"array":case"object":return"an "+t;case"boolean":case"date":case"regexp":return"a "+t;default:return t}}function _(e){return e.constructor&&e.constructor.name?e.constructor.name:S}var R="function"==typeof Symbol&&Symbol.iterator,I="@@iterator",S="<<anonymous>>",D={array:d("array"),bool:d("boolean"),func:d("function"),number:d("number"),object:d("object"),string:d("string"),symbol:d("symbol"),any:y(),arrayOf:m,element:v(),instanceOf:h,node:T(),objectOf:g,oneOf:b,oneOfType:O,shape:w,exact:E};return s.prototype=Error.prototype,D.checkPropTypes=l,D.PropTypes=D,D}}).call(t,n(1))},function(e,t,n){(function(t){if("production"!==t.env.NODE_ENV){var r="function"==typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,o=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===r},i=!0;e.exports=n(10)(o,i)}else e.exports=n(9)()}).call(t,n(1))},function(t,n){t.exports=e},function(e,n){e.exports=t}])});
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(286)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(287)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 68 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var roundTo = function roundTo(number, places) {
-  return typeof number === 'undefined' ? 0 : Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
+/* eslint quote-props: ["error", "consistent"] */
+
+var weatherIcons = {
+  'Few clouds': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Scattered clouds': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Clear sky': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Overcast clouds': {
+    unicode: '\uF013',
+    ligature: 'overcast-clouds',
+    className: 'cloudy'
+  },
+  'Shower rain': {
+    unicode: '\uF015',
+    ligature: 'shower-rain',
+    className: 'cloudy'
+  },
+  'Light intensity shower rain': {
+    unicode: '\uF015',
+    ligature: 'light-intensity-shower-rain',
+    className: 'cloudy'
+  },
+  'Thunder': {
+    unicode: '\uF016',
+    ligature: 'thunder',
+    className: 'stormy'
+  },
+  'Sleet': {
+    unicode: '\uF017',
+    ligature: 'sleet',
+    className: 'cloudy'
+  },
+  'Shower sleet': {
+    unicode: '\uF017',
+    ligature: 'shower-sleet',
+    className: 'cloudy'
+  },
+  'Light rain and snow': {
+    unicode: '\uF017',
+    ligature: 'light-rain-and-snow',
+    className: 'cloudy'
+  },
+  'Rain and snow': {
+    unicode: '\uF017',
+    ligature: 'rain-and-snow',
+    className: 'stormy'
+  },
+  'Light shower snow': {
+    unicode: '\uF017',
+    ligature: 'light-shower-snow',
+    className: 'cloudy'
+  },
+  'Shower snow': {
+    unicode: '\uF017',
+    ligature: 'shower-snow',
+    className: 'cloudy'
+  },
+  'Heavy shower snow': {
+    unicode: '\uF017',
+    ligature: 'heavy-shower-snow',
+    className: 'stormy'
+  },
+  'Heavy intensity shower rain': {
+    unicode: '\uF018',
+    ligature: 'heavy-intensity-shower-rain',
+    className: 'stormy'
+  },
+  'Ragged shower rain': {
+    unicode: '\uF018',
+    ligature: 'ragged-shower-rain',
+    className: 'stormy'
+  },
+  'Rain': {
+    unicode: '\uF019',
+    ligature: 'rain',
+    className: 'cloudy'
+  },
+  'Heavy intensity rain': {
+    unicode: '\uF019',
+    ligature: 'heavy-intensity-rain',
+    className: 'stormy'
+  },
+  'Very heavy rain': {
+    unicode: '\uF019',
+    ligature: 'very-heavy-rain',
+    className: 'stormy'
+  },
+  'Extreme rain': {
+    unicode: '\uF019',
+    ligature: 'extreme-rain',
+    className: 'stormy'
+  },
+  'Freezing rain': {
+    unicode: '\uF019',
+    ligature: 'freezing-rain',
+    className: 'cloudy'
+  },
+  'Light intensity drizzle': {
+    unicode: '\uF01A',
+    ligature: 'light-intensity-drizzle',
+    className: 'cloudy'
+  },
+  'Drizzle': {
+    unicode: '\uF01A',
+    ligature: 'drizzle',
+    className: 'cloudy'
+  },
+  'Heavy intensity drizzle': {
+    unicode: '\uF01A',
+    ligature: 'heavy-intensity-drizzle',
+    className: 'cloudy'
+  },
+  'Drizzle rain': {
+    unicode: '\uF01A',
+    ligature: 'drizzle-rain',
+    className: 'cloudy'
+  },
+  'Heavy intensity drizzle rain': {
+    unicode: '\uF01A',
+    ligature: 'heavy-intensity-drizzle-rain',
+    className: 'stormy'
+  },
+  'Shower rain and drizzle': {
+    unicode: '\uF01A',
+    ligature: 'shower-rain-and-drizzle',
+    className: 'cloudy'
+  },
+  'Heavy shower rain and drizzle': {
+    unicode: '\uF01A',
+    ligature: 'heavy-shower-rain-and-drizzle',
+    className: 'stormy'
+  },
+  'Shower drizzle': {
+    unicode: '\uF01A',
+    ligature: 'shower-drizzle',
+    className: 'cloudy'
+  },
+  'Light rain': {
+    unicode: '\uF01A',
+    ligature: 'light-rain',
+    className: 'cloudy'
+  },
+  'Moderate rain': {
+    unicode: '\uF01A',
+    ligature: 'moderate-rain',
+    className: 'cloudy'
+  },
+  'Light snow': {
+    unicode: '\uF01B',
+    ligature: 'light-snow',
+    className: 'cloudy'
+  },
+  'Snow': {
+    unicode: '\uF01B',
+    ligature: 'snow',
+    className: 'cloudy'
+  },
+  'Heavy snow': {
+    unicode: '\uF01B',
+    ligature: 'heavy-snow',
+    className: 'cloudy'
+  },
+  'Thunderstorm with light rain': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-light-rain',
+    className: 'stormy'
+  },
+  'Light thunderstorm': {
+    unicode: '\uF01D',
+    ligature: 'light-thunderstorm',
+    className: 'stormy'
+  },
+  'Thunderstorm with light drizzle': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-light-drizzle',
+    className: 'stormy'
+  },
+  'Thunderstorm with drizzle': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-drizzle',
+    className: 'stormy'
+  },
+  'Thunderstorm with heavy drizzle': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-heavy-drizzle',
+    className: 'stormy'
+  },
+  'Thunderstorm': {
+    unicode: '\uF01E',
+    ligature: 'thunderstorm',
+    className: 'stormy'
+  },
+  'Thunderstorm with rain': {
+    unicode: '\uF01E',
+    ligature: 'thunderstorm-with-rain',
+    className: 'stormy'
+  },
+  'Thunderstorm with heavy rain': {
+    unicode: '\uF01E',
+    ligature: 'thunderstorm-with-heavy-rain',
+    className: 'stormy'
+  },
+  'Heavy thunderstorm': {
+    unicode: '\uF01E',
+    ligature: 'heavy-thunderstorm',
+    className: 'stormy'
+  },
+  'Ragged thunderstorm': {
+    unicode: '\uF01E',
+    ligature: 'ragged-thunderstorm',
+    className: 'stormy'
+  },
+  'Fog': {
+    unicode: '\uF021',
+    ligature: 'fog',
+    className: 'cloudy'
+  },
+  'Haze': {
+    unicode: '\uF021',
+    ligature: 'haze',
+    className: 'cloudy'
+  },
+  'Broken clouds': {
+    unicode: '\uF041',
+    ligature: 'broken-clouds',
+    className: 'cloudy'
+  },
+  'Windy': {
+    unicode: '\uF050',
+    ligature: 'windy',
+    className: 'clear'
+  },
+  'Mist': {
+    unicode: '\uF063',
+    ligature: 'mist',
+    className: 'clear'
+  },
+  'Hail': {
+    unicode: '\uF064',
+    ligature: 'hail',
+    className: 'stormy'
+  },
+  'Hot': {
+    unicode: '\uF072',
+    ligature: 'hot',
+    className: 'clear'
+  },
+  'Storm': {
+    unicode: '\uF073',
+    ligature: 'storm',
+    className: 'stormy'
+  },
+  'Violent storm': {
+    unicode: '\uF073',
+    ligature: 'violent-storm',
+    className: 'stormy'
+  },
+  'Tornado': {
+    unicode: '\uF073',
+    ligature: 'tornado',
+    className: 'stormy'
+  },
+  'Tropical storm': {
+    unicode: '\uF073',
+    ligature: 'tropical storm',
+    className: 'stormy'
+  },
+  'Hurricane': {
+    unicode: '\uF073',
+    ligature: 'hurricane',
+    className: 'stormy'
+  },
+  'Smoke': {
+    unicode: '\uF074',
+    ligature: 'smoke',
+    className: 'smoke'
+  },
+  'Sand': {
+    unicode: '\uF074',
+    ligature: 'sand',
+    className: 'smoke'
+  },
+  'Dust whirls': {
+    unicode: '\uF074',
+    ligature: 'dust-whirls',
+    className: 'smoke'
+  },
+  'Cold': {
+    unicode: '\uF076',
+    ligature: 'cold',
+    className: 'clear'
+  },
+  'Calm': {
+    unicode: '\uF0B7',
+    ligature: 'calm',
+    className: 'clear'
+  },
+  'Light breeze': {
+    unicode: '\uF0B8',
+    ligature: 'light-breeze',
+    className: 'clear'
+  },
+  'Gentle breeze': {
+    unicode: '\uF0B9',
+    ligature: 'gentle-breeze',
+    className: 'clear'
+  },
+  'Moderate breeze': {
+    unicode: '\uF0BA',
+    ligature: 'moderate-breeze',
+    className: 'clear'
+  },
+  'Fresh breeze': {
+    unicode: '\uF0BB',
+    ligature: 'fresh-breeze',
+    className: 'clear'
+  },
+  'Strong breze': {
+    unicode: '\uF0BC',
+    ligature: 'strong-breeze',
+    className: 'clear'
+  },
+  'High wind': {
+    unicode: '\uF0BD',
+    ligature: 'high-breeze',
+    className: 'clear'
+  },
+  'Gale': {
+    unicode: '\uF0BE',
+    ligature: 'gale',
+    className: 'clear'
+  },
+  'Severe gale': {
+    unicode: '\uF0BF',
+    ligature: 'severe-gale',
+    className: 'clear'
+  },
+  'Volcanic ash': {
+    unicode: '\uF0C8',
+    ligature: 'volcanic-ash',
+    className: 'smoke'
+  }
 };
-module.exports = roundTo;
+
+module.exports = weatherIcons;
 
 /***/ }),
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
 /* 69 */,
 /* 70 */,
 /* 71 */,
@@ -5616,8 +5958,7 @@ module.exports = roundTo;
 /* 79 */,
 /* 80 */,
 /* 81 */,
-/* 82 */,
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5630,7 +5971,7 @@ module.exports = roundTo;
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(26),n=__webpack_require__(33),p=__webpack_require__(13),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(26),n=__webpack_require__(33),p=__webpack_require__(12),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -5645,7 +5986,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5670,7 +6011,7 @@ var _assign = __webpack_require__(26);
 var emptyObject = __webpack_require__(33);
 var invariant = __webpack_require__(34);
 var warning = __webpack_require__(37);
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 var checkPropTypes = __webpack_require__(51);
 
 // TODO: this is special because it gets imported during build.
@@ -7010,7 +7351,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7048,15 +7389,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(86);
+  module.exports = __webpack_require__(85);
 } else {
-  module.exports = __webpack_require__(89);
+  module.exports = __webpack_require__(88);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7072,7 +7413,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(12),l=__webpack_require__(58),B=__webpack_require__(26),C=__webpack_require__(13),ba=__webpack_require__(59),da=__webpack_require__(60),ea=__webpack_require__(61),fa=__webpack_require__(62),ia=__webpack_require__(63),D=__webpack_require__(33);
+var aa=__webpack_require__(14),l=__webpack_require__(57),B=__webpack_require__(26),C=__webpack_require__(12),ba=__webpack_require__(58),da=__webpack_require__(59),ea=__webpack_require__(60),fa=__webpack_require__(61),ia=__webpack_require__(62),D=__webpack_require__(33);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -7292,7 +7633,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7307,7 +7648,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(88);
+var isNode = __webpack_require__(87);
 
 /**
  * @param {*} object The object to check.
@@ -7320,7 +7661,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7348,7 +7689,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7369,21 +7710,21 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(12);
+var React = __webpack_require__(14);
 var invariant = __webpack_require__(34);
 var warning = __webpack_require__(37);
-var ExecutionEnvironment = __webpack_require__(58);
+var ExecutionEnvironment = __webpack_require__(57);
 var _assign = __webpack_require__(26);
-var emptyFunction = __webpack_require__(13);
-var EventListener = __webpack_require__(59);
-var getActiveElement = __webpack_require__(60);
-var shallowEqual = __webpack_require__(61);
-var containsNode = __webpack_require__(62);
-var focusNode = __webpack_require__(63);
+var emptyFunction = __webpack_require__(12);
+var EventListener = __webpack_require__(58);
+var getActiveElement = __webpack_require__(59);
+var shallowEqual = __webpack_require__(60);
+var containsNode = __webpack_require__(61);
+var focusNode = __webpack_require__(62);
 var emptyObject = __webpack_require__(33);
 var checkPropTypes = __webpack_require__(51);
-var hyphenateStyleName = __webpack_require__(90);
-var camelizeStyleName = __webpack_require__(92);
+var hyphenateStyleName = __webpack_require__(89);
+var camelizeStyleName = __webpack_require__(91);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -22750,7 +23091,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22765,7 +23106,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(91);
+var hyphenate = __webpack_require__(90);
 
 var msPattern = /^ms-/;
 
@@ -22792,7 +23133,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22828,7 +23169,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22843,7 +23184,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(93);
+var camelize = __webpack_require__(92);
 
 var msPattern = /^-ms-/;
 
@@ -22871,7 +23212,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22906,6 +23247,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
+/* 93 */,
 /* 94 */,
 /* 95 */,
 /* 96 */,
@@ -22933,7 +23275,17 @@ module.exports = camelize;
 /* 118 */,
 /* 119 */,
 /* 120 */,
-/* 121 */,
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t(__webpack_require__(1),__webpack_require__(14)):"function"==typeof define&&define.amd?define(["moment","react"],t):"object"==typeof exports?exports["react-moment"]=t(require("moment"),require("react")):e["react-moment"]=t(e.moment,e.react)}(this,function(e,t){return function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{default:e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function a(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var u=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},l=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),c=n(13),f=r(c),s=n(11),p=r(s),d=n(12),y=r(d),m=n(6),v=[p.default.string,p.default.number,p.default.array,p.default.object],h=[p.default.string,p.default.array],b=[p.default.object,p.default.bool],g=function(e){function t(e){o(this,t);var n=i(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return n.setTimer=function(){n.clearTimer();var e=n.props.interval;t.pooledTimer||0===e||(n.timer=setInterval(function(){n.update(n.props)},e))},n.clearTimer=function(){!t.pooledTimer&&n.timer&&(clearInterval(n.timer),n.timer=null),t.pooledTimer&&!n.timer&&t.removePooledElement(n)},t.globalMoment||(t.globalMoment=y.default),n.state={content:""},n.timer=null,n}return a(t,e),l(t,null,[{key:"startPooledTimer",value:function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:6e4;t.clearPooledTimer(),t.pooledTimer=setInterval(function(){t.pooledElements.forEach(function(e){0!==e.props.interval&&e.update()})},e)}},{key:"clearPooledTimer",value:function(){t.pooledTimer&&(clearInterval(t.pooledTimer),t.pooledTimer=null,t.pooledElements=[])}},{key:"pushPooledElement",value:function(e){return e instanceof t?void(t.pooledElements.indexOf(e)===-1&&t.pooledElements.push(e)):void console.error("Element not an instance of Moment.")}},{key:"removePooledElement",value:function(e){var n=t.pooledElements.indexOf(e);n!==-1&&t.pooledElements.splice(n,1)}},{key:"getDatetime",value:function(e){var n=e.utc,r=e.unix,o=e.tz,i=e.date,a=e.locale,u=e.parse;i=i||e.children,u=u||t.globalParse,a=t.globalLocale?t.globalLocale:a||t.globalMoment.locale();var l=null;return l=n?t.globalMoment.utc(i,u,a):r?t.globalMoment(1e3*i,u,a):t.globalMoment(i,u,a),o&&(l=l.tz(o)),l}}]),l(t,[{key:"componentWillMount",value:function(){this.update(this.props)}},{key:"componentDidMount",value:function(){this.setTimer(),t.pooledTimer&&t.pushPooledElement(this)}},{key:"componentWillReceiveProps",value:function(e){this.update(e)}},{key:"componentDidUpdate",value:function(e){e.interval!==this.props.interval&&this.setTimer()}},{key:"componentWillUnmount",value:function(){this.clearTimer()}},{key:"update",value:function(e){var n=this;e=e||this.props;var r=e,o=r.fromNow,i=r.from,a=r.add,u=r.subtract,l=r.toNow,c=r.to,f=r.ago,s=r.calendar,p=r.diff,d=r.unit,y=r.decimal,m=e,v=m.format;v=v||t.globalFormat;var h=t.getDatetime(e);a&&h.add(a),u&&h.subtract(u);var b="";b=v?h.format(v):i?h.from(i,f):o?h.fromNow(f):c?h.to(c,f):l?h.toNow(f):s?h.calendar(null,s):p?h.diff(p,d,y):h.toString();var g=t.globalFilter||this.props.filter;b=g(b),this.setState({content:b},function(){n.props.onChange(b)})}},{key:"render",value:function(){var e=(0,m.objectKeyFilter)(this.props,t.propTypes);return f.default.createElement(t.globalElement||this.props.element,u({dateTime:t.getDatetime(this.props)},e),this.state.content)}}]),t}(f.default.Component);g.propTypes={element:p.default.any,date:p.default.oneOfType(v),parse:p.default.oneOfType(h),format:p.default.string,add:p.default.object,subtract:p.default.object,ago:p.default.bool,fromNow:p.default.bool,from:p.default.oneOfType(v),toNow:p.default.bool,to:p.default.oneOfType(v),calendar:p.default.oneOfType(b),unix:p.default.bool,utc:p.default.bool,tz:p.default.string,locale:p.default.string,interval:p.default.number,diff:p.default.oneOfType(v),unit:p.default.string,decimal:p.default.bool,filter:p.default.func,onChange:p.default.func},g.defaultProps={element:"time",fromNow:!1,toNow:!1,calendar:!1,ago:!1,unix:!1,utc:!1,unit:null,decimal:!1,interval:6e4,filter:function(e){return e},onChange:function(){}},g.globalMoment=null,g.globalLocale=null,g.globalFormat=null,g.globalParse=null,g.globalFilter=null,g.globalElement=null,g.pooledElements=[],g.pooledTimer=null,t.default=g},function(e,t){function n(){throw new Error("setTimeout has not been defined")}function r(){throw new Error("clearTimeout has not been defined")}function o(e){if(f===setTimeout)return setTimeout(e,0);if((f===n||!f)&&setTimeout)return f=setTimeout,setTimeout(e,0);try{return f(e,0)}catch(t){try{return f.call(null,e,0)}catch(t){return f.call(this,e,0)}}}function i(e){if(s===clearTimeout)return clearTimeout(e);if((s===r||!s)&&clearTimeout)return s=clearTimeout,clearTimeout(e);try{return s(e)}catch(t){try{return s.call(null,e)}catch(t){return s.call(this,e)}}}function a(){m&&d&&(m=!1,d.length?y=d.concat(y):v=-1,y.length&&u())}function u(){if(!m){var e=o(a);m=!0;for(var t=y.length;t;){for(d=y,y=[];++v<t;)d&&d[v].run();v=-1,t=y.length}d=null,m=!1,i(e)}}function l(e,t){this.fun=e,this.array=t}function c(){}var f,s,p=e.exports={};!function(){try{f="function"==typeof setTimeout?setTimeout:n}catch(e){f=n}try{s="function"==typeof clearTimeout?clearTimeout:r}catch(e){s=r}}();var d,y=[],m=!1,v=-1;p.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];y.push(new l(e,t)),1!==y.length||m||o(u)},l.prototype.run=function(){this.fun.apply(null,this.array)},p.title="browser",p.browser=!0,p.env={},p.argv=[],p.version="",p.versions={},p.on=c,p.addListener=c,p.once=c,p.off=c,p.removeListener=c,p.removeAllListeners=c,p.emit=c,p.prependListener=c,p.prependOnceListener=c,p.listeners=function(e){return[]},p.binding=function(e){throw new Error("process.binding is not supported")},p.cwd=function(){return"/"},p.chdir=function(e){throw new Error("process.chdir is not supported")},p.umask=function(){return 0}},function(e,t){"use strict";function n(e){return function(){return e}}var r=function(){};r.thatReturns=n,r.thatReturnsFalse=n(!1),r.thatReturnsTrue=n(!0),r.thatReturnsNull=n(null),r.thatReturnsThis=function(){return this},r.thatReturnsArgument=function(e){return e},e.exports=r},function(e,t,n){(function(t){"use strict";function n(e,t,n,o,i,a,u,l){if(r(t),!e){var c;if(void 0===t)c=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var f=[n,o,i,a,u,l],s=0;c=new Error(t.replace(/%s/g,function(){return f[s++]})),c.name="Invariant Violation"}throw c.framesToPop=1,c}}var r=function(e){};"production"!==t.env.NODE_ENV&&(r=function(e){if(void 0===e)throw new Error("invariant requires an error message argument")}),e.exports=n}).call(t,n(1))},function(e,t){"use strict";var n="SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";e.exports=n},function(e,t,n){(function(t){"use strict";var r=n(2),o=r;if("production"!==t.env.NODE_ENV){var i=function(e){for(var t=arguments.length,n=Array(t>1?t-1:0),r=1;r<t;r++)n[r-1]=arguments[r];var o=0,i="Warning: "+e.replace(/%s/g,function(){return n[o++]});"undefined"!=typeof console&&console.error(i);try{throw new Error(i)}catch(e){}};o=function(e,t){if(void 0===t)throw new Error("`warning(condition, format, ...args)` requires a warning message argument");if(0!==t.indexOf("Failed Composite propType: ")&&!e){for(var n=arguments.length,r=Array(n>2?n-2:0),o=2;o<n;o++)r[o-2]=arguments[o];i.apply(void 0,[t].concat(r))}}}e.exports=o}).call(t,n(1))},function(e,t){"use strict";function n(e,t){var n=Object.keys(t),r=Object.assign({},e);return Object.keys(r).filter(function(e){return n.indexOf(e)!==-1}).forEach(function(e){return delete r[e]}),r}Object.defineProperty(t,"__esModule",{value:!0}),t.objectKeyFilter=n},function(e,t){/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+"use strict";function n(e){if(null===e||void 0===e)throw new TypeError("Object.assign cannot be called with null or undefined");return Object(e)}function r(){try{if(!Object.assign)return!1;var e=new String("abc");if(e[5]="de","5"===Object.getOwnPropertyNames(e)[0])return!1;for(var t={},n=0;n<10;n++)t["_"+String.fromCharCode(n)]=n;var r=Object.getOwnPropertyNames(t).map(function(e){return t[e]});if("0123456789"!==r.join(""))return!1;var o={};return"abcdefghijklmnopqrst".split("").forEach(function(e){o[e]=e}),"abcdefghijklmnopqrst"===Object.keys(Object.assign({},o)).join("")}catch(e){return!1}}var o=Object.getOwnPropertySymbols,i=Object.prototype.hasOwnProperty,a=Object.prototype.propertyIsEnumerable;e.exports=r()?Object.assign:function(e,t){for(var r,u,l=n(e),c=1;c<arguments.length;c++){r=Object(arguments[c]);for(var f in r)i.call(r,f)&&(l[f]=r[f]);if(o){u=o(r);for(var s=0;s<u.length;s++)a.call(r,u[s])&&(l[u[s]]=r[u[s]])}}return l}},function(e,t,n){(function(t){"use strict";function r(e,n,r,l,c){if("production"!==t.env.NODE_ENV)for(var f in e)if(e.hasOwnProperty(f)){var s;try{o("function"==typeof e[f],"%s: %s type `%s` is invalid; it must be a function, usually from the `prop-types` package, but received `%s`.",l||"React class",r,f,typeof e[f]),s=e[f](n,f,l,r,null,a)}catch(e){s=e}if(i(!s||s instanceof Error,"%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).",l||"React class",r,f,typeof s),s instanceof Error&&!(s.message in u)){u[s.message]=!0;var p=c?c():"";i(!1,"Failed %s type: %s%s",r,s.message,null!=p?p:"")}}}if("production"!==t.env.NODE_ENV)var o=n(3),i=n(5),a=n(4),u={};e.exports=r}).call(t,n(1))},function(e,t,n){"use strict";var r=n(2),o=n(3),i=n(4);e.exports=function(){function e(e,t,n,r,a,u){u!==i&&o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types")}function t(){return e}e.isRequired=e;var n={array:e,bool:e,func:e,number:e,object:e,string:e,symbol:e,any:e,arrayOf:t,element:e,instanceOf:t,node:e,objectOf:t,oneOf:t,oneOfType:t,shape:t,exact:t};return n.checkPropTypes=r,n.PropTypes=n,n}},function(e,t,n){(function(t){"use strict";var r=n(2),o=n(3),i=n(5),a=n(7),u=n(4),l=n(8);e.exports=function(e,n){function c(e){var t=e&&(R&&e[R]||e[I]);if("function"==typeof t)return t}function f(e,t){return e===t?0!==e||1/e===1/t:e!==e&&t!==t}function s(e){this.message=e,this.stack=""}function p(e){function r(r,c,f,p,d,y,m){if(p=p||S,y=y||f,m!==u)if(n)o(!1,"Calling PropTypes validators directly is not supported by the `prop-types` package. Use `PropTypes.checkPropTypes()` to call them. Read more at http://fb.me/use-check-prop-types");else if("production"!==t.env.NODE_ENV&&"undefined"!=typeof console){var v=p+":"+f;!a[v]&&l<3&&(i(!1,"You are manually calling a React.PropTypes validation function for the `%s` prop on `%s`. This is deprecated and will throw in the standalone `prop-types` package. You may be seeing this warning due to a third-party PropTypes library. See https://fb.me/react-warning-dont-call-proptypes for details.",y,p),a[v]=!0,l++)}return null==c[f]?r?new s(null===c[f]?"The "+d+" `"+y+"` is marked as required "+("in `"+p+"`, but its value is `null`."):"The "+d+" `"+y+"` is marked as required in "+("`"+p+"`, but its value is `undefined`.")):null:e(c,f,p,d,y)}if("production"!==t.env.NODE_ENV)var a={},l=0;var c=r.bind(null,!1);return c.isRequired=r.bind(null,!0),c}function d(e){function t(t,n,r,o,i,a){var u=t[n],l=P(u);if(l!==e){var c=k(u);return new s("Invalid "+o+" `"+i+"` of type "+("`"+c+"` supplied to `"+r+"`, expected ")+("`"+e+"`."))}return null}return p(t)}function y(){return p(r.thatReturnsNull)}function m(e){function t(t,n,r,o,i){if("function"!=typeof e)return new s("Property `"+i+"` of component `"+r+"` has invalid PropType notation inside arrayOf.");var a=t[n];if(!Array.isArray(a)){var l=P(a);return new s("Invalid "+o+" `"+i+"` of type "+("`"+l+"` supplied to `"+r+"`, expected an array."))}for(var c=0;c<a.length;c++){var f=e(a,c,r,o,i+"["+c+"]",u);if(f instanceof Error)return f}return null}return p(t)}function v(){function t(t,n,r,o,i){var a=t[n];if(!e(a)){var u=P(a);return new s("Invalid "+o+" `"+i+"` of type "+("`"+u+"` supplied to `"+r+"`, expected a single ReactElement."))}return null}return p(t)}function h(e){function t(t,n,r,o,i){if(!(t[n]instanceof e)){var a=e.name||S,u=_(t[n]);return new s("Invalid "+o+" `"+i+"` of type "+("`"+u+"` supplied to `"+r+"`, expected ")+("instance of `"+a+"`."))}return null}return p(t)}function b(e){function n(t,n,r,o,i){for(var a=t[n],u=0;u<e.length;u++)if(f(a,e[u]))return null;var l=JSON.stringify(e);return new s("Invalid "+o+" `"+i+"` of value `"+a+"` "+("supplied to `"+r+"`, expected one of "+l+"."))}return Array.isArray(e)?p(n):("production"!==t.env.NODE_ENV?i(!1,"Invalid argument supplied to oneOf, expected an instance of array."):void 0,r.thatReturnsNull)}function g(e){function t(t,n,r,o,i){if("function"!=typeof e)return new s("Property `"+i+"` of component `"+r+"` has invalid PropType notation inside objectOf.");var a=t[n],l=P(a);if("object"!==l)return new s("Invalid "+o+" `"+i+"` of type "+("`"+l+"` supplied to `"+r+"`, expected an object."));for(var c in a)if(a.hasOwnProperty(c)){var f=e(a,c,r,o,i+"."+c,u);if(f instanceof Error)return f}return null}return p(t)}function O(e){function n(t,n,r,o,i){for(var a=0;a<e.length;a++){var l=e[a];if(null==l(t,n,r,o,i,u))return null}return new s("Invalid "+o+" `"+i+"` supplied to "+("`"+r+"`."))}if(!Array.isArray(e))return"production"!==t.env.NODE_ENV?i(!1,"Invalid argument supplied to oneOfType, expected an instance of array."):void 0,r.thatReturnsNull;for(var o=0;o<e.length;o++){var a=e[o];if("function"!=typeof a)return i(!1,"Invalid argument supplied to oneOfType. Expected an array of check functions, but received %s at index %s.",N(a),o),r.thatReturnsNull}return p(n)}function T(){function e(e,t,n,r,o){return j(e[t])?null:new s("Invalid "+r+" `"+o+"` supplied to "+("`"+n+"`, expected a ReactNode."))}return p(e)}function w(e){function t(t,n,r,o,i){var a=t[n],l=P(a);if("object"!==l)return new s("Invalid "+o+" `"+i+"` of type `"+l+"` "+("supplied to `"+r+"`, expected `object`."));for(var c in e){var f=e[c];if(f){var p=f(a,c,r,o,i+"."+c,u);if(p)return p}}return null}return p(t)}function E(e){function t(t,n,r,o,i){var l=t[n],c=P(l);if("object"!==c)return new s("Invalid "+o+" `"+i+"` of type `"+c+"` "+("supplied to `"+r+"`, expected `object`."));var f=a({},t[n],e);for(var p in f){var d=e[p];if(!d)return new s("Invalid "+o+" `"+i+"` key `"+p+"` supplied to `"+r+"`.\nBad object: "+JSON.stringify(t[n],null,"  ")+"\nValid keys: "+JSON.stringify(Object.keys(e),null,"  "));var y=d(l,p,r,o,i+"."+p,u);if(y)return y}return null}return p(t)}function j(t){switch(typeof t){case"number":case"string":case"undefined":return!0;case"boolean":return!t;case"object":if(Array.isArray(t))return t.every(j);if(null===t||e(t))return!0;var n=c(t);if(!n)return!1;var r,o=n.call(t);if(n!==t.entries){for(;!(r=o.next()).done;)if(!j(r.value))return!1}else for(;!(r=o.next()).done;){var i=r.value;if(i&&!j(i[1]))return!1}return!0;default:return!1}}function x(e,t){return"symbol"===e||("Symbol"===t["@@toStringTag"]||"function"==typeof Symbol&&t instanceof Symbol)}function P(e){var t=typeof e;return Array.isArray(e)?"array":e instanceof RegExp?"object":x(t,e)?"symbol":t}function k(e){if("undefined"==typeof e||null===e)return""+e;var t=P(e);if("object"===t){if(e instanceof Date)return"date";if(e instanceof RegExp)return"regexp"}return t}function N(e){var t=k(e);switch(t){case"array":case"object":return"an "+t;case"boolean":case"date":case"regexp":return"a "+t;default:return t}}function _(e){return e.constructor&&e.constructor.name?e.constructor.name:S}var R="function"==typeof Symbol&&Symbol.iterator,I="@@iterator",S="<<anonymous>>",D={array:d("array"),bool:d("boolean"),func:d("function"),number:d("number"),object:d("object"),string:d("string"),symbol:d("symbol"),any:y(),arrayOf:m,element:v(),instanceOf:h,node:T(),objectOf:g,oneOf:b,oneOfType:O,shape:w,exact:E};return s.prototype=Error.prototype,D.checkPropTypes=l,D.PropTypes=D,D}}).call(t,n(1))},function(e,t,n){(function(t){if("production"!==t.env.NODE_ENV){var r="function"==typeof Symbol&&Symbol.for&&Symbol.for("react.element")||60103,o=function(e){return"object"==typeof e&&null!==e&&e.$$typeof===r},i=!0;e.exports=n(10)(o,i)}else e.exports=n(9)()}).call(t,n(1))},function(t,n){t.exports=e},function(e,n){e.exports=t}])});
+
+/***/ }),
 /* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34595,7 +34947,18 @@ return zhTw;
 
 
 /***/ }),
-/* 241 */,
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var roundTo = function roundTo(number, places) {
+  return typeof number === 'undefined' ? 0 : Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
+};
+module.exports = roundTo;
+
+/***/ }),
 /* 242 */,
 /* 243 */,
 /* 244 */,
@@ -34636,7 +34999,8 @@ return zhTw;
 /* 279 */,
 /* 280 */,
 /* 281 */,
-/* 282 */
+/* 282 */,
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34644,35 +35008,35 @@ return zhTw;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(12);
+var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(85);
+var _reactDom = __webpack_require__(84);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _smoothScrollTo = __webpack_require__(283);
-
-var _smoothScrollTo2 = _interopRequireDefault(_smoothScrollTo);
-
-var _Logo = __webpack_require__(286);
+var _Logo = __webpack_require__(284);
 
 var _Logo2 = _interopRequireDefault(_Logo);
 
-var _Weather = __webpack_require__(294);
+var _Weather = __webpack_require__(292);
 
 var _Weather2 = _interopRequireDefault(_Weather);
 
-var _ScrollSection = __webpack_require__(554);
+var _ScrollSection = __webpack_require__(297);
 
 var _ScrollSection2 = _interopRequireDefault(_ScrollSection);
 
-var _Forecast = __webpack_require__(306);
+var _Forecast = __webpack_require__(300);
 
 var _Forecast2 = _interopRequireDefault(_Forecast);
 
-__webpack_require__(309);
+var _weatherIcons = __webpack_require__(64);
+
+var _weatherIcons2 = _interopRequireDefault(_weatherIcons);
+
+__webpack_require__(303);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34732,10 +35096,14 @@ var NewTab = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var weatherStyle = 'clear';
+      if (typeof _weatherIcons2.default[this.state.frontend.data.weather.conditions] !== 'undefined') {
+        weatherStyle = _weatherIcons2.default[this.state.frontend.data.weather.conditions].className;
+      }
       return _react2.default.createElement(
         _ScrollSection2.default,
         {
-          className: 'wwise-app',
+          className: 'wwise-app ' + weatherStyle,
           element: 'div'
         },
         _react2.default.createElement(_Logo2.default, {
@@ -34747,20 +35115,17 @@ var NewTab = function (_Component) {
           hide: true
         }),
         _react2.default.createElement(
-          _ScrollSection2.default,
-          {
-            element: 'section',
-            className: 'wwise-slider'
-          },
+          'section',
+          { className: 'wwise-slider' },
+          _react2.default.createElement(_Forecast2.default, {
+            data: this.state.frontend.data.forecast.hourly,
+            format: 'HH:mm - ddd /D'
+          }),
           _react2.default.createElement(_Forecast2.default, {
             data: this.state.frontend.data.forecast.daily,
             format: 'dddd, MMM Do',
             minmax: true,
             hide: true
-          }),
-          _react2.default.createElement(_Forecast2.default, {
-            data: this.state.frontend.data.forecast.hourly,
-            format: 'HH:mm - ddd /D'
           })
         )
       );
@@ -34773,83 +35138,6 @@ var NewTab = function (_Component) {
 _reactDom2.default.render(_react2.default.createElement(NewTab, null), document.getElementById('root'));
 
 /***/ }),
-/* 283 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* This module is not mine, it's based on the original "Smooth Scroll to" module by
-@hilliu. I modified it to allow scrolling on two axis. Maybe I'll make a pull request...
-See https://www.npmjs.com/package/smooth-scroll-to, for license see https://spdx.org/licenses/MIT.html  */
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _getScrollInfo = __webpack_require__(284);
-
-var _easeInOutCubic = __webpack_require__(285);
-
-var _easeInOutCubic2 = _interopRequireDefault(_easeInOutCubic);
-
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : { default: obj };
-}
-
-var isRunning = false;
-
-/**
- *  !!Important!! any logic change need take care isRunning
- */
-var smoothScrollTo = function smoothScrollTo(x, y, duration, el, callback) {
-    if (isRunning) {
-        if ('function' === typeof callback) {
-            callback();
-        }
-        return false;
-    } else {
-        isRunning = true;
-    }
-    el = (0, _getScrollInfo.getScrollNode)(el);
-    if (!duration) {
-        duration = 900;
-    }
-    var fromX = el.scrollLeft;
-    var fromY = el.scrollTop;
-
-    var goX = x - fromX;
-    var goY = y - fromY;
-    if (!goX && !goY) {
-        isRunning = false;
-        if ('function' === typeof callback) {
-            callback();
-        }
-        return;
-    }
-    var beginTimeStamp = void 0;
-    var scrollTo = function scrollTo(timeStamp) {
-        beginTimeStamp = beginTimeStamp || timeStamp;
-        var elapsedTime = timeStamp - beginTimeStamp;
-        var progressX = (0, _easeInOutCubic2.default)(elapsedTime, fromX, goX, duration);
-        var progressY = (0, _easeInOutCubic2.default)(elapsedTime, fromY, goY, duration);
-        el.scrollLeft = progressX;
-        el.scrollTop = progressY;
-        if (elapsedTime < duration && (goX || goY)) {
-            requestAnimationFrame(scrollTo);
-        } else {
-            isRunning = false;
-            if ('function' === typeof callback) {
-                callback();
-            }
-        }
-    };
-    requestAnimationFrame(scrollTo);
-};
-
-exports.default = smoothScrollTo;
-module.exports = exports['default'];
-
-/***/ }),
 /* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34857,78 +35145,18 @@ module.exports = exports['default'];
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
-var lastScroll = void 0;
-var isWebkit = void 0;
-var docEl = void 0;
-if ('undefined' !== typeof document) {
-    isWebkit = 'undefined' !== typeof document.webkitIsFullScreen;
-    docEl = document.documentElement;
-}
 
-var getScrollNode = function getScrollNode(el) {
-    if (!el) {
-        if ('undefined' !== typeof document) {
-            if (isWebkit) {
-                el = document.scrollingElement ? document.scrollingElement : document.body;
-            } else {
-                el = docEl;
-            }
-        }
-    }
-    return el;
-};
+var _Logo = __webpack_require__(285);
 
-var getScrollInfo = function getScrollInfo(el, margin) {
-    el = getScrollNode(el);
-    if (!margin) {
-        margin = 50;
-    }
-    var h = void 0;
-    var w = void 0;
-    var isBody = el.nodeName && 'body' === el.nodeName.toLowerCase();
-    if (isWebkit && isBody) {
-        h = window.innerHeight;
-        w = window.innerWidth;
-    } else {
-        h = el.clientHeight;
-        w = el.clientWidth;
-    }
-    var scrollLeft = el.scrollLeft;
-    var scrollHeight = el.scrollHeight;
-    var scrollTop = el.scrollTop;
-    var scrollWidth = el.scrollWidth;
-    var scrollBottom = scrollTop + h;
-    var scrollRight = scrollLeft + w;
+var _Logo2 = _interopRequireDefault(_Logo);
 
-    var info = {
-        atTop: scrollTop < margin,
-        atRight: scrollRight > scrollWidth - margin,
-        atBottom: scrollBottom > scrollHeight - margin,
-        atLeft: scrollLeft < margin,
+__webpack_require__(291);
 
-        isScrollDown: lastScroll && scrollTop > lastScroll.top,
-        isScrollLeft: lastScroll && scrollLeft < lastScroll.left,
-        isScrollRight: lastScroll && scrollLeft > lastScroll.left,
-        isScrollUp: lastScroll && scrollTop < lastScroll.top,
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-        scrollWidth: scrollWidth,
-        scrollHeight: scrollHeight,
-        scrollNodeWidth: w,
-        scrollNodeHeight: h,
-
-        top: scrollTop,
-        right: scrollRight,
-        bottom: scrollBottom,
-        left: scrollLeft
-    };
-    lastScroll = info;
-    return info;
-};
-
-exports.default = getScrollInfo;
-exports.getScrollNode = getScrollNode;
+exports.default = _Logo2.default;
 
 /***/ }),
 /* 285 */
@@ -34938,63 +35166,22 @@ exports.getScrollNode = getScrollNode;
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var easeInOutCubic = function easeInOutCubic(t, b, c, d) {
-    if ((t /= d / 2) < 1) {
-        return c / 2 * t * t * t + b;
-    }
-    return c / 2 * ((t -= 2) * t * t + 2) + b;
-};
-
-exports.default = easeInOutCubic;
-module.exports = exports['default'];
-
-/***/ }),
-/* 286 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Logo = __webpack_require__(287);
-
-var _Logo2 = _interopRequireDefault(_Logo);
-
-__webpack_require__(293);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _Logo2.default;
-
-/***/ }),
-/* 287 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(12);
+var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(52);
+var _propTypes = __webpack_require__(63);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _svgInlineReact = __webpack_require__(290);
+var _svgInlineReact = __webpack_require__(288);
 
 var _svgInlineReact2 = _interopRequireDefault(_svgInlineReact);
 
-var _pedroS = __webpack_require__(292);
+var _pedroS = __webpack_require__(290);
 
 var _pedroS2 = _interopRequireDefault(_pedroS);
 
@@ -35006,7 +35193,7 @@ var Logo = function Logo(props) {
     {
       className: 'weatherwise-pedros-logo',
       href: props.url,
-      title: 'Made by Pedro *S*'
+      title: 'By Pedro *S*'
     },
     _react2.default.createElement(_svgInlineReact2.default, { src: _pedroS2.default })
   );
@@ -35024,7 +35211,7 @@ Logo.defaultProps = {
 };
 
 /***/ }),
-/* 288 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35037,12 +35224,12 @@ Logo.defaultProps = {
 
 
 
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 var invariant = __webpack_require__(34);
 var warning = __webpack_require__(37);
 var assign = __webpack_require__(26);
 
-var ReactPropTypesSecret = __webpack_require__(57);
+var ReactPropTypesSecret = __webpack_require__(56);
 var checkPropTypes = __webpack_require__(51);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
@@ -35574,7 +35761,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
-/* 289 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35587,9 +35774,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 
 
 
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 var invariant = __webpack_require__(34);
-var ReactPropTypesSecret = __webpack_require__(57);
+var ReactPropTypesSecret = __webpack_require__(56);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -35639,7 +35826,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 290 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35653,13 +35840,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(12);
+var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(52);
+var _propTypes = __webpack_require__(63);
 
-var _util = __webpack_require__(291);
+var _util = __webpack_require__(289);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35737,7 +35924,7 @@ InlineSVG.propTypes = {
 };
 
 /***/ }),
-/* 291 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35792,19 +35979,19 @@ function extractSVGProps(src) {
 }
 
 /***/ }),
-/* 292 */
+/* 290 */
 /***/ (function(module, exports) {
 
-module.exports = "<svg version=\"1.1\" id=\"Lager_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 300 300\" style=\"enable-background:new 0 0 300 300;\" xml:space=\"preserve\"><style type=\"text/css\"> .st0{fill:none;} </style><g><path class=\"st0\" d=\"M151.9,158.4c5.1,5.3,9.6,10.1,12.3,15.3c2-6.4,5.3-12,9.7-16.7c-6.1-3.3-11.5-8.9-15.6-16.4 c-4.7-8.6-7.4-18.9-7.5-29c-2.2-1.2-4.8-2.1-7.5-3c-7.9-2.6-16.9-5.6-20.4-19c-0.1,1.5-0.1,3-0.1,4.6c0,20.1,7.3,39.5,20.6,54.7 C146.1,152.3,149,155.4,151.9,158.4z\"></path><path class=\"st0\" d=\"M124.9,89.6c3.3,11.8,11.3,14.4,18.9,17c3,1,5.8,1.9,8.3,3.4l0.5,0.3l0,0.6c0.1,22.1,11.1,38.6,22.6,44.5 c0.7-0.7,1.4-1.3,2.1-1.9c-0.9-16.4,6.1-35.1,17.6-46l0.6-0.5l0.7,0.4c5.2,3.2,11.2,5.8,17.2,7.5c0,0,0,0,0,0l0,0 c0.1,0,0.1,0,0.2,0.1c1.8-1.1,3.3-2,4.3-2.6c2.4-1.5,4-1.3,4.9-1.2l0.8,0.1l0.1,0.7c0.3,1.6,0.5,3.4,0.6,5.2 c7.4,0.9,14.4,0.6,20-1.3c-2.1-22.1-11.7-43.6-25.7-57.5l-0.8-0.8l0.8-0.7c10.8-9.2,28.1-13.6,38.9-12.4 c-11.8-18.9-38.8-30.3-49.4-33c3.4,11.7,3.4,30.8-1.8,40.1l-0.2,0.3l-0.3,0.1c-9,3.7-20,0.5-26.6-1.5c-0.9-0.3-1.6-0.5-2.3-0.7 c-4.1,8.8-2.7,20.5-1.6,30c0.4,2.9,0.7,5.6,0.8,8l0,0.5l-0.4,0.3C170.2,93.2,146,96.5,124.9,89.6z\"></path><path class=\"st0\" d=\"M177.2,244.4c6.2,9.6,16.9,15.5,28.7,15.5c11.5,0,22.3-6,28.6-15.4c-7.7,6.6-17.7,10.6-28.6,10.6 C194.9,255.1,184.9,251,177.2,244.4z\"></path><path class=\"st0\" d=\"M207.9,242.3c-0.6,0-1.2,0-1.8,0l-0.2-4.1c0,0,0,0-0.1,0c-19.1-0.8-35.8-15.1-41.6-33.6c0,0.5,0.1,0.9,0.2,1.4 c0.4,2.8,1.1,5.7,2.1,8.4c2,5.4,5,10.4,8.8,14.7c3.9,4.3,8.5,7.8,13.7,10.4c5.2,2.5,10.9,4.2,16.7,4.9c-5.9,0.2-11.9-1-17.4-3.4 c-5.5-2.4-10.5-6.1-14.5-10.5c-2-2.2-3.9-4.6-5.4-7.2s-2.8-5.4-3.8-8.2c-0.2-0.4-0.3-0.9-0.4-1.3c1.3,21.9,19.5,39.3,41.7,39.3 c23,0,41.8-18.8,41.8-41.8c0-0.5,0-0.9-0.1-1.2c-1.1,3.4-2.7,6.7-4.7,9.7C237.3,233.1,224.1,242.3,207.9,242.3z M207.9,249.6 c-0.6,0-1.2,0-1.8,0l-0.2-4.7h0.1h0.1c16.2,0,30.3-8.3,38.3-21C239.8,238.9,225.7,249.6,207.9,249.6z\"></path><path class=\"st0\" d=\"M177.6,156.5c0-0.2,0-0.3,0-0.5c-0.1,0.1-0.2,0.2-0.3,0.3C177.3,156.4,177.5,156.5,177.6,156.5z\"></path><path class=\"st0\" d=\"M191.9,164.3c-1.5-5.2-3-10.3-3.9-15.3c-3.1,1.5-6,3.3-8.6,5.4c0.1,0.8,0.2,1.5,0.2,2.2l0.4,0.4 C182.8,159.6,187.3,162.3,191.9,164.3z\"></path><path class=\"st0\" d=\"M219.5,119.5c-6.6,4.4-19.7,12.7-26,16.4c-1.7,1.1-3.2,1.1-4.1,1.2c-0.2,0-0.3,0-0.4,0c-0.2,2.8,0,5.8,0.5,9 c5.1-2,10.6-3.2,16.4-3.2c4.6,0,9.1,0.7,13.3,2.1c1.8-9.1,3.1-18.1,2.8-26.2c-0.5-0.1-0.9-0.2-1.4-0.2 C220.3,118.9,219.9,119.2,219.5,119.5z\"></path><path class=\"st0\" d=\"M64.8,269.8c-1.3,0.9-3.3,3-3.9,4.1c1.2,1,3.6,2,5.3,2.3c-0.2-0.8-0.3-1.5-0.5-2.3 C65.4,272.5,65.1,271.1,64.8,269.8z\"></path><path class=\"st0\" d=\"M124.9,261.5c-10.6-1.3-29.3-7.4-39.2-12.2c0.8,7.6,8.6,29,17.6,37.8C110.5,281.4,121.8,267.9,124.9,261.5z\"></path><path class=\"st0\" d=\"M34.9,235c2.2-3.7,4.9-11.8,5.3-15.6c-5.4,0.4-17.5-0.7-25-2.4C19.6,223.2,30,232.3,34.9,235z\"></path><path class=\"st0\" d=\"M82.2,170.4c-8.9,3.4-19.6,6.4-30.8,9.4c8,6.8,14.8,10.5,21.8,11.9c2.7-0.8,9.7-4.1,14.2-6.4 c-2.7-5.2-3.7-9.2-4.8-13.4C82.5,171.5,82.4,171,82.2,170.4z\"></path><path class=\"st0\" d=\"M77.3,192.3c4.6,0.3,10.9,0.3,14.1-0.3c0.2-1.1,0.1-4.2-0.2-6.4C88.3,187.2,81.8,190.3,77.3,192.3z\"></path><path class=\"st0\" d=\"M187.6,133.3c0.3-1.2,1.1-2.5,4.1-4.5c4.8-3.1,12.8-8.2,19.4-12.4c-5.4-1.7-10.7-4-15.4-6.8 c-10.5,10.2-16.9,27.2-16.5,42.4c2.6-2,5.4-3.6,8.3-5C186.8,142,186.6,137.3,187.6,133.3z\"></path><path class=\"st0\" d=\"M220.7,147.7c-0.7,3.3-1.4,6.6-2.1,9.9c-2.3,10.9-4.5,21.3-4.5,29.3h-2c0-8.2,2.2-18.7,4.6-29.7 c0.7-3.4,1.4-6.7,2.1-10.1c-4.1-1.3-8.4-2.1-12.9-2.1c-5.6,0-11.1,1.1-16,3.2c1.1,5.7,2.8,11.8,4.5,17.5c2.4,8,4.6,15.6,4.6,21.2 h-2c0-5.2-2.1-12.4-4.4-20.1c-4.9-2-9.8-4.8-13-7.5l0,0c-2,3.6-3,12.4-1.8,17.3l-1.9,0.5c-1.2-4.8-0.5-13.9,1.8-18.4 c-0.7-0.2-1.3-0.5-2-0.8c-4.9,5.1-8.5,11.4-10.3,18.6c0.2,0.6,0.5,1.3,0.6,2c0.1,0.6,0.3,1.2,0.5,1.7l0.1,0.2 c0,0.1,0.1,0.2,0.1,0.4c5.2,17.4,20.8,29.1,39,29.1c18.2,0,33.8-11.7,39-29.1c0-0.1,0.1-0.2,0.1-0.3v-0.1l0.1-0.2 c0.1-0.3,0.2-0.6,0.2-0.8c0.1-0.3,0.2-0.6,0.3-1c0.3-0.9,0.6-1.8,0.9-2.6l0,0C242.6,162.6,232.9,152.4,220.7,147.7z\"></path><path class=\"st0\" d=\"M268.1,148.9c13.3-15.1,20.6-34.5,20.6-54.8c0-42.6-32.2-77.8-73.6-82.5c13.4,4.9,35.5,16.5,45.1,33.7l1.1,1.9 l-2.1-0.4c-9.8-1.9-27.4,2-38.5,11c14,14.3,23.5,36,25.6,58.3c3.8,3.2,8.9,10.2,11.6,14.1l-1.7,1.1c-4.4-6.5-8.4-11.4-11.1-13.6 c-5.8,2-13.2,2.4-20.9,1.4c0.2,8.3-1.2,17.4-2.9,26.6c12.3,4.6,22.2,14.6,26.4,27.4c2.7-5,7.1-9.6,12-14.8 C262.4,155.3,265.3,152.3,268.1,148.9z M254.3,153.3c-2.4,2.6-5,5.3-7.2,7.9c-0.7,0.8-1.6,1.2-2.7,1.2c-0.8,0-1.6-0.3-2.3-0.8 c-1.5-1.3-1.7-3.5-0.4-5c2.4-2.8,5-5.6,7.5-8.2c1.3-1.4,3.6-1.5,5-0.1C255.6,149.6,255.7,151.9,254.3,153.3z M257.4,139.4 c11-12.5,17-28.6,17-45.3c0-1.9,1.6-3.5,3.5-3.5c1.9,0,3.5,1.6,3.5,3.5c0,18.4-6.7,36.1-18.8,49.9c-0.6,0.8-1.6,1.3-2.6,1.3 c-0.8,0-1.7-0.3-2.3-0.9C256.2,143.1,256.1,140.9,257.4,139.4z\"></path><path class=\"st0\" d=\"M241.4,210.7c-0.1,0.1-0.2,0.3-0.3,0.4C241.2,211,241.3,210.8,241.4,210.7z\"></path><path class=\"st0\" d=\"M218.8,114.2c-0.7,0.4-1.6,0.9-2.6,1.6c1.2,0.3,2.5,0.6,3.7,0.8c0.5-0.5,0.8-0.9,1-1.3 c0.3-0.4,0.5-0.8,0.9-1.1c0-0.3-0.1-0.7-0.1-1C221.1,113.2,220.1,113.3,218.8,114.2z\"></path><path class=\"st0\" d=\"M246,202.9c-1.2,2.7-2.7,5.2-4.5,7.5c1-1.3,2-2.7,2.9-4.1c-4.6,15.5-18.7,26.6-36.5,26.6c-0.6,0-1.2,0-1.8,0 l-0.2-4.4c-2.3-0.1-4.7-0.4-6.9-0.9c-9.3-2-17.8-7.5-23.4-15c6.9,6.2,14.9,11,23.8,13c2.2,0.5,4.5,0.7,6.7,0.8l3.4-0.2 c0.6,0,1.1-0.1,1.7-0.2l1.7-0.3c4.4-0.8,8.8-2.2,12.8-4.3c8-4.3,14.5-11.1,18.3-19.3c1.9-4.1,3.1-8.5,3.7-13 c0.1-1.1,0.3-2.2,0.3-3.4c0-1.1-0.1-2.3-0.2-3.4c-0.1-1.2-0.3-2.4-0.5-3.5c0,0.1,0,0.1-0.1,0.2c-0.1,0.3-0.2,0.6-0.2,0.9 c-0.1,0.3-0.1,0.6-0.2,0.9c0,0.2-0.1,0.3-0.1,0.4l0,0.1c-5.4,18.3-21.9,30.6-41,30.6c-19.1,0-35.6-12.3-41-30.6l0-0.2 c0-0.1-0.1-0.2-0.1-0.2c0,0,0-0.1,0-0.1c-0.3,2.1-0.5,4.2-0.5,6.1v3.9c0,23.7,19.2,44.5,41.8,45.5c11.4,0.5,22-3.4,29.8-11 c7.3-7,11.4-16.4,11.9-26.6C247.2,200.1,246.6,201.5,246,202.9z M241.5,198.4c-5.5,14.3-19.4,24.3-35.5,24.4l-0.4-7.3 C219.8,215.5,232.9,208.9,241.5,198.4z\"></path><path class=\"st0\" d=\"M189.6,133.8c-0.1,0.4-0.2,0.9-0.3,1.3c0,0,0.1,0,0.1,0c0.8,0,1.8-0.1,3.1-0.9c6.2-3.7,18.8-11.7,25.5-16.1 c-1.4-0.3-2.8-0.7-4.2-1c-6.9,4.3-15.7,10-20.9,13.3C190.3,132.1,189.8,133,189.6,133.8z\"></path><path d=\"M293.6,93.8c0-23.3-9-45.2-25.4-61.8c-16.2-16.3-38-25.6-61.3-25.9c-1.4,0-2.7,0.7-3.5,1.8c-0.5,0.7-1.1,2.1-0.4,4 c3.2,9.6,3.5,27.1-0.5,35.9c-1.8,0.6-3.9,0.8-6.1,0.8c-5.7,0-11.5-1.7-15.7-3c-1.3-0.4-2.5-0.7-3.4-1l-3-0.7l-1.4,2.8 c-5.3,10.2-3.7,23.1-2.5,33.5c0.2,1.9,0.4,3.7,0.6,5.3c-3.2,1.3-10.2,2.9-19.9,2.9c-6.5,0-16.3-0.7-26.2-4.2h-0.1h-0.1 c-0.5-0.2-1.1-0.3-1.6-0.3c-1.3,0-2.5,0.5-3.4,1.4c-1.9,1.9-2,4.8-2,8.1v0.5c0,19.3,6.3,37.9,17.9,53.2h-0.1l1.3,1.5 c0.8,1,1.7,2.1,2.6,3.1l0.1,0.1c2.9,3.5,5.8,6.6,8.7,9.6c5.2,5.5,9.8,10.3,12.1,15.3c-0.7,3.2-1.1,6.6-1.1,9.9v3.9 c0,2.1,0.1,4.2,0.4,6.3c-0.3,1-0.4,2.2-0.4,3.3c0,2.3,0.2,4.7,0.5,7.1c-0.4,1.1-0.5,2.4-0.5,3.8c0,10.9,3.8,21.5,10.8,29.9 c6.2,14.4,20.3,23.7,36,23.7c15.8,0,29.9-9.4,36.1-23.9c6.9-8.4,10.7-18.9,10.7-29.7c0-1.9-0.4-3.6-1-4.9c0.7-3.1,1-6.3,1-9.6 c0-1.5-0.2-2.9-0.7-4.1c0.3-1.9,0.5-3.8,0.6-5.7v-0.1v-0.1c0-3.6-0.4-7.1-1.2-10.6c2.4-4.7,6.8-9.3,11.7-14.6 c2.8-3,5.8-6.1,8.7-9.6l0.1-0.1c0.9-1,1.7-2,2.5-3l1.3-1.6h-0.1C287.3,131.7,293.6,113.1,293.6,93.8z M247.7,211.3 c0,23-18.8,41.8-41.8,41.8c-22.2,0-40.4-17.4-41.7-39.3c0.1,0.4,0.3,0.9,0.4,1.3c1,2.8,2.3,5.6,3.8,8.2s3.4,5,5.4,7.2 c4,4.4,9,8.1,14.5,10.5c5.5,2.4,11.5,3.6,17.4,3.4c-5.8-0.7-11.5-2.4-16.7-4.9c-5.2-2.6-9.8-6.1-13.7-10.4 c-3.8-4.3-6.8-9.3-8.8-14.7c-1-2.7-1.7-5.6-2.1-8.4c-0.1-0.5-0.1-0.9-0.2-1.4c5.8,18.5,22.5,32.8,41.6,33.6c0,0,0,0,0.1,0l0.2,4.1 c0.6,0,1.2,0,1.8,0c16.2,0,29.4-9.2,35-22.6c2-3,3.5-6.2,4.7-9.7C247.7,210.4,247.7,210.8,247.7,211.3z M234.5,244.5 c-6.2,9.4-17,15.4-28.6,15.4c-11.8,0-22.5-5.9-28.7-15.5c7.7,6.7,17.7,10.7,28.7,10.7C216.8,255.1,226.8,251.1,234.5,244.5z M122.8,89.5c3.5,13.4,12.5,16.4,20.4,19c2.7,0.9,5.3,1.7,7.5,3c0.1,10.1,2.8,20.4,7.5,29c4.1,7.5,9.5,13.2,15.6,16.4 c-4.3,4.7-7.7,10.3-9.7,16.7c-2.7-5.2-7.2-9.9-12.3-15.3c-2.8-3-5.8-6.1-8.6-9.5c-13.3-15.2-20.6-34.6-20.6-54.7 C122.7,92.5,122.7,91,122.8,89.5z M176,87.8c-0.1-2.4-0.5-5.1-0.8-8c-1.2-9.5-2.6-21.2,1.6-30c0.7,0.2,1.5,0.4,2.3,0.7 c6.6,2,17.7,5.2,26.6,1.5l0.3-0.1l0.2-0.3c5.3-9.4,5.3-28.5,1.8-40.1c10.5,2.7,37.6,14.2,49.4,33c-10.8-1.2-28.2,3.3-38.9,12.4 l-0.8,0.7l0.8,0.8c14,13.9,23.6,35.4,25.7,57.5c-5.6,1.9-12.6,2.2-20,1.3c-0.1-1.8-0.3-3.5-0.6-5.2l-0.1-0.7l-0.8-0.1 c-0.9-0.1-2.5-0.3-4.9,1.2c-1,0.6-2.5,1.5-4.3,2.6c-0.1,0-0.1,0-0.2-0.1l0,0c0,0,0,0,0,0c-6.1-1.7-12-4.3-17.2-7.5l-0.7-0.4 l-0.6,0.5c-11.5,10.9-18.5,29.6-17.6,46c-0.7,0.6-1.4,1.2-2.1,1.9c-11.5-6-22.5-22.4-22.6-44.5l0-0.6l-0.5-0.3 c-2.5-1.5-5.3-2.4-8.3-3.4c-7.7-2.6-15.6-5.2-18.9-17c21.1,6.9,45.3,3.6,50.7-1l0.4-0.3L176,87.8z M219.2,145.1 c-4.2-1.4-8.7-2.1-13.3-2.1c-5.8,0-11.3,1.1-16.4,3.2c-0.5-3.2-0.7-6.2-0.5-9c0.1,0,0.3,0,0.4,0c0.9,0,2.3-0.1,4.1-1.2 c6.3-3.8,19.4-12.1,26-16.4c0.5-0.3,0.8-0.6,1.1-0.9c0.5,0.1,0.9,0.2,1.4,0.2C222.3,127,220.9,136,219.2,145.1z M179.6,156.7 c-0.1-0.7-0.2-1.5-0.2-2.2c2.6-2.1,5.5-4,8.6-5.4c0.9,4.9,2.4,10.1,3.9,15.3c-4.6-2-9.1-4.7-11.8-7.2L179.6,156.7z M177.6,156.5 c-0.1,0-0.2-0.1-0.4-0.2c0.1-0.1,0.2-0.2,0.3-0.3C177.6,156.2,177.6,156.4,177.6,156.5z M179.3,152c-0.4-15.2,6-32.2,16.5-42.4 c4.7,2.8,10,5.1,15.4,6.8c-6.6,4.2-14.6,9.3-19.4,12.4c-3,2-3.8,3.3-4.1,4.5c-1,4-0.8,8.7,0,13.7C184.6,148.3,181.9,150,179.3,152z M221,115.2c-0.3,0.4-0.6,0.8-1,1.3c-1.2-0.2-2.5-0.5-3.7-0.8c1.1-0.6,2-1.2,2.6-1.6c1.3-0.8,2.2-1,2.9-1c0,0.3,0.1,0.6,0.1,1 C221.5,114.4,221.3,114.8,221,115.2z M217.9,118.1c-6.7,4.4-19.3,12.4-25.5,16.1c-1.3,0.8-2.3,0.8-3.1,0.9c0,0-0.1,0-0.1,0 c0.1-0.5,0.2-0.9,0.3-1.3c0.2-0.8,0.8-1.7,3.3-3.4c5.2-3.4,14-9,20.9-13.3C215.1,117.5,216.5,117.8,217.9,118.1z M235.8,225.2 c-7.9,7.6-18.5,11.4-29.8,11c-22.7-1-41.8-21.8-41.8-45.5v-3.9c0-2,0.2-4.1,0.5-6.1c0,0,0,0.1,0,0.1c0,0.1,0,0.2,0.1,0.2l0,0.2 c5.4,18.3,21.9,30.6,41,30.6c19.1,0,35.6-12.3,41-30.6l0-0.1c0-0.1,0.1-0.2,0.1-0.4c0.1-0.3,0.2-0.6,0.2-0.9 c0.1-0.3,0.1-0.6,0.2-0.9c0-0.1,0-0.1,0.1-0.2c0.2,1.2,0.4,2.3,0.5,3.5c0.1,1.1,0.2,2.3,0.2,3.4c0,1.2-0.2,2.3-0.3,3.4 c-0.6,4.5-1.8,8.9-3.7,13c-3.8,8.2-10.3,15-18.3,19.3c-4,2.1-8.4,3.5-12.8,4.3l-1.7,0.3c-0.6,0.1-1.1,0.2-1.7,0.2l-3.4,0.2 c-2.2-0.1-4.5-0.3-6.7-0.8c-8.9-2-16.9-6.8-23.8-13c5.6,7.5,14.1,13,23.4,15c2.2,0.5,4.6,0.8,6.9,0.9l0.2,4.4c0.6,0,1.2,0,1.8,0 c17.8,0,31.9-11.1,36.5-26.6c-0.9,1.4-1.8,2.8-2.9,4.1c1.7-2.4,3.2-4.9,4.5-7.5c0.6-1.4,1.2-2.8,1.7-4.3 C247.2,208.9,243,218.3,235.8,225.2z M241,211.1c0.1-0.1,0.2-0.3,0.3-0.4C241.3,210.8,241.2,211,241,211.1z M245.4,178.4 c-0.1,0.3-0.2,0.6-0.3,1c-0.1,0.3-0.1,0.6-0.2,0.8l-0.1,0.2v0.1c0,0.1-0.1,0.2-0.1,0.3c-5.2,17.4-20.8,29.1-39,29.1 c-18.2,0-33.8-11.7-39-29.1c0-0.2-0.1-0.3-0.1-0.4l-0.1-0.2c-0.2-0.6-0.4-1.1-0.5-1.7c-0.2-0.7-0.4-1.3-0.6-2 c1.8-7.2,5.4-13.5,10.3-18.6c0.7,0.3,1.3,0.5,2,0.8c-2.3,4.5-3.1,13.6-1.8,18.4l1.9-0.5c-1.2-4.8-0.2-13.6,1.8-17.3l0,0 c3.3,2.7,8.2,5.5,13,7.5c2.3,7.7,4.4,14.9,4.4,20.1h2c0-5.6-2.2-13.2-4.6-21.2c-1.7-5.7-3.5-11.8-4.5-17.5c5-2.1,10.4-3.2,16-3.2 c4.5,0,8.8,0.7,12.9,2.1c-0.7,3.4-1.4,6.8-2.1,10.1c-2.4,11.1-4.6,21.5-4.6,29.7h2c0-8,2.2-18.4,4.5-29.3c0.7-3.3,1.4-6.6,2.1-9.9 c12.2,4.7,21.9,14.9,25.5,28l0,0C245.9,176.6,245.6,177.5,245.4,178.4z M221.1,145.7c1.8-9.2,3.1-18.3,2.9-26.6 c7.7,1,15.1,0.5,20.9-1.4c2.7,2.3,6.7,7.2,11.1,13.6l1.7-1.1c-2.7-4-7.8-11-11.6-14.1c-2.1-22.3-11.6-44-25.6-58.3 c11.1-9,28.7-12.9,38.5-11l2.1,0.4l-1.1-1.9c-9.6-17.2-31.7-28.7-45.1-33.7c41.4,4.7,73.6,39.9,73.6,82.5 c0,20.2-7.3,39.7-20.6,54.8c-2.8,3.4-5.7,6.5-8.5,9.5c-4.9,5.2-9.3,9.9-12,14.8C243.3,160.3,233.4,150.3,221.1,145.7z\"></path><path d=\"M93,196.6l1.1-0.3l0.8-0.8c1.4-1.4,1.6-3.4,1.5-6.9c-0.1-2-0.3-4.2-0.5-5.4l-1.1-5.4l-4.3,2.4c-1.6-3.6-2.3-6.6-3.3-10.2 c-0.2-0.7-0.4-1.4-0.5-2.1l-1.1-4.2l-4.2,1.7c-9.1,3.6-20.4,6.7-33.2,10.1l-7.2,1.9l5.6,4.9c6.4,5.6,15.1,12.4,26,14.3 c2.9,0.6,7.5,0.8,10.9,0.8C86.4,197.4,90.4,197.3,93,196.6z M91.4,192c-3.2,0.6-9.5,0.6-14.1,0.3c4.5-1.9,11-5.1,13.9-6.6 C91.5,187.8,91.6,191,91.4,192z M73.2,191.7c-7-1.3-13.8-5-21.8-11.9c11.2-3,22-6.1,30.8-9.4c0.1,0.5,0.3,1,0.4,1.5 c1.1,4.2,2.1,8.2,4.8,13.4C82.8,187.6,75.9,190.9,73.2,191.7z\"></path><path d=\"M86.5,244.3l-5.1-2.8l-0.6,5.9c-0.8,7.5,8.8,34,19.8,44.1l2.4,2.2l2.6-2c7.6-5.7,21.6-22,24.5-29.5l1.9-4.9l-5.3-0.5 C116.4,255.9,96,249.1,86.5,244.3z M124.9,261.5c-3.2,6.5-14.4,19.9-21.6,25.6c-9.1-8.8-16.9-30.2-17.6-37.8 C95.7,254.1,114.3,260.2,124.9,261.5z\"></path><path d=\"M45,213.5l-4.4,0.8c-0.4,0.1-1.3,0.2-3.2,0.2c-6.1,0-17.4-1.2-23.2-2.9l-8.9-2.5l4.2,8.2c3.8,7.4,18.4,20,24.1,22.6 l3.1,1.4l1.9-2.8c2.9-4.4,7-16,6.7-20.5L45,213.5z M40.3,219.4c-0.4,3.8-3.1,11.8-5.3,15.6c-4.9-2.7-15.4-11.8-19.7-17.9 C22.8,218.7,34.9,219.9,40.3,219.4z\"></path><path d=\"M69.4,267.6l-0.7-3.9l-3.8,0.6c-3.1,0.5-8.6,6-9.1,9.1l-0.3,1.8l1.1,1.4c2.2,2.7,7.4,4.7,10.6,4.7c0.1,0,0.3,0,0.4,0 l4.7-0.2l-1-4.6C70.6,273.2,69.9,270.2,69.4,267.6z M60.9,273.9c0.6-1.1,2.6-3.2,3.9-4.1c0.3,1.3,0.6,2.7,0.9,4.2 c0.2,0.7,0.3,1.5,0.5,2.3C64.4,275.9,62,274.9,60.9,273.9z\"></path><path d=\"M241.5,198.4c-8.6,10.5-21.7,17.1-35.9,17.1l0.4,7.3C222.1,222.7,236,212.7,241.5,198.4z\"></path><path d=\"M206.1,244.9H206h-0.1l0.2,4.7c0.6,0,1.2,0,1.8,0c17.8,0,31.9-10.7,36.5-25.7C236.4,236.6,222.3,244.9,206.1,244.9z\"></path><path d=\"M249.2,148.4c-2.5,2.6-5.1,5.4-7.5,8.2c-1.3,1.5-1.1,3.7,0.4,5c0.7,0.5,1.5,0.8,2.3,0.8c1.1,0,2-0.4,2.7-1.2 c2.2-2.6,4.8-5.3,7.2-7.9c1.4-1.4,1.3-3.7-0.1-5C252.8,146.9,250.5,147,249.2,148.4z\"></path><path d=\"M262.6,144c12.1-13.8,18.8-31.5,18.8-49.9c0-1.9-1.6-3.5-3.5-3.5c-1.9,0-3.5,1.6-3.5,3.5c0,16.7-6,32.8-17,45.3 c-1.3,1.5-1.2,3.7,0.3,5c0.6,0.6,1.5,0.9,2.3,0.9C261,145.3,262,144.8,262.6,144z\"></path></g></svg>"
+module.exports = "<svg version=\"1.1\" id=\"Lager_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 300 300\" style=\"enable-background:new 0 0 300 300;\" xml:space=\"preserve\"><style type=\"text/css\"> .st0{ fill: rgba(255, 255, 255, 1); } </style><g><path class=\"st0\" d=\"M151.9,158.4c5.1,5.3,9.6,10.1,12.3,15.3c2-6.4,5.3-12,9.7-16.7c-6.1-3.3-11.5-8.9-15.6-16.4 c-4.7-8.6-7.4-18.9-7.5-29c-2.2-1.2-4.8-2.1-7.5-3c-7.9-2.6-16.9-5.6-20.4-19c-0.1,1.5-0.1,3-0.1,4.6c0,20.1,7.3,39.5,20.6,54.7 C146.1,152.3,149,155.4,151.9,158.4z\"></path><path class=\"st0\" d=\"M124.9,89.6c3.3,11.8,11.3,14.4,18.9,17c3,1,5.8,1.9,8.3,3.4l0.5,0.3l0,0.6c0.1,22.1,11.1,38.6,22.6,44.5 c0.7-0.7,1.4-1.3,2.1-1.9c-0.9-16.4,6.1-35.1,17.6-46l0.6-0.5l0.7,0.4c5.2,3.2,11.2,5.8,17.2,7.5c0,0,0,0,0,0l0,0 c0.1,0,0.1,0,0.2,0.1c1.8-1.1,3.3-2,4.3-2.6c2.4-1.5,4-1.3,4.9-1.2l0.8,0.1l0.1,0.7c0.3,1.6,0.5,3.4,0.6,5.2 c7.4,0.9,14.4,0.6,20-1.3c-2.1-22.1-11.7-43.6-25.7-57.5l-0.8-0.8l0.8-0.7c10.8-9.2,28.1-13.6,38.9-12.4 c-11.8-18.9-38.8-30.3-49.4-33c3.4,11.7,3.4,30.8-1.8,40.1l-0.2,0.3l-0.3,0.1c-9,3.7-20,0.5-26.6-1.5c-0.9-0.3-1.6-0.5-2.3-0.7 c-4.1,8.8-2.7,20.5-1.6,30c0.4,2.9,0.7,5.6,0.8,8l0,0.5l-0.4,0.3C170.2,93.2,146,96.5,124.9,89.6z\"></path><path class=\"st0\" d=\"M177.2,244.4c6.2,9.6,16.9,15.5,28.7,15.5c11.5,0,22.3-6,28.6-15.4c-7.7,6.6-17.7,10.6-28.6,10.6 C194.9,255.1,184.9,251,177.2,244.4z\"></path><path class=\"st0\" d=\"M207.9,242.3c-0.6,0-1.2,0-1.8,0l-0.2-4.1c0,0,0,0-0.1,0c-19.1-0.8-35.8-15.1-41.6-33.6c0,0.5,0.1,0.9,0.2,1.4 c0.4,2.8,1.1,5.7,2.1,8.4c2,5.4,5,10.4,8.8,14.7c3.9,4.3,8.5,7.8,13.7,10.4c5.2,2.5,10.9,4.2,16.7,4.9c-5.9,0.2-11.9-1-17.4-3.4 c-5.5-2.4-10.5-6.1-14.5-10.5c-2-2.2-3.9-4.6-5.4-7.2s-2.8-5.4-3.8-8.2c-0.2-0.4-0.3-0.9-0.4-1.3c1.3,21.9,19.5,39.3,41.7,39.3 c23,0,41.8-18.8,41.8-41.8c0-0.5,0-0.9-0.1-1.2c-1.1,3.4-2.7,6.7-4.7,9.7C237.3,233.1,224.1,242.3,207.9,242.3z M207.9,249.6 c-0.6,0-1.2,0-1.8,0l-0.2-4.7h0.1h0.1c16.2,0,30.3-8.3,38.3-21C239.8,238.9,225.7,249.6,207.9,249.6z\"></path><path class=\"st0\" d=\"M177.6,156.5c0-0.2,0-0.3,0-0.5c-0.1,0.1-0.2,0.2-0.3,0.3C177.3,156.4,177.5,156.5,177.6,156.5z\"></path><path class=\"st0\" d=\"M191.9,164.3c-1.5-5.2-3-10.3-3.9-15.3c-3.1,1.5-6,3.3-8.6,5.4c0.1,0.8,0.2,1.5,0.2,2.2l0.4,0.4 C182.8,159.6,187.3,162.3,191.9,164.3z\"></path><path class=\"st0\" d=\"M219.5,119.5c-6.6,4.4-19.7,12.7-26,16.4c-1.7,1.1-3.2,1.1-4.1,1.2c-0.2,0-0.3,0-0.4,0c-0.2,2.8,0,5.8,0.5,9 c5.1-2,10.6-3.2,16.4-3.2c4.6,0,9.1,0.7,13.3,2.1c1.8-9.1,3.1-18.1,2.8-26.2c-0.5-0.1-0.9-0.2-1.4-0.2 C220.3,118.9,219.9,119.2,219.5,119.5z\"></path><path class=\"st0\" d=\"M64.8,269.8c-1.3,0.9-3.3,3-3.9,4.1c1.2,1,3.6,2,5.3,2.3c-0.2-0.8-0.3-1.5-0.5-2.3 C65.4,272.5,65.1,271.1,64.8,269.8z\"></path><path class=\"st0\" d=\"M124.9,261.5c-10.6-1.3-29.3-7.4-39.2-12.2c0.8,7.6,8.6,29,17.6,37.8C110.5,281.4,121.8,267.9,124.9,261.5z\"></path><path class=\"st0\" d=\"M34.9,235c2.2-3.7,4.9-11.8,5.3-15.6c-5.4,0.4-17.5-0.7-25-2.4C19.6,223.2,30,232.3,34.9,235z\"></path><path class=\"st0\" d=\"M82.2,170.4c-8.9,3.4-19.6,6.4-30.8,9.4c8,6.8,14.8,10.5,21.8,11.9c2.7-0.8,9.7-4.1,14.2-6.4 c-2.7-5.2-3.7-9.2-4.8-13.4C82.5,171.5,82.4,171,82.2,170.4z\"></path><path class=\"st0\" d=\"M77.3,192.3c4.6,0.3,10.9,0.3,14.1-0.3c0.2-1.1,0.1-4.2-0.2-6.4C88.3,187.2,81.8,190.3,77.3,192.3z\"></path><path class=\"st0\" d=\"M187.6,133.3c0.3-1.2,1.1-2.5,4.1-4.5c4.8-3.1,12.8-8.2,19.4-12.4c-5.4-1.7-10.7-4-15.4-6.8 c-10.5,10.2-16.9,27.2-16.5,42.4c2.6-2,5.4-3.6,8.3-5C186.8,142,186.6,137.3,187.6,133.3z\"></path><path class=\"st0\" d=\"M220.7,147.7c-0.7,3.3-1.4,6.6-2.1,9.9c-2.3,10.9-4.5,21.3-4.5,29.3h-2c0-8.2,2.2-18.7,4.6-29.7 c0.7-3.4,1.4-6.7,2.1-10.1c-4.1-1.3-8.4-2.1-12.9-2.1c-5.6,0-11.1,1.1-16,3.2c1.1,5.7,2.8,11.8,4.5,17.5c2.4,8,4.6,15.6,4.6,21.2 h-2c0-5.2-2.1-12.4-4.4-20.1c-4.9-2-9.8-4.8-13-7.5l0,0c-2,3.6-3,12.4-1.8,17.3l-1.9,0.5c-1.2-4.8-0.5-13.9,1.8-18.4 c-0.7-0.2-1.3-0.5-2-0.8c-4.9,5.1-8.5,11.4-10.3,18.6c0.2,0.6,0.5,1.3,0.6,2c0.1,0.6,0.3,1.2,0.5,1.7l0.1,0.2 c0,0.1,0.1,0.2,0.1,0.4c5.2,17.4,20.8,29.1,39,29.1c18.2,0,33.8-11.7,39-29.1c0-0.1,0.1-0.2,0.1-0.3v-0.1l0.1-0.2 c0.1-0.3,0.2-0.6,0.2-0.8c0.1-0.3,0.2-0.6,0.3-1c0.3-0.9,0.6-1.8,0.9-2.6l0,0C242.6,162.6,232.9,152.4,220.7,147.7z\"></path><path class=\"st0\" d=\"M268.1,148.9c13.3-15.1,20.6-34.5,20.6-54.8c0-42.6-32.2-77.8-73.6-82.5c13.4,4.9,35.5,16.5,45.1,33.7l1.1,1.9 l-2.1-0.4c-9.8-1.9-27.4,2-38.5,11c14,14.3,23.5,36,25.6,58.3c3.8,3.2,8.9,10.2,11.6,14.1l-1.7,1.1c-4.4-6.5-8.4-11.4-11.1-13.6 c-5.8,2-13.2,2.4-20.9,1.4c0.2,8.3-1.2,17.4-2.9,26.6c12.3,4.6,22.2,14.6,26.4,27.4c2.7-5,7.1-9.6,12-14.8 C262.4,155.3,265.3,152.3,268.1,148.9z M254.3,153.3c-2.4,2.6-5,5.3-7.2,7.9c-0.7,0.8-1.6,1.2-2.7,1.2c-0.8,0-1.6-0.3-2.3-0.8 c-1.5-1.3-1.7-3.5-0.4-5c2.4-2.8,5-5.6,7.5-8.2c1.3-1.4,3.6-1.5,5-0.1C255.6,149.6,255.7,151.9,254.3,153.3z M257.4,139.4 c11-12.5,17-28.6,17-45.3c0-1.9,1.6-3.5,3.5-3.5c1.9,0,3.5,1.6,3.5,3.5c0,18.4-6.7,36.1-18.8,49.9c-0.6,0.8-1.6,1.3-2.6,1.3 c-0.8,0-1.7-0.3-2.3-0.9C256.2,143.1,256.1,140.9,257.4,139.4z\"></path><path class=\"st0\" d=\"M241.4,210.7c-0.1,0.1-0.2,0.3-0.3,0.4C241.2,211,241.3,210.8,241.4,210.7z\"></path><path class=\"st0\" d=\"M218.8,114.2c-0.7,0.4-1.6,0.9-2.6,1.6c1.2,0.3,2.5,0.6,3.7,0.8c0.5-0.5,0.8-0.9,1-1.3 c0.3-0.4,0.5-0.8,0.9-1.1c0-0.3-0.1-0.7-0.1-1C221.1,113.2,220.1,113.3,218.8,114.2z\"></path><path class=\"st0\" d=\"M246,202.9c-1.2,2.7-2.7,5.2-4.5,7.5c1-1.3,2-2.7,2.9-4.1c-4.6,15.5-18.7,26.6-36.5,26.6c-0.6,0-1.2,0-1.8,0 l-0.2-4.4c-2.3-0.1-4.7-0.4-6.9-0.9c-9.3-2-17.8-7.5-23.4-15c6.9,6.2,14.9,11,23.8,13c2.2,0.5,4.5,0.7,6.7,0.8l3.4-0.2 c0.6,0,1.1-0.1,1.7-0.2l1.7-0.3c4.4-0.8,8.8-2.2,12.8-4.3c8-4.3,14.5-11.1,18.3-19.3c1.9-4.1,3.1-8.5,3.7-13 c0.1-1.1,0.3-2.2,0.3-3.4c0-1.1-0.1-2.3-0.2-3.4c-0.1-1.2-0.3-2.4-0.5-3.5c0,0.1,0,0.1-0.1,0.2c-0.1,0.3-0.2,0.6-0.2,0.9 c-0.1,0.3-0.1,0.6-0.2,0.9c0,0.2-0.1,0.3-0.1,0.4l0,0.1c-5.4,18.3-21.9,30.6-41,30.6c-19.1,0-35.6-12.3-41-30.6l0-0.2 c0-0.1-0.1-0.2-0.1-0.2c0,0,0-0.1,0-0.1c-0.3,2.1-0.5,4.2-0.5,6.1v3.9c0,23.7,19.2,44.5,41.8,45.5c11.4,0.5,22-3.4,29.8-11 c7.3-7,11.4-16.4,11.9-26.6C247.2,200.1,246.6,201.5,246,202.9z M241.5,198.4c-5.5,14.3-19.4,24.3-35.5,24.4l-0.4-7.3 C219.8,215.5,232.9,208.9,241.5,198.4z\"></path><path class=\"st0\" d=\"M189.6,133.8c-0.1,0.4-0.2,0.9-0.3,1.3c0,0,0.1,0,0.1,0c0.8,0,1.8-0.1,3.1-0.9c6.2-3.7,18.8-11.7,25.5-16.1 c-1.4-0.3-2.8-0.7-4.2-1c-6.9,4.3-15.7,10-20.9,13.3C190.3,132.1,189.8,133,189.6,133.8z\"></path><path d=\"M293.6,93.8c0-23.3-9-45.2-25.4-61.8c-16.2-16.3-38-25.6-61.3-25.9c-1.4,0-2.7,0.7-3.5,1.8c-0.5,0.7-1.1,2.1-0.4,4 c3.2,9.6,3.5,27.1-0.5,35.9c-1.8,0.6-3.9,0.8-6.1,0.8c-5.7,0-11.5-1.7-15.7-3c-1.3-0.4-2.5-0.7-3.4-1l-3-0.7l-1.4,2.8 c-5.3,10.2-3.7,23.1-2.5,33.5c0.2,1.9,0.4,3.7,0.6,5.3c-3.2,1.3-10.2,2.9-19.9,2.9c-6.5,0-16.3-0.7-26.2-4.2h-0.1h-0.1 c-0.5-0.2-1.1-0.3-1.6-0.3c-1.3,0-2.5,0.5-3.4,1.4c-1.9,1.9-2,4.8-2,8.1v0.5c0,19.3,6.3,37.9,17.9,53.2h-0.1l1.3,1.5 c0.8,1,1.7,2.1,2.6,3.1l0.1,0.1c2.9,3.5,5.8,6.6,8.7,9.6c5.2,5.5,9.8,10.3,12.1,15.3c-0.7,3.2-1.1,6.6-1.1,9.9v3.9 c0,2.1,0.1,4.2,0.4,6.3c-0.3,1-0.4,2.2-0.4,3.3c0,2.3,0.2,4.7,0.5,7.1c-0.4,1.1-0.5,2.4-0.5,3.8c0,10.9,3.8,21.5,10.8,29.9 c6.2,14.4,20.3,23.7,36,23.7c15.8,0,29.9-9.4,36.1-23.9c6.9-8.4,10.7-18.9,10.7-29.7c0-1.9-0.4-3.6-1-4.9c0.7-3.1,1-6.3,1-9.6 c0-1.5-0.2-2.9-0.7-4.1c0.3-1.9,0.5-3.8,0.6-5.7v-0.1v-0.1c0-3.6-0.4-7.1-1.2-10.6c2.4-4.7,6.8-9.3,11.7-14.6 c2.8-3,5.8-6.1,8.7-9.6l0.1-0.1c0.9-1,1.7-2,2.5-3l1.3-1.6h-0.1C287.3,131.7,293.6,113.1,293.6,93.8z M247.7,211.3 c0,23-18.8,41.8-41.8,41.8c-22.2,0-40.4-17.4-41.7-39.3c0.1,0.4,0.3,0.9,0.4,1.3c1,2.8,2.3,5.6,3.8,8.2s3.4,5,5.4,7.2 c4,4.4,9,8.1,14.5,10.5c5.5,2.4,11.5,3.6,17.4,3.4c-5.8-0.7-11.5-2.4-16.7-4.9c-5.2-2.6-9.8-6.1-13.7-10.4 c-3.8-4.3-6.8-9.3-8.8-14.7c-1-2.7-1.7-5.6-2.1-8.4c-0.1-0.5-0.1-0.9-0.2-1.4c5.8,18.5,22.5,32.8,41.6,33.6c0,0,0,0,0.1,0l0.2,4.1 c0.6,0,1.2,0,1.8,0c16.2,0,29.4-9.2,35-22.6c2-3,3.5-6.2,4.7-9.7C247.7,210.4,247.7,210.8,247.7,211.3z M234.5,244.5 c-6.2,9.4-17,15.4-28.6,15.4c-11.8,0-22.5-5.9-28.7-15.5c7.7,6.7,17.7,10.7,28.7,10.7C216.8,255.1,226.8,251.1,234.5,244.5z M122.8,89.5c3.5,13.4,12.5,16.4,20.4,19c2.7,0.9,5.3,1.7,7.5,3c0.1,10.1,2.8,20.4,7.5,29c4.1,7.5,9.5,13.2,15.6,16.4 c-4.3,4.7-7.7,10.3-9.7,16.7c-2.7-5.2-7.2-9.9-12.3-15.3c-2.8-3-5.8-6.1-8.6-9.5c-13.3-15.2-20.6-34.6-20.6-54.7 C122.7,92.5,122.7,91,122.8,89.5z M176,87.8c-0.1-2.4-0.5-5.1-0.8-8c-1.2-9.5-2.6-21.2,1.6-30c0.7,0.2,1.5,0.4,2.3,0.7 c6.6,2,17.7,5.2,26.6,1.5l0.3-0.1l0.2-0.3c5.3-9.4,5.3-28.5,1.8-40.1c10.5,2.7,37.6,14.2,49.4,33c-10.8-1.2-28.2,3.3-38.9,12.4 l-0.8,0.7l0.8,0.8c14,13.9,23.6,35.4,25.7,57.5c-5.6,1.9-12.6,2.2-20,1.3c-0.1-1.8-0.3-3.5-0.6-5.2l-0.1-0.7l-0.8-0.1 c-0.9-0.1-2.5-0.3-4.9,1.2c-1,0.6-2.5,1.5-4.3,2.6c-0.1,0-0.1,0-0.2-0.1l0,0c0,0,0,0,0,0c-6.1-1.7-12-4.3-17.2-7.5l-0.7-0.4 l-0.6,0.5c-11.5,10.9-18.5,29.6-17.6,46c-0.7,0.6-1.4,1.2-2.1,1.9c-11.5-6-22.5-22.4-22.6-44.5l0-0.6l-0.5-0.3 c-2.5-1.5-5.3-2.4-8.3-3.4c-7.7-2.6-15.6-5.2-18.9-17c21.1,6.9,45.3,3.6,50.7-1l0.4-0.3L176,87.8z M219.2,145.1 c-4.2-1.4-8.7-2.1-13.3-2.1c-5.8,0-11.3,1.1-16.4,3.2c-0.5-3.2-0.7-6.2-0.5-9c0.1,0,0.3,0,0.4,0c0.9,0,2.3-0.1,4.1-1.2 c6.3-3.8,19.4-12.1,26-16.4c0.5-0.3,0.8-0.6,1.1-0.9c0.5,0.1,0.9,0.2,1.4,0.2C222.3,127,220.9,136,219.2,145.1z M179.6,156.7 c-0.1-0.7-0.2-1.5-0.2-2.2c2.6-2.1,5.5-4,8.6-5.4c0.9,4.9,2.4,10.1,3.9,15.3c-4.6-2-9.1-4.7-11.8-7.2L179.6,156.7z M177.6,156.5 c-0.1,0-0.2-0.1-0.4-0.2c0.1-0.1,0.2-0.2,0.3-0.3C177.6,156.2,177.6,156.4,177.6,156.5z M179.3,152c-0.4-15.2,6-32.2,16.5-42.4 c4.7,2.8,10,5.1,15.4,6.8c-6.6,4.2-14.6,9.3-19.4,12.4c-3,2-3.8,3.3-4.1,4.5c-1,4-0.8,8.7,0,13.7C184.6,148.3,181.9,150,179.3,152z M221,115.2c-0.3,0.4-0.6,0.8-1,1.3c-1.2-0.2-2.5-0.5-3.7-0.8c1.1-0.6,2-1.2,2.6-1.6c1.3-0.8,2.2-1,2.9-1c0,0.3,0.1,0.6,0.1,1 C221.5,114.4,221.3,114.8,221,115.2z M217.9,118.1c-6.7,4.4-19.3,12.4-25.5,16.1c-1.3,0.8-2.3,0.8-3.1,0.9c0,0-0.1,0-0.1,0 c0.1-0.5,0.2-0.9,0.3-1.3c0.2-0.8,0.8-1.7,3.3-3.4c5.2-3.4,14-9,20.9-13.3C215.1,117.5,216.5,117.8,217.9,118.1z M235.8,225.2 c-7.9,7.6-18.5,11.4-29.8,11c-22.7-1-41.8-21.8-41.8-45.5v-3.9c0-2,0.2-4.1,0.5-6.1c0,0,0,0.1,0,0.1c0,0.1,0,0.2,0.1,0.2l0,0.2 c5.4,18.3,21.9,30.6,41,30.6c19.1,0,35.6-12.3,41-30.6l0-0.1c0-0.1,0.1-0.2,0.1-0.4c0.1-0.3,0.2-0.6,0.2-0.9 c0.1-0.3,0.1-0.6,0.2-0.9c0-0.1,0-0.1,0.1-0.2c0.2,1.2,0.4,2.3,0.5,3.5c0.1,1.1,0.2,2.3,0.2,3.4c0,1.2-0.2,2.3-0.3,3.4 c-0.6,4.5-1.8,8.9-3.7,13c-3.8,8.2-10.3,15-18.3,19.3c-4,2.1-8.4,3.5-12.8,4.3l-1.7,0.3c-0.6,0.1-1.1,0.2-1.7,0.2l-3.4,0.2 c-2.2-0.1-4.5-0.3-6.7-0.8c-8.9-2-16.9-6.8-23.8-13c5.6,7.5,14.1,13,23.4,15c2.2,0.5,4.6,0.8,6.9,0.9l0.2,4.4c0.6,0,1.2,0,1.8,0 c17.8,0,31.9-11.1,36.5-26.6c-0.9,1.4-1.8,2.8-2.9,4.1c1.7-2.4,3.2-4.9,4.5-7.5c0.6-1.4,1.2-2.8,1.7-4.3 C247.2,208.9,243,218.3,235.8,225.2z M241,211.1c0.1-0.1,0.2-0.3,0.3-0.4C241.3,210.8,241.2,211,241,211.1z M245.4,178.4 c-0.1,0.3-0.2,0.6-0.3,1c-0.1,0.3-0.1,0.6-0.2,0.8l-0.1,0.2v0.1c0,0.1-0.1,0.2-0.1,0.3c-5.2,17.4-20.8,29.1-39,29.1 c-18.2,0-33.8-11.7-39-29.1c0-0.2-0.1-0.3-0.1-0.4l-0.1-0.2c-0.2-0.6-0.4-1.1-0.5-1.7c-0.2-0.7-0.4-1.3-0.6-2 c1.8-7.2,5.4-13.5,10.3-18.6c0.7,0.3,1.3,0.5,2,0.8c-2.3,4.5-3.1,13.6-1.8,18.4l1.9-0.5c-1.2-4.8-0.2-13.6,1.8-17.3l0,0 c3.3,2.7,8.2,5.5,13,7.5c2.3,7.7,4.4,14.9,4.4,20.1h2c0-5.6-2.2-13.2-4.6-21.2c-1.7-5.7-3.5-11.8-4.5-17.5c5-2.1,10.4-3.2,16-3.2 c4.5,0,8.8,0.7,12.9,2.1c-0.7,3.4-1.4,6.8-2.1,10.1c-2.4,11.1-4.6,21.5-4.6,29.7h2c0-8,2.2-18.4,4.5-29.3c0.7-3.3,1.4-6.6,2.1-9.9 c12.2,4.7,21.9,14.9,25.5,28l0,0C245.9,176.6,245.6,177.5,245.4,178.4z M221.1,145.7c1.8-9.2,3.1-18.3,2.9-26.6 c7.7,1,15.1,0.5,20.9-1.4c2.7,2.3,6.7,7.2,11.1,13.6l1.7-1.1c-2.7-4-7.8-11-11.6-14.1c-2.1-22.3-11.6-44-25.6-58.3 c11.1-9,28.7-12.9,38.5-11l2.1,0.4l-1.1-1.9c-9.6-17.2-31.7-28.7-45.1-33.7c41.4,4.7,73.6,39.9,73.6,82.5 c0,20.2-7.3,39.7-20.6,54.8c-2.8,3.4-5.7,6.5-8.5,9.5c-4.9,5.2-9.3,9.9-12,14.8C243.3,160.3,233.4,150.3,221.1,145.7z\"></path><path d=\"M93,196.6l1.1-0.3l0.8-0.8c1.4-1.4,1.6-3.4,1.5-6.9c-0.1-2-0.3-4.2-0.5-5.4l-1.1-5.4l-4.3,2.4c-1.6-3.6-2.3-6.6-3.3-10.2 c-0.2-0.7-0.4-1.4-0.5-2.1l-1.1-4.2l-4.2,1.7c-9.1,3.6-20.4,6.7-33.2,10.1l-7.2,1.9l5.6,4.9c6.4,5.6,15.1,12.4,26,14.3 c2.9,0.6,7.5,0.8,10.9,0.8C86.4,197.4,90.4,197.3,93,196.6z M91.4,192c-3.2,0.6-9.5,0.6-14.1,0.3c4.5-1.9,11-5.1,13.9-6.6 C91.5,187.8,91.6,191,91.4,192z M73.2,191.7c-7-1.3-13.8-5-21.8-11.9c11.2-3,22-6.1,30.8-9.4c0.1,0.5,0.3,1,0.4,1.5 c1.1,4.2,2.1,8.2,4.8,13.4C82.8,187.6,75.9,190.9,73.2,191.7z\"></path><path d=\"M86.5,244.3l-5.1-2.8l-0.6,5.9c-0.8,7.5,8.8,34,19.8,44.1l2.4,2.2l2.6-2c7.6-5.7,21.6-22,24.5-29.5l1.9-4.9l-5.3-0.5 C116.4,255.9,96,249.1,86.5,244.3z M124.9,261.5c-3.2,6.5-14.4,19.9-21.6,25.6c-9.1-8.8-16.9-30.2-17.6-37.8 C95.7,254.1,114.3,260.2,124.9,261.5z\"></path><path d=\"M45,213.5l-4.4,0.8c-0.4,0.1-1.3,0.2-3.2,0.2c-6.1,0-17.4-1.2-23.2-2.9l-8.9-2.5l4.2,8.2c3.8,7.4,18.4,20,24.1,22.6 l3.1,1.4l1.9-2.8c2.9-4.4,7-16,6.7-20.5L45,213.5z M40.3,219.4c-0.4,3.8-3.1,11.8-5.3,15.6c-4.9-2.7-15.4-11.8-19.7-17.9 C22.8,218.7,34.9,219.9,40.3,219.4z\"></path><path d=\"M69.4,267.6l-0.7-3.9l-3.8,0.6c-3.1,0.5-8.6,6-9.1,9.1l-0.3,1.8l1.1,1.4c2.2,2.7,7.4,4.7,10.6,4.7c0.1,0,0.3,0,0.4,0 l4.7-0.2l-1-4.6C70.6,273.2,69.9,270.2,69.4,267.6z M60.9,273.9c0.6-1.1,2.6-3.2,3.9-4.1c0.3,1.3,0.6,2.7,0.9,4.2 c0.2,0.7,0.3,1.5,0.5,2.3C64.4,275.9,62,274.9,60.9,273.9z\"></path><path d=\"M241.5,198.4c-8.6,10.5-21.7,17.1-35.9,17.1l0.4,7.3C222.1,222.7,236,212.7,241.5,198.4z\"></path><path d=\"M206.1,244.9H206h-0.1l0.2,4.7c0.6,0,1.2,0,1.8,0c17.8,0,31.9-10.7,36.5-25.7C236.4,236.6,222.3,244.9,206.1,244.9z\"></path><path d=\"M249.2,148.4c-2.5,2.6-5.1,5.4-7.5,8.2c-1.3,1.5-1.1,3.7,0.4,5c0.7,0.5,1.5,0.8,2.3,0.8c1.1,0,2-0.4,2.7-1.2 c2.2-2.6,4.8-5.3,7.2-7.9c1.4-1.4,1.3-3.7-0.1-5C252.8,146.9,250.5,147,249.2,148.4z\"></path><path d=\"M262.6,144c12.1-13.8,18.8-31.5,18.8-49.9c0-1.9-1.6-3.5-3.5-3.5c-1.9,0-3.5,1.6-3.5,3.5c0,16.7-6,32.8-17,45.3 c-1.3,1.5-1.2,3.7,0.3,5c0.6,0.6,1.5,0.9,2.3,0.9C261,145.3,262,144.8,262.6,144z\"></path></g></svg>"
 
 /***/ }),
-/* 293 */
+/* 291 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 294 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35814,18 +36001,18 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Weather = __webpack_require__(295);
+var _Weather = __webpack_require__(293);
 
 var _Weather2 = _interopRequireDefault(_Weather);
 
-__webpack_require__(299);
+__webpack_require__(296);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Weather2.default;
 
 /***/ }),
-/* 295 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35837,25 +36024,25 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(12);
+var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactTimeFormat = __webpack_require__(296);
-
-var _reactTimeFormat2 = _interopRequireDefault(_reactTimeFormat);
-
-var _reactMoment = __webpack_require__(67);
+var _reactMoment = __webpack_require__(121);
 
 var _reactMoment2 = _interopRequireDefault(_reactMoment);
 
-var _propTypes = __webpack_require__(52);
+var _propTypes = __webpack_require__(63);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _roundTo = __webpack_require__(68);
+var _roundTo = __webpack_require__(241);
 
 var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _weatherIcons = __webpack_require__(64);
+
+var _weatherIcons2 = _interopRequireDefault(_weatherIcons);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35892,16 +36079,10 @@ var Weather = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var style = {
-        opacity: this.props.opacity
-        /* transform: `translateY(${this.props.top}px)`, */
-      };
+      console.log(this.props.data);
       return _react2.default.createElement(
         'section',
-        {
-          className: 'wwise-weather',
-          style: this.props.hide ? style : {}
-        },
+        { className: 'wwise-weather' },
         this.state.time && _react2.default.createElement(
           'div',
           { className: 'dateTime' },
@@ -35924,6 +36105,11 @@ var Weather = function (_Component) {
         _react2.default.createElement(
           'h2',
           null,
+          _react2.default.createElement(
+            'span',
+            { className: 'conditions-icon' },
+            _weatherIcons2.default[this.props.data.conditions] && _weatherIcons2.default[this.props.data.conditions].unicode
+          ),
           this.props.data.conditions
         ),
         _react2.default.createElement(
@@ -35939,6 +36125,11 @@ var Weather = function (_Component) {
             { className: 'temp min' },
             (0, _roundTo2.default)(this.props.data.min, 1)
           )
+        ),
+        _react2.default.createElement(
+          'span',
+          { className: 'cta' },
+          'Scroll down for an extended forcast'
         )
       );
     }
@@ -35957,9 +36148,7 @@ Weather.propTypes = {
     max: _propTypes2.default.number,
     min: _propTypes2.default.number,
     summary: _propTypes2.default.string
-  }),
-  opacity: _propTypes2.default.number,
-  hide: _propTypes2.default.bool
+  })
 };
 
 Weather.defaultProps = {
@@ -35969,233 +36158,11 @@ Weather.defaultProps = {
     max: 0,
     min: 0,
     summary: null
-  },
-  opacity: 1,
-  hide: false
+  }
 };
 
 /***/ }),
-/* 296 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(12);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * react-timer
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * handle show time format
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * format just like moment format function
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * todo 1. add offset attribte to custom show
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-var FORMAT_REG = /(YYYY|YYY|YY|Y|MM|M|DD|D|HH|H|hh|h|mm|m|ss|s|.)/g;
-
-var Time = function (_React$Component) {
-	_inherits(Time, _React$Component);
-
-	function Time(props) {
-		_classCallCheck(this, Time);
-
-		var _this = _possibleConstructorReturn(this, (Time.__proto__ || Object.getPrototypeOf(Time)).call(this, props));
-
-		_this.displayName = 'Time';
-		return _this;
-	}
-
-	_createClass(Time, [{
-		key: 'formatTime',
-		value: function formatTime() {
-			var _props = this.props;
-			var _props$value = _props.value;
-			var value = _props$value === undefined ? '' : _props$value;
-			var format = _props.format;
-
-
-			return Time.format(value, format);
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var _props2 = this.props;
-			var value = _props2.value;
-			var format = _props2.format;
-
-			var props = _objectWithoutProperties(_props2, ['value', 'format']);
-
-			return _react2.default.createElement(
-				'span',
-				props,
-				this.formatTime()
-			);
-		}
-	}]);
-
-	return Time;
-}(_react2.default.Component);
-
-//time format
-
-
-Time.format = function (value) {
-	var format = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'YYYY-MM-DD hh:mm:ss';
-
-	var ReplaceFunction = {};
-
-	if (!value) {
-		return '';
-	}
-	if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) !== 'object') {
-		value = new Date(value);
-	}
-
-	var matchResult = format.match(FORMAT_REG);
-
-	if (matchResult) {
-		return matchResult.map(function (item, index) {
-			if (!ReplaceFunction[item]) {
-				ReplaceFunction[item] = createReplaceFunction(item);
-			}
-
-			return ReplaceFunction[item]();
-		}).join('');
-	}
-
-	return format;
-
-	//create replace function
-	function createReplaceFunction(format) {
-		return function () {
-			switch (format) {
-				case "YYYY":
-					return getYear(4);
-					;
-				case "YYY":
-					return getYear(3);
-					;
-				case "YY":
-					return getYear(2);
-					;
-				case "Y":
-					return getYear(1);
-					;
-				case "MM":
-					return getMonth(2);
-					;
-				case "M":
-					return getMonth(1);
-					;
-				case "DD":
-					return getDay(2);
-					;
-				case "D":
-					return getDay(1);
-					;
-				case "hh":
-					return getHour(2);
-					;
-				case "h":
-					return getHour(1);
-					;
-				case "HH":
-					return getHour(2);
-					;
-				case "H":
-					return getHour(1);
-					;
-				case "mm":
-					return getMinute(2);
-					;
-				case "m":
-					return getMinute(1);
-					;
-				case "ss":
-					return getSecond(2);
-					;
-				case "s":
-					return getSecond(1);
-					;
-				default:
-					return format;
-					;
-			}
-		};
-
-		function getYear(num) {
-			var reg = new RegExp('^[0-9]{' + (4 - num) + '}');
-
-			return (value.getFullYear() + "").replace(reg, '');
-		}
-
-		function getMonth(num) {
-			var month = value.getMonth() + 1;
-
-			return getFormattedValue(month, num);
-		}
-
-		function getDay(num) {
-			var day = value.getDate();
-
-			return getFormattedValue(day, num);
-		}
-		function getHour(num) {
-			var hour = value.getHours();
-
-			return getFormattedValue(hour, num);
-		}
-		function getMinute(num) {
-			var hour = value.getMinutes();
-
-			return getFormattedValue(hour, num);
-		}
-		function getSecond(num) {
-			var seconds = value.getSeconds();
-
-			return getFormattedValue(seconds, num);
-		}
-
-		function getFormattedValue(value, num) {
-			if (num === 1) {
-				return value;
-			} else {
-				return fillZero(value);
-			}
-		}
-
-		function fillZero(num) {
-			return num >= 10 ? num : "0" + num;
-		}
-	}
-};
-
-exports.default = Time;
-
-/***/ }),
-/* 297 */
+/* 294 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -36223,7 +36190,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 298 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -36480,7 +36447,151 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 298;
+webpackContext.id = 295;
+
+/***/ }),
+/* 296 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 297 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _ScrollSection = __webpack_require__(298);
+
+var _ScrollSection2 = _interopRequireDefault(_ScrollSection);
+
+__webpack_require__(299);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _ScrollSection2.default;
+
+/***/ }),
+/* 298 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(14);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(63);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollSection = function (_Component) {
+  _inherits(ScrollSection, _Component);
+
+  function ScrollSection() {
+    _classCallCheck(this, ScrollSection);
+
+    var _this = _possibleConstructorReturn(this, (ScrollSection.__proto__ || Object.getPrototypeOf(ScrollSection)).call(this));
+
+    _this.state = {
+      classX: 'slider-left',
+      classY: 'slider-top'
+    };
+    _this.handleWheel = _this.handleWheel.bind(_this);
+    return _this;
+  }
+
+  _createClass(ScrollSection, [{
+    key: 'handleWheel',
+    value: function handleWheel(event) {
+      event.preventDefault();
+      var classX = this.state.classX;
+      var classY = this.state.classY;
+
+      if (event.deltaX < -10) {
+        /* Scroll to left */
+        classX = 'slider-left';
+      } else if (event.deltaX > 10) {
+        /* Scroll to right */
+        classX = 'slider-right';
+      } else if (event.deltaY < -10) {
+        /* Scroll to top */
+        classY = 'slider-top';
+      } else if (event.deltaY > 10) {
+        /* Scroll to bottom */
+        classY = 'slider-bottom';
+      }
+      this.setState({
+        classX: classX,
+        classY: classY
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var className = 'wwise-scroll-section ' + this.props.className + ' ' + this.state.classX + ' ' + this.state.classY;
+      var CustomTag = void 0;
+      /* I could just pass the value of the element property to the CustomTag
+      variable, but using a switch ensures that the "element" property always has
+      an expected value and does not break the markup. I can add more available tags
+      tags later on */
+      switch (this.props.element) {
+        case 'section':
+          CustomTag = 'section';
+          break;
+        default:
+          CustomTag = 'div';
+          break;
+      }
+
+      return _react2.default.createElement(
+        CustomTag,
+        {
+          className: className,
+          onWheel: this.handleWheel
+        },
+        this.props.children
+      );
+    }
+  }]);
+
+  return ScrollSection;
+}(_react.Component);
+
+exports.default = ScrollSection;
+
+
+ScrollSection.propTypes = {
+  children: _propTypes2.default.arrayOf(_propTypes2.default.shape()),
+  element: _propTypes2.default.string,
+  className: _propTypes2.default.string
+};
+
+ScrollSection.defaultProps = {
+  children: [],
+  element: 'div',
+  className: ''
+};
 
 /***/ }),
 /* 299 */
@@ -36489,13 +36600,7 @@ webpackContext.id = 298;
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36505,18 +36610,18 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Forecast = __webpack_require__(307);
+var _Forecast = __webpack_require__(301);
 
 var _Forecast2 = _interopRequireDefault(_Forecast);
 
-__webpack_require__(308);
+__webpack_require__(302);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _Forecast2.default;
 
 /***/ }),
-/* 307 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36526,34 +36631,32 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _react = __webpack_require__(12);
+var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(52);
+var _propTypes = __webpack_require__(63);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactMoment = __webpack_require__(67);
+var _reactMoment = __webpack_require__(121);
 
 var _reactMoment2 = _interopRequireDefault(_reactMoment);
 
-var _roundTo = __webpack_require__(68);
+var _roundTo = __webpack_require__(241);
 
 var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _weatherIcons = __webpack_require__(64);
+
+var _weatherIcons2 = _interopRequireDefault(_weatherIcons);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Forecast = function Forecast(props) {
   return props.data.length > 0 && _react2.default.createElement(
     'table',
-    {
-      className: 'wwise-forecast ' + props.className,
-      style: props.hide ? {
-        opacity: props.opacity
-        /* transform: `translateX(${props.left}px)`, */
-      } : {}
-    },
+    { className: 'wwise-forecast ' + props.className },
     _react2.default.createElement(
       'tbody',
       null,
@@ -36578,6 +36681,11 @@ var Forecast = function Forecast(props) {
               null,
               (0, _roundTo2.default)(entry.temp, 1),
               '\u02DA'
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'conditions-icon' },
+              _weatherIcons2.default[entry.conditions] && _weatherIcons2.default[entry.conditions].unicode
             ),
             _react2.default.createElement(
               'h4',
@@ -36638,432 +36746,13 @@ Forecast.defaultProps = {
 exports.default = Forecast;
 
 /***/ }),
-/* 308 */
+/* 302 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 309 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */,
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */,
-/* 336 */,
-/* 337 */,
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */,
-/* 346 */,
-/* 347 */,
-/* 348 */,
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */,
-/* 354 */,
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */,
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */,
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */,
-/* 387 */,
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */,
-/* 395 */,
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */,
-/* 403 */,
-/* 404 */,
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */,
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */,
-/* 427 */,
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */,
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */,
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */,
-/* 457 */,
-/* 458 */,
-/* 459 */,
-/* 460 */,
-/* 461 */,
-/* 462 */,
-/* 463 */,
-/* 464 */,
-/* 465 */,
-/* 466 */,
-/* 467 */,
-/* 468 */,
-/* 469 */,
-/* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */,
-/* 474 */,
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */,
-/* 489 */,
-/* 490 */,
-/* 491 */,
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */,
-/* 496 */,
-/* 497 */,
-/* 498 */,
-/* 499 */,
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */,
-/* 508 */,
-/* 509 */,
-/* 510 */,
-/* 511 */,
-/* 512 */,
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */,
-/* 520 */,
-/* 521 */,
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */,
-/* 529 */,
-/* 530 */,
-/* 531 */,
-/* 532 */,
-/* 533 */,
-/* 534 */,
-/* 535 */,
-/* 536 */,
-/* 537 */,
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */,
-/* 544 */,
-/* 545 */,
-/* 546 */,
-/* 547 */,
-/* 548 */,
-/* 549 */,
-/* 550 */,
-/* 551 */,
-/* 552 */,
-/* 553 */,
-/* 554 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _ScrollSection = __webpack_require__(555);
-
-var _ScrollSection2 = _interopRequireDefault(_ScrollSection);
-
-__webpack_require__(556);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = _ScrollSection2.default;
-
-/***/ }),
-/* 555 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(12);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(52);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _smoothScrollTo = __webpack_require__(283);
-
-var _smoothScrollTo2 = _interopRequireDefault(_smoothScrollTo);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var scrollDuration = 1000;
-
-var ScrollSection = function (_Component) {
-  _inherits(ScrollSection, _Component);
-
-  function ScrollSection() {
-    _classCallCheck(this, ScrollSection);
-
-    var _this = _possibleConstructorReturn(this, (ScrollSection.__proto__ || Object.getPrototypeOf(ScrollSection)).call(this));
-
-    _this.state = {
-      scrollPos: {
-        left: 0,
-        top: 0
-      },
-      opacity: 1
-    };
-    _this.handleWheel = _this.handleWheel.bind(_this);
-    return _this;
-  }
-
-  _createClass(ScrollSection, [{
-    key: 'handleWheel',
-    value: function handleWheel(event) {
-      event.preventDefault();
-      var scrollPos = this.state.scrollPos;
-
-
-      if (event.deltaX < 0) {
-        /* Scroll to left */
-        (0, _smoothScrollTo2.default)(0, 0, scrollDuration, event.currentTarget);
-      } else if (event.deltaX > 0) {
-        /* Scroll to right */
-        (0, _smoothScrollTo2.default)(event.currentTarget.scrollWidth, 0, scrollDuration, event.currentTarget);
-      }
-      if (event.deltaY < 0) {
-        /* Scroll to top */
-        (0, _smoothScrollTo2.default)(0, 0, scrollDuration, event.currentTarget);
-      } else if (event.deltaY > 0) {
-        /* Scroll to bottom */
-        (0, _smoothScrollTo2.default)(0, event.currentTarget.scrollHeight, scrollDuration, event.currentTarget);
-      }
-
-      /* The opacity of the first element is determined by the amount of scroll. I calculate it on both
-      axis as a fraction of the total scroll, and then take the largest amount and substract it from 1,
-      so that it is inversely proportional */
-      var xPos = event.currentTarget.scrollTop / (event.currentTarget.scrollHeight / 2);
-      var yPos = event.currentTarget.scrollLeft / (event.currentTarget.scrollWidth / 2);
-      var opacity = xPos > yPos ? 1 - xPos : 1 - yPos;
-
-      this.setState({
-        scrollPos: {
-          left: event.currentTarget.scrollLeft,
-          top: event.currentTarget.scrollTop
-        },
-        opacity: opacity
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _this2 = this;
-
-      var className = 'wwise-scroll-section ' + this.props.className;
-      var CustomTag = void 0;
-      /* I could just pass the value of the element property to the CustomTag
-      variable, but using a switch ensures that the "element" property always has
-      an expected value and does not break the markup. I can add more available tags
-      tags later on */
-      switch (this.props.element) {
-        case 'section':
-          CustomTag = 'section';
-          break;
-        default:
-          CustomTag = 'div';
-          break;
-      }
-
-      /* Pass on the opacity to children by cloning them */
-      var children = this.props.children.map(function (child) {
-        return _react2.default.cloneElement(child, {
-          opacity: _this2.state.opacity,
-          left: _this2.state.scrollPos.left,
-          top: _this2.state.scrollPos.top
-        });
-      });
-      return _react2.default.createElement(
-        CustomTag,
-        {
-          className: className,
-          onWheel: this.handleWheel
-        },
-        children
-      );
-    }
-  }]);
-
-  return ScrollSection;
-}(_react.Component);
-
-exports.default = ScrollSection;
-
-
-ScrollSection.propTypes = {
-  children: _propTypes2.default.arrayOf(_propTypes2.default.shape()),
-  element: _propTypes2.default.string,
-  className: _propTypes2.default.string
-};
-
-ScrollSection.defaultProps = {
-  children: [],
-  element: 'div',
-  className: ''
-};
-
-/***/ }),
-/* 556 */
+/* 303 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

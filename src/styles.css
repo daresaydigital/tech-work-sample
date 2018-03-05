@@ -10,13 +10,19 @@
   font-style: normal;
   font-weight: 400;
   src: url('./assets/fonts/Quicksand Regular.woff2') format('woff2');
+}
 
+@font-face {
+  font-family: 'WeatherIcons Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/WeatherIcons Regular.woff2') format('woff2');
 }
 
 html,
 body{
-  color:rgba(0, 0, 0, 1);
-  font-size:16px;
+  color:rgba(255, 255, 255, 1);
+  font-size:18px;
   margin:0;
   width:100%;
   font-family: 'Barlow Regular';
@@ -37,16 +43,6 @@ h4{
   font-family: 'Quicksand Regular', sans-serif;
 }
 
-h1{
-  font-size: 6em;
-  margin: 0 0 0.3em;
-}
-
-h2{
-  font-size: 3em;
-  margin: 0.5em 0;
-}
-
 .temp:after{
   content:'˚';
 }
@@ -64,14 +60,54 @@ h2{
 }
 
 .minmax span + span{
-  border-left: solid 1px rgba(0, 0, 0, 1);
+  border-left: solid 1px rgba(255, 255, 255, 1);
 }
 
 .moment{
   display:block;
 }
 
+.conditions-icon{
+  font-family: 'WeatherIcons Regular';
+}
+
 .wwise-slider{
   display:flex;
   align-content: stretch;
+  position:absolute;
+  top: 0;
+  left: 0;
+  transition: transform 600ms ease;
+  height: 100%;
+  width: 100%;
+  overflow:auto;
+}
+
+.slider-top .wwise-slider{
+  transform: translateY(100%);
+}
+
+.slider-bottom .wwise-slider{
+  transform: translateY(0);
+}
+
+/* Conditions-based styles */
+.clear{
+  background: -webkit-linear-gradient(top, rgba(7,177,234,1) 0%,rgba(204,242,255,1) 100%); /* Chrome10-25 */
+background: linear-gradient(to bottom, rgba(7,177,234,1) 0%,rgba(204,242,255,1) 100%); /* Chrome26+ */
+}
+
+.cloudy{
+  background: -webkit-linear-gradient(top, rgba(140,158,155,1) 0%,rgba(224,228,229,1) 100%); /* Chrome10-25 */
+  background: linear-gradient(to bottom, rgba(140,158,155,1) 0%,rgba(224,228,229,1) 100%); /* Chrome26+ */
+}
+
+.stormy{
+  background: -webkit-linear-gradient(top, rgba(36,44,45,1) 0%,rgba(139,142,142,1) 100%); /* Chrome10-25 */
+  background: linear-gradient(to bottom, rgba(36,44,45,1) 0%,rgba(139,142,142,1) 100%); /* Chrome26+ */
+}
+
+.smoke{
+  background: -webkit-linear-gradient(top, rgba(107,98,83,1) 0%,rgba(158,158,134,1) 100%); /* Chrome10-25 */
+  background: linear-gradient(to bottom, rgba(107,98,83,1) 0%,rgba(158,158,134,1) 100%); /* Chrome26+ */
 }

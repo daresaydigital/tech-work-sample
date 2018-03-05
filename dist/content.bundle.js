@@ -60,28 +60,12 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 310);
+/******/ 	return __webpack_require__(__webpack_require__.s = 304);
 /******/ })
 /************************************************************************/
 /******/ ({
 
 /***/ 12:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(83);
-} else {
-  module.exports = __webpack_require__(84);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-
-/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -121,6 +105,35 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
+
+/***/ }),
+
+/***/ 14:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(82);
+} else {
+  module.exports = __webpack_require__(83);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ }),
+
+/***/ 241:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var roundTo = function roundTo(number, places) {
+  return typeof number === 'undefined' ? 0 : Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
+};
+module.exports = roundTo;
 
 /***/ }),
 
@@ -222,7 +235,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 
-/***/ 310:
+/***/ 304:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -230,13 +243,21 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(12);
+var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(85);
+var _reactDom = __webpack_require__(84);
 
-__webpack_require__(311);
+__webpack_require__(305);
+
+var _weatherIcons = __webpack_require__(64);
+
+var _weatherIcons2 = _interopRequireDefault(_weatherIcons);
+
+var _roundTo = __webpack_require__(241);
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -335,6 +356,10 @@ var Content = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var weatherStyle = 'clear';
+      if (typeof _weatherIcons2.default[this.state.weather.conditions] !== 'undefined') {
+        weatherStyle = _weatherIcons2.default[this.state.weather.conditions].className;
+      }
       return _react2.default.createElement(
         'span',
         {
@@ -344,11 +369,17 @@ var Content = function (_Component) {
         _react2.default.createElement(
           'div',
           {
-            id: 'wwise-tooltip'
+            id: 'wwise-tooltip',
+            className: weatherStyle
           },
           _react2.default.createElement(
             'h1',
             null,
+            _react2.default.createElement(
+              'span',
+              { className: 'conditions-icon' },
+              _weatherIcons2.default[this.state.weather.conditions] && _weatherIcons2.default[this.state.weather.conditions].unicode
+            ),
             this.state.weather.location
           ),
           _react2.default.createElement(
@@ -363,13 +394,18 @@ var Content = function (_Component) {
             this.state.weather.conditions
           ),
           _react2.default.createElement(
-            'p',
-            null,
-            'Min ',
-            this.state.weather.min,
-            '\u02DA | Max ',
-            this.state.weather.max,
-            '\u02DA'
+            'div',
+            { className: 'minmax' },
+            _react2.default.createElement(
+              'span',
+              { className: 'temp max' },
+              (0, _roundTo2.default)(this.state.weather.max, 1)
+            ),
+            _react2.default.createElement(
+              'span',
+              { className: 'temp min' },
+              (0, _roundTo2.default)(this.state.weather.min, 1)
+            )
           )
         ),
         _react2.default.createElement('span', { id: 'wwise-searchTerm' })
@@ -387,7 +423,7 @@ document.body.appendChild(injectDOM);
 
 /***/ }),
 
-/***/ 311:
+/***/ 305:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
@@ -494,7 +530,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -566,7 +602,7 @@ module.exports = warning;
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(34);
   var warning = __webpack_require__(37);
-  var ReactPropTypesSecret = __webpack_require__(57);
+  var ReactPropTypesSecret = __webpack_require__(56);
   var loggedTypeFailures = {};
 }
 
@@ -618,7 +654,7 @@ module.exports = checkPropTypes;
 
 /***/ }),
 
-/***/ 57:
+/***/ 56:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -638,7 +674,7 @@ module.exports = ReactPropTypesSecret;
 
 /***/ }),
 
-/***/ 58:
+/***/ 57:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -678,7 +714,7 @@ module.exports = ExecutionEnvironment;
 
 /***/ }),
 
-/***/ 59:
+/***/ 58:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -693,7 +729,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -760,7 +796,7 @@ module.exports = EventListener;
 
 /***/ }),
 
-/***/ 60:
+/***/ 59:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -803,7 +839,7 @@ module.exports = getActiveElement;
 
 /***/ }),
 
-/***/ 61:
+/***/ 60:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -875,7 +911,7 @@ module.exports = shallowEqual;
 
 /***/ }),
 
-/***/ 62:
+/***/ 61:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -890,7 +926,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(87);
+var isTextNode = __webpack_require__(86);
 
 /*eslint-disable no-bitwise */
 
@@ -919,7 +955,7 @@ module.exports = containsNode;
 
 /***/ }),
 
-/***/ 63:
+/***/ 62:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -947,6 +983,371 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/* eslint quote-props: ["error", "consistent"] */
+
+var weatherIcons = {
+  'Few clouds': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Scattered clouds': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Clear sky': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Overcast clouds': {
+    unicode: '\uF013',
+    ligature: 'overcast-clouds',
+    className: 'cloudy'
+  },
+  'Shower rain': {
+    unicode: '\uF015',
+    ligature: 'shower-rain',
+    className: 'cloudy'
+  },
+  'Light intensity shower rain': {
+    unicode: '\uF015',
+    ligature: 'light-intensity-shower-rain',
+    className: 'cloudy'
+  },
+  'Thunder': {
+    unicode: '\uF016',
+    ligature: 'thunder',
+    className: 'stormy'
+  },
+  'Sleet': {
+    unicode: '\uF017',
+    ligature: 'sleet',
+    className: 'cloudy'
+  },
+  'Shower sleet': {
+    unicode: '\uF017',
+    ligature: 'shower-sleet',
+    className: 'cloudy'
+  },
+  'Light rain and snow': {
+    unicode: '\uF017',
+    ligature: 'light-rain-and-snow',
+    className: 'cloudy'
+  },
+  'Rain and snow': {
+    unicode: '\uF017',
+    ligature: 'rain-and-snow',
+    className: 'stormy'
+  },
+  'Light shower snow': {
+    unicode: '\uF017',
+    ligature: 'light-shower-snow',
+    className: 'cloudy'
+  },
+  'Shower snow': {
+    unicode: '\uF017',
+    ligature: 'shower-snow',
+    className: 'cloudy'
+  },
+  'Heavy shower snow': {
+    unicode: '\uF017',
+    ligature: 'heavy-shower-snow',
+    className: 'stormy'
+  },
+  'Heavy intensity shower rain': {
+    unicode: '\uF018',
+    ligature: 'heavy-intensity-shower-rain',
+    className: 'stormy'
+  },
+  'Ragged shower rain': {
+    unicode: '\uF018',
+    ligature: 'ragged-shower-rain',
+    className: 'stormy'
+  },
+  'Rain': {
+    unicode: '\uF019',
+    ligature: 'rain',
+    className: 'cloudy'
+  },
+  'Heavy intensity rain': {
+    unicode: '\uF019',
+    ligature: 'heavy-intensity-rain',
+    className: 'stormy'
+  },
+  'Very heavy rain': {
+    unicode: '\uF019',
+    ligature: 'very-heavy-rain',
+    className: 'stormy'
+  },
+  'Extreme rain': {
+    unicode: '\uF019',
+    ligature: 'extreme-rain',
+    className: 'stormy'
+  },
+  'Freezing rain': {
+    unicode: '\uF019',
+    ligature: 'freezing-rain',
+    className: 'cloudy'
+  },
+  'Light intensity drizzle': {
+    unicode: '\uF01A',
+    ligature: 'light-intensity-drizzle',
+    className: 'cloudy'
+  },
+  'Drizzle': {
+    unicode: '\uF01A',
+    ligature: 'drizzle',
+    className: 'cloudy'
+  },
+  'Heavy intensity drizzle': {
+    unicode: '\uF01A',
+    ligature: 'heavy-intensity-drizzle',
+    className: 'cloudy'
+  },
+  'Drizzle rain': {
+    unicode: '\uF01A',
+    ligature: 'drizzle-rain',
+    className: 'cloudy'
+  },
+  'Heavy intensity drizzle rain': {
+    unicode: '\uF01A',
+    ligature: 'heavy-intensity-drizzle-rain',
+    className: 'stormy'
+  },
+  'Shower rain and drizzle': {
+    unicode: '\uF01A',
+    ligature: 'shower-rain-and-drizzle',
+    className: 'cloudy'
+  },
+  'Heavy shower rain and drizzle': {
+    unicode: '\uF01A',
+    ligature: 'heavy-shower-rain-and-drizzle',
+    className: 'stormy'
+  },
+  'Shower drizzle': {
+    unicode: '\uF01A',
+    ligature: 'shower-drizzle',
+    className: 'cloudy'
+  },
+  'Light rain': {
+    unicode: '\uF01A',
+    ligature: 'light-rain',
+    className: 'cloudy'
+  },
+  'Moderate rain': {
+    unicode: '\uF01A',
+    ligature: 'moderate-rain',
+    className: 'cloudy'
+  },
+  'Light snow': {
+    unicode: '\uF01B',
+    ligature: 'light-snow',
+    className: 'cloudy'
+  },
+  'Snow': {
+    unicode: '\uF01B',
+    ligature: 'snow',
+    className: 'cloudy'
+  },
+  'Heavy snow': {
+    unicode: '\uF01B',
+    ligature: 'heavy-snow',
+    className: 'cloudy'
+  },
+  'Thunderstorm with light rain': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-light-rain',
+    className: 'stormy'
+  },
+  'Light thunderstorm': {
+    unicode: '\uF01D',
+    ligature: 'light-thunderstorm',
+    className: 'stormy'
+  },
+  'Thunderstorm with light drizzle': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-light-drizzle',
+    className: 'stormy'
+  },
+  'Thunderstorm with drizzle': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-drizzle',
+    className: 'stormy'
+  },
+  'Thunderstorm with heavy drizzle': {
+    unicode: '\uF01D',
+    ligature: 'thunderstorm-with-heavy-drizzle',
+    className: 'stormy'
+  },
+  'Thunderstorm': {
+    unicode: '\uF01E',
+    ligature: 'thunderstorm',
+    className: 'stormy'
+  },
+  'Thunderstorm with rain': {
+    unicode: '\uF01E',
+    ligature: 'thunderstorm-with-rain',
+    className: 'stormy'
+  },
+  'Thunderstorm with heavy rain': {
+    unicode: '\uF01E',
+    ligature: 'thunderstorm-with-heavy-rain',
+    className: 'stormy'
+  },
+  'Heavy thunderstorm': {
+    unicode: '\uF01E',
+    ligature: 'heavy-thunderstorm',
+    className: 'stormy'
+  },
+  'Ragged thunderstorm': {
+    unicode: '\uF01E',
+    ligature: 'ragged-thunderstorm',
+    className: 'stormy'
+  },
+  'Fog': {
+    unicode: '\uF021',
+    ligature: 'fog',
+    className: 'cloudy'
+  },
+  'Haze': {
+    unicode: '\uF021',
+    ligature: 'haze',
+    className: 'cloudy'
+  },
+  'Broken clouds': {
+    unicode: '\uF041',
+    ligature: 'broken-clouds',
+    className: 'cloudy'
+  },
+  'Windy': {
+    unicode: '\uF050',
+    ligature: 'windy',
+    className: 'clear'
+  },
+  'Mist': {
+    unicode: '\uF063',
+    ligature: 'mist',
+    className: 'clear'
+  },
+  'Hail': {
+    unicode: '\uF064',
+    ligature: 'hail',
+    className: 'stormy'
+  },
+  'Hot': {
+    unicode: '\uF072',
+    ligature: 'hot',
+    className: 'clear'
+  },
+  'Storm': {
+    unicode: '\uF073',
+    ligature: 'storm',
+    className: 'stormy'
+  },
+  'Violent storm': {
+    unicode: '\uF073',
+    ligature: 'violent-storm',
+    className: 'stormy'
+  },
+  'Tornado': {
+    unicode: '\uF073',
+    ligature: 'tornado',
+    className: 'stormy'
+  },
+  'Tropical storm': {
+    unicode: '\uF073',
+    ligature: 'tropical storm',
+    className: 'stormy'
+  },
+  'Hurricane': {
+    unicode: '\uF073',
+    ligature: 'hurricane',
+    className: 'stormy'
+  },
+  'Smoke': {
+    unicode: '\uF074',
+    ligature: 'smoke',
+    className: 'smoke'
+  },
+  'Sand': {
+    unicode: '\uF074',
+    ligature: 'sand',
+    className: 'smoke'
+  },
+  'Dust whirls': {
+    unicode: '\uF074',
+    ligature: 'dust-whirls',
+    className: 'smoke'
+  },
+  'Cold': {
+    unicode: '\uF076',
+    ligature: 'cold',
+    className: 'clear'
+  },
+  'Calm': {
+    unicode: '\uF0B7',
+    ligature: 'calm',
+    className: 'clear'
+  },
+  'Light breeze': {
+    unicode: '\uF0B8',
+    ligature: 'light-breeze',
+    className: 'clear'
+  },
+  'Gentle breeze': {
+    unicode: '\uF0B9',
+    ligature: 'gentle-breeze',
+    className: 'clear'
+  },
+  'Moderate breeze': {
+    unicode: '\uF0BA',
+    ligature: 'moderate-breeze',
+    className: 'clear'
+  },
+  'Fresh breeze': {
+    unicode: '\uF0BB',
+    ligature: 'fresh-breeze',
+    className: 'clear'
+  },
+  'Strong breze': {
+    unicode: '\uF0BC',
+    ligature: 'strong-breeze',
+    className: 'clear'
+  },
+  'High wind': {
+    unicode: '\uF0BD',
+    ligature: 'high-breeze',
+    className: 'clear'
+  },
+  'Gale': {
+    unicode: '\uF0BE',
+    ligature: 'gale',
+    className: 'clear'
+  },
+  'Severe gale': {
+    unicode: '\uF0BF',
+    ligature: 'severe-gale',
+    className: 'clear'
+  },
+  'Volcanic ash': {
+    unicode: '\uF0C8',
+    ligature: 'volcanic-ash',
+    className: 'smoke'
+  }
+};
+
+module.exports = weatherIcons;
 
 /***/ }),
 
@@ -1141,7 +1542,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 83:
+/***/ 82:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1154,7 +1555,7 @@ process.umask = function() { return 0; };
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(26),n=__webpack_require__(33),p=__webpack_require__(13),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(26),n=__webpack_require__(33),p=__webpack_require__(12),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -1170,7 +1571,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 /***/ }),
 
-/***/ 84:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1195,7 +1596,7 @@ var _assign = __webpack_require__(26);
 var emptyObject = __webpack_require__(33);
 var invariant = __webpack_require__(34);
 var warning = __webpack_require__(37);
-var emptyFunction = __webpack_require__(13);
+var emptyFunction = __webpack_require__(12);
 var checkPropTypes = __webpack_require__(51);
 
 // TODO: this is special because it gets imported during build.
@@ -2536,7 +2937,7 @@ module.exports = react;
 
 /***/ }),
 
-/***/ 85:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2574,16 +2975,16 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(86);
+  module.exports = __webpack_require__(85);
 } else {
-  module.exports = __webpack_require__(89);
+  module.exports = __webpack_require__(88);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 
-/***/ 86:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2599,7 +3000,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(12),l=__webpack_require__(58),B=__webpack_require__(26),C=__webpack_require__(13),ba=__webpack_require__(59),da=__webpack_require__(60),ea=__webpack_require__(61),fa=__webpack_require__(62),ia=__webpack_require__(63),D=__webpack_require__(33);
+var aa=__webpack_require__(14),l=__webpack_require__(57),B=__webpack_require__(26),C=__webpack_require__(12),ba=__webpack_require__(58),da=__webpack_require__(59),ea=__webpack_require__(60),fa=__webpack_require__(61),ia=__webpack_require__(62),D=__webpack_require__(33);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -2820,7 +3221,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 /***/ }),
 
-/***/ 87:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2835,7 +3236,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(88);
+var isNode = __webpack_require__(87);
 
 /**
  * @param {*} object The object to check.
@@ -2849,7 +3250,7 @@ module.exports = isTextNode;
 
 /***/ }),
 
-/***/ 88:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2878,7 +3279,7 @@ module.exports = isNode;
 
 /***/ }),
 
-/***/ 89:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2899,21 +3300,21 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(12);
+var React = __webpack_require__(14);
 var invariant = __webpack_require__(34);
 var warning = __webpack_require__(37);
-var ExecutionEnvironment = __webpack_require__(58);
+var ExecutionEnvironment = __webpack_require__(57);
 var _assign = __webpack_require__(26);
-var emptyFunction = __webpack_require__(13);
-var EventListener = __webpack_require__(59);
-var getActiveElement = __webpack_require__(60);
-var shallowEqual = __webpack_require__(61);
-var containsNode = __webpack_require__(62);
-var focusNode = __webpack_require__(63);
+var emptyFunction = __webpack_require__(12);
+var EventListener = __webpack_require__(58);
+var getActiveElement = __webpack_require__(59);
+var shallowEqual = __webpack_require__(60);
+var containsNode = __webpack_require__(61);
+var focusNode = __webpack_require__(62);
 var emptyObject = __webpack_require__(33);
 var checkPropTypes = __webpack_require__(51);
-var hyphenateStyleName = __webpack_require__(90);
-var camelizeStyleName = __webpack_require__(92);
+var hyphenateStyleName = __webpack_require__(89);
+var camelizeStyleName = __webpack_require__(91);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18281,7 +18682,7 @@ module.exports = reactDom;
 
 /***/ }),
 
-/***/ 90:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18296,7 +18697,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(91);
+var hyphenate = __webpack_require__(90);
 
 var msPattern = /^ms-/;
 
@@ -18324,7 +18725,7 @@ module.exports = hyphenateStyleName;
 
 /***/ }),
 
-/***/ 91:
+/***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18361,7 +18762,7 @@ module.exports = hyphenate;
 
 /***/ }),
 
-/***/ 92:
+/***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18376,7 +18777,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(93);
+var camelize = __webpack_require__(92);
 
 var msPattern = /^-ms-/;
 
@@ -18405,7 +18806,7 @@ module.exports = camelizeStyleName;
 
 /***/ }),
 
-/***/ 93:
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

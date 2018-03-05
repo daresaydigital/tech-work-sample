@@ -1,11 +1,11 @@
 /* global document chrome */
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import smoothScrollTo from './modules/smooth-scroll-to';
 import Logo from './components/Logo';
 import Weather from './components/Weather';
 import ScrollSection from './components/ScrollSection';
 import Forecast from './components/Forecast';
+import weatherIcons from './helpers/weatherIcons';
 import './styles.css';
 
 class NewTab extends Component {
@@ -47,9 +47,13 @@ class NewTab extends Component {
   }
 
   render() {
+    let weatherStyle = 'clear';
+    if (typeof weatherIcons[this.state.frontend.data.weather.conditions] !== 'undefined') {
+      weatherStyle = weatherIcons[this.state.frontend.data.weather.conditions].className;
+    }
     return (
       <ScrollSection
-        className="wwise-app"
+        className={`wwise-app ${weatherStyle}`}
         element="div"
       >
         <Logo
@@ -60,21 +64,18 @@ class NewTab extends Component {
           data={this.state.frontend.data.weather}
           hide
         />
-        <ScrollSection
-          element="section"
-          className="wwise-slider"
-        >
+        <section className="wwise-slider" >
+          <Forecast
+            data={this.state.frontend.data.forecast.hourly}
+            format="HH:mm - ddd /D"
+          />
           <Forecast
             data={this.state.frontend.data.forecast.daily}
             format="dddd, MMM Do"
             minmax
             hide
           />
-          <Forecast
-            data={this.state.frontend.data.forecast.hourly}
-            format="HH:mm - ddd /D"
-          />
-        </ScrollSection>
+        </section>
       </ScrollSection>
     );
   }

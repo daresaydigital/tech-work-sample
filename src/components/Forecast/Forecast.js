@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import roundTo from '../../helpers/roundTo';
+import weatherIcons from '../../helpers/weatherIcons';
 
 const Forecast = props => (
   props.data.length > 0 &&
-    <table
-      className={`wwise-forecast ${props.className}`}
-      style={props.hide ? {
-        opacity: props.opacity,
-        /* transform: `translateX(${props.left}px)`, */
-      } : {}}
-    >
+    <table className={`wwise-forecast ${props.className}`}>
       <tbody>
         <tr>
           {props.data.map(entry => (
@@ -22,6 +17,10 @@ const Forecast = props => (
                 </Moment>
               </div>
               <h3>{roundTo(entry.temp, 1)}˚</h3>
+              <span className="conditions-icon">
+                {weatherIcons[entry.conditions] &&
+                  weatherIcons[entry.conditions].unicode}
+              </span>
               <h4>{entry.conditions}</h4>
               { props.minmax &&
                 <div className="minmax">
