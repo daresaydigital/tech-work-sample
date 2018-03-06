@@ -115,25 +115,12 @@ module.exports = emptyFunction;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(82);
-} else {
   module.exports = __webpack_require__(83);
+} else {
+  module.exports = __webpack_require__(84);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
-
-/***/ }),
-
-/***/ 241:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var roundTo = function roundTo(number, places) {
-  return typeof number === 'undefined' ? 0 : Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
-};
-module.exports = roundTo;
 
 /***/ }),
 
@@ -247,7 +234,7 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(84);
+var _reactDom = __webpack_require__(85);
 
 __webpack_require__(305);
 
@@ -255,7 +242,7 @@ var _weatherIcons = __webpack_require__(64);
 
 var _weatherIcons2 = _interopRequireDefault(_weatherIcons);
 
-var _roundTo = __webpack_require__(241);
+var _roundTo = __webpack_require__(68);
 
 var _roundTo2 = _interopRequireDefault(_roundTo);
 
@@ -317,7 +304,9 @@ var Content = function (_Component) {
     _this.state = {
       weather: {},
       range: null,
-      isVisible: false
+      isVisible: false,
+      status: null,
+      error: ''
     };
     return _this;
   }
@@ -329,12 +318,16 @@ var Content = function (_Component) {
 
       chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         if (request.status === 'ok') {
+          /* Save the weather in the state */
           var weather = request.content;
-          _this2.setState({ weather: weather });
-          /* Insert the tooltip */
-          _this2.toggleTooltip(true);
-          window.getSelection().removeAllRanges();
+          _this2.setState({ weather: weather, status: request.status });
+        } else {
+          /* Save the error in the state */
+          _this2.setState({ error: 'Weather for ' + request.content + ' not found.', status: 'error' });
         }
+        /* Insert the tooltip */
+        _this2.toggleTooltip(true);
+        window.getSelection().removeAllRanges();
         /* sendResponse({ confirmation: 'Weather received!' }); */
       });
       window.addEventListener('mousedown', function (e) {
@@ -356,17 +349,15 @@ var Content = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      /* Set the style based on the current weather conditions */
       var weatherStyle = 'clear';
       if (typeof _weatherIcons2.default[this.state.weather.conditions] !== 'undefined') {
         weatherStyle = _weatherIcons2.default[this.state.weather.conditions].className;
       }
-      return _react2.default.createElement(
-        'span',
-        {
-          id: 'wwise-anchor',
-          className: this.state.isVisible ? 'visible' : ''
-        },
-        _react2.default.createElement(
+      var content = void 0;
+      /* Render the weather in the selected location… */
+      if (this.state.status === 'ok') {
+        content = _react2.default.createElement(
           'div',
           {
             id: 'wwise-tooltip',
@@ -407,7 +398,29 @@ var Content = function (_Component) {
               (0, _roundTo2.default)(this.state.weather.min, 1)
             )
           )
-        ),
+        );
+        /* …Or the error message if the weather is not found */
+      } else {
+        content = _react2.default.createElement(
+          'div',
+          {
+            id: 'wwise-tooltip',
+            className: 'clear'
+          },
+          _react2.default.createElement(
+            'p',
+            { className: 'not-found' },
+            this.state.error
+          )
+        );
+      }
+      return _react2.default.createElement(
+        'span',
+        {
+          id: 'wwise-anchor',
+          className: this.state.isVisible ? 'visible' : ''
+        },
+        content,
         _react2.default.createElement('span', { id: 'wwise-searchTerm' })
       );
     }
@@ -415,6 +428,8 @@ var Content = function (_Component) {
 
   return Content;
 }(_react.Component);
+/* Inject the app into any website */
+
 
 var injectDOM = document.createElement('div');
 injectDOM.className = 'wwise-temp';
@@ -926,7 +941,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(86);
+var isTextNode = __webpack_require__(87);
 
 /*eslint-disable no-bitwise */
 
@@ -996,6 +1011,11 @@ module.exports = focusNode;
 
 var weatherIcons = {
   'Few clouds': {
+    unicode: '\uF00D',
+    ligature: 'clear-sky',
+    className: 'clear'
+  },
+  'Sky is clear': {
     unicode: '\uF00D',
     ligature: 'clear-sky',
     className: 'clear'
@@ -1238,7 +1258,7 @@ var weatherIcons = {
   'Mist': {
     unicode: '\uF063',
     ligature: 'mist',
-    className: 'clear'
+    className: 'cloudy'
   },
   'Hail': {
     unicode: '\uF064',
@@ -1348,6 +1368,19 @@ var weatherIcons = {
 };
 
 module.exports = weatherIcons;
+
+/***/ }),
+
+/***/ 68:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var roundTo = function roundTo(number, places) {
+  return typeof number === 'undefined' ? 0 : Math.round(number * Math.pow(10, places)) / Math.pow(10, places);
+};
+module.exports = roundTo;
 
 /***/ }),
 
@@ -1542,7 +1575,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 82:
+/***/ 83:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1571,7 +1604,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 /***/ }),
 
-/***/ 83:
+/***/ 84:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2937,7 +2970,7 @@ module.exports = react;
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2975,16 +3008,16 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(85);
+  module.exports = __webpack_require__(86);
 } else {
-  module.exports = __webpack_require__(88);
+  module.exports = __webpack_require__(89);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3221,7 +3254,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3236,7 +3269,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(87);
+var isNode = __webpack_require__(88);
 
 /**
  * @param {*} object The object to check.
@@ -3250,7 +3283,7 @@ module.exports = isTextNode;
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3279,7 +3312,7 @@ module.exports = isNode;
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3313,8 +3346,8 @@ var containsNode = __webpack_require__(61);
 var focusNode = __webpack_require__(62);
 var emptyObject = __webpack_require__(33);
 var checkPropTypes = __webpack_require__(51);
-var hyphenateStyleName = __webpack_require__(89);
-var camelizeStyleName = __webpack_require__(91);
+var hyphenateStyleName = __webpack_require__(90);
+var camelizeStyleName = __webpack_require__(92);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18682,7 +18715,7 @@ module.exports = reactDom;
 
 /***/ }),
 
-/***/ 89:
+/***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18697,7 +18730,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(90);
+var hyphenate = __webpack_require__(91);
 
 var msPattern = /^ms-/;
 
@@ -18725,7 +18758,7 @@ module.exports = hyphenateStyleName;
 
 /***/ }),
 
-/***/ 90:
+/***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18762,7 +18795,7 @@ module.exports = hyphenate;
 
 /***/ }),
 
-/***/ 91:
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18777,7 +18810,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(92);
+var camelize = __webpack_require__(93);
 
 var msPattern = /^-ms-/;
 
@@ -18806,7 +18839,7 @@ module.exports = camelizeStyleName;
 
 /***/ }),
 
-/***/ 92:
+/***/ 93:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

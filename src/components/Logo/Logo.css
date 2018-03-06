@@ -7,17 +7,5 @@
 }
 
 .weatherwise-pedros-logo svg{
-  width:80px;
-}
-
-@media (max-width:859px){
-  .weatherwise-pedros-logo{
-
-  }
-}
-
-@media (min-width:850px){
-  .weatherwise-pedros-logo{
-
-  }
+  width:60px;
 }

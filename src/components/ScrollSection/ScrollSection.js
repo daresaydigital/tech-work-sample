@@ -15,6 +15,7 @@ export default class ScrollSection extends Component {
     event.preventDefault();
     let { classX } = this.state;
     let { classY } = this.state;
+
     if (event.deltaX < -10) {
       /* Scroll to left */
       classX = 'slider-left';
@@ -37,7 +38,7 @@ export default class ScrollSection extends Component {
   render() {
     const className = `wwise-scroll-section ${this.props.className} ${this.state.classX} ${this.state.classY}`;
     let CustomTag;
-    /* I could just pass the value of the element property to the CustomTag
+    /* I could just pass the value of the "element" property to the CustomTag
     variable, but using a switch ensures that the "element" property always has
     an expected value and does not break the markup. I can add more available tags
     tags later on */

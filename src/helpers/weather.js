@@ -30,13 +30,15 @@ const weather = args =>
         return apiConnect(resolve, reject, args, location);
       }, e => reject(e));
     } else {
-      /* Else, geocode address to obtain position */
+      /* Geocode address to obtain position */
       Geocode.fromAddress(args.address).then(
         (response) => {
           const { location } = response.results[0].geometry;
-          /* Make sure that the location is not a business,
-          point of interest or something of the like */
-          /* Should I limit this to only results of "locality" type? */
+          /* Make sure that the location is not a business, point of interest or
+          something like that. Google will always try to return something */
+          /* Should I limit this to only results of "locality" type? Weather for
+          entire regions or countries is not really useful, but it's easier to
+          test this way */
           if (response.results[0].types.some(x => x === 'political')) {
             const formattedAddress = response.results[0].formatted_address;
             apiConnect(resolve, reject, args, location, formattedAddress);

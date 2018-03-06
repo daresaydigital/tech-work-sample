@@ -2,7 +2,10 @@
   font-family: 'Barlow Regular';
   font-style: normal;
   font-weight: 400;
-  /* src: url('./assets/fonts/Barlow.woff2') format('woff2'); */
+  /* Fonts must be referenced from an absolute location, as they will be
+  requested from each individual website where the extension is used.
+  The first part of the URL after the scheme will be replaced by the
+  extension ID assigned by Chrome.  */
   src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/Barlow Regular.woff2') format('woff2');
 }
 
@@ -10,7 +13,6 @@
   font-family: 'Quicksand Regular';
   font-style: normal;
   font-weight: 400;
-  /* src: url('./assets/fonts/Quicksand.woff2') format('woff2'); */
   src: url('chrome-extension://__MSG_@@extension_id__/assets/fonts/Quicksand Regular.woff2') format('woff2');
 }
 
@@ -117,6 +119,13 @@
 
 .min:before{
   content:'Min ';
+}
+
+#wwise-tooltip .not-found{
+  font-family: 'Barlow Regular', sans-serif;
+  font-size: 1.6em;
+  line-height: 1.2em;
+  text-align: center;
 }
 
 @keyframes fade-in {

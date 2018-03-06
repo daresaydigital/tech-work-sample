@@ -20,7 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
   },
-  /* Different loaders for different file types... */
+  /* Different loaders for different file types… */
   module: {
     rules: [
       /* Use babel to transpile JSX */
@@ -35,6 +35,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        /* I want to extract the content css file into a separate, smaller
+        file, since this will be injected into websites the user visits */
         exclude: path.resolve(__dirname, './src/content.css'),
         loader: ExtractMainCSS.extract({
           fallback: 'style-loader',

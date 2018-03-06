@@ -39,14 +39,10 @@ class NewTab extends Component {
         local.setState({ frontend, loading: false });
       }
     });
-    // document.body.addEventListener('scroll', this.handleScroll, false);
-  }
-
-  componentWillUnmount() {
-    // document.body.removeEventListener('scroll', this.handleScroll, false);
   }
 
   render() {
+    /* Set the style based on the current weather conditions */
     let weatherStyle = 'clear';
     if (typeof weatherIcons[this.state.frontend.data.weather.conditions] !== 'undefined') {
       weatherStyle = weatherIcons[this.state.frontend.data.weather.conditions].className;
@@ -64,14 +60,18 @@ class NewTab extends Component {
           data={this.state.frontend.data.weather}
           hide
         />
-        <section className="wwise-slider" >
+        <section
+          className="wwise-slider"
+          onWheel={this.wheelHandler}
+        >
           <Forecast
             data={this.state.frontend.data.forecast.hourly}
-            format="HH:mm - ddd /D"
+            format="hourly"
+            cta="Scroll right for the weekly forecast"
           />
           <Forecast
             data={this.state.frontend.data.forecast.daily}
-            format="dddd, MMM Do"
+            format="daily"
             minmax
             hide
           />

@@ -80,7 +80,6 @@ h4{
   transition: transform 600ms ease;
   height: 100%;
   width: 100%;
-  overflow:auto;
 }
 
 .slider-top .wwise-slider{
@@ -89,6 +88,12 @@ h4{
 
 .slider-bottom .wwise-slider{
   transform: translateY(0);
+}
+
+.cta{
+  align-self: center;
+  position:relative;
+  top: 15%;
 }
 
 /* Conditions-based styles */

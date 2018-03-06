@@ -6,6 +6,11 @@ const weatherIcons = {
     ligature: 'clear-sky',
     className: 'clear',
   },
+  'Sky is clear': {
+    unicode: '\uf00d',
+    ligature: 'clear-sky',
+    className: 'clear',
+  },
   'Scattered clouds': {
     unicode: '\uf00d',
     ligature: 'clear-sky',
@@ -244,7 +249,7 @@ const weatherIcons = {
   'Mist': {
     unicode: '\uf063',
     ligature: 'mist',
-    className: 'clear',
+    className: 'cloudy',
   },
   'Hail': {
     unicode: '\uf064',

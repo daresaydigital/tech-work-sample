@@ -20,7 +20,6 @@ export default class Weather extends Component {
   }
 
   render() {
-    console.log(this.props.data);
     return (
       <section className="wwise-weather" >
         {this.state.time &&

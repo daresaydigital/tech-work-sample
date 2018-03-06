@@ -132,6 +132,7 @@ chrome.storage.sync.get((storedState:AppState) => {
 
   local.updateData = (endpoint) =>{
     local.fetchData(endpoint, entries =>{
+      /* Update the state according to the endpoint requested */
       const frontend = state.frontend;
       switch(endpoint){
         case 'forecast':
@@ -145,6 +146,7 @@ chrome.storage.sync.get((storedState:AppState) => {
           break;
       }
       local.setState({ frontend });
+      /* Push the update to all listening parts of the extension */
       if(state.backend.port){
         state.backend.port.postMessage({state: state.frontend});
       }
@@ -169,7 +171,6 @@ chrome.storage.sync.get((storedState:AppState) => {
     }
     weather(options).then( values => {
         let entries;
-        console.log(values['data']);
         switch(endpoint){
           case 'forecast':
             /* Format each entry, limiting to 8 entries (enough to show 24+ hours) */
@@ -237,7 +238,7 @@ chrome.storage.sync.get((storedState:AppState) => {
   local.setState({ ...defaultState, ...storedState });
   local.dispatchUpdates();
   setTimeout( () => {
-    /* Use interval in miliseconds */
+    /* Use interval in miliseconds to start updating */
     setInterval(local.dispatchUpdates, interval * 60 * 1000);
   }, local.millisTillNext());
 });

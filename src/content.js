@@ -12,18 +12,24 @@ class Content extends Component {
       weather: {},
       range: null,
       isVisible: false,
+      status: null,
+      error: '',
     };
   }
 
   componentDidMount() {
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       if (request.status === 'ok') {
+        /* Save the weather in the state */
         const weather = request.content;
-        this.setState({ weather });
-        /* Insert the tooltip */
-        this.toggleTooltip(true);
-        window.getSelection().removeAllRanges();
+        this.setState({ weather, status: request.status });
+      } else {
+        /* Save the error in the state */
+        this.setState({ error: `Weather for ${request.content} not found.`, status: 'error' });
       }
+      /* Insert the tooltip */
+      this.toggleTooltip(true);
+      window.getSelection().removeAllRanges();
       /* sendResponse({ confirmation: 'Weather received!' }); */
     });
     window.addEventListener('mousedown', (e) => {
@@ -81,15 +87,15 @@ class Content extends Component {
   }
 
   render() {
+    /* Set the style based on the current weather conditions */
     let weatherStyle = 'clear';
     if (typeof weatherIcons[this.state.weather.conditions] !== 'undefined') {
       weatherStyle = weatherIcons[this.state.weather.conditions].className;
     }
-    return (
-      <span
-        id="wwise-anchor"
-        className={this.state.isVisible ? 'visible' : ''}
-      >
+    let content;
+    /* Render the weather in the selected location… */
+    if (this.state.status === 'ok') {
+      content = (
         <div
           id="wwise-tooltip"
           className={weatherStyle}
@@ -108,12 +114,30 @@ class Content extends Component {
             <span className="temp min">{roundTo(this.state.weather.min, 1)}</span>
           </div>
         </div>
+      );
+    /* …Or the error message if the weather is not found */
+    } else {
+      content = (
+        <div
+          id="wwise-tooltip"
+          className="clear"
+        >
+          <p className="not-found">{this.state.error}</p>
+        </div>
+      );
+    }
+    return (
+      <span
+        id="wwise-anchor"
+        className={this.state.isVisible ? 'visible' : ''}
+      >
+        { content }
         <span id="wwise-searchTerm" />
       </span>
     );
   }
 }
-
+/* Inject the app into any website */
 const injectDOM = document.createElement('div');
 injectDOM.className = 'wwise-temp';
 document.body.appendChild(injectDOM);
