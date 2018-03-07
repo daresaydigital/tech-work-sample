@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "Weatherwise",
+  "description": "A simple weather chrome extension.",
+  "version": "1.0.0",
+
+  "browser_action": {
+    "default_icon": "assets/weatherwise-logo.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "geolocation",
+    "contextMenus",
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "assets/weatherwise-logo.png",
+    "48": "assets/weatherwise-logo.png",
+    "128": "assets/weatherwise-logo.png"
+  },
+  "background":{
+    "scripts": ["background.bundle.js"]
+  },
+  "chrome_url_overrides" : {
+    "newtab": "newtab.html"
+  },
+  "web_accessible_resources": ["content.bundle.css", "assets/fonts/*.woff2"],
+  "content_scripts":[{
+    "matches":["https://*/*", "http://*/*", "file://*/*"],
+    "css": ["content.bundle.css"],
+    "js": ["content.bundle.js"]
+  }],
+    "content_security_policy": "script-src 'self' https://worksample-api.herokuapp.com/; object-src 'self'"
+}

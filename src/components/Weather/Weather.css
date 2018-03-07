@@ -1,0 +1,44 @@
+.wwise-weather{
+  width:100%;
+  min-width:300px;
+  margin:0 auto;
+  text-align: center;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: opacity 600ms ease;
+}
+
+.wwise-weather .time{
+  font-size: 2.5em;
+}
+
+.slider-top .wwise-weather{
+  opacity: 1;
+}
+
+.slider-bottom .wwise-weather{
+  opacity: 0;
+}
+
+.wwise-weather .conditions-icon{
+  margin: 0 20px 0 0;
+}
+
+.wwise-weather h1{
+  font-size: 6em;
+  margin: 0;
+}
+
+.wwise-weather h2{
+  font-size: 2.5em;
+  margin: 0 0 0.5em;
+}
+
+@media (max-width:800px){
+  .wwise-weather h2,
+  .wwise-weathe .time{
+    font-size: 2em;
+  }
+}
