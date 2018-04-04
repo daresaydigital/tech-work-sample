@@ -3,6 +3,7 @@ package sample.network.rahul.android_weather_app
 import android.Manifest
 import android.app.Activity
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
@@ -23,6 +24,7 @@ import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.LocationSettingsStatusCodes
 import kotlinx.android.synthetic.main.activity_main.*
 import sample.network.rahul.android_weather_app.gps.GPSTracker
+import sample.network.rahul.android_weather_app.viewmodel.WeatherViewModel
 
 class WeatherActivity : AppCompatActivity() {
     companion object {
@@ -31,13 +33,19 @@ class WeatherActivity : AppCompatActivity() {
 
     private var gps: GPSTracker? = null
     private var googleApiClient: GoogleApiClient? = null
-
+    private lateinit var weatherViewModel: WeatherViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         checkPermission()
         text.setOnClickListener { callLocation() }
+        weatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel::class.java)
+        weatherViewModel.getWeather().observe(this, Observer { t ->
+            run {
+                Log.d("respose", t.toString())
+            }
+        })
     }
 
     private fun enableLoc() {
@@ -91,20 +99,21 @@ class WeatherActivity : AppCompatActivity() {
 
     private fun callLocation() {
         Log.e("Location", "callLocation Called ... ")
-        if(gps == null) {
+        if (gps == null) {
             gps = GPSTracker(this@WeatherActivity)
         }
         gps!!.getLocation()
         // check if GPS enabled
         if (gps!!.canGetLocation()) {
-                gps!!.location.observe(this, Observer {t->
-                    if(t!=null) {
-                        val latitude = t!!.getLatitude()
-                        val longitude = t!!.getLongitude()
-                        Log.e("MainActivity", "latitude -> $latitude")
-                        Log.e("MainActivity", "longitude -> $longitude")
-                    }
-                })
+            gps!!.location.observe(this, Observer { t ->
+                if (t != null) {
+                    val latitude = t.getLatitude()
+                    val longitude = t.getLongitude()
+                    Log.e("MainActivity", "latitude -> $latitude")
+                    Log.e("MainActivity", "longitude -> $longitude")
+                    weatherViewModel.reFetchWeather(t)
+                }
+            })
 
 
         } else {
@@ -139,7 +148,7 @@ class WeatherActivity : AppCompatActivity() {
             REQUEST_LOCATION -> when (resultCode) {
                 Activity.RESULT_OK -> {
                     // All required changes were successfully made
-                   callLocation()
+                    callLocation()
 
                     Toast.makeText(this@WeatherActivity, "Location enabled by user!", Toast.LENGTH_LONG).show()
                 }

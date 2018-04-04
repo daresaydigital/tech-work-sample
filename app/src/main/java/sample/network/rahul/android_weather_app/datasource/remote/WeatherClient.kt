@@ -2,6 +2,7 @@ package sample.network.rahul.android_weather_app.datasource.remote
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import android.location.Location
 import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,9 +34,9 @@ class WeatherClient {
         }
     }
 
-    fun getWeather(): LiveData<WeatherResponse> {
+    fun getWeather(location: Location): LiveData<WeatherResponse> {
         val data = MutableLiveData<WeatherResponse>()
-        weatherService.getWeather().enqueue(object : Callback<WeatherResponse> {
+        weatherService.getWeather(location.latitude,location.longitude).enqueue(object : Callback<WeatherResponse> {
             override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
                 Log.d("network response", t.toString())
             }

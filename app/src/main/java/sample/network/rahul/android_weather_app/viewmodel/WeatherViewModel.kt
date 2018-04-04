@@ -18,12 +18,12 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
 
     init {
         weatherClient = WeatherClient.getInstance()
-        weatherResponse = weatherClient.getWeather()
+        //weatherResponse = weatherClient.getWeather()
         weatherResponse = Transformations.switchMap(location) { search ->
             if (search == null) {
                 return@switchMap MutableLiveData<WeatherResponse>()
             } else {
-                return@switchMap weatherClient.getWeather()
+                return@switchMap weatherClient.getWeather(location.value!!)
             }
         }
         var l = Location("")
@@ -35,6 +35,10 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
 
     fun getWeather(): LiveData<WeatherResponse> {
         return weatherResponse
+    }
+
+    fun reFetchWeather(location: Location){
+        this.location.value = location
     }
 
 

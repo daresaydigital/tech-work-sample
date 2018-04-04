@@ -8,17 +8,17 @@ import com.google.gson.annotations.SerializedName
 class Main {
     @SerializedName("temp")
     @Expose
-    var temp: Int? = null
+    var temp: Double? = null
     @SerializedName("pressure")
     @Expose
-    var pressure: Int? = null
+    var pressure: Double? = null
     @SerializedName("humidity")
     @Expose
-    var humidity: Int? = null
+    var humidity: Double? = null
     @SerializedName("temp_min")
     @Expose
-    var tempMin: Int? = null
+    var tempMin: Double? = null
     @SerializedName("temp_max")
     @Expose
-    var tempMax: Int? = null
+    var tempMax: Double? = null
 }

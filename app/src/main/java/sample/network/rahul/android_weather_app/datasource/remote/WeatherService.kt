@@ -11,6 +11,6 @@ import sample.network.rahul.android_weather_app.datasource.data.WeatherResponse
  */
 interface WeatherService {
 
-    @GET("/weather?q=Cochin,IN&key=62fc4256-8f8c-11e5-8994-feff819cdc9f")
-    fun getWeather(): Call<WeatherResponse>
+    @GET("/weather?key=62fc4256-8f8c-11e5-8994-feff819cdc9f")
+    fun getWeather(@Query("lat") lat:Double ,@Query("lon") lon:Double ): Call<WeatherResponse>
 }
