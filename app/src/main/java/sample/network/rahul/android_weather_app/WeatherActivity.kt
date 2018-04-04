@@ -42,8 +42,10 @@ class WeatherActivity : AppCompatActivity() {
         weatherViewModel.getWeather().observe(this, Observer { weatherResponse ->
             run {
                 updateUISuccess(weatherResponse)
+                swipeRefresh.isRefreshing = false
             }
         })
+        swipeRefresh.setOnRefreshListener { callLocation() }
     }
 
     fun updateUISuccess(weatherResponse: WeatherResponse?) {
@@ -55,29 +57,10 @@ class WeatherActivity : AppCompatActivity() {
             sunSetTextView.text = Utils.millisecondToTime(weatherResponse.sys?.sunset ?: 0)
             windTextView.text = String.format("%.2f", weatherResponse.wind?.speed ?: 0.0) + " km/h"
             humidityTextView.text = weatherResponse.main?.humidity?.toInt().toString() + "%"
-            updateWeatherIcon(weatherResponse.weather?.get(0)?.icon)
+            weatherImageView.setImageResource(Utils.getWeatherIcon(weatherResponse.weather?.get(0)?.icon))
         }
     }
 
-    private fun updateWeatherIcon(icon: String?) {
-        var drawable: Int
-        when(icon){
-            "01d" -> drawable = R.drawable.ic_sunny_2
-            "01n" -> drawable = R.drawable.ic_moon
-            "02d" -> drawable = R.drawable.ic_few_clouds_day
-            "02n" -> drawable = R.drawable.ic_few_clouds_night
-            "03d","03n" -> drawable = R.drawable.ic_scattered_clouds
-            "04d","04n" -> drawable = R.drawable.ic_broken_clouds
-            "09d","09n" -> drawable = R.drawable.ic_shower_rain
-            "010d" -> drawable = R.drawable.ic_rain_day
-            "010n" -> drawable = R.drawable.ic_rain_night
-            "11d","11n" -> drawable = R.drawable.ic_thunderstorm
-            "13d","13n" -> drawable = R.drawable.ic_snow
-            "50d","50n" -> drawable = R.drawable.ic_mist
-            else -> drawable = R.drawable.ic_sunny_2
-        }
-        weatherImageView.setImageResource(drawable)
-    }
 
     private fun enableLoc() {
         if (googleApiClient == null) {
@@ -142,6 +125,7 @@ class WeatherActivity : AppCompatActivity() {
                     val longitude = t.getLongitude()
                     Log.e("MainActivity", "latitude -> $latitude")
                     Log.e("MainActivity", "longitude -> $longitude")
+                    swipeRefresh.isRefreshing = true
                     weatherViewModel.reFetchWeather(t)
                 }
             })
