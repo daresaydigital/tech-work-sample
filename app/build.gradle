@@ -39,5 +39,6 @@ dependencies {
     implementation "android.arch.lifecycle:runtime:1.1.1"
     implementation "android.arch.lifecycle:extensions:1.1.1"
 
+    implementation "com.google.android.gms:play-services-location:12.0.1"
 
 }
