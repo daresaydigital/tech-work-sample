@@ -6,6 +6,8 @@ import java.util.*
 
 object Utils {
 
+    const val API_KEY=""
+
     fun millisecondToTime(timeStamp: Long): String {
         val date = Calendar.getInstance()
         date.timeInMillis = timeStamp*1000L
