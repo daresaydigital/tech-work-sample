@@ -19,6 +19,9 @@ class GPSTracker(private val mContext: Context) : Service(), LocationListener {
     // flag for GPS status
     internal var isGPSEnabled = false
 
+    // flag for network status
+    internal var isNetworkEnabled = false
+
     // flag for GPS status
     internal var canGetLocation = false
 
@@ -43,17 +46,46 @@ class GPSTracker(private val mContext: Context) : Service(), LocationListener {
             // getting GPS status
             isGPSEnabled = locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER)
 
-            if (!isGPSEnabled) {
-                this.canGetLocation = false
+            // getting network status
+            isNetworkEnabled = locationManager!!
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+
+            if (!isGPSEnabled && !isNetworkEnabled) {
+                // no network provider is enabled
             } else {
                 this.canGetLocation = true
-                Log.d("GPS Enabled", "GPS Enabled")
-                if (locationManager != null) {
-                    location.value = locationManager!!
-                            .getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
+                //First get location from Network Provider
+                if (isNetworkEnabled) {
+                    locationManager!!.requestLocationUpdates(
+                            LocationManager.NETWORK_PROVIDER,
+                            MIN_TIME_BW_UPDATES,
+                            MIN_DISTANCE_CHANGE_FOR_UPDATES.toFloat(), this)
+
+                    Log.d("Network", "Network")
+                    if (locationManager != null) {
+                        location.value = locationManager!!
+                                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+                        if (location.value != null) {
+                            latitude = location.value!!.latitude
+                            longitude = location.value!!.longitude
+                        }
+                    }
                 }
 
+                // if GPS Enabled get lat/long using GPS Services
+                if (isGPSEnabled && location.value == null) {
+
+
+                    Log.d("GPS Enabled", "GPS Enabled")
+                    if (locationManager != null) {
+                        location.value = locationManager!!
+                                .getLastKnownLocation(LocationManager.GPS_PROVIDER)
+
+                    }
+
+                }
             }
 
         } catch (e: Exception) {
