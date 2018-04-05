@@ -176,7 +176,9 @@ class WeatherActivity : AppCompatActivity() {
             REQUEST_LOCATION -> when (resultCode) {
                 Activity.RESULT_OK -> {
                     // All required changes were successfully made
-                    callLocation()
+                    if(isConnected) {
+                        callLocation()
+                    }
                     Toast.makeText(this@WeatherActivity, "Location enabled!", Toast.LENGTH_SHORT).show()
                 }
                 Activity.RESULT_CANCELED -> {
@@ -202,7 +204,9 @@ class WeatherActivity : AppCompatActivity() {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.isNotEmpty()
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    callLocation()
+                    if(isConnected) {
+                        callLocation()
+                    }
                     // permission was granted, yay! Do the
                     // contacts-related task you need to do.
                 } else {
