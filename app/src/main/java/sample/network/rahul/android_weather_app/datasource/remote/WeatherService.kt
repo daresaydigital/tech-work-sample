@@ -1,4 +1,4 @@
-package xing.challenge.rahulmohan.repository.datasource
+package sample.network.rahul.android_weather_app.datasource.remote
 
 import retrofit2.Call
 import retrofit2.http.GET

@@ -12,12 +12,11 @@ import sample.network.rahul.android_weather_app.datasource.remote.WeatherClient
 class WeatherViewModel(application: Application) : AndroidViewModel(application) {
 
     private var weatherResponse: LiveData<WeatherResponse>
-    private var weatherClient: WeatherClient
+    private var weatherClient: WeatherClient = WeatherClient.getInstance()
     private var location: MutableLiveData<Location> = MutableLiveData()
     private val query = MutableLiveData<String>()
 
     init {
-        weatherClient = WeatherClient.getInstance()
         //weatherResponse = weatherClient.getWeather()
         weatherResponse = Transformations.switchMap(location) { search ->
             if (search == null) {
@@ -26,7 +25,7 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
                 return@switchMap weatherClient.getWeather(location.value!!)
             }
         }
-        var l = Location("")
+        val l = Location("")
         l.latitude = 10.0
         l.longitude = 70.0
         location.value = l

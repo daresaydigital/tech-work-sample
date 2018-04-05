@@ -10,16 +10,15 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import sample.network.rahul.android_weather_app.datasource.data.WeatherResponse
-import xing.challenge.rahulmohan.repository.datasource.WeatherService
 
 
 class WeatherClient {
 
-    var weatherService: WeatherService
-    var BASE_URL = "http://worksample-api.herokuapp.com/"
+    private var weatherService: WeatherService
+    private var BASE_URL = "http://worksample-api.herokuapp.com/"
 
     init {
-        var retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()

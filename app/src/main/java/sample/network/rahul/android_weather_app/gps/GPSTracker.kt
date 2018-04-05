@@ -1,44 +1,39 @@
 package sample.network.rahul.android_weather_app.gps
 
-import android.app.AlertDialog
+import android.annotation.SuppressLint
 import android.app.Service
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.IBinder
-import android.provider.Settings
 import android.util.Log
 
-class GPSTracker(private val mContext: Context) : Service(), LocationListener {
+@SuppressLint("Registered")
+class GPSTracker(mContext: Context) : Service(), LocationListener {
 
     // flag for GPS status
-    internal var isGPSEnabled = false
+    private var isGPSEnabled = false
 
     // flag for network status
-    internal var isNetworkEnabled = false
+    private var isNetworkEnabled = false
 
     // flag for GPS status
-    internal var canGetLocation = false
+    private var canGetLocation = false
 
     //internal var location: Location? = null // location
     var location: MutableLiveData<Location> = MutableLiveData()
-    internal var latitude: Double = 0.toDouble() // latitude
-    internal var longitude: Double = 0.toDouble() // longitude
+    private var latitude: Double = 0.toDouble() // latitude
+    private var longitude: Double = 0.toDouble() // longitude
 
     // Declaring a Location Manager
-    protected var locationManager: LocationManager? = null
+    private var locationManager: LocationManager? = null
 
     init {
         locationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        locationManager!!.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER,
-                MIN_TIME_BW_UPDATES,
-                MIN_DISTANCE_CHANGE_FOR_UPDATES.toFloat(), this)
     }
 
     fun getLocation(): Location? {
@@ -51,7 +46,7 @@ class GPSTracker(private val mContext: Context) : Service(), LocationListener {
                     .isProviderEnabled(LocationManager.NETWORK_PROVIDER)
 
             if (!isGPSEnabled && !isNetworkEnabled) {
-                // no network provider is enabled
+                this.canGetLocation = false
             } else {
                 this.canGetLocation = true
 
@@ -161,9 +156,9 @@ class GPSTracker(private val mContext: Context) : Service(), LocationListener {
     companion object {
 
         // The minimum distance to change Updates in meters
-        private val MIN_DISTANCE_CHANGE_FOR_UPDATES: Long = 10 // 10 meters
+        private const val MIN_DISTANCE_CHANGE_FOR_UPDATES: Long = 10 // 10 meters
 
         // The minimum time between updates in milliseconds
-        private val MIN_TIME_BW_UPDATES = (1000 * 60 * 1).toLong() // 1 minute
+        private const val MIN_TIME_BW_UPDATES = (1000 * 60 * 1).toLong() // 1 minute
     }
 }

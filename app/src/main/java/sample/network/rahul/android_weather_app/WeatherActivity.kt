@@ -28,7 +28,7 @@ import sample.network.rahul.android_weather_app.viewmodel.WeatherViewModel
 
 class WeatherActivity : AppCompatActivity() {
     companion object {
-        internal val REQUEST_LOCATION = 199
+        internal const val REQUEST_LOCATION = 199
     }
 
     private var gps: GPSTracker? = null
@@ -66,7 +66,7 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    fun updateUISuccess(weatherResponse: WeatherResponse?) {
+    private fun updateUISuccess(weatherResponse: WeatherResponse?) {
         if (weatherResponse != null) {
             weatherTextView.text = weatherResponse.weather?.get(0)?.description ?: "Clear Sky"
             cityTextView.text = weatherResponse.name ?: "--"

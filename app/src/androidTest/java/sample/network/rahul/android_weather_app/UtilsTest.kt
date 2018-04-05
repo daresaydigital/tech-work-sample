@@ -42,7 +42,7 @@ class UtilsTest {
 
     @Test
     fun storeLastLocationLocal() {
-        var location = Location("test")
+        val location = Location("test")
         location.latitude = 10.00
         location.longitude = 73.00
         val instrumentationContext = InstrumentationRegistry.getContext()

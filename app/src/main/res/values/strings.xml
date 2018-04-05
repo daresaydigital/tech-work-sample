@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Android-Weather-App</string>
     <string name="temp">%1$s\u00B0</string>
-    <string name="wind">%.2d km/h</string>
-    <string name="humidity">%1$d sasa</string>
+    <string name="weather_image">weather Image</string>
 </resources>

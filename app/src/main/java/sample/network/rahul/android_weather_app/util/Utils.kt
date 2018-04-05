@@ -13,12 +13,12 @@ import java.util.*
 object Utils {
 
     const val API_KEY = ""
-    const val PREFS_NAME = "open_weather"
+    private const val PREFS_NAME = "open_weather"
 
     fun millisecondToTime(timeStamp: Long): String {
         val date = Calendar.getInstance()
         date.timeInMillis = timeStamp * 1000L
-        val gmt = SimpleDateFormat("hh:mm a")
+        val gmt = SimpleDateFormat("hh:mm a", Locale.getDefault())
         return (gmt.format(date.time))
     }
 
@@ -77,7 +77,6 @@ object Utils {
             val editor = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit()
             editor.putString("lat", location.latitude.toString())
             editor.putString("lon", location.longitude.toString())
-            editor.commit()
             editor.apply()
         }
     }

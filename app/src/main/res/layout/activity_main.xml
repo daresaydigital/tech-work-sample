@@ -19,10 +19,11 @@
             android:layout_marginBottom="32dp"
             android:layout_marginEnd="200dp"
             android:drawableLeft="@drawable/ic_raindrop"
+            android:drawableStart="@drawable/ic_raindrop"
             android:drawablePadding="10dp"
             android:fontFamily="@font/abel"
             android:gravity="center"
-            android:text="--"
+            
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,10 +39,11 @@
             android:layout_marginEnd="22dp"
             android:layout_marginStart="8dp"
             android:drawableLeft="@drawable/ic_wind"
+            android:drawableStart="@drawable/ic_wind"
             android:drawablePadding="10dp"
             android:fontFamily="@font/abel"
             android:gravity="center"
-            android:text="--"
+            
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/humidityTextView"
@@ -58,7 +60,7 @@
             android:layout_marginTop="16dp"
             android:clickable="false"
             android:fontFamily="@font/abel"
-            android:text="--"
+            
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
@@ -75,7 +77,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="--"
+            
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +96,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cityTextView"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_sunny_2" />
+            app:srcCompat="@drawable/ic_sunny_2"
+            android:contentDescription="@string/weather_image" />
 
         <TextView
             android:id="@+id/tempTextView"
@@ -105,7 +108,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="150dp"
             android:fontFamily="@font/poiret_one"
-            android:text="--"
+            
             android:textColor="@android:color/black"
             android:textSize="96sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -133,11 +136,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
                 android:drawableLeft="@drawable/ic_sun_rise"
+                android:drawableStart="@drawable/ic_sun_rise"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/abel"
                 android:gravity="center"
-                android:text="--"
+                
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -146,11 +151,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_sun_set"
+                android:drawableStart="@drawable/ic_sun_set"
                 android:drawablePadding="10dp"
                 android:fontFamily="@font/abel"
                 android:gravity="center"
 
-                android:text="--"
+                
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
