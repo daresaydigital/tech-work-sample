@@ -37,7 +37,7 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
         return weatherResponse
     }
 
-    fun reFetchWeather(location: Location){
+    fun refetchWeather(location: Location){
         this.location.value = location
     }
 

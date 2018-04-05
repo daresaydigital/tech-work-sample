@@ -23,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import sample.network.rahul.android_weather_app.datasource.data.WeatherResponse
 import sample.network.rahul.android_weather_app.gps.GPSTracker
 import sample.network.rahul.android_weather_app.util.Utils
+import sample.network.rahul.android_weather_app.util.internetconnection.ConnectionLiveData
 import sample.network.rahul.android_weather_app.viewmodel.WeatherViewModel
 
 class WeatherActivity : AppCompatActivity() {
@@ -33,19 +34,36 @@ class WeatherActivity : AppCompatActivity() {
     private var gps: GPSTracker? = null
     private var googleApiClient: GoogleApiClient? = null
     private lateinit var weatherViewModel: WeatherViewModel
+    private lateinit var connectionLiveData: ConnectionLiveData
+    private var isConnected = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        checkPermission()
         weatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel::class.java)
         weatherViewModel.getWeather().observe(this, Observer { weatherResponse ->
             run {
+                Utils.storeWeatherLocal(this, weatherResponse)
                 updateUISuccess(weatherResponse)
                 swipeRefresh.isRefreshing = false
             }
         })
-        swipeRefresh.setOnRefreshListener { callLocation() }
+        updateUISuccess(Utils.fetchWeatherFromLocal(this))
+        connectionLiveData = ConnectionLiveData(applicationContext)
+        connectionLiveData.observe(this, Observer { isConnected ->
+            this.isConnected = isConnected!!
+            if (checkPermission() && isConnected) {
+                callLocation()
+            }
+        })
+
+        swipeRefresh.setOnRefreshListener {
+            if (isConnected) {
+                callLocation()
+            } else {
+                swipeRefresh.isRefreshing = false
+            }
+        }
     }
 
     fun updateUISuccess(weatherResponse: WeatherResponse?) {
@@ -126,7 +144,7 @@ class WeatherActivity : AppCompatActivity() {
                     Log.e("MainActivity", "latitude -> $latitude")
                     Log.e("MainActivity", "longitude -> $longitude")
                     swipeRefresh.isRefreshing = true
-                    weatherViewModel.reFetchWeather(t)
+                    weatherViewModel.refetchWeather(t)
                 }
             })
 
@@ -139,22 +157,20 @@ class WeatherActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkPermission() {
+    private fun checkPermission(): Boolean {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             val permissionCheck = ContextCompat.checkSelfPermission(this@WeatherActivity,
                     Manifest.permission.ACCESS_FINE_LOCATION)
 
             if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
                 Log.e("permission", "granted")
-                callLocation()
+                return true
             } else {
                 ActivityCompat.requestPermissions(this@WeatherActivity,
                         arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 1)
             }
-        } else {
-            Log.e("MainActivity", "Lower Than MarshMallow")
-            callLocation()
         }
+        return false
     }
 
 
@@ -165,12 +181,11 @@ class WeatherActivity : AppCompatActivity() {
                     // All required changes were successfully made
                     callLocation()
 
-                    Toast.makeText(this@WeatherActivity, "Location enabled by user!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@WeatherActivity, "Location enabled!", Toast.LENGTH_LONG).show()
                 }
                 Activity.RESULT_CANCELED -> {
                     // The user was asked to change settings, but chose not to
-                    Toast.makeText(this@WeatherActivity, "Location not enabled, user cancelled.", Toast.LENGTH_LONG).show()
-                    finish()
+                    Toast.makeText(this@WeatherActivity, "Location not enabled!", Toast.LENGTH_LONG).show()
                 }
                 else -> {
                 }
