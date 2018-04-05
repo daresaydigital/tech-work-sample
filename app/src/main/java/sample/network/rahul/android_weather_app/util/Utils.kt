@@ -1,15 +1,13 @@
 package sample.network.rahul.android_weather_app.util
 
 import android.content.Context
+import android.content.Context.MODE_PRIVATE
+import android.location.Location
 import com.google.gson.Gson
 import sample.network.rahul.android_weather_app.R
 import sample.network.rahul.android_weather_app.datasource.data.WeatherResponse
 import java.text.SimpleDateFormat
 import java.util.*
-import android.content.Context.MODE_PRIVATE
-import android.R.id.edit
-import android.content.SharedPreferences
-import android.content.Context.MODE_PRIVATE
 
 
 object Utils {
@@ -46,7 +44,7 @@ object Utils {
         val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
         val restoredText = prefs.getString("lastWeather", null)
         if (restoredText != null) {
-           return Gson().fromJson(restoredText, WeatherResponse::class.java)
+            return Gson().fromJson(restoredText, WeatherResponse::class.java)
         }
         return null
     }
@@ -57,6 +55,29 @@ object Utils {
             val json = gson.toJson(response)
             val editor = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit()
             editor.putString("lastWeather", json)
+            editor.commit()
+            editor.apply()
+        }
+    }
+
+    fun fetchLastLocationFromLocal(context: Context): Location? {
+        val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+        val lat = prefs.getString("lat", null)
+        val lon = prefs.getString("lon", null)
+        if (lat != null && lon != null) {
+            val location = Location("last")
+            location.latitude = lat.toDouble()
+            location.longitude = lon.toDouble()
+            return location
+        }
+        return null
+    }
+
+    fun storeLastLocationLocal(context: Context, location: Location?) {
+        if (location != null) {
+            val editor = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit()
+            editor.putString("lat", location.latitude.toString())
+            editor.putString("lon", location.longitude.toString())
             editor.commit()
             editor.apply()
         }

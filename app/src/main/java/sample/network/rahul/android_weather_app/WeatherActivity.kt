@@ -139,16 +139,13 @@ class WeatherActivity : AppCompatActivity() {
         if (gps!!.canGetLocation()) {
             gps!!.location.observe(this, Observer { t ->
                 if (t != null) {
-                    val latitude = t.getLatitude()
-                    val longitude = t.getLongitude()
-                    Log.e("MainActivity", "latitude -> $latitude")
-                    Log.e("MainActivity", "longitude -> $longitude")
+                    Log.e("MainActivity", "latitude -> ${t.latitude}")
+                    Log.e("MainActivity", "longitude -> ${t.longitude}")
+                    Utils.storeLastLocationLocal(this, t)
                     swipeRefresh.isRefreshing = true
                     weatherViewModel.refetchWeather(t)
                 }
             })
-
-
         } else {
             // can't get location
             // GPS or Network is not enabled
@@ -186,6 +183,12 @@ class WeatherActivity : AppCompatActivity() {
                 Activity.RESULT_CANCELED -> {
                     // The user was asked to change settings, but chose not to
                     Toast.makeText(this@WeatherActivity, "Location not enabled!", Toast.LENGTH_LONG).show()
+                    val  lastLocation = Utils.fetchLastLocationFromLocal(this)
+                    if(lastLocation !=null){
+                        weatherViewModel.refetchWeather(lastLocation)
+                    }else{
+                        swipeRefresh.isRefreshing = false
+                    }
                 }
                 else -> {
                 }
