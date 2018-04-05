@@ -55,7 +55,6 @@ object Utils {
             val json = gson.toJson(response)
             val editor = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit()
             editor.putString("lastWeather", json)
-            editor.commit()
             editor.apply()
         }
     }
