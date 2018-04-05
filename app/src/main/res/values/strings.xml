@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="temp">%1$s\u00B0</string>
+    <string name="weather_image">weather Image</string>
+</resources>
