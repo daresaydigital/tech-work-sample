@@ -17,19 +17,13 @@ class WeatherViewModel(application: Application) : AndroidViewModel(application)
     private val query = MutableLiveData<String>()
 
     init {
-        //weatherResponse = weatherClient.getWeather()
-        weatherResponse = Transformations.switchMap(location) { search ->
-            if (search == null) {
+        weatherResponse = Transformations.switchMap(location) { loc ->
+            if (loc == null || loc.latitude == 0.0 || loc.longitude == 0.0) {
                 return@switchMap MutableLiveData<WeatherResponse>()
             } else {
-                return@switchMap weatherClient.getWeather(location.value!!)
+                return@switchMap weatherClient.getWeather(loc)
             }
         }
-        val l = Location("")
-        l.latitude = 10.0
-        l.longitude = 70.0
-        location.value = l
-        query.value = "hai"
     }
 
     fun getWeather(): LiveData<WeatherResponse> {

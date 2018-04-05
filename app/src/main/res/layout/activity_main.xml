@@ -59,8 +59,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:clickable="false"
-            android:fontFamily="@font/abel"
-            
+            android:fontFamily="@font/poiret_one"
+
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@android:color/black"
