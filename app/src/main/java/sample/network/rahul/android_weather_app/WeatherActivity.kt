@@ -189,7 +189,7 @@ class WeatherActivity : AppCompatActivity() {
                     if (lastLocation != null) {
                         weatherViewModel.refetchWeather(lastLocation)
                     } else {
-                        swipeRefresh.isRefreshing = false
+                        finish()
                     }
                 }
                 else -> {
@@ -219,11 +219,6 @@ class WeatherActivity : AppCompatActivity() {
             }
         }
 
-    }
-
-    override fun onPause() {
-        super.onPause()
-        gps!!.stopUsingGPS()
     }
 
 
