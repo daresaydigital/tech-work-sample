@@ -130,6 +130,7 @@ class WeatherActivity : AppCompatActivity() {
 
 
     private fun callLocation() {
+        swipeRefresh.isRefreshing = true
         Log.e("Location", "callLocation Called ... ")
         if (gps == null) {
             gps = GPSTracker(this@WeatherActivity)
@@ -138,10 +139,7 @@ class WeatherActivity : AppCompatActivity() {
                     Log.e("MainActivity", "latitude -> ${t.latitude}")
                     Log.e("MainActivity", "longitude -> ${t.longitude}")
                     Utils.storeLastLocationLocal(this, t)
-                    swipeRefresh.isRefreshing = true
                     weatherViewModel.refetchWeather(t)
-                }else {
-                    swipeRefresh.isRefreshing = false
                 }
             })
         }
