@@ -11,189 +11,6 @@ public final class ConversionUtils {
         String iconName = "";
 
         switch (omwId) {
-            case "200":
-                iconName = "thunderstorm";
-                break;
-            case "201":
-                iconName = "thunderstorm";
-                break;
-            case "202":
-                iconName = "thunderstorm";
-                break;
-            case "210":
-                iconName = "lightning";
-                break;
-            case "211":
-                iconName = "lightning";
-                break;
-            case "212":
-                iconName = "lightning";
-                break;
-            case "221":
-                iconName = "lightning";
-                break;
-            case "230":
-                iconName = "thunderstorm";
-                break;
-            case "231":
-                iconName = "thunderstorm";
-                break;
-            case "232":
-                iconName = "thunderstorm";
-                break;
-            case "300":
-                iconName = "sprinkle";
-                break;
-            case "301":
-                iconName = "sprinkle";
-                break;
-            case "302":
-                iconName = "rain";
-                break;
-            case "310":
-                iconName = "rain_mix";
-                break;
-            case "311":
-                iconName = "rain";
-                break;
-            case "312":
-                iconName = "rain";
-                break;
-            case "313":
-                iconName = "showers";
-                break;
-            case "314":
-                iconName = "rain";
-                break;
-            case "321":
-                iconName = "sprinkle";
-                break;
-            case "500":
-                iconName = "sprinkle";
-                break;
-            case "501":
-                iconName = "rain";
-                break;
-            case "502":
-                iconName = "rain";
-                break;
-            case "503":
-                iconName = "rain";
-                break;
-            case "504":
-                iconName = "rain";
-                break;
-            case "511":
-                iconName = "rain_mix";
-                break;
-            case "520":
-                iconName = "showers";
-                break;
-            case "521":
-                iconName = "showers";
-                break;
-            case "522":
-                iconName = "showers";
-                break;
-            case "531":
-                iconName = "storm_showers";
-                break;
-            case "600":
-                iconName = "snow";
-                break;
-            case "601":
-                iconName = "snow";
-                break;
-            case "602":
-                iconName = "sleet";
-                break;
-            case "611":
-                iconName = "rain_mix";
-                break;
-            case "612":
-                iconName = "rain_mix";
-                break;
-            case "615":
-                iconName = "rain_mix";
-                break;
-            case "616":
-                iconName = "rain_mix";
-                break;
-            case "620":
-                iconName = "rain_mix";
-                break;
-            case "621":
-                iconName = "snow";
-                break;
-            case "622":
-                iconName = "snow";
-                break;
-            case "701":
-                iconName = "showers";
-                break;
-            case "711":
-                iconName = "smoke";
-                break;
-            case "721":
-                iconName = "day_haze";
-                break;
-            case "731":
-                iconName = "dust";
-                break;
-            case "741":
-                iconName = "fog";
-                break;
-            case "761":
-                iconName = "dust";
-                break;
-            case "762":
-                iconName = "dust";
-                break;
-            case "771":
-                iconName = "cloudy_gusts";
-                break;
-            case "781":
-                iconName = "tornado";
-                break;
-            case "800":
-                iconName = "day_sunny";
-                break;
-            case "801":
-                iconName = "cloudy_gusts";
-                break;
-            case "802":
-                iconName = "cloudy_gusts";
-                break;
-            case "803":
-                iconName = "cloudy_gusts";
-                break;
-            case "804":
-                iconName = "cloudy";
-                break;
-            case "900":
-                iconName = "tornado";
-                break;
-            case "901":
-                iconName = "storm_showers";
-                break;
-            case "902":
-                iconName = "hurricane";
-                break;
-            case "903":
-                iconName = "snowflake_cold";
-                break;
-            case "904":
-                iconName = "hot";
-                break;
-            case "905":
-                iconName = "windy";
-                break;
-            case "906":
-                iconName = "hail";
-                break;
-            case "957":
-                iconName = "strong_wind";
-                break;
             case "200d":
                 iconName = "day_thunderstorm";
                 break;
@@ -540,6 +357,189 @@ public final class ConversionUtils {
                 iconName = "night_alt_hail";
                 break;
             case "957n":
+                iconName = "strong_wind";
+                break;
+            case "200":
+                iconName = "thunderstorm";
+                break;
+            case "201":
+                iconName = "thunderstorm";
+                break;
+            case "202":
+                iconName = "thunderstorm";
+                break;
+            case "210":
+                iconName = "lightning";
+                break;
+            case "211":
+                iconName = "lightning";
+                break;
+            case "212":
+                iconName = "lightning";
+                break;
+            case "221":
+                iconName = "lightning";
+                break;
+            case "230":
+                iconName = "thunderstorm";
+                break;
+            case "231":
+                iconName = "thunderstorm";
+                break;
+            case "232":
+                iconName = "thunderstorm";
+                break;
+            case "300":
+                iconName = "sprinkle";
+                break;
+            case "301":
+                iconName = "sprinkle";
+                break;
+            case "302":
+                iconName = "rain";
+                break;
+            case "310":
+                iconName = "rain_mix";
+                break;
+            case "311":
+                iconName = "rain";
+                break;
+            case "312":
+                iconName = "rain";
+                break;
+            case "313":
+                iconName = "showers";
+                break;
+            case "314":
+                iconName = "rain";
+                break;
+            case "321":
+                iconName = "sprinkle";
+                break;
+            case "500":
+                iconName = "sprinkle";
+                break;
+            case "501":
+                iconName = "rain";
+                break;
+            case "502":
+                iconName = "rain";
+                break;
+            case "503":
+                iconName = "rain";
+                break;
+            case "504":
+                iconName = "rain";
+                break;
+            case "511":
+                iconName = "rain_mix";
+                break;
+            case "520":
+                iconName = "showers";
+                break;
+            case "521":
+                iconName = "showers";
+                break;
+            case "522":
+                iconName = "showers";
+                break;
+            case "531":
+                iconName = "storm_showers";
+                break;
+            case "600":
+                iconName = "snow";
+                break;
+            case "601":
+                iconName = "snow";
+                break;
+            case "602":
+                iconName = "sleet";
+                break;
+            case "611":
+                iconName = "rain_mix";
+                break;
+            case "612":
+                iconName = "rain_mix";
+                break;
+            case "615":
+                iconName = "rain_mix";
+                break;
+            case "616":
+                iconName = "rain_mix";
+                break;
+            case "620":
+                iconName = "rain_mix";
+                break;
+            case "621":
+                iconName = "snow";
+                break;
+            case "622":
+                iconName = "snow";
+                break;
+            case "701":
+                iconName = "showers";
+                break;
+            case "711":
+                iconName = "smoke";
+                break;
+            case "721":
+                iconName = "day_haze";
+                break;
+            case "731":
+                iconName = "dust";
+                break;
+            case "741":
+                iconName = "fog";
+                break;
+            case "761":
+                iconName = "dust";
+                break;
+            case "762":
+                iconName = "dust";
+                break;
+            case "771":
+                iconName = "cloudy_gusts";
+                break;
+            case "781":
+                iconName = "tornado";
+                break;
+            case "800":
+                iconName = "day_sunny";
+                break;
+            case "801":
+                iconName = "cloudy_gusts";
+                break;
+            case "802":
+                iconName = "cloudy_gusts";
+                break;
+            case "803":
+                iconName = "cloudy_gusts";
+                break;
+            case "804":
+                iconName = "cloudy";
+                break;
+            case "900":
+                iconName = "tornado";
+                break;
+            case "901":
+                iconName = "storm_showers";
+                break;
+            case "902":
+                iconName = "hurricane";
+                break;
+            case "903":
+                iconName = "snowflake_cold";
+                break;
+            case "904":
+                iconName = "hot";
+                break;
+            case "905":
+                iconName = "windy";
+                break;
+            case "906":
+                iconName = "hail";
+                break;
+            case "957":
                 iconName = "strong_wind";
                 break;
             default:
