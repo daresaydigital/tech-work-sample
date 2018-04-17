@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.presentation.view.MainActivity">
+
+    <ImageView
+        android:id="@+id/ivUpdate"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toStartOf="@+id/tvCity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_refresh"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvCity"
+        style="@style/ContentText.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/salsa"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/main_tv_city_name_default"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSearch"
+        app:layout_constraintEnd_toStartOf="@+id/ivSearch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/ivUpdate"
+        app:layout_constraintTop_toTopOf="@+id/ivSearch"
+        tools:text="Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Far Kingdom" />
+
+    <ImageView
+        android:id="@+id/ivSearch"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/tvCity"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_search_cross_anim"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/etSearchCity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:hint="@string/main_et_search_city_hint"
+        android:imeOptions="actionSearch"
+        android:inputType="textPostalAddress"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSearch"
+        app:layout_constraintEnd_toStartOf="@+id/ivSearch"
+        app:layout_constraintStart_toEndOf="@+id/ivUpdate"
+        app:layout_constraintTop_toTopOf="@+id/ivSearch" />
+
+    <TextView
+        android:id="@+id/tvTemp"
+        style="@style/ContentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/cels"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toStartOf="@+id/ivCondition"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSearch"
+        tools:text="0 \u2103" />
+
+    <ImageView
+        android:id="@+id/ivCondition"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTemp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/tvTemp"
+        app:layout_constraintTop_toTopOf="@+id/tvTemp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvCondition"
+        style="@style/ContentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/ivCondition"
+        app:layout_constraintStart_toStartOf="@+id/tvTemp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTemp"
+        tools:text="Sunny" />
+
+    <TextView
+        android:id="@+id/tvTempMin"
+        style="@style/ContentText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/main_tv_min_text"
+        android:textAlignment="center"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvTempMax"
+        app:layout_constraintEnd_toStartOf="@+id/tvTempMax"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Min" />
+
+    <TextView
+        android:id="@+id/tvTempMax"
+        style="@style/ContentText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/main_tv_max_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvTempMin"
+        app:layout_constraintTop_toBottomOf="@+id/tvCondition"
+        tools:text="Max" />
+
+    <ImageView
+        android:id="@+id/ivWind"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempMin"
+        app:srcCompat="@drawable/ic_wind" />
+
+    <TextView
+        android:id="@+id/tvWind"
+        style="@style/ContentText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ivWind"
+        app:layout_constraintStart_toEndOf="@+id/ivWind"
+        app:layout_constraintTop_toTopOf="@+id/ivWind"
+        tools:text="Wind" />
+
+    <ImageView
+        android:id="@+id/ivPressure"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWind"
+        app:srcCompat="@drawable/ic_pressure" />
+
+    <TextView
+        android:id="@+id/tvPressure"
+        style="@style/ContentText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPressure"
+        app:layout_constraintStart_toEndOf="@+id/ivPressure"
+        app:layout_constraintTop_toTopOf="@+id/ivPressure"
+        tools:text="Pressure" />
+
+    <ImageView
+        android:id="@+id/ivHumidity"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPressure"
+        app:srcCompat="@drawable/ic_humidity" />
+
+    <TextView
+        android:id="@+id/tvHumidity"
+        style="@style/ContentText.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHumidity"
+        app:layout_constraintStart_toEndOf="@+id/ivHumidity"
+        app:layout_constraintTop_toTopOf="@+id/ivHumidity"
+        tools:text="Humidity" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="tvWind,tvHumidity,tvPressure" />
+
+    <ImageView
+        android:id="@+id/ivAdvice"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivHumidity"
+        app:layout_constraintStart_toEndOf="@+id/barrier"
+        app:layout_constraintTop_toTopOf="@+id/ivWind"
+        app:srcCompat="@drawable/ic_penguin"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvAdviceTitle"
+        style="@style/ContentText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/main_tv_advice_title_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivAdvice"
+        app:layout_constraintTop_toTopOf="@+id/ivAdvice" />
+
+    <TextView
+        android:id="@+id/tvAdviceContent"
+        style="@style/ContentText.Small"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivAdvice"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdviceTitle"
+        tools:text="Loooooooooooooooooooooooooooooooooooooooooooooong advice" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="tvHumidity, ivHumidity, ivAdvice, tvAdviceContent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvForecast"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier2"
+        tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_forecast"
+        tools:spanCount="3"
+        tools:visibility="visible" />
+
+    <android.support.constraint.Group
+        android:id="@+id/groupCurrentWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="tvPressure,tvTempMin,tvWind,ivPressure,tvTemp,tvTempMax,ivAdvice,tvCondition,tvAdviceContent,tvHumidity,tvAdviceTitle,ivWind,ivHumidity,ivCondition"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/pbWeather"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/barrier2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearchCity"
+        tools:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/ivError"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_error" />
+
+</android.support.constraint.ConstraintLayout>

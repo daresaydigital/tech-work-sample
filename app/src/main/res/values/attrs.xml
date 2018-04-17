@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="BaseButton">
+        <attr name="normalStateColor" format="color" />
+        <attr name="disabledStateColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AnimatedRectButton">
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="morphedCircleDiameter" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LetterColoredCircleButton">
+        <attr name="isColorByText" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularLayout">
+        <attr name="capacity" format="integer" />
+        <attr name="angle" format="float" />
+        <attr name="color" format="color" />
+        <attr name="itemColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ColoredButtonTheme">
+        <attr name="coloredButtonStyle" format="reference"/>
+    </declare-styleable>
+
+</resources>

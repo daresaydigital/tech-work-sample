@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fafafa</color>
+    <color name="colorPrimaryDark">#c7c7c7</color>
+    <color name="colorPrimaryLight">#ffffff</color>
+    <color name="colorAccent">#9c27b0</color>
+    <color name="colorAccentDark">#6a0080</color>
+    <color name="colorAccentDarker">#3a0053</color>
+    <color name="colorAccentLight">#d05ce3</color>
+
+
+    <color name="white">#ffffff</color>
+    <color name="black_semi_trans">#4D000000</color>
+    <color name="disabledAccent">#ce93d8</color>
+</resources>
