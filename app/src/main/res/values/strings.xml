@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="initializing_database">Initializing Database</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="search_city">Search city</string>
+    <string name="search_no_location_found">No locations found</string>
+    <string name="format_city_country">%1$s, %2$s</string>
 </resources>

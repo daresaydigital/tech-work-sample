@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_holder"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/row_height_med"
+    android:layout_marginEnd="@dimen/margin_med"
+    android:layout_marginLeft="@dimen/margin_med"
+    android:layout_marginRight="@dimen/margin_med"
+    android:layout_marginStart="@dimen/margin_med"
+    android:layout_marginTop="@dimen/margin_med"
+    android:background="@drawable/search_bar_bg"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/margin_med">
+
+    <ImageView
+        android:id="@+id/magnifier"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/search_size"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/margin_sm"
+        android:alpha="0.4"
+        android:background="@null"
+        android:clickable="false"
+        android:scaleType="fitCenter"
+        android:src="@drawable/icon_search" />
+
+    <EditText
+        android:id="@+id/location_search_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.0"
+        android:background="@null"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-light"
+
+        android:hint="@string/search_city"
+        android:inputType="textFilter"
+        android:textColor="@color/solid_white"
+        android:textColorHint="@color/white_40_percent"
+        android:textCursorDrawable="@drawable/bright_cursor"
+        android:textSize="@dimen/search_bar_text_size">
+
+        <requestFocus />
+    </EditText>
+
+    <FrameLayout
+        android:id="@+id/close_button_wrapper"
+        android:layout_width="@dimen/minimum_tap_area_size"
+        android:layout_height="@dimen/minimum_tap_area_size"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/highlight_white"
+        android:focusable="true"
+        android:clickable="true">
+
+        <ImageButton
+            android:id="@+id/close_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/search_size"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:clickable="false"
+            android:scaleType="centerInside"
+            android:src="@drawable/icon_close" />
+    </FrameLayout>
+</LinearLayout>

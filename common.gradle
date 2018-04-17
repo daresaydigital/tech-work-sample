@@ -1,6 +1,6 @@
 ext {
     // Sdk and tools
-    versionCompileSdk = 26
+    versionCompileSdk = 27
     versionMinSdk = 21
     versionTargetSdk = 27
     versionBuildTools = '27.1.1'

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="item_list_horizontal_margin">8dp</dimen>
+
+    <dimen name="margin_med">16dp</dimen>
+    <dimen name="margin_sm">12dp</dimen>
+
+    <dimen name="row_height_med">42dp</dimen>
+
+    <dimen name="search_size">18dp</dimen>
+    <dimen name="search_bar_text_size">16sp</dimen>
+    <dimen name="search_results_text_size">14sp</dimen>
+
+    <dimen name="minimum_tap_area_size">44dp</dimen>
+
+</resources>

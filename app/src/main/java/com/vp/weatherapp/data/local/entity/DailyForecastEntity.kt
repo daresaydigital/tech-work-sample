@@ -12,10 +12,9 @@ data class DailyForecastEntity @Ignore constructor(
         @ColumnInfo(name = "dt")            var dt:         Long    = 0,
         @ColumnInfo(name = "city")          var city:       String  = "",
         @ColumnInfo(name = "country")       var country:    String  = "",
-        @ColumnInfo(name = "temp")          var temp:       Double  = 0.0,
-        @ColumnInfo(name = "temp_low")      var tempLow:    Double  = 0.0,
-        @ColumnInfo(name = "temp_high")     var tempHigh:   Double  = 0.0,
+        @ColumnInfo(name = "temp_day")      var tempDay:    Double  = 0.0,
+        @ColumnInfo(name = "temp_night")    var tempNight:  Double  = 0.0,
         @ColumnInfo(name = "icon")          var icon:       String  = ""
 ) {
-    constructor(): this(0, 0, "", "", 0.0, 0.0, 0.0, "")
+    constructor(): this(0, 0, "", "", 0.0, 0.0, "")
 }

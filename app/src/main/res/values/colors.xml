@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+    <color name="transparent">#00000000</color>
+
+    <color name="dark_gray">#ff393939</color>
+
+    <color name="solid_white">#ffffffff</color>
+
+    <color name="white_40_percent">#66ffffff</color>
+
+    <color name="cursor_color">#ffeeeeee</color>
+
 </resources>
