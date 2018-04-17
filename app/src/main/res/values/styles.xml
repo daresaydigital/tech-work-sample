@@ -21,4 +21,27 @@
         <item name="suggestionRowLayout">@layout/layout_custom_recent_queries</item>
     </style>
 
+
+    <style name="WeatherTextStyle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="WeatherTextStyle.Small" parent="@style/WeatherTextStyle">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+
+    <style name="WeatherTextStyle.Medium" parent="@style/WeatherTextStyle">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+    </style>
+
+    <style name="WeatherTextStyle.Large" parent="@style/WeatherTextStyle">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="WeatherTextStyle.Huge" parent="@style/WeatherTextStyle">
+        <item name="android:textSize">@dimen/text_size_huge</item>
+    </style>
+
+
 </resources>

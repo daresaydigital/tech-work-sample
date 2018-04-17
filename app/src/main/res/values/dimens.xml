@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="edge_spacing_left">16dp</dimen>
-    <dimen name="edge_spacing_right">16dp</dimen>
+    <dimen name="spacing_edge">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_huge">32dp</dimen>
+    <dimen name="spacing_hugh_mungus">64dp</dimen>
 
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_medium">14sp</dimen>
+    <dimen name="text_size_large">28sp</dimen>
+    <dimen name="text_size_huge">72sp</dimen>
+
+    <dimen name="image_weather_icon">24dp</dimen>
+    <dimen name="image_weather_main_icon">56dp</dimen>
 </resources>

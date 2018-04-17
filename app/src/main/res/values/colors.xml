@@ -10,4 +10,5 @@
     <color name="white">#ffffff</color>
 
     <color name="toolbar_icon">@color/colorPrimaryText</color>
+    <color name="weather_icon">@color/white</color>
 </resources>

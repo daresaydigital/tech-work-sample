@@ -5,4 +5,5 @@
     <string name="toolbar_clear_search">Clear recent searches</string>
     <string name="toolbar_use_gps">Use GPS</string>
     <string name="toolbar_switch_scale">Switch scale</string>
+
 </resources>
