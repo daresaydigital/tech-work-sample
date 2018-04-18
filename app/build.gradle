@@ -46,14 +46,9 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$support_version"
     implementation "com.android.support:design:$support_version"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta6'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation "com.android.support:support-vector-drawable:$support_version"
     implementation "com.google.android.gms:play-services-location:$playServicesVersion"
-
-
-//    Glide
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
 
 //    Dagger
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
@@ -64,7 +59,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
 //    Rx
     implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"

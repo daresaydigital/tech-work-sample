@@ -30,15 +30,16 @@ class MainVM(
         mainInteractor.clear()
     }
 
-    fun loadData(fromCache: Boolean = true) {
+    fun loadData(fromCache: Boolean = true, forceLoading: Boolean = true) {
 
-        forecastData.value = ForecastViewResult.Progress
-        currentWeatherData.value = CurrentWeatherViewResult.Progress
-
-        if (searchStateData.value == false || searchText.isEmpty()) {
-            loadCurrentWeather(fromCache)
-        } else {
-            loadWeatherByCityName()
+        if (forceLoading || currentWeatherData.value == null || forecastData.value == null) {
+            forecastData.value = ForecastViewResult.Progress
+            currentWeatherData.value = CurrentWeatherViewResult.Progress
+            if (searchStateData.value == false || searchText.isEmpty()) {
+                loadCurrentWeather(fromCache)
+            } else {
+                loadWeatherByCityName()
+            }
         }
     }
 

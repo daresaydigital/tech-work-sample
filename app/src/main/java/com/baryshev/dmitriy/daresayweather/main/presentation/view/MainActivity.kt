@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        checkPermissions { if (savedInstanceState == null) mainViewModel?.loadData() }
+        checkPermissions { mainViewModel?.loadData(forceLoading = savedInstanceState == null) }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int,

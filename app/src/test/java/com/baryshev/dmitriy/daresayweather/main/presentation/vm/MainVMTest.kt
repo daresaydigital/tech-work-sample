@@ -88,10 +88,6 @@ class MainVMTest {
     @Test
     fun `load current weather data with error`() {
 
-        val weather = initCurrentWeatherData()
-        val forecast = initForecastData()
-        val forecasts = listOf(forecast, forecast)
-
         val weatherException = WeatherException()
         `when`(mainInteractor.getCurrentCityWeather(anyBoolean())).thenReturn(Single.error(weatherException))
         `when`(mainInteractor.getCurrentCityForecast(anyBoolean())).thenReturn(Single.error(weatherException))
@@ -105,6 +101,65 @@ class MainVMTest {
                never()).onChanged(Mockito.any(CurrentWeatherViewResult.Success::class.java))
         verify(forecastObserver,
                never()).onChanged(Mockito.any(ForecastViewResult.Success::class.java))
+    }
+
+    @Test
+    fun `force load current weather with success`() {
+
+        val weather = initCurrentWeatherData()
+        val forecast = initForecastData()
+        val forecasts = listOf(forecast, forecast)
+
+        `when`(mainInteractor.getCurrentCityWeather(anyBoolean())).thenReturn(Single.just(weather))
+        `when`(mainInteractor.getCurrentCityForecast(anyBoolean())).thenReturn(Single.just(forecasts))
+
+        viewModel?.searchStateData?.value = false
+        viewModel?.loadData(true, forceLoading = true)
+
+        verify(weatherObserver, never()).onChanged(Mockito.any(CurrentWeatherViewResult.Error::class.java))
+        verify(forecastObserver, never()).onChanged(Mockito.any(ForecastViewResult.Error::class.java))
+        verify(weatherObserver).onChanged(CurrentWeatherViewResult.Success(weather))
+        verify(forecastObserver).onChanged(ForecastViewResult.Success(forecasts))
+    }
+
+    @Test
+    fun `no force load current weather but empty data provide success loading`() {
+
+        val weather = initCurrentWeatherData()
+        val forecast = initForecastData()
+        val forecasts = listOf(forecast, forecast)
+
+        `when`(mainInteractor.getCurrentCityWeather(anyBoolean())).thenReturn(Single.just(weather))
+        `when`(mainInteractor.getCurrentCityForecast(anyBoolean())).thenReturn(Single.just(forecasts))
+
+        viewModel?.searchStateData?.value = false
+        viewModel?.loadData(true, forceLoading = false)
+
+        verify(weatherObserver, never()).onChanged(Mockito.any(CurrentWeatherViewResult.Error::class.java))
+        verify(forecastObserver, never()).onChanged(Mockito.any(ForecastViewResult.Error::class.java))
+        verify(weatherObserver).onChanged(CurrentWeatherViewResult.Success(weather))
+        verify(forecastObserver).onChanged(ForecastViewResult.Success(forecasts))
+    }
+
+    @Test
+    fun `no force load current weather and not empty data provide nothing`() {
+
+        val weather = initCurrentWeatherData()
+        val forecast = initForecastData()
+        val forecasts = listOf(forecast, forecast)
+
+        `when`(mainInteractor.getCurrentCityWeather(anyBoolean())).thenReturn(Single.just(weather))
+        `when`(mainInteractor.getCurrentCityForecast(anyBoolean())).thenReturn(Single.just(forecasts))
+
+        viewModel?.currentWeatherData?.value = CurrentWeatherViewResult.Progress
+        viewModel?.forecastData?.value = ForecastViewResult.Progress
+        viewModel?.searchStateData?.value = false
+        viewModel?.loadData(true, forceLoading = false)
+
+        verify(weatherObserver, never()).onChanged(Mockito.any(CurrentWeatherViewResult.Error::class.java))
+        verify(forecastObserver, never()).onChanged(Mockito.any(ForecastViewResult.Error::class.java))
+        verify(weatherObserver, never()).onChanged(Mockito.any(CurrentWeatherViewResult.Success::class.java))
+        verify(forecastObserver, never()).onChanged(Mockito.any(ForecastViewResult.Success::class.java))
     }
 
     @Test
@@ -131,10 +186,6 @@ class MainVMTest {
 
     @Test
     fun `load weather data by city name with error`() {
-
-        val weather = initCurrentWeatherData()
-        val forecast = initForecastData()
-        val forecasts = listOf(forecast, forecast)
 
         val weatherException = WeatherException()
         `when`(mainInteractor.getWeatherByCityName(anyString())).thenReturn(Single.error(weatherException))
