@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">DaresayWeather</string>
+    <string name="main_snackbar_action_retry">Retry</string>
+    <string name="main_tv_city_name_default">Far Kingdom</string>
+    <string name="main_et_search_city_hint">City</string>
+    <string name="cels">℃</string>
+    <string name="mmHg">mm Hg</string>
+    <string name="m_per_s">m/s</string>
+    <string name="percent">%</string>
+    <string name="main_tv_min_text">min</string>
+    <string name="main_tv_max_text">max</string>
+    <string name="main_tv_advice_title_text">Penguins\'s mood</string>
+
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+
+    <!--Advice-->
+    <string name="advice_sunny">Mmm! Sunny! Time eating ice cream!</string>
+    <string name="advice_moon">Sleeping under shined stars is so sweet</string>
+    <string name="advice_day_few_cloud">When I see clouds I want a cotton candy</string>
+    <string name="advice_night_few_cloud">Clouds are like marshmallows</string>
+    <string name="advice_day_cloud">Look! This cloud is like me or horse… or castle</string>
+    <string name="advice_night_cloud">Cloudy dreams</string>
+    <string name="advice_day_broken_cloud">Looks a bit frighteningly. Where is my umbrella?</string>
+    <string name="advice_night_broken_cloud">The sky is frowning</string>
+    <string name="advice_day_rain">Don\'t forget your umbrella</string>
+    <string name="advice_night_rain">Evening rain is so romantic</string>
+    <string name="advice_day_shower">Do you know a spell to stop this shower rain?</string>
+    <string name="advice_night_shower">It\'s refreshing!</string>
+    <string name="advice_day_thunder">Who annoyed Tor?</string>
+    <string name="advice_night_thunder">Who annoyed Tor?</string>
+    <string name="advice_day_snow">It\'s perfect day!</string>
+    <string name="advice_night_snow">It\'s perfect night!</string>
+    <string name="advice_day_fog">A fish are usually  caught perfectly in this weather</string>
+    <string name="advice_night_fog">Is it fog or ghosts? Brrrr!</string>
+    <string name="advice_unknown"> I am a penguin</string>
+
+    <!--Error-->
+    <string name="error_common">Something went wrong</string>
+    <string name="error_network">Network unavailable</string>
+    <string name="error_weather">Can\'t fetch weather data</string>
+
+
+</resources>
