@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity"
-    android:background="@drawable/main_background">
+    android:background="@drawable/main_background"
+    tools:context=".ui.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/main_activity_toolbar"
@@ -26,5 +26,13 @@
             app:queryHint="@string/toolbar_search_city_hint" />
     </android.support.v7.widget.Toolbar>
 
+    <FrameLayout
+        android:id="@+id/main_activity_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_toolbar"/>
 
 </android.support.constraint.ConstraintLayout>

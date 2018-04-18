@@ -6,4 +6,7 @@
     <string name="toolbar_use_gps">Use GPS</string>
     <string name="toolbar_switch_scale">Switch scale</string>
 
+    <string name="network_error_city_not_found">City not found</string>
+    <string name="network_error_no_connection">No network was found</string>
+
 </resources>
