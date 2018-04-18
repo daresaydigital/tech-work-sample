@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     WeatherFragment weatherFragment = WeatherFragment.newInstance(response.body());
 
                     getSupportFragmentManager().beginTransaction()
-                            .add(R.id.main_activity_fragment_container, weatherFragment).commit();
+                            .replace(R.id.main_activity_fragment_container, weatherFragment).commit();
                 } else if (statusCode == 404) {
                     Toast.makeText(MainActivity.this,
                             R.string.network_error_city_not_found, Toast.LENGTH_SHORT).show();

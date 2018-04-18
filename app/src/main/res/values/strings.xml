@@ -9,4 +9,9 @@
     <string name="network_error_city_not_found">City not found</string>
     <string name="network_error_no_connection">No network was found</string>
 
+    <string name="weather_ms">m/s</string>
+    <string name="weather_mb">mb</string>
+    <string name="weather_min">min</string>
+    <string name="weather_max">max</string>
+
 </resources>
