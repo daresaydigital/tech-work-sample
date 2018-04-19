@@ -1,10 +1,17 @@
 package com.babak.weather.ui;
 
+import android.Manifest;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.provider.SearchRecentSuggestions;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
@@ -24,13 +31,19 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LocationListener {
     @BindView(R.id.main_activity_toolbar) Toolbar toolbar;
     @BindView(R.id.main_activity_toolbar_search) SearchView searchView;
+    private static final int ACCESS_FINE_LOCATION_REQUEST = 1234;
+
     private WeatherClient weatherClient;
     private SharedPreferences sharedPref;
     private boolean shouldRefresh = false;
+
     private Coord currentLocation = new Coord();
+
+    private LocationManager locationManager;
+    private Criteria criteria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +59,26 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.onBackPressed();
             }
         });
+
+        setupLocation();
         sharedPref = getPreferences(Context.MODE_PRIVATE);
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         handleIntent(getIntent());
+    }
+
+    private void setupLocation() {
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+        criteria.setPowerRequirement(Criteria.POWER_LOW);
+        criteria.setAltitudeRequired(false);
+        criteria.setBearingRequired(false);
+        criteria.setSpeedRequired(false);
+        criteria.setCostAllowed(true);
+        criteria.setHorizontalAccuracy(Criteria.ACCURACY_HIGH);
+        criteria.setVerticalAccuracy(Criteria.ACCURACY_HIGH);
     }
 
     @Override
@@ -87,32 +115,60 @@ public class MainActivity extends AppCompatActivity {
                 suggestions.clearHistory();
                 break;
             case R.id.main_toolbar_switch_scale:
-                SharedPreferences.Editor editor = sharedPref.edit();
-                boolean isCelsius = sharedPref.getBoolean(getString(R.string.sp_scale_key), true);
-                isCelsius = !isCelsius;
-                editor.putBoolean(getString(R.string.sp_scale_key), isCelsius);
-                editor.apply();
-
-                WeatherFragment wf = (WeatherFragment) getSupportFragmentManager().findFragmentById(R.id.main_activity_fragment_container);
-                if(wf != null) {
-                    wf.setupTemps();
-                }
-
-                setToolbarScaleText(item, isCelsius);
+                switchScale(item);
                 break;
             case R.id.main_toolbar_search_with_gps:
-                // TODO
-                // To be implemented.
+                searchWithGps();
                 break;
             case R.id.main_toolbar_refresh:
                 shouldRefresh = true;
                 WeatherClient.getClient()
-                        .getWeatherByPosition(currentLocation.getLat(),currentLocation.getLon())
+                        .getWeatherByPosition(currentLocation.getLat(), currentLocation.getLon())
                         .enqueue(new NetworkCallback());
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void switchScale(MenuItem item) {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        boolean isCelsius = sharedPref.getBoolean(getString(R.string.sp_scale_key), true);
+        isCelsius = !isCelsius;
+        editor.putBoolean(getString(R.string.sp_scale_key), isCelsius);
+        editor.apply();
+
+        WeatherFragment wf = (WeatherFragment) getSupportFragmentManager().findFragmentById(R.id.main_activity_fragment_container);
+        if (wf != null) {
+            wf.setupTemps();
+        }
+
+        setToolbarScaleText(item, isCelsius);
+    }
+
+    private void searchWithGps() {
+        if (!locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            Toast.makeText(this, R.string.gps_error_not_enabled, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (ActivityCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    ACCESS_FINE_LOCATION_REQUEST);
+        } else {
+            locationManager.requestSingleUpdate(criteria, this, null);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        if (requestCode == ACCESS_FINE_LOCATION_REQUEST &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            locationManager.requestSingleUpdate(criteria, this, null);
+        }
+    }
+
 
     private void setToolbarScaleText(MenuItem scaleItem, boolean isCelsius) {
         if (isCelsius) {
@@ -136,6 +192,27 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onLocationChanged(Location location) {
+        WeatherClient.getClient().getWeatherByPosition(location.getLatitude(), location.getLongitude())
+                .enqueue(new NetworkCallback());
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
     private class NetworkCallback implements retrofit2.Callback<WeatherResponse> {
 
         @Override
@@ -147,9 +224,9 @@ public class MainActivity extends AppCompatActivity {
                     currentLocation.setLat(response.body().getCoord().getLat());
                     currentLocation.setLon(response.body().getCoord().getLon());
 
-                    if(shouldRefresh) {
+                    if (shouldRefresh) {
                         WeatherFragment wf = (WeatherFragment) getSupportFragmentManager().findFragmentById(R.id.main_activity_fragment_container);
-                        if(wf != null) {
+                        if (wf != null) {
                             shouldRefresh = false;
                             wf.refreshValues(response.body());
                         }
@@ -157,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     MenuItem refresh = (MenuItem) toolbar.getMenu().findItem(R.id.main_toolbar_refresh);
-                    if(!refresh.isVisible()) {
+                    if (!refresh.isVisible()) {
                         refresh.setVisible(true);
                     }
 

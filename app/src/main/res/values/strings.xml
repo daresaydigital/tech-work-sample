@@ -8,6 +8,8 @@
     <string name="toolbar_switch_scale_celsius">Switch scale (current Celsius)</string>
     <string name="toolbar_switch_scale_fahrenheit">Switch scale (current Fahrenheit)</string>
 
+    <string name="gps_error_not_enabled">GPS needs to be enabled</string>
+    
     <string name="network_error_city_not_found">City not found</string>
     <string name="network_error_no_connection">No network was found</string>
 
