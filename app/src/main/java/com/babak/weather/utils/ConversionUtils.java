@@ -4,6 +4,10 @@ public final class ConversionUtils {
     private ConversionUtils() {
     }
 
+    public static double celsiusToFahrenheit(double celsius) {
+        return celsius * 9/5 + 32;
+    }
+
     // Converts Open Weather Map weather id to corresponding weather icon name.
     public static String owmIdToIconName(int id, String icon) {
         String omwId = Integer.toString(id);

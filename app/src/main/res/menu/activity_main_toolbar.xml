@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
 
-        android:id="@+id/search_with_gps"
+    <item
+        android:id="@+id/main_toolbar_refresh"
+        android:icon="@drawable/ic_refresh_white_24dp"
+        android:title="@string/toolbar_refresh"
+        android:visible="false"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/main_toolbar_search_with_gps"
         android:icon="@drawable/ic_gps_fixed_white_24dp"
         android:title="@string/toolbar_use_gps"
         app:showAsAction="always" />
 
     <group>
         <item
-            android:id="@+id/clear_recent_searches"
+            android:id="@+id/main_toolbar_clear_recent_searches"
             android:title="@string/toolbar_clear_search"
             app:showAsAction="never" />
         <item
-            android:id="@+id/switch_scale"
-            android:title="@string/toolbar_switch_scale"
+            android:id="@+id/main_toolbar_switch_scale"
+            android:title="@string/toolbar_switch_scale_celsius"
             app:showAsAction="never" />
     </group>
 </menu>

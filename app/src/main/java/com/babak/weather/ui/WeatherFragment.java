@@ -1,6 +1,7 @@
 package com.babak.weather.ui;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -85,7 +86,7 @@ public class WeatherFragment extends Fragment {
         String iconName = ConversionUtils.owmIdToIconName(weather.getId(), weather.getIcon());
         int resId = getResources().getIdentifier(iconName, "drawable", getActivity().getPackageName());
         mainWeatherImage.setImageResource(resId);
-        if(weatherData.getWind().getDeg() != null) {
+        if (weatherData.getWind().getDeg() != null) {
             windDirectionImage.setVisibility(View.VISIBLE);
             windDirectionImage.setRotation(Double.valueOf(weatherData.getWind().getDeg()).floatValue());
         } else {
@@ -103,12 +104,6 @@ public class WeatherFragment extends Fragment {
         String pressure = Integer.toString((int) Math.round(mainInfo.getPressure()));
         pressure = pressure + " " + getString(R.string.weather_mb);
 
-        String max = Integer.toString((int) Math.round(mainInfo.getTempMax()));
-        max = max + " " + getString(R.string.weather_max);
-        String min = Integer.toString((int) Math.round(mainInfo.getTempMin()));
-        min = min + " " + getString(R.string.weather_min);
-        String temp = Integer.toString((int) Math.round(mainInfo.getTemp()));
-
         String time = new SimpleDateFormat("HH:mm").format(new Date());
 
         cityText.setText(weatherData.getName());
@@ -119,9 +114,39 @@ public class WeatherFragment extends Fragment {
         humidityText.setText(humidity);
         windText.setText(wind);
         pressureText.setText(pressure);
+
+        setupTemps();
+    }
+
+    public void setupTemps() {
+        Main mainInfo = weatherData.getMain();
+        Boolean isCelsius = getActivity().getPreferences(Context.MODE_PRIVATE).getBoolean(getString(R.string.sp_scale_key), true);
+
+        double maxTemp = mainInfo.getTempMax();
+        double minTemp = mainInfo.getTempMin();
+        double mainTemp = mainInfo.getTemp();
+
+        if(!isCelsius) {
+            maxTemp = ConversionUtils.celsiusToFahrenheit(maxTemp);
+            minTemp = ConversionUtils.celsiusToFahrenheit(minTemp);
+            mainTemp = ConversionUtils.celsiusToFahrenheit(mainTemp);
+        }
+        String max = Integer.toString((int) Math.round(maxTemp));
+        max = max + "° " + getString(R.string.weather_max);
+        String min = Integer.toString((int) Math.round(minTemp));
+        min = min + "° " + getString(R.string.weather_min);
+        String temp = Integer.toString((int) Math.round(mainTemp)) + "°";
+
         maxDegreeText.setText(max);
         minDegreeText.setText(min);
         degreeText.setText(temp);
+
+    }
+
+    public void refreshValues(WeatherResponse newData) {
+        weatherData = newData;
+        setupImages();
+        setupTexts();
     }
 
     @Override

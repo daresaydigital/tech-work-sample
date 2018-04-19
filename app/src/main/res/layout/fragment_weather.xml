@@ -42,8 +42,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/spacing_small"
-        app:layout_constraintLeft_toRightOf="@id/weather_fragment_degree_text"
-        app:layout_constraintTop_toTopOf="@id/weather_fragment_degree_text" />
+        app:layout_constraintBottom_toBottomOf="@id/weather_fragment_degree_text"
+        app:layout_constraintLeft_toRightOf="@id/weather_fragment_degree_text" />
 
     <TextView
         android:id="@+id/weather_fragment_max_degree_text"
@@ -51,8 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/spacing_small"
-        app:layout_constraintBottom_toBottomOf="@id/weather_fragment_degree_text"
-        app:layout_constraintLeft_toRightOf="@id/weather_fragment_degree_text" />
+        app:layout_constraintLeft_toRightOf="@id/weather_fragment_degree_text"
+        app:layout_constraintTop_toTopOf="@id/weather_fragment_degree_text" />
 
     <TextView
         android:id="@+id/weather_fragment_description_text"
