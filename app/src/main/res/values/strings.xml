@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    <string name="toolbar_search_city_hint">Search city</string>
+    <string name="toolbar_clear_search">Clear recent searches</string>
+    <string name="toolbar_use_gps">Use GPS</string>
+    <string name="toolbar_refresh">Refresh</string>
+    <string name="toolbar_switch_scale_celsius">Switch scale (current Celsius)</string>
+    <string name="toolbar_switch_scale_fahrenheit">Switch scale (current Fahrenheit)</string>
+
+    <string name="gps_error_not_enabled">GPS needs to be enabled</string>
+    
+    <string name="network_error_city_not_found">City not found</string>
+    <string name="network_error_no_connection">No network was found</string>
+
+    <string name="weather_ms">m/s</string>
+    <string name="weather_mb">mb</string>
+    <string name="weather_min">min</string>
+    <string name="weather_max">max</string>
+
+    <string name="sp_scale_key">isCelsius</string>
+
+</resources>
