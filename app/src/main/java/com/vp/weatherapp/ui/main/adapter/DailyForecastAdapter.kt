@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.vp.weatherapp.R
 import com.vp.weatherapp.common.ext.inflate
-import com.vp.weatherapp.data.local.entity.CityDailyForecast
 import com.vp.weatherapp.data.local.entity.DailyForecastEntity
 import kotlinx.android.synthetic.main.forecast_daily_item.view.*
 import java.text.SimpleDateFormat

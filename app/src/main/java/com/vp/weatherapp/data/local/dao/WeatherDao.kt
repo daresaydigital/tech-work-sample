@@ -39,12 +39,6 @@ interface WeatherDao {
     fun deleteSelectedCity(city: SelectedCityEntity): Int
 
 
-    // Selected Cities with forecast
-
-//    @Transaction
-//    @Query("SELECT * FROM selected_city")
-//    fun getSelectedCitiesWithForecast(): Flowable<List<CityWithForecast>>
-
     @Query("""SELECT c.city_id, c.name, c.country, c.lat, c.lon,
         hf.`temp`, hf.description, hf.icon, min(hf.dt)
         FROM selected_city sc
@@ -75,12 +69,6 @@ interface WeatherDao {
 
     // City Daily Forecast
 
-    @Query("""SELECT df.dt, df.icon, df.temp_day, df.temp_night
-        FROM daily_forecast df
-        WHERE df.city_id = :cityId AND df.dt > :timestamp
-        """)
-    fun getCityDailyForecast(cityId: Long, timestamp: Long): Flowable<List<CityDailyForecast>>
-
     @Query("""SELECT *
         FROM daily_forecast df
         WHERE df.city_id = :cityId
@@ -95,20 +83,7 @@ interface WeatherDao {
     fun deleteAllDailyForecasts(cityId: Long)
 
 
-    // Daily
-//    @Query("""SELECT *
-//        FROM daily_forecast df
-//        WHERE df.city = :city AND df.dt > :timestamp""")
-//    fun getDailyForecast(city: String, timestamp: Long): Flowable<List<DailyForecastEntity>>
-
-
     // City Hourly Forecast
-
-    @Query("""SELECT hf.dt, hf.icon, hf.`temp`
-        FROM hourly_forecast hf
-        WHERE hf.city_id = :cityId AND hf.dt > :timestamp
-        """)
-    fun getCityHourlyForecast(cityId: Long, timestamp: Long): Flowable<List<CityHourlyForecast>>
 
     @Query("""SELECT *
         FROM hourly_forecast hf
@@ -123,12 +98,4 @@ interface WeatherDao {
     @Query("DELETE FROM hourly_forecast WHERE city_id = :cityId")
     fun deleteAllHourlyForecasts(cityId: Long)
 
-    // Hourly
-//    @Query("""SELECT *
-//        FROM hourly_forecast hf
-//        WHERE hf.city_id = :cityId AND hf.dt > :timestamp
-//        GROUP BY hf.city
-//        HAVING COUNT(*) > 8
-//        ORDER BY hf.dt""")
-//    fun getHourlyForecast(cityId: Long, timestamp: Long): Flowable<List<HourlyForecastEntity>>
 }

@@ -25,7 +25,10 @@
 
         <activity
             android:name=".ui.main.MainActivity"
-            android:launchMode="singleTask">
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,10 +36,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.initial.InitialActivity" />
+        <activity
+            android:name=".ui.initial.InitialActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            />
         
         <activity
             android:name=".ui.search.SearchActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleTask"
             android:parentActivityName=".ui.main.MainActivity"
             />
