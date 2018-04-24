@@ -1,5 +1,6 @@
 package com.vp.weatherapp.ui.search
 
+import android.annotation.SuppressLint
 import android.util.Log
 import com.vp.weatherapp.data.WeatherRepository
 import com.vp.weatherapp.data.local.entity.CityEntity
@@ -13,6 +14,7 @@ class SearchPresenter(private val weatherRepository: WeatherRepository,
     : AbstractPresenter<SearchContract.View, SearchContract.Presenter>(),
         SearchContract.Presenter {
 
+    @SuppressLint("RxLeakedSubscription")
     override fun performSearch(text: String) {
         Log.e("SEARCH", "performSearch : $text")
         launch {
@@ -26,6 +28,7 @@ class SearchPresenter(private val weatherRepository: WeatherRepository,
         }
     }
 
+    @SuppressLint("RxLeakedSubscription")
     override fun saveSelectedCity(city: CityEntity) {
         launch {
             weatherRepository.saveSelectedCity(city)

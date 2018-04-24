@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:background="@color/transparent"
+    tools:background="@android:color/black"
+    >
+
+    <TextView
+        style="@style/ForecastListItemText"
+        android:id="@+id/day_of_week"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        android:gravity="start"
+        tools:text="Monday"
+        app:layout_constraintEnd_toStartOf="@+id/forecast_icon"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding" />
+
+    <ImageView
+        android:id="@+id/forecast_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guideline_half"
+        app:layout_constraintStart_toStartOf="@+id/guideline_half"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/ForecastMaxTemp"
+        android:id="@+id/daily_max_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        android:gravity="center"
+        tools:text="25 C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/daily_min_temp"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@+id/guideline_quarter"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        style="@style/ForecastMinTemp"
+        android:id="@+id/daily_min_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        android:gravity="center"
+        tools:text="15 C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/daily_max_temp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_half"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_quarter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+
+</android.support.constraint.ConstraintLayout>

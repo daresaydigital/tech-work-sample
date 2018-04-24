@@ -2,74 +2,60 @@ package com.vp.weatherapp.ui.main
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
-import android.os.Bundle
+import android.graphics.Color
 import android.support.v4.app.Fragment
-import com.vp.weatherapp.di.Params.MAIN_VIEW
-import com.vp.weatherapp.ui.initial.InitialActivity
+import android.support.v4.content.ContextCompat
+import com.vp.weatherapp.R
+import com.vp.weatherapp.data.local.entity.CityWithForecast
 import com.vp.weatherapp.ui.main.paging.BackgroundManagerImpl
 import com.vp.weatherapp.ui.main.paging.PagingActivity
-import org.koin.android.ext.android.inject
 
 
-class MainActivity : PagingActivity(), MainContract.View {
+class MainActivity : PagingActivity() {
 
-    private val BACKGROUND_COLORS = intArrayOf(-0xcfb002, -0x33ff9a, -0x66ff01)
 
-    override val presenter: MainContract.Presenter by inject { mapOf(MAIN_VIEW to this) }
+    override fun generatePages(selectedCities: List<CityWithForecast>): List<Fragment> {
+        var backgroundColors = listOf(Color.BLACK)
+        var pages = listOf(NoCitySelectedFragment.newInstance())
 
-    override fun generatePages(savedInstanceState: Bundle?): List<Fragment> {
-        val pages = arrayListOf<Fragment>()
-
-        for (i in 0 until BACKGROUND_COLORS.size) {
-            val newPage = WeatherFragment.newInstance()
-//            newPage.setFrontImage(frontDots)
-//            newPage.setBackImage(backDots)
-            pages.add(newPage)
+        if (selectedCities.isNotEmpty()) {
+            backgroundColors = selectedCities.map { ContextCompat.getColor(this, getWeatherColor(it.icon)) }
+            pages = selectedCities.map { WeatherFragment.newInstance(it) }
         }
+
+        configureBackground(backgroundColors)
 
         return pages
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        checkDatabaseInitialized()
-
-        presenter.getSelectedCities()
-        configureBackground()
-    }
-
-    private fun checkDatabaseInitialized() {
-        val prefs = getSharedPreferences(PREFS_FILENAME, 0)
-        val dbInitialized = prefs.getBoolean(DATABASE_INITIALIZED, false)
-        if (!dbInitialized) {
-            startActivity(InitialActivity.newIntent(this))
-            finish()
+    private fun getWeatherColor(icon: String?) : Int {
+        return when (icon) {
+            "01d" -> R.color.weather_color_clear
+            "01n" -> R.color.weather_color_clear_night
+            "02d" -> R.color.weather_color_cloudy
+            "02n" -> R.color.weather_color_cloudy_night
+            "03d" -> R.color.weather_color_cloudy
+            "03n" -> R.color.weather_color_cloudy_night
+            "04d" -> R.color.weather_color_cloudy
+            "04n" -> R.color.weather_color_cloudy_night
+            "09d" -> R.color.weather_color_stormy
+            "09n" -> R.color.weather_color_stormy_night
+            "10d" -> R.color.weather_color_stormy
+            "10n" -> R.color.weather_color_stormy_night
+            "11d" -> R.color.weather_color_stormy
+            "11n" -> R.color.weather_color_stormy_night
+            "13d" -> R.color.weather_color_cloudy
+            "13n" -> R.color.weather_color_cloudy_night
+            "50d" -> R.color.weather_color_fog
+            "50n" -> R.color.weather_color_fog_night
+            else -> R.color.solid_black
         }
     }
 
-    override fun buildFragments(selectedCities: List<String>) {
-        configureBackground()
+    private fun configureBackground(colors: List<Int>) {
+        backgroundManager = BackgroundManagerImpl(colors)
     }
 
-    private fun configureBackground() {
-        backgroundManager = BackgroundManagerImpl(BACKGROUND_COLORS)
-    }
-
-    override fun onStop() {
-        presenter.stop()
-        super.onStop()
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        repo.getHourlyForecast("Stockholm", "SE")
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(
-//                        { forecasts -> printForecasts(forecasts) },
-//                        { throwable -> handleError(throwable) } )
-    }
 
     companion object {
         const val PREFS_FILENAME = "com.vp.weather.prefs"
@@ -79,6 +65,5 @@ class MainActivity : PagingActivity(), MainContract.View {
             return Intent(context, MainActivity::class.java)
         }
     }
-
 
 }

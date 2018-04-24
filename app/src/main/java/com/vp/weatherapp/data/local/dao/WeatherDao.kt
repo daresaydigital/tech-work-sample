@@ -8,42 +8,14 @@ import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
 import com.vp.weatherapp.data.local.entity.*
 import io.reactivex.Flowable
+import io.reactivex.Single
 
 
 @Dao
 interface WeatherDao {
-    //TODO: optimize tables and queries
-
-    // Hourly
-
-    @Query("""SELECT *
-        FROM hourly_forecast hf
-        WHERE hf.city = :city AND hf.dt > :timestamp
-        GROUP BY hf.city
-        HAVING COUNT(*) > 8
-        ORDER BY hf.dt""")
-    fun getHourlyForecast(city: String, timestamp: Long): Flowable<List<HourlyForecastEntity>>
-
-    @Insert(onConflict = REPLACE)
-    fun insertHourlyForecast(forecasts: List<HourlyForecastEntity>)
-
-    @Query("DELETE FROM hourly_forecast WHERE city = :city")
-    fun deleteAllHourlyForecasts(city: String)
-
-
-    // Daily
-
-    @Query("""SELECT *
-        FROM daily_forecast df
-        WHERE df.city = :city AND df.dt > :timestamp""")
-    fun getDailyForecast(city: String, timestamp: Long): Flowable<List<DailyForecastEntity>>
-
-    @Insert(onConflict = REPLACE)
-    fun insertDailyForecast(forecasts: List<DailyForecastEntity>)
-
-    @Query("DELETE FROM daily_forecast WHERE city = :city")
-    fun deleteAllDailyForecasts(city: String)
-
+    // TODO: optimize tables and queries
+    // TODO: handle timezones
+    // TODO:
 
     // Search Cities
 
@@ -73,16 +45,90 @@ interface WeatherDao {
 //    @Query("SELECT * FROM selected_city")
 //    fun getSelectedCitiesWithForecast(): Flowable<List<CityWithForecast>>
 
-    // TODO: use city_id instead of name in hf table
-    @Query("""SELECT c.city_id, c.name, c.country, c.lat, c.lon, hf.`temp`, min(hf.dt)
+    @Query("""SELECT c.city_id, c.name, c.country, c.lat, c.lon,
+        hf.`temp`, hf.description, hf.icon, min(hf.dt)
         FROM selected_city sc
         LEFT JOIN city c
-        ON c.city_id = sc.city_id
+        ON sc.city_id = c.city_id
         LEFT JOIN hourly_forecast hf
-        ON hf.city = c.name
+        ON hf.city_id = c.city_id
         GROUP BY c.city_id
         ORDER BY c.name
         """)
 //    WHERE hf.dt > :timestamp
-    fun getSelectedCitiesForecast(): Flowable<List<CityWithForecast>>
+    fun getSelectedCitiesForecast(): Single<List<CityWithForecast>>
+
+    // Current Forecast
+
+    @Query("""SELECT c.city_id, c.name, c.country, c.lat, c.lon,
+        hf.`temp`, hf.description, hf.icon, min(hf.dt)
+        FROM hourly_forecast hf
+        LEFT JOIN city c
+            ON hf.city_id = c.city_id
+            AND hf.city_id = :cityId
+        GROUP BY c.city_id
+        ORDER BY c.name
+        """)
+//    WHERE hf.dt > :timestamp
+    fun getCityCurrentWeather(cityId: Long): Flowable<List<CityWithForecast>>
+
+
+    // City Daily Forecast
+
+    @Query("""SELECT df.dt, df.icon, df.temp_day, df.temp_night
+        FROM daily_forecast df
+        WHERE df.city_id = :cityId AND df.dt > :timestamp
+        """)
+    fun getCityDailyForecast(cityId: Long, timestamp: Long): Flowable<List<CityDailyForecast>>
+
+    @Query("""SELECT *
+        FROM daily_forecast df
+        WHERE df.city_id = :cityId
+        AND df.dt > :timestamp
+        """)
+    fun getDailyForecast(cityId: Long, timestamp: Long): Flowable<List<DailyForecastEntity>>
+
+    @Insert(onConflict = REPLACE)
+    fun insertDailyForecasts(forecasts: List<DailyForecastEntity>)
+
+    @Query("DELETE FROM daily_forecast WHERE city_id = :cityId")
+    fun deleteAllDailyForecasts(cityId: Long)
+
+
+    // Daily
+//    @Query("""SELECT *
+//        FROM daily_forecast df
+//        WHERE df.city = :city AND df.dt > :timestamp""")
+//    fun getDailyForecast(city: String, timestamp: Long): Flowable<List<DailyForecastEntity>>
+
+
+    // City Hourly Forecast
+
+    @Query("""SELECT hf.dt, hf.icon, hf.`temp`
+        FROM hourly_forecast hf
+        WHERE hf.city_id = :cityId AND hf.dt > :timestamp
+        """)
+    fun getCityHourlyForecast(cityId: Long, timestamp: Long): Flowable<List<CityHourlyForecast>>
+
+    @Query("""SELECT *
+        FROM hourly_forecast hf
+        WHERE hf.city_id = :cityId
+        AND hf.dt > :timestamp
+        """)
+    fun getHourlyForecast(cityId: Long, timestamp: Long): Flowable<List<HourlyForecastEntity>>
+
+    @Insert(onConflict = REPLACE)
+    fun insertHourlyForecasts(forecasts: List<HourlyForecastEntity>)
+
+    @Query("DELETE FROM hourly_forecast WHERE city_id = :cityId")
+    fun deleteAllHourlyForecasts(cityId: Long)
+
+    // Hourly
+//    @Query("""SELECT *
+//        FROM hourly_forecast hf
+//        WHERE hf.city_id = :cityId AND hf.dt > :timestamp
+//        GROUP BY hf.city
+//        HAVING COUNT(*) > 8
+//        ORDER BY hf.dt""")
+//    fun getHourlyForecast(cityId: Long, timestamp: Long): Flowable<List<HourlyForecastEntity>>
 }

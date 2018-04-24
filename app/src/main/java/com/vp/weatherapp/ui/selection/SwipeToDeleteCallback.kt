@@ -62,9 +62,12 @@ abstract class SwipeToDeleteCallback(context: Context) :
         val deleteIconRight = itemView.right - deleteIconMargin
         val deleteIconBottom = deleteIconTop + intrinsicHeight
 
+        val threshold = deleteIconLeft + intrinsicWidth / 2
         // Draw the delete icon
         deleteIcon!!.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom)
-        deleteIcon.draw(c)
+        if (itemView.width + dX < threshold) {
+            deleteIcon.draw(c)
+        }
 
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
     }

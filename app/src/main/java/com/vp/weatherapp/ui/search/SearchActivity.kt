@@ -43,7 +43,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
 
     private fun setupSearchBox() {
         RxTextView.textChanges(location_search_box)
-                .filter { it.length > 2 }
+                .filter { it.length > 0 }
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ text -> presenter.performSearch(text.toString()) })
@@ -75,7 +75,6 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     }
 
     override fun onCitySelected(success: Boolean) {
-        Log.e("SEARCH - selected", "" )
         if (success) {
             startActivity(MainActivity.newIntent(this))
             finish()

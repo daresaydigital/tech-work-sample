@@ -214,9 +214,9 @@ class DotIndicator : RelativeLayout, SelectionIndicator {
 
         private val DEFAULT_UNSELECTED_DOT_DIAMETER_DP = 6
 
-        private val DEFAULT_SELECTED_DOT_DIAMETER_DP = 6
+        private val DEFAULT_SELECTED_DOT_DIAMETER_DP = 9
 
-        private val DEFAULT_UNSELECTED_DOT_COLOR = Color.GRAY
+        private val DEFAULT_UNSELECTED_DOT_COLOR = Color.LTGRAY
 
         private val DEFAULT_SELECTED_DOT_COLOR = Color.WHITE
 

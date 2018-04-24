@@ -1,5 +1,6 @@
 package com.vp.weatherapp.ui.main
 
+import com.vp.weatherapp.data.local.entity.CityWithForecast
 import com.vp.weatherapp.util.BasePresenter
 import com.vp.weatherapp.util.BaseView
 
@@ -7,7 +8,7 @@ import com.vp.weatherapp.util.BaseView
 interface MainContract {
 
     interface View : BaseView<Presenter> {
-        fun buildFragments(selectedCities: List<String>)
+        fun buildFragments(selectedCities: List<CityWithForecast>)
     }
 
     interface Presenter : BasePresenter<View> {

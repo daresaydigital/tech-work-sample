@@ -5,29 +5,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@color/solid_black"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:textColor="@color/white_80_percent"
         android:text="@string/initializing_database"
         />
 
     <ProgressBar
         android:id="@+id/progressBar"
-        style="@android:style/Widget.ProgressBar.Horizontal"
+        style="@style/android:Widget.ProgressBar.Horizontal"
+        android:progressDrawable="@drawable/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="4dp"
+        android:maxHeight="4dp"
         android:progress="0"
+        android:max="100"
         android:padding="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+        android:layout_margin="32dp"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white_80_percent"
         android:text="@string/please_wait"
         />
 

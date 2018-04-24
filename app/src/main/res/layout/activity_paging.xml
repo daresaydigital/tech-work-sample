@@ -5,14 +5,17 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@color/solid_red"
     android:fitsSystemWindows="true">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.paging.PagingActivity" />
+        tools:context=".ui.main.paging.PagingActivity"
+        android:layout_marginBottom="32dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -28,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:theme="@style/ToolBarStyle"
-            app:layout_scrollFlags="scroll|enterAlways">
+            >
 
             <LinearLayout
                 android:id="@+id/menu_icon_wrapper"
@@ -39,13 +42,13 @@
                 android:focusable="true">
 
                 <ImageView
-                    android:id="@+id/menu_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:id="@+id/btn_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="@null"
-                    android:clickable="false"
-                    android:focusable="false"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:scaleType="centerInside"
                     android:src="@drawable/ic_menu" />
             </LinearLayout>
@@ -56,38 +59,41 @@
                 android:layout_height="@dimen/minimum_tap_area_size"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
                 >
 
                 <ImageView
-                    android:id="@+id/icon_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:id="@+id/btn_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:background="@null"
-                    android:clickable="false"
-                    android:focusable="false"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:scaleType="centerInside"
-                    android:src="@drawable/icon_plus" />
+                    android:src="@drawable/ic_search" />
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
 
+
     <RelativeLayout
         android:id="@+id/paging_activity_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="32dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="false">
 
+        <View style="@style/DividerHorizontal" />
+
         <FrameLayout
             android:id="@+id/progress_indicator_wrapper"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true" />

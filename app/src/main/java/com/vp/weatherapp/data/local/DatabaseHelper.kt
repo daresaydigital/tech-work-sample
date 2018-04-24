@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.stream.JsonReader
 import com.vp.weatherapp.R
 import com.vp.weatherapp.common.ext.ioThread
-import com.vp.weatherapp.data.local.fts.CityJson
+import com.vp.weatherapp.data.local.fts.CityGson
 import com.vp.weatherapp.ui.initial.ProgressListener
 import java.io.IOException
 import java.io.InputStreamReader
@@ -30,9 +30,62 @@ class DatabaseHelper(private val ctx: Application) : RoomDatabase.Callback() {
         super.onCreate(db)
         ioThread {
             val reader = getReader()
-            doInsertions(reader, db)
+//            val time = measureTimeMillis {
+                doInsertions(reader, db)
+//            }
+//            println("TIME = $time")
         }
+//        ioThread {
+//            val iterator = getIterator()
+//            val time = measureTimeMillis { doInsertionsDsl(iterator, db) }
+//            println("TIME = $time")
+//        }
     }
+
+//    private fun getIterator(): Iterator<CityJson> {
+//        val input = ctx.resources.openRawResource(R.raw.city_list)
+//        val dslJson = DslJson<Any>(Settings.withRuntime<Any>().includeServiceLoader())
+//        return dslJson.iterateOver(CityJson::class.java, input)
+//    }
+//
+//    private fun doInsertionsDsl(iterator: Iterator<CityJson>, db: SupportSQLiteDatabase) {
+//        val sql = "INSERT INTO city (city_id, name, country, lat, lon) VALUES (?, ?, ?, ?, ?)"
+//        val stmt = db.compileStatement(sql)
+//        var city: CityJson
+//
+//        try {
+//            db.beginTransaction()
+//
+//            while (iterator.hasNext()) {
+//                city = iterator.next()
+//                stmt.bindLong(1, city.id)
+//                stmt.bindString(2, city.name)
+//                stmt.bindString(3, city.country)
+//                stmt.bindDouble(4, city.coord.lat)
+//                stmt.bindDouble(5, city.coord.lon)
+//                stmt.execute()
+//                stmt.clearBindings()
+//
+//                count++
+//                currentProgress = ((count / TOTAL) * 100).toInt()
+//                if (currentProgress > lastUpdate) {
+//                    listener?.onProgress(currentProgress)
+//                    lastUpdate = currentProgress
+//                }
+//
+//            }
+//            db.setTransactionSuccessful()
+//            listener?.onComplete()
+//
+//        } catch (ex: UnsupportedEncodingException) {
+//            ex.printStackTrace()
+//        } catch (ex: IOException) {
+//            ex.printStackTrace()
+//        } finally {
+//            db.endTransaction()
+//        }
+//
+//    }
 
     private fun getReader(): JsonReader {
         val input = ctx.resources.openRawResource(R.raw.city_list)
@@ -43,13 +96,14 @@ class DatabaseHelper(private val ctx: Application) : RoomDatabase.Callback() {
         val sql = "INSERT INTO city (city_id, name, country, lat, lon) VALUES (?, ?, ?, ?, ?)"
         val stmt = db.compileStatement(sql)
 
+        var city: CityGson
         try {
             reader.beginArray()
             val gson = GsonBuilder().create()
 
             db.beginTransaction()
             while (reader.hasNext()) {
-                val city = gson.fromJson<CityJson>(reader, CityJson::class.java)
+                city = gson.fromJson<CityGson>(reader, CityGson::class.java)
                 stmt.bindLong(1, city.id)
                 stmt.bindString(2, city.name)
                 stmt.bindString(3, city.country)

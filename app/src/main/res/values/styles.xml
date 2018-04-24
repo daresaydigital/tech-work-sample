@@ -48,4 +48,37 @@
         <item name="actionMenuTextColor">@android:color/white</item>
     </style>
 
+
+    <style name="DividerHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">.5dp</item>
+        <item name="android:background">@color/solid_white</item>
+    </style>
+
+    <style name="DividerVertical">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/solid_white</item>
+    </style>
+
+    <style name="ForecastListItemText">
+        <item name="android:textSize">@dimen/forecast_list_item_text</item>
+        <!--<item name="android:textStyle">bold</item>-->
+        <item name="android:textColor">@color/solid_white</item>
+    </style>
+
+    <style name="ForecastMinTemp" parent="ForecastListItemText">
+        <item name="android:textColor">@color/white_40_percent</item>
+    </style>
+
+    <style name="ForecastMaxTemp" parent="ForecastListItemText">
+        <!--<item name="android:textColor">@color/light_coral</item>-->
+    </style>
+
+    <style name="CustomProgressBarHorizontal" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bar</item>
+        <item name="android:minHeight">4dip</item>
+        <item name="android:maxHeight">6dip</item>
+    </style>
+
 </resources>

@@ -5,4 +5,8 @@
     <string name="search_city">Search city</string>
     <string name="search_no_location_found">No locations found</string>
     <string name="format_city_country">%1$s, %2$s</string>
+    <string name="fmt_degrees_celsius">%1$s&#x2103;</string>
+    <string name="fmt_degrees">%1$s&#176;</string>
+    <string name="no_city_selected">No City Selected</string>
+
 </resources>

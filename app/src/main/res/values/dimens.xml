@@ -16,4 +16,8 @@
 
     <dimen name="minimum_tap_area_size">44dp</dimen>
 
+    <dimen name="forecast_list_item_text">16sp</dimen>
+    <dimen name="forecast_list_item_text_padding">8dp</dimen>
+
+
 </resources>

@@ -2,9 +2,12 @@ package com.vp.weatherapp.ui.initial
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
+import android.view.WindowManager
 import com.vp.weatherapp.R
 import com.vp.weatherapp.di.Params.INITIAL_VIEW
 import com.vp.weatherapp.ui.main.MainActivity
@@ -20,7 +23,16 @@ class InitialActivity : AppCompatActivity(), InitialContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_initial)
+        setupStatusBar()
         presenter.initializeDatabase()
+    }
+
+    private fun setupStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = Color.TRANSPARENT
+        }
     }
 
     override fun onStop() {

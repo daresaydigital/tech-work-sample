@@ -29,7 +29,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+//    compileOptions {
+//        sourceCompatibility 1.8
+//        targetCompatibility 1.8
+//    }
     buildTypes {
         release {
             minifyEnabled false
@@ -40,7 +45,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     implementation "com.android.support:appcompat-v7:$versionSupportLib"
     implementation "com.android.support:design:$versionSupportLib"
@@ -62,7 +67,17 @@ dependencies {
     implementation "com.jakewharton.rxbinding2:rxbinding:$rxbinding_version"
     implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxbinding_version"
 
+    implementation "nl.littlerobots.rxlint:rxlint:1.6"
+
+    // Json
     implementation "com.google.code.gson:gson:$gson_version"
+
+    // dsl-json - compile time json (de)serialization library
+    // should be a lot faster than anything else, but no discernible speed increase observed
+    // see gradle.properties for usage
+    // TODO: investigate / notify on github
+//    annotationProcessor "com.dslplatform:dsl-json-java8:1.7.3"
+//    implementation "com.dslplatform:dsl-json-java8:1.7.3"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"

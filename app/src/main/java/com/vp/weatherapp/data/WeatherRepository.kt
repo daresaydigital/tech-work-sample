@@ -1,27 +1,29 @@
 package com.vp.weatherapp.data
 
-import android.util.Log
 import com.vp.weatherapp.data.local.dao.WeatherDao
 import com.vp.weatherapp.data.local.entity.*
-import com.vp.weatherapp.data.mapper.ForecastDataMapper
+import com.vp.weatherapp.data.mapper.convertDaily
+import com.vp.weatherapp.data.mapper.convertHourly
 import com.vp.weatherapp.data.remote.DailyForecastResponse
 import com.vp.weatherapp.data.remote.HourlyForecastResponse
 import com.vp.weatherapp.data.remote.WeatherApi
 import io.reactivex.Flowable
-import io.reactivex.Observable
-import io.reactivex.ObservableEmitter
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import java.util.concurrent.TimeUnit
+import io.reactivex.Single
+import java.util.*
+
+
+//import java.util.function.Function
 
 
 interface WeatherRepository {
-    fun getHourlyForecast(city: String, country: String): Flowable<List<HourlyForecastEntity>>
-    fun getDailyForecast(city: String, country: String): Flowable<List<DailyForecastEntity>>
+    fun getHourlyForecastById(cityId: Long): Flowable<List<HourlyForecastEntity>>
+    fun getHourlyFromApi(cityId: Long): Single<HourlyForecastResponse>
+    fun getDailyForecastById(cityId: Long): Flowable<List<DailyForecastEntity>>
+    fun getDailyFromApi(cityId: Long): Single<DailyForecastResponse>
     fun getSelectedCities(): Flowable<List<CityEntity>>
     fun performSearch(search: String): Flowable<List<CityEntity>>
-    fun saveSelectedCity(city: CityEntity): Flowable<Boolean>
-    fun getSelectedCitiesForecast(): Flowable<List<CityWithForecast>>
+    fun saveSelectedCity(city: CityEntity): Single<Boolean>
+    fun getSelectedCitiesForecast(): Single<List<CityWithForecast>>
     fun deleteSelectedCity(city: CityEntity): Flowable<Boolean>
 }
 
@@ -30,83 +32,69 @@ class WeatherRepositoryImpl(private val weatherApi: WeatherApi,
 
 ) : WeatherRepository {
 
+    // Current Weather
+
     // Hourly Forecast
 
-    override fun getHourlyForecast(city: String, country: String): Flowable<List<HourlyForecastEntity>> {
-        val now = System.currentTimeMillis()
-        return Flowable.concatArrayEager(
-                getHourlyFromDb(city, now),
-                getHourlyFromApi(city))
+    override fun getHourlyForecastById(cityId: Long): Flowable<List<HourlyForecastEntity>> {
+        return getHourlyFromDb(cityId)
     }
 
-    private fun getHourlyFromDb(city: String, timestamp: Long): Flowable<List<HourlyForecastEntity>> =
-            weatherDao.getHourlyForecast(city, timestamp)
+    private fun getHourlyFromDb(cityId: Long): Flowable<List<HourlyForecastEntity>> {
+        println("getting hourly from DB for: $cityId")
+        val timestamp = getStartOfCurrentHour()
+        return weatherDao.getHourlyForecast(cityId, timestamp)
+    }
 
+    override fun getHourlyFromApi(cityId: Long): Single<HourlyForecastResponse> {
+        println("getting hourly from API for: $cityId")
+        return weatherApi.getHourlyForecastByCityId(cityId)
+                .doOnSuccess {
+                    println("inserting hourly forecasts")
+                    val entities = convertHourly(it)
+                    weatherDao.deleteAllHourlyForecasts(cityId)
+                    weatherDao.insertHourlyForecasts(entities)
+                }
+    }
 
-    private fun getHourlyFromApi(city: String): Flowable<List<HourlyForecastEntity>> =
-            weatherApi.getHourlyForecastByCity(city)
-                    .materialize()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .map {it.error?.let { handleErrorCallback(it) }
-                        it
-                    }
-                    .filter { !it.isOnError }
-                    .dematerialize<HourlyForecastResponse>()
-                    .debounce(400, TimeUnit.MILLISECONDS)
-                    .map { ForecastDataMapper().convertRemoteToLocal(it) }
-                    // SAVING DATA TO DB
-                    .map {saveHourlyForecastsToDb(it)
-                        it
-                    }
-
-    private fun saveHourlyForecastsToDb(forecasts: List<HourlyForecastEntity>) {
-        Observable.create { subscriber: ObservableEmitter<Any> ->
-            weatherDao.deleteAllHourlyForecasts(forecasts[0].city)
-            weatherDao.insertHourlyForecast(forecasts)
-            subscriber.onComplete()
-        }.subscribeOn(Schedulers.io()).subscribe()
+    private fun getStartOfCurrentHour(): Long {
+        val date = GregorianCalendar()
+        date.set(Calendar.MINUTE, 0)
+        date.set(Calendar.SECOND, 0)
+        date.set(Calendar.MILLISECOND, 0)
+        return date.time.time / 1000
     }
 
     // Daily Forecast
 
-    override fun getDailyForecast(city: String, country: String): Flowable<List<DailyForecastEntity>> {
-        val now = System.currentTimeMillis()
-        return Flowable.concatArrayEager(
-                getDailyFromDb(city, now),
-                getDailyFromApi(city))
+    override fun getDailyForecastById(cityId: Long): Flowable<List<DailyForecastEntity>> {
+        return getDailyFromDb(cityId)
     }
 
-    private fun getDailyFromDb(city: String, timestamp: Long): Flowable<List<DailyForecastEntity>> =
-            weatherDao.getDailyForecast(city, timestamp)
-
-
-    private fun getDailyFromApi(city: String): Flowable<List<DailyForecastEntity>> =
-            weatherApi.getDailyForecastByCity(city)
-                    .materialize()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .map {it.error?.let { handleErrorCallback(it) }
-                        it
-                    }
-                    .filter { !it.isOnError }
-                    .dematerialize<DailyForecastResponse>()
-                    .debounce(400, TimeUnit.MILLISECONDS)
-                    .map { ForecastDataMapper().convertRemoteToLocal(it) }
-                    // SAVING DATA TO DB
-                    .map {saveDailyForecastsToDb(it)
-                        it
-                    }
-
-    private fun saveDailyForecastsToDb(forecasts: List<DailyForecastEntity>) {
-        Observable.create { emitter: ObservableEmitter<Any> ->
-            weatherDao.deleteAllDailyForecasts(forecasts[0].city)
-            weatherDao.insertDailyForecast(forecasts)
-            emitter.onComplete()
-        }.subscribeOn(Schedulers.io()).subscribe()
+    private fun getDailyFromDb(cityId: Long): Flowable<List<DailyForecastEntity>> {
+        println("getting daily from DB for: $cityId")
+        val timestamp = getStartOfToday()
+        return weatherDao.getDailyForecast(cityId, timestamp)
     }
 
-    private fun handleErrorCallback(throwable: Throwable) {
-        Log.e("handleErrorCallback", throwable.message)
-        throwable.printStackTrace()
+    override fun getDailyFromApi(cityId: Long): Single<DailyForecastResponse> {
+        println("getting daily from API for: $cityId")
+        return weatherApi.getDailyForecastByCityId(cityId)
+                .doOnSuccess {
+                    println("inserting daily forecasts")
+                    val entities = convertDaily(it)
+                    weatherDao.deleteAllDailyForecasts(cityId)
+                    weatherDao.insertDailyForecasts(entities)
+                }
+    }
+
+    private fun getStartOfToday(): Long {
+        val date = GregorianCalendar()
+        date.set(Calendar.HOUR_OF_DAY, 0)
+        date.set(Calendar.MINUTE, 0)
+        date.set(Calendar.SECOND, 0)
+        date.set(Calendar.MILLISECOND, 0)
+        return date.time.time / 1000
     }
 
     // Selected Cities
@@ -115,15 +103,19 @@ class WeatherRepositoryImpl(private val weatherApi: WeatherApi,
         return weatherDao.getSelectedCities()
     }
 
-    override fun saveSelectedCity(city: CityEntity): Flowable<Boolean> {
-        return getHourlyForecast(city.name, "")
-                .concatMap { insertSelectedCity(city) }
+    override fun saveSelectedCity(city: CityEntity): Single<Boolean> {
+        return insertSelectedCity(city)
+                .doOnSuccess { getHourlyFromApi(city.cityId) }
     }
 
-    private fun insertSelectedCity(city: CityEntity): Flowable<Boolean> {
-        return Flowable.fromCallable {
+    private fun insertSelectedCity(city: CityEntity): Single<Boolean> {
+        return Single.fromCallable {
             weatherDao.insertSelectedCity(SelectedCityEntity(city.cityId))
         }.map { it > 0 }
+    }
+
+    override fun getSelectedCitiesForecast(): Single<List<CityWithForecast>> {
+        return weatherDao.getSelectedCitiesForecast()
     }
 
     override fun deleteSelectedCity(city: CityEntity): Flowable<Boolean> {
@@ -135,13 +127,7 @@ class WeatherRepositoryImpl(private val weatherApi: WeatherApi,
     // Search
 
     override fun performSearch(search: String): Flowable<List<CityEntity>> {
-        return weatherDao.performSearch("%$search%")
+        return weatherDao.performSearch("$search%")
     }
 
-    //
-
-    override fun getSelectedCitiesForecast(): Flowable<List<CityWithForecast>> {
-//        System.currentTimeMillis()
-        return weatherDao.getSelectedCitiesForecast()
-    }
 }

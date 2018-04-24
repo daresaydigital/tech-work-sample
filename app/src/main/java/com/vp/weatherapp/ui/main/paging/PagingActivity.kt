@@ -11,24 +11,33 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.view.WindowManager
 import com.vp.weatherapp.R
-import com.vp.weatherapp.common.ext.getStatusBarHeight
+import com.vp.weatherapp.data.local.entity.CityWithForecast
+import com.vp.weatherapp.di.Params
+import com.vp.weatherapp.ui.initial.InitialActivity
+import com.vp.weatherapp.ui.main.MainActivity
+import com.vp.weatherapp.ui.main.MainContract
 import com.vp.weatherapp.ui.main.paging.indicators.DotIndicator
 import com.vp.weatherapp.ui.main.paging.indicators.SelectionIndicator
 import com.vp.weatherapp.ui.search.SearchActivity
 import com.vp.weatherapp.ui.selection.SelectionActivity
 import kotlinx.android.synthetic.main.activity_paging.*
+import org.koin.android.ext.android.inject
 import java.util.*
 
 
-abstract class PagingActivity : AppCompatActivity() {
+abstract class PagingActivity : AppCompatActivity(), MainContract.View {
+
+    override val presenter: MainContract.Presenter by inject { mapOf(Params.MAIN_VIEW to this) }
 
     private val pages = ArrayList<Fragment>()
 
-    private val adapter = PageAdapter(supportFragmentManager, pages)
+    private var adapter = PageAdapter(supportFragmentManager, pages)
 
     var backgroundManager: BackgroundManager? = null
 
     private var progressIndicator: SelectionIndicator? = null
+
+    private var savedState: Bundle? = null
 
     private val pageChangeListenerDelegate = object : OnPageChangeListener {
         override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
@@ -44,29 +53,47 @@ abstract class PagingActivity : AppCompatActivity() {
         }
     }
 
-    protected abstract fun generatePages(savedInstanceState: Bundle?): List<Fragment>
+    protected abstract fun generatePages(selectedCities: List<CityWithForecast>): List<Fragment>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        checkDatabaseInitialized()
+        savedState = savedInstanceState
         setContentView(R.layout.activity_paging)
+
+        viewPager!!.addOnPageChangeListener(pageChangeListenerDelegate)
+
+        progressIndicator = DotIndicator(this)
 
         setupToolbar()
         setupStatusBar()
         setupTaskDescription()
+    }
 
-        pages.addAll(generatePages(savedInstanceState))
+    override fun onResume() {
+        super.onResume()
+        presenter.getSelectedCities()
+    }
 
-        viewPager!!.addOnPageChangeListener(pageChangeListenerDelegate)
-        initialiseViewPager(savedInstanceState)
+    override fun onPause() {
+        presenter.stop()
+        super.onPause()
+    }
 
-        progressIndicator = DotIndicator(this)
+    override fun buildFragments(selectedCities: List<CityWithForecast>) {
+        pages.clear()
+        pages.addAll(generatePages(selectedCities))
+
+        adapter = PageAdapter(supportFragmentManager, pages)
+        initialiseViewPager(savedState)
+
         regenerateProgressIndicator()
     }
 
     private fun setupToolbar() {
 //        toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
-        menu_icon_wrapper.setOnClickListener({ startActivity(SelectionActivity.newIntent(this)) })
-        icon_plus_wrapper.setOnClickListener({ startActivity(SearchActivity.newIntent(this)) })
+        btn_menu.setOnClickListener { startActivity(SelectionActivity.newIntent(this)) }
+        btn_search.setOnClickListener { startActivity(SearchActivity.newIntent(this)) }
     }
 
     private fun setupStatusBar() {
@@ -84,6 +111,14 @@ abstract class PagingActivity : AppCompatActivity() {
         }
     }
 
+    private fun checkDatabaseInitialized() {
+        val prefs = getSharedPreferences(MainActivity.PREFS_FILENAME, 0)
+        val dbInitialized = prefs.getBoolean(MainActivity.DATABASE_INITIALIZED, false)
+        if (!dbInitialized) {
+            startActivity(InitialActivity.newIntent(this))
+            finish()
+        }
+    }
 
 
     private fun initialiseViewPager(savedInstanceState: Bundle?) {

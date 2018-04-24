@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/forecast_list_item_text_padding"
+    android:paddingBottom="@dimen/forecast_list_item_text_padding"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    tools:background="@android:color/black"
+    android:gravity="center_horizontal"
+    >
+
+    <TextView
+        style="@style/ForecastListItemText"
+        android:id="@+id/hour_of_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding"
+        tools:text="21"
+        android:textAlignment="center"
+        />
+
+    <ImageView
+        android:id="@+id/forecast_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        />
+
+    <TextView
+        style="@style/ForecastMaxTemp"
+        android:id="@+id/hourly_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/forecast_list_item_text_padding"
+        android:layout_marginEnd="@dimen/forecast_list_item_text_padding"
+        android:layout_marginStart="@dimen/forecast_list_item_text_padding"
+        android:layout_marginTop="@dimen/forecast_list_item_text_padding"
+        android:textAlignment="center"
+        android:text="25 C"
+        />
+
+
+</LinearLayout>

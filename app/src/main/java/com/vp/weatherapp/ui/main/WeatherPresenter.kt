@@ -1,5 +1,6 @@
 package com.vp.weatherapp.ui.main
 
+import android.annotation.SuppressLint
 import com.vp.weatherapp.data.WeatherRepository
 import com.vp.weatherapp.ui.AbstractPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,28 +12,73 @@ class WeatherPresenter(private val weatherRepository: WeatherRepository,
     : AbstractPresenter<WeatherContract.View, WeatherContract.Presenter>(),
         WeatherContract.Presenter {
 
-    override fun getHourlyForecast(city: String, country: String) {
+    @SuppressLint("RxLeakedSubscription")
+    override fun getHourlyForecast(cityId: Long) {
         launch {
-            weatherRepository.getHourlyForecast(city, country)
+            weatherRepository.getHourlyForecastById(cityId)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                            { view::displayHourlyForecast },
-                            { err -> {} }
+                            { data ->
+                                view.displayHourlyForecast(data) },
+                            { err ->
+                                println(err)
+                            }
                     )
         }
     }
 
-    override fun getDailyForecast(city: String, country: String) {
+    @SuppressLint("RxLeakedSubscription")
+    override fun updateHourlyForecast(cityId: Long) {
         launch {
-            weatherRepository.getDailyForecast(city, country)
+            weatherRepository.getHourlyFromApi(cityId)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({}, {err ->
+                        println(err)
+                        err.printStackTrace()
+                    })
+        }
+    }
+
+    @SuppressLint("RxLeakedSubscription")
+    override fun getDailyForecast(cityId: Long) {
+        launch {
+            weatherRepository.getDailyForecastById(cityId)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                            { view::displayDailyForecast },
-                            { err -> {} }
+                            { data->
+                                view.displayDailyForecast(data) },
+                            { err ->
+                                println(err)
+                            }
                     )
         }
+    }
+
+    @SuppressLint("RxLeakedSubscription")
+    override fun updateDailyForecast(cityId: Long) {
+        launch {
+            weatherRepository.getDailyFromApi(cityId)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({}, {err ->
+                        println(err)
+                        err.printStackTrace()
+                    })
+        }
+    }
+
+    override fun getCurrentWeather(cityId: Long) {
+//        launch {
+//            weatherRepository.getDailyForecast(cityId)
+//                    .subscribeOn(Schedulers.io())
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribe(
+//                            { resource ->
+//                                view.displayDailyForecast(resource.data!!) },
+//                            { err -> {} }
+//                    )
+//        }
     }
 
 }

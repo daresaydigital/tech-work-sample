@@ -1,7 +1,7 @@
 package com.vp.weatherapp.ui.selection
 
+import android.annotation.SuppressLint
 import com.vp.weatherapp.data.WeatherRepository
-import com.vp.weatherapp.data.local.entity.CityEntity
 import com.vp.weatherapp.data.local.entity.CityWithForecast
 import com.vp.weatherapp.ui.AbstractPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,6 +13,7 @@ class SelectionPresenter(private val weatherRepository: WeatherRepository,
     : AbstractPresenter<SelectionContract.View, SelectionContract.Presenter>(),
         SelectionContract.Presenter {
 
+    @SuppressLint("RxLeakedSubscription")
     override fun getSelectedCities() {
         launch {
             weatherRepository.getSelectedCitiesForecast()
@@ -24,6 +25,7 @@ class SelectionPresenter(private val weatherRepository: WeatherRepository,
         }
     }
 
+    @SuppressLint("RxLeakedSubscription")
     override fun deleteSelectedCity(city: CityWithForecast) {
         launch {
             weatherRepository.deleteSelectedCity(city.cityEntity)

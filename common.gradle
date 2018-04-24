@@ -8,7 +8,7 @@ ext {
     versionSupportLib = '27.1.1'
 
     // Kotlin
-    kotlin_version = '1.2.31'
+    kotlin_version = '1.2.40'
 
     // Koin
     koin_version = '0.9.1'

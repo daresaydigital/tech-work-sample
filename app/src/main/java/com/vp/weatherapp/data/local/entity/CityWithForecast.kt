@@ -1,16 +1,13 @@
 package com.vp.weatherapp.data.local.entity
 
 import android.arch.persistence.room.Embedded
-import android.arch.persistence.room.Ignore
-import android.arch.persistence.room.Relation
 
 
 data class CityWithForecast(
         @Embedded
-        var cityEntity: CityEntity,
+        var cityEntity:  CityEntity,
 
-        var temp: Double = 0.0
+        var temp:        Double? = 0.0,
+        var description: String? = "",
+        var icon:        String? = ""
 )
-//{
-//    constructor(): this(null, 0)
-//}

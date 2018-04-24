@@ -1,5 +1,6 @@
 package com.vp.weatherapp.ui.main
 
+import android.annotation.SuppressLint
 import com.vp.weatherapp.data.WeatherRepository
 import com.vp.weatherapp.ui.AbstractPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,16 +12,17 @@ class MainPresenter(private val weatherRepository: WeatherRepository,
     : AbstractPresenter<MainContract.View, MainContract.Presenter>(),
         MainContract.Presenter {
 
+    @SuppressLint("RxLeakedSubscription")
     override fun getSelectedCities() {
-//        launch {
-//            weatherRepository.getSelectedCities()
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .subscribe(
-//                            { view::buildFragments},
-//                            { err -> {} }
-//                    )
-//        }
+        launch {
+            weatherRepository.getSelectedCitiesForecast()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            { list -> view.buildFragments(list)},
+                            { err -> {} }
+                    )
+        }
     }
 
 }

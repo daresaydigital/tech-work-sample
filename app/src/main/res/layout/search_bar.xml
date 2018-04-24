@@ -22,7 +22,7 @@
         android:background="@null"
         android:clickable="false"
         android:scaleType="fitCenter"
-        android:src="@drawable/icon_search" />
+        android:src="@drawable/ic_search" />
 
     <EditText
         android:id="@+id/location_search_box"

@@ -5,7 +5,7 @@ import android.view.View
 import com.vp.weatherapp.ui.main.paging.helpers.ColorHelper
 
 
-class BackgroundManagerImpl(private val colors: IntArray) : BackgroundManager {
+class BackgroundManagerImpl(private val colors: List<Int>) : BackgroundManager {
 
     init {
         if (colors.isEmpty()) {
@@ -14,6 +14,7 @@ class BackgroundManagerImpl(private val colors: IntArray) : BackgroundManager {
     }
 
     override fun updateBackground(background: View, index: Int, offset: Float) {
+
         if (index > colors.size - 1) {
             throw IllegalArgumentException("index is too large")
         }

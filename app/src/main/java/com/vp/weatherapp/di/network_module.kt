@@ -1,6 +1,7 @@
 package com.vp.weatherapp.di
 
 import com.vp.weatherapp.common.ApiKeyInterceptor
+import com.vp.weatherapp.data.remote.EnvelopeConverterFactory
 import com.vp.weatherapp.data.remote.WeatherApi
 import com.vp.weatherapp.di.NetworkProperties.SERVER_URL
 import okhttp3.OkHttpClient
@@ -39,8 +40,9 @@ inline fun <reified T> createWebService(okHttpClient: OkHttpClient, url: String)
     val retrofit = Retrofit.Builder()
             .baseUrl(url)
             .client(okHttpClient)
-            .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createAsync())
+//            .addConverterFactory(EnvelopeConverterFactory)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     return retrofit.create(T::class.java)
 }
