@@ -28,6 +28,7 @@ class SelectionActivity : AppCompatActivity(), SelectionContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_selection)
+        btn_back_wrapper.setOnClickListener{ finish() }
         setupStatusBar()
         setupRecycler()
     }
