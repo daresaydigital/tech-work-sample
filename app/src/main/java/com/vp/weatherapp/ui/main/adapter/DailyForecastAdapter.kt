@@ -8,12 +8,13 @@ import com.vp.weatherapp.common.ext.inflate
 import com.vp.weatherapp.data.local.entity.DailyForecastEntity
 import kotlinx.android.synthetic.main.forecast_daily_item.view.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 class DailyForecastAdapter(var items: List<DailyForecastEntity>)
     : AbsForecastAdapter<DailyForecastAdapter.DailyForecastViewHolder>() {
 
-    private val dayOfWeekFormat = SimpleDateFormat("EEEE")
+    private val dayOfWeekFormat = SimpleDateFormat("EEEE", Locale.getDefault())
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailyForecastViewHolder =
             DailyForecastViewHolder(parent.inflate(R.layout.forecast_daily_item))

@@ -8,7 +8,7 @@ import com.vp.weatherapp.util.BaseView
 interface MainContract {
 
     interface View : BaseView<Presenter> {
-        fun buildFragments(selectedCities: List<CityWithForecast>)
+        fun showSelectedCities(selectedCities: List<CityWithForecast>)
     }
 
     interface Presenter : BasePresenter<View> {

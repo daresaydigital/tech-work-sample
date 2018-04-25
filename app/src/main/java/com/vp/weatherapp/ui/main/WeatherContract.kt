@@ -8,9 +8,13 @@ import com.vp.weatherapp.util.BaseView
 interface WeatherContract {
 
     interface View : BaseView<Presenter> {
-        fun displayCurrentWeather(city: CityWithForecast)
-        fun displayHourlyForecast(list: List<HourlyForecastEntity>)
-        fun displayDailyForecast(list: List<DailyForecastEntity>)
+        fun displayCurrentWeather(forecast: HourlyForecastEntity)
+        fun displayHourlyForecast(hourlyForecasts: List<HourlyForecastEntity>)
+        fun showNoHourlyForecast()
+        fun displayDailyForecast(dailyForecasts: List<DailyForecastEntity>)
+        fun showNoDailyForecast()
+        fun onError(title: String, message: String)
+        fun onApiError(message: String)
     }
 
     interface Presenter : BasePresenter<View> {

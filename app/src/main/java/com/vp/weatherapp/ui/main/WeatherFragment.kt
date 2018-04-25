@@ -1,6 +1,7 @@
 package com.vp.weatherapp.ui.main
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearLayoutManager.HORIZONTAL
@@ -10,7 +11,9 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import com.vp.weatherapp.R
-import com.vp.weatherapp.data.local.entity.*
+import com.vp.weatherapp.data.local.entity.CityWithForecast
+import com.vp.weatherapp.data.local.entity.DailyForecastEntity
+import com.vp.weatherapp.data.local.entity.HourlyForecastEntity
 import com.vp.weatherapp.di.Params.WEATHER_VIEW
 import com.vp.weatherapp.ui.main.adapter.DailyForecastAdapter
 import com.vp.weatherapp.ui.main.adapter.HourlyForecastAdapter
@@ -23,7 +26,7 @@ class WeatherFragment : Fragment(), WeatherContract.View {
 
     private lateinit var hourlyForecastAdapter: HourlyForecastAdapter
     private lateinit var dailyForecastAdapter: DailyForecastAdapter
-    private val fmtDeg by lazy { activity?.getString(R.string.fmt_degrees) }
+    private val formatDegrees by lazy { context?.getString(R.string.fmt_degrees) }
 
     override val presenter: WeatherContract.Presenter by inject { mapOf(WEATHER_VIEW to this) }
 
@@ -85,27 +88,36 @@ class WeatherFragment : Fragment(), WeatherContract.View {
         super.onDestroy()
     }
 
-    override fun displayCurrentWeather(city: CityWithForecast) {
-        city_name.text = city.cityEntity.name
-        temperature.text = fmtDeg?.format(city.temp?.toInt().toString())
-        description.text = city.description
+    override fun displayCurrentWeather(forecast: HourlyForecastEntity) {
+        val temp = forecast.temp.toInt().toString()
+        temperature.text = formatDegrees?.format(temp)
+        description.text = forecast.description
     }
 
-    override fun displayHourlyForecast(list: List<HourlyForecastEntity>) {
-        if (list.isNotEmpty()) {
-            val temp = list[0].temp.toInt().toString()
-            temperature.text = fmtDeg?.format(temp)
-            description.text = list[0].description
-        }
-        hourlyForecastAdapter.items = list
+    override fun displayHourlyForecast(hourlyForecasts: List<HourlyForecastEntity>) {
+        hourlyForecastAdapter.items = hourlyForecasts
         hourlyForecastAdapter.notifyDataSetChanged()
-        hourlyForecastAdapter.notifyItemRangeChanged(0, list.size)
+        hourlyForecastAdapter.notifyItemRangeChanged(0, hourlyForecasts.size)
     }
 
-    override fun displayDailyForecast(list: List<DailyForecastEntity>) {
-        dailyForecastAdapter.items = list
+    override fun showNoHourlyForecast() {
+    }
+
+    override fun displayDailyForecast(dailyForecasts: List<DailyForecastEntity>) {
+        dailyForecastAdapter.items = dailyForecasts
         dailyForecastAdapter.notifyDataSetChanged()
-        dailyForecastAdapter.notifyItemRangeChanged(0, list.size)
+        dailyForecastAdapter.notifyItemRangeChanged(0, dailyForecasts.size)
+    }
+
+    override fun showNoDailyForecast() {
+    }
+
+    override fun onApiError(message: String) {
+        Snackbar.make(rootView, "ApiError: $message", Snackbar.LENGTH_LONG)
+    }
+
+    override fun onError(title: String, message: String) {
+        Snackbar.make(rootView, "Error: $message", Snackbar.LENGTH_LONG)
     }
 
     companion object {

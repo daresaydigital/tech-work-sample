@@ -1,5 +1,6 @@
 package com.vp.weatherapp.ui.initial
 
+import android.annotation.SuppressLint
 import com.vp.weatherapp.data.WeatherRepository
 import com.vp.weatherapp.data.local.DatabaseHelper
 import com.vp.weatherapp.ui.AbstractPresenter
@@ -16,6 +17,8 @@ class InitialPresenter(private val weatherRepository: WeatherRepository,
 
     override fun onComplete() = view.onComplete()
 
+
+    @SuppressLint("RxLeakedSubscription", "RxSubscribeOnError")
     override fun initializeDatabase() {
         databaseHelper.listener = this
         // force Room to initialize the DB by performing a hit on some table

@@ -2,6 +2,9 @@ package com.vp.weatherapp.ui.main
 
 import android.annotation.SuppressLint
 import com.vp.weatherapp.data.WeatherRepository
+import com.vp.weatherapp.data.local.entity.DailyForecastEntity
+import com.vp.weatherapp.data.local.entity.HourlyForecastEntity
+import com.vp.weatherapp.data.remote.Envelope
 import com.vp.weatherapp.ui.AbstractPresenter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -9,8 +12,8 @@ import io.reactivex.schedulers.Schedulers
 
 class WeatherPresenter(private val weatherRepository: WeatherRepository,
                        override var view: WeatherContract.View)
-    : AbstractPresenter<WeatherContract.View, WeatherContract.Presenter>(),
-        WeatherContract.Presenter {
+    : AbstractPresenter<WeatherContract.View, WeatherContract.Presenter>()
+        , WeatherContract.Presenter {
 
     @SuppressLint("RxLeakedSubscription")
     override fun getHourlyForecast(cityId: Long) {
@@ -19,12 +22,22 @@ class WeatherPresenter(private val weatherRepository: WeatherRepository,
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                            { data ->
-                                view.displayHourlyForecast(data) },
+                            { hourlyForecasts ->
+                                handleHourlyForecasts(hourlyForecasts)
+                            },
                             { err ->
-                                println(err)
+                                view.onError("Error", err.message ?: "Something bad happened")
                             }
                     )
+        }
+    }
+
+    private fun handleHourlyForecasts(hourlyForecasts: List<HourlyForecastEntity>) {
+        if (hourlyForecasts.isNotEmpty()) {
+            view.displayCurrentWeather(hourlyForecasts[0])
+            view.displayHourlyForecast(hourlyForecasts)
+        } else {
+            view.showNoHourlyForecast()
         }
     }
 
@@ -33,10 +46,7 @@ class WeatherPresenter(private val weatherRepository: WeatherRepository,
         launch {
             weatherRepository.getHourlyFromApi(cityId)
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({}, {err ->
-                        println(err)
-                        err.printStackTrace()
-                    })
+                    .subscribe({}, { err -> handleApiError(err) })
         }
     }
 
@@ -47,12 +57,20 @@ class WeatherPresenter(private val weatherRepository: WeatherRepository,
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
-                            { data->
-                                view.displayDailyForecast(data) },
+                            { dailyForecasts->
+                                handleDailyForecasts(dailyForecasts) },
                             { err ->
-                                println(err)
+                                view.onError("Error title", "error message: ${err.message}")
                             }
                     )
+        }
+    }
+
+    private fun handleDailyForecasts(dailyForecasts: List<DailyForecastEntity>) {
+        if (dailyForecasts.isNotEmpty()) {
+            view.displayDailyForecast(dailyForecasts)
+        } else {
+            view.showNoDailyForecast()
         }
     }
 
@@ -61,10 +79,14 @@ class WeatherPresenter(private val weatherRepository: WeatherRepository,
         launch {
             weatherRepository.getDailyFromApi(cityId)
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({}, {err ->
-                        println(err)
-                        err.printStackTrace()
-                    })
+                    .subscribe({}, {err -> handleApiError(err) })
+        }
+    }
+
+    private fun handleApiError(err: Throwable) {
+        when(err) {
+            is Envelope.FailureException -> view.onApiError(err.message ?: "Generic error message")
+            else -> view.onError("Error title", "error message: ${err.message}")
         }
     }
 

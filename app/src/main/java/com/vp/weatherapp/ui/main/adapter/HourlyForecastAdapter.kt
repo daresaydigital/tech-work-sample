@@ -8,12 +8,14 @@ import com.vp.weatherapp.common.ext.inflate
 import com.vp.weatherapp.data.local.entity.HourlyForecastEntity
 import kotlinx.android.synthetic.main.forecast_hourly_item.view.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 
 class HourlyForecastAdapter(var items: List<HourlyForecastEntity>)
     : AbsForecastAdapter<HourlyForecastAdapter.HourlyForecastViewHolder>() {
 
-    private val hourOfDayFormat = SimpleDateFormat("HH")
+    private val hourOfDayFormat = SimpleDateFormat("HH", Locale.getDefault())
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HourlyForecastViewHolder =
             HourlyForecastViewHolder(parent.inflate(R.layout.forecast_hourly_item))

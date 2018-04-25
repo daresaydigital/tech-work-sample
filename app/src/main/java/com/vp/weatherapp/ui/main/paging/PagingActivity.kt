@@ -25,9 +25,7 @@ import org.koin.android.ext.android.inject
 import java.util.*
 
 
-abstract class PagingActivity : AppCompatActivity(), MainContract.View {
-
-    override val presenter: MainContract.Presenter by inject { mapOf(Params.MAIN_VIEW to this) }
+abstract class PagingActivity<T> : AppCompatActivity() {
 
     private val pages = ArrayList<Fragment>()
 
@@ -53,36 +51,9 @@ abstract class PagingActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
-    protected abstract fun generatePages(selectedCities: List<CityWithForecast>): List<Fragment>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        checkDatabaseInitialized()
-        savedState = savedInstanceState
-        setContentView(R.layout.activity_paging)
-
-        viewPager!!.addOnPageChangeListener(pageChangeListenerDelegate)
-
-        progressIndicator = DotIndicator(this)
-
-        setupToolbar()
-        setupStatusBar()
-        setupTaskDescription()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        presenter.getSelectedCities()
-    }
-
-    override fun onPause() {
-        presenter.stop()
-        super.onPause()
-    }
-
-    override fun buildFragments(selectedCities: List<CityWithForecast>) {
+    protected fun onListReady(entities: List<T>) {
         pages.clear()
-        pages.addAll(generatePages(selectedCities))
+        pages.addAll(generatePages(entities))
 
         adapter = PageAdapter(supportFragmentManager, pages)
         initialiseViewPager(savedState)
@@ -90,36 +61,19 @@ abstract class PagingActivity : AppCompatActivity(), MainContract.View {
         regenerateProgressIndicator()
     }
 
-    private fun setupToolbar() {
-//        toolbar.setPadding(0, getStatusBarHeight(), 0, 0)
-        btn_menu.setOnClickListener { startActivity(SelectionActivity.newIntent(this)) }
-        btn_search.setOnClickListener { startActivity(SearchActivity.newIntent(this)) }
-    }
+    protected abstract fun generatePages(entities: List<T>): List<Fragment>
 
-    private fun setupStatusBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            window.statusBarColor = Color.TRANSPARENT
-        }
-    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    private fun setupTaskDescription() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val td = ActivityManager.TaskDescription(null, null, Color.TRANSPARENT)
-            setTaskDescription(td)
-        }
-    }
+        savedState = savedInstanceState
+        setContentView(R.layout.activity_paging)
 
-    private fun checkDatabaseInitialized() {
-        val prefs = getSharedPreferences(MainActivity.PREFS_FILENAME, 0)
-        val dbInitialized = prefs.getBoolean(MainActivity.DATABASE_INITIALIZED, false)
-        if (!dbInitialized) {
-            startActivity(InitialActivity.newIntent(this))
-            finish()
-        }
-    }
+        viewPager!!.addOnPageChangeListener(pageChangeListenerDelegate)
 
+        progressIndicator = DotIndicator(this)
+
+    }
 
     private fun initialiseViewPager(savedInstanceState: Bundle?) {
 

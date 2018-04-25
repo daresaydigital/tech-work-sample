@@ -1,11 +1,24 @@
 package com.vp.weatherapp.ui.main.adapter
 
 import android.support.v7.widget.RecyclerView
+import android.view.ViewGroup
 import com.vp.weatherapp.R
 
 
-abstract class AbsForecastAdapter<VH : RecyclerView.ViewHolder>
+open class AbsForecastAdapter<VH : RecyclerView.ViewHolder>
     : RecyclerView.Adapter<VH>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
+        throw NotImplementedError()
+    }
+
+    override fun getItemCount(): Int {
+        throw NotImplementedError()
+    }
+
+    override fun onBindViewHolder(holder: VH, position: Int) {
+        throw NotImplementedError()
+    }
 
     fun getConditionDrawableByIcon(icon: String): Int {
         return when (icon) {

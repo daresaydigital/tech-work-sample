@@ -8,14 +8,6 @@
     android:background="@color/transparent"
     android:fitsSystemWindows="true">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.main.paging.PagingActivity"
-        android:layout_marginBottom="32dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        />
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -33,50 +25,47 @@
             android:theme="@style/ToolBarStyle"
             >
 
-            <LinearLayout
-                android:id="@+id/menu_icon_wrapper"
+            <FrameLayout
+                android:id="@+id/btn_menu_wrapper"
                 android:layout_width="@dimen/minimum_tap_area_size"
                 android:layout_height="@dimen/minimum_tap_area_size"
                 android:layout_gravity="center|start"
-                android:clickable="true"
-                android:focusable="true">
-
+                android:foreground="?android:attr/selectableItemBackground" >
                 <ImageView
                     android:id="@+id/btn_menu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="@null"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:scaleType="centerInside"
+                    android:scaleType="center"
                     android:src="@drawable/ic_menu" />
-            </LinearLayout>
+            </FrameLayout>
 
-            <LinearLayout
-                android:id="@+id/icon_plus_wrapper"
+
+            <FrameLayout
+                android:id="@+id/btn_search_wrapper"
                 android:layout_width="@dimen/minimum_tap_area_size"
                 android:layout_height="@dimen/minimum_tap_area_size"
                 android:layout_gravity="center|end"
                 android:layout_marginEnd="12dp"
-                >
-
+                android:foreground="?android:attr/selectableItemBackground" >
                 <ImageView
                     android:id="@+id/btn_search"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:background="@null"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:scaleType="centerInside"
+                    android:scaleType="center"
                     android:src="@drawable/ic_search" />
-            </LinearLayout>
+            </FrameLayout>
 
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.main.paging.PagingActivity"
+        />
 
     <RelativeLayout
         android:id="@+id/paging_activity_navigation"
