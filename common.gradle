@@ -1,0 +1,19 @@
+ext {
+    // Sdk and tools
+    versionCompileSdk = 27
+    versionMinSdk = 21
+    versionTargetSdk = 27
+    versionBuildTools = '27.1.1'
+
+    versionSupportLib = '27.1.1'
+
+    // Kotlin
+    kotlin_version = '1.2.40'
+
+    // Koin
+    koin_version = '0.9.1'
+
+    // Test
+    junit_version = '4.12'
+    mockito_version = '2.8.47'
+}

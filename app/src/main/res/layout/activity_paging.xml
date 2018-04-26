@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:fitsSystemWindows="true">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:theme="@style/ToolBarStyle"
+            >
+
+            <FrameLayout
+                android:id="@+id/btn_menu_wrapper"
+                android:layout_width="@dimen/minimum_tap_area_size"
+                android:layout_height="@dimen/minimum_tap_area_size"
+                android:layout_gravity="center|start"
+                android:foreground="?android:attr/selectableItemBackground" >
+                <ImageView
+                    android:id="@+id/btn_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_menu" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/btn_search_wrapper"
+                android:layout_width="@dimen/minimum_tap_area_size"
+                android:layout_height="@dimen/minimum_tap_area_size"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="12dp"
+                android:foreground="?android:attr/selectableItemBackground" >
+                <ImageView
+                    android:id="@+id/btn_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_search" />
+            </FrameLayout>
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="32dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ui.main.paging.PagingActivity"
+        />
+
+    <RelativeLayout
+        android:id="@+id/paging_activity_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false">
+
+        <View style="@style/DividerHorizontal" />
+
+        <FrameLayout
+            android:id="@+id/progress_indicator_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

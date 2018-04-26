@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Dot">
+        <attr name="inactiveDiameter" format="dimension"/>
+        <attr name="activeDiameter" format="dimension"/>
+        <attr name="inactiveColor" format="color"/>
+        <attr name="activeColor" format="color"/>
+        <attr name="transitionDuration" format="integer"/>
+        <attr name="initiallyActive" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="DotIndicator">
+        <attr name="numberOfDots" format="integer"/>
+        <attr name="selectedDotIndex" format="integer"/>
+        <attr name="unselectedDotDiameter" format="dimension"/>
+        <attr name="selectedDotDiameter" format="dimension"/>
+        <attr name="unselectedDotColor" format="color"/>
+        <attr name="selectedDotColor" format="color"/>
+        <attr name="spacingBetweenDots" format="dimension"/>
+        <attr name="dotTransitionDuration" format="integer"/>
+    </declare-styleable>
+</resources>

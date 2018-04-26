@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="cursor_color">#ffeeeeee</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="dark_gray">#ff393939</color>
+
+    <color name="solid_black">#ff000000</color>
+    <color name="solid_white">#ffffffff</color>
+    <color name="solid_red">#ffff0000</color>
+    <color name="solid_green">#ff00ff00</color>
+
+    <color name="white_20_percent">#33ffffff</color>
+    <color name="white_40_percent">#66ffffff</color>
+    <color name="white_60_percent">#99ffffff</color>
+    <color name="white_80_percent">#d0ffffff</color>
+
+    <!--sky blue-->
+    <color name="weather_color_clear">#4f9fc1</color>
+    <!-- night sky -->
+    <color name="weather_color_clear_night">#131862</color>
+    <!-- cloudy day gray-->
+    <color name="weather_color_cloudy">#96a3a7</color>
+    <!-- dark blue-gray -->
+    <color name="weather_color_cloudy_night">#666699</color>
+    <!-- stormy weather -->
+    <color name="weather_color_stormy">#57646B</color>
+    <!-- stormy weather night-->
+    <color name="weather_color_stormy_night">#3F494E</color>
+    <color name="weather_color_fog">#CCCFBC</color>
+    <color name="weather_color_fog_night">#818376</color>
+
+
+
+</resources>

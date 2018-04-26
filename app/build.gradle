@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'com.getkeepsafe.dexcount'
+
+ext {
+    rxjava_version = '2.1.12'
+    rxandroid_version = '2.0.2'
+    rxkotlin_version = '2.2.0'
+    rxbinding_version = '2.1.1'
+
+    gson_version = '2.8.2'
+
+    retrofit_version = '2.3.0'
+    okhttp_version = '3.10.0'
+
+    room_version = '1.0.0'
+}
+
+android {
+    compileSdkVersion rootProject.ext.versionCompileSdk
+    defaultConfig {
+        applicationId "com.vp.weatherapp"
+        minSdkVersion rootProject.ext.versionMinSdk
+        targetSdkVersion rootProject.ext.versionTargetSdk
+        multiDexEnabled true
+
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+//    compileOptions {
+//        sourceCompatibility 1.8
+//        targetCompatibility 1.8
+//    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation "com.android.support:appcompat-v7:$versionSupportLib"
+    implementation "com.android.support:design:$versionSupportLib"
+    implementation "com.android.support:recyclerview-v7:$versionSupportLib"
+//    implementation "com.android.support:palette-v7:$versionSupportLib"
+    implementation "com.android.support:support-v4:$versionSupportLib"
+    implementation "com.android.support:support-v13:$versionSupportLib"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    // Koin (DI)
+    implementation "org.koin:koin-android:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    // Rx
+    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rxbinding_version"
+    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxbinding_version"
+
+    implementation "nl.littlerobots.rxlint:rxlint:1.6"
+
+    // Json
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    // dsl-json - compile time json (de)serialization library
+    // should be a lot faster than anything else, but no discernible speed increase observed
+    // see gradle.properties for usage
+    // TODO: investigate / notify on github
+//    annotationProcessor "com.dslplatform:dsl-json-java8:1.7.3"
+//    implementation "com.dslplatform:dsl-json-java8:1.7.3"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
+    // Room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+//    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    kapt "android.arch.persistence.room:compiler:$room_version"
+    implementation "android.arch.persistence.room:rxjava2:$room_version"
+
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
