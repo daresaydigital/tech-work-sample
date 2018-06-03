@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_view_margin"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    app:cardBackgroundColor="@android:color/transparent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:layout_margin="@dimen/forecast_item_margin"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/max_temp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="tuesday"
+            android:gravity="center"
+            android:textSize="@dimen/forecast_item_temp_tv_size"
+            android:layout_marginTop="@dimen/card_view_margin"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="tuesday"
+            android:gravity="center"
+            android:textSize="@dimen/forecast_item_date_tv_size"
+            android:layout_marginTop="@dimen/card_view_margin"
+            android:textColor="@android:color/white"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/forecast_weather_icon"
+            android:layout_marginTop="@dimen/card_view_margin"/>
+        <TextView
+            android:id="@+id/min_temp_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="tuesday"
+            android:gravity="center"
+            android:textSize="@dimen/forecast_item_min_temp_tv_size"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="@dimen/card_view_margin"
+            android:layout_marginBottom="@dimen/card_view_margin"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

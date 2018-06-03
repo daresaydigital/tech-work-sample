@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#616161</color>
+    <color name="colorPrimaryDark">#373737</color>
+    <color name="colorAccent">#9e9e9e</color>
+    <color name="sunny_deep_color">#ef5350</color>
+    <color name="sunny_light_color">#ffcdd2</color>
+    <color name="light_cloud_deep_color">#558b2f</color>
+    <color name="light_cloud_light_color">#a5d6a7</color>
+    <color name="cloud_deep_color">#26c6da</color>
+    <color name="cloud_light_color">#b3e5fc</color>
+    <color name="light_rain_deep_color">#757575</color>
+    <color name="light_rain_light_color">#e0e0e0</color>
+    <color name="rain_deep_color">#607d8b</color>
+    <color name="rain_light_color">#b0bec5</color>
+    <color name="fog_deep_color">#757575</color>
+    <color name="fog_light_color">#b0bec5</color>
+    <color name="snowy_deep_color">#b0bec5</color>
+    <color name="snowy_light_color">#ffffff</color>
+    <color name="storm_deep_color">#9e9e9e</color>
+    <color name="storm_light_color">#eceff1</color>
+    <color name="card_view_bg_color">#e0e0e0</color>
+</resources>

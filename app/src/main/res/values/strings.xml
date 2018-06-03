@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MyHometownWeather</string>
+    <string name="add_menu">add</string>
+    <string name="thirty_five">So hot, I just want an ice cram...</string>
+    <string name="thirty">Yay, let\'s go to swim!</string>
+    <string name="twenty_five">Best time, let\'s go out walking.</string>
+    <string name="twenty">Flowers grow, grow, grow</string>
+    <string name="fifteen">Sit down and have a cup of coffee.</string>
+    <string name="ten">It\'s chilly outside. Remember to wear a scarf.</string>
+    <string name="five">Jacket, warm jacket</string>
+    <string name="zero">It\'s so cold. I just want to stay beside the fireplace</string>
+    <string name="minus_five">Perfect season to have a spa!</string>
+    <string name="minus_ten">Do you want to build a snowman?</string>
+    <string name="minus_fifteen">Let\'s fly in the sky</string>
+</resources>

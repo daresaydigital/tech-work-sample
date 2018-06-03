@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tab_default_thickness">2dp</dimen>
+    <dimen name="tab_inner_radius">0dp</dimen>
+    <dimen name="tab_selected_thickness">4dp</dimen>
+    <dimen name="card_view_radius">7dp</dimen>
+    <dimen name="card_view_margin">2dp</dimen>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="vertical_margin">8dp</dimen>
+    <dimen name="forecast_item_temp_tv_size">20sp</dimen>
+    <dimen name="forecast_item_min_temp_tv_size">16sp</dimen>
+    <dimen name="forecast_item_date_tv_size">16sp</dimen>
+    <dimen name="forecast_item_margin">1dp</dimen>
+    <dimen name="weather_city_txt_padding_size">2dp</dimen>
+    <dimen name="weather_temp_and_descrip_txt_size">30sp</dimen>
+    <dimen name="weather_min_temp_text_size">20sp</dimen>
+    <dimen name="half_vertical_margin">4dp</dimen>
+    <dimen name="fab_size">20dp</dimen>
+</resources>
