@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.activity.HomeActivity">
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="10dp">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/icon"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.9"
+                            app:layout_constraintStart_toEndOf="@+id/genralInfos"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/genralInfos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                tools:text="Ben Arrous" />
+
+                            <TextView
+                                android:id="@+id/temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textSize="22sp"
+                                tools:text="19°" />
+
+                            <TextView
+                                android:id="@+id/tempDay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                tools:text="11°/12°" />
+
+                            <TextView
+                                android:id="@+id/mainWeather"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:textSize="20sp"
+                                tools:text="clouds" />
+
+                            <TextView
+                                android:id="@+id/description"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16sp"
+                                tools:text="fews clouds" />
+
+                        </LinearLayout>
+
+
+                    </android.support.constraint.ConstraintLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:contentPadding="10dp">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/detailsHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/details"
+                            android:textColor="@android:color/black"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/sunRiseHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_sunrise"
+                            android:gravity="center_vertical"
+                            android:text="@string/sun_rise"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/detailsHeader" />
+
+                        <TextView
+                            android:id="@+id/sunRise"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/sunRiseHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/sunRiseHeader"
+                            app:layout_constraintTop_toTopOf="@+id/sunRiseHeader" />
+
+                        <TextView
+                            android:id="@+id/sunSetHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_sunset"
+                            android:gravity="center_vertical"
+                            android:text="@string/sun_set"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/sunRise" />
+
+                        <TextView
+                            android:id="@+id/sunSet"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/sunSetHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/sunSetHeader"
+                            app:layout_constraintTop_toTopOf="@+id/sunSetHeader" />
+
+
+                        <TextView
+                            android:id="@+id/windSpeedHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_windy"
+                            android:gravity="center_vertical"
+                            android:text="@string/wind"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/sunSet" />
+
+                        <TextView
+                            android:id="@+id/windSpeed"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/windSpeedHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/windSpeedHeader"
+                            app:layout_constraintTop_toTopOf="@+id/windSpeedHeader" />
+
+                        <TextView
+                            android:id="@+id/windDegHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_wind_deg"
+                            android:gravity="center_vertical"
+                            android:text="@string/wind_direction"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/windSpeed" />
+
+                        <TextView
+                            android:id="@+id/windDeg"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/windDegHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/windDegHeader"
+                            app:layout_constraintTop_toTopOf="@+id/windDegHeader" />
+
+                        <TextView
+                            android:id="@+id/pressureHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_barometer"
+                            android:gravity="center_vertical"
+                            android:text="@string/pressure"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/windDeg" />
+
+                        <TextView
+                            android:id="@+id/pressure"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/pressureHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/pressureHeader"
+                            app:layout_constraintTop_toTopOf="@+id/pressureHeader" />
+
+                        <TextView
+                            android:id="@+id/cloudsHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_cloud"
+                            android:gravity="center_vertical"
+                            android:text="@string/clouds"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pressureHeader" />
+
+                        <TextView
+                            android:id="@+id/clouds"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/cloudsHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cloudsHeader"
+                            app:layout_constraintTop_toTopOf="@+id/cloudsHeader" />
+
+                        <TextView
+                            android:id="@+id/humidityHeader"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_item_details"
+                            android:drawablePadding="12dp"
+                            android:drawableStart="@drawable/ic_wi_humidity"
+                            android:gravity="center_vertical"
+                            android:text="@string/humidity"
+                            android:textColor="@android:color/black"
+                            android:textSize="16sp"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/clouds" />
+
+                        <TextView
+                            android:id="@+id/humidity"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:visibility="gone"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/humidityHeader"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/humidityHeader"
+                            app:layout_constraintTop_toTopOf="@+id/humidityHeader" />
+
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:id="@+id/lastUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp" />
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

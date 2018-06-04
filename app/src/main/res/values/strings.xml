@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">weatherApp</string>
+    <string name="error">error while getting current weather</string>
+    <string name="details">Details</string>
+    <string name="wind">Wind</string>
+    <string name="wind_direction">Wind direction</string>
+    <string name="pressure">Pressure</string>
+    <string name="clouds">Clouds</string>
+    <string name="humidity">Humidity</string>
+    <string name="sun_rise">Sunrise</string>
+    <string name="sun_set">Sunset</string>
+    <string name="last_update">Last update</string>
+</resources>
