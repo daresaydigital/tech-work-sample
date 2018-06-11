@@ -110,6 +110,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     private String mPercentSign;
     private String mPressureMeasurement;
     private TextView cityName;
+    private Context context;
 
 
     public static FirstFragment newInstance() {
@@ -132,7 +133,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     }
 
     private void initView(View view) {
-        Context context = view.getContext();
+        context = view.getContext();
         containerView = view;
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         connectionDetector = new ConnectionDetector(context);
@@ -208,7 +209,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     }
 
     private void requestLocation() {
-        int fineLocationPermission = ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION);
+        int fineLocationPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
         if (fineLocationPermission != PackageManager.PERMISSION_GRANTED) {
             requestLocationPermission();
         } else {
@@ -424,7 +425,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     }
 
     public void gpsRequestLocation() {
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             Looper locationLooper = Looper.myLooper();
             locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, mLocationListener, locationLooper);
             final Handler locationHandler = new Handler(locationLooper);
@@ -432,7 +433,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
                 @Override
                 public void run() {
                     locationManager.removeUpdates(mLocationListener);
-                    if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         Location lastLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                         if (lastLocation != null) {
                             mLocationListener.onLocationChanged(lastLocation);
@@ -446,7 +447,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     }
 
     public void networkRequestLocation() {
-        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             Looper locationLooper = Looper.myLooper();
             locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, mLocationListener, locationLooper);
             final Handler locationHandler = new Handler(locationLooper);
@@ -454,7 +455,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
                 @Override
                 public void run() {
                     locationManager.removeUpdates(mLocationListener);
-                    if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                         Location lastNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
                         Location lastGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
@@ -477,7 +478,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
             String latitude = String.format("%1$.2f", location.getLatitude());
             String longitude = String.format("%1$.2f", location.getLongitude());
 
-            if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 locationManager.removeUpdates(mLocationListener);
             }
 
