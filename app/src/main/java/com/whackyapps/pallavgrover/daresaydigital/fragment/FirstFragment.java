@@ -175,7 +175,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
                     mListViewModel.refreshWeatherData();
                     setUpdateButtonState(true);
                 } else {
-                    Toast.makeText(getContext(),
+                    Toast.makeText(context,
                             R.string.connection_not_found,
                             Toast.LENGTH_SHORT).show();
                     setUpdateButtonState(false);
@@ -249,7 +249,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     private void subscribeUI() {
         WeatherListViewModel.Factory factory = new WeatherListViewModel
                 .Factory(MyApplication.getInstance()
-                , RemoteDataSource.getInstance(),getContext());
+                , RemoteDataSource.getInstance(),context);
         mListViewModel = ViewModelProviders.of(FirstFragment.this, factory).get(WeatherListViewModel.class);
         mListViewModel.getWeather().observe(this, new Observer<Weather>() {
             @Override
@@ -280,7 +280,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     }
     private void initializeTextView() {
 
-        Typeface weatherFontIcon = Typeface.createFromAsset(getContext().getAssets(),
+        Typeface weatherFontIcon = Typeface.createFromAsset(context.getAssets(),
                 "fonts/weathericons-regular-webfont.ttf");
 
         mIconWeatherView = (TextView) containerView.findViewById(R.id.main_weather_icon);
@@ -333,20 +333,20 @@ public class FirstFragment extends android.support.v4.app.Fragment{
 
     private void updateCurrentWeather() {
 
-        mSpeedScale = getContext().getString(R.string.wind_speed_meters);
+        mSpeedScale = context.getString(R.string.wind_speed_meters);
         String temperature = String.format(Locale.getDefault(), "%.0f",
                 mWeather.getMain().getTemp());
         String pressure = String.format(Locale.getDefault(), "%.1f",
                 mWeather.getMain().getPressure());
         String wind = String.format(Locale.getDefault(), "%.1f", mWeather.getWind().getSpeed());
-        String lastUpdate = Util.setLastUpdateTime(getActivity(),
-                saveLastUpdateTimeMillis(getContext()));
-        String sunrise = Util.unixTimeToFormatTime(getContext(), mWeather.getSys().getSunrise());
-        String sunset = Util.unixTimeToFormatTime(getContext(), mWeather.getSys().getSunset());
+        String lastUpdate = Util.setLastUpdateTime(context,
+                saveLastUpdateTimeMillis(context));
+        String sunrise = Util.unixTimeToFormatTime(context, mWeather.getSys().getSunrise());
+        String sunset = Util.unixTimeToFormatTime(context, mWeather.getSys().getSunset());
 
         cityName.setText(mWeather.getName());
         mIconWeatherView.setText(
-                Util.getStrIcon(getContext(), mWeather.getWeather().get(0).getIcon()));
+                Util.getStrIcon(context, mWeather.getWeather().get(0).getIcon()));
         mTemperatureView.setText(getString(R.string.temperature_with_degree, temperature));
             mDescriptionView.setText(mWeather.getWeather().get(0).getDescription());
         mHumidityView.setText(getString(R.string.humidity_label,
@@ -369,7 +369,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
         boolean isNetworkEnabled = locationManager.getAllProviders().contains(LocationManager.NETWORK_PROVIDER)
                 && locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
-        mProgressDialog = new ProgressDialog(getContext());
+        mProgressDialog = new ProgressDialog(context);
         mProgressDialog.setMessage(getString(R.string.progressDialog_gps_locate));
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mProgressDialog.setIndeterminate(true);
@@ -399,7 +399,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
     }
 
     public void showSettingsAlert() {
-        AlertDialog.Builder settingsAlert = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder settingsAlert = new AlertDialog.Builder(context);
         settingsAlert.setTitle(R.string.alertDialog_gps_title);
         settingsAlert.setMessage(R.string.alertDialog_gps_message);
 
@@ -482,7 +482,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
                 locationManager.removeUpdates(mLocationListener);
             }
 
-            connectionDetector = new ConnectionDetector(getContext());
+            connectionDetector = new ConnectionDetector(context);
             isNetworkAvailable = connectionDetector.isNetworkAvailableAndConnected();
 
             if (isNetworkAvailable) {
@@ -502,7 +502,7 @@ public class FirstFragment extends android.support.v4.app.Fragment{
                     }
                 });
             } else {
-                Toast.makeText(getContext(), R.string.connection_not_found, Toast.LENGTH_SHORT)
+                Toast.makeText(context, R.string.connection_not_found, Toast.LENGTH_SHORT)
                         .show();
             }
         }
