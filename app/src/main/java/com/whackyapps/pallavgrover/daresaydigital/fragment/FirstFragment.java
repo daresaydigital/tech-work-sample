@@ -347,20 +347,20 @@ public class FirstFragment extends android.support.v4.app.Fragment{
         cityName.setText(mWeather.getName());
         mIconWeatherView.setText(
                 Util.getStrIcon(context, mWeather.getWeather().get(0).getIcon()));
-        mTemperatureView.setText(getString(R.string.temperature_with_degree, temperature));
+        mTemperatureView.setText(context.getString(R.string.temperature_with_degree, temperature));
             mDescriptionView.setText(mWeather.getWeather().get(0).getDescription());
-        mHumidityView.setText(getString(R.string.humidity_label,
+        mHumidityView.setText(context.getString(R.string.humidity_label,
                 String.valueOf(mWeather.getMain().getHumidity()),
                 mPercentSign));
-        mPressureView.setText(getString(R.string.pressure_label, pressure,
+        mPressureView.setText(context.getString(R.string.pressure_label, pressure,
                 mPressureMeasurement));
-        mWindSpeedView.setText(getString(R.string.wind_label, wind, mSpeedScale));
-        mCloudinessView.setText(getString(R.string.cloudiness_label,
+        mWindSpeedView.setText(context.getString(R.string.wind_label, wind, mSpeedScale));
+        mCloudinessView.setText(context.getString(R.string.cloudiness_label,
                 String.valueOf(mWeather.getCloud().getAll()),
                 mPercentSign));
-        mLastUpdateView.setText(getString(R.string.last_update_label, lastUpdate));
-        mSunriseView.setText(getString(R.string.sunrise_label, sunrise));
-        mSunsetView.setText(getString(R.string.sunset_label, sunset));
+        mLastUpdateView.setText(context.getString(R.string.last_update_label, lastUpdate));
+        mSunriseView.setText(context.getString(R.string.sunrise_label, sunrise));
+        mSunsetView.setText(context.getString(R.string.sunset_label, sunset));
 
     }
     private void detectLocation() {
