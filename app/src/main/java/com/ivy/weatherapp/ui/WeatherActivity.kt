@@ -1,13 +1,17 @@
 package com.ivy.weatherapp.ui
 
-import android.app.Activity
 import android.os.Bundle
-import com.ivy.weatherapp.R
+import com.ivy.weatherapp.ui.base.BaseActivity
 
-class WeatherActivity : Activity() {
+class WeatherActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                    .replace(android.R.id.content, WeatherFragment())
+                    .commit()
+        }
     }
 }
