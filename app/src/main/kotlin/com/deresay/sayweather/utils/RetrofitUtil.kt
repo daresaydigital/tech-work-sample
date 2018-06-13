@@ -8,6 +8,9 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Retrofit util class for HTTP API.
+ */
 object RetrofitUtils {
     private var retrofit: Retrofit? = null
 

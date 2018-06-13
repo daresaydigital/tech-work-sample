@@ -1,7 +1,10 @@
-package com.deresay.sayweather
+package com.deresay.sayweather.models
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * Model class for API response [ApiInterface].
+ */
 data class WeatherModel(@SerializedName("weather") val weather: ArrayList<Weather>,
                         @SerializedName("main") val weatherParams: WeatherParams,
                         @SerializedName("name") val locationName: String)
