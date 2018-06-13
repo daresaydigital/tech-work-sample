@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SayWeather</string>
+    <string name="location_permission_rationale">Needs location for weather forecast in your location</string>
 </resources>

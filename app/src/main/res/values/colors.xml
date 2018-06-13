@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="colorMorning">#eab98b</color>
+    <color name="colorDay">#e59569</color>
+    <color name="colorEvening">#ba675c</color>
+    <color name="colorNight">#68484B</color>
 </resources>

@@ -1,5 +1,6 @@
 package com.deresay.sayweather.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
@@ -20,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        runnable = loadHome()
+        runnable = showWeather()
         handler.postDelayed(runnable, 1000)
     }
 
@@ -31,10 +32,11 @@ class SplashActivity : AppCompatActivity() {
     }
 
     /**
-     * Load home screen after splash.
+     * Load [ShowWeatherActivity]
      */
-    private fun loadHome() = Runnable {
-        //todo load home activity
+    private fun showWeather() = Runnable {
+        startActivity(Intent(this,SplashActivity::class.java))
+        finish()
     }
 
 }

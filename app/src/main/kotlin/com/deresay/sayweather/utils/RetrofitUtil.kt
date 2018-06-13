@@ -33,12 +33,11 @@ object RetrofitUtils {
         get() {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
-            val client = OkHttpClient.Builder()
+            return OkHttpClient.Builder()
                     .addInterceptor(logging)
                     .connectTimeout(60, TimeUnit.SECONDS)
                     .readTimeout(60,TimeUnit.SECONDS)
                     .writeTimeout(60,TimeUnit.SECONDS)
                     .build()
-            return client
         }
 }
