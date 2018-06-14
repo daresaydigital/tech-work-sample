@@ -1,38 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/weatherLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.deresay.sayweather.activities.ShowWeatherActivity">
 
-    <LinearLayout
-        android:id="@+id/weatherTopLayout"
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/weatherIcon"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/weatherTemp"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_below="@+id/weatherTopLayout"
-        android:id="@+id/weatherText"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="match_parent">
-    </TextView>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

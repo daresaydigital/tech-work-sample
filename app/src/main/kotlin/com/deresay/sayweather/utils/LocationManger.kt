@@ -10,8 +10,8 @@ import android.os.Bundle
 
 object LocationManger{
     @SuppressLint("MissingPermission")
-    fun location(context: Context, fetchWeatherInfo:(location:Location) -> Unit){
-       (context.getSystemService(Context.LOCATION_SERVICE)).apply{
+    fun location(context: Context?, fetchWeatherInfo:(location:Location) -> Unit){
+       (context?.getSystemService(Context.LOCATION_SERVICE)).apply{
            when(this){
                is LocationManager -> {
                    requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0f,object :LocationListener{
