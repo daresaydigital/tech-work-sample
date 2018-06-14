@@ -21,7 +21,7 @@ android {
         }
         debug {
             buildConfigField "String", "BASE_URL", "\"http://worksample-api.herokuapp.com\""
-//            buildConfigField "String", "SAY_WEATHER_API_KEY", "\"${System.getenv(SAY_WEATHER_API_KEY)}\""
+            buildConfigField "String", "SAY_WEATHER_API_KEY", SAY_WEATHER_API_KEY // in <home>/.gradle/gradle.properties
         }
     }
     sourceSets {

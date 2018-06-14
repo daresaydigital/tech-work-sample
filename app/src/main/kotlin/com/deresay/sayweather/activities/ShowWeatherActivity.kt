@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import com.daresay.sayweather.BuildConfig
 import com.daresay.sayweather.R
 import com.deresay.sayweather.utils.ApiInterface
 import com.deresay.sayweather.utils.LocationManger
@@ -29,7 +30,7 @@ class ShowWeatherActivity : AppCompatActivity(), EasyPermissions.PermissionCallb
             RetrofitUtils.initRetrofit(ApiInterface::class.java)
                     .fetchWeather(latitude = location.latitude,
                             longitude = location.longitude,
-                            apiKey = "62fc4256-8f8c-11e5-8994-feff819cdc9f").subscribe(
+                            apiKey = BuildConfig.SAY_WEATHER_API_KEY).subscribe(
                             {
                                 println(it.locationName)
                                 //todo display weather info in ui.
@@ -70,6 +71,6 @@ class ShowWeatherActivity : AppCompatActivity(), EasyPermissions.PermissionCallb
                 SayWeatherUtil.BACKGROUND_COLOR.NIGHT -> R.color.colorNight
                 SayWeatherUtil.BACKGROUND_COLOR.DAY -> R.color.colorDay
                 SayWeatherUtil.BACKGROUND_COLOR.EVENING -> R.color.colorEvening
-                else -> R.color.colorNight
+                else -> R.color.colorMorning
             }
 }
