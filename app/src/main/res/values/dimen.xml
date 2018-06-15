@@ -2,4 +2,9 @@
 <resources>
     <dimen name="margin_small">5dp</dimen>
     <dimen name="margin_medium">10dp</dimen>
+
+    <!--Text sizes-->
+    <dimen name="text_large">45sp</dimen>
+    <dimen name="text_medium">20sp</dimen>
+    <dimen name="text_small">15sp</dimen>
 </resources>

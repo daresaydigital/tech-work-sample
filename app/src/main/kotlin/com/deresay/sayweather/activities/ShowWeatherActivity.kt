@@ -23,12 +23,4 @@ class ShowWeatherActivity : AppCompatActivity() {
                 .commit()
     }
 
-    /**
-     * Load weather details fragment.
-     */
-    private fun showWeatherDetails() {
-//        FragmentUtils(supportFragmentManager).beginTransaction()
-//                .replace(R.id.fragmentContainer,ShowWeatherFragment.newInstance())
-//                .commit()
-    }
 }

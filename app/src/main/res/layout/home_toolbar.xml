@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
+            android:visibility="gone"
             android:layout_margin="3dp"
             android:src="@drawable/ic_location_on_black_24dp" />
 
@@ -23,8 +24,7 @@
             android:id="@+id/locationName"
             style="@style/ToolbarTitle"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/locationPointer"
-            android:text="Trivandrum" />
+            android:layout_toRightOf="@+id/locationPointer"/>
     </RelativeLayout>
 
 </android.support.v7.widget.Toolbar>

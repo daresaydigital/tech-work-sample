@@ -8,12 +8,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ToolbarTitle">
-        <item name="android:textColor">@color/paleWhite</item>
-        <item name="android:textSize">20sp</item>
+    <style name="ToolbarTitle" parent="MediumText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/google_sans_bold</item>
     </style>
+
+    <!--Texts-->
+    <style name="Text">
+        <item name="android:fontFamily">@font/google_sans_regular</item>
+        <item name="android:textColor">@color/paleWhite</item>
+    </style>
+
+    <style name="LargeText" parent="Text">
+        <item name="android:textSize">@dimen/text_large</item>
+    </style>
+
+    <style name="SmallText" parent="Text">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="MediumText" parent="Text">
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
 </resources>

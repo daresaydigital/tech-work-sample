@@ -16,14 +16,14 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_margin="3dp"
+            android:visibility="gone"
             android:src="@drawable/ic_location_on_black_24dp" />
 
         <TextView
             android:id="@+id/locationName"
             style="@style/ToolbarTitle"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/locationPointer"
-            android:text="Trivandrum" />
+            android:layout_toRightOf="@+id/locationPointer"/>
     </RelativeLayout>
 
 </android.support.v7.widget.Toolbar>

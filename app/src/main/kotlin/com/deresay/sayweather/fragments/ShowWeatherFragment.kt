@@ -4,6 +4,7 @@ package com.deresay.sayweather.fragments
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
@@ -16,7 +17,10 @@ import com.deresay.sayweather.utils.LocationManger
 import com.deresay.sayweather.utils.RetrofitUtils
 import com.deresay.sayweather.utils.SayWeatherUtil
 import kotlinx.android.synthetic.main.fragment_show_weather.*
+import kotlinx.android.synthetic.main.toolbar.*
 import pub.devrel.easypermissions.EasyPermissions
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 import java.util.*
 
 
@@ -32,33 +36,20 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     }
 
     override fun onPermissionsGranted(requestCode: Int, perms: MutableList<String>) {
-        if (activity?.packageManager?.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS) == false) { //Explicit check b'cause Boolean? and Boolean.
-            return
-        }
+        loadWeatherInfo()
 
-        //Request Location.
-        LocationManger.location(context, { location ->
-            RetrofitUtils.initRetrofit(ApiInterface::class.java)
-                    .fetchWeather(latitude = location.latitude,
-                            longitude = location.longitude,
-                            apiKey = BuildConfig.SAY_WEATHER_API_KEY).subscribe(
-                            {
-                                println(it.locationName)
-                                //todo display weather info in ui.
-                            },
-                            {
-                                it.printStackTrace()
-                            }
-                    )
-        })
     }
 
     override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
-        //todo snack bar no location
+        progress.visibility = View.GONE
+        notAvailableText.text = getString(R.string.allow_permission)
+        notAvailableText.visibility = View.VISIBLE
+        Snackbar.make(weatherLayout, R.string.no_permission, Snackbar.LENGTH_SHORT).show()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        loadWeatherInfo()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -70,6 +61,8 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         weatherLayout.background = ContextCompat.getDrawable(context!!, backgroundColor())
+        progress.visibility = View.VISIBLE
+        notAvailableText.visibility = View.GONE
 
         //Request location permission.
         EasyPermissions.requestPermissions(this,
@@ -80,14 +73,70 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
     }
 
     /**
-     * Get the background color according to time.
+     * Get the timing color according to time.
      */
     private fun backgroundColor() =
-            when (SayWeatherUtil.background(Date())) {
-                SayWeatherUtil.BACKGROUND_COLOR.NIGHT -> R.color.colorNight
-                SayWeatherUtil.BACKGROUND_COLOR.DAY -> R.color.colorDay
-                SayWeatherUtil.BACKGROUND_COLOR.EVENING -> R.color.colorEvening
+            when (SayWeatherUtil.timing(Date())) {
+                SayWeatherUtil.TIMING.NIGHT -> R.color.colorNight
+                SayWeatherUtil.TIMING.DAY -> R.color.colorDay
+                SayWeatherUtil.TIMING.EVENING -> R.color.colorEvening
                 else -> R.color.colorMorning
             }
+
+    /**
+     * Load weather info in UI.
+     */
+    private fun loadWeatherInfo() {
+        if (activity?.packageManager?.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS) == false) { //Explicit check b'cause Boolean? and Boolean.
+            progress.visibility = View.GONE
+            notAvailableText.text = getString(R.string.no_gps)
+            notAvailableText.visibility = View.VISIBLE
+            Snackbar.make(weatherLayout, R.string.no_gps, Snackbar.LENGTH_SHORT).show()
+            return
+        }
+        //Request Location.
+        notAvailableText.visibility = View.GONE
+        LocationManger.location(context, { location ->
+            RetrofitUtils.initRetrofit(ApiInterface::class.java)
+                    .fetchWeather(latitude = location.latitude,
+                            longitude = location.longitude,
+                            apiKey = BuildConfig.SAY_WEATHER_API_KEY)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                            {
+                                if (progress.isShown) progress.visibility = View.GONE
+                                //Toolbar
+                                locationPointer.visibility = View.VISIBLE
+                                locationName.text = it.locationName
+
+                                //Weather details
+                                timingText.text = timingText(Date())
+                                weatherTemp.text = SayWeatherUtil.temperature(it.weatherParams.temperature)
+                                weatherText.text = it.weather[0].description.capitalize()
+                                weatherHumidity.text = SayWeatherUtil.humidity(it.weatherParams.humidity)
+                                weatherWind.text = SayWeatherUtil.wind(it.wind)
+
+                                //Show icon
+                            },
+                            {
+                                Snackbar.make(weatherLayout, R.string.something_wrong, Snackbar.LENGTH_SHORT).show()
+                                it.printStackTrace()
+                            }
+                    )
+        })
+    }
+
+    /**
+     * When a time is passed the corresponding timing text is returned.
+     */
+    fun timingText(time: Date): String {
+        return when (SayWeatherUtil.timing(time)) {
+            SayWeatherUtil.TIMING.NIGHT -> getString(R.string.timing_night)
+            SayWeatherUtil.TIMING.DAY -> getString(R.string.timing_day)
+            SayWeatherUtil.TIMING.EVENING -> getString(R.string.timing_evening)
+            else -> getString(R.string.timing_morning)
+        }
+    }
 }
 

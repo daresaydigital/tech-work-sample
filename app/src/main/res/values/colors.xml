@@ -6,6 +6,7 @@
     <color name="white">#FFFFFF</color>
     <color name="paleWhite">#F8F8F8</color>
 
+    <color name="colorTiming">#7C7C7C</color>
     <color name="colorMorning">#eab98b</color>
     <color name="colorDay">#e59569</color>
     <color name="colorEvening">#ba675c</color>

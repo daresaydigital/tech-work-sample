@@ -35,7 +35,7 @@ class SplashActivity : AppCompatActivity() {
      * Load [ShowWeatherActivity]
      */
     private fun showWeather() = Runnable {
-        startActivity(Intent(this,SplashActivity::class.java))
+        startActivity(Intent(this,ShowWeatherActivity::class.java))
         finish()
     }
 

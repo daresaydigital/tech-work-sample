@@ -1,5 +1,6 @@
 package com.deresay.sayweather.utils
 
+import com.deresay.sayweather.models.Wind
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -8,25 +9,59 @@ import java.util.*
  * Singleton for all general utilities.
  */
 object SayWeatherUtil {
-    enum class BACKGROUND_COLOR { MORNING, DAY, EVENING, NIGHT }
+    enum class TIMING { MORNING, DAY, EVENING, NIGHT }
 
     /**
-     * Takes a date as argument and returns [BACKGROUND_COLOR]
+     * Takes a date as argument and returns [TIMING]
      * that denotes a specific period of time.
      */
-    fun background(date: Date): BACKGROUND_COLOR {
+    fun timing(time: Date): TIMING {
         val hour = SimpleDateFormat("HH", Locale.US)
-                .format(date.time)
+                .format(time.time)
                 .toInt()
 
         return when {
-            (hour > 18) or (hour < 3) -> BACKGROUND_COLOR.NIGHT
-            hour > 15 -> BACKGROUND_COLOR.EVENING
-            hour > 9 -> BACKGROUND_COLOR.DAY
+            (hour > 18) or (hour < 3) -> TIMING.NIGHT
+            hour > 15 -> TIMING.EVENING
+            hour > 9 -> TIMING.DAY
             else -> {
-                BACKGROUND_COLOR.MORNING
+                TIMING.MORNING
             }
         }
 
     }
+
+
+
+
+    /**
+     * Temperature Information for display.
+     */
+    fun temperature(temperature: Int) = "$temperature \u2103"
+
+    /**
+     * Make wind information appropriate for display.
+     */
+    fun wind(wind: Wind) = "Wind : ${wind.speed} mph ${windDirection(wind.degree.toInt())}"
+
+    /**
+     * The humidity information for display purpose.
+     */
+    fun humidity(humidity: Int) = "Humidity : $humidity %"
+
+    /**
+     * Calculates wind direction from degree value.
+     */
+    fun windDirection(degree: Int) = when {
+        (degree > 0) && (degree < 90) -> "NE"
+        (degree > 90) && (degree < 180) -> "SE"
+        (degree > 180) && (degree < 270) -> "SW"
+        (degree > 270) && (degree < 360) -> "NW"
+        (degree == 0) || (degree == 360) -> "N"
+        degree == 90 -> "E"
+        degree == 180 -> "S"
+        degree == 270 -> "W"
+        else -> ""
+    }
+
 }
