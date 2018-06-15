@@ -1,7 +1,7 @@
 package com.ivy.weatherapp.di
 
 import android.arch.persistence.room.Room
-import com.ivy.weatherapp.data.db.WeatherDatabase
+import com.ivy.weatherapp.data.local.WeatherDatabase
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module.applicationContext
 

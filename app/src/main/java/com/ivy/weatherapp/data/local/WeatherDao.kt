@@ -1,13 +1,13 @@
-package com.ivy.weatherapp.data.repository
+package com.ivy.weatherapp.data.local
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import com.ivy.weatherapp.data.model.Weather
+import com.ivy.weatherapp.data.local.model.Weather
 
 @Dao
-interface WeatherRepository {
+interface WeatherDao {
 
     @Insert
     fun insert(weather: Weather)
