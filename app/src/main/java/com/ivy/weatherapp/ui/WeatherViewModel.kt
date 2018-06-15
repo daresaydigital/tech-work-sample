@@ -13,7 +13,14 @@ class WeatherViewModel(
     val weather: LiveData<Weather> = weatherRepository.get()
 
     fun mockData() {
-        val mockWeather = Weather(temp = Random().nextDouble())
+        val random = Random()
+        val mockWeather = Weather(
+                temp = random.nextDouble(),
+                name = "Stockholm",
+                tempMax = random.nextInt(50),
+                tempMin = random.nextInt(12),
+                description = "Always Sunny"
+        )
         weatherRepository.insert(mockWeather)
     }
 }
