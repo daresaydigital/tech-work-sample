@@ -11,9 +11,23 @@ import java.util.*
 class SayWeatherUtilTest {
     @Test
     fun checkBackgroundColor() {
-        assertEquals(SayWeatherUtil.timing(Date()),
+        val calendar = Calendar.getInstance()
+        val diff = with(calendar) {
+            get(Calendar.HOUR_OF_DAY) * 60 * 60 * 1000 + get(Calendar.MINUTE) * 60 * 1000 +
+                    get(Calendar.SECOND) * 1000
+        }
+        val midNightMillis = calendar.timeInMillis - diff
+
+        assertEquals(SayWeatherUtil.timing(Date(midNightMillis)),
                 SayWeatherUtil.TIMING.NIGHT)
+        assertEquals(SayWeatherUtil.timing(Date(midNightMillis + 12 * 60 * 60 * 1000)),
+                SayWeatherUtil.TIMING.DAY)
+        assertEquals(SayWeatherUtil.timing(Date(midNightMillis + 17 * 60 * 60 * 1000)),
+                SayWeatherUtil.TIMING.EVENING)
+        assertEquals(SayWeatherUtil.timing(Date(midNightMillis + 9 * 60 * 60 * 1000)),
+                SayWeatherUtil.TIMING.MORNING)
     }
+
 
     @Test
     fun testTemperatureText() {
@@ -28,7 +42,7 @@ class SayWeatherUtilTest {
 
     @Test
     fun testWindText() {
-    assertEquals(SayWeatherUtil.wind(Wind(120.5f,5.4f)),"Wind : 5.4 mph SE")
+        assertEquals(SayWeatherUtil.wind(Wind(120.5f, 5.4f)), "Wind : 5.4 mph SE")
     }
 
     @Test
