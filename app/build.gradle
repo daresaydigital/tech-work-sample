@@ -26,6 +26,7 @@ dependencies {
     def lifecycle_version = "1.1.1"
     def room_version = "1.1.0"
     def koin_version = "0.9.3"
+    def coroutines_version = "0.23.3"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -35,11 +36,15 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:$room_version"
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-architecture:$koin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
 
     kapt "android.arch.lifecycle:compiler:$lifecycle_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
 
 }
-repositories {
-    mavenCentral()
+
+kotlin {
+    experimental {
+        coroutines "enable"
+    }
 }
