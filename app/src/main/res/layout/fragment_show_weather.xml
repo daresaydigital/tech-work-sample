@@ -19,7 +19,9 @@
         <ImageView
             android:id="@+id/weatherIcon"
             android:layout_width="0dp"
+            android:visibility="gone"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_weather"
             android:layout_weight="7"
             android:minHeight="100dp" />
 

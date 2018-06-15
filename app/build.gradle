@@ -51,6 +51,20 @@ android {
 ext {
     RETROFIT_VERSION = '2.3.0'
 }
+class GreetingTask extends DefaultTask {
+    @TaskAction
+    def greet() {
+        println 'hello from GreetingTask'
+        android.buildTypes{
+            debug{
+                buildConfigField "String", "GREETS", "Hi "
+            }
+        }
+    }
+}
+
+// Create a task using the task type
+    task hello(type: GreetingTask)
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:27.1.0'

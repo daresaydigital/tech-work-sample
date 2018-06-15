@@ -105,19 +105,22 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                             {
-                                if (progress.isShown) progress.visibility = View.GONE
-                                //Toolbar
-                                locationPointer.visibility = View.VISIBLE
-                                locationName.text = it.locationName
+                                progress?.let { progress ->
+                                    if (progress.isShown) progress.visibility = View.GONE
+                                    //Toolbar
+                                    locationPointer.visibility = View.VISIBLE
+                                    locationName.text = it.locationName
 
-                                //Weather details
-                                timingText.text = timingText(Date())
-                                weatherTemp.text = SayWeatherUtil.temperature(it.weatherParams.temperature)
-                                weatherText.text = it.weather[0].description.capitalize()
-                                weatherHumidity.text = SayWeatherUtil.humidity(it.weatherParams.humidity)
-                                weatherWind.text = SayWeatherUtil.wind(it.wind)
+                                    //Weather details
+                                    timingText.text = timingText(Date())
+                                    weatherTemp.text = SayWeatherUtil.temperature(it.weatherParams.temperature)
+                                    weatherText.text = it.weather[0].description.capitalize()
+                                    weatherHumidity.text = SayWeatherUtil.humidity(it.weatherParams.humidity)
+                                    weatherWind.text = SayWeatherUtil.wind(it.wind)
+                                    //Show icon
+                                    weatherIcon.visibility = View.VISIBLE
+                                }
 
-                                //Show icon
                             },
                             {
                                 Snackbar.make(weatherLayout, R.string.something_wrong, Snackbar.LENGTH_SHORT).show()

@@ -16,7 +16,7 @@ class SayWeatherUtilTest {
             get(Calendar.HOUR_OF_DAY) * 60 * 60 * 1000 + get(Calendar.MINUTE) * 60 * 1000 +
                     get(Calendar.SECOND) * 1000
         }
-        val midNightMillis = calendar.timeInMillis - diff
+        val midNightMillis = calendar.timeInMillis - diff //Today midnight.
 
         assertEquals(SayWeatherUtil.timing(Date(midNightMillis)),
                 SayWeatherUtil.TIMING.NIGHT)
