@@ -1,6 +1,7 @@
 package com.ivy.weatherapp.data.repository
 
 import android.arch.lifecycle.LiveData
+import com.ivy.weatherapp.BuildConfig
 import com.ivy.weatherapp.data.local.WeatherDao
 import com.ivy.weatherapp.data.local.model.Weather
 import com.ivy.weatherapp.data.remote.WeatherApi
@@ -20,7 +21,7 @@ class WeatherRepositoryImpl(
 
     override fun get(): LiveData<Weather> {
         launch {
-            val response = weatherApi.getWeather(59.334591, 18.063240, "").execute()
+            val response = weatherApi.getWeather(59.334591, 18.063240, BuildConfig.WEATHER_API_KEY).execute()
             if (response == null) {
                 //TODO handle network error
             } else if (!response.isSuccessful) {

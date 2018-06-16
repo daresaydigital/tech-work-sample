@@ -14,6 +14,8 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "BASE_URL", "\"http://worksample-api.herokuapp.com\""
+        //TODO set the  api key into your global gradle.properties file (C:\Users\<Username>\.gradle\gradle.properties)
+        buildConfigField("String", "WEATHER_API_KEY", "\"" + WEATHER_API_KEY + "\"")
     }
     buildTypes {
         release {
