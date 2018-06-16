@@ -14,5 +14,5 @@ data class Weather(
         var humidity: Int = 0,
         var description: String = "",
         var icon: String = "",
-        var timestamp: Long = System.currentTimeMillis()
+        var timestamp: Long = 0
 )
