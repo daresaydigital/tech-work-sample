@@ -1,6 +1,8 @@
 package com.ivy.weatherapp.ui
 
+import android.Manifest
 import android.arch.lifecycle.Observer
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import com.ivy.weatherapp.R
@@ -18,6 +20,28 @@ class WeatherFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observePermission()
+        observeWeather()
+
+        buttonMockData.setOnClickListener { viewModel.mockData() }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode != 420) return
+        viewModel.permission.postValue(grantResults[0] == PackageManager.PERMISSION_GRANTED)
+    }
+
+    private fun observePermission() {
+        val observer = Observer<Boolean> { hasPermission ->
+            if (hasPermission != true) {
+                requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 420)
+            }
+        }
+        viewModel.permission.observe(this, observer)
+    }
+
+    private fun observeWeather() {
         val observer = Observer<Weather> { weather ->
             textCityName.text = weather?.name
             //icon =
@@ -28,7 +52,5 @@ class WeatherFragment : BaseFragment() {
 
         }
         viewModel.weather.observe(this, observer)
-
-        buttonMockData.setOnClickListener { viewModel.mockData() }
     }
 }
