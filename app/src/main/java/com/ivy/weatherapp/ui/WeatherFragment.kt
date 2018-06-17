@@ -8,13 +8,15 @@ import android.view.View
 import com.ivy.weatherapp.R
 import com.ivy.weatherapp.data.local.model.Weather
 import com.ivy.weatherapp.extention.loadUrl
+import com.ivy.weatherapp.extention.toast
 import com.ivy.weatherapp.ui.base.BaseFragment
+import com.ivy.weatherapp.util.Failure
 import kotlinx.android.synthetic.main.fragment_weather.*
 import org.koin.android.architecture.ext.viewModel
 
 class WeatherFragment : BaseFragment() {
 
-    val viewModel by viewModel<WeatherViewModel>()
+    private val viewModel by viewModel<WeatherViewModel>()
 
     override fun getLayoutId() = R.layout.fragment_weather
 
@@ -23,6 +25,7 @@ class WeatherFragment : BaseFragment() {
 
         observePermission()
         observeWeather()
+        observeError()
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -50,5 +53,17 @@ class WeatherFragment : BaseFragment() {
             textTempMax.text = resources.getString(R.string.temp_high, weather.tempMax.toString())
         }
         viewModel.weather.observe(this, observer)
+    }
+
+    private fun observeError() {
+        val observer = Observer<Failure> { failure ->
+            failure ?: return@Observer
+            when (failure) {
+                is Failure.NetworkConnection -> toast(R.string.network_failure)
+                is Failure.ServerError -> toast(R.string.server_failure)
+                is Failure.DataError -> toast(R.string.data_failure)
+            }
+        }
+        viewModel.error.observe(this, observer)
     }
 }

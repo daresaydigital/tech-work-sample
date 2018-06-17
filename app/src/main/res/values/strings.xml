@@ -4,4 +4,7 @@
     <string name="temp_low">▼ %s</string>
     <string name="description">%s in %s</string>
     <string name="temp_current">%s°C</string>
+    <string name="network_failure">No internet. Please check your connection</string>
+    <string name="server_failure">Something went wrong… Please come back later</string>
+    <string name="data_failure">Sorry, we couldn\'t update the weather. Something went wrong… Please come back later.</string>
 </resources>

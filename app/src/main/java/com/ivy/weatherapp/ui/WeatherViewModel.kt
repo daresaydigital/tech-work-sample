@@ -6,16 +6,19 @@ import com.ivy.weatherapp.data.local.model.Weather
 import com.ivy.weatherapp.data.repository.WeatherRepository
 import com.ivy.weatherapp.system.Permissions
 import com.ivy.weatherapp.ui.base.BaseViewModel
+import com.ivy.weatherapp.util.Failure
 
 class WeatherViewModel(
-        private val weatherRepository: WeatherRepository,
-        private val permissions: Permissions
+        weatherRepository: WeatherRepository,
+        permissions: Permissions
 ) : BaseViewModel() {
 
-    val weather: LiveData<Weather> = weatherRepository.get()
+    val weather: LiveData<Weather> = weatherRepository.getWeather()
+    val error: LiveData<Failure> = weatherRepository.getError()
     val permission: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
         permission.postValue(permissions.hasLocationPermission())
+        weatherRepository.fetch()
     }
 }
