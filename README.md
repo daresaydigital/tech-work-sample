@@ -1,3 +1,11 @@
+# Weather Android App
+
+[![Build Status](https://travis-ci.com/ukhanoff/tech-work-sample.svg?branch=master)](https://travis-ci.com/ukhanoff/tech-work-sample)
+
+This is android weather app MVP. Hopes you'll enjoy.
+
+---
+
 # Work sample - Application developer
 
 ## Assignment
