@@ -6,7 +6,6 @@ import com.ivy.weatherapp.data.local.model.Weather
 import com.ivy.weatherapp.data.repository.WeatherRepository
 import com.ivy.weatherapp.system.Permissions
 import com.ivy.weatherapp.ui.base.BaseViewModel
-import java.util.*
 
 class WeatherViewModel(
         private val weatherRepository: WeatherRepository,
@@ -18,17 +17,5 @@ class WeatherViewModel(
 
     init {
         permission.postValue(permissions.hasLocationPermission())
-    }
-
-    fun mockData() {
-        val random = Random()
-        val mockWeather = Weather(
-                temp = random.nextDouble(),
-                name = "Stockholm",
-                tempMax = random.nextInt(50),
-                tempMin = random.nextInt(12),
-                description = "Always Sunny"
-        )
-        weatherRepository.insert(mockWeather)
     }
 }

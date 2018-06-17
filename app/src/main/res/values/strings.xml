@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">WeatherApp</string>
+    <string name="temp_high">▲ %s</string>
+    <string name="temp_low">▼ %s</string>
+    <string name="description">%s in %s</string>
+    <string name="temp_current">%s°C</string>
 </resources>

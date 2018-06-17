@@ -23,8 +23,6 @@ class WeatherFragment : BaseFragment() {
 
         observePermission()
         observeWeather()
-
-        buttonMockData.setOnClickListener { viewModel.mockData() }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -44,13 +42,12 @@ class WeatherFragment : BaseFragment() {
 
     private fun observeWeather() {
         val observer = Observer<Weather> { weather ->
-            textCityName.text = weather?.name
-            imageIcon.loadUrl("http://openweathermap.org/img/w/${weather?.icon}.png")
-            textDesciption.text = weather?.description
-            textCurrentTemp.text = "%.2f".format(weather?.temp)
-            textTempMin.text = "low " + weather?.tempMin.toString()
-            textTemMax.text = "high " + weather?.tempMax.toString()
-
+            weather ?: return@Observer
+            imageIcon.loadUrl("http://openweathermap.org/img/w/${weather.icon}.png")
+            textDesciption.text = resources.getString(R.string.description, weather.description.capitalize(), weather.name)
+            textCurrentTemp.text = resources.getString(R.string.temp_current, weather.temp.toInt().toString())
+            textTempMin.text = resources.getString(R.string.temp_low, weather.tempMin.toString())
+            textTempMax.text = resources.getString(R.string.temp_high, weather.tempMax.toString())
         }
         viewModel.weather.observe(this, observer)
     }

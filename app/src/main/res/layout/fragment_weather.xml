@@ -4,87 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark">
-
-    <TextView
-        android:id="@+id/textCityName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Stockholm" />
-
-    <ImageView
-        android:id="@+id/imageIcon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:scaleType="fitXY"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCityName"
-        tools:src="@android:drawable/btn_star_big_on" />
-
-    <TextView
-        android:id="@+id/textDesciption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageIcon"
-        tools:text="Sunny" />
+    android:fitsSystemWindows="true"
+    tools:background="@drawable/background">
 
     <TextView
         android:id="@+id/textCurrentTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/shadows_into_light_two"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="80sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDesciption"
-        tools:text="27" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="27°C" />
+
+    <TextView
+        android:id="@+id/textTempMax"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="52dp"
+        android:fontFamily="@font/shadows_into_light_two"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageIcon"
+        app:layout_constraintStart_toStartOf="@+id/imageIcon"
+        app:layout_constraintTop_toTopOf="@+id/imageIcon"
+        tools:text="low 2°C" />
+
+    <ImageView
+        android:id="@+id/imageIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="82dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textCurrentTemp"
+        tools:src="@android:drawable/btn_star_big_on" />
 
     <TextView
         android:id="@+id/textTempMin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintEnd_toStartOf="@+id/textTemMax"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCurrentTemp"
-        tools:text="low 2" />
+        android:layout_height="0dp"
+        android:layout_marginEnd="52dp"
+        android:fontFamily="@font/shadows_into_light_two"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="@+id/imageIcon"
+        app:layout_constraintEnd_toEndOf="@+id/imageIcon"
+        app:layout_constraintTop_toTopOf="@+id/imageIcon"
+        tools:text="high 35°C" />
 
     <TextView
-        android:id="@+id/textTemMax"
-        android:layout_width="wrap_content"
+        android:id="@+id/textDesciption"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textTempMin"
-        app:layout_constraintTop_toBottomOf="@+id/textCurrentTemp"
-        tools:text="high 35" />
-
-    <Button
-        android:id="@+id/buttonMockData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Mock Weather"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/shadows_into_light_two"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:text="Sunny in Stockholm" />
 </android.support.constraint.ConstraintLayout>
