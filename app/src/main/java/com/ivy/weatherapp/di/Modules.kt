@@ -6,8 +6,10 @@ import com.ivy.weatherapp.data.local.WeatherDatabase
 import com.ivy.weatherapp.data.remote.WeatherApi
 import com.ivy.weatherapp.data.repository.WeatherRepository
 import com.ivy.weatherapp.data.repository.WeatherRepositoryImpl
-import com.ivy.weatherapp.system.Permissions
-import com.ivy.weatherapp.system.PermissionsImpl
+import com.ivy.weatherapp.system.LocationManager
+import com.ivy.weatherapp.system.LocationManagerImpl
+import com.ivy.weatherapp.system.PermissionManager
+import com.ivy.weatherapp.system.PermissionManagerImpl
 import com.ivy.weatherapp.ui.WeatherViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,7 +27,7 @@ val weatherModule = applicationContext {
     bean { Room.databaseBuilder(androidApplication(), WeatherDatabase::class.java, "weather_db").build() }
     bean { get<WeatherDatabase>().weatherDao() }
     bean { WeatherRepositoryImpl(get(), get()) as WeatherRepository }
-    bean { PermissionsImpl(get()) as Permissions }
+    bean { PermissionManagerImpl(get()) as PermissionManager }
     bean {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = when (BuildConfig.DEBUG) {
@@ -46,6 +48,7 @@ val weatherModule = applicationContext {
                 .build()
                 .create(WeatherApi::class.java)
     }
+    bean { LocationManagerImpl(get()) as LocationManager }
 
-    viewModel { WeatherViewModel(get(), get()) }
+    viewModel { WeatherViewModel(get(), get(), get()) }
 }

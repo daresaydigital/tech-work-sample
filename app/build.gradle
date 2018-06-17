@@ -34,6 +34,7 @@ dependencies {
     def retrofit_version = '2.4.0'
     def okhttp_version = '3.10.0'
     def picasso_version = "2.71828"
+    def google_play_version = "15.0.1"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -56,10 +57,10 @@ dependencies {
         exclude module: "animated-vector-drawable"
         exclude module: "exifinterface"
     }
+    implementation "com.google.android.gms:play-services-location:$google_play_version"
 
     kapt "android.arch.lifecycle:compiler:$lifecycle_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
-
 }
 
 kotlin {

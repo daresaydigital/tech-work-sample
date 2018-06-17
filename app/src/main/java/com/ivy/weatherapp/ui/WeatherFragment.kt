@@ -38,6 +38,8 @@ class WeatherFragment : BaseFragment() {
         val observer = Observer<Boolean> { hasPermission ->
             if (hasPermission != true) {
                 requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 420)
+            } else {
+                viewModel.fetchWeather()
             }
         }
         viewModel.permission.observe(this, observer)
@@ -59,9 +61,9 @@ class WeatherFragment : BaseFragment() {
         val observer = Observer<Failure> { failure ->
             failure ?: return@Observer
             when (failure) {
-                is Failure.NetworkConnection -> toast(R.string.network_failure)
-                is Failure.ServerError -> toast(R.string.server_failure)
-                is Failure.DataError -> toast(R.string.data_failure)
+                is Failure.Network -> toast(R.string.network_failure)
+                is Failure.Server -> toast(R.string.server_failure)
+                is Failure.Data -> toast(R.string.data_failure)
             }
         }
         viewModel.error.observe(this, observer)

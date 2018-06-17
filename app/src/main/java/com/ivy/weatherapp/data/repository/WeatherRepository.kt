@@ -14,7 +14,7 @@ import kotlinx.coroutines.experimental.launch
 interface WeatherRepository {
     fun getWeather(): LiveData<Weather>
     fun getError(): MutableLiveData<Failure>
-    fun fetch(): Job
+    fun fetch(latitude: Double, longitude: Double): Job
 }
 
 class WeatherRepositoryImpl(
@@ -29,20 +29,20 @@ class WeatherRepositoryImpl(
 
     override fun getError() = error
 
-    override fun fetch() = launch {
+    override fun fetch(latitude: Double, longitude: Double) = launch {
         val response = try {
-            weatherApi.getWeather(59.334591, 18.063240, BuildConfig.WEATHER_API_KEY).execute()
+            weatherApi.getWeather(latitude, longitude, BuildConfig.WEATHER_API_KEY).execute()
         } catch (e: Exception) {
             null
         }
         if (response == null) {
-            error.postValue(Failure.NetworkConnection())
+            error.postValue(Failure.Network())
         } else if (!response.isSuccessful) {
-            error.postValue(Failure.ServerError())
+            error.postValue(Failure.Server())
         } else {
             val weatherResponse = response.body()
             if (weatherResponse == null) {
-                error.postValue(Failure.DataError())
+                error.postValue(Failure.Data())
             } else {
                 val weather = weatherResponse.convert()
                 weatherDao.insert(weather)

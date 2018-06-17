@@ -6,13 +6,13 @@ import android.content.pm.PackageManager
 import android.support.v4.content.ContextCompat
 
 
-interface Permissions {
+interface PermissionManager {
     fun hasLocationPermission(): Boolean
 }
 
-class PermissionsImpl(
+class PermissionManagerImpl(
         private val context: Context
-) : Permissions {
+) : PermissionManager {
 
     override fun hasLocationPermission() =
             ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
