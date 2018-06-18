@@ -1,4 +1,4 @@
-package com.ukhanoff.rainbeforeseven.di
+package com.ukhanoff.rainbeforeseven.di.util
 
 import javax.inject.Scope
 
