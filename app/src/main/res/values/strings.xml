@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Rain before seven</string>
+    <string name="app_name">Breezy</string>
+    <string name="degreeFormat">%1$s°</string>
 </resources>

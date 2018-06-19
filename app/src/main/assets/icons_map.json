@@ -1,0 +1,218 @@
+{
+  "200": {
+    "label": "thunderstorm with light rain",
+    "icon": "ic_thunder"
+  },
+  "201": {
+    "label": "thunderstorm with rain",
+    "icon": "ic_thunder"
+  },
+  "202": {
+    "label": "thunderstorm with heavy rain",
+    "icon": "ic_thunder"
+  },
+  "210": {
+    "label": "light thunderstorm",
+    "icon": "ic_thunder"
+  },
+  "211": {
+    "label": "thunderstorm",
+    "icon": "ic_thunder"
+  },
+  "212": {
+    "label": "heavy thunderstorm",
+    "icon": "ic_thunder"
+  },
+  "221": {
+    "label": "ragged thunderstorm",
+    "icon": "ic_thunder"
+  },
+  "230": {
+    "label": "thunderstorm with light drizzle",
+    "icon": "ic_thunder"
+  },
+  "231": {
+    "label": "thunderstorm with drizzle",
+    "icon": "ic_thunder"
+  },
+  "232": {
+    "label": "thunderstorm with heavy drizzle",
+    "icon": "ic_thunder"
+  },
+  "300": {
+    "label": "light intensity drizzle",
+    "icon": "ic_drizzle"
+  },
+  "301": {
+    "label": "drizzle",
+    "icon": "ic_drizzle"
+  },
+  "302": {
+    "label": "heavy intensity drizzle",
+    "icon": "ic_drizzle"
+  },
+  "310": {
+    "label": "light intensity drizzle rain",
+    "icon": "ic_drizzle"
+  },
+  "311": {
+    "label": "drizzle rain",
+    "icon": "ic_drizzle"
+  },
+  "312": {
+    "label": "heavy intensity drizzle rain",
+    "icon": "ic_drizzle"
+  },
+  "313": {
+    "label": "shower rain and drizzle",
+    "icon": "ic_drizzle"
+  },
+  "314": {
+    "label": "heavy shower rain and drizzle",
+    "icon": "ic_drizzle"
+  },
+  "321": {
+    "label": "shower drizzle",
+    "icon": "ic_drizzle"
+  },
+  "500": {
+    "label": "light rain",
+    "icon": "ic_rainy"
+  },
+  "501": {
+    "label": "moderate rain",
+    "icon": "ic_rainy"
+  },
+  "502": {
+    "label": "heavy intensity rain",
+    "icon": "ic_rainy"
+  },
+  "503": {
+    "label": "very heavy rain",
+    "icon": "ic_rainy"
+  },
+  "504": {
+    "label": "extreme rain",
+    "icon": "ic_rainy"
+  },
+  "511": {
+    "label": "freezing rain",
+    "icon": "ic_rainy"
+  },
+  "520": {
+    "label": "light intensity shower rain",
+    "icon": "ic_rainy"
+  },
+  "521": {
+    "label": "shower rain",
+    "icon": "ic_rainy"
+  },
+  "522": {
+    "label": "heavy intensity shower rain",
+    "icon": "ic_rainy"
+  },
+  "531": {
+    "label": "ragged shower rain",
+    "icon": "ic_rainy"
+  },
+  "600": {
+    "label": "light snow",
+    "icon": "ic_snowy"
+  },
+  "601": {
+    "label": "snow",
+    "icon": "ic_snowy"
+  },
+  "602": {
+    "label": "heavy snow",
+    "icon": "ic_snowy"
+  },
+  "611": {
+    "label": "sleet",
+    "icon": "ic_snowy"
+  },
+  "612": {
+    "label": "shower sleet",
+    "icon": "ic_snowy"
+  },
+  "615": {
+    "label": "light rain and snow",
+    "icon": "ic_snowy"
+  },
+  "616": {
+    "label": "rain and snow",
+    "icon": "ic_snowy"
+  },
+  "620": {
+    "label": "light shower snow",
+    "icon": "ic_snowy"
+  },
+  "621": {
+    "label": "shower snow",
+    "icon": "ic_snowy"
+  },
+  "622": {
+    "label": "heavy shower snow",
+    "icon": "ic_snowy"
+  },
+  "701": {
+    "label": "mist",
+    "icon": "ic_cloudy"
+  },
+  "711": {
+    "label": "smoke",
+    "icon": "ic_cloudy"
+  },
+  "721": {
+    "label": "haze",
+    "icon": "ic_cloudy"
+  },
+  "731": {
+    "label": "sand, dust whirls",
+    "icon": "ic_cloudy"
+  },
+  "741": {
+    "label": "fog",
+    "icon": "ic_cloudy"
+  },
+  "751": {
+    "label": "sand",
+    "icon": "ic_cloudy"
+  },
+  "761": {
+    "label": "dust",
+    "icon": "ic_cloudy"
+  },
+  "762": {
+    "label": "volcanic ash",
+    "icon": "ic_cloudy"
+  },
+  "771": {
+    "label": "squalls",
+    "icon": "ic_cloudy"
+  },
+  "781": {
+    "label": "tornado",
+    "icon": "ic_cloudy"
+  },
+  "800": {
+    "label": "clear sky",
+    "icon": "ic_clear_day"
+  },
+  "801": {
+    "label": "few clouds",
+    "icon": "ic_cloudy_day"
+  },
+  "802": {
+    "label": "scattered clouds",
+    "icon": "ic_cloudy_day"
+  },
+  "803": {
+    "label": "broken clouds",
+    "icon": "ic_cloudy_day"
+  },
+  "804": {
+    "label": "overcast clouds",
+    "icon": "ic_cloudy_day"
+  }
+}
