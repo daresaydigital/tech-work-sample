@@ -16,5 +16,4 @@ class LocationChangeReceiver : BroadcastReceiver() {
             //TODO handle location provider change and trigger weather
         }
     }
-
 }
