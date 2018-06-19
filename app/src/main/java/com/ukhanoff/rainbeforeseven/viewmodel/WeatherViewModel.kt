@@ -6,6 +6,7 @@ import android.content.Context
 import android.location.Location
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
+import com.ukhanoff.rainbeforeseven.R
 import com.ukhanoff.rainbeforeseven.data.ForecastWeatherModel
 import com.ukhanoff.rainbeforeseven.data.WeatherGlobalModel
 import com.ukhanoff.rainbeforeseven.location.UserLocationManager
@@ -34,7 +35,7 @@ class WeatherViewModel @Inject constructor(private val repository: WeatherReposi
     fun getWeather(context: Context) {
         getUserLocation(context)?.addOnSuccessListener {
             if (it == null) {
-                Toast.makeText(context, "Please turn your GPS to use app", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context.getString(R.string.enable_gps), Toast.LENGTH_LONG).show()
             } else {
                 getCurrentWeather(it.latitude, it.longitude)
                 getForecastWeather(it.latitude, it.longitude)

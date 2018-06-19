@@ -82,6 +82,10 @@ class WeatherFragment : DaggerFragment() {
 
     }
 
+    fun triggerWeatherUpdate() {
+        viewModel?.getWeather(context!!)
+    }
+
     private fun updateForecastUI(forecastWeatherModel: ForecastWeatherModel) {
         hideProgressBar()
         todayWeatherAdapter.setForecast(generateForecastList(forecastWeatherModel))
