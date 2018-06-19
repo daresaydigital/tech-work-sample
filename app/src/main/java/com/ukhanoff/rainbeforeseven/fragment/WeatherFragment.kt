@@ -99,10 +99,12 @@ class WeatherFragment : DaggerFragment() {
         divider = view.bind(R.id.divider)
 
         todayWeatherAdapter = TodayWeatherAdapter(context!!)
-        todayWeatherList!!.layoutManager = (LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false))
-        todayWeatherList!!.itemAnimator = DefaultItemAnimator()
-        todayWeatherList!!.adapter = todayWeatherAdapter
-        todayWeatherList!!.setHasFixedSize(true)
+        todayWeatherList?.apply {
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            itemAnimator = DefaultItemAnimator()
+            adapter = todayWeatherAdapter
+            setHasFixedSize(true)
+        }
     }
 
     private fun hideProgressBar() {

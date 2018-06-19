@@ -14,9 +14,9 @@ Developed with <3 by using Android Architecture Components, Dagger and Retrofit.
 
 Hope you'll enjoy!
 
-Release build:[https://github.com/ukhanoff/tech-work-sample/releases/latest]
+Release build:https://github.com/ukhanoff/tech-work-sample/releases/latest
  
- ## How to build:** 
+ ## How to build:
  
  `.\gradlew clean install` will do all magic. Or just import project into Android Studio V3+.
 

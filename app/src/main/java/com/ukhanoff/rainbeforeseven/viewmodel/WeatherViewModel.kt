@@ -32,7 +32,7 @@ class WeatherViewModel @Inject constructor(private val repository: WeatherReposi
     }
 
     fun getWeather(context: Context) {
-        getUserLocation(context)!!.addOnSuccessListener {
+        getUserLocation(context)?.addOnSuccessListener {
             if (it == null) {
                 Toast.makeText(context, "Please turn your GPS to use app", Toast.LENGTH_LONG).show()
             } else {
