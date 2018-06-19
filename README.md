@@ -8,11 +8,11 @@ Breeze shows current weather and weather forecast by using your device location.
 
 Hope you'll enjoy!
 
-![alt App Icon](/app/src/main/ic_launcher-web.png =30x30) 
+![alt App Icon](/app/src/main/ic_launcher-web.png width=50) 
 
 Developed with <3 by using Android Architecture Components, Dagger and Retrofit.
 
-![alt App preview](/img/device_view.png =100x)
+![alt App preview](/img/device_view.png width=100)
 
 Release build:[/link to release apk]
  
