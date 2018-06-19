@@ -4,15 +4,13 @@
 
 This is an android weather app MVP. 
 
-Breeze shows current weather and weather forecast by using your device location. 
+![alt App Icon](/app/src/main/res/mipmap-hdpi/ic_launcher.png ) Breeze shows current weather and weather forecast by using your device location. 
 
-Hope you'll enjoy!
-
-![alt App Icon](/app/src/main/ic_launcher-web.png width=50) 
+![alt App preview](/img/device_view.png)
 
 Developed with <3 by using Android Architecture Components, Dagger and Retrofit.
 
-![alt App preview](/img/device_view.png width=100)
+Hope you'll enjoy!
 
 Release build:[/link to release apk]
  
