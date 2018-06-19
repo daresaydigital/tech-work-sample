@@ -9,8 +9,8 @@ import dagger.android.ContributesAndroidInjector
 interface ActivityBuilderModule {
 
     @ContributesAndroidInjector(modules = [
-                ActivityWeatherModule::class,
-                FragmentBuilderModule::class])
+        ActivityWeatherModule::class,
+        FragmentBuilderModule::class])
     @ForActivity
     fun contributeWeatherActivity(): WeatherActivity
 

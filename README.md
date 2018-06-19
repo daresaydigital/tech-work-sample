@@ -2,7 +2,18 @@
 
 [![Build Status](https://travis-ci.com/ukhanoff/tech-work-sample.svg?branch=master)](https://travis-ci.com/ukhanoff/tech-work-sample)
 
-This is an android weather app MVP. Hope you'll enjoy.
+![alt App Icon](/app/src/main/ic_launcher-web.png) This is an android weather app MVP. Shows current weather and weather forecast by using your device location. Hope you'll enjoy.
+
+Developed with <3 by using Android Architecture Components, Dagger and Retrofit.
+
+![alt App preview](/img/device_view.png)
+
+
+ Release build:(/link to release apk)
+ 
+ **how to build:** `.\gradlew clean install` will do all magic. Or just import project into android studio
+
+_Please note:_ If you want to build app by yourself you need to add WEATHER_API_KEY into DataModule class.
 
 ---
 

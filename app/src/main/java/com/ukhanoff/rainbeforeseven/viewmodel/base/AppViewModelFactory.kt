@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class AppViewModelFactory @Inject constructor(
 
-    private val viewModelFactories: AppViewModelFactoryProviders
+        private val viewModelFactories: AppViewModelFactoryProviders
 
 ) : ViewModelProvider.Factory {
 
