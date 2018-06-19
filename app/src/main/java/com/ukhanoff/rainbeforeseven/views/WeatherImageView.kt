@@ -5,7 +5,7 @@ import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
 import com.google.gson.JsonParser
 
-class WeatherImageView: AppCompatImageView {
+class WeatherImageView : AppCompatImageView {
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)

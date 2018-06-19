@@ -7,7 +7,6 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig
 import dagger.android.support.DaggerApplication
 
 
-
 class WeatherApplication : DaggerApplication() {
 
     private val injector: AppComponent by lazy {

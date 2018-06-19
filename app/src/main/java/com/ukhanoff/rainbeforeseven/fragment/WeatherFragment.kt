@@ -67,8 +67,9 @@ class WeatherFragment : DaggerFragment() {
             }
         }
 
-        viewModel.getCurrentWeather(59.33, 18.07).observe(this, currentWeatherObserver)
-        viewModel.getForecastWeather(59.33, 59.33).observe(this, forecastObserver)
+        viewModel.getCurrentWeather().observe(this, currentWeatherObserver)
+        viewModel.getForecastWeather().observe(this, forecastObserver)
+        viewModel.getWeather(context!!)
     }
 
     private fun updateCurrentWeatherUI(currentWeatherModel: WeatherGlobalModel) {
