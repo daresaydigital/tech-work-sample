@@ -1,19 +1,15 @@
 package com.ukhanoff.rainbeforeseven.views
 
-import android.annotation.TargetApi
 import android.content.Context
+import android.support.v7.widget.AppCompatImageView
 import android.util.AttributeSet
-import android.widget.ImageView
 import com.google.gson.JsonParser
 
-class WeatherImageView: ImageView {
+class WeatherImageView: AppCompatImageView {
 
     constructor(context: Context?) : super(context)
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-
-    @TargetApi(21)
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
     fun showImgIcon(iconId: Int) {
         val fileName = "icons_map.json"
