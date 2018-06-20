@@ -2,6 +2,11 @@ package com.ukhanoff.rainbeforeseven.fragment
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.v7.widget.DefaultItemAnimator
@@ -26,6 +31,9 @@ import javax.inject.Inject
 
 private const val MILLISECONDS = 1000
 
+private const val LOCATION_PROVIDERS_CHANGED = "android.location.PROVIDERS_CHANGED"
+private const val NETWORK_CONNECTIVITY_CHANGE = "android.net.conn.CONNECTIVITY_CHANGE"
+
 class WeatherFragment : DaggerFragment() {
     private var currentTemp: TextView? = null
     private var cityName: TextView? = null
@@ -40,6 +48,7 @@ class WeatherFragment : DaggerFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var todayWeatherAdapter: TodayWeatherAdapter
+    private lateinit var updatesBroadcastReceiver: BroadcastReceiver
 
     private val viewModel by lazy { getViewModel<WeatherViewModel>(viewModelFactory) }
 
@@ -47,6 +56,16 @@ class WeatherFragment : DaggerFragment() {
         val view = inflater.inflate(R.layout.weather_fragment, container, false)
         setupViews(view)
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setupAndRegisterReceiver()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        context?.unregisterReceiver(updatesBroadcastReceiver)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,6 +111,28 @@ class WeatherFragment : DaggerFragment() {
         todayWeatherAdapter.notifyDataSetChanged()
     }
 
+    private fun setupAndRegisterReceiver() {
+        updatesBroadcastReceiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                if (isOnline(context!!)) {
+                    when (intent?.action) {
+                        LOCATION_PROVIDERS_CHANGED -> {
+                            triggerWeatherUpdate()
+                        }
+                        NETWORK_CONNECTIVITY_CHANGE -> {
+                            triggerWeatherUpdate()
+                        }
+                    }
+                }
+            }
+        }
+        var intentFilter = IntentFilter()
+        intentFilter.addAction(LOCATION_PROVIDERS_CHANGED)
+        intentFilter.addAction(NETWORK_CONNECTIVITY_CHANGE)
+
+        context?.registerReceiver(updatesBroadcastReceiver, intentFilter)
+    }
+
     private fun setupViews(view: View) {
         currentTemp = view.bind(R.id.current_temp)
         cityName = view.bind(R.id.city_name)
@@ -123,6 +164,12 @@ class WeatherFragment : DaggerFragment() {
             forecast.add(ForecastItem(Date(item.dt * MILLISECONDS), Math.round(item.main.temp).toInt(), item.weather.first().id))
         }
         return forecast
+    }
+
+    private fun isOnline(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnected
     }
 
     fun <T : View> View.bind(@IdRes res: Int): T {
