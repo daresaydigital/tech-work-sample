@@ -127,6 +127,13 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                                 it.printStackTrace()
                             }
                     )
+        },{error ->
+            error?.let {
+                Snackbar.make(weatherLayout,error, Snackbar.LENGTH_SHORT).show()
+                notAvailableText.text = error
+                notAvailableText.visibility = View.VISIBLE
+
+            }
         })
     }
 

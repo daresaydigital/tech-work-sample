@@ -1,5 +1,7 @@
 package com.deresay.sayweather.utils
 
+import android.content.Context
+import android.net.ConnectivityManager
 import com.deresay.sayweather.models.Wind
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,6 +34,18 @@ object SayWeatherUtil {
     }
 
 
+    /**
+     * Whether connecting or connected to network.
+     */
+    fun isConnectedToNetwork(context: Context?): Boolean {
+        context?.getSystemService(Context.CONNECTIVITY_SERVICE).apply {
+            return when (this) {
+                is ConnectivityManager -> (this.activeNetworkInfo != null && this.activeNetworkInfo.isConnectedOrConnecting)
+                else -> false
+            }
+        }
+        return false
+    }
 
 
     /**
