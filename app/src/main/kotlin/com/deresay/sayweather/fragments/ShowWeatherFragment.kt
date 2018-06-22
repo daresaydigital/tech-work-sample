@@ -3,13 +3,20 @@ package com.deresay.sayweather.fragments
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.content.res.Resources
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.VectorDrawable
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.caverock.androidsvg.SVG
 import com.daresay.sayweather.BuildConfig
 import com.daresay.sayweather.R
 import com.deresay.sayweather.utils.ApiInterface
@@ -106,6 +113,7 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                     .subscribe(
                             {
                                 progress?.let { progress ->
+                                    //This to avoid null pointer exception.
                                     if (progress.isShown) progress.visibility = View.GONE
                                     //Toolbar
                                     locationPointer.visibility = View.VISIBLE
@@ -119,6 +127,14 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                                     weatherWind.text = SayWeatherUtil.wind(it.wind)
                                     //Show icon
                                     weatherIcon.visibility = View.VISIBLE
+                                    val iconName = it.weather[0].iconName
+                                    val iconIdString = WeatherIconMap.weatherIcon.let { it[iconName] ?: it["default"]}
+                                    val resourceId = resources.getIdentifier(
+                                            iconIdString,
+                                            "drawable",
+                                            context?.packageName
+                                    )
+                                    weatherIcon.setImageResource(if (resourceId != 0) resourceId else R.drawable.wi_cloud_down_svg)
                                 }
 
                             },
@@ -127,11 +143,14 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                                 it.printStackTrace()
                             }
                     )
-        },{error ->
+        }, { error ->
             error?.let {
-                Snackbar.make(weatherLayout,error, Snackbar.LENGTH_SHORT).show()
-                notAvailableText.text = error
-                notAvailableText.visibility = View.VISIBLE
+                progress.let {
+                    Snackbar.make(weatherLayout, error, Snackbar.LENGTH_SHORT).show()
+                    notAvailableText.text = error
+                    progress.visibility = View.GONE
+                    notAvailableText.visibility = View.VISIBLE
+                }
 
             }
         })

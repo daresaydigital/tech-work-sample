@@ -40,7 +40,9 @@ object SayWeatherUtil {
     fun isConnectedToNetwork(context: Context?): Boolean {
         context?.getSystemService(Context.CONNECTIVITY_SERVICE).apply {
             return when (this) {
-                is ConnectivityManager -> (this.activeNetworkInfo != null && this.activeNetworkInfo.isConnectedOrConnecting)
+                is ConnectivityManager -> {
+                    (this.activeNetworkInfo != null && this@apply.activeNetworkInfo.isConnected)
+                }
                 else -> false
             }
         }

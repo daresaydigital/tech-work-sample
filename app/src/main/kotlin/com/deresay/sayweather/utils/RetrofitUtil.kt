@@ -35,7 +35,7 @@ object RetrofitUtils {
     private val client: OkHttpClient
         get() {
             val logging = HttpLoggingInterceptor()
-            logging.level = HttpLoggingInterceptor.Level.BODY
+            logging.level = if(BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
             return OkHttpClient.Builder()
                     .addInterceptor(logging)
                     .connectTimeout(60, TimeUnit.SECONDS)
