@@ -1,3 +1,29 @@
+# Breeze - Weather Android App
+
+[![Build Status](https://travis-ci.com/ukhanoff/tech-work-sample.svg?branch=master)](https://travis-ci.com/ukhanoff/tech-work-sample)
+
+![alt App Icon](/app/src/main/res/mipmap-hdpi/ic_launcher.png )
+
+This is Breeze, an android weather app MVP. 
+
+Breeze shows current weather and weather forecast by using your device location. 
+
+![alt App preview](/img/device_view.png)
+
+Developed with <3 by using Android Architecture Components, Dagger and Retrofit.
+
+Hope you'll enjoy!
+
+Release build:https://github.com/ukhanoff/tech-work-sample/releases/latest
+ 
+ ## How to build:
+ 
+ `.\gradlew clean install` will do all magic. Or just import project into Android Studio V3+.
+
+_Please note:_ If you want to build app by yourself you need to add WEATHER_API_KEY into DataModule class.
+
+---
+
 # Work sample - Application developer
 
 ## Assignment
