@@ -1,22 +1,16 @@
 package com.deresay.sayweather.fragments
 
 
+import WeatherIconMap
 import android.Manifest
 import android.content.pm.PackageManager
-import android.content.res.Resources
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.VectorDrawable
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.graphics.drawable.VectorDrawableCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.caverock.androidsvg.SVG
 import com.daresay.sayweather.BuildConfig
 import com.daresay.sayweather.R
 import com.deresay.sayweather.utils.ApiInterface
@@ -134,7 +128,7 @@ class ShowWeatherFragment : Fragment(), EasyPermissions.PermissionCallbacks {
                                             "drawable",
                                             context?.packageName
                                     )
-                                    weatherIcon.setImageResource(if (resourceId != 0) resourceId else R.drawable.wi_cloud_down_svg)
+                                    weatherIcon.setImageResource(resourceId)
                                 }
 
                             },
