@@ -8,15 +8,11 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
-import android.widget.TextView
 import com.ukhanoff.rainbeforeseven.R
 import com.ukhanoff.rainbeforeseven.adapters.TodayWeatherAdapter
 import com.ukhanoff.rainbeforeseven.data.ForecastItem
@@ -24,8 +20,8 @@ import com.ukhanoff.rainbeforeseven.data.ForecastWeatherModel
 import com.ukhanoff.rainbeforeseven.data.WeatherGlobalModel
 import com.ukhanoff.rainbeforeseven.extensions.getViewModel
 import com.ukhanoff.rainbeforeseven.viewmodel.WeatherViewModel
-import com.ukhanoff.rainbeforeseven.views.WeatherImageView
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.weather_fragment.*
 import java.util.*
 import javax.inject.Inject
 
@@ -35,14 +31,6 @@ private const val LOCATION_PROVIDERS_CHANGED = "android.location.PROVIDERS_CHANG
 private const val NETWORK_CONNECTIVITY_CHANGE = "android.net.conn.CONNECTIVITY_CHANGE"
 
 class WeatherFragment : DaggerFragment() {
-    private var currentTemp: TextView? = null
-    private var cityName: TextView? = null
-    private var currentDate: TextView? = null
-    private var mainWeatherDescr: TextView? = null
-    private var currentWeatherIcon: WeatherImageView? = null
-    private var todayWeatherList: RecyclerView? = null
-    private var progressBar: ProgressBar? = null
-    private var divider: View? = null
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -53,9 +41,7 @@ class WeatherFragment : DaggerFragment() {
     private val viewModel by lazy { getViewModel<WeatherViewModel>(viewModelFactory) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.weather_fragment, container, false)
-        setupViews(view)
-        return view
+        return inflater.inflate(R.layout.weather_fragment, container, false)
     }
 
     override fun onStart() {
@@ -70,6 +56,7 @@ class WeatherFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupAdapter()
         configureViewModel()
     }
 
@@ -92,12 +79,11 @@ class WeatherFragment : DaggerFragment() {
     }
 
     private fun updateCurrentWeatherUI(currentWeatherModel: WeatherGlobalModel) {
-
-        currentTemp!!.text = resources.getString(R.string.degreeFormat)
+        currentTemp.text = resources.getString(R.string.degreeFormat)
                 .format(Math.round(currentWeatherModel.main.temp))
-        cityName!!.text = currentWeatherModel.name
-        mainWeatherDescr!!.text = currentWeatherModel.weather.first().description!!.capitalize()
-        currentWeatherIcon!!.showImgIcon(currentWeatherModel.weather.first().id)
+        cityName.text = currentWeatherModel.name
+        mainWeatherDescr.text = currentWeatherModel.weather.first().description.capitalize()
+        currentWeatherIcon.showImgIcon(currentWeatherModel.weather.first().id)
 
     }
 
@@ -126,25 +112,17 @@ class WeatherFragment : DaggerFragment() {
                 }
             }
         }
-        var intentFilter = IntentFilter()
+        val intentFilter = IntentFilter()
         intentFilter.addAction(LOCATION_PROVIDERS_CHANGED)
         intentFilter.addAction(NETWORK_CONNECTIVITY_CHANGE)
 
         context?.registerReceiver(updatesBroadcastReceiver, intentFilter)
     }
 
-    private fun setupViews(view: View) {
-        currentTemp = view.bind(R.id.current_temp)
-        cityName = view.bind(R.id.city_name)
-        currentDate = view.bind(R.id.current_date)
-        mainWeatherDescr = view.bind(R.id.main_weather_descr)
-        currentWeatherIcon = view.bind(R.id.current_weather_icon)
-        todayWeatherList = view.bind(R.id.hourly_forecast)
-        progressBar = view.bind(R.id.progress_bar)
-        divider = view.bind(R.id.divider)
+    private fun setupAdapter() {
 
         todayWeatherAdapter = TodayWeatherAdapter(context!!)
-        todayWeatherList?.apply {
+        hourlyForecast?.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             itemAnimator = DefaultItemAnimator()
             adapter = todayWeatherAdapter
@@ -153,8 +131,8 @@ class WeatherFragment : DaggerFragment() {
     }
 
     private fun hideProgressBar() {
-        progressBar!!.visibility = View.GONE
-        divider!!.visibility = View.VISIBLE
+        progressBar?.visibility = View.GONE
+        divider?.visibility = View.VISIBLE
     }
 
     private fun generateForecastList(forecastWeatherModel: ForecastWeatherModel): MutableList<ForecastItem> {
@@ -172,9 +150,5 @@ class WeatherFragment : DaggerFragment() {
         return netInfo != null && netInfo.isConnected
     }
 
-    fun <T : View> View.bind(@IdRes res: Int): T {
-        @Suppress("UNCHECKED_CAST")
-        return findViewById(res) as T
-    }
 
 }

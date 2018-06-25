@@ -11,14 +11,14 @@
     android:paddingStart="@dimen/forecast_container_padding_start">
 
     <TextView
-        android:id="@+id/weather_time"
+        android:id="@+id/weatherTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         tools:text="5PM" />
 
     <com.ukhanoff.rainbeforeseven.views.WeatherImageView
-        android:id="@+id/weather_icon"
+        android:id="@+id/weatherIcon"
         android:layout_width="@dimen/forecast_image_view_width"
         android:layout_height="@dimen/forecast_image_view_height"
         android:layout_gravity="center"
@@ -28,7 +28,7 @@
         tools:src="@drawable/ic_clear" />
 
     <TextView
-        android:id="@+id/weather_temperature"
+        android:id="@+id/weatherTemperature"
         fontPath="fonts/Eczar-Regular.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

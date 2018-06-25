@@ -3,4 +3,5 @@
     <string name="degreeFormat">%1$s°</string>
     <string name="no_permission_alert">Could not work without location permission. Enable it in Settings</string>
     <string name="enable_gps">Please turn your GPS to use app</string>
+    <string name="image_view_issue">Oops, Something wrong</string>
 </resources>

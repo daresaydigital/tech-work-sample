@@ -16,9 +16,14 @@ internal class TodayWeatherAdapter(private val context: Context) : RecyclerView.
     private var forecast: List<ForecastItem>? = null
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var weatherTimeView = itemView.weather_time
-        var weatherIconView = itemView.weather_icon
-        var weatherTempView = itemView.weather_temperature
+
+        fun bind(forecastItem: ForecastItem) {
+            val sdf = SimpleDateFormat("EEE, h aa ", Locale.US)
+            itemView.weatherTime.text = sdf.format(forecastItem.date)
+            itemView.weatherIcon.showImgIcon(forecastItem.iconId)
+            itemView.weatherTemperature.text = itemView.context.resources.getString(R.string.degreeFormat)
+                    .format(forecastItem.temp)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,9 +32,8 @@ internal class TodayWeatherAdapter(private val context: Context) : RecyclerView.
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val forecastItem = forecast!![position]
-        setViewsData(holder, forecastItem)
+        holder.bind(forecastItem)
     }
-
 
     override fun getItemCount(): Int {
         return if (forecast == null) 0 else forecast!!.size
@@ -37,14 +41,6 @@ internal class TodayWeatherAdapter(private val context: Context) : RecyclerView.
 
     fun setForecast(forecast: List<ForecastItem>) {
         this.forecast = forecast
-    }
-
-    private fun setViewsData(holder: ViewHolder, forecastItem: ForecastItem) {
-        val sdf = SimpleDateFormat("EEE, h aa ", Locale.US)
-        holder.weatherTimeView!!.text = sdf.format(forecastItem!!.date)
-        holder.weatherIconView!!.showImgIcon(forecastItem!!.iconId)
-        holder.weatherTempView!!.text = context.resources.getString(R.string.degreeFormat)
-                .format(forecastItem!!.temp)
     }
 
 }
