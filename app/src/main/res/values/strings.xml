@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SayWeather</string>
+    <string name="location_permission_rationale">Needs location for weather forecast in your location</string>
+    <string name="allow_permission">Allow access to your location \n Settings -> Apps -> SayWeather -> Permissions</string>
+    <string name="no_permission">No permission to access location</string>
+    <string name="no_gps">Sorry your phone do not have GPS</string>
+    <string name="something_wrong">Something went wrong</string>
+    <string name="timing_day">Day</string>
+    <string name="timing_evening">Evening</string>
+    <string name="timing_night">Night</string>
+    <string name="timing_morning">Morning</string>
+    <!--Error texts-->
+    <string name="location_service_un_available">Please enable location services</string>
+    <string name="network_not_enabled">Network not enabled</string>
+</resources>
