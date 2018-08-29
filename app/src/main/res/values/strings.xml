@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">darsey_arbetsprov_kotlin</string>
+
+    // Wind direction indicator
+    <string name="north">N</string>
+    <string name="south">S</string>
+    <string name="west">W</string>
+    <string name="east">E</string>
+
+
+    <string name="loading">Loading..</string>
+    <string name="dew_point">Dew point</string>
+    <string name="pressure">Pressure</string>
+    <string name="humidity">Humidity</string>
+
+</resources>
