@@ -1,0 +1,23 @@
+<video *ngIf="model.weatherCondition" autoplay muted loop id="myVideo">
+  <source src="../assets/{{model.weatherCondition}}.mp4" type="video/mp4">
+</video>
+
+<div class = "wrapper">
+  <div class="info">
+    <h1>{{ model.city }} </h1>
+    <h1>{{ model.temp }}°C </h1> 
+    <p>{{ model.weatherDescription }} </p>
+  </div> 
+  <div class="wind">
+    <img src="../assets/wind.png">
+    <p> {{model.wind}}m/s </p>
+  </div>
+  <div class="humid">
+    <img  src="../assets/humidity.png">
+    <p>{{model.humidity}}%</p>
+  </div>  
+</div>
+
+
+
+
