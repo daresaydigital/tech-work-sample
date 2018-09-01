@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:src="@drawable/background_gradient"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        android:id="@+id/wait_progressbar"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleSmall" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/icon_textview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/meteocons"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="140sp" />
+
+            <TextView
+                android:id="@+id/temp_textview"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/arimo"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="90sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/desc_weather_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:alpha="0.7"
+            android:fontFamily="@font/source_sans_pro_extralight"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/white"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                tools:text="Stockholm"
+                android:id="@+id/city_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="22dp"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="@color/white"
+                android:drawablePadding="16dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/days_recyclerview"
+                android:paddingStart="16dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:clipToPadding="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
