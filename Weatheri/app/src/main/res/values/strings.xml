@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Weatheri</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="main_today">Today</string>
+    <string name="main_tomorrow">Tomorrow</string>
+    <string name="cards_low_high_temp">%.0fº / %.0fºC</string>
+    <string name="main_warning_permission">Location permission is not granted</string>
+    <string name="main_message_getting_location">Getting your location…</string>
+    <string name="error_message">Please, try again later or test your internet connection</string>
+</resources>
