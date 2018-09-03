@@ -1,22 +1,19 @@
 package com.suroid.weatherapp.di
 
 import android.content.Context
-import com.suroid.weatherapp.db.CityDao
-import com.suroid.weatherapp.db.WeatherDb
+import com.suroid.weatherapp.repo.CityRepository
 import dagger.Component
 import javax.inject.Singleton
 
 /**
  * ViewModelInjector is a Component which injects core dependencies
- * @requires AppModule and RepositoryModule
+ * @requires [AppModule] and [RepositoryModule]
  */
 @Singleton
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, RepositoryModule::class])
 interface CoreComponent {
 
     fun context(): Context
 
-    fun weatherDb(): WeatherDb
-
-    fun cityDao(): CityDao
+    fun cityRepo(): CityRepository
 }
