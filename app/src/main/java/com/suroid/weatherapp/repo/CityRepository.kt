@@ -7,9 +7,10 @@ import javax.inject.Singleton
 
 /**
  * CityRepository handles all the data related task, it can act as a mediator between data accessor and data provider modules
+ * @param cityDao [CityDao] instance to load data from
  */
 @Singleton
-class CityRepository(val cityDao: CityDao) {
+class CityRepository(private val cityDao: CityDao) {
 
     /**
      * Load All cities from database

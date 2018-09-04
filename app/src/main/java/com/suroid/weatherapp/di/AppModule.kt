@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.suroid.weatherapp.db.CityDao
+import com.suroid.weatherapp.db.CityWeatherDao
 import com.suroid.weatherapp.db.WeatherDb
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.utils.CITIES_JSON_FILE_NAME
@@ -71,7 +72,7 @@ class AppModule(private val app: Application) {
     }
 
     /**
-     * Provides CityDao
+     * Provides [CityDao]
      * @param db [WeatherDb] is required as parameter
      * @return [CityDao]
      */
@@ -79,5 +80,16 @@ class AppModule(private val app: Application) {
     @Provides
     fun provideCityDao(db: WeatherDb): CityDao {
         return db.cityDao()
+    }
+
+    /**
+     * Provides [CityWeatherDao]
+     * @param db [WeatherDb] is required as parameter
+     * @return [CityWeatherDao]
+     */
+    @Singleton
+    @Provides
+    fun provideCityWeatherDao(db: WeatherDb): CityWeatherDao {
+        return db.cityWeatherDao()
     }
 }

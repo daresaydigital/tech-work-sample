@@ -21,5 +21,9 @@ class HomeActivity : AppCompatActivity() {
             ActivityCompat.startActivity(this@HomeActivity, intent, options.toBundle())
         }
 
+//        WeatherApplication.coreComponent.cityWeatherRepo().getAllCityWeathers().subscribeOn(Schedulers.io()).subscribe {
+//            Log.d("abcd", "size is ${it.size}")
+//        }
+
     }
 }

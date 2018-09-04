@@ -5,7 +5,10 @@ import android.util.Log
 import android.widget.Filter
 import com.suroid.weatherapp.BaseViewModel
 import com.suroid.weatherapp.models.City
+import com.suroid.weatherapp.models.CityWeatherEntity
+import com.suroid.weatherapp.models.WeatherModel
 import com.suroid.weatherapp.repo.CityRepository
+import com.suroid.weatherapp.repo.CityWeatherRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -14,10 +17,16 @@ import javax.inject.Inject
 class CitySelectionViewModel : BaseViewModel() {
 
     /**
-     * Injects the required CityRepository in this ViewModel.
+     * Injects the required [CityRepository] in this ViewModel.
      */
     @Inject
     lateinit var cityRepository: CityRepository
+
+    /**
+     * Injects the required [CityWeatherRepository] in this ViewModel.
+     */
+    @Inject
+    lateinit var cityWeatherRepository: CityWeatherRepository
 
     val queryText: MutableLiveData<String> = MutableLiveData()
     val cityListLiveData: MutableLiveData<List<City>> = MutableLiveData()
@@ -72,7 +81,8 @@ class CitySelectionViewModel : BaseViewModel() {
      * @param city city to be added
      */
     fun saveCity(city: City) {
-        //TODO save this city
+        val cityWeather = CityWeatherEntity(id = city.id, city = city, currentWeather = WeatherModel())
+        cityWeatherRepository.saveCityWeather(cityWeather)
     }
 
     @Suppress("UNCHECKED_CAST")

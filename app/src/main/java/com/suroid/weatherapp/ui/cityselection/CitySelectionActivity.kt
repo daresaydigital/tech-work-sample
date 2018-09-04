@@ -120,6 +120,7 @@ class CitySelectionActivity : AppCompatActivity(), CitySelectionAdapter.CityAdap
 
     override fun onItemClick(city: City) {
         viewModel.saveCity(city)
+        performExit()
     }
 
     override fun onBackPressed() {

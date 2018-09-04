@@ -11,8 +11,8 @@ import dagger.Component
 @Component(dependencies = [CoreComponent::class])
 interface ViewModelInjector {
     /**
-     * Injects required dependencies into the specified SelectionViewModel.
-     * @param citySelectionViewModel CitySelectionViewModel in which to inject the dependencies
+     * Injects required dependencies into the specified CitySelectionViewModel.
+     * @param citySelectionViewModel [CitySelectionViewModel] in which to inject the dependencies
      */
     fun inject(citySelectionViewModel: CitySelectionViewModel)
 

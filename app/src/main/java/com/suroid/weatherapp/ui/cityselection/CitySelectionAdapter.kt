@@ -51,7 +51,7 @@ class CitySelectionAdapter(private val cityAdapterDelegate: CityAdapterDelegate)
         private val tvName = itemView.findViewById<TextView?>(R.id.tv_name)
 
         fun onBind(city: City) {
-            tvName?.text = city.name
+            tvName?.text = tvName?.context?.getString(R.string.city_country_format, city.name, city.country)
         }
 
     }
