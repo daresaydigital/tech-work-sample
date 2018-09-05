@@ -11,5 +11,14 @@
     <string name="wind_speed_metric">m/s</string>
     <string name="temp_metric">°K</string>
     <string name="humidity_metric">%</string>
-    <string name="welcome_msg">Hello! Tap on the plus button and select a city to start</string>
+    <string name="welcome_msg">Hello! Tap me to auto detect your location or tap on the plus button and select your city manually</string>
+    <string name="settings">Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="permissions_needed_dialog_title">Permissions Needed</string>
+    <string name="permissions_needed_dialog_message">Please provide us with location permission from the settings of your phone</string>
+    <string name="permissions_rationale_dialog_message">Please provide us with location permission. Tap retry to try again</string>
+    <string name="retry">Retry</string>
+    <string name="please_check_gps">Please check your GPS Settings</string>
+    <string name="cannot_find_location">Unable to find your location. Please add manually</string>
+    <string name="something_went_wrong">Something went wrong. Please try again</string>
 </resources>

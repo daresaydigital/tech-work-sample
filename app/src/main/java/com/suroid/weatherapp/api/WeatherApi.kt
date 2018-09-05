@@ -11,5 +11,8 @@ import retrofit2.http.Query
 interface WeatherApi {
 
     @GET("weather")
-    fun getWeather(@Query("q") query: String): Observable<WeatherResponseModel>
+    fun getWeatherWithId(@Query("id") id: Int): Observable<WeatherResponseModel>
+
+    @GET("weather")
+    fun getWeatherWithLatLong(@Query("lat") lat: Double, @Query("lon") long: Double): Observable<WeatherResponseModel>
 }

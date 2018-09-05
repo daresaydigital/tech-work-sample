@@ -1,8 +1,6 @@
 package com.suroid.weatherapp.ui.weathercards
 
 import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -13,6 +11,7 @@ import android.view.ViewGroup
 import com.suroid.weatherapp.R
 import com.suroid.weatherapp.models.CityWeatherEntity
 import com.suroid.weatherapp.utils.fadeInImage
+import com.suroid.weatherapp.utils.setupProgressAnimation
 import kotlinx.android.synthetic.main.fragment_weather_card.*
 
 class WeatherCardFragment : Fragment() {
@@ -38,7 +37,7 @@ class WeatherCardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         registerViewModelObservers()
-        setupProgressAnimation()
+        setupProgressAnimation(animationSet, progress_bar)
     }
 
     /**
@@ -91,6 +90,7 @@ class WeatherCardFragment : Fragment() {
                 iv_background.fadeInImage(it)
             }
         })
+
         viewModel.loadingStatus.observe(this, Observer { visibility ->
             visibility?.let {
                 if (it) {
@@ -102,24 +102,6 @@ class WeatherCardFragment : Fragment() {
                 }
             }
         })
-    }
-
-    private fun setupProgressAnimation() {
-        val alpha = ObjectAnimator.ofPropertyValuesHolder(
-                progress_bar, PropertyValuesHolder.ofFloat("alpha", 1f, 0f))
-        alpha.duration = 1000
-        val scaleX = ObjectAnimator.ofPropertyValuesHolder(
-                progress_bar, PropertyValuesHolder.ofFloat("scaleX", 0f, 1f))
-        val scaleY = ObjectAnimator.ofPropertyValuesHolder(
-                progress_bar, PropertyValuesHolder.ofFloat("scaleY", 0f, 1f))
-        scaleX.duration = 1000
-        scaleY.duration = 1000
-        alpha.repeatCount = ObjectAnimator.INFINITE
-        scaleX.repeatCount = ObjectAnimator.INFINITE
-        scaleY.repeatCount = ObjectAnimator.INFINITE
-
-
-        animationSet.playTogether(alpha, scaleX, scaleY)
     }
 
     companion object {

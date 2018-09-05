@@ -67,6 +67,17 @@
         app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/ic_kitty" />
 
+    <View
+        android:id="@+id/progress_bar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        android:background="@drawable/bg_oval_primary_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_welcome"
         android:layout_width="0dp"

@@ -1,5 +1,8 @@
 package com.suroid.weatherapp.ui.home
 
+import android.Manifest
+import android.animation.AnimatorSet
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,11 +14,11 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.google.android.gms.location.LocationServices
 import com.suroid.weatherapp.R
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.ui.cityselection.CitySelectionActivity
-import com.suroid.weatherapp.utils.CITY_MODEL
-import com.suroid.weatherapp.utils.CoverTransformer
+import com.suroid.weatherapp.utils.*
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
@@ -23,6 +26,12 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var viewModel: HomeViewModel
 
     private lateinit var adapter: HomeViewPagerAdapter
+
+    private var animationSet = AnimatorSet()
+
+    private val fusedLocationClient by lazy {
+        LocationServices.getFusedLocationProviderClient(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +44,8 @@ class HomeActivity : AppCompatActivity() {
         setupViewPager()
         registerViewListeners()
         registerViewModelObservers()
+
+        setupProgressAnimation(animationSet, progress_bar)
     }
 
     private fun setupViewPager() {
@@ -59,6 +70,20 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         })
+
+        viewModel.loading.observe(this, Observer { visibility ->
+            visibility?.let {
+                if (it) {
+                    group_welcome.visibility = View.GONE
+                    progress_bar.visibility = View.VISIBLE
+                    animationSet.start()
+                } else {
+                    animationSet.cancel()
+                    group_welcome.visibility = View.VISIBLE
+                    progress_bar.visibility = View.GONE
+                }
+            }
+        })
     }
 
     /**
@@ -70,6 +95,35 @@ class HomeActivity : AppCompatActivity() {
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this@HomeActivity, fab, ViewCompat.getTransitionName(fab)
                     ?: "")
             ActivityCompat.startActivityForResult(this@HomeActivity, intent, 0, options.toBundle())
+        }
+
+        iv_welcome.setOnClickListener {
+            requestLocation()
+        }
+
+        tv_welcome.setOnClickListener {
+            requestLocation()
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private fun requestLocation() {
+        if (checkAndAskPermissions(Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+                location?.let {
+                    viewModel.fetchForCurrentLocation(location = it)
+                } ?: run { showToast(R.string.cannot_find_location) }
+            }.addOnFailureListener {
+                showToast(R.string.please_check_gps)
+            }
+        }
+    }
+
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        handlePermissionResult(Manifest.permission.ACCESS_COARSE_LOCATION) {
+            requestLocation()
         }
     }
 

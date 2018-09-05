@@ -40,7 +40,7 @@ class CityWeatherRepository(private val cityWeatherDao: CityWeatherDao, private 
             responseSubject.loading(false, cityWeather)
             return
         }
-        weatherApi.getWeather(cityWeather.city.name)
+        weatherApi.getWeatherWithId(cityWeather.city.id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { responseSubject.loading(true, cityWeather) }
@@ -53,6 +53,23 @@ class CityWeatherRepository(private val cityWeatherDao: CityWeatherDao, private 
                             responseSubject.success(cityWeatherEntity, cityWeather)
                         },
                         { error -> responseSubject.failed(error, cityWeather) }
+                )
+    }
+
+    fun fetchWeatherWithLatLong(lat: Double, long: Double, tag: Any) {
+        weatherApi.getWeatherWithLatLong(lat, long)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe { responseSubject.loading(true, tag) }
+                .subscribe(
+                        { result ->
+                            val cityWeatherEntity = result.mapToWeatherEntity()
+                            Single.fromCallable {
+                                cityWeatherDao.upsert(cityWeatherEntity)
+                            }.subscribeOn(Schedulers.io()).subscribe()
+                            responseSubject.success(cityWeatherEntity, tag)
+                        },
+                        { error -> responseSubject.failed(error, tag) }
                 )
     }
 }

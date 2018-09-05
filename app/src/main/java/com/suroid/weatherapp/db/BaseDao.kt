@@ -1,8 +1,7 @@
 package com.suroid.weatherapp.db
 
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Update
+import android.arch.persistence.room.*
+
 
 interface BaseDao<T> {
 
@@ -11,8 +10,8 @@ interface BaseDao<T> {
      *
      * @param obj the object to be inserted.
      */
-    @Insert
-    fun insert(obj: T)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(obj: T): Long
 
     /**
      * Insert an array of objects in the database.
@@ -37,4 +36,13 @@ interface BaseDao<T> {
      */
     @Delete
     fun delete(obj: T)
+
+
+    @Transaction
+    fun upsert(obj: T) {
+        val id = insert(obj)
+        if (id == -1L) {
+            update(obj)
+        }
+    }
 }

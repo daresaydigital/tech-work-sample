@@ -1,9 +1,18 @@
 package com.suroid.weatherapp.utils
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.app.Activity
 import android.content.Context
+import android.support.annotation.StringRes
+import android.support.annotation.UiThread
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import android.widget.Toast
 import com.google.gson.reflect.TypeToken
 import com.suroid.weatherapp.R
 import com.suroid.weatherapp.WeatherApplication
@@ -50,7 +59,7 @@ fun showKeyboard(activity: Activity, view: View?) {
 }
 
 fun currentTimeInSeconds(): Long {
-    return System.currentTimeMillis()/1000
+    return System.currentTimeMillis() / 1000
 }
 
 fun weatherIconForId(id: Int): Int {
@@ -75,4 +84,44 @@ fun weatherImageForId(id: Int): Int {
         id > 200 -> R.drawable.image_rain
         else -> R.drawable.image_clear
     }
+}
+
+fun setupProgressAnimation(animationSet: AnimatorSet, view: View) {
+    val alpha = ObjectAnimator.ofPropertyValuesHolder(
+            view, PropertyValuesHolder.ofFloat("alpha", 1f, 0f))
+    alpha.duration = 1000
+    val scaleX = ObjectAnimator.ofPropertyValuesHolder(
+            view, PropertyValuesHolder.ofFloat("scaleX", 0f, 1f))
+    val scaleY = ObjectAnimator.ofPropertyValuesHolder(
+            view, PropertyValuesHolder.ofFloat("scaleY", 0f, 1f))
+    scaleX.duration = 1000
+    scaleY.duration = 1000
+    alpha.repeatCount = ObjectAnimator.INFINITE
+    scaleX.repeatCount = ObjectAnimator.INFINITE
+    scaleY.repeatCount = ObjectAnimator.INFINITE
+
+
+    animationSet.playTogether(alpha, scaleX, scaleY)
+}
+
+@UiThread
+fun showToast(@StringRes message: Int) {
+    val toast = Toast.makeText(WeatherApplication.coreComponent.context(), WeatherApplication.coreComponent.context().getString(message), Toast.LENGTH_LONG)
+    var toastTxv: TextView? = null
+    val view = toast.view
+    if (view is TextView) {
+        toastTxv = view
+    } else if (view is ViewGroup) {
+        for (i in 0 until view.childCount) {
+            val child = view.getChildAt(i)
+            if (child is TextView) {
+                toastTxv = child
+                break
+            }
+        }
+    }
+    toastTxv?.let {
+        it.gravity = Gravity.CENTER_HORIZONTAL
+    }
+    toast.show()
 }
