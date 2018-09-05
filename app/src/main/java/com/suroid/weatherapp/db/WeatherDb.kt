@@ -9,7 +9,7 @@ import com.suroid.weatherapp.models.CityWeatherEntity
 /**
  * The Room database that contains the Data table
  */
-@Database(entities = [City::class, CityWeatherEntity::class], version = 4, exportSchema = false)
+@Database(entities = [City::class, CityWeatherEntity::class], version = 8, exportSchema = false)
 @TypeConverters(WeatherModelConverter::class, TemperatureModelConverter::class)
 abstract class WeatherDb : RoomDatabase() {
 

@@ -1,7 +1,9 @@
 package com.suroid.weatherapp.ui.cityselection
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
@@ -119,7 +121,9 @@ class CitySelectionActivity : AppCompatActivity(), CitySelectionAdapter.CityAdap
     }
 
     override fun onItemClick(city: City) {
-        viewModel.saveCity(city)
+        setResult(Activity.RESULT_OK, Intent().apply {
+            putExtra(CITY_MODEL, city)
+        })
         performExit()
     }
 

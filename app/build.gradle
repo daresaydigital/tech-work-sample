@@ -6,6 +6,13 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+if (project.rootProject.file("local.properties").exists()) {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    ext['api_key'] = properties.getProperty("api.key")
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -15,6 +22,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "API_KEY", "$api_key"
     }
     buildTypes {
         release {
@@ -30,12 +39,14 @@ dependencies {
     //Room
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     implementation "android.arch.persistence.room:rxjava2:$rootProject.roomVersion"
+
     kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
 
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //Google Support
+    implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation "com.android.support:design:$rootProject.supportLibraryVersion"
@@ -58,8 +69,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
-    //Fresco
-    implementation "com.facebook.fresco:fresco:$rootProject.frescoVersion"
+    implementation 'com.github.florent37:arclayout:1.0.3'
 
     //Test
     testImplementation 'junit:junit:4.12'

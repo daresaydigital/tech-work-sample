@@ -22,12 +22,6 @@ class CitySelectionViewModel : BaseViewModel() {
     @Inject
     lateinit var cityRepository: CityRepository
 
-    /**
-     * Injects the required [CityWeatherRepository] in this ViewModel.
-     */
-    @Inject
-    lateinit var cityWeatherRepository: CityWeatherRepository
-
     val queryText: MutableLiveData<String> = MutableLiveData()
     val cityListLiveData: MutableLiveData<List<City>> = MutableLiveData()
     private val cityList: ArrayList<City> = ArrayList()
@@ -74,15 +68,6 @@ class CitySelectionViewModel : BaseViewModel() {
         } else {
             searchFilter.filter(query)
         }
-    }
-
-    /**
-     * Saves the provided city in WeatherDb
-     * @param city city to be added
-     */
-    fun saveCity(city: City) {
-        val cityWeather = CityWeatherEntity(id = city.id, city = city, currentWeather = WeatherModel())
-        cityWeatherRepository.saveCityWeather(cityWeather)
     }
 
     @Suppress("UNCHECKED_CAST")

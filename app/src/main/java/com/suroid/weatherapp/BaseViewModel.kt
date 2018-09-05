@@ -4,6 +4,8 @@ import android.arch.lifecycle.ViewModel
 import com.suroid.weatherapp.di.DaggerViewModelInjector
 import com.suroid.weatherapp.di.ViewModelInjector
 import com.suroid.weatherapp.ui.cityselection.CitySelectionViewModel
+import com.suroid.weatherapp.ui.home.HomeViewModel
+import com.suroid.weatherapp.ui.weathercards.WeatherCardViewModel
 import io.reactivex.disposables.CompositeDisposable
 
 /**
@@ -28,6 +30,8 @@ abstract class BaseViewModel : ViewModel() {
     private fun inject() {
         when (this) {
             is CitySelectionViewModel -> injector.inject(this)
+            is HomeViewModel -> injector.inject(this)
+            is WeatherCardViewModel -> injector.inject(this)
         }
     }
 

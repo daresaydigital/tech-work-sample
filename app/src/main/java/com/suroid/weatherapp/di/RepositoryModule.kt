@@ -1,5 +1,6 @@
 package com.suroid.weatherapp.di
 
+import com.suroid.weatherapp.api.WeatherApi
 import com.suroid.weatherapp.db.CityDao
 import com.suroid.weatherapp.db.CityWeatherDao
 import com.suroid.weatherapp.repo.CityRepository
@@ -13,7 +14,7 @@ import javax.inject.Singleton
  * @requires [AppModule] dependency
  */
 
-@Module(includes = [AppModule::class])
+@Module(includes = [AppModule::class, NetworkModule::class])
 class RepositoryModule {
     /**
      * Provides the [CityRepository] instance.
@@ -29,11 +30,12 @@ class RepositoryModule {
     /**
      * Provides the [CityWeatherRepository] instance.
      * @param cityWeatherDao [CityWeatherDao] implementation to used with repo
+     * @param api [WeatherApi] implementation to used with repo
      * @return [CityWeatherRepository] instance.
      */
     @Provides
     @Singleton
-    fun providesCityWeatherRepository(cityWeatherDao: CityWeatherDao): CityWeatherRepository {
-        return CityWeatherRepository(cityWeatherDao)
+    fun providesCityWeatherRepository(cityWeatherDao: CityWeatherDao, api: WeatherApi): CityWeatherRepository {
+        return CityWeatherRepository(cityWeatherDao, api)
     }
 }

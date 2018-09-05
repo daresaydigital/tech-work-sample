@@ -1,7 +1,15 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
+    <string name="app_name">Weather</string>
     <string name="fab_transition">fab_transition</string>
     <string name="search">Search</string>
     <string name="city_search_hint">Search your city</string>
     <string name="city_country_format">%1$s, %2$s</string>
+
+    <string name="wind">Wind</string>
+    <string name="temperature">Temperature</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind_speed_metric">m/s</string>
+    <string name="temp_metric">°K</string>
+    <string name="humidity_metric">%</string>
+    <string name="welcome_msg">Hello! Tap on the plus button and select a city to start</string>
 </resources>
