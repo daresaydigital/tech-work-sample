@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Know Weather</string>
+    <string name="enter_city_hint">Enter a city you prefer</string>
+    <string name="current_location">Current city: </string>
+    <string name="summary">Summary: </string>
+    <string name="undefined">Undefined </string>
+    <string name="temperature">%1$s%2$c</string>
+    <string name="random_temperature">23</string>
+    <string name="weather_type_image">Weather Type Image</string>
+    <string name="confirm_button">Confirm Button</string>
+
+</resources>
