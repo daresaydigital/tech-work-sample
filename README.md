@@ -1,6 +1,4 @@
-This app (Weatheri) was made for the recruitment process for Daresay. This app was made in 10:30 hours by Rogelio Robledo Ruiz
- 
-The app Know Weather is developed as a test task for the Daresay
+The app «Know Weather» is developed as a test assignment for the Daresay.
 It concludes the following features:
 
 - implemented on Kotlin
