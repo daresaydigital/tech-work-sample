@@ -1,5 +1,5 @@
 The app «Know Weather» is developed as a test assignment for the Daresay.
-It concludes the following features:
+It consists of the following features:
 
 - implemented on Kotlin
 - uses okHttp for network calls
