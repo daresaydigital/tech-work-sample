@@ -2,31 +2,22 @@ package com.suroid.weatherapp.ui.cityselection
 
 import android.arch.lifecycle.MutableLiveData
 import android.util.Log
-import android.widget.Filter
-import com.suroid.weatherapp.BaseViewModel
 import com.suroid.weatherapp.models.City
-import com.suroid.weatherapp.models.CityWeatherEntity
-import com.suroid.weatherapp.models.WeatherModel
 import com.suroid.weatherapp.repo.CityRepository
-import com.suroid.weatherapp.repo.CityWeatherRepository
+import com.suroid.weatherapp.viewmodel.BaseViewModel
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-
-class CitySelectionViewModel : BaseViewModel() {
-
-    /**
-     * Injects the required [CityRepository] in this ViewModel.
-     */
-    @Inject
-    lateinit var cityRepository: CityRepository
+/**
+ * @Inject Injects the required [CityRepository] in this ViewModel.
+ */
+class CitySelectionViewModel @Inject constructor(private val cityRepository: CityRepository) : BaseViewModel() {
 
     val queryText: MutableLiveData<String> = MutableLiveData()
     val cityListLiveData: MutableLiveData<List<City>> = MutableLiveData()
     private val cityList: ArrayList<City> = ArrayList()
-    private val searchFilter = SearchFilter()
-
 
     init {
         val cityListDisposable = cityRepository.getAllCities()
@@ -66,34 +57,18 @@ class CitySelectionViewModel : BaseViewModel() {
         if (query.isEmpty()) {
             cityListLiveData.value = cityList
         } else {
-            searchFilter.filter(query)
+            Observable
+                    .fromIterable(cityList)
+                    .filter { it.name.toLowerCase().contains(query.toLowerCase()) }
+                    .toList()
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.single())
+                    .subscribe({
+                        cityListLiveData.value = it
+                    }, {
+                        //TODO handle error case
+                    })
         }
     }
-
-    @Suppress("UNCHECKED_CAST")
-    private inner class SearchFilter : Filter() {
-        override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-            (results?.values as? ArrayList<City>)?.let {
-                cityListLiveData.value = it
-            }
-        }
-
-        override fun performFiltering(constraint: CharSequence?): FilterResults {
-            val filteredList = ArrayList<City>()
-
-            for (city in cityList) {
-                if (city.name.toLowerCase().contains(constraint.toString().toLowerCase())) {
-                    filteredList.add(city)
-                    continue
-                }
-            }
-
-            val results = Filter.FilterResults()
-            results.values = filteredList
-            results.count = filteredList.size
-            return results
-        }
-    }
-
 }
 

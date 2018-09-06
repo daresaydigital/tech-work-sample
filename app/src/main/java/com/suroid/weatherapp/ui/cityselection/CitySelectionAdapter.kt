@@ -1,5 +1,6 @@
 package com.suroid.weatherapp.ui.cityselection
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +13,14 @@ import com.suroid.weatherapp.models.City
 /**
  * Adapter for recycler of [CitySelectionActivity] , it can handle grid and list layout
  */
-class CitySelectionAdapter(private val cityAdapterDelegate: CityAdapterDelegate) : RecyclerView.Adapter<CitySelectionAdapter.CityViewHolder>() {
+class CitySelectionAdapter(private val context: Context, private val cityAdapterDelegate: CityAdapterDelegate) : RecyclerView.Adapter<CitySelectionAdapter.CityViewHolder>() {
 
     interface CityAdapterDelegate {
         fun onItemClick(city: City)
     }
 
     private lateinit var cityList: List<City>
-    private var layoutInflater: LayoutInflater = LayoutInflater.from(WeatherApplication.coreComponent.context())
+    private var layoutInflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): CitySelectionAdapter.CityViewHolder {
         return CityViewHolder(layoutInflater.inflate(R.layout.item_city_list, viewGroup, false))

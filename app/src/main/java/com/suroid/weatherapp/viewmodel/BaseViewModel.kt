@@ -1,6 +1,7 @@
-package com.suroid.weatherapp
+package com.suroid.weatherapp.viewmodel
 
 import android.arch.lifecycle.ViewModel
+import com.suroid.weatherapp.WeatherApplication
 import com.suroid.weatherapp.di.DaggerViewModelInjector
 import com.suroid.weatherapp.di.ViewModelInjector
 import com.suroid.weatherapp.ui.cityselection.CitySelectionViewModel
@@ -15,25 +16,25 @@ import io.reactivex.disposables.CompositeDisposable
 abstract class BaseViewModel : ViewModel() {
     protected val compositeDisposable = CompositeDisposable()
 
-    private val injector: ViewModelInjector = DaggerViewModelInjector
-            .builder()
-            .coreComponent(WeatherApplication.coreComponent)
-            .build()
-
-    init {
-        inject()
-    }
-
-    /**
-     * Injects the required dependencies
-     */
-    private fun inject() {
-        when (this) {
-            is CitySelectionViewModel -> injector.inject(this)
-            is HomeViewModel -> injector.inject(this)
-            is WeatherCardViewModel -> injector.inject(this)
-        }
-    }
+//    private val injector: ViewModelInjector = DaggerViewModelInjector
+//            .builder()
+//            .coreComponent(WeatherApplication.coreComponent)
+//            .build()
+//
+//    init {
+//        inject()
+//    }
+//
+//    /**
+//     * Injects the required dependencies
+//     */
+//    private fun inject() {
+//        when (this) {
+//            is CitySelectionViewModel -> injector.inject(this)
+//            is HomeViewModel -> injector.inject(this)
+//            is WeatherCardViewModel -> injector.inject(this)
+//        }
+//    }
 
     override fun onCleared() {
         super.onCleared()

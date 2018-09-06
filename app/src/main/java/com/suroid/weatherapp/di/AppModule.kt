@@ -23,7 +23,7 @@ import javax.inject.Singleton
  * Module which provides application level dependencoes
  * @param app [Application] instance is required as parameter
  */
-@Module
+@Module(includes = [ViewModelModule::class])
 class AppModule(private val app: Application) {
 
     lateinit var weatherDb: WeatherDb
@@ -38,7 +38,7 @@ class AppModule(private val app: Application) {
                         //Prepopulate DataBase with list of cities
 
                         Completable.fromCallable {
-                            val cities: List<City>? = loadJSONFromAsset(CITIES_JSON_FILE_NAME)?.objectify(CITY_ARRAY_LIST_TYPE)
+                            val cities: List<City>? = loadJSONFromAsset(app, CITIES_JSON_FILE_NAME)?.objectify(CITY_ARRAY_LIST_TYPE)
                             cities?.let {
                                 weatherDb.cityDao().insert(it)
                             }

@@ -1,7 +1,7 @@
 package com.suroid.weatherapp.ui.weathercards
 
 import android.arch.lifecycle.MutableLiveData
-import com.suroid.weatherapp.BaseViewModel
+import com.suroid.weatherapp.viewmodel.BaseViewModel
 import com.suroid.weatherapp.models.CityWeatherEntity
 import com.suroid.weatherapp.models.remote.ResponseStatus
 import com.suroid.weatherapp.repo.CityWeatherRepository
@@ -9,13 +9,10 @@ import com.suroid.weatherapp.utils.weatherIconForId
 import com.suroid.weatherapp.utils.weatherImageForId
 import javax.inject.Inject
 
-class WeatherCardViewModel : BaseViewModel() {
-
-    /**
-     * Injects the required [CityWeatherRepository] in this ViewModel.
-     */
-    @Inject
-    lateinit var cityWeatherRepository: CityWeatherRepository
+/**
+ * @Inject Injects the required [CityWeatherRepository] in this ViewModel.
+ */
+class WeatherCardViewModel @Inject constructor(private val cityWeatherRepository: CityWeatherRepository): BaseViewModel() {
 
     val loadingStatus: MutableLiveData<Boolean> = MutableLiveData()
     val temp: MutableLiveData<String> = MutableLiveData()

@@ -5,26 +5,19 @@ import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.app.Activity
 import android.content.Context
-import android.support.annotation.StringRes
-import android.support.annotation.UiThread
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
-import android.widget.Toast
 import com.google.gson.reflect.TypeToken
 import com.suroid.weatherapp.R
-import com.suroid.weatherapp.WeatherApplication
 import com.suroid.weatherapp.models.City
 import java.io.IOException
 import java.nio.charset.Charset
 
 val CITY_ARRAY_LIST_TYPE = object : TypeToken<ArrayList<City>>() {}.type
 
-fun loadJSONFromAsset(fileName: String): String? {
+fun loadJSONFromAsset(context: Context, fileName: String): String? {
     return try {
-        val inputStream = WeatherApplication.coreComponent.context().assets.open(fileName)
+        val inputStream = context.assets.open(fileName)
         val size = inputStream.available()
         val buffer = ByteArray(size)
         inputStream.read(buffer)
@@ -102,26 +95,4 @@ fun setupProgressAnimation(animationSet: AnimatorSet, view: View) {
 
 
     animationSet.playTogether(alpha, scaleX, scaleY)
-}
-
-@UiThread
-fun showToast(@StringRes message: Int) {
-    val toast = Toast.makeText(WeatherApplication.coreComponent.context(), WeatherApplication.coreComponent.context().getString(message), Toast.LENGTH_LONG)
-    var toastTxv: TextView? = null
-    val view = toast.view
-    if (view is TextView) {
-        toastTxv = view
-    } else if (view is ViewGroup) {
-        for (i in 0 until view.childCount) {
-            val child = view.getChildAt(i)
-            if (child is TextView) {
-                toastTxv = child
-                break
-            }
-        }
-    }
-    toastTxv?.let {
-        it.gravity = Gravity.CENTER_HORIZONTAL
-    }
-    toast.show()
 }

@@ -2,10 +2,12 @@ package com.suroid.weatherapp.ui.cityselection
 
 import android.app.Activity
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
@@ -14,18 +16,30 @@ import android.transition.Transition
 import com.suroid.weatherapp.R
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.utils.*
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_city_selection.*
+import javax.inject.Inject
 
-class CitySelectionActivity : AppCompatActivity(), CitySelectionAdapter.CityAdapterDelegate {
+class CitySelectionActivity : AppCompatActivity(), CitySelectionAdapter.CityAdapterDelegate, HasSupportFragmentInjector {
+
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: CitySelectionViewModel
-    private val adapter = CitySelectionAdapter(this)
+    private lateinit var adapter : CitySelectionAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city_selection)
 
-        viewModel = ViewModelProviders.of(this).get(CitySelectionViewModel::class.java)
+        adapter = CitySelectionAdapter(this, this)
+
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(CitySelectionViewModel::class.java)
 
         setupEnterAnimation()
 
@@ -150,4 +164,6 @@ class CitySelectionActivity : AppCompatActivity(), CitySelectionAdapter.CityAdap
                     }
                 })
     }
+
+    override fun supportFragmentInjector() = dispatchingAndroidInjector
 }

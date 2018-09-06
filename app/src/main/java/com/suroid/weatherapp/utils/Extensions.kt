@@ -1,16 +1,23 @@
 package com.suroid.weatherapp.utils
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.drawable.TransitionDrawable
 import android.net.Uri
 import android.provider.Settings
 import android.support.annotation.DrawableRes
+import android.support.annotation.StringRes
+import android.support.annotation.UiThread
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
+import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import com.google.gson.Gson
 import com.suroid.weatherapp.R
 import com.suroid.weatherapp.models.City
@@ -82,6 +89,28 @@ fun Activity.handlePermissionResult(permission: String, success: () -> Unit) {
                     setNegativeButton(R.string.cancel) { _, _ -> }.create().show()
         }
     }
+}
+
+@UiThread
+fun Context.showToast(@StringRes message: Int) {
+    val toast = Toast.makeText(this, getString(message), Toast.LENGTH_LONG)
+    var toastTxv: TextView? = null
+    val view = toast.view
+    if (view is TextView) {
+        toastTxv = view
+    } else if (view is ViewGroup) {
+        for (i in 0 until view.childCount) {
+            val child = view.getChildAt(i)
+            if (child is TextView) {
+                toastTxv = child
+                break
+            }
+        }
+    }
+    toastTxv?.let {
+        it.gravity = Gravity.CENTER_HORIZONTAL
+    }
+    toast.show()
 }
 
 /**

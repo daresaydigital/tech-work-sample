@@ -5,11 +5,13 @@ import android.animation.AnimatorSet
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.ActivityOptionsCompat
+import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
@@ -19,9 +21,18 @@ import com.suroid.weatherapp.R
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.ui.cityselection.CitySelectionActivity
 import com.suroid.weatherapp.utils.*
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
 import kotlinx.android.synthetic.main.activity_home.*
+import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: HomeViewModel
 
@@ -39,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.black_alpha_40)
 
-        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
 
         setupViewPager()
         registerViewListeners()
@@ -82,6 +93,12 @@ class HomeActivity : AppCompatActivity() {
                     group_welcome.visibility = View.VISIBLE
                     progress_bar.visibility = View.GONE
                 }
+            }
+        })
+
+        viewModel.fetchCityResult.observe(this, Observer {
+            if (it == false) {
+                showToast(R.string.cannot_find_location)
             }
         })
     }
@@ -135,6 +152,8 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun supportFragmentInjector() = dispatchingAndroidInjector
 }
 
 

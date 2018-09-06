@@ -4,27 +4,24 @@ import android.annotation.SuppressLint
 import android.arch.lifecycle.MutableLiveData
 import android.location.Location
 import android.util.Log
-import com.suroid.weatherapp.BaseViewModel
-import com.suroid.weatherapp.R
+import com.suroid.weatherapp.viewmodel.BaseViewModel
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.models.CityWeatherEntity
 import com.suroid.weatherapp.models.WeatherModel
 import com.suroid.weatherapp.models.remote.ResponseStatus
 import com.suroid.weatherapp.repo.CityWeatherRepository
-import com.suroid.weatherapp.utils.showToast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class HomeViewModel : BaseViewModel() {
-    /**
-     * Injects the required [CityWeatherRepository] in this ViewModel.
-     */
-    @Inject
-    lateinit var cityWeatherRepository: CityWeatherRepository
+/**
+ * @Inject Injects the required [CityWeatherRepository] in this ViewModel.
+ */
+class HomeViewModel @Inject constructor(private val cityWeatherRepository: CityWeatherRepository) : BaseViewModel() {
 
     val cityWeatherListLiveData: MutableLiveData<ArrayList<CityWeatherEntity>> = MutableLiveData()
     val loading: MutableLiveData<Boolean> = MutableLiveData()
+    val fetchCityResult: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
         compositeDisposable.add(cityWeatherRepository.getAllCityWeathers()
@@ -56,7 +53,7 @@ class HomeViewModel : BaseViewModel() {
                 }
                 is ResponseStatus.Failure -> {
                     if (response.tag == UNKNOWN_CITY) {
-                        showToast(R.string.cannot_find_location)
+                        fetchCityResult.value = false
                     }
                 }
             }
