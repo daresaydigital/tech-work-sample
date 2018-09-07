@@ -10,8 +10,8 @@ import com.suroid.weatherapp.util.mapToWeatherEntityTest
 import com.suroid.weatherapp.util.mock
 import com.suroid.weatherapp.utils.WEATHER_EXPIRY_THRESHOLD_TIME
 import com.suroid.weatherapp.utils.currentTimeInSeconds
-import io.reactivex.Observable
 import io.reactivex.Observer
+import io.reactivex.Single
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -41,7 +41,7 @@ class CityWeatherRepositoryTest {
     fun fetchCityWeatherSuccessTest() {
         val id = 123
         val response = createWeatherResponseModel(id)
-        Mockito.`when`(api.getWeatherWithId(id)).thenReturn(Observable.just(response))
+        Mockito.`when`(api.getWeatherWithId(id)).thenReturn(Single.just(response))
 
         val observer = mock<Observer<ResponseStatus<CityWeatherEntity>>>()
         repo.responseSubject.subscribe(observer)
@@ -61,7 +61,7 @@ class CityWeatherRepositoryTest {
     fun fetchCityWeatherFailTest() {
         val id = 123
         val response = createWeatherResponseModel(id)
-        Mockito.`when`(api.getWeatherWithId(id)).thenReturn(Observable.just(response))
+        Mockito.`when`(api.getWeatherWithId(id)).thenReturn(Single.just(response))
 
         val observer = mock<Observer<ResponseStatus<CityWeatherEntity>>>()
         repo.responseSubject.subscribe(observer)
@@ -77,7 +77,7 @@ class CityWeatherRepositoryTest {
         val lat = 123.0
         val long = 456.0
         val response = createWeatherResponseModel()
-        Mockito.`when`(api.getWeatherWithLatLong(lat = lat, long = long)).thenReturn(Observable.just(response))
+        Mockito.`when`(api.getWeatherWithLatLong(lat = lat, long = long)).thenReturn(Single.just(response))
 
         val observer = mock<Observer<ResponseStatus<CityWeatherEntity>>>()
         repo.responseSubject.subscribe(observer)

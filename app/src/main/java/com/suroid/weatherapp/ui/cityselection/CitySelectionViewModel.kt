@@ -8,16 +8,19 @@ import com.suroid.weatherapp.viewmodel.BaseViewModel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 /**
  * @Inject Injects the required [CityRepository] in this ViewModel.
  */
-class CitySelectionViewModel @Inject constructor(private val cityRepository: CityRepository) : BaseViewModel() {
+class CitySelectionViewModel @Inject constructor(cityRepository: CityRepository) : BaseViewModel() {
 
     val queryText: MutableLiveData<String> = MutableLiveData()
     val cityListLiveData: MutableLiveData<List<City>> = MutableLiveData()
     private val cityList: ArrayList<City> = ArrayList()
+    private val searchResultsSubject = PublishSubject.create<String>()
 
     init {
         val cityListDisposable = cityRepository.getAllCities()
@@ -29,6 +32,31 @@ class CitySelectionViewModel @Inject constructor(private val cityRepository: Cit
                     onError(it)
                 })
         compositeDisposable.add(cityListDisposable)
+
+        val searchDisposable = searchResultsSubject
+                .debounce(200, TimeUnit.MILLISECONDS)
+                .filter {
+                    if (it.isEmpty()) {
+                        cityListLiveData.postValue(cityList)
+                        return@filter false
+                    } else {
+                        return@filter true
+                    }
+                }
+                .map {
+                    it.toLowerCase()
+                }
+                .switchMap {
+                    Observable.just(cityList.filter { city ->
+                        city.name.toLowerCase().contains(it)
+                    })
+                }
+                .subscribeOn(Schedulers.single())
+                .observeOn(AndroidSchedulers.mainThread())
+
+        compositeDisposable.add(searchDisposable.subscribe {
+            cityListLiveData.value = it
+        })
     }
 
     private fun onError(throwable: Throwable) {
@@ -54,21 +82,7 @@ class CitySelectionViewModel @Inject constructor(private val cityRepository: Cit
      * @param query Query to be searched
      */
     fun searchForCities(query: String) {
-        if (query.isEmpty()) {
-            cityListLiveData.value = cityList
-        } else {
-            Observable
-                    .fromIterable(cityList)
-                    .filter { it.name.toLowerCase().contains(query.toLowerCase()) }
-                    .toList()
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeOn(Schedulers.single())
-                    .subscribe({
-                        cityListLiveData.value = it
-                    }, {
-                        //TODO handle error case
-                    })
-        }
+        searchResultsSubject.onNext(query)
     }
 }
 

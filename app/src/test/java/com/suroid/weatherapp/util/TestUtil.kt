@@ -9,8 +9,6 @@ import com.suroid.weatherapp.models.remote.*
 import org.mockito.ArgumentMatcher
 import java.util.function.Predicate
 
-val gson = Gson()
-
 fun createWeatherResponseModel(id: Int): WeatherResponseModel {
     val main = Main(temp = 1.0f,
             humidity = 2,
