@@ -16,7 +16,7 @@ import android.support.v4.content.ContextCompat
 import android.support.v4.view.ViewCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.suroid.weatherapp.R
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.ui.cityselection.CitySelectionActivity
@@ -40,9 +40,8 @@ class HomeActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     private var animationSet = AnimatorSet()
 
-    private val fusedLocationClient by lazy {
-        LocationServices.getFusedLocationProviderClient(this)
-    }
+    @Inject
+    lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

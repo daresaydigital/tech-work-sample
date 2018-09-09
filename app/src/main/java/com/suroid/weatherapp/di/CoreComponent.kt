@@ -1,6 +1,7 @@
 package com.suroid.weatherapp.di
 
 import android.content.Context
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.suroid.weatherapp.WeatherApplication
 import com.suroid.weatherapp.repo.CityRepository
 import com.suroid.weatherapp.repo.CityWeatherRepository
@@ -21,6 +22,8 @@ interface CoreComponent {
     fun cityRepo(): CityRepository
 
     fun cityWeatherRepo(): CityWeatherRepository
+
+    fun locationProvider(): FusedLocationProviderClient
 
     fun inject(app: WeatherApplication)
 }

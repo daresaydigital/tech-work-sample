@@ -1,4 +1,4 @@
-package com.suroid.weatherapp.util
+package com.suroid.weatherapp.utils
 
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.models.CityWeatherEntity

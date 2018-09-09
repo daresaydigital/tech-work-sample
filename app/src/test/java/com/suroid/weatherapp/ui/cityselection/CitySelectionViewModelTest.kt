@@ -36,23 +36,21 @@ class CitySelectionViewModelTest {
         add(createCity())
     }
 
+    private val observer = mock<Observer<List<City>>>()
+
     @Before
     fun setUp() {
         Mockito.`when`(cityRepository.getAllCities()).thenReturn(Single.just(cityList))
         viewModel = CitySelectionViewModel(cityRepository)
-    }
 
-    @Test
-    fun fetchCities() {
-        val observer = mock<Observer<List<City>>>()
+
         viewModel.cityListLiveData.observeForever(observer)
         Mockito.verify(observer).onChanged(cityList)
+        Mockito.reset(observer)
     }
 
     @Test
     fun searchFailTest() {
-        val observer = mock<Observer<List<City>>>()
-        viewModel.cityListLiveData.observeForever(observer)
         viewModel.searchForCities("abcd")
         Mockito.verify(observer).onChanged(argThat(matches(Predicate<ArrayList<City>> {
             it.isEmpty()
@@ -61,19 +59,15 @@ class CitySelectionViewModelTest {
 
     @Test
     fun searchSuccessTest() {
-        val observer = mock<Observer<List<City>>>()
-        viewModel.cityListLiveData.observeForever(observer)
         viewModel.searchForCities("name")
-        Mockito.verify(observer, Mockito.atLeastOnce()).onChanged(argThat(matches(Predicate<ArrayList<City>> {
+        Mockito.verify(observer).onChanged(argThat(matches(Predicate<ArrayList<City>> {
             it.size == 1
         })))
     }
 
     @Test
     fun resetAfterSearchTest() {
-        val observer = mock<Observer<List<City>>>()
         viewModel.cityListLiveData.value = arrayListOf()
-        viewModel.cityListLiveData.observeForever(observer)
         val queryStringObserver = mock<Observer<String>>()
         viewModel.queryText.observeForever(queryStringObserver)
         viewModel.refreshData()

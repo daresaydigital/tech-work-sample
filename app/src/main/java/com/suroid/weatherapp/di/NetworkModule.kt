@@ -21,13 +21,13 @@ import javax.inject.Singleton
 @Suppress("unused")
 class NetworkModule {
     /**
-     * Provides the Home24service implementation.
+     * Provides the [WeatherApi] implementation.
      * @param retrofit the Retrofit object used to instantiate the service
-     * @return Home24service service implementation.
+     * @return [WeatherApi] service implementation.
      */
     @Provides
     @Singleton
-    fun provideHome24Service(retrofit: Retrofit): WeatherApi {
+    fun provideWeatherApiService(retrofit: Retrofit): WeatherApi {
         return retrofit.create(WeatherApi::class.java)
     }
 

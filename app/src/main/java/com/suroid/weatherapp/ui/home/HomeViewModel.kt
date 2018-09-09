@@ -10,6 +10,7 @@ import com.suroid.weatherapp.models.CityWeatherEntity
 import com.suroid.weatherapp.models.WeatherModel
 import com.suroid.weatherapp.models.remote.ResponseStatus
 import com.suroid.weatherapp.repo.CityWeatherRepository
+import com.suroid.weatherapp.utils.Mockable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
@@ -17,6 +18,7 @@ import javax.inject.Inject
 /**
  * @Inject Injects the required [CityWeatherRepository] in this ViewModel.
  */
+@Mockable
 class HomeViewModel @Inject constructor(private val cityWeatherRepository: CityWeatherRepository) : BaseViewModel() {
 
     val cityWeatherListLiveData: MutableLiveData<ArrayList<CityWeatherEntity>> = MutableLiveData()

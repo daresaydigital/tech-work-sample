@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.util.Log
 import com.suroid.weatherapp.models.City
 import com.suroid.weatherapp.repo.CityRepository
+import com.suroid.weatherapp.utils.Mockable
 import com.suroid.weatherapp.viewmodel.BaseViewModel
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,7 @@ import javax.inject.Inject
 /**
  * @Inject Injects the required [CityRepository] in this ViewModel.
  */
+@Mockable
 class CitySelectionViewModel @Inject constructor(cityRepository: CityRepository) : BaseViewModel() {
 
     val queryText: MutableLiveData<String> = MutableLiveData()

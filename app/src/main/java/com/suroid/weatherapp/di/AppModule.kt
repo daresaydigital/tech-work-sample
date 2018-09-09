@@ -5,6 +5,8 @@ import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.suroid.weatherapp.db.CityDao
 import com.suroid.weatherapp.db.CityWeatherDao
 import com.suroid.weatherapp.db.WeatherDb
@@ -91,5 +93,11 @@ class AppModule(private val app: Application) {
     @Provides
     fun provideCityWeatherDao(db: WeatherDb): CityWeatherDao {
         return db.cityWeatherDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocationClient(): FusedLocationProviderClient {
+        return LocationServices.getFusedLocationProviderClient(app)
     }
 }

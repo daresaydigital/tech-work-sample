@@ -5,6 +5,7 @@ import com.suroid.weatherapp.viewmodel.BaseViewModel
 import com.suroid.weatherapp.models.CityWeatherEntity
 import com.suroid.weatherapp.models.remote.ResponseStatus
 import com.suroid.weatherapp.repo.CityWeatherRepository
+import com.suroid.weatherapp.utils.Mockable
 import com.suroid.weatherapp.utils.weatherIconForId
 import com.suroid.weatherapp.utils.weatherImageForId
 import javax.inject.Inject
@@ -12,6 +13,7 @@ import javax.inject.Inject
 /**
  * @Inject Injects the required [CityWeatherRepository] in this ViewModel.
  */
+@Mockable
 class WeatherCardViewModel @Inject constructor(private val cityWeatherRepository: CityWeatherRepository): BaseViewModel() {
 
     val loadingStatus: MutableLiveData<Boolean> = MutableLiveData()

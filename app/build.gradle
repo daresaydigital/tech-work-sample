@@ -6,6 +6,12 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'kotlin-allopen'
+
+allOpen {
+    annotation 'com.suroid.weatherapp.utils.Mockable'
+}
+
 if (project.rootProject.file("local.properties").exists()) {
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -21,7 +27,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.suroid.weatherapp.WeatherTestRunner"
 
         buildConfigField "String", "API_KEY", "$api_key"
     }
@@ -83,7 +89,10 @@ dependencies {
     testImplementation "android.arch.core:core-testing:$rootProject.archLifecycleVersion"
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation "org.mockito:mockito-core:2.19.0"
+    androidTestImplementation "org.mockito:mockito-android:2.19.0"
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation "com.android.support.test.espresso:espresso-intents:3.0.2"
+    androidTestImplementation "android.arch.core:core-testing:$rootProject.archLifecycleVersion"
 
 }
