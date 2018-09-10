@@ -11,11 +11,14 @@
 - Shows the weather for current location
 - Shows weekly forecast
 - Shows the weather in different hours of the day
-- Shows weather in different location 
-- uses MVP pattern
+- Shows weather in different location(Using [GeoCoder](https://developer.android.com/reference/android/location/Geocoder))
 
 ## Used Libraries
-- Retrofit library for HTTP request
-- ButterKnife library to bind views and avoid boilerplate views code.
-- BubbleSeekBar for a customized seek bar
-- GeoCoder
+- [Retrofit](https://square.github.io/retrofit/) library for HTTP request
+- [ButterKnife](https://jakewharton.github.io/butterknife/) library to bind views and avoid boilerplate views code.
+- [BubbleSeekBar](https://github.com/woxingxiao/BubbleSeekBar) for a customized seek bar
+
+## Design Patterns
+MVP (Model View Presenter) pattern to keep it simple and make the code testable, robust and easier to maintain.
+
+
