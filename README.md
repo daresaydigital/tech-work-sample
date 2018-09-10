@@ -12,6 +12,7 @@
 - Shows weekly forecast
 - Shows the weather in different hours of the day
 - Shows weather in different location 
+- uses MVP pattern
 
 ## Used Libraries
 - Retrofit library for HTTP request
