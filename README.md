@@ -1,3 +1,5 @@
+
+[Code Climate Report](https://codeclimate.com/github/nejweti/tech-work-sample)
 # Weather(Forcast) Application
 
 ## Assignment
