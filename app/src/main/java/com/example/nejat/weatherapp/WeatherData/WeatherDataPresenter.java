@@ -3,6 +3,7 @@ package com.example.nejat.weatherapp.WeatherData;
 import android.app.Activity;
 import android.location.Address;
 import android.location.Geocoder;
+import android.widget.Toast;
 
 import com.example.nejat.weatherapp.POJO.ListData;
 import com.example.nejat.weatherapp.Utils.ISettings;
@@ -120,6 +121,7 @@ public class WeatherDataPresenter implements
             List<Address> address = geocoder.getFromLocationName(location, 1);
             if (address.size() == 0) {
                 weatherDataActivity.getDeviceLocation();
+                Toast.makeText(activity,"The address was not valid",Toast.LENGTH_LONG).show();
             } else
                 weatherDataModel.fetchWeeklyData(address.get(0).getLatitude(), address.get(0).getLongitude(), this);
         } catch (IOException e) {
