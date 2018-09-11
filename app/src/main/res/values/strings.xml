@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Forecastie</string>
+
+    <string name="weather_sunny" translatable="false">&#xf00d;</string>
+    <string name="weather_clear_night" translatable="false">&#xf02e;</string>
+    <string name="weather_foggy" translatable="false">&#xf014;</string>
+    <string name="weather_cloudy" translatable="false">&#xf013;</string>
+    <string name="weather_rainy" translatable="false">&#xf019;</string>
+    <string name="weather_snowy" translatable="false">&#xf01b;</string>
+    <string name="weather_thunder" translatable="false">&#xf01e;</string>
+    <string name="weather_drizzle" translatable="false">&#xf01c;</string>
+
+    <string name="alert_dialog_cancel">Cancel</string>
+    <string name="alert_dialog_ok">Ok</string>
+    <string name="alert_locationsetting_message">Your GPS seems to be disabled, do you want to enable it?"</string>
+    <string name="alert_internet_title">No Connection</string>
+    <string name="alert_internet_message">Your Wifi seems to be disabled, do you want to enable it?"</string>
+    <string name="alert_changeLocation_message">Please Enter a valid Location</string>
+    <string name="alert_changeLocation_title">Change Location</string>
+
+    <string name="pd_message">Please wait a sec</string>
+
+</resources>

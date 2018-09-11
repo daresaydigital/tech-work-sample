@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">15dp</dimen>
+    <dimen name="margin_upperlayout">3dp</dimen>
+    <dimen name="paadding_upperlayout">5dp</dimen>
+    <dimen name="margin_startlowerlayout">37dp</dimen>
+    <dimen name="margin_toplowerlayout">40dp</dimen>
+    <dimen name="padding_item">10dp</dimen>
+    <dimen name="margin_item">10dp</dimen>
+</resources>
