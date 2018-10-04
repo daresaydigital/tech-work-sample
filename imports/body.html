@@ -35,8 +35,16 @@
 <template name="wishCity">
 <a class="card" href={{upUpAway}}>
   <img class="img-bg" src={{pic}} />
-  <div class="overlay center-flex"><h2>Now take me there</h2></div>
-  <h1>{{name}}</h1>
-  <h2><i class={{icon}}></i>{{temp}}</h2>
+  <div class="overlay">
+    <h2>Now take me there</h2>
+    <div class="right-hand-of-darkness">
+      <h1>{{name}}</h1>
+      <h2><i class={{icon}}></i>{{temp}}</h2>
+    </div>
+  </div>
+  <div class="left-hand-of-darkness">
+    <h1>{{name}}</h1>
+    <h2><i class={{icon}}></i>{{temp}}</h2>
+  </div>
 </a>
 </template>

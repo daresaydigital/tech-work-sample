@@ -42,7 +42,20 @@ h2 {
 }
 
 .card:hover .overlay {
+  transition: opacity 0.5s ease-out;
+  -webkit-transition: opacity 0.5s ease-out;
+  -moz-transition: opacity 0.5s ease-out;
+  -o-transition: opacity 0.5s ease-out;
   opacity: .9;
+}
+
+.card:hover .left-hand-of-darkness {
+  opacity: 0;
+}
+
+.right-hand-of-darkness {
+  flex-grow: 1;
+  text-align: -webkit-right;
 }
 
 .card:hover .img-bg {
@@ -51,6 +64,9 @@ h2 {
 
 .overlay {
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 150px;
   width: 100%;
@@ -61,12 +77,15 @@ h2 {
 }
 
 .overlay h2 {
+  flex-grow: 4;
+  text-align: center;
   font-size: 1rem;
   background-color: #121b28;
 }
 
 
 /* elements */
+
 .show-me {
   font-family: Raleway;
   color: #fff;

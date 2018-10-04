@@ -61,13 +61,13 @@ Template.body.helpers({
        upUpAway: link
      },
      { name: 'Moscow',
-       pic: 'https://images.unsplash.com/photo-1519231581888-9494c843a957?ixlib=rb-0.3.5&s=fb849b3ff98711115aee09ea3622d2e6&auto=format&fit=crop&w=634&q=80',
+       pic: 'https://images.unsplash.com/photo-1531153741856-3f88dad1dbd1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=93adb4b9d2aca4a138fe1cdd0eff3101&auto=format&fit=crop&w=676&q=80',
        icon: icon,
        temp: "19degrees",
        upUpAway: link
       },
      { name: 'Prague',
-       pic: 'https://images.unsplash.com/photo-1519231581888-9494c843a957?ixlib=rb-0.3.5&s=fb849b3ff98711115aee09ea3622d2e6&auto=format&fit=crop&w=634&q=80',
+       pic: 'https://images.unsplash.com/photo-1527001804454-f52ecc68533c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3a0caf7344e08cbda15a1b19db93118e&auto=format&fit=crop&w=1050&q=80',
        icon: icon,
        temp: "26degrees",
        upUpAway: link
