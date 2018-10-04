@@ -1,0 +1,15 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.cities {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.city-card {
+  width: 200px;
+  height: 300px;
+}
