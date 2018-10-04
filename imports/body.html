@@ -1,12 +1,42 @@
 <body>
   <div class="container">
-    <h1>There</h1>
 
-    <div class="cities">
+    {{#each currCityData}}
+    <div class="city bg-pic" style="background-image: url( https://images.unsplash.com/photo-1535403142432-2c6aaca60f79?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=31442c6bc53f65d8d6dbbf48be38fea6&auto=format&fit=crop&w=1576&q=80)">
+    {{>currCity}}
+    </div>
+    {{/each}}
+
+    <div class="show-me center-flex">Show me where it is...</div>
+    <div class="options center-flex">{{> options}}</div>
+
+    <div>
       {{#each cityData}}
-        {{> city}}
+        {{> wishCity}}
       {{/each}}
     </div>
 
   </div>
 </body>
+
+<template name="currCity">
+  <h1>{{name}}</h1>
+  <h2><i class={{icon}}></i> {{temp}}</h2>
+</template>
+
+<template name="options">
+  <a href="#" class="rain option center-flex"><i class="wi wi-rain"></i></a>
+  <a href="#" class="snow option center-flex"><i class="wi wi-snow"></i></a>
+  <a href="#" class="cloud option center-flex"><i class="wi wi-cloud"></i></a>
+  <a href="#" class="sun option center-flex"><i class="wi wi-day-sunny"></i></a>
+  <a href="#" class="wind option center-flex"><i class="wi wi-strong-wind"></i></a>
+</template>
+
+<template name="wishCity">
+<a class="card" href={{upUpAway}}>
+  <img class="img-bg" src={{pic}} />
+  <div class="overlay center-flex"><h2>Now take me there</h2></div>
+  <h1>{{name}}</h1>
+  <h2><i class={{icon}}></i>{{temp}}</h2>
+</a>
+</template>
