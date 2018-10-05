@@ -2,13 +2,14 @@
   <div class="container">
 
     {{#each currCityData}}
-    <div class="city bg-pic" style="background-image: url( https://images.unsplash.com/photo-1535403142432-2c6aaca60f79?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=31442c6bc53f65d8d6dbbf48be38fea6&auto=format&fit=crop&w=1576&q=80)">
-    {{>currCity}}
+    <div class="current-city">
+      <img class="img-bg" src={{pic}} />
+      {{>currCity}}
     </div>
     {{/each}}
 
-    <div class="show-me center-flex">Show me where it is...</div>
-    <div class="options center-flex">{{> options}}</div>
+    <div class="show-me">Show me where it is...</div>
+    <div class="center-flex">{{> options}}</div>
 
     <div>
       {{#each cityData}}
@@ -25,15 +26,15 @@
 </template>
 
 <template name="options">
-  <a href="#" class="rain option center-flex"><i class="wi wi-rain"></i></a>
-  <a href="#" class="snow option center-flex"><i class="wi wi-snow"></i></a>
-  <a href="#" class="cloud option center-flex"><i class="wi wi-cloud"></i></a>
-  <a href="#" class="sun option center-flex"><i class="wi wi-day-sunny"></i></a>
-  <a href="#" class="wind option center-flex"><i class="wi wi-strong-wind"></i></a>
+  <a href="#" class="rain option"><i class="wi wi-rain"></i><h3>Raining</h3></a>
+  <a href="#" class="snow option"><i class="wi wi-snow"></i><h3>Snowing</h3></a>
+  <a href="#" class="cloud option"><i class="wi wi-cloud"></i><h3>Cloudy</h3></a>
+  <a href="#" class="sun option"><i class="wi wi-day-sunny"></i><h3>Sunny</h3></a>
+  <a href="#" class="wind option"><i class="wi wi-strong-wind"></i><h3>Windy</h3></a>
 </template>
 
 <template name="wishCity">
-<a class="card" href={{upUpAway}}>
+<a class="wish-city" href={{upUpAway}}>
   <img class="img-bg" src={{pic}} />
   <div class="overlay">
     <h2>Now take me there</h2>

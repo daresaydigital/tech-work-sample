@@ -1,0 +1,163 @@
+/* colors */
+$bg: #121b28;
+$text: #fff;
+$option-hover: #cc3c09;
+
+
+/* general */
+body {
+  margin: 0;
+  background-color: $bg;
+  color: $text;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Raleway;
+  padding: 10px;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  width: fit-content;
+  background: $bg;
+}
+
+h3 {
+  font-size: .9rem;
+}
+
+a {
+  color: $text;
+  text-decoration: none;
+}
+
+
+/* helpers - use with @extend */
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.default-text {
+  font-family: Raleway;
+}
+
+.default-transition {
+  transition: 2s ease;
+}
+
+.current-city-height {
+  height: 300px;
+}
+
+.wish-city-height {
+  height: 150px;
+}
+
+/* Current city */
+.current-city {
+  @extend .current-city-height;
+  width: 100%;
+  position: relative;
+
+  .img-bg {
+    @extend .current-city-height;
+  }
+
+  h1{
+    position: relative;
+  }
+}
+
+/* Background image for cities */
+.img-bg {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  z-index: -1;
+}
+
+/* Option section - select desired weather type */
+.show-me {
+  @extend .center-flex;
+  @extend .default-text;
+  font-size: 1.3rem;
+  padding: 15px;
+  width: -webkit-fill-available;
+}
+
+.option {
+  @extend .center-flex;
+  flex-direction: column;
+  height: 100px;
+  width: -webkit-fill-available;
+
+  i {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: .9rem;
+  }
+}
+
+/* Gradual color transition when for hovered/active options */
+.option:hover,
+.option:active {
+  transition: color 0.5s ease-out;
+	-webkit-transition: color 0.5s ease-out;
+	-moz-transition: color 0.5s ease-out;
+	-o-transition: color 0.5s ease-out;
+	color: $option-hover;
+}
+
+/* Wish list */
+.wish-city {
+  width: 100%;
+
+  .img-bg {
+    @extend .wish-city-height;
+  }
+}
+
+/* Show overlay when hovering a wished for city */
+.wish-city:hover {
+
+  .overlay {
+    @extend .default-transition;
+    opacity: .9;
+  }
+
+  .left-hand-of-darkness {
+    opacity: 0;
+  }
+}
+
+/* Replace left hand text with right hand text on wish city hover */
+.right-hand-of-darkness {
+  flex-grow: 1;
+  text-align: -webkit-right;
+}
+
+/* Overlay that only shows on wish city hover */
+.overlay {
+  @extend .center-flex;
+  @extend .default-transition;
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  width: 100%;
+  opacity: 0;
+  background-color: $bg;
+  cursor: pointer;
+
+  h3 {
+    flex-grow: 4;
+    text-align: center;
+  }
+}
