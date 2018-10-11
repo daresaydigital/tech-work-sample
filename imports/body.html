@@ -1,8 +1,10 @@
 <body>
   <div class="container">
+
     <form>
-        <input type="text" name="cityName" placeholder="Where you at?">
-    </form>
+  	  <input type="text" name="cityName" placeholder="Where you at?" required class="search-box" />
+  		<button class="close-icon" type="reset"></button>
+  	</form>
 
     {{#each currCityData}}
     <div class="current-city">
@@ -37,7 +39,7 @@
 </template>
 
 <template name="wishCity">
-<a class="wish-city" href={{upUpAway}}>
+<a class="wish-city" name="selectedCity" href={{upUpAway}}>
   <img class="img-bg" src={{pic}} />
   <div class="overlay">
     <h2>Now take me there</h2>
