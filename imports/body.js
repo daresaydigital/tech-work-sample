@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { weatherIcons } from './weatherIcons.js';
+import { APIkey, APIweatherkey } from '../settings.json';
 
 import './body.html';
 
@@ -8,69 +10,14 @@ Template.body.onCreated(function bodyOnCreated() {
   // current city of the user
   this.city = new ReactiveVar();
 
-  // current city object
-  this.cityData = new ReactiveVar();
-
-  // city picture for any city object
-  this.cityPic = new ReactiveVar();
-
   // sets the query to match which icon the user has clicked
   this.query = new ReactiveVar();
 
-  // sets the currently selected city from the wishlist
-  this.selectedCity = new ReactiveVar();
+  // initiates showing the list of cities the user wants to go to, and the associated icon.
+  this.hasSelectedOption = new ReactiveVar(false);
+  this.wishCityIcon = new ReactiveVar();
 
-  // shows/hides lists based on weather
-  this.showSun = new ReactiveVar(false);
-  this.showRain = new ReactiveVar(false);
-  this.showWind = new ReactiveVar(false);
-  this.showCloud = new ReactiveVar(false);
-  this.showSnow = new ReactiveVar(false);
  });
-
-// if (Meteor.isServer) {
-//   Meteor.methods({
-//
-//   //API calls
-//
-//   //Call to openweathermap to get weather data for our current city
-//   currentCityWeather: function() {
-//    let city = Template.instance().city.get();
-//    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=9b5e8856a8ad837d711bf4c74b6e0ecf', function (data) {
-//      var rawJson = JSON.stringify(data);
-//      var json = JSON.parse(rawJson);
-//      console.log('---------currentCityWeather returns this json: ----------------', json)
-//      Template.instance().cityData.set(json);
-//      return json;
-//    });
-//  },
-//
-//   //Call to openweathermap to get data for a list of cities with a specified weather within a certain  area of our current city
-//   wishCitiesWeather: function(weather) {
-//     $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=9b5e8856a8ad837d711bf4c74b6e0ecf', function (data) {
-//       var rawJson = JSON.stringify(data);
-//       var json = JSON.parse(rawJson);
-//       console.dir(json); //Update Weather parameters
-//       this.cityData.set(json);
-//     });
-//   },
-//
-  //Call to unsplash to get a pic of the current city
-//   currentCityPic: function() {
-//      let city = Template.instance().city.get();
-//      $.getJSON('https://api.unsplash.com/search/photos/?page=1&per_page=1&query=' + city + '&client_id=bf54ced5af6f6f686d571a602ff4611ebf8fc2ebdc59989cdf768941e85148bb', function (data) {
-//        var rawJson = JSON.stringify(data);
-//        var json = JSON.parse(rawJson);
-//        console.log('---------currentCityPic gets this city: ----------------', city)
-//        console.log('---------currentCityPic returns: ----------------', json)
-//
-//        Template.instance().cityPic.set(json.results["0"].urls.regular);
-//      });
-//    }
-//
-//   })
-// }
-
 
 if (Meteor.isClient) {
 
@@ -80,66 +27,61 @@ if (Meteor.isClient) {
      const city = Template.instance().city.get();
      const data = Session.get( 'getCityData');
      const pic = Session.get( 'getCurrentCityPic');
+     const icon = Session.get( 'getWeatherIcon');
 
-     console.log('-----------currCityData------------')
-     console.log('Template.instance().city.get() is----', city)
-     console.log('Session.get( getCityData) is----', data)
-     console.log('Session.get( getCurrentCityPic) is----', pic)
-     console.log('-----------------------------------')
+     // console.log('-----------currCityData------------')
+     // console.log('Template.instance().city.get() is----', city)
+     // console.log('Session.get( getCityData) is----', data)
+     // console.log('Session.get( getCurrentCityPic) is----', pic)
+     // console.log('-----------------------------------')
+     if(data){
      return [
        { name: data.name,
          temp: data.temp,
+         description: data.description,
          pic: pic.url,
+         picauthor: pic.author,
+         piclink: pic.link,
+         icon: icon.icon,
        }
      ]
+   } else {
+     return '';
+   }
    },
 
    //returns array of cities that match the selected option(s) from the user
-   cityData() {
-     var query = Template.instance().query.get();
-     var currCity = Template.instance().city.get();
-     var selectedCity = Template.instance().selectedCity.get();
+   wishCitiesList() {
 
-     let icon;
-     if(query = 'rain') {
-      icon = 'wi wi-rain';
-     }
-     if(query = 'snow') {
-      icon = 'wi wi-snow';
-     }
-     if(query = 'cloud') {
-      icon = 'wi wi-cloud';
-     }
-     if(query = 'sunny') {
-       icon = 'wi wi-day-sunny';
-     }
-     if(query = 'wind') {
-       icon = 'wi wi-strong-wind';
-     }
+      //checks if user has selected an option, and only runs the below in case they have.
+      if (Template.instance().hasSelectedOption.get() === true){
+       var query = Template.instance().query.get();
+       var currCity = Template.instance().city.get();
+       var icon = Template.instance().wishCityIcon.get();
+       var data = Session.get( 'getWishCityData');
 
-     const link = 'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + selectedCity + '&oq=flights+' + currCity + '+' + selectedCity + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
+       //sets link to take the user to a google flight search for the city
 
-     return [
-       { name: 'Berlin',
-         pic: 'https://images.unsplash.com/photo-1519231581888-9494c843a957?ixlib=rb-0.3.5&s=fb849b3ff98711115aee09ea3622d2e6&auto=format&fit=crop&w=634&q=80',
-         icon: icon,
-         temp: "24degrees",
-         upUpAway: link
-       },
-       { name: 'Moscow',
-         pic: 'https://images.unsplash.com/photo-1531153741856-3f88dad1dbd1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=93adb4b9d2aca4a138fe1cdd0eff3101&auto=format&fit=crop&w=676&q=80',
-         icon: icon,
-         temp: "19degrees",
-         upUpAway: link
-        },
-       { name: 'Prague',
-         pic: 'https://images.unsplash.com/photo-1527001804454-f52ecc68533c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3a0caf7344e08cbda15a1b19db93118e&auto=format&fit=crop&w=1050&q=80',
-         icon: icon,
-         temp: "26degrees",
-         upUpAway: link
-       }
-     ]
+       console.log('----WISH CITIES-----')
+       console.log('currCity is:', currCity)
+       console.log('icon is:', icon)
+       console.log('current set of wished cities is:', data)
+       console.log('--------------')
+
+
+       return [
+         { name: data.name,
+           icon: icon,
+           temp: data.temp,
+           link:
+           'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + data.name + '&oq=flights+' + currCity + '+' + name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
+         }
+       ]
+     } else {
+       return false;
+     }
    },
+
   });
 
 
@@ -151,72 +93,99 @@ if (Meteor.isClient) {
       var city = event.target.cityName.value;
       Template.instance().city.set(city);
 
-      console.log('------submitted form - outside call-------')
-      console.log('event.target.cityName.value is:', city)
-      console.log('Template.instance().city.get() is:', Template.instance().city.get())
-      console.log('-------------------------------------')
-
       // Call weather api to get weather of current city
-      $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&APPID=9b5e8856a8ad837d711bf4c74b6e0ecf', function (data) {
+      req = $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&callback=?&units=metric&APPID=' + APIkey, function (data) {
         var rawJson = JSON.stringify(data);
         const json = JSON.parse(rawJson);
         Session.set( 'getCityData', {
           'name': json.name,
-          'temp': Math.floor(json.main.temp) + '°C'
+          'temp': Math.floor(json.main.temp) + '°C',
+          'lat': json.coord.lat,
+          'long': json.coord.lon,
+          'description': json.weather[0].description
         })
 
-        console.log('------submitted form - inside call-------')
-        console.log('json is:', json)
-        console.log('-------------------------------------')
+        // Get matching weather icon
+        req.then(function(json) {
+          var prefix = 'wi wi-';
+          var code = json.weather[0].id;
+          var icon = weatherIcons[code].icon;
+
+          if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
+            icon = 'day-' + icon;
+          }
+
+          icon = prefix + icon;
+          Session.set( 'getWeatherIcon', {
+            'icon': icon,
+          })
+        });
       });
 
       // Call pic api to get pic of current city
-      $.getJSON('https://api.unsplash.com/search/photos/?page=1&per_page=1&query=' + city + '&client_id=bf54ced5af6f6f686d571a602ff4611ebf8fc2ebdc59989cdf768941e85148bb', function (data) {
+      $.getJSON('https://api.unsplash.com/search/photos/?page=1&per_page=1&query=' + city + '&client_id=' + APIweatherkey, function (data) {
         var rawJson = JSON.stringify(data);
         const json = JSON.parse(rawJson);
         Session.set( 'getCurrentCityPic', {
           'url': json.results['0'].urls.regular,
-          'author': 'test'
+          'author': json.results['0'].user.profile_image.small,
+          'link': json.results['0'].user.portfolio_url  || json.results['0'].user.links.html,
         })
-
-        console.log('------submitted form - inside PIC call-------')
-        console.log('json is:', json)
-        console.log('-------------------------------------')
       });
 
     },
 
-    // set selected city from the wish list
-    'click .selected-city': function (event){
-      event.preventDefault();
-      console.log('---you clicked .selected-city---here is event.target:', event.target)
-      var selectedCity = event.target.selectedCity.value;
-      Template.instance().selectedCity.set(selectedCity);
+    // set weather query to be passed to the wish list
+    'click .option': function (event){
+
+      //sets that the user has selected an option
+      Template.instance().hasSelectedOption.set(true);
+
+      //checks what the user selected and sets icon and query accordingly
+      if(event.currentTarget.id === 'rain') {
+        Template.instance().wishCityIcon.set('wi wi-rain');
+        Template.instance().query.set('rain');
+      }
+      if(event.currentTarget.id === 'snow') {
+        Template.instance().wishCityIcon.set('wi wi-snow');
+        Template.instance().query.set('snow');
+      }
+      if(event.currentTarget.id === 'cloud') {
+        Template.instance().wishCityIcon.set('wi wi-cloud');
+        return Template.instance().query.set('cloud');
+      }
+      if(event.currentTarget.id === 'sun') {
+        Template.instance().wishCityIcon.set('wi wi-day-sunny');
+        return Template.instance().query.set('sun');
+      }
+      if(event.currentTarget.id === 'wind') {
+        Template.instance().wishCityIcon.set('wi wi-strong-wind');
+        return Template.instance().query.set('wind');
+      }
+
+      // Call weather api to return a range of cities within an area of the current city, which matches the weather query
+      const currCityData = Session.get( 'getCityData');
+      const long = currCityData.long;
+      const lat = currCityData.lat;
+      console.log ('current lat and long')
+      console.log (lat)
+      console.log (long)
+      const search = 'http://api.openweathermap.org/data/2.5/find?lat=' + lat + '&lon=' + long + '&cnt=50&callback=?&units=metric&APPID=' + APIkey
+
+      req = $.getJSON(search, function (data) {
+        var rawJson = JSON.stringify(data);
+        const json = JSON.parse(rawJson);
+        console.log('returned data from clicking .option', json)
+
+        Session.set( 'getWishCityData', {
+          'name': json.list[0].name,
+          'weather': json.list[0].weather[0].main,
+          'temp': Math.floor(json.list[0].main.temp) + '°C',
+        })
+
+      })
     },
 
-    'click .rain': function (event) {
-      console.log('you clicked on rain')
-      return Template.instance().query.set('rain');
-    },
+  })
 
-    'click .snow': function (event) {
-      console.log('you clicked on snow')
-      return Template.instance().query.set('snow');
-    },
-
-    'click .sun': function (event) {
-      console.log('you clicked on sun')
-      return Template.instance().query.set('sun');
-    },
-
-    'click .cloud': function (event) {
-      console.log('you clicked on clouds')
-      return Template.instance().query.set('cloud');
-    },
-
-    'click .wind': function (event) {
-      console.log('you clicked on wind')
-      return Template.instance().query.set('wind');
-    },
-  });
 }

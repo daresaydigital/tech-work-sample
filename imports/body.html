@@ -1,55 +1,61 @@
 <body>
-  <div class="container">
+
+  <div class="top-nav">
 
     <form>
   	  <input type="text" name="cityName" placeholder="Where you at?" required class="search-box" />
-  		<button class="close-icon" type="reset"></button>
   	</form>
 
-    {{#each currCityData}}
-    <div class="current-city">
+    <!-- Only show current city if current city data exists -->
+    {{#if currCityData}}
+      {{#each currCityData}}
       <img class="img-bg" src={{pic}} />
-      {{>currCity}}
-    </div>
-    {{/each}}
 
-    <div class="show-me">I want to go where it is...</div>
+      <a href={{piclink}}><img class="pic-author" src={{picauthor}} /></a>
+
+      <div class="current-city">{{>currCity}}</div>
+      {{/each}}
+    {{/if}}
+
+  </div>
+
+    {{#if currCityData}}
+    <h2>Take me where it's...</h2>
     <div class="center-flex">{{> options}}</div>
+    {{/if}}
 
+    {{#if wishCitiesList}}
     <div>
-      {{#each cityData}}
+      {{#each wishCitiesList}}
         {{> wishCity}}
       {{/each}}
     </div>
+   {{/if}}
 
-  </div>
 </body>
 
 <template name="currCity">
-  <h1>{{name}}</h1>
   <h2><i class={{icon}}></i> {{temp}}</h2>
+  <h2>{{description}}</h2>
 </template>
 
 <template name="options">
-  <a href="#" class="rain option"><i class="wi wi-rain"></i><h3>Raining</h3></a>
-  <a href="#" class="snow option"><i class="wi wi-snow"></i><h3>Snowing</h3></a>
-  <a href="#" class="cloud option"><i class="wi wi-cloud"></i><h3>Cloudy</h3></a>
-  <a href="#" class="sun option"><i class="wi wi-day-sunny"></i><h3>Sunny</h3></a>
-  <a href="#" class="wind option"><i class="wi wi-strong-wind"></i><h3>Windy</h3></a>
+  <a href="#" id="rain" class="option"><i class="wi wi-rain"></i><h3>Raining</h3></a>
+  <a href="#" id="snow" class="option"><i class="wi wi-snow"></i><h3>Snowing</h3></a>
+  <a href="#" id="cloud" class="option"><i class="wi wi-cloud"></i><h3>Cloudy</h3></a>
+  <a href="#" id="sun" class="option"><i class="wi wi-day-sunny"></i><h3>Sunny</h3></a>
+  <a href="#" id="wind" class="option"><i class="wi wi-strong-wind"></i><h3>Windy</h3></a>
 </template>
 
 <template name="wishCity">
-<a class="wish-city" name="selectedCity" href={{upUpAway}}>
-  <img class="img-bg" src={{pic}} />
+<a class="wish-city" href={{link}}>
   <div class="overlay">
-    <h2>Now take me there</h2>
+    <h2>Let's go</h2>
     <div class="right-hand-of-darkness">
-      <h1>{{name}}</h1>
       <h2><i class={{icon}}></i>{{temp}}</h2>
     </div>
   </div>
   <div class="left-hand-of-darkness">
-    <h1>{{name}}</h1>
     <h2><i class={{icon}}></i>{{temp}}</h2>
   </div>
 </a>

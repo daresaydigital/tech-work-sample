@@ -1,6 +1,7 @@
+
 /* colors */
-$bg: #121b28;
-$text: #fff;
+$bg: rgba(255, 255, 255, 0.7);
+$text: #666;
 $option-hover: #cc3c09;
 
 
@@ -16,13 +17,15 @@ h2,
 h3 {
   font-family: Raleway;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 h1,
 h2 {
   font-weight: 600;
-  width: fit-content;
-  background: $bg;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 h3 {
@@ -34,11 +37,14 @@ a {
   text-decoration: none;
 }
 
+form {
+  display: flex;
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
 input {
-  height: 40px;
-  width: 200px;
-  text-align: center;
-  font-size: 1rem;
+  background-color: transparent;
 }
 
 
@@ -51,118 +57,88 @@ input {
 
 .default-text {
   font-family: Raleway;
+  font-size: 2em;
+  color: $text;
+  font-weight: 600;
 }
 
 .default-transition {
   transition: 2s ease;
 }
 
-.current-city-height {
-  height: 300px;
-}
-
 .wish-city-height {
   height: 150px;
+  background: $bg;
 }
 
-/* Current city */
-.current-city {
-  @extend .current-city-height;
-  width: 100%;
-  position: relative;
-
-  .img-bg {
-    @extend .current-city-height;
-  }
-
-  h1{
-    position: relative;
-  }
-}
-
-/* Search field with css clear field functionality */
-.search-box,
-.close-icon {
-	position: relative;
-	padding: 10px;
-}
-
+/* Search field */
 .search-box {
-  color: #fff;
-  background-color: transparent;
-  width: 200px;
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-	border-bottom: 1px solid #ccc;
+  @extend .default-text;
+  text-transform: Capitalize;
+	padding: 10px;
+  border: 0;
   outline: 0;
-  border-radius: 2px;
 }
 
-.search-box:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 100px #fff inset;
+.search-box:-webkit-autofill,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px #fff inset;
 }
-
-.close-icon {
-	border: 1px solid transparent;
-	background-color: transparent;
-	display: inline-block;
-	vertical-align: middle;
-  outline: 0;
-  cursor: pointer;
-}
-
-.close-icon:after {
-	content: "x";
-	display: block;
-	width: 15px;
-	height: 15px;
-	position: absolute;
-  color: #666;
-	background-color: #fff;
-	z-index: 1;
-	right: 35px;
-	top: 0;
-	bottom: 0;
-	margin: auto;
-	padding: 2px;
-	border-radius: 50%;
-	text-align: center;
-	font-size: 12px;
-	cursor: pointer;
-}
-
-.search-box:not(:valid) ~ .close-icon {
-	display: none;
-}
-
 
 /* Background image for cities */
 .img-bg {
   position: absolute;
   width: 100%;
+  height: 100%;
+  top: 0;
   object-fit: cover;
   object-position: 50% 50%;
   z-index: -1;
+  transition:  0.5s ease-in;
+	-webkit-transition:  0.5s ease-in;
+	-moz-transition:  0.5s ease-in;
+	-o-transition:  0.5s ease-in;
+}
+
+.pic-author {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border: 2px solid $bg;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+//Structural elements
+.top-nav {
+  display: flex;
+  width: 100%;
+}
+
+// Current city
+.current-city {
+  width: 50%;
+  display: flex;
+
+  h2 {
+    width: 100%;
+    text-align: right;
+  }
 }
 
 /* Option section - select desired weather type */
-.show-me {
-  @extend .center-flex;
-  @extend .default-text;
-  font-size: 1.3rem;
-  padding: 15px;
-  width: -webkit-fill-available;
-}
-
 .option {
   @extend .center-flex;
   flex-direction: column;
   height: 100px;
   width: -webkit-fill-available;
+  background-color: $bg;
 
   i {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   h3 {
@@ -217,7 +193,6 @@ input {
   height: 150px;
   width: 100%;
   opacity: 0;
-  background-color: $bg;
   cursor: pointer;
 
   h3 {
