@@ -35,7 +35,7 @@
 </body>
 
 <template name="currCity">
-  <h2><i class={{icon}}></i> {{temp}}</h2>
+  <h2><i class={{icon}}></i>{{temp}}</h2>
   <h2>{{description}}</h2>
 </template>
 
@@ -49,14 +49,15 @@
 
 <template name="wishCity">
 <a class="wish-city" href={{link}}>
+  <div class="left-hand-of-darkness one-line-flex">
+    <h2>{{name}}</h2>
+    <i class={{icon}}></i>{{temp}}
+  </div>
   <div class="overlay">
     <h2>Let's go</h2>
     <div class="right-hand-of-darkness">
       <h2><i class={{icon}}></i>{{temp}}</h2>
     </div>
-  </div>
-  <div class="left-hand-of-darkness">
-    <h2><i class={{icon}}></i>{{temp}}</h2>
   </div>
 </a>
 </template>

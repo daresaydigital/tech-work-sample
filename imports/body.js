@@ -69,14 +69,15 @@ if (Meteor.isClient) {
        console.log('--------------')
 
 
-       return [
-         { name: data.name,
-           icon: icon,
-           temp: data.temp,
-           link:
-           'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + data.name + '&oq=flights+' + currCity + '+' + name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
-         }
-       ]
+       return data.map(city => {
+return { name: city.name,//data.name
+    icon: null,//icon,
+    temp: '23',//data.temp,
+    link: '#',
+    //'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + data.name + '&oq=flights+' + currCity + '+' + name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
+  }
+
+       })
      } else {
        return false;
      }
@@ -171,21 +172,24 @@ if (Meteor.isClient) {
       console.log (lat)
       console.log (long)
       const search = 'http://api.openweathermap.org/data/2.5/find?lat=' + lat + '&lon=' + long + '&cnt=50&callback=?&units=metric&APPID=' + APIkey
+      const que = Template.instance().query.get();
+
+      console.log('------QUE?-------', que)
 
       req = $.getJSON(search, function (data) {
         var rawJson = JSON.stringify(data);
         const json = JSON.parse(rawJson);
-        console.log('returned data from clicking .option', json)
-
-        Session.set( 'getWishCityData', {
-          'name': json.list[0].name,
-          'weather': json.list[0].weather[0].main,
-          'temp': Math.floor(json.list[0].main.temp) + '°C',
-        })
-
+        let newArray = json.list.map(city => {
+          return    { 'name': city.name,
+          'weather': city.weather[0].main,
+          'temp': Math.floor(city.main.temp) + '°C',
+        }
+      }
+    )
+    console.log("this is my array========>" , newArray)
+        Session.set( 'getWishCityData', newArray)
       })
-    },
+    }
 
-  })
-
+})
 }
