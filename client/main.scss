@@ -3,6 +3,7 @@
 $bg: rgba(255, 255, 255, 0.7);
 $text: #666;
 $option-hover: #cc3c09;
+$city-list-item-height: 25px;
 
 
 /* general */
@@ -25,7 +26,7 @@ h3 {
 h1,
 h2 {
   font-weight: 600;
-  background: rgba(255, 255, 255, 0.7);
+  background: $bg;
 }
 
 h3 {
@@ -40,7 +41,7 @@ a {
 form {
   display: flex;
   width: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: $bg;
 }
 
 input {
@@ -55,6 +56,12 @@ input {
   align-items: center;
 }
 
+.one-line-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .default-text {
   font-family: Raleway;
   font-size: 2em;
@@ -63,7 +70,7 @@ input {
 }
 
 .default-transition {
-  transition: 2s ease;
+  transition: 1s ease;
 }
 
 .wish-city-height {
@@ -157,37 +164,61 @@ select:-webkit-autofill {
 }
 
 /* Wish list */
-.wish-city {
+.city-list {
   width: 100%;
   background-color: $bg;
 }
 
 /* Show overlay when hovering a wished for city */
-.wish-city:hover {
+.city-list:hover {
 
-  .overlay {
+  .right-hand-of-darkness {
     @extend .default-transition;
     opacity: .9;
   }
+
+  .left-hand-of-darkness {
+    opacity: 0;
+  }
 }
 
-/* Replace left hand text with right hand text on wish city hover */
-.right-hand-of-darkness {
-  flex-grow: 1;
-  text-align: -webkit-right;
+.city-list-style {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  border-radius: 2px;
+  height: $city-list-item-height;
+  font-family: Raleway;
+  font-weight: 400;
+  font-size: 1.4rem;
+  background-color: $bg;
+  padding: 5px;
+  margin: 10px;
+}
+
+.top-icon {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  padding: 5px;
+  font-size: 2rem;
+}
+
+.icon-and-temp {
+  margin-right: 10px;
+}
+
+.left-hand-of-darkness {
+  @extend .city-list-style;
+  width: fit-content;
 }
 
 /* Overlay that only shows on wish city hover */
-.overlay {
-  @extend .center-flex;
+.right-hand-of-darkness {
   @extend .default-transition;
-  position: absolute;
+  @extend .city-list-style;
+  margin-top: -45px;
   width: 100%;
   opacity: 0;
-  cursor: pointer;
-
-  h3 {
-    flex-grow: 4;
-    text-align: center;
-  }
 }

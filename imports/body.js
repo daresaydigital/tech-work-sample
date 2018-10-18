@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { weatherIcons } from './weatherIcons.js';
 import { APIkey, APIweatherkey } from '../settings.json';
+import { getCurrentCityData } from './APIcalls/getCurrentCity.js'
+import { getCitiesListData } from './APIcalls/getCitiesList.js'
 
 import './body.html';
 
@@ -17,11 +19,20 @@ Template.body.onCreated(function bodyOnCreated() {
   this.hasSelectedOption = new ReactiveVar(false);
   this.wishCityIcon = new ReactiveVar();
 
+  this.noSuchBunny = new ReactiveVar(false);
  });
 
 if (Meteor.isClient) {
 
   Template.body.helpers({
+
+   selectedIcon() {
+     return Template.instance().wishCityIcon.get();
+   },
+
+   noBunny(){
+     return Template.instance().noSuchBunny.get()
+   },
 
    currCityData() {
      const city = Template.instance().city.get();
@@ -29,25 +40,20 @@ if (Meteor.isClient) {
      const pic = Session.get( 'getCurrentCityPic');
      const icon = Session.get( 'getWeatherIcon');
 
-     // console.log('-----------currCityData------------')
-     // console.log('Template.instance().city.get() is----', city)
-     // console.log('Session.get( getCityData) is----', data)
-     // console.log('Session.get( getCurrentCityPic) is----', pic)
-     // console.log('-----------------------------------')
      if(data){
-     return [
-       { name: data.name,
-         temp: data.temp,
-         description: data.description,
-         pic: pic.url,
-         picauthor: pic.author,
-         piclink: pic.link,
-         icon: icon.icon,
-       }
-     ]
-   } else {
-     return '';
-   }
+       return [
+         { name: data.name,
+           temp: data.temp,
+           description: data.description,
+           pic: pic.url,
+           picauthor: pic.author,
+           piclink: pic.link,
+           icon: icon.icon,
+         }
+       ]
+     } else {
+       return Template.instance().noSuchBunny.set(true);
+     }
    },
 
    //returns array of cities that match the selected option(s) from the user
@@ -55,28 +61,15 @@ if (Meteor.isClient) {
 
       //checks if user has selected an option, and only runs the below in case they have.
       if (Template.instance().hasSelectedOption.get() === true){
-       var query = Template.instance().query.get();
        var currCity = Template.instance().city.get();
-       var icon = Template.instance().wishCityIcon.get();
        var data = Session.get( 'getWishCityData');
 
        //sets link to take the user to a google flight search for the city
-
-       console.log('----WISH CITIES-----')
-       console.log('currCity is:', currCity)
-       console.log('icon is:', icon)
-       console.log('current set of wished cities is:', data)
-       console.log('--------------')
-
-
        return data.map(city => {
-return { name: city.name,//data.name
-    icon: null,//icon,
-    temp: '23',//data.temp,
-    link: '#',
-    //'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + data.name + '&oq=flights+' + currCity + '+' + name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
-  }
-
+        return { name: city.name,
+            temp: city.temp,
+            link: 'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + city.name + '&oq=flights+' + currCity + '+' + city.name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
+          }
        })
      } else {
        return false;
@@ -93,47 +86,7 @@ return { name: city.name,//data.name
       event.preventDefault();
       var city = event.target.cityName.value;
       Template.instance().city.set(city);
-
-      // Call weather api to get weather of current city
-      req = $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&callback=?&units=metric&APPID=' + APIkey, function (data) {
-        var rawJson = JSON.stringify(data);
-        const json = JSON.parse(rawJson);
-        Session.set( 'getCityData', {
-          'name': json.name,
-          'temp': Math.floor(json.main.temp) + '°C',
-          'lat': json.coord.lat,
-          'long': json.coord.lon,
-          'description': json.weather[0].description
-        })
-
-        // Get matching weather icon
-        req.then(function(json) {
-          var prefix = 'wi wi-';
-          var code = json.weather[0].id;
-          var icon = weatherIcons[code].icon;
-
-          if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-            icon = 'day-' + icon;
-          }
-
-          icon = prefix + icon;
-          Session.set( 'getWeatherIcon', {
-            'icon': icon,
-          })
-        });
-      });
-
-      // Call pic api to get pic of current city
-      $.getJSON('https://api.unsplash.com/search/photos/?page=1&per_page=1&query=' + city + '&client_id=' + APIweatherkey, function (data) {
-        var rawJson = JSON.stringify(data);
-        const json = JSON.parse(rawJson);
-        Session.set( 'getCurrentCityPic', {
-          'url': json.results['0'].urls.regular,
-          'author': json.results['0'].user.profile_image.small,
-          'link': json.results['0'].user.portfolio_url  || json.results['0'].user.links.html,
-        })
-      });
-
+      getCurrentCityData(city, APIkey, APIweatherkey, weatherIcons)
     },
 
     // set weather query to be passed to the wish list
@@ -142,53 +95,48 @@ return { name: city.name,//data.name
       //sets that the user has selected an option
       Template.instance().hasSelectedOption.set(true);
 
+      // Call weather api to return a range of cities within an area of the current city, which matches the weather query
+      const currCityData = Session.get( 'getCityData');
+      let long = currCityData.long;
+      let lat = currCityData.lat;
+
+      console.log('------clicking weather options gives --------')
+      console.log('currCityData:', currCityData)
+      console.log('long, lat:', long, lat)
+
+      let filteredArray;
+
       //checks what the user selected and sets icon and query accordingly
       if(event.currentTarget.id === 'rain') {
         Template.instance().wishCityIcon.set('wi wi-rain');
-        Template.instance().query.set('rain');
+        Template.instance().query.set('Rain');
+        filteredArray = getCitiesListData(lat, long, 'Rain', APIkey);
       }
       if(event.currentTarget.id === 'snow') {
         Template.instance().wishCityIcon.set('wi wi-snow');
         Template.instance().query.set('snow');
+        filteredArray = getCitiesListData(lat, long, 'Snow', APIkey);
       }
       if(event.currentTarget.id === 'cloud') {
         Template.instance().wishCityIcon.set('wi wi-cloud');
-        return Template.instance().query.set('cloud');
+        Template.instance().query.set('Clouds');
+        filteredArray = getCitiesListData(lat, long, 'Clouds', APIkey);
       }
-      if(event.currentTarget.id === 'sun') {
+      if(event.currentTarget.id === 'clear') {
         Template.instance().wishCityIcon.set('wi wi-day-sunny');
-        return Template.instance().query.set('sun');
+        Template.instance().query.set('Clear');
+        filteredArray = getCitiesListData(lat, long, 'Clear', APIkey);
       }
       if(event.currentTarget.id === 'wind') {
         Template.instance().wishCityIcon.set('wi wi-strong-wind');
-        return Template.instance().query.set('wind');
+        Template.instance().query.set('Wind');
+        filteredArray = getCitiesListData(lat, long, 'Wind', APIkey);
       }
 
-      // Call weather api to return a range of cities within an area of the current city, which matches the weather query
-      const currCityData = Session.get( 'getCityData');
-      const long = currCityData.long;
-      const lat = currCityData.lat;
-      console.log ('current lat and long')
-      console.log (lat)
-      console.log (long)
-      const search = 'http://api.openweathermap.org/data/2.5/find?lat=' + lat + '&lon=' + long + '&cnt=50&callback=?&units=metric&APPID=' + APIkey
-      const que = Template.instance().query.get();
+      console.log('filteredArray', filteredArray)
+      console.log('----------------------------------------------')
 
-      console.log('------QUE?-------', que)
-
-      req = $.getJSON(search, function (data) {
-        var rawJson = JSON.stringify(data);
-        const json = JSON.parse(rawJson);
-        let newArray = json.list.map(city => {
-          return    { 'name': city.name,
-          'weather': city.weather[0].main,
-          'temp': Math.floor(city.main.temp) + '°C',
-        }
-      }
-    )
-    console.log("this is my array========>" , newArray)
-        Session.set( 'getWishCityData', newArray)
-      })
+      return filteredArray;
     }
 
 })
