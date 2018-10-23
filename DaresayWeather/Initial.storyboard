@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lC5-oc-EaH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+            <string>HelveticaNeue-Thin</string>
+            <string>HelveticaNeue-UltraLight</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="b7O-Cf-y05">
+            <objects>
+                <viewController id="lC5-oc-EaH" customClass="HomeViewController" customModule="DaresayWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C8b-0e-36h"/>
+                        <viewControllerLayoutGuide type="bottom" id="7fn-QP-4ue"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Wp-tD-U51">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nightSky2" translatesAutoresizingMaskIntoConstraints="NO" id="SDC-xm-cvk">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Pd-k9-MYK">
+                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="DPI-gC-5CD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="447"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyK-J2-xwx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tcj-Ug-8pN">
+                                        <rect key="frame" x="188" y="0.0" width="0.0" height="86"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JD9-KX-XbD">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="86"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="442-gY-8p3" customClass="baseUiLabel" customModule="DaresayWeather" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="32.5" width="0.0" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <integer key="value" value="32"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6bZ-nt-FnL" customClass="baseUiLabel" customModule="DaresayWeather" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="61" width="0.0" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTemparture" value="NO"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <integer key="value" value="17"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="442-gY-8p3" firstAttribute="centerX" secondItem="JD9-KX-XbD" secondAttribute="centerX" id="55H-Zu-kFQ"/>
+                                                    <constraint firstItem="442-gY-8p3" firstAttribute="leading" secondItem="JD9-KX-XbD" secondAttribute="leading" id="Ck7-Gf-TVh"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6bZ-nt-FnL" secondAttribute="trailing" id="Jja-Mr-qrT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="442-gY-8p3" secondAttribute="trailing" id="Mcw-1S-xZm"/>
+                                                    <constraint firstItem="442-gY-8p3" firstAttribute="centerY" secondItem="JD9-KX-XbD" secondAttribute="centerY" multiplier="0.75" id="OPB-pI-s8c"/>
+                                                    <constraint firstItem="6bZ-nt-FnL" firstAttribute="centerX" secondItem="442-gY-8p3" secondAttribute="centerX" id="Orw-jO-zA6"/>
+                                                    <constraint firstItem="6bZ-nt-FnL" firstAttribute="centerY" secondItem="JD9-KX-XbD" secondAttribute="centerY" multiplier="1.4" id="Pam-RY-7rz"/>
+                                                    <constraint firstItem="6bZ-nt-FnL" firstAttribute="leading" secondItem="JD9-KX-XbD" secondAttribute="leading" id="sEx-5k-zfw"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="JD9-KX-XbD" firstAttribute="leading" secondItem="tcj-Ug-8pN" secondAttribute="leading" id="4e0-gv-VgU"/>
+                                            <constraint firstAttribute="trailing" secondItem="JD9-KX-XbD" secondAttribute="trailing" id="CTf-WH-JVK" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                            <constraint firstAttribute="height" constant="86" id="KIR-cb-Bd9" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                            <constraint firstItem="JD9-KX-XbD" firstAttribute="centerY" secondItem="tcj-Ug-8pN" secondAttribute="centerY" id="V2v-cG-odV" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                            <constraint firstItem="JD9-KX-XbD" firstAttribute="height" secondItem="tcj-Ug-8pN" secondAttribute="height" id="iIz-w9-Kbe" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPG-AP-FMB" customClass="baseUiLabel" customModule="DaresayWeather" customModuleProvider="target">
+                                        <rect key="frame" x="163.5" y="97.5" width="48" height="82.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTemparture" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <integer key="value" value="72"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZ5-bK-waX">
+                                        <rect key="frame" x="322" y="20.5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="TZ5-bK-waX" secondAttribute="height" multiplier="1:1" id="QGO-e7-07U"/>
+                                            <constraint firstAttribute="width" constant="45" id="kp9-DE-jlD"/>
+                                        </constraints>
+                                        <state key="normal" image="plus-symbol"/>
+                                        <connections>
+                                            <action selector="didTapOnAddCityBtn:" destination="lC5-oc-EaH" eventType="touchUpInside" id="efI-ZP-0fr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="JPG-AP-FMB" secondAttribute="bottom" constant="20" id="29x-p7-haJ" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                    <constraint firstItem="TZ5-bK-waX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tcj-Ug-8pN" secondAttribute="trailing" constant="10" id="8wj-FE-FOJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="TZ5-bK-waX" secondAttribute="trailing" constant="8" id="FKB-pX-g3W"/>
+                                    <constraint firstAttribute="height" constant="200" id="HVE-ng-9f1"/>
+                                    <constraint firstItem="JPG-AP-FMB" firstAttribute="centerX" secondItem="tcj-Ug-8pN" secondAttribute="centerX" id="Kyk-WP-Rsa" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                    <constraint firstItem="tcj-Ug-8pN" firstAttribute="top" secondItem="lyK-J2-xwx" secondAttribute="top" id="LeO-hM-Swg" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                    <constraint firstItem="tcj-Ug-8pN" firstAttribute="centerX" secondItem="lyK-J2-xwx" secondAttribute="centerX" id="Q98-Pa-Wf2" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                    <constraint firstItem="TZ5-bK-waX" firstAttribute="centerY" secondItem="tcj-Ug-8pN" secondAttribute="centerY" id="eF2-9P-Lfz"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O79-9V-4xN">
+                                <rect key="frame" x="0.0" y="220" width="375" height="447"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="O79-9V-4xN" secondAttribute="bottom" id="1Kg-oB-S9j" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="SDC-xm-cvk" firstAttribute="leading" secondItem="Eo9-pN-y2x" secondAttribute="leading" id="7xa-xi-5nP" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="5Pd-k9-MYK" secondAttribute="bottom" id="A25-f6-CtB" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="O79-9V-4xN" firstAttribute="top" secondItem="lyK-J2-xwx" secondAttribute="bottom" id="K0D-8s-Xzg" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="5Pd-k9-MYK" firstAttribute="top" secondItem="O79-9V-4xN" secondAttribute="top" id="TjF-ae-vSu" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="SDC-xm-cvk" secondAttribute="bottom" id="amI-cy-b46" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="O79-9V-4xN" firstAttribute="leading" secondItem="9Wp-tD-U51" secondAttribute="leading" id="bBD-IN-42O" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="Eo9-pN-y2x" firstAttribute="trailing" secondItem="TZ5-bK-waX" secondAttribute="trailing" constant="8" id="cl8-Gx-ud7"/>
+                            <constraint firstItem="5Pd-k9-MYK" firstAttribute="width" secondItem="SDC-xm-cvk" secondAttribute="width" id="eLV-gA-f4y" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="lyK-J2-xwx" firstAttribute="leading" secondItem="Eo9-pN-y2x" secondAttribute="leading" id="ed3-pn-vWA" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="lyK-J2-xwx" firstAttribute="top" secondItem="Eo9-pN-y2x" secondAttribute="top" id="hWK-No-ukL" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="Eo9-pN-y2x" firstAttribute="trailing" secondItem="lyK-J2-xwx" secondAttribute="trailing" id="j6Y-PJ-sXs" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="Eo9-pN-y2x" firstAttribute="trailing" secondItem="SDC-xm-cvk" secondAttribute="trailing" id="pDe-r8-Yli" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="5Pd-k9-MYK" firstAttribute="centerX" secondItem="SDC-xm-cvk" secondAttribute="centerX" id="vxf-Kt-xFo" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstAttribute="trailing" secondItem="O79-9V-4xN" secondAttribute="trailing" id="z1w-Rw-8iy" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="SDC-xm-cvk" firstAttribute="top" secondItem="9Wp-tD-U51" secondAttribute="top" id="zPI-p0-Jlh" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Eo9-pN-y2x"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="bgVisualEffect" destination="5Pd-k9-MYK" id="XOR-eO-cje"/>
+                        <outlet property="btnAddCity" destination="TZ5-bK-waX" id="RMI-Rt-Sgs"/>
+                        <outlet property="headerHeightConstraint" destination="HVE-ng-9f1" id="Ul0-xw-vDa"/>
+                        <outlet property="imgBackground" destination="SDC-xm-cvk" id="ao1-X1-SAE"/>
+                        <outlet property="lblCityName" destination="442-gY-8p3" id="OuV-Sr-CNV"/>
+                        <outlet property="lblDay" destination="6bZ-nt-FnL" id="NUx-2E-IOC"/>
+                        <outlet property="lblTemp" destination="JPG-AP-FMB" id="ESi-9f-M33"/>
+                        <outlet property="tblView" destination="O79-9V-4xN" id="kGv-Kv-7YV"/>
+                        <outlet property="titleTopConstraint" destination="LeO-hM-Swg" id="QI7-Ei-VpF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcR-7T-41D" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="519" y="82"/>
+        </scene>
+        <!--Select City View Controller-->
+        <scene sceneID="Ye0-eQ-jj8">
+            <objects>
+                <viewController storyboardIdentifier="SelectCityViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zGU-Wa-OpM" customClass="SelectCityViewController" customModule="DaresayWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uhL-RA-Nxu"/>
+                        <viewControllerLayoutGuide type="bottom" id="JfC-y7-xl1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Kw-tZ-x6f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nightSky2" translatesAutoresizingMaskIntoConstraints="NO" id="9rA-sU-lqW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzE-ak-oBJ">
+                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gcJ-k2-AAt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="561"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EbG-H2-j4s">
+                                <rect key="frame" x="0.0" y="106" width="375" height="561"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SelectCityTableViewCell" rowHeight="74" id="mCq-hx-ALP" customClass="SelectCityTableViewCell" customModule="DaresayWeather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="74"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mCq-hx-ALP" id="XVC-5B-MVd">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN2-PX-0eb">
+                                                    <rect key="frame" x="15" y="16" width="345" height="42"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZN2-PX-0eb" firstAttribute="top" secondItem="XVC-5B-MVd" secondAttribute="topMargin" constant="5" id="19b-zO-Ofw" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZN2-PX-0eb" secondAttribute="bottom" constant="5" id="1FH-8O-aIJ" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                                <constraint firstItem="ZN2-PX-0eb" firstAttribute="centerX" secondItem="XVC-5B-MVd" secondAttribute="centerX" id="UU1-2j-dGn" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                                <constraint firstItem="ZN2-PX-0eb" firstAttribute="leading" secondItem="XVC-5B-MVd" secondAttribute="leading" constant="15" id="jFe-yX-FEb" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="lblCity" destination="ZN2-PX-0eb" id="QuK-rR-Egc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter City Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzT-ML-ovt">
+                                <rect key="frame" x="0.0" y="66" width="375" height="40"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="p0r-k9-puZ" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="zGU-Wa-OpM" id="2g5-bH-d03"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQv-pM-MDL">
+                                <rect key="frame" x="315" y="30" width="53" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EbG-H2-j4s" firstAttribute="top" secondItem="yzT-ML-ovt" secondAttribute="bottom" id="3B3-fi-56d"/>
+                            <constraint firstItem="9rA-sU-lqW" firstAttribute="leading" secondItem="8pE-n0-s5d" secondAttribute="leading" id="5Nx-59-btl" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="yzT-ML-ovt" firstAttribute="centerX" secondItem="8pE-n0-s5d" secondAttribute="centerX" id="BC6-BW-pdO"/>
+                            <constraint firstItem="8pE-n0-s5d" firstAttribute="trailing" secondItem="9rA-sU-lqW" secondAttribute="trailing" id="EvH-JF-RFV" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="9rA-sU-lqW" firstAttribute="top" secondItem="3Kw-tZ-x6f" secondAttribute="top" id="IXT-HS-mka" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="mzE-ak-oBJ" firstAttribute="top" secondItem="EbG-H2-j4s" secondAttribute="top" id="K6n-EW-7Rg" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="mzE-ak-oBJ" secondAttribute="bottom" id="KTf-sq-mns" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="mzE-ak-oBJ" firstAttribute="centerX" secondItem="9rA-sU-lqW" secondAttribute="centerX" id="Kzm-GR-Auj" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstAttribute="trailing" secondItem="EbG-H2-j4s" secondAttribute="trailing" id="awb-TO-zh5" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="mzE-ak-oBJ" firstAttribute="width" secondItem="9rA-sU-lqW" secondAttribute="width" id="cYy-WQ-hgz" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="xQv-pM-MDL" firstAttribute="top" secondItem="8pE-n0-s5d" secondAttribute="top" constant="10" id="fix-Z8-QG7"/>
+                            <constraint firstItem="EbG-H2-j4s" firstAttribute="leading" secondItem="3Kw-tZ-x6f" secondAttribute="leading" id="oUF-nU-kzr" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstItem="yzT-ML-ovt" firstAttribute="top" secondItem="xQv-pM-MDL" secondAttribute="bottom" id="p1v-U1-WUM"/>
+                            <constraint firstItem="8pE-n0-s5d" firstAttribute="trailing" secondItem="xQv-pM-MDL" secondAttribute="trailing" constant="7" id="r3E-Es-sCe"/>
+                            <constraint firstItem="yzT-ML-ovt" firstAttribute="width" secondItem="3Kw-tZ-x6f" secondAttribute="width" id="shH-hY-Njh"/>
+                            <constraint firstAttribute="bottom" secondItem="EbG-H2-j4s" secondAttribute="bottom" id="t38-xS-9dg" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                            <constraint firstAttribute="bottom" secondItem="9rA-sU-lqW" secondAttribute="bottom" id="yRE-E1-Dfd" customClass="BaseLayoutConstraint" customModule="DaresayWeather" customModuleProvider="target"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8pE-n0-s5d"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="bgVisualEffect" destination="mzE-ak-oBJ" id="6hL-IN-UDS"/>
+                        <outlet property="btnClose" destination="xQv-pM-MDL" id="RJ8-Ao-vpl"/>
+                        <outlet property="imgBackground" destination="9rA-sU-lqW" id="qdl-gV-wpD"/>
+                        <outlet property="tblView" destination="EbG-H2-j4s" id="WXi-05-DZQ"/>
+                        <outlet property="txtSearch" destination="yzT-ML-ovt" id="psq-hO-v80"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUy-DG-ydj" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1176.8" y="81.2807881773399"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="nightSky2" width="640" height="640"/>
+        <image name="plus-symbol" width="16" height="16"/>
+    </resources>
+</document>

@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.7.2)
+  - IQKeyboardManagerSwift (5.0.0)
+  - TimeZoneLocate (0.4.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManagerSwift (= 5.0.0)
+  - TimeZoneLocate
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - TimeZoneLocate
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  IQKeyboardManagerSwift: 3f340202ebe1a7076279b9b9b3c817243ddb3aab
+  TimeZoneLocate: 0d4330e627343906ad699139467e2bcdf5a52262
+
+PODFILE CHECKSUM: 9b22af84cb172f81e098095042452dad66436714
+
+COCOAPODS: 1.5.3

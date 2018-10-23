@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O2V-gM-ybf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="P5z-Mv-6HJ">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="O2V-gM-ybf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kDI-QV-ubc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nightSky" translatesAutoresizingMaskIntoConstraints="NO" id="3Jf-Yq-hA2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Spo-oi-QkD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9XM-1t-rkD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mausam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="m5s-oq-NsH">
+                                <rect key="frame" x="100.5" y="315.5" width="174.5" height="56"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="47"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.054901960780000002" green="0.2784313725" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Spo-oi-QkD" firstAttribute="top" secondItem="kDI-QV-ubc" secondAttribute="top" id="Byi-9q-jbK"/>
+                            <constraint firstItem="8a4-LU-LPj" firstAttribute="trailing" secondItem="Spo-oi-QkD" secondAttribute="trailing" id="GDj-5z-zTy"/>
+                            <constraint firstAttribute="bottom" secondItem="Spo-oi-QkD" secondAttribute="bottom" id="P29-0W-ecG"/>
+                            <constraint firstItem="3Jf-Yq-hA2" firstAttribute="trailing" secondItem="8a4-LU-LPj" secondAttribute="trailing" id="PEn-uS-3cu"/>
+                            <constraint firstItem="m5s-oq-NsH" firstAttribute="centerX" secondItem="8a4-LU-LPj" secondAttribute="centerX" id="Uq6-Tb-nf7"/>
+                            <constraint firstItem="3Jf-Yq-hA2" firstAttribute="leading" secondItem="8a4-LU-LPj" secondAttribute="leading" id="WJf-Ed-1d7"/>
+                            <constraint firstItem="3Jf-Yq-hA2" firstAttribute="top" secondItem="kDI-QV-ubc" secondAttribute="top" id="YkI-Fa-jsT"/>
+                            <constraint firstItem="Spo-oi-QkD" firstAttribute="leading" secondItem="8a4-LU-LPj" secondAttribute="leading" id="e2i-h2-sFE"/>
+                            <constraint firstItem="3Jf-Yq-hA2" firstAttribute="bottom" secondItem="8a4-LU-LPj" secondAttribute="bottom" id="mpE-ky-6Fr"/>
+                            <constraint firstItem="m5s-oq-NsH" firstAttribute="centerY" secondItem="8a4-LU-LPj" secondAttribute="centerY" id="pnT-Nb-kKg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8a4-LU-LPj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MnR-8t-LPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-736.23188405797111" y="82.33695652173914"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="nightSky" width="1242" height="2208"/>
+    </resources>
+</document>
