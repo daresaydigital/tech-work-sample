@@ -1,5 +1,5 @@
 //
-//  WeatherTableViewController.swift
+//  WeatherViewController.swift
 //  CodeChallenge2
 //
 //  Created by Vincent Berihuete on 10/30/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherTableViewController: UITableViewController {
+class WeatherViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,32 +16,23 @@ class WeatherTableViewController: UITableViewController {
         LocationConfigurator.shared.startUpdating()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         LocationConfigurator.shared.stopUpdating()
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    
+    func setup(){
         
-        return 0
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
     }
-
 }
 
-extension WeatherTableViewController: LocationConfiguratorDelegate{
+
+extension WeatherViewController: LocationConfiguratorDelegate{
     func locationConfigurator(update location: (lat: Double, lon: Double)) {
         print("updating location in tvc: \(location)")
     }

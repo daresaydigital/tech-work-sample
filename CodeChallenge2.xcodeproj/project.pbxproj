@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		097FCE56E746C43841204496 /* Pods_CodeChallenge2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC4B84CDBC04DF648B99201B /* Pods_CodeChallenge2.framework */; };
-		9F114294218865D4003A2C9C /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F114293218865D4003A2C9C /* WeatherTableViewController.swift */; };
 		9F114297218867E3003A2C9C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F114295218867E3003A2C9C /* Localizable.strings */; };
 		9F11429F218868F3003A2C9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F1142A1218868F3003A2C9C /* InfoPlist.strings */; };
 		9F1142A521886A21003A2C9C /* LocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1142A421886A21003A2C9C /* LocationWorker.swift */; };
 		9F1142A721886AF8003A2C9C /* LocationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1142A621886AF8003A2C9C /* LocationConfigurator.swift */; };
+		9F1142A9218885DA003A2C9C /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1142A8218885DA003A2C9C /* WeatherViewController.swift */; };
 		9F397138218863CE00583618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F397137218863CE00583618 /* AppDelegate.swift */; };
 		9F39713D218863CE00583618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F39713B218863CE00583618 /* Main.storyboard */; };
 		9F39713F218863D100583618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F39713E218863D100583618 /* Assets.xcassets */; };
@@ -22,12 +22,12 @@
 /* Begin PBXFileReference section */
 		6E0EF35E65781E24793AEB6D /* Pods-CodeChallenge2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeChallenge2.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeChallenge2/Pods-CodeChallenge2.release.xcconfig"; sourceTree = "<group>"; };
 		788C59047ABB5FE89DD0E83C /* Pods-CodeChallenge2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeChallenge2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeChallenge2/Pods-CodeChallenge2.debug.xcconfig"; sourceTree = "<group>"; };
-		9F114293218865D4003A2C9C /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		9F114296218867E3003A2C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F114298218867F6003A2C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F1142A0218868F3003A2C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9F1142A421886A21003A2C9C /* LocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWorker.swift; sourceTree = "<group>"; };
 		9F1142A621886AF8003A2C9C /* LocationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationConfigurator.swift; sourceTree = "<group>"; };
+		9F1142A8218885DA003A2C9C /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		9F397134218863CE00583618 /* CodeChallenge2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F397137218863CE00583618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F39713C218863CE00583618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		9F11429221886571003A2C9C /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				9F114293218865D4003A2C9C /* WeatherTableViewController.swift */,
+				9F1142A8218885DA003A2C9C /* WeatherViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -248,8 +248,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1142A521886A21003A2C9C /* LocationWorker.swift in Sources */,
+				9F1142A9218885DA003A2C9C /* WeatherViewController.swift in Sources */,
 				9F1142A721886AF8003A2C9C /* LocationConfigurator.swift in Sources */,
-				9F114294218865D4003A2C9C /* WeatherTableViewController.swift in Sources */,
 				9F397138218863CE00583618 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
