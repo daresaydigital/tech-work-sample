@@ -35,6 +35,7 @@ class WeatherViewController: UIViewController {
     /// Setting up content
     func setup(){
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
 //        tableView.selectedBackgroundView = UIView()
@@ -87,5 +88,12 @@ extension WeatherViewController: UITableViewDataSource{
         return cell
     }
     
-    
+}
+
+extension WeatherViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        data[indexPath.row].weather.showingDetail = !data[indexPath.row].weather.showingDetail
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+        
+    }
 }
