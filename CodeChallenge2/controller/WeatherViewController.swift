@@ -13,11 +13,16 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherMessageLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    var data: Forecast?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         LocationConfigurator.shared.delegate = self
         LocationConfigurator.shared.startUpdating()
+        setup()
     }
     
     
@@ -26,8 +31,12 @@ class WeatherViewController: UIViewController {
         LocationConfigurator.shared.stopUpdating()
     }
     
+    
+    /// Setting up content
     func setup(){
-        
+        tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 50
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -36,6 +45,8 @@ class WeatherViewController: UIViewController {
 }
 
 
+
+// MARK: - Location configurator delegate
 extension WeatherViewController: LocationConfiguratorDelegate{
     func locationConfigurator(update location: (lat: Double, lon: Double)) {
         WeatherConfigurator.shared.current(based: location) { (weather) in
@@ -51,7 +62,28 @@ extension WeatherViewController: LocationConfiguratorDelegate{
             guard let forecast = forecast else{
                 return
             }
-            
+            self.data = forecast
+            Dispatch.main{
+                self.tableView.reloadData()
+            }
         }
     }
+}
+
+
+// MARK: - Table view data source
+extension WeatherViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data?.list.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ForecastDayTableViewCell.identifier) as? ForecastDayTableViewCell, let weather = data?.list[indexPath.row] else{
+            return UITableViewCell()
+        }
+        cell.setup(at: indexPath, with: weather)
+        return cell
+    }
+    
+    
 }

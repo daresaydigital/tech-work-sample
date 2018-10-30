@@ -21,8 +21,9 @@ struct Weather: Codable {
     /// The main data containing the temperature
     var main: MainForecast
     var wind: WindForecast
-    var date: Int64
+    var date: Double
     var sys: SysForecast
+    var showingDetail = false
     
     enum CodingKeys: String, CodingKey {
         case date = "dt"
@@ -65,6 +66,6 @@ struct WindForecast: Codable {
 
 struct SysForecast: Codable{
     var country: String?
-    var sunrise: Int64?
-    var sunset: Int64?
+    var sunrise: Double?
+    var sunset: Double?
 }
