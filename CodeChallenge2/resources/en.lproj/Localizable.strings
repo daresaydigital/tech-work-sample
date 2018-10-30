@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  CodeChallenge2
+
+  Created by Vincent Berihuete on 10/30/18.
+  Copyright © 2018 vincentchallenges. All rights reserved.
+*/
+"principal.weather.message" = "Current Wind %@ m/s and humidity of %@";
+"forecast.weather.min" = "Min: %@°";
+"forecast.weather.max" = "Max: %@°";
+"forecast.weather.wind" = "Wind: %@ m/s";
+"forecast.weather.humidity" = "Humidity: %@";
