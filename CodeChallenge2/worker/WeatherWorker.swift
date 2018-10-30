@@ -12,7 +12,7 @@ import Alamofire
 struct WeatherWorker{
     
     private let URL = "http://worksample-api.herokuapp.com"
-    private let API_KEY = ""
+    private let API_KEY = "62fc4256-8f8c-11e5-8994-feff819cdc9f"
     
     private let decoder = JSONDecoder()
     
@@ -48,7 +48,6 @@ struct WeatherWorker{
                 return
             }
             let forecast: Forecast? = try? JSONDecoder().decode(Forecast.self, from: data)
-            print(forecast)
             handler(forecast)
         }
     }
