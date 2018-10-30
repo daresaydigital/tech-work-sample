@@ -10,9 +10,15 @@ import Foundation
 
 struct Forecast: Codable {
     
+    
+    /// The location of the retrieved weather information
     var name: String
     var base: String
+    
+    /// The weather description information
     var weather: [Weather]
+    
+    /// The main data containing the temperature
     var main: MainForecast
     var wind: WindForecast
     var date: Int64

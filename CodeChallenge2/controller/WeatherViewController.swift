@@ -7,10 +7,12 @@
 //
 
 import UIKit
-import Alamofire
 
 class WeatherViewController: UIViewController {
 
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var weatherMessageLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         LocationConfigurator.shared.delegate = self
@@ -37,11 +39,13 @@ extension WeatherViewController: LocationConfiguratorDelegate{
     func locationConfigurator(update location: (lat: Double, lon: Double)) {
         print("updating location in vc: \(location)")
         WeatherConfigurator.shared.current(based: location) { (forecast) in
-            print("Printing weather in vc: \(forecast)")
+            guard let forecast = forecast else{
+                return
+            }
+            
+            self.locationLabel.text = forecast.name
+            self.weatherLabel.text = "\(Int(forecast.main.temp))"
+            
         }
-//        Alamofire.request("http://worksample-api.herokuapp.com/weather?lat=18.49311984926528&lon=-69.82712812034117&key=62fc4256-8f8c-11e5-8994-feff819cdc9f", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (data) in
-//            let weather: Weather? = try? JSONDecoder().decode(Weather.self, from: data.result.value!)
-//            print(weather)
-//        }
     }
 }
