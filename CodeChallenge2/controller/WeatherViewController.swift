@@ -13,6 +13,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var weatherMessageLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         LocationConfigurator.shared.delegate = self
@@ -37,16 +38,20 @@ class WeatherViewController: UIViewController {
 
 extension WeatherViewController: LocationConfiguratorDelegate{
     func locationConfigurator(update location: (lat: Double, lon: Double)) {
-        print("updating location in vc: \(location)")
-        WeatherConfigurator.shared.current(based: location) { (forecast) in
+        WeatherConfigurator.shared.current(based: location) { (weather) in
+            guard let weather = weather else{
+                return
+            }
+            
+            self.locationLabel.text = weather.name
+            self.weatherLabel.text = "\(Int(weather.main.temp))"
+            self.weatherMessageLabel.text = String.localizedStringWithFormat("principal.weather.message".localized, "\(weather.wind.speed)", "\(weather.main.humidity)")
+        }
+        WeatherConfigurator.shared.forecast(based: location) { (forecast) in
             guard let forecast = forecast else{
                 return
             }
             
-            self.locationLabel.text = forecast.name
-            self.weatherLabel.text = "\(Int(forecast.main.temp))"
-            self.weatherMessageLabel.text = String.localizedStringWithFormat("principal.weather.message".localized, "\(forecast.wind.speed)", "\(forecast.main.humidity)")
-
         }
     }
 }

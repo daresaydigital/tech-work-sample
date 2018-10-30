@@ -5,4 +5,4 @@
   Created by Vincent Berihuete on 10/30/18.
   Copyright © 2018 vincentchallenges. All rights reserved.
 */
-"principal.weather.message" = "Current Wind %@ m/s and humidity of %@%@";
+"principal.weather.message" = "Current Wind %@ m/s and humidity of %@";

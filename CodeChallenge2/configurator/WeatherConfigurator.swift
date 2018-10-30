@@ -21,9 +21,20 @@ struct WeatherConfigurator {
     /// - Parameters:
     ///   - coordinate: the given coordinate touple with a latitude and longitude
     ///   - handler: the callback that gives back the Weather object
-    func current(based coordinate: (lat: Double, lon: Double), handler: @escaping (Forecast?) -> ()){
+    func current(based coordinate: (lat: Double, lon: Double), handler: @escaping (Weather?) -> ()){
         worker.current(based: coordinate) { (weather) in
             handler(weather)
+        }
+    }
+    
+    /// Gets the forecast information, based on a given coordinate
+    ///
+    /// - Parameters:
+    ///   - coordinate: the given coordinate touple with a latitude and longitude
+    ///   - handler: the callback that gives back the Weather object
+    func forecast(based coordinate: (lat: Double, lon: Double), handler: @escaping (Forecast?) -> ()){
+        worker.forecast(based: coordinate){ (forecast) in
+            handler(forecast)
         }
     }
 }
