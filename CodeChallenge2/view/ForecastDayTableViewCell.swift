@@ -19,18 +19,23 @@ class ForecastDayTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherIconImageView: UIImageView!
     
     var indexPath: IndexPath!
-    var data: Weather!
+    var data: GroupForecast!
     
     let dateFormatter = DateFormatter()
+    let selectedBgView = UIView()
     
-    func setup(at indexPath: IndexPath, with data: Weather){
+    func setup(at indexPath: IndexPath, with data: GroupForecast){
         self.indexPath = indexPath
         self.data = data
-        self.detailSectionSV.isHidden = !data.showingDetail
+        self.detailSectionSV.isHidden = !data.weather.showingDetail
         
-        let date =  Date(timeIntervalSince1970: data.date)
+        selectedBgView.backgroundColor = UIColor.clear
+        
+        self.selectedBackgroundView = selectedBgView
+        let date =  Date(timeIntervalSince1970: data.weather.date)
         print(date)
-        dayLabel.text = dateFormatter.weekdaySymbols[Calendar.current.component(.weekday, from: date)]
+        dayLabel.text = dateFormatter.weekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
+        
     }
 
 }

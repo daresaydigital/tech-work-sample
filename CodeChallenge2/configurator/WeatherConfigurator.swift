@@ -37,4 +37,14 @@ struct WeatherConfigurator {
             handler(forecast)
         }
     }
+    
+    
+    /// Groups a given Forecast per day
+    ///
+    /// - Parameter forecast: The forecast
+    /// - Returns: An array of GroupForecast
+    func group(forecast: Forecast) -> [GroupForecast]{
+        return worker.group(forecast: forecast)
+    }
+    
 }
