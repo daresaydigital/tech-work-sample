@@ -93,4 +93,30 @@ struct WeatherWorker{
     private func getDayOfMonth(of timestamp: Double) -> Int{
         return Calendar.current.component(.day, from: Date(timeIntervalSince1970: timestamp))
     }
+    
+    
+    /// Provides the background image name based on a given weather
+    ///
+    /// - Returns: The bg image name
+    func background(based weather: Weather) -> String{
+        //        weather.weather[0].icon
+        let icon = weather.weather[0].icon
+        
+        switch icon[icon.startIndex...icon.index(icon.startIndex, offsetBy: 1)] {
+        case "01":
+            return "weather_bg_sunny2"
+        case "02":
+            return "weather_bg_default"
+        case "03":
+            return "weather_bg_cloudy"
+        case "10":
+            return "weather_bg_rain"
+        case "11":
+            return "weather_bg_thunder"
+        case "13":
+            return "weather_bg_snow"
+        default:
+            return "weather_bg_default"
+        }
+    }
 }

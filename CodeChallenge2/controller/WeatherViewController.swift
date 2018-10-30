@@ -38,7 +38,6 @@ class WeatherViewController: UIViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 50
-//        tableView.selectedBackgroundView = UIView()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -59,6 +58,11 @@ extension WeatherViewController: LocationConfiguratorDelegate{
             self.locationLabel.text = weather.name
             self.weatherLabel.text = "\(Int(weather.main.temp))"
             self.weatherMessageLabel.text = String.localizedStringWithFormat("principal.weather.message".localized, "\(weather.wind.speed)", "\(weather.main.humidity)")
+            Dispatch.main{
+                UIView.transition(with: self.backgroundImageView, duration: 0.2, options: .transitionCrossDissolve, animations: {
+                     self.backgroundImageView.image = UIImage(named: WeatherConfigurator.shared.background(based: weather))
+                }, completion: nil)
+            }
         }
         WeatherConfigurator.shared.forecast(based: location) { (forecast) in
             guard let forecast = forecast else{

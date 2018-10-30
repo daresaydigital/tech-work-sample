@@ -47,4 +47,12 @@ struct WeatherConfigurator {
         return worker.group(forecast: forecast)
     }
     
+    
+    /// Provides the background image name based on a given weather
+    ///
+    /// - Returns: The bg image name
+    func background(based weather: Weather) -> String{
+        return worker.background(based: weather)
+    }
+    
 }
