@@ -22,14 +22,14 @@ struct WeatherWorker{
     /// - Parameters:
     ///   - coordinate: the given coordinate touple with a latitude and longitude
     ///   - handler: the callback that gives back the Weather object
-    func current(based coordinate: (lat: Double, lon: Double), handler: @escaping (Weather?) -> ()){
+    func current(based coordinate: (lat: Double, lon: Double), handler: @escaping (Forecast?) -> ()){
         
         Alamofire.request("\(URL)/weather?lat=\(coordinate.lat)&lon=\(coordinate.lon)&key=\(API_KEY)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseData { (http) in
             guard let data = http.result.value else {
                 handler(nil)
                 return
             }
-            let weather: Weather? = try? JSONDecoder().decode(Weather.self, from: data)
+            let weather: Forecast? = try? JSONDecoder().decode(Forecast.self, from: data)
             handler(weather)
         }
         
