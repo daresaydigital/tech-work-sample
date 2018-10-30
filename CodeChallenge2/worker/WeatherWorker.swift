@@ -12,7 +12,7 @@ import Alamofire
 struct WeatherWorker{
     
     private let URL = "http://worksample-api.herokuapp.com"
-    private let API_KEY = ""
+    private let API_KEY = "FILL_THIS_API_KEY"
     
     private let decoder = JSONDecoder()
     
