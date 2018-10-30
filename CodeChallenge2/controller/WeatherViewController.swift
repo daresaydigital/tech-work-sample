@@ -93,7 +93,7 @@ extension WeatherViewController: UITableViewDataSource{
 extension WeatherViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         data[indexPath.row].weather.showingDetail = !data[indexPath.row].weather.showingDetail
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        tableView.reloadRows(at: [indexPath], with: .fade)
         
     }
 }

@@ -52,6 +52,8 @@ class ForecastDayTableViewCell: UITableViewCell {
         //detail section
         minTempLabel.text = String.localizedStringWithFormat("forecast.weather.min".localized, "\(Int(data.weather.main.tempMin))")
         maxTempLabel.text = String.localizedStringWithFormat("forecast.weather.max".localized, "\(Int(data.weather.main.tempMax))")
+        windLabel.text = String.localizedStringWithFormat("forecast.weather.wind".localized, "\(data.weather.wind.speed)")
+        humidityLabel.text = String.localizedStringWithFormat("forecast.weather.humidity".localized, "\(data.weather.main.humidity)")
     }
 
 }
