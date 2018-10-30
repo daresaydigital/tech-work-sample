@@ -44,7 +44,6 @@ class ForecastDayTableViewCell: UITableViewCell {
         
         self.selectedBackgroundView = selectedBgView
         let date =  Date(timeIntervalSince1970: data.weather.date)
-        print(date)
         dayLabel.text = dateFormatter.weekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
         degreesLabel.text = "\(Int(data.weather.main.temp))"
         weatherIconImageView.image = UIImage(named: data.weather.weather[0].icon) ?? UIImage(named: "03d")
