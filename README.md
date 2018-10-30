@@ -1,84 +1,29 @@
-# Work sample - Application developer
+# Code Challenge 2
+Based on a given Code Challenge, a clean MVC weather app holding a UITableView and scalable / testable code.
 
-## Assignment
+### Libraries
+Using cocoapods with the following libraries:
 
-- Build an awesome weather app that shows the weather at your current  location.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+ - 'Alamofire' ~v4.7'
 
-## Minimum requirements
-- Show the weather for your current location
-- Use data from provided API (see API DOCS)
-- Good usability
-- Be visually appealing and follow platform conventions
-- Budget: 8-12 hours
+### Design Patterns
+The app architecture is made and using the following patterns:
+ - SRP (Single Responsability Principle)
+ - Adapter
+ - Factory
+ - Delegation
+ - Singleton
 
-## Assets
-You can find some icon assets at [https://github.com/erikflowers/weather-icons](https://github.com/erikflowers/weather-icons) that you can use if you please. You are more than welcome to use other assets that you feel are better fitted for your solution. We do not expect you to be a designer, but since application development on Daresay most often includes visual interfaces we do expect you to to be well aware of your platforms design guidelines and conventions.
+### Unit Testing
 
-## Expectations
-###### User experience
-The feature of the app is simple but we expect you to deliver a solution with a high user experience. Imagine this application is to be used by real user with real needs. Maybe your application won’t be as feature-full as many other applications on the market, but at least make it interesting, fun and intuitive to use. Of course you are allowed to extend your applications functionality. We appreciate solutions that exceed our expectations.
+This app is wired up with Unit testing. Right bellow is described which test are available and what they do.
 
-###### Code
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
+- ##### Unit Testing
+    - **testWeatherLoad**: This test runs the weather load and fails if nil is found
+    - **testForecastLoad**: This test runs the forcast load and fails if nil is found
 
-## Delivery
-Fork the repository, code in your fork and make a pull request when done. Also send us an e-mail to let us know when you are done!
+### How to run
 
-### Good luck!
+In order to run the project make sure you have your cocoapods up to date. After that just run a `pod install` and then open the file `CodeChallenge2.xcworkspace`, finally run it in the device of your choice.
 
----
-
-
-# API DOCS
-
-## Base url
-http://worksample-api.herokuapp.com
-
-
-http://worksample-api.herokuapp.com is a simple wrapper of some of the endpoints provided on http://openweathermap.org/.
-
-## Available Endpoints and Documentation
-- http://worksample-api.herokuapp.com/weather [documentation](http://openweathermap.org/current)
-- http://worksample-api.herokuapp.com/forecast [documentation](http://openweathermap.org/forecast5)
-- http://worksample-api.herokuapp.com/forecast/daily [documentation](http://openweathermap.org/forecast16)
-
-We always respond in JSON and metrics.
-We also don’t support these features of the OpenWeatherMap API:
-
-- Bulk downloading
-- Search Accuracy (like/accuracy)
-- Limitation of result
-- Units format
-- Multilingual support
-- Callback functions for javascript.
-​
-
-## You can use these parameters
-
-#### API key (mandatory)
-The API-key is required for all API calls. It should have been sent to you together with the instructions asking you to do the work sample.
-
-#### By city name:
-City name and country code divided by comma, use ISO 3166 country codes.
-
-`?q={city name},{country code}`
-
-`?q={city name}`
-​
-#### By city id:
-List of city ID:s can be downloaded [here](http://bulk.openweathermap.org/sample/)
-
-`?id={id}`
-​
-#### By geographic coordinates:
-Coordinates of the location of your interest
-
-`?lat={lat}&lon={lon}`
-​
-#### By Zip Code
-`?zip={zip code},{country code}`
-
-##An example request:
-
-[http://worksample-api.herokuapp.com/weather?q=Stockholm,SE&key={API_KEY}](http://worksample-api.herokuapp.com/weather?q=Stockholm,SE&key={API_KEY})
+PD: You will need a developer account wired up in project setings and also due to a requeriment in order to see the app working you need to set up a value for the constant **API_KEY** in the file WeatherWorker.swift, nothing is going to work if you don't do so (Sorry).
