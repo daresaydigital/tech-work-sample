@@ -45,7 +45,8 @@ extension WeatherViewController: LocationConfiguratorDelegate{
             
             self.locationLabel.text = forecast.name
             self.weatherLabel.text = "\(Int(forecast.main.temp))"
-            
+            self.weatherMessageLabel.text = String.localizedStringWithFormat("principal.weather.message".localized, "\(forecast.wind.speed)", "\(forecast.main.humidity)")
+
         }
     }
 }
