@@ -11,6 +11,8 @@
 		9F114294218865D4003A2C9C /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F114293218865D4003A2C9C /* WeatherTableViewController.swift */; };
 		9F114297218867E3003A2C9C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F114295218867E3003A2C9C /* Localizable.strings */; };
 		9F11429F218868F3003A2C9C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F1142A1218868F3003A2C9C /* InfoPlist.strings */; };
+		9F1142A521886A21003A2C9C /* LocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1142A421886A21003A2C9C /* LocationWorker.swift */; };
+		9F1142A721886AF8003A2C9C /* LocationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1142A621886AF8003A2C9C /* LocationConfigurator.swift */; };
 		9F397138218863CE00583618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F397137218863CE00583618 /* AppDelegate.swift */; };
 		9F39713D218863CE00583618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F39713B218863CE00583618 /* Main.storyboard */; };
 		9F39713F218863D100583618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F39713E218863D100583618 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		9F114296218867E3003A2C9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F114298218867F6003A2C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F1142A0218868F3003A2C9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9F1142A421886A21003A2C9C /* LocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWorker.swift; sourceTree = "<group>"; };
+		9F1142A621886AF8003A2C9C /* LocationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationConfigurator.swift; sourceTree = "<group>"; };
 		9F397134218863CE00583618 /* CodeChallenge2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeChallenge2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F397137218863CE00583618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F39713C218863CE00583618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +66,22 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		9F1142A2218869FF003A2C9C /* worker */ = {
+			isa = PBXGroup;
+			children = (
+				9F1142A421886A21003A2C9C /* LocationWorker.swift */,
+			);
+			path = worker;
+			sourceTree = "<group>";
+		};
+		9F1142A321886A07003A2C9C /* configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9F1142A621886AF8003A2C9C /* LocationConfigurator.swift */,
+			);
+			path = configurator;
+			sourceTree = "<group>";
+		};
 		9F39712B218863CE00583618 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +103,8 @@
 		9F397136218863CE00583618 /* CodeChallenge2 */ = {
 			isa = PBXGroup;
 			children = (
+				9F1142A321886A07003A2C9C /* configurator */,
+				9F1142A2218869FF003A2C9C /* worker */,
 				9F11429221886571003A2C9C /* controller */,
 				9F397137218863CE00583618 /* AppDelegate.swift */,
 				9F39713B218863CE00583618 /* Main.storyboard */,
@@ -225,6 +247,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F1142A521886A21003A2C9C /* LocationWorker.swift in Sources */,
+				9F1142A721886AF8003A2C9C /* LocationConfigurator.swift in Sources */,
 				9F114294218865D4003A2C9C /* WeatherTableViewController.swift in Sources */,
 				9F397138218863CE00583618 /* AppDelegate.swift in Sources */,
 			);
@@ -391,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TSAUHSF6TJ;
 				INFOPLIST_FILE = CodeChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -409,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TSAUHSF6TJ;
 				INFOPLIST_FILE = CodeChallenge2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -6,4 +6,4 @@
   Copyright © 2018 vincentchallenges. All rights reserved.
 */
 
-"NSLocationWhenInUseUsageDescription" = "We need this in order to show you the weather at your current location"
+"NSLocationWhenInUseUsageDescription" = "We need this in order to show you the weather at your current location";
