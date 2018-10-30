@@ -20,13 +20,31 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather_bg_default" translatesAutoresizingMaskIntoConstraints="NO" id="Tuu-bs-ctk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xph-Sa-QWN">
+                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7Cr-3H-P5B">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Cr-3H-P5B" id="0hC-kL-GBC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Tuu-bs-ctk" firstAttribute="leading" secondItem="qcA-gf-Quo" secondAttribute="leading" id="3BM-d7-ZV1"/>
                             <constraint firstItem="Tuu-bs-ctk" firstAttribute="top" secondItem="qcA-gf-Quo" secondAttribute="top" id="6dN-aQ-GaS"/>
                             <constraint firstAttribute="bottom" secondItem="Tuu-bs-ctk" secondAttribute="bottom" id="9Sr-cd-uPT"/>
+                            <constraint firstItem="taZ-zV-Cs5" firstAttribute="trailing" secondItem="xph-Sa-QWN" secondAttribute="trailing" id="IlJ-3y-dHd"/>
                             <constraint firstAttribute="trailing" secondItem="Tuu-bs-ctk" secondAttribute="trailing" id="N6r-ta-HNb"/>
+                            <constraint firstItem="xph-Sa-QWN" firstAttribute="top" secondItem="taZ-zV-Cs5" secondAttribute="top" constant="10" id="ZwK-oD-7aB"/>
+                            <constraint firstItem="xph-Sa-QWN" firstAttribute="leading" secondItem="taZ-zV-Cs5" secondAttribute="leading" id="iQg-4Z-EHl"/>
+                            <constraint firstItem="taZ-zV-Cs5" firstAttribute="bottom" secondItem="xph-Sa-QWN" secondAttribute="bottom" id="y58-vp-aHi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="taZ-zV-Cs5"/>
                     </view>
