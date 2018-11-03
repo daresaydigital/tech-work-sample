@@ -64,19 +64,55 @@
                                         <rect key="frame" x="0.0" y="1" width="375" height="95"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOf-KJ-8Yc">
-                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="itemSize" width="50" height="95"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="adi-dU-YDf">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hourlyForecastCellIdentifier" id="adi-dU-YDf" customClass="HourlyForecastCell" customModule="Weather" customModuleProvider="target">
+                                                <rect key="frame" x="15" y="0.0" width="50" height="95"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="95"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXz-sX-Nk0">
+                                                            <rect key="frame" x="0.0" y="5" width="50" height="17"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLR-aP-73S">
+                                                            <rect key="frame" x="0.0" y="22" width="50" height="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" red="0.35085651278495789" green="0.74810749292373657" blue="0.94008046388626099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWo-lJ-Op8">
+                                                            <rect key="frame" x="0.0" y="67" width="50" height="18"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                 </view>
+                                                <constraints>
+                                                    <constraint firstItem="rWo-lJ-Op8" firstAttribute="centerX" secondItem="adi-dU-YDf" secondAttribute="centerX" id="Bn4-DW-0nT"/>
+                                                    <constraint firstItem="fLR-aP-73S" firstAttribute="centerX" secondItem="adi-dU-YDf" secondAttribute="centerX" id="C9a-Rf-QQa"/>
+                                                    <constraint firstItem="HXz-sX-Nk0" firstAttribute="centerX" secondItem="adi-dU-YDf" secondAttribute="centerX" id="DRN-d9-WFI"/>
+                                                    <constraint firstItem="HXz-sX-Nk0" firstAttribute="width" secondItem="adi-dU-YDf" secondAttribute="width" id="O2D-rj-3Qx"/>
+                                                    <constraint firstItem="HXz-sX-Nk0" firstAttribute="top" secondItem="adi-dU-YDf" secondAttribute="top" constant="5" id="Tx0-Zf-VlC"/>
+                                                    <constraint firstItem="rWo-lJ-Op8" firstAttribute="width" secondItem="adi-dU-YDf" secondAttribute="width" id="Vzy-tt-wya"/>
+                                                    <constraint firstItem="rWo-lJ-Op8" firstAttribute="bottom" secondItem="adi-dU-YDf" secondAttribute="bottom" constant="-10" id="fTc-oV-Bu5"/>
+                                                    <constraint firstItem="fLR-aP-73S" firstAttribute="width" secondItem="adi-dU-YDf" secondAttribute="width" id="n9V-cX-aC9"/>
+                                                    <constraint firstItem="fLR-aP-73S" firstAttribute="top" secondItem="HXz-sX-Nk0" secondAttribute="bottom" id="rCn-YT-OXK"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="chanceLabel" destination="fLR-aP-73S" id="F1I-Pj-X6Q"/>
+                                                    <outlet property="hourLabel" destination="HXz-sX-Nk0" id="iXd-Hj-J99"/>
+                                                    <outlet property="temperatureLabel" destination="rWo-lJ-Op8" id="2fZ-0B-gdm"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
