@@ -31,7 +31,7 @@ class LocationManager: NSObject {
             locationManager.delegate = self
             locationManager.startUpdatingLocation()
         } else {
-            print("PLease turn on location services or GPS")
+            print("PLease turn on location services or GPS ")
         }
     }
     
