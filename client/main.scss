@@ -6,11 +6,36 @@ $option-hover: #cc3c09;
 $city-list-item-height: 25px;
 
 
+
+.current-city-info {
+  @extend .one-line-spread;
+  @extend .text-style;
+  background-color: $bg;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+
+  form{
+    flex-grow: 2;
+  }
+}
+
+.info {
+  background-color: $bg;
+  @extend .text-style;
+  padding: 0 10px;
+}
+
 /* general */
 body {
   margin: 0;
   background-color: $bg;
   color: $text;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 h1,
@@ -38,27 +63,32 @@ a {
   text-decoration: none;
 }
 
-form {
-  display: flex;
-  width: 50%;
-  background-color: $bg;
-}
-
 input {
   background-color: transparent;
 }
 
 
-/* helpers - use with @extend */
-.center-flex {
+// Helpers - use with @extend
+.one-line-spread {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-.one-line-flex {
+.text-style {
+  color: $text;
+  font-family: Raleway;
+  font-weight: 400;
+
+  h2, h3 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.center-flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
 }
 
@@ -71,11 +101,6 @@ input {
 
 .default-transition {
   transition: 1s ease;
-}
-
-.wish-city-height {
-  height: 150px;
-  background: $bg;
 }
 
 /* Search field */
@@ -94,23 +119,9 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 100px #fff inset;
 }
 
-/* Background image for cities */
-.img-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  object-fit: cover;
-  object-position: 50% 50%;
-  z-index: -1;
-  transition:  0.5s ease-in;
-	-webkit-transition:  0.5s ease-in;
-	-moz-transition:  0.5s ease-in;
-	-o-transition:  0.5s ease-in;
-}
-
+// Picture of unsplash author
 .pic-author {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   border: 2px solid $bg;
@@ -119,33 +130,16 @@ select:-webkit-autofill {
   border-radius: 50%;
 }
 
-//Structural elements
-.top-nav {
-  display: flex;
-  width: 100%;
-}
-
-// Current city
-.current-city {
-  width: 50%;
-  display: flex;
-
-  h2 {
-    width: 100%;
-    text-align: right;
-  }
-}
 
 /* Option section - select desired weather type */
 .option {
   @extend .center-flex;
-  flex-direction: column;
   height: 100px;
   width: -webkit-fill-available;
   background-color: $bg;
 
   i {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   h3 {
@@ -154,19 +148,17 @@ select:-webkit-autofill {
 }
 
 /* Gradual color transition when for hovered/active options */
-.option:hover,
-.option:active {
-  transition: color 0.5s ease-out;
-	-webkit-transition: color 0.5s ease-out;
-	-moz-transition: color 0.5s ease-out;
-	-o-transition: color 0.5s ease-out;
-	color: $option-hover;
-}
+.options {
+  @extend .one-line-spread;
 
-/* Wish list */
-.city-list {
-  width: 100%;
-  background-color: $bg;
+  .option:hover,
+  .option:active {
+    transition: color 0.5s ease-out;
+  	-webkit-transition: color 0.5s ease-out;
+  	-moz-transition: color 0.5s ease-out;
+  	-o-transition: color 0.5s ease-out;
+  	color: $option-hover;
+  }
 }
 
 /* Show overlay when hovering a wished for city */
@@ -174,7 +166,7 @@ select:-webkit-autofill {
 
   .right-hand-of-darkness {
     @extend .default-transition;
-    opacity: .9;
+    opacity: 1;
   }
 
   .left-hand-of-darkness {
