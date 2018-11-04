@@ -13,6 +13,7 @@
 		AA3006AA218CE3DD00A23A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA3006A9218CE3DD00A23A36 /* Assets.xcassets */; };
 		AA3006AD218CE3DD00A23A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA3006AB218CE3DD00A23A36 /* LaunchScreen.storyboard */; };
 		AA3006B8218CE3DD00A23A36 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3006B7218CE3DD00A23A36 /* WeatherTests.swift */; };
+		AA316FA3218DD78B00DD1794 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA316FA2218DD78B00DD1794 /* LocationManager.swift */; };
 		AA4528C5218D9EEC00EC0901 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4528C4218D9EEB00EC0901 /* Constants.swift */; };
 		AA4528C7218D9F9000EC0901 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4528C6218D9F9000EC0901 /* DailyForecastView.swift */; };
 		AA4528CB218D9FE900EC0901 /* DailyForecastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA4528CA218D9FE800EC0901 /* DailyForecastView.xib */; };
@@ -42,6 +43,7 @@
 		AA3006B3218CE3DD00A23A36 /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3006B7218CE3DD00A23A36 /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		AA3006B9218CE3DD00A23A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA316FA2218DD78B00DD1794 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		AA4528C4218D9EEB00EC0901 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA4528C6218D9F9000EC0901 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
 		AA4528CA218D9FE800EC0901 /* DailyForecastView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastView.xib; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		AA3006C3218CF08D00A23A36 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				AA316FA2218DD78B00DD1794 /* LocationManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				AA3006A5218CE3D400A23A36 /* WeatherViewController.swift in Sources */,
 				AA3006A3218CE3D400A23A36 /* AppDelegate.swift in Sources */,
 				AA4528C5218D9EEC00EC0901 /* Constants.swift in Sources */,
+				AA316FA3218DD78B00DD1794 /* LocationManager.swift in Sources */,
 				AA4528C7218D9F9000EC0901 /* DailyForecastView.swift in Sources */,
 				AA4528CF218DB18400EC0901 /* InfoView.swift in Sources */,
 				AA4528CD218DA5FD00EC0901 /* HourlyForecastCell.swift in Sources */,

@@ -217,6 +217,19 @@
                                     <constraint firstItem="apJ-AL-tXh" firstAttribute="width" secondItem="49c-ek-F1p" secondAttribute="width" id="vhZ-FU-fLB"/>
                                 </constraints>
                             </view>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zht-nq-fzH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dsO-9H-GLi">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35085651280000002" green="0.7481074929" blue="0.9400804639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="dsO-9H-GLi" firstAttribute="centerY" secondItem="Zht-nq-fzH" secondAttribute="centerY" id="EEW-LJ-AMz"/>
+                                    <constraint firstItem="dsO-9H-GLi" firstAttribute="centerX" secondItem="Zht-nq-fzH" secondAttribute="centerX" id="goL-bb-4aL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.28779906034469604" green="0.60772794485092163" blue="0.76970857381820679" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -224,11 +237,15 @@
                             <constraint firstItem="1oF-pB-qce" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3Ht-lk-9ch"/>
                             <constraint firstItem="m6B-tq-Luu" firstAttribute="top" secondItem="1oF-pB-qce" secondAttribute="bottom" constant="150" id="4l9-0k-cru"/>
                             <constraint firstItem="VhF-BK-1mi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4u4-Hy-N7U"/>
+                            <constraint firstItem="Zht-nq-fzH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="5vl-RX-9vJ"/>
                             <constraint firstItem="VhF-BK-1mi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CwX-1f-d8o"/>
                             <constraint firstItem="VhF-BK-1mi" firstAttribute="bottom" secondItem="49c-ek-F1p" secondAttribute="top" id="GNx-p4-3aa"/>
+                            <constraint firstItem="Zht-nq-fzH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KRZ-FG-CTd"/>
                             <constraint firstItem="dCI-RH-Gg5" firstAttribute="top" secondItem="1oF-pB-qce" secondAttribute="bottom" id="Ljr-7w-ZZb"/>
                             <constraint firstItem="m6B-tq-Luu" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="M0b-Rg-EAt"/>
                             <constraint firstItem="49c-ek-F1p" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QdL-h2-UsR"/>
+                            <constraint firstItem="Zht-nq-fzH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="SbU-27-nGm"/>
+                            <constraint firstItem="Zht-nq-fzH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Wwp-dB-UFW"/>
                             <constraint firstItem="VhF-BK-1mi" firstAttribute="top" secondItem="m6B-tq-Luu" secondAttribute="bottom" id="aSK-97-nTm"/>
                             <constraint firstItem="ZEd-Bv-MBW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="b4n-19-Vst"/>
                             <constraint firstItem="49c-ek-F1p" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="d0d-15-4TO"/>
@@ -246,6 +263,8 @@
                         <outlet property="forecastDescriptionLabel" destination="xDv-hf-XUZ" id="bMc-Ml-V9B"/>
                         <outlet property="headerView" destination="1oF-pB-qce" id="oaS-9c-pz9"/>
                         <outlet property="infoStackView" destination="ipz-22-vFX" id="5k1-vn-Sk9"/>
+                        <outlet property="loadingBGView" destination="Zht-nq-fzH" id="fSh-lV-3w1"/>
+                        <outlet property="loadingView" destination="dsO-9H-GLi" id="asB-tv-4CX"/>
                         <outlet property="temperatureLabel" destination="dCI-RH-Gg5" id="ADt-U0-LGM"/>
                         <outlet property="todayForecastCollectionView" destination="a28-Tx-XsG" id="6R8-jn-Yt0"/>
                         <outlet property="todayView" destination="m6B-tq-Luu" id="Nrk-vM-4ax"/>
