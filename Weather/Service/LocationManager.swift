@@ -30,8 +30,6 @@ class LocationManager: NSObject {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.delegate = self
             locationManager.startUpdatingLocation()
-        } else {
-            print("PLease turn on location services or GPS ")
         }
     }
     
@@ -39,18 +37,16 @@ class LocationManager: NSObject {
         locationManager.stopUpdatingLocation()
     }
     
-    func requestLocation(placemarkNeeded: Bool = true) {
+    func requestLocation(placemarkNeeded: Bool = false) {
         isPlacemarkNeeded = placemarkNeeded
         if self.requestAuthorization() {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.delegate = self
             locationManager.requestLocation()
-        } else {
-            print("PLease turn on location services or GPS")
         }
     }
     
-    func lookUCurrentLocation(_ location: CLLocation, completionHandler: @escaping (CLPlacemark?) -> Void ) {
+    func lookUpLocation(_ location: CLLocation, completionHandler: @escaping (CLPlacemark?) -> Void ) {
         
         let geocoder = CLGeocoder()
             
@@ -77,7 +73,7 @@ extension LocationManager {
             }
             return true
         } else {
-            print("PLease turn on location services or GPS")
+            print("Please turn on location services or GPS")
             return false
         }
     }
@@ -88,19 +84,15 @@ extension LocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastLocation = locations[0]
-        print("user latitude = \(lastLocation!.coordinate.latitude)")
-        print("user longitude = \(lastLocation!.coordinate.longitude)")
-        
         if isPlacemarkNeeded {
-            lookUCurrentLocation(lastLocation!) { placemark in
+            lookUpLocation(lastLocation!) { placemark in
                 self.lastPlacemark = placemark
-                print("Placemark: \(placemark?.name ?? "") - \(placemark?.subLocality ?? "") - \(placemark?.country ?? "") - \(placemark?.locality ?? "") - \(placemark?.country ?? "")")
-                
                 self.locationUpdateClosure?(locations[0], placemark)
             }
-        } else {
-            locationUpdateClosure?(lastLocation, nil)
         }
+        
+        locationUpdateClosure?(lastLocation, nil)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

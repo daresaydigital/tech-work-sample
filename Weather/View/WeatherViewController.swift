@@ -23,21 +23,21 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var loadingBGView: UIView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
-    private var locationManager = LocationManager.sharedInstance()
+    private var weatherViewModel = WeatherViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        locationManager.requestLocation()
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         showLoadingView()
+        weatherViewModel.startWeatherForcasting()
     }
 
 
