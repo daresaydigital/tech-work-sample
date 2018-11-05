@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -139,11 +139,11 @@
                                     <constraint firstItem="o41-yg-74G" firstAttribute="bottom" secondItem="m6B-tq-Luu" secondAttribute="bottom" id="yi6-dl-AcF"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhF-BK-1mi">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhF-BK-1mi">
                                 <rect key="frame" x="0.0" y="372" width="375" height="251"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZEd-Bv-MBW" userLabel="detailStackView">
-                                        <rect key="frame" x="0.0" y="-36" width="375" height="323"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZEd-Bv-MBW" userLabel="detailStackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="251"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4cw-jb-TYS">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
@@ -155,24 +155,18 @@
                                                     <constraint firstAttribute="height" constant="1" id="p5p-KB-Auh"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLr-zs-cj6">
+                                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uAY-w1-hWd">
                                                 <rect key="frame" x="0.0" y="72" width="375" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDv-hf-XUZ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDv-hf-XUZ">
                                                         <rect key="frame" x="20" y="15" width="335" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="xDv-hf-XUZ" firstAttribute="top" secondItem="lLr-zs-cj6" secondAttribute="top" constant="15" id="0Fo-jX-qJL"/>
-                                                    <constraint firstAttribute="bottom" secondItem="xDv-hf-XUZ" secondAttribute="bottom" constant="15" id="22K-QH-A9x"/>
-                                                    <constraint firstItem="xDv-hf-XUZ" firstAttribute="centerX" secondItem="lLr-zs-cj6" secondAttribute="centerX" id="g7A-hk-8or"/>
-                                                    <constraint firstItem="xDv-hf-XUZ" firstAttribute="width" secondItem="lLr-zs-cj6" secondAttribute="width" constant="-40" id="tOS-r3-pM7"/>
-                                                </constraints>
-                                            </view>
+                                                <edgeInsets key="layoutMargins" top="15" left="20" bottom="15" right="20"/>
+                                            </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huc-B4-2Y5" userLabel="separatorView">
                                                 <rect key="frame" x="0.0" y="122" width="375" height="1"/>
                                                 <color key="backgroundColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
@@ -180,8 +174,8 @@
                                                     <constraint firstAttribute="height" constant="1" id="9oa-X8-CL2"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ipz-22-vFX">
-                                                <rect key="frame" x="0.0" y="123" width="375" height="200"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ipz-22-vFX">
+                                                <rect key="frame" x="0.0" y="123" width="375" height="128"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -192,9 +186,8 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ZEd-Bv-MBW" secondAttribute="trailing" id="MUw-46-g5v"/>
-                                    <constraint firstItem="ZEd-Bv-MBW" firstAttribute="top" secondItem="VhF-BK-1mi" secondAttribute="top" constant="-36" id="SNE-et-C3B"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZEd-Bv-MBW" secondAttribute="bottom" constant="-36" id="beK-8U-dLf"/>
-                                    <constraint firstItem="ZEd-Bv-MBW" firstAttribute="centerY" secondItem="VhF-BK-1mi" secondAttribute="centerY" id="pHY-hh-dRb"/>
+                                    <constraint firstItem="ZEd-Bv-MBW" firstAttribute="top" secondItem="VhF-BK-1mi" secondAttribute="top" id="SNE-et-C3B"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZEd-Bv-MBW" secondAttribute="bottom" id="beK-8U-dLf"/>
                                     <constraint firstItem="ZEd-Bv-MBW" firstAttribute="leading" secondItem="VhF-BK-1mi" secondAttribute="leading" id="yB4-Dq-xf8"/>
                                 </constraints>
                             </scrollView>

@@ -28,6 +28,11 @@ class WeatherViewModel: NSObject {
     lazy var networkManager: WeatherNetworkManager = NetworkManager(apiKey: Constants.apiKey, environment: Constants.networkEnvironment)
     private var locationManager = LocationManager()
     
+    var forecastListViewModel: ForecastListViewModel?
+    
+    var updateWeatherDataClosure: (()->())?
+    var finishedFetchingWeatherClosure: (()->())?
+    
     
 
 }
@@ -49,6 +54,7 @@ extension WeatherViewModel {
                     print("Location: \(location.coordinate.latitude) - \(location.coordinate.longitude)")
                     self.location = Coordinate(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
                     self.fetchWeather()
+                    self.forecastListViewModel?.fetchForecast(coordinate: location!)
                 } else {
                     // cannot get user location
                 }
@@ -72,18 +78,22 @@ extension WeatherViewModel {
     }
     
     private func processWeatherResponse(_ response: WeatherResponse) {
-        area.value = response.name
-        weather.value = response.weather[0].main
-        temperature.value = response.main.temperature
-        summary.value = String(format: "Today: %@ currently. It's %d°; the high today was forecast as %d°.", response.weather[0].main, Int(response.main.temperature), Int(response.main.temperatureMax))
-        
-        dayTime.value = .night
-        dayString.value = "Sunday"
-        temperatureMin.value = response.main.temperatureMin
-        temperatureMax.value = response.main.temperatureMax
-        sunrise.value = "06:00"
-        sunset.value = "17:45"
-        pressure.value = String(format: "%d hPa", response.main.pressure)
-        humidity.value = String(format: "%d%", response.main.humidity)
+        DispatchQueue.main.async {
+            self.area.value = response.name
+            self.weather.value = response.weather[0].main
+            self.temperature.value = response.main.temperature
+            self.summary.value = String(format: "Today: %@ currently. It's %d°; the high today was forecast as %d°.", response.weather[0].main, Int(response.main.temperature), Int(response.main.temperatureMax))
+            
+            self.dayTime.value = .night
+            self.dayString.value = "Sunday"
+            self.temperatureMin.value = response.main.temperatureMin
+            self.temperatureMax.value = response.main.temperatureMax
+            self.sunrise.value = "06:00"
+            self.sunset.value = "17:45"
+            self.pressure.value = String(format: "%d hPa", response.main.pressure)
+            self.humidity.value = String(format: "%d%", response.main.humidity)
+            self.updateWeatherDataClosure?()
+            self.finishedFetchingWeatherClosure?()
+        }
     }
 }

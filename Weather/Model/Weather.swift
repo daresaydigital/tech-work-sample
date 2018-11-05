@@ -8,15 +8,8 @@
 
 import Foundation
 
-enum DayTime: Int {
-    case morning
-    case noon
-    case afternoon
-    case night
-}
-
 struct WeatherResponse: Codable {
-    let coord: Coordinate
+    let coordinate: Coordinate
     let weather: [Weather]
     let base: String
     let main: WeatherData
@@ -24,18 +17,22 @@ struct WeatherResponse: Codable {
     let clouds: Clouds
     //let rain: Rain?
     //let snow: Snow?
-    let dt: TimeInterval
-    let sys: SystemData
+    let dayTime: TimeInterval
+    let system: SystemData
     let id: Int
     let name: String
-}
-struct Coordinate: Codable {
-    let longitude: Double
-    let latitude: Double
     
     enum CodingKeys: String, CodingKey {
-        case longitude = "lon"
-        case latitude = "lat"
+        case coordinate = "coord"
+        case weather
+        case base
+        case main
+        case wind
+        case clouds
+        case dayTime = "dt"
+        case system = "sys"
+        case id
+        case name
     }
 }
 
@@ -64,48 +61,4 @@ struct WeatherData: Codable {
         case seaLevel = "sea_level"
         case groundLevel = "grnd_level"
     }
-}
-
-struct Wind: Codable {
-    let speed: Double
-    let degree: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case speed
-        case degree = "deg"
-    }
-}
-
-struct Clouds: Codable {
-    let cloudiness: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case cloudiness = "all"
-    }
-}
-
-/*struct Rain: Codable {
-    let rain3h: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case rain3h = "3h"
-    }
-}
-
-struct Snow: Codable {
-    let snow3h: Double
-    
-    enum CodingKeys: String, CodingKey {
-        case snow3h = "3h"
-    }
-}*/
-
-struct SystemData: Codable {
-    let type: Int
-    let id: Int
-    let message: Double
-    let country: String
-    let sunrise: TimeInterval
-    let sunset: TimeInterval
-
 }

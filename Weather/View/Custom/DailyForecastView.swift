@@ -14,6 +14,13 @@ class DailyForecastView: UIView {
     @IBOutlet private weak var maxLabel: UILabel!
     @IBOutlet private weak var minLabel: UILabel!
     
+    
+    class func instanceFromNib() -> DailyForecastView {
+        let instance = UINib(nibName: "DailyForecastView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! DailyForecastView
+        instance.translatesAutoresizingMaskIntoConstraints = false
+        instance.heightAnchor.constraint(equalToConstant: instance.bounds.height).isActive = true
+        return instance
+    }
 
     /*
     // Only override draw() if you perform custom drawing.
@@ -22,5 +29,12 @@ class DailyForecastView: UIView {
         // Drawing code
     }
     */
+    
+    func configureTodayView(weatherViewModel: WeatherViewModel) {
+        dayLabel.text = weatherViewModel.dayString.value
+        todayLabel.alpha = 1
+        maxLabel.text = "\(Int(weatherViewModel.temperatureMax.value))°"
+        minLabel.text = "\(Int(weatherViewModel.temperatureMin.value))°"
+    }
 
 }
