@@ -60,10 +60,10 @@
                                             <constraint firstAttribute="height" constant="1" id="gfq-8V-JCV"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a28-Tx-XsG">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a28-Tx-XsG" customClass="ForecastCollectionView" customModule="Weather" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="375" height="95"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOf-KJ-8Yc">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LOf-KJ-8Yc">
                                             <size key="itemSize" width="50" height="95"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -259,7 +259,7 @@
                         <outlet property="loadingBGView" destination="Zht-nq-fzH" id="fSh-lV-3w1"/>
                         <outlet property="loadingView" destination="dsO-9H-GLi" id="asB-tv-4CX"/>
                         <outlet property="temperatureLabel" destination="dCI-RH-Gg5" id="ADt-U0-LGM"/>
-                        <outlet property="todayForecastCollectionView" destination="a28-Tx-XsG" id="6R8-jn-Yt0"/>
+                        <outlet property="todayForecastCollectionView" destination="a28-Tx-XsG" id="6Yv-mF-8aL"/>
                         <outlet property="todayView" destination="m6B-tq-Luu" id="Nrk-vM-4ax"/>
                         <outlet property="weatherLabel" destination="bB2-qw-Hel" id="8io-ad-Ox9"/>
                     </connections>

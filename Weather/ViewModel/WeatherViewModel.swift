@@ -28,7 +28,11 @@ class WeatherViewModel: NSObject {
     lazy var networkManager: WeatherNetworkManager = NetworkManager(apiKey: Constants.apiKey, environment: Constants.networkEnvironment)
     private var locationManager = LocationManager()
     
-    var forecastListViewModel: ForecastListViewModel?
+    var forecastListViewModel: ForecastListViewModel? {
+        didSet {
+            forecastListViewModel?.networkManager = networkManager
+        }
+    }
     
     var updateWeatherDataClosure: (()->())?
     var finishedFetchingWeatherClosure: (()->())?
@@ -54,7 +58,7 @@ extension WeatherViewModel {
                     print("Location: \(location.coordinate.latitude) - \(location.coordinate.longitude)")
                     self.location = Coordinate(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
                     self.fetchWeather()
-                    self.forecastListViewModel?.fetchForecast(coordinate: location!)
+                    self.forecastListViewModel?.fetchForecast(coordinate: self.location!)
                 } else {
                     // cannot get user location
                 }
@@ -90,7 +94,7 @@ extension WeatherViewModel {
             self.temperatureMax.value = response.main.temperatureMax
             self.sunrise.value = "06:00"
             self.sunset.value = "17:45"
-            self.pressure.value = String(format: "%d hPa", response.main.pressure)
+            self.pressure.value = String(format: "%.2f hPa", response.main.pressure)
             self.humidity.value = String(format: "%d%", response.main.humidity)
             self.updateWeatherDataClosure?()
             self.finishedFetchingWeatherClosure?()

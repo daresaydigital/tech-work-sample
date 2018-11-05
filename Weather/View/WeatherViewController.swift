@@ -15,7 +15,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var temperatureLabel: UILabel!
     private var todayForecastView = DailyForecastView.instanceFromNib()
     @IBOutlet private weak var todayView: UIView!
-    @IBOutlet private weak var todayForecastCollectionView: UICollectionView!
+    @IBOutlet private weak var todayForecastCollectionView: ForecastCollectionView!
     @IBOutlet private weak var detailScrollView: UIScrollView!
     @IBOutlet private weak var dailyForecastStackView: UIStackView!
     @IBOutlet private weak var forecastDescriptionLabel: UILabel!
@@ -64,6 +64,9 @@ extension WeatherViewController {
         
         weatherViewModel.updateWeatherDataClosure = updateWeatherData
         weatherViewModel.finishedFetchingWeatherClosure = hideLoadingView
+        
+        todayForecastCollectionView.initViewModel()
+        weatherViewModel.forecastListViewModel = todayForecastCollectionView.forecastListViewModel
     }
     
     private func updateWeatherData() {

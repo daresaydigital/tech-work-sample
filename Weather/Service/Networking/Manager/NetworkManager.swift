@@ -33,6 +33,8 @@ protocol WeatherNetworkManager {
      - Parameter completion: block to handle the fetch results
      */
     func fetchWeather(latitude: Double, longitude: Double, completion: @escaping (_ response: WeatherResponse?,_ error: String?)->())
+    
+    func fetchForecast(latitude: Double, longitude: Double, completion: @escaping (_ response: ForecastResponse?,_ error: String?)->())
 }
 
 class NetworkManager: WeatherNetworkManager {
@@ -61,6 +63,26 @@ class NetworkManager: WeatherNetworkManager {
                     print(jsonData)*/
                     let weatherResponse = try JSONDecoder().decode(WeatherResponse.self, from: data!)
                     completion(weatherResponse, nil)
+                }catch {
+                    print(error)
+                    completion(nil, NetworkResponse.unableToDecode.rawValue)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func fetchForecast(latitude: Double, longitude: Double, completion: @escaping (_ response: ForecastResponse?,_ error: String?)->()) {
+        router.request(.forecast(latitude: Float(latitude), longitude: Float(longitude), apiKey: apiKey)) { data, response, error in
+            let result = self.handleNetworkResponse(data: data, response: response, error: error)
+            switch result{
+            case .success:
+                do {
+                    /*let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                     print(jsonData)*/
+                    let forecastResponse = try JSONDecoder().decode(ForecastResponse.self, from: data!)
+                    completion(forecastResponse, nil)
                 }catch {
                     print(error)
                     completion(nil, NetworkResponse.unableToDecode.rawValue)

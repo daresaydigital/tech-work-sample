@@ -45,7 +45,7 @@ struct Weather: Codable {
 
 struct WeatherData: Codable {
     let temperature: Double
-    let pressure: Int
+    let pressure: Double
     let humidity: Int
     let temperatureMin: Double
     let temperatureMax: Double
