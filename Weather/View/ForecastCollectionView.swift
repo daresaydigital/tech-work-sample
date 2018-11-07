@@ -34,7 +34,7 @@ extension ForecastCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourlyForecastCellIdentifier", for: indexPath) as! HourlyForecastCell
-        let forecastViewModel = forecastListViewModel.forecastList.value[indexPath.item]
+        let forecastViewModel = forecastListViewModel.getForecastViewModel(indexPath: indexPath)
         cell.configureCell(forecastViewModel: forecastViewModel, isNow: indexPath.item == 0)
         return cell
     }

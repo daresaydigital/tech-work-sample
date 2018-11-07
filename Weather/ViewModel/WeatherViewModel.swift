@@ -28,9 +28,14 @@ class WeatherViewModel: NSObject {
     lazy var networkManager: WeatherNetworkManager = NetworkManager(apiKey: Constants.apiKey, environment: Constants.networkEnvironment)
     private var locationManager = LocationManager()
     
-    var forecastListViewModel: ForecastListViewModel? {
+    weak var forecastListViewModel: ForecastListViewModel? {
         didSet {
             forecastListViewModel?.networkManager = networkManager
+        }
+    }
+    weak var forecastDailyListViewModel: ForecastDailyListViewModel? {
+        didSet {
+            forecastDailyListViewModel?.networkManager = networkManager
         }
     }
     
@@ -59,6 +64,7 @@ extension WeatherViewModel {
                     self.location = Coordinate(longitude: location.coordinate.longitude, latitude: location.coordinate.latitude)
                     self.fetchWeather()
                     self.forecastListViewModel?.fetchForecast(coordinate: self.location!)
+                    self.forecastDailyListViewModel?.fetchForecastDaily(coordinate: self.location!)
                 } else {
                     // cannot get user location
                 }

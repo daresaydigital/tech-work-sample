@@ -36,5 +36,13 @@ class DailyForecastView: UIView {
         maxLabel.text = "\(Int(weatherViewModel.temperatureMax.value))°"
         minLabel.text = "\(Int(weatherViewModel.temperatureMin.value))°"
     }
+    
+    func configureTodayView(forecastDailyViewModel: ForecastDailyViewModel) {
+        
+        dayLabel.text = forecastDailyViewModel.dayString
+        todayLabel.alpha = 0
+        maxLabel.text = "\(Int(forecastDailyViewModel.temperatureMax))°"
+        minLabel.text = "\(Int(forecastDailyViewModel.temperatureMin))°"
+    }
 
 }

@@ -23,7 +23,7 @@ struct ForecastDaily: Codable {
     let speed: Double
     let degree: Double
     let clouds: Double
-    let rain: Double
+    let rain: Double?
     
     enum CodingKeys: String, CodingKey {
         case dayTime = "dt"

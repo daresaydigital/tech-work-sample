@@ -29,6 +29,10 @@ extension ForecastListViewModel {
             }
         }
     }
+    
+    func getForecastViewModel(indexPath: IndexPath) -> ForecastViewModel {
+        return forecastList.value[indexPath.row]
+    }
 }
 
 extension ForecastListViewModel {

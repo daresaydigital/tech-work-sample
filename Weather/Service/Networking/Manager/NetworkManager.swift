@@ -35,6 +35,8 @@ protocol WeatherNetworkManager {
     func fetchWeather(latitude: Double, longitude: Double, completion: @escaping (_ response: WeatherResponse?,_ error: String?)->())
     
     func fetchForecast(latitude: Double, longitude: Double, completion: @escaping (_ response: ForecastResponse?,_ error: String?)->())
+    
+    func fetchForecastDaily(latitude: Double, longitude: Double, completion: @escaping (_ response: ForecastDailyResponse?,_ error: String?)->())
 }
 
 class NetworkManager: WeatherNetworkManager {
@@ -83,6 +85,26 @@ class NetworkManager: WeatherNetworkManager {
                      print(jsonData)*/
                     let forecastResponse = try JSONDecoder().decode(ForecastResponse.self, from: data!)
                     completion(forecastResponse, nil)
+                }catch {
+                    print(error)
+                    completion(nil, NetworkResponse.unableToDecode.rawValue)
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
+    }
+    
+    func fetchForecastDaily(latitude: Double, longitude: Double, completion: @escaping (_ response: ForecastDailyResponse?,_ error: String?)->()) {
+        router.request(.forecastDaily(latitude: Float(latitude), longitude: Float(longitude), apiKey: apiKey)) { data, response, error in
+            let result = self.handleNetworkResponse(data: data, response: response, error: error)
+            switch result{
+            case .success:
+                do {
+                    /*let jsonData = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
+                     print(jsonData)*/
+                    let forecastDailyResponse = try JSONDecoder().decode(ForecastDailyResponse.self, from: data!)
+                    completion(forecastDailyResponse, nil)
                 }catch {
                     print(error)
                     completion(nil, NetworkResponse.unableToDecode.rawValue)

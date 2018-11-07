@@ -10,14 +10,16 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     @IBOutlet private weak var headerView: UIView!
+    @IBOutlet private weak var headerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var areaLabel: UILabel!
     @IBOutlet private weak var weatherLabel: UILabel!
     @IBOutlet private weak var temperatureLabel: UILabel!
     private var todayForecastView = DailyForecastView.instanceFromNib()
     @IBOutlet private weak var todayView: UIView!
+    @IBOutlet private weak var todayViewTopConstraint: NSLayoutConstraint!
     @IBOutlet private weak var todayForecastCollectionView: ForecastCollectionView!
     @IBOutlet private weak var detailScrollView: UIScrollView!
-    @IBOutlet private weak var dailyForecastStackView: UIStackView!
+    @IBOutlet private weak var forecastDailyStackView: ForecastDailyStackView!
     @IBOutlet private weak var forecastDescriptionLabel: UILabel!
     @IBOutlet private weak var infoStackView: UIStackView!
     private var sunriseSunsetView = InfoView.instanceFromNib()
@@ -66,7 +68,9 @@ extension WeatherViewController {
         weatherViewModel.finishedFetchingWeatherClosure = hideLoadingView
         
         todayForecastCollectionView.initViewModel()
+        forecastDailyStackView.initViewModel()
         weatherViewModel.forecastListViewModel = todayForecastCollectionView.forecastListViewModel
+        weatherViewModel.forecastDailyListViewModel = forecastDailyStackView.forecastDailyListViewModel
     }
     
     private func updateWeatherData() {
@@ -102,6 +106,13 @@ extension WeatherViewController {
                        completion: { finished in
                         self.loadingView.stopAnimating()
         })
+    }
+}
+
+//MARK:- ScrollView Delegate
+extension WeatherViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        <#code#>
     }
 }
 
