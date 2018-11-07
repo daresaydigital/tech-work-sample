@@ -95,11 +95,11 @@ extension WeatherViewModel {
             self.summary.value = String(format: "Today: %@ currently. It's %d°; the high today was forecast as %d°.", response.weather[0].main, Int(response.main.temperature), Int(response.main.temperatureMax))
             
             self.dayTime.value = .night
-            self.dayString.value = "Sunday"
+            self.dayString.value = DateConverter.timeIntervalToDayString(response.dayTime)
             self.temperatureMin.value = response.main.temperatureMin
             self.temperatureMax.value = response.main.temperatureMax
-            self.sunrise.value = "06:00"
-            self.sunset.value = "17:45"
+            self.sunrise.value = DateConverter.timeIntervalToHourMinuteString(response.system.sunrise)
+            self.sunset.value = DateConverter.timeIntervalToHourMinuteString(response.system.sunset)
             self.pressure.value = String(format: "%.2f hPa", response.main.pressure)
             self.humidity.value = String(format: "%d%", response.main.humidity)
             self.updateWeatherDataClosure?()

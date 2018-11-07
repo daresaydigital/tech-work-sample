@@ -187,6 +187,9 @@
                                     <constraint firstAttribute="bottom" secondItem="ZEd-Bv-MBW" secondAttribute="bottom" id="beK-8U-dLf"/>
                                     <constraint firstItem="ZEd-Bv-MBW" firstAttribute="leading" secondItem="VhF-BK-1mi" secondAttribute="leading" id="yB4-Dq-xf8"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OTu-nt-fwX"/>
+                                </connections>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49c-ek-F1p" userLabel="footerView">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>

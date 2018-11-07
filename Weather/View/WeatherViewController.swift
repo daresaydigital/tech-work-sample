@@ -28,6 +28,12 @@ class WeatherViewController: UIViewController {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     
     private var weatherViewModel = WeatherViewModel()
+    private var headerViewTopDefault: CGFloat = 0
+    private var todayViewTopDefault: CGFloat = 0
+    private var totalTopShift: CGFloat = 0
+    private var headerViewTopRatio: CGFloat = 0
+    private var todayViewTopRatio: CGFloat = 0
+    private var scrollViewOffset = CGPoint.zero
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +87,7 @@ extension WeatherViewController {
 //MARK:- private func
 extension WeatherViewController {
     private func setupUI() {
+        self.view.layoutIfNeeded()
         self.view.insertSubview(todayForecastView, belowSubview: todayView)
         sunriseSunsetView.configureInfoView(title1: "Sunrise", title2: "Sunset")
         infoStackView.addArrangedSubview(sunriseSunsetView)
@@ -92,6 +99,12 @@ extension WeatherViewController {
             todayForecastView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             todayForecastView.bottomAnchor.constraint(equalTo: todayView.topAnchor)
             ])
+        
+        headerViewTopDefault = headerViewTopConstraint.constant
+        todayViewTopDefault = todayViewTopConstraint.constant
+        totalTopShift = headerViewTopDefault + todayViewTopDefault
+        headerViewTopRatio = headerViewTopDefault / totalTopShift
+        todayViewTopRatio = todayViewTopDefault / totalTopShift
     }
     private func showLoadingView(){
         loadingBGView.backgroundColor = view.backgroundColor
@@ -112,7 +125,26 @@ extension WeatherViewController {
 //MARK:- ScrollView Delegate
 extension WeatherViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        <#code#>
+        var offset = scrollView.contentOffset
+        if (offset.y > 0 && todayViewTopConstraint.constant > 0) ||
+            (offset.y < 0 && todayViewTopConstraint.constant < todayViewTopDefault) {
+            let shift = offset.y
+            headerViewTopConstraint.constant -= shift * headerViewTopRatio
+            todayViewTopConstraint.constant -= shift * todayViewTopRatio
+            headerViewTopConstraint.constant = max(0, min(headerViewTopDefault, headerViewTopConstraint.constant))
+            todayViewTopConstraint.constant = max(0, min(todayViewTopDefault, todayViewTopConstraint.constant))
+            
+            self.view.layoutIfNeeded()
+            
+            let maxValue = (todayViewTopDefault / 2)
+            var alpha = (todayViewTopConstraint.constant - maxValue) / maxValue
+            alpha = max(0, alpha)
+            temperatureLabel.alpha = alpha
+            todayForecastView.alpha = alpha
+            
+            offset.y = 0
+            scrollView.contentOffset = offset
+        }
     }
 }
 
