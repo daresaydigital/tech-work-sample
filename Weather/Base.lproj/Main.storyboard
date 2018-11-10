@@ -89,6 +89,13 @@
                                                             <color key="textColor" red="0.35085651278495789" green="0.74810749292373657" blue="0.94008046388626099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rDo-hQ-Lhb">
+                                                            <rect key="frame" x="5" y="25.5" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="40" id="cr2-6u-IQ8"/>
+                                                                <constraint firstAttribute="width" constant="40" id="vVM-0K-aVK"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rWo-lJ-Op8">
                                                             <rect key="frame" x="0.0" y="67" width="50" height="18"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -105,13 +112,16 @@
                                                     <constraint firstItem="HXz-sX-Nk0" firstAttribute="top" secondItem="adi-dU-YDf" secondAttribute="top" constant="5" id="Tx0-Zf-VlC"/>
                                                     <constraint firstItem="rWo-lJ-Op8" firstAttribute="width" secondItem="adi-dU-YDf" secondAttribute="width" id="Vzy-tt-wya"/>
                                                     <constraint firstItem="rWo-lJ-Op8" firstAttribute="bottom" secondItem="adi-dU-YDf" secondAttribute="bottom" constant="-10" id="fTc-oV-Bu5"/>
+                                                    <constraint firstItem="rDo-hQ-Lhb" firstAttribute="centerY" secondItem="adi-dU-YDf" secondAttribute="centerY" constant="-2" id="lzF-r8-IGQ"/>
                                                     <constraint firstItem="fLR-aP-73S" firstAttribute="width" secondItem="adi-dU-YDf" secondAttribute="width" id="n9V-cX-aC9"/>
+                                                    <constraint firstItem="rDo-hQ-Lhb" firstAttribute="centerX" secondItem="adi-dU-YDf" secondAttribute="centerX" id="p4V-VJ-32s"/>
                                                     <constraint firstItem="fLR-aP-73S" firstAttribute="top" secondItem="HXz-sX-Nk0" secondAttribute="bottom" id="rCn-YT-OXK"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="chanceLabel" destination="fLR-aP-73S" id="F1I-Pj-X6Q"/>
                                                     <outlet property="hourLabel" destination="HXz-sX-Nk0" id="iXd-Hj-J99"/>
                                                     <outlet property="temperatureLabel" destination="rWo-lJ-Op8" id="2fZ-0B-gdm"/>
+                                                    <outlet property="weatherImageView" destination="rDo-hQ-Lhb" id="V1c-K5-HSw"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

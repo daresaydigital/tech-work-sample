@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,6 +26,9 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JGi-fw-d25">
+                    <rect key="frame" x="172.5" y="0.0" width="30" height="30"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TpB-4s-Jzb">
                     <rect key="frame" x="277" y="4.5" width="28" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -43,9 +46,13 @@
             <constraints>
                 <constraint firstItem="o5z-4F-nfr" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-20" id="Exo-1H-Sua"/>
                 <constraint firstItem="niC-qn-cDd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="FLZ-n4-ZMz"/>
+                <constraint firstItem="JGi-fw-d25" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GfW-Zh-srT"/>
+                <constraint firstItem="JGi-fw-d25" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="I5N-KP-orq"/>
                 <constraint firstItem="niC-qn-cDd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Jqv-yj-znd"/>
                 <constraint firstItem="Ogc-n9-R0c" firstAttribute="leading" secondItem="niC-qn-cDd" secondAttribute="trailing" constant="10" id="MXk-N1-nLJ"/>
                 <constraint firstItem="TpB-4s-Jzb" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="T7m-Na-WbG"/>
+                <constraint firstItem="JGi-fw-d25" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="height" id="X2a-Mm-vja"/>
+                <constraint firstItem="JGi-fw-d25" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="YNz-hb-AYq"/>
                 <constraint firstItem="Ogc-n9-R0c" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aYR-Ex-9Bf"/>
                 <constraint firstItem="TpB-4s-Jzb" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-70" id="ffg-Ue-MDG" userLabel="maxLabel.trailing = trailing - 65"/>
                 <constraint firstItem="o5z-4F-nfr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zje-rW-0tH"/>
@@ -57,6 +64,7 @@
                 <outlet property="maxLabel" destination="TpB-4s-Jzb" id="BPX-Qz-BNf"/>
                 <outlet property="minLabel" destination="o5z-4F-nfr" id="EVe-WA-nJu"/>
                 <outlet property="todayLabel" destination="Ogc-n9-R0c" id="O40-zV-6j7"/>
+                <outlet property="weatherImageView" destination="JGi-fw-d25" id="vqQ-kw-sYo"/>
             </connections>
         </view>
     </objects>

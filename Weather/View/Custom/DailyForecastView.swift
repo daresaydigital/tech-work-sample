@@ -11,6 +11,7 @@ import UIKit
 class DailyForecastView: UIView {
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var todayLabel: UILabel!
+    @IBOutlet private weak var weatherImageView: UIImageView!
     @IBOutlet private weak var maxLabel: UILabel!
     @IBOutlet private weak var minLabel: UILabel!
     
@@ -33,6 +34,7 @@ class DailyForecastView: UIView {
     func configureTodayView(weatherViewModel: WeatherViewModel) {
         dayLabel.text = weatherViewModel.dayString.value
         todayLabel.alpha = 1
+        weatherImageView.image = nil
         maxLabel.text = "\(Int(weatherViewModel.temperatureMax.value))°"
         minLabel.text = "\(Int(weatherViewModel.temperatureMin.value))°"
     }
@@ -41,6 +43,7 @@ class DailyForecastView: UIView {
         
         dayLabel.text = forecastDailyViewModel.dayString
         todayLabel.alpha = 0
+        weatherImageView.kf.setImage(with: URL(string: forecastDailyViewModel.icon))
         maxLabel.text = "\(Int(forecastDailyViewModel.temperatureMax))°"
         minLabel.text = "\(Int(forecastDailyViewModel.temperatureMin))°"
     }

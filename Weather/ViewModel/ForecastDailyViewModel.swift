@@ -11,11 +11,13 @@ import Foundation
 
 class ForecastDailyViewModel: NSObject {
     let dayString: String
+    var icon: String
     let temperatureMax: Double
     let temperatureMin: Double
     
     init(forecastDaily: ForecastDaily) {
         dayString = DateConverter.timeIntervalToDayString(forecastDaily.dayTime)
+        icon = "http://openweathermap.org/img/w/\(forecastDaily.weather[0].icon).png"
         temperatureMax = forecastDaily.temperature.max
         temperatureMin = forecastDaily.temperature.min
     }
