@@ -10,6 +10,6 @@ import Foundation
 
 
 struct Constants {
-    static let apiKey = "62fc4256-8f8c-11e5-8994-feff819cdc9f"
+    static let apiKey = "<Your-API-Key>"
     static let networkEnvironment: NetworkEnvironment = .production
 }

@@ -18,7 +18,7 @@ struct ForecastDaily: Codable {
     let dayTime: TimeInterval
     let temperature: Temperature
     let pressure: Double
-    let humidity: Double
+    let humidity: Int
     let weather: [Weather]
     let speed: Double
     let degree: Double

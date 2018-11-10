@@ -23,6 +23,7 @@ class WeatherViewModel: NSObject {
     var sunset = Dynamic("00:00")
     var pressure = Dynamic("")
     var humidity = Dynamic("")
+    var icon = Dynamic("")
     
     
     lazy var networkManager: WeatherNetworkManager = NetworkManager(apiKey: Constants.apiKey, environment: Constants.networkEnvironment)
@@ -102,6 +103,7 @@ extension WeatherViewModel {
             self.sunset.value = DateConverter.timeIntervalToHourMinuteString(response.system.sunset)
             self.pressure.value = String(format: "%.2f hPa", response.main.pressure)
             self.humidity.value = String(format: "%d%", response.main.humidity)
+            self.icon.value = "http://openweathermap.org/img/w/\(response.weather[0].icon).png"
             self.updateWeatherDataClosure?()
             self.finishedFetchingWeatherClosure?()
         }
