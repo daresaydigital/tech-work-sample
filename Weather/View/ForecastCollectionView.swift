@@ -11,6 +11,11 @@ import UIKit
 class ForecastCollectionView: UICollectionView {
 
     var forecastListViewModel = ForecastListViewModel()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.register(UINib(nibName: "ForecastCell", bundle: nil), forCellWithReuseIdentifier: "forecastCellIdentifier")
+    }
 
 }
 
@@ -33,7 +38,7 @@ extension ForecastCollectionView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "hourlyForecastCellIdentifier", for: indexPath) as! HourlyForecastCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "forecastCellIdentifier", for: indexPath) as! ForecastCell
         let forecastViewModel = forecastListViewModel.getForecastViewModel(indexPath: indexPath)
         cell.configureCell(forecastViewModel: forecastViewModel, isNow: indexPath.item == 0)
         return cell

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="forecastCellIdentifier" id="gTV-IL-0wX" customClass="ForecastCell" customModule="Weather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="95"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="95"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAt-FZ-7FA">
+                        <rect key="frame" x="0.0" y="5" width="50" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e26-AD-XMO">
+                        <rect key="frame" x="0.0" y="22" width="50" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.35085651280000002" green="0.7481074929" blue="0.9400804639" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3a-R2-Uln">
+                        <rect key="frame" x="5" y="25.5" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Fhj-wX-bTQ"/>
+                            <constraint firstAttribute="width" constant="40" id="YEX-Aa-Ule"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0U-ts-IBB">
+                        <rect key="frame" x="0.0" y="67" width="50" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="TAt-FZ-7FA" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="CzU-lM-ZR4"/>
+                <constraint firstItem="f3a-R2-Uln" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-2" id="GLt-n8-xei"/>
+                <constraint firstItem="e26-AD-XMO" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="GfZ-Un-S1S"/>
+                <constraint firstItem="D0U-ts-IBB" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="NgU-bJ-koE"/>
+                <constraint firstItem="D0U-ts-IBB" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="TSP-u1-2T7"/>
+                <constraint firstItem="e26-AD-XMO" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Tzh-M0-8pf"/>
+                <constraint firstItem="e26-AD-XMO" firstAttribute="top" secondItem="TAt-FZ-7FA" secondAttribute="bottom" id="gzI-H5-m5Y"/>
+                <constraint firstItem="D0U-ts-IBB" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" constant="-10" id="quV-mB-AVz"/>
+                <constraint firstItem="TAt-FZ-7FA" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="r74-ZR-8kj"/>
+                <constraint firstItem="f3a-R2-Uln" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xZw-md-cxJ"/>
+                <constraint firstItem="TAt-FZ-7FA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="zNc-Ae-qnq"/>
+            </constraints>
+            <connections>
+                <outlet property="chanceLabel" destination="e26-AD-XMO" id="MhF-Nl-u9F"/>
+                <outlet property="temperatureLabel" destination="D0U-ts-IBB" id="Ryu-j4-wrr"/>
+                <outlet property="timeLabel" destination="TAt-FZ-7FA" id="zJZ-Q6-k3K"/>
+                <outlet property="weatherImageView" destination="f3a-R2-Uln" id="UNA-cz-Unv"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
