@@ -38,6 +38,13 @@ class DateConverter {
         return dateFormatter.string(from: date)
     }
     
+    static func timeIntervalToDayTimeInterval(_ time: TimeInterval) -> TimeInterval{
+        let date = Date(timeIntervalSince1970: time)
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: date)
+        return TimeInterval(((components.hour! * 60) + components.minute!) * 60)
+    }
+    
     static func stringToDate(dateString: String, timezone: String = "CEST") -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"

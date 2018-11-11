@@ -23,7 +23,9 @@ class WeatherViewModel: NSObject {
     var temperatureMin: Dynamic<Double> = Dynamic(0)
     var temperatureMax: Dynamic<Double> = Dynamic(0)
     var sunrise = Dynamic("00:00")
+    var sunriseTime: Dynamic<TimeInterval> = Dynamic(0)
     var sunset = Dynamic("00:00")
+    var sunsetTime: Dynamic<TimeInterval> = Dynamic(0)
     var windSpeed = Dynamic("")
     var pressure = Dynamic("")
     var humidity = Dynamic("")
@@ -74,6 +76,7 @@ extension WeatherViewModel: WeatherDetailProtocol {
             self.timeString.value = DateConverter.timeIntervalToHourMinuteString(forecast.dayTime)
             self.dayString.value = DateConverter.timeIntervalToDayString(forecast.dayTime)
             self.dayShortString.value = DateConverter.timeIntervalToDayShortString(forecast.dayTime)
+            self.dayTime.value = self.calcDayTime(timeInterval: forecast.dayTime)
             self.temperatureMin.value = forecast.main.temperatureMin
             self.temperatureMax.value = forecast.main.temperatureMax
             self.windSpeed.value = "\(forecast.wind.speed) mps"
@@ -91,6 +94,7 @@ extension WeatherViewModel: WeatherDetailProtocol {
             self.timeString.value = DateConverter.timeIntervalToHourMinuteString(forecastDaily.dayTime)
             self.dayString.value = DateConverter.timeIntervalToDayString(forecastDaily.dayTime)
             self.dayShortString.value = DateConverter.timeIntervalToDayShortString(forecastDaily.dayTime)
+            self.dayTime.value = self.calcDayTime(timeInterval: forecastDaily.dayTime)
             self.temperatureMin.value = forecastDaily.temperature.min
             self.temperatureMax.value = forecastDaily.temperature.max
             self.windSpeed.value = "\(forecastDaily.speed) mps"
@@ -142,20 +146,38 @@ extension WeatherViewModel {
             self.temperature.value = response.main.temperature
             self.summary.value = String(format: "Today: %@ currently. It's %d°; the high today was forecast as %d°.", response.weather[0].main, Int(response.main.temperature), Int(response.main.temperatureMax))
             
-            self.dayTime.value = .night
             self.timeString.value = DateConverter.timeIntervalToHourMinuteString(response.dayTime)
             self.dayString.value = DateConverter.timeIntervalToDayString(response.dayTime)
             self.dayShortString.value = DateConverter.timeIntervalToDayShortString(response.dayTime)
             self.temperatureMin.value = response.main.temperatureMin
             self.temperatureMax.value = response.main.temperatureMax
             self.sunrise.value = DateConverter.timeIntervalToHourMinuteString(response.system.sunrise)
+            self.sunriseTime.value = DateConverter.timeIntervalToDayTimeInterval(response.system.sunrise)
             self.sunset.value = DateConverter.timeIntervalToHourMinuteString(response.system.sunset)
+            self.sunsetTime.value = DateConverter.timeIntervalToDayTimeInterval(response.system.sunset)
+            self.dayTime.value = self.calcDayTime(timeInterval: response.dayTime)
             self.windSpeed.value = "\(response.wind.speed) mps"
             self.pressure.value = String(format: "%d hPa", Int(response.main.pressure))
             self.humidity.value = String(format: "%d %%", response.main.humidity)
             self.icon.value = "http://openweathermap.org/img/w/\(response.weather[0].icon).png"
             self.updateWeatherDataClosure?()
             self.finishedFetchingWeatherClosure?()
+        }
+    }
+    
+    private func calcDayTime(timeInterval: TimeInterval)-> DayTime {
+        let time = DateConverter.timeIntervalToDayTimeInterval(timeInterval)
+        switch time {
+        case 0..<sunriseTime.value:
+            return .night
+        case sunriseTime.value..<(sunriseTime.value + 7200):
+            return .morning
+        case (sunriseTime.value + 7200)..<(sunsetTime.value - 7200):
+            return .day
+        case (sunsetTime.value - 7200)..<sunsetTime.value:
+            return .evening
+        default:
+            return .night
         }
     }
 }

@@ -77,6 +77,7 @@ extension WeatherViewController {
         }
         weatherViewModel.sunrise.listener = { self.sunriseSunsetView.detail1 = $0 }
         weatherViewModel.sunset.listener = { self.sunriseSunsetView.detail2 = $0 }
+        weatherViewModel.dayTime.listener = { self.view.backgroundColor = DayTimeColor.colorFor($0) }
         weatherViewModel.pressure.listener = { self.pressureHumidityView.detail1 = $0 }
         weatherViewModel.humidity.listener = { self.pressureHumidityView.detail2 = $0 }
         

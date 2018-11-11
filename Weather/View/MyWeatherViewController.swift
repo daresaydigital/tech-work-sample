@@ -67,6 +67,7 @@ extension MyWeatherViewController {
         weatherViewModel.temperature.listener = { self.temperatureLabel.text = "\(Int($0))" }
         weatherViewModel.timeString.listener = { self.timeLabel.text = $0 }
         weatherViewModel.dayShortString.listener = { self.dayLabel.text = $0 }
+        weatherViewModel.dayTime.listener = { self.view.backgroundColor = DayTimeColor.colorFor($0) }
         weatherViewModel.temperatureMin.listener = { self.minTemperatureLabel.text = "Min \(Int($0))°" }
         weatherViewModel.temperatureMax.listener = { self.maxTemperatureLabel.text = "Max \(Int($0))°" }
         weatherViewModel.windSpeed.listener = { self.windLabel.text = "Wind \($0)" }

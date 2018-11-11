@@ -718,7 +718,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.28627450980392155" green="0.60784313725490191" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.28627450980000002" green="0.60784313729999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xEC-nQ-Z8k" firstAttribute="centerX" secondItem="TaP-he-vTl" secondAttribute="centerX" id="2yz-eY-5SG"/>
                             <constraint firstItem="xEC-nQ-Z8k" firstAttribute="centerY" secondItem="TaP-he-vTl" secondAttribute="centerY" id="3up-pL-d2B"/>

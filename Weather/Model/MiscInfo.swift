@@ -9,13 +9,6 @@
 import Foundation
 
 
-enum DayTime: Int {
-    case morning
-    case day
-    case evening
-    case night
-}
-
 struct Coordinate: Codable {
     let longitude: Double
     let latitude: Double
