@@ -36,7 +36,7 @@ The app is currently able to load Weather data from Weather's API, and show it i
 9. Add pods: Kingfisher
 10. Add MyWeatherViewController and Design the Dashboard UI layout
 11. Implement existing ViewModels to MyWeatherViewController
-10. Add Unit & UI Test to test the process
+10. Add Unit Test to test the process
 
 
 
