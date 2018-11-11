@@ -1,5 +1,5 @@
 //
-//  WeatherPoint.swift
+//  WeatherEndPoint.swift
 //  NetworkLayer
 //
 //
@@ -45,7 +45,7 @@ extension WeatherAPI: EndPointType {
         }
     }
     
-    /** generate task based on requested Auto1's API. */
+    /** generate task based on requested Weather's API. */
     var task: HTTPTask {
         switch self {
         case .weather(let latitude, let longitude, let apiKey):
