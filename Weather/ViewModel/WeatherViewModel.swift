@@ -77,6 +77,12 @@ extension WeatherViewModel {
             if let error = error {
                 print("Network Error: \(error)")
                 self.status = error
+                
+                DispatchQueue.main.async {
+                    let _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
+                        self.fetchWeather()
+                    })
+                }
             } else {
                 self.status = nil
                 self.processWeatherResponse(weatherResponse!)

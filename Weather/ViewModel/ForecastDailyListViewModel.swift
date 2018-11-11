@@ -27,6 +27,12 @@ extension ForecastDailyListViewModel {
             if let error = error {
                 print("Network Error: \(error)")
                 self.status = error
+                
+                DispatchQueue.main.async {
+                    let _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
+                        self.fetchForecastDaily(coordinate: coordinate)
+                    })
+                }
             } else {
                 self.status = nil
                 self.processForecastDailyResponse(forecastDailyResponse!)
