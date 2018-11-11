@@ -27,6 +27,7 @@ class WeatherViewModel: NSObject {
     var sunset = "00:00"
     var sunsetTime: TimeInterval = 0
     var windSpeed = ""
+    var windDegree: Double? = 0
     var pressure = ""
     var humidity = ""
     var icon = ""
@@ -99,6 +100,7 @@ extension WeatherViewModel: WeatherDetailProtocol {
         temperatureMin = forecast.main.temperatureMin
         temperatureMax = forecast.main.temperatureMax
         windSpeed = "\(forecast.wind.speed) mps"
+        windDegree = forecast.wind.degree
         pressure = String(format: "%d hPa", Int(forecast.main.pressure))
         humidity = String(format: "%d %%", forecast.main.humidity)
         icon = "http://openweathermap.org/img/w/\(forecast.weather[0].icon).png"
@@ -117,6 +119,7 @@ extension WeatherViewModel: WeatherDetailProtocol {
         temperatureMin = forecastDaily.temperature.min
         temperatureMax = forecastDaily.temperature.max
         windSpeed = "\(forecastDaily.speed) mps"
+        windDegree = forecastDaily.degree
         pressure = String(format: "%d hPa", Int(forecastDaily.pressure))
         humidity = String(format: "%d %%", forecastDaily.humidity)
         icon = "http://openweathermap.org/img/w/\(forecastDaily.weather[0].icon).png"
@@ -161,6 +164,7 @@ extension WeatherViewModel {
         sunsetTime = DateConverter.timeIntervalToDayTimeInterval(response.system.sunset)
         dayTime = self.calcDayTime(timeInterval: response.dayTime)
         windSpeed = "\(response.wind.speed) mps"
+        windDegree = response.wind.degree
         pressure = String(format: "%d hPa", Int(response.main.pressure))
         humidity = String(format: "%d %%", response.main.humidity)
         icon = "http://openweathermap.org/img/w/\(response.weather[0].icon).png"

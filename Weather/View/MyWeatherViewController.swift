@@ -16,6 +16,7 @@ class MyWeatherViewController: UIViewController {
     @IBOutlet private weak var weatherBaseView: UIView!
     @IBOutlet private weak var weatherCenterView: UIView!
     @IBOutlet private weak var compassBaseView: UIView!
+    @IBOutlet private weak var windDirectionView: UIView!
     @IBOutlet private weak var weatherImageView: UIImageView!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var temperatureLabel: UILabel!
@@ -84,10 +85,13 @@ extension MyWeatherViewController {
         closeButton.setFullRoundedCorner()
         weatherBaseView.setFullRoundedCorner()
         compassBaseView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+        windDirectionView.alpha = 0
         weatherCenterView.setFullRoundedCorner(borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
     }
     
     private func updateWeatherData() {
+        let degreeToRad: CGFloat = CGFloat.pi / 180
+        
         locationLabel.text = "\(weatherViewModel.area), \(weatherViewModel.country)"
         weatherLabel.text = weatherViewModel.weather
         temperatureLabel.text = "\(Int(weatherViewModel.temperature))"
@@ -97,6 +101,14 @@ extension MyWeatherViewController {
         minTemperatureLabel.text = "Min \(Int(weatherViewModel.temperatureMin))°"
         maxTemperatureLabel.text = "Max \(Int(weatherViewModel.temperatureMax))°"
         windLabel.text = "Wind \(weatherViewModel.windSpeed)"
+        if let windDegree = weatherViewModel.windDegree {
+            UIView.animate(withDuration: 0.3) {
+                self.windDirectionView.transform = CGAffineTransform(rotationAngle: CGFloat(windDegree) * degreeToRad)
+                self.windDirectionView.alpha = 1
+            }
+        } else {
+            windDirectionView.alpha = 0
+        }
         pressureLabel.text = weatherViewModel.pressure
         humidityLabel.text = weatherViewModel.humidity
         weatherImageView.kf.setImage(with: URL(string: weatherViewModel.icon))

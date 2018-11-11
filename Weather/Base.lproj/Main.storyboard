@@ -285,6 +285,22 @@
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aun-X2-KyN">
                                                         <rect key="frame" x="37.5" y="67.5" width="300" height="300"/>
                                                         <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ue-Gi-9em">
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oj-Os-3HM">
+                                                                        <rect key="frame" x="141" y="2" width="18" height="24"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="5Oj-Os-3HM" firstAttribute="top" secondItem="9Ue-Gi-9em" secondAttribute="top" constant="2" id="GYE-Kd-Hq0"/>
+                                                                    <constraint firstItem="5Oj-Os-3HM" firstAttribute="centerX" secondItem="9Ue-Gi-9em" secondAttribute="centerX" id="QQg-ca-kaS"/>
+                                                                </constraints>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozD-y3-VHc">
                                                                 <rect key="frame" x="18" y="18" width="264" height="264"/>
                                                                 <subviews>
@@ -375,7 +391,7 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="31" translatesAutoresizingMaskIntoConstraints="NO" id="N2g-dL-79I">
                                                                                 <rect key="frame" x="0.0" y="-10" width="72" height="74"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" constant="72" id="ssD-Pr-8bm"/>
+                                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="ssD-Pr-8bm"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="62"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -574,13 +590,17 @@
                                                             <constraint firstItem="mOA-Qh-nAK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zdN-hP-j24" secondAttribute="trailing" constant="8" symbolic="YES" id="NF8-PV-hhI"/>
                                                             <constraint firstItem="ozD-y3-VHc" firstAttribute="centerY" secondItem="Aun-X2-KyN" secondAttribute="centerY" id="bid-hg-HiG"/>
                                                             <constraint firstItem="mOA-Qh-nAK" firstAttribute="centerX" secondItem="Aun-X2-KyN" secondAttribute="centerX" id="etm-Cr-VWz"/>
+                                                            <constraint firstItem="9Ue-Gi-9em" firstAttribute="width" secondItem="Aun-X2-KyN" secondAttribute="width" id="g0T-0H-K8z"/>
+                                                            <constraint firstItem="9Ue-Gi-9em" firstAttribute="centerY" secondItem="Aun-X2-KyN" secondAttribute="centerY" id="hQ3-yV-Uxm"/>
                                                             <constraint firstItem="ozD-y3-VHc" firstAttribute="centerX" secondItem="Aun-X2-KyN" secondAttribute="centerX" id="nKW-Ey-7F2"/>
                                                             <constraint firstItem="UCX-7W-ord" firstAttribute="centerX" secondItem="Aun-X2-KyN" secondAttribute="centerX" id="reH-dy-pqD"/>
                                                             <constraint firstItem="ok1-r2-ExX" firstAttribute="trailing" secondItem="Aun-X2-KyN" secondAttribute="trailing" constant="-11" id="sBf-iu-97V"/>
+                                                            <constraint firstItem="9Ue-Gi-9em" firstAttribute="height" secondItem="Aun-X2-KyN" secondAttribute="height" id="tbQ-RR-KZg"/>
                                                             <constraint firstItem="ok1-r2-ExX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mOA-Qh-nAK" secondAttribute="trailing" constant="8" symbolic="YES" id="teG-ae-2gx"/>
                                                             <constraint firstItem="zdN-hP-j24" firstAttribute="centerY" secondItem="Aun-X2-KyN" secondAttribute="centerY" id="uBm-Hh-97H"/>
                                                             <constraint firstItem="UCX-7W-ord" firstAttribute="bottom" secondItem="Aun-X2-KyN" secondAttribute="bottom" constant="-8" id="vjz-oY-aSq"/>
                                                             <constraint firstAttribute="height" constant="300" id="yWB-WE-toj"/>
+                                                            <constraint firstItem="9Ue-Gi-9em" firstAttribute="centerX" secondItem="Aun-X2-KyN" secondAttribute="centerX" id="yqA-tj-Ti5"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -747,6 +767,7 @@
                         <outlet property="weatherImageView" destination="mBt-e6-qZ6" id="uni-CX-5xY"/>
                         <outlet property="weatherLabel" destination="MS4-Xx-sGh" id="W89-be-BDg"/>
                         <outlet property="weatherView" destination="95c-RX-r5i" id="HAj-jq-d59"/>
+                        <outlet property="windDirectionView" destination="9Ue-Gi-9em" id="EMN-7B-PvL"/>
                         <outlet property="windLabel" destination="8ix-1E-3uG" id="9q4-jZ-435"/>
                     </connections>
                 </viewController>
