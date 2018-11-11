@@ -34,6 +34,7 @@ class WeatherViewController: UIViewController {
     private var headerViewTopRatio: CGFloat = 0
     private var todayViewTopRatio: CGFloat = 0
     private var scrollViewOffset = CGPoint.zero
+    private var isFirstLoad = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +50,18 @@ class WeatherViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showLoadingView()
-        weatherViewModel.startWeatherForcasting()
+        weatherViewModel.startWeatherForecasting()
     }
 
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 
 }
 
@@ -70,6 +80,7 @@ extension WeatherViewController {
         weatherViewModel.pressure.listener = { self.pressureHumidityView.detail1 = $0 }
         weatherViewModel.humidity.listener = { self.pressureHumidityView.detail2 = $0 }
         
+        weatherViewModel.startFetchingWeatherClosure = showLoadingView
         weatherViewModel.updateWeatherDataClosure = updateWeatherData
         weatherViewModel.finishedFetchingWeatherClosure = hideLoadingView
         
@@ -107,9 +118,12 @@ extension WeatherViewController {
         todayViewTopRatio = todayViewTopDefault / totalTopShift
     }
     private func showLoadingView(){
-        loadingBGView.backgroundColor = view.backgroundColor
-        loadingBGView.alpha = 1
-        loadingView.startAnimating()
+        if isFirstLoad {
+            isFirstLoad = false
+            loadingBGView.backgroundColor = view.backgroundColor
+            loadingBGView.alpha = 1
+            loadingView.startAnimating()
+        }
     }
     private func hideLoadingView() {
         UIView.animate(withDuration: 0.2,

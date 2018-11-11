@@ -15,7 +15,7 @@ class ForecastViewModel: NSObject {
     var icon: String
     
     init(forecast: Forecast) {
-        time = String(forecast.dayTimeText[11...12])
+        time = DateConverter.timeIntervalToHourString(forecast.dayTime)
         temperature = "\(Int(forecast.main.temperature))°"
         icon = "http://openweathermap.org/img/w/\(forecast.weather[0].icon).png"
     }

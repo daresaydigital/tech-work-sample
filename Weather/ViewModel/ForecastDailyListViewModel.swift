@@ -10,12 +10,14 @@ import Foundation
 
 
 class ForecastDailyListViewModel: NSObject {
+    private var forecastDailyRawList = [ForecastDaily]()
     var forecastDailyList: Dynamic<[ForecastDailyViewModel]> = Dynamic([])
     var forecastDailyCount: Int {
         return forecastDailyList.value.count
     }
     
     var networkManager: WeatherNetworkManager!
+    var weatherDetail: WeatherDetailProtocol?
 }
 
 extension ForecastDailyListViewModel {
@@ -32,10 +34,15 @@ extension ForecastDailyListViewModel {
     func getForecastDailyViewModel(index: Int) -> ForecastDailyViewModel {
         return forecastDailyList.value[index]
     }
+    
+    func userSelectedForecast(_ index: Int){
+        weatherDetail?.updateWeatherData(forecastDaily: forecastDailyRawList[index])
+    }
 }
 
 extension ForecastDailyListViewModel {
     private func processForecastDailyResponse(_ forecastDailyResponse: ForecastDailyResponse) {
+        forecastDailyRawList = forecastDailyResponse.list
         forecastDailyList.value = forecastDailyResponse.list.map({ forecastDaily -> ForecastDailyViewModel in
             return ForecastDailyViewModel(forecastDaily: forecastDaily)
         })

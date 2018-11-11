@@ -17,6 +17,12 @@ class DateConverter {
         dateFormatter.dateFormat = "EEEE"
         return dateFormatter.string(from: date)
     }
+    static func timeIntervalToDayShortString(_ time: TimeInterval) -> String{
+        let date = Date(timeIntervalSince1970: time)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EE"
+        return dateFormatter.string(from: date)
+    }
     
     static func timeIntervalToHourString(_ time: TimeInterval) -> String{
         let date = Date(timeIntervalSince1970: time)

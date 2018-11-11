@@ -9,13 +9,14 @@
 import UIKit
 
 class ForecastListViewModel: NSObject {
+    private var forecastRawList = [Forecast]()
     var forecastList: Dynamic<[ForecastViewModel]> = Dynamic([])
     var forecastCount: Int {
         return forecastList.value.count
     }
     
     var networkManager: WeatherNetworkManager!
-    
+    var weatherDetail: WeatherDetailProtocol?
     
 }
 
@@ -30,13 +31,18 @@ extension ForecastListViewModel {
         }
     }
     
-    func getForecastViewModel(indexPath: IndexPath) -> ForecastViewModel {
-        return forecastList.value[indexPath.row]
+    func getForecastViewModel(_ index: Int) -> ForecastViewModel {
+        return forecastList.value[index]
+    }
+    
+    func userSelectedForecast(_ index: Int){
+        weatherDetail?.updateWeatherData(forecast: forecastRawList[index])
     }
 }
 
 extension ForecastListViewModel {
     private func processForecastResponse(_ forecastResponse: ForecastResponse) {
+        forecastRawList = forecastResponse.list
         forecastList.value = forecastResponse.list.map({ forecast -> ForecastViewModel in
             return ForecastViewModel(forecast: forecast)
         })

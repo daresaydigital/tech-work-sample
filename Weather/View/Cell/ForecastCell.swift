@@ -27,4 +27,11 @@ class ForecastCell: UICollectionViewCell {
         temperatureLabel.text = forecastViewModel.temperature
     }
     
+    func configureCell(forecastDailyViewModel: ForecastDailyViewModel, isNow: Bool = false) {
+        timeLabel.text = isNow ? "Now" : forecastDailyViewModel.dayShortString
+        chanceLabel.text = nil
+        weatherImageView.kf.setImage(with: URL(string: forecastDailyViewModel.icon))
+        temperatureLabel.text = "\(Int(forecastDailyViewModel.temperatureMin))°-\(Int(forecastDailyViewModel.temperatureMax))°"
+    }
+    
 }
