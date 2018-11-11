@@ -32,11 +32,11 @@ class DailyForecastView: UIView {
     */
     
     func configureTodayView(weatherViewModel: WeatherViewModel) {
-        dayLabel.text = weatherViewModel.dayString.value
+        dayLabel.text = weatherViewModel.dayString
         todayLabel.alpha = 1
         weatherImageView.image = nil
-        maxLabel.text = "\(Int(weatherViewModel.temperatureMax.value))°"
-        minLabel.text = "\(Int(weatherViewModel.temperatureMin.value))°"
+        maxLabel.text = "\(Int(weatherViewModel.temperatureMax))°"
+        minLabel.text = "\(Int(weatherViewModel.temperatureMin))°"
     }
     
     func configureTodayView(forecastDailyViewModel: ForecastDailyViewModel) {

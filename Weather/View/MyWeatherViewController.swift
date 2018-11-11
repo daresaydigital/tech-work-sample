@@ -61,21 +61,14 @@ class MyWeatherViewController: UIViewController {
 //MARK:- ViewModel related
 extension MyWeatherViewController {
     func initViewModel() {
-        weatherViewModel.area.listener = { self.locationLabel.text = "\($0), \(self.weatherViewModel.country.value)" }
-        weatherViewModel.country.listener = { self.locationLabel.text = "\(self.weatherViewModel.area.value), \($0)" }
-        weatherViewModel.weather.listener = { self.weatherLabel.text = $0 }
-        weatherViewModel.temperature.listener = { self.temperatureLabel.text = "\(Int($0))" }
-        weatherViewModel.timeString.listener = { self.timeLabel.text = $0 }
-        weatherViewModel.dayShortString.listener = { self.dayLabel.text = $0 }
-        weatherViewModel.dayTime.listener = { self.view.backgroundColor = DayTimeColor.colorFor($0) }
-        weatherViewModel.temperatureMin.listener = { self.minTemperatureLabel.text = "Min \(Int($0))°" }
-        weatherViewModel.temperatureMax.listener = { self.maxTemperatureLabel.text = "Max \(Int($0))°" }
-        weatherViewModel.windSpeed.listener = { self.windLabel.text = "Wind \($0)" }
-        weatherViewModel.pressure.listener = { self.pressureLabel.text = $0 }
-        weatherViewModel.humidity.listener = { self.humidityLabel.text = $0 }
-        weatherViewModel.icon.listener = { self.weatherImageView.kf.setImage(with: URL(string: $0))  }
+        
         
         weatherViewModel.startFetchingWeatherClosure = showLoadingView
+        weatherViewModel.updateWeatherDataClosure = {
+            DispatchQueue.main.async {
+                self.updateWeatherData()
+            }
+        }
         weatherViewModel.finishedFetchingWeatherClosure = hideLoadingView
         
         shortTermForecastCollectionView.initViewModel()
@@ -92,6 +85,21 @@ extension MyWeatherViewController {
         weatherBaseView.setFullRoundedCorner()
         compassBaseView.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
         weatherCenterView.setFullRoundedCorner(borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
+    }
+    
+    private func updateWeatherData() {
+        locationLabel.text = "\(weatherViewModel.area), \(weatherViewModel.country)"
+        weatherLabel.text = weatherViewModel.weather
+        temperatureLabel.text = "\(Int(weatherViewModel.temperature))"
+        timeLabel.text = weatherViewModel.timeString
+        dayLabel.text = weatherViewModel.dayShortString
+        self.view.backgroundColor = DayTimeColor.colorFor(weatherViewModel.dayTime)
+        minTemperatureLabel.text = "Min \(Int(weatherViewModel.temperatureMin))°"
+        maxTemperatureLabel.text = "Max \(Int(weatherViewModel.temperatureMax))°"
+        windLabel.text = "Wind \(weatherViewModel.windSpeed)"
+        pressureLabel.text = weatherViewModel.pressure
+        humidityLabel.text = weatherViewModel.humidity
+        weatherImageView.kf.setImage(with: URL(string: weatherViewModel.icon))
     }
     
     private func showLoadingView(){

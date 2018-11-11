@@ -69,21 +69,22 @@ class WeatherViewController: UIViewController {
 //MARK:- ViewModel related
 extension WeatherViewController {
     func initViewModel() {
-        weatherViewModel.area.listener = { self.areaLabel.text = $0 }
-        weatherViewModel.weather.listener = { self.weatherLabel.text = $0 }
-        weatherViewModel.temperature.listener = { self.temperatureLabel.text = "\(Int($0))°" }
-        weatherViewModel.summary.listener = { summary in
-            self.forecastDescriptionLabel.text = summary
-        }
-        weatherViewModel.sunrise.listener = { self.sunriseSunsetView.detail1 = $0 }
-        weatherViewModel.sunset.listener = { self.sunriseSunsetView.detail2 = $0 }
-        weatherViewModel.dayTime.listener = { self.view.backgroundColor = DayTimeColor.colorFor($0) }
-        weatherViewModel.pressure.listener = { self.pressureHumidityView.detail1 = $0 }
-        weatherViewModel.humidity.listener = { self.pressureHumidityView.detail2 = $0 }
         
-        weatherViewModel.startFetchingWeatherClosure = showLoadingView
-        weatherViewModel.updateWeatherDataClosure = updateWeatherData
-        weatherViewModel.finishedFetchingWeatherClosure = hideLoadingView
+        weatherViewModel.startFetchingWeatherClosure = {
+            DispatchQueue.main.async {
+                self.showLoadingView()
+            }
+        }
+        weatherViewModel.updateWeatherDataClosure = {
+            DispatchQueue.main.async {
+                self.updateWeatherData()
+            }
+        }
+        weatherViewModel.finishedFetchingWeatherClosure = {
+            DispatchQueue.main.async {
+                self.hideLoadingView()
+            }
+        }
         
         todayForecastCollectionView.initViewModel()
         forecastDailyStackView.initViewModel()
@@ -91,9 +92,6 @@ extension WeatherViewController {
         weatherViewModel.forecastDailyListViewModel = forecastDailyStackView.forecastDailyListViewModel
     }
     
-    private func updateWeatherData() {
-        todayForecastView.configureTodayView(weatherViewModel: weatherViewModel)
-    }
 }
 
 //MARK:- private func
@@ -118,6 +116,21 @@ extension WeatherViewController {
         headerViewTopRatio = headerViewTopDefault / totalTopShift
         todayViewTopRatio = todayViewTopDefault / totalTopShift
     }
+    
+    private func updateWeatherData() {
+        areaLabel.text = weatherViewModel.area
+        weatherLabel.text = weatherViewModel.weather
+        temperatureLabel.text = "\(Int(weatherViewModel.temperature))°"
+        forecastDescriptionLabel.text = weatherViewModel.summary
+        sunriseSunsetView.detail1 = weatherViewModel.sunrise
+        sunriseSunsetView.detail2 = weatherViewModel.sunset
+        view.backgroundColor = DayTimeColor.colorFor(weatherViewModel.dayTime)
+        pressureHumidityView.detail1 = weatherViewModel.pressure
+        pressureHumidityView.detail2 = weatherViewModel.humidity
+        
+        todayForecastView.configureTodayView(weatherViewModel: weatherViewModel)
+    }
+    
     private func showLoadingView(){
         if isFirstLoad {
             isFirstLoad = false
@@ -126,6 +139,7 @@ extension WeatherViewController {
             loadingView.startAnimating()
         }
     }
+    
     private func hideLoadingView() {
         UIView.animate(withDuration: 0.2,
                        animations: {

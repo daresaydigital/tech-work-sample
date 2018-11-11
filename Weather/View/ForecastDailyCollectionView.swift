@@ -15,6 +15,8 @@ class ForecastDailyCollectionView: UICollectionView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.register(UINib(nibName: "ForecastCell", bundle: nil), forCellWithReuseIdentifier: "forecastCellIdentifier")
+        self.dataSource = self
+        self.delegate = self
     }
     
 }
@@ -22,7 +24,6 @@ class ForecastDailyCollectionView: UICollectionView {
 //MARK:- ViewModel related
 extension ForecastDailyCollectionView {
     func initViewModel() {
-        self.dataSource = self
         forecastDailyListViewModel.forecastDailyList.listener = { forecastList in
             DispatchQueue.main.async {
                 self.reloadData()

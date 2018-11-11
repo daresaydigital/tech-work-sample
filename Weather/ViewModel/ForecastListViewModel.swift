@@ -14,6 +14,7 @@ class ForecastListViewModel: NSObject {
     var forecastCount: Int {
         return forecastList.value.count
     }
+    var status: String? = nil
     
     var networkManager: WeatherNetworkManager!
     var weatherDetail: WeatherDetailProtocol?
@@ -25,7 +26,9 @@ extension ForecastListViewModel {
         networkManager.fetchForecast(latitude: coordinate.latitude, longitude: coordinate.longitude) { (forecastResponse, error) in
             if let error = error {
                 print("Network Error: \(error)")
+                self.status = error
             } else {
+                self.status = nil
                 self.processForecastResponse(forecastResponse!)
             }
         }
