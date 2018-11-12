@@ -13,6 +13,8 @@ To install the dependencies
 
 (For further details regarding cocoapod installation see https://cocoapods.org/)
 
+Notes:
+Don't forget to change the apiKey for the Weather's API in "Constants.swift"
 
 ---
 # Existing Functionalities
@@ -21,6 +23,7 @@ The app is currently able to load Weather data from Weather's API, and show it i
 
 * When the app loads, it will load the Weather data from Weather's API, and show them in list form ( like iOS default "Weather" app)
 * Upon selecting "Other Design", it will open a view with Dashboard like presentation of Weather data
+
 
 ---
 # Development Steps
