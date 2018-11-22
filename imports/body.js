@@ -124,12 +124,14 @@ if (Meteor.isClient) {
     // set weather query to be passed to the wish list
     'click .option': function (event){
 
-      console.log('----event.target-----', event.target.wi)
+      console.log('----event.target.id-----', event.target.id)
+      console.log('----event.currentTarget.id-----', event.currentTarget.id)
 
       // sets that the user has selected an option
       Template.instance().hasSelectedOption.set(true);
 
-      this.$('.option').toggleClass('active')
+      const optionId = document.getElementById(event.target.id);
+      $(event.target.id).toggleClass('active')
 
       // sets the current city params to be passed to the second weather call getCitiesListData
       const currCityData = Session.get( 'getCityData');

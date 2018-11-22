@@ -39,17 +39,24 @@ a {
 }
 
 
-// helpers - use with @extend
-.one-line-spread {
+// placeholders - use with @extend
+%one-line-spread {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
 }
 
+%transition {
+  transition: all .6s;
+  -webkit-transition: all .6s;
+  -moz-transition: all .6s;
+  -o-transition: all .6s;
+}
+
 // main components
 .section {
-  @extend .one-line-spread;
+  @extend %one-line-spread;
   background-color: $bg;
   padding: 10px;
 }
@@ -73,16 +80,6 @@ select:-webkit-autofill {
 }
 
 
-
-
-.default-transition {
-  transition: 1s ease;
-}
-
-
-
-
-
 // Picture of unsplash author
 .pic-author {
   position: fixed;
@@ -96,16 +93,12 @@ select:-webkit-autofill {
 
 
 /* Option section - select desired weather type */
-.option {
-  height: 100px;
-  width: -webkit-fill-available;
-
+.options {
   i {
+    @extend %transition;
     font-size: 2rem;
-    transition: all .6s;
-    -webkit-transition: all .6s;
-    -moz-transition: all .6s;
-    -o-transition: all .6s;
+    padding: 0 10px;
+    cursor: pointer;
 
     /* Gradual color transition when for hovered/active options */
     &:hover,
@@ -118,56 +111,33 @@ select:-webkit-autofill {
 
 
 
-/* Show overlay when hovering a wished for city */
-.city-list:hover {
+.city-list {
+  @extend %one-line-spread;
+  background-color: $bg;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 2px;
 
+  .left-hand-of-darkness,
   .right-hand-of-darkness {
-    @extend .default-transition;
-    opacity: 1;
+    @extend %transition;
   }
 
   .left-hand-of-darkness {
-    opacity: 0;
+    width: fit-content;
+
+    &:hover,
+    &:active {
+      width: 100%;
+    }
   }
-}
 
-.city-list-style {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
-  border-radius: 2px;
-  height: $city-list-item-height;
-  font-family: Raleway;
-  font-weight: 400;
-  font-size: 1.4rem;
-  background-color: $bg;
-  padding: 5px;
-  margin: 10px;
-}
+  .right-hand-of-darkness {
+    opacity: 0;
 
-.top-icon {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-  padding: 5px;
-  font-size: 2rem;
-}
-
-.icon-and-temp {
-  margin-right: 10px;
-}
-
-.left-hand-of-darkness {
-  @extend .city-list-style;
-  width: fit-content;
-}
-
-/* Overlay that only shows on wish city hover */
-.right-hand-of-darkness {
-  @extend .default-transition;
-  @extend .city-list-style;
-  margin-top: -45px;
-  width: 100%;
-  opacity: 0;
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+  }
 }

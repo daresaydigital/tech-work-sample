@@ -29,10 +29,10 @@
       </div>
 
       <div class="section options">
-        <a href="#" id="rain" class="option"><i class="wi wi-rain"></i></a>
-        <a href="#" id="snow" class="option"><i class="wi wi-snow"></i></a>
-        <a href="#" id="cloud" class="option"><i class="wi wi-cloud"></i></a>
-        <a href="#" id="clear" class="option"><i class="wi wi-day-sunny"></i></a>
+        <i id="rain" class="option wi wi-rain"></i>
+        <i id="snow" class="option wi wi-snow"></i>
+        <i id="cloud" class="option wi wi-cloud"></i>
+        <i id="clear" class="option wi wi-day-sunny"></i>
       </div>
 
       <a href={{picLink}}><img class="pic-author" src={{picAuthor}} /></a>
@@ -43,20 +43,13 @@
   {{#if hasSelectedOption}}
     {{#if weatherExists}}
     <div id="returned-cities">
-      <div class="top-icon"><i class={{selectedIcon}}></i></div>
       {{#each weatherList}}
       <a class="city-list" href={{link}}>
         <div class="left-hand-of-darkness">
-          <div class="icon-and-temp">{{temp}}</div>
-          <div>{{name}}</div>
+          <h2>{{temp}}</h2>
+          <h2>{{name}}</h2>
         </div>
-        <div class="right-hand-of-darkness">
-          <div>Let's go</div>
-          <div class="one-line-spread">
-           <div class="icon-and-temp">{{name}}</div>
-           <div><i class={{icon}}></i>{{temp}}</div>
-         </div>
-        </div>
+        <h2 class="right-hand-of-darkness">Let's go</h2>
       </a>
       {{/each}}
     </div>
