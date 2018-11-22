@@ -1,19 +1,14 @@
 export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
 
-  //widen the search for cities, with the current city as the center point
+  // widen the search for cities, with the current city as the center point
   const coordinateBox = (lat, long) => {
-    let offset = 5;
-    let latBottom = lat-offset;
-    let latTop = lat+offset;
-    let longLeft = long-offset;
-    let longRight = long+offset;
-
-    let str = longLeft + ',' + latBottom + ',' + longRight + ',' + latTop;
+    const offset = 5;
+    const str = (long - offset) + ',' + (lat - offset) + ',' + (long + offset) + ',' + (lat + offset);
 
     return str;
   }
 
-  //get list of cities based on the above lat, long and offset
+  // get list of cities based on the above lat, long and offset
   const search = 'http://api.openweathermap.org/data/2.5/box/city?bbox=' + coordinateBox(lat, long) + ',20&callback=?&units=metric&APPID=' + APIkey
 
   req = $.getJSON(search, function (data) {
@@ -42,20 +37,21 @@ export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
     }
   }
 
-  //set current city list to be the filtered array
-  let cityList = filteredArray(newArray, que)
+    // set current city list to be the filtered array
+    let cityList = filteredArray(newArray, que)
 
-  if (cityList < 10) {
-    cityList.length = cityList.length;
-  }
+    if (cityList.length === 0) {
+      Session.set( 'getWishCityData', false)
+    }
 
-  if (cityList >= 10) {
-    cityList.length = 10;
-  }
+    if ((cityList.length > 0) && (cityList.length < 15)) {
+      cityList.length = cityList.length;
+      Session.set( 'getWishCityData', cityList)
+    }
 
-  Session.set( 'weatherExists', true)
-  Session.set( 'getWishCityData', cityList)
-
-  console.log('----Session.get(getWishCityData)---', Session.get( 'getWishCityData'))
+    if (cityList.length >= 15) {
+      cityList.length = 15;
+      Session.set( 'getWishCityData', cityList)
+    }
   })
 }

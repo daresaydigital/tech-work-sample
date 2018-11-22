@@ -1,10 +1,9 @@
 
 // colors
 $bg: rgba(255, 255, 255, 0.7);
+$hovered-bg: rgba(255, 255, 255, 0.8);
 $text: #666;
 $option-hover: #cc3c09;
-$city-list-item-height: 25px;
-
 
 // general
 body {
@@ -19,18 +18,13 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: Raleway;
   color: $text;
   font-weight: 600;
   margin: 0;
   padding: 0;
   margin: 0;
-}
-
-h3 {
-  font-size: .9rem;
 }
 
 a {
@@ -59,9 +53,14 @@ a {
   @extend %one-line-spread;
   background-color: $bg;
   padding: 10px;
+  text-align: center;
 }
 
 // search
+form {
+  width: auto;
+}
+
 input {
   @extend h2;
   font-size: 2rem;
@@ -94,6 +93,8 @@ select:-webkit-autofill {
 
 /* Option section - select desired weather type */
 .options {
+  padding-bottom: 20px;
+
   i {
     @extend %transition;
     font-size: 2rem;
@@ -102,42 +103,59 @@ select:-webkit-autofill {
 
     /* Gradual color transition when for hovered/active options */
     &:hover,
-    &:active {
+    &:active,
+     {
       font-size: 3rem;
       color: $option-hover;
     }
   }
 }
 
-
-
-.city-list {
-  @extend %one-line-spread;
+.city-item {
+  @extend %transition;
+  display: flex;
+  justify-content: space-between;
   background-color: $bg;
   cursor: pointer;
+  width: 65%;
   padding: 5px;
   border-radius: 2px;
+  margin-top: 8px;
 
-  .left-hand-of-darkness,
-  .right-hand-of-darkness {
-    @extend %transition;
-  }
+  &:hover,
+  &:active {
+   width: 100%;
+   background-color: $hovered-bg;
 
-  .left-hand-of-darkness {
-    width: fit-content;
-
-    &:hover,
-    &:active {
-      width: 100%;
-    }
-  }
-
-  .right-hand-of-darkness {
-    opacity: 0;
-
-    &:hover,
-    &:active {
+    .right-hand-of-darkness {
+      display: flex;
+      align-items: right;
       opacity: 1;
     }
   }
+}
+
+.left-hand-of-darkness {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin-right: 8px;
+  }
+}
+
+.right-hand-of-darkness {
+  @extend %transition;
+  display: none;
+  padding-right: 10px;
+  opacity: 0;
+
+  i {
+    font-size: 1.8rem;
+    padding-left: 8px;
+  }
+}
+
+.big-icon {
+  font-size: 2.2rem;
 }

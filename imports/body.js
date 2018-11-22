@@ -49,9 +49,19 @@ if (Meteor.isClient) {
      return cityExists;
    },
 
-   weatherExists(){
-     return Session.get('weatherExists');
-   },
+  hasNoWeather(){
+    const hasWeather = Session.get('getWishCityData')
+
+    if(hasWeather === false){
+      return true;
+    }
+
+    if(hasWeather === undefined){
+      return false;
+    }
+
+    return false;
+  },
 
    // sets the current city data and pic info
    currCity(){
@@ -97,9 +107,8 @@ if (Meteor.isClient) {
    //returns array of cities that match the selected option(s) from the user
    weatherList() {
      const weatherCities = Session.get('getWishCityData')
-     const weatherExists = Session.get('weatherExists')
 
-     if(!weatherExists){
+     if(!weatherCities){
        return false;
      }
      return weatherCities;
@@ -124,9 +133,6 @@ if (Meteor.isClient) {
     // set weather query to be passed to the wish list
     'click .option': function (event){
 
-      console.log('----event.target.id-----', event.target.id)
-      console.log('----event.currentTarget.id-----', event.currentTarget.id)
-
       // sets that the user has selected an option
       Template.instance().hasSelectedOption.set(true);
 
@@ -140,13 +146,16 @@ if (Meteor.isClient) {
 
       // checks what weather option the user clicked and sets icon and query accordingly
       let weatherType = event.currentTarget.id;
+      if (weatherType === 'clear'){
+        Template.instance().wishCityIcon.set('wi wi-day-sunny');
+      } else {
+        Template.instance().wishCityIcon.set('wi wi-' + weatherType);
+      }
       let weatherTypeUc = weatherType[0].toUpperCase() + weatherType.substr(1);
-      Template.instance().wishCityIcon.set('wi wi-' + weatherType);
       Template.instance().query.set(weatherTypeUc);
 
       // call weather api to return a range of cities within an area of the current city, which matches the weather query
       const currWeatherSet = getCitiesListData(currCityData.name, lat, long, weatherTypeUc, APIkey);
-      console.log('-------currWeatherSet------', currWeatherSet)
     }
 
 })
