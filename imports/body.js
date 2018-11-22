@@ -1,6 +1,8 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { weatherIcons } from './weatherIcons.js';
+
+//API Calls
 import { APIkey, APIweatherkey } from '../settings.json';
 import { getCurrentCityData } from './APIcalls/getCurrentCity.js'
 import { getCurrentCityPic } from './APIcalls/getCurrentPic.js'
@@ -10,18 +12,17 @@ import './body.html';
 
 Template.body.onCreated(function bodyOnCreated() {
 
-  // name of city the user sets as center point
-  this.city = new ReactiveVar();
+  // checks if user has submitted the city form
+  this.hasSubmittedForm = new ReactiveVar(false);
+
+  // checks if user has selected an option for weather
+  this.hasSelectedOption = new ReactiveVar(false);
 
   // sets the query to match which option the user has clicked
   this.query = new ReactiveVar();
 
-  // initiates showing the list of cities the user wants to go to, and it's associated icon.
-  this.hasSelectedOption = new ReactiveVar(false);
+  // sets the icon to match which option the user has clicked
   this.wishCityIcon = new ReactiveVar();
-
-  // initiates the original state of a list which the user then populates when clicking an option
-  this.weatherList = new ReactiveVar();
  });
 
 if (Meteor.isClient) {
@@ -48,13 +49,17 @@ if (Meteor.isClient) {
      return cityExists;
    },
 
+   weatherExists(){
+     return Session.get('weatherExists');
+   },
+
    // sets the current city data and pic info
    currCity(){
-     const cityExists = Session.get( 'cityExists')
+     const cityExists = Session.get('cityExists')
      let cityObject;
 
-     city = Session.get( 'getCityData');
-     pic = Session.get( 'getCityPic');
+     city = Session.get('getCityData');
+     pic = Session.get('getCityPic');
 
      //set cityObject
      cityObject = {
@@ -65,52 +70,51 @@ if (Meteor.isClient) {
         picAuthor: pic.author,
         picLink: pic.link
      }
+     // sets cityExists to false if there is no temperature data point
+     if(!city.temp){
+       Session.set('cityExists', false);
+     }
      return cityObject;
 
    },
 
-   currQuery(){
-     return Template.instance().query.get();
+   hasSubmittedForm(){
+     return Template.instance().hasSubmittedForm.get();
+   },
+
+   hasSelectedOption(){
+     return Template.instance().hasSelectedOption.get();
    },
 
    selectedIcon() {
      return Template.instance().wishCityIcon.get();
    },
 
-   weatherList() {
-     return Template.instance().weatherList.get();
+   noResult() {
+     return Template.instance().noResults.get();
    },
 
    //returns array of cities that match the selected option(s) from the user
-   wishCitiesList() {
+   weatherList() {
+     const weatherCities = Session.get('getWishCityData')
+     const weatherExists = Session.get('weatherExists')
 
-      //checks if user has selected an option, and only runs the below in case they have.
-      if (Template.instance().hasSelectedOption.get()){
-       var currCity = Template.instance().city.get();
-       var data = Session.get( 'getWishCityData');
-
-       //sets link to take the user to a google flight search for the city
-       return data.map(city => {
-        return {
-            name: city.name,
-            temp: city.temp,
-            link: 'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + city.name + '&oq=flights+' + currCity + '+' + city.name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
-          }
-       })
-     } else {
+     if(!weatherExists){
        return false;
      }
-   },
+     return weatherCities;
+   }
 
-  });
+ })
 
-
-  Template.body.events({
+   Template.body.events({
 
     // set the current city/centerpoint for the search
     'submit form': function(event){
       event.preventDefault();
       var city = event.target.cityName.value;
+
+      Template.instance().hasSubmittedForm.set(true);
 
       // make API calls to get current city data and current city pic
       getCurrentCityData(city, APIkey, weatherIcons);
@@ -120,23 +124,27 @@ if (Meteor.isClient) {
     // set weather query to be passed to the wish list
     'click .option': function (event){
 
-      //sets that the user has selected an option
+      console.log('----event.target-----', event.target.wi)
+
+      // sets that the user has selected an option
       Template.instance().hasSelectedOption.set(true);
 
-      // call weather api to return a range of cities within an area of the current city, which matches the weather query
+      this.$('.option').toggleClass('active')
+
+      // sets the current city params to be passed to the second weather call getCitiesListData
       const currCityData = Session.get( 'getCityData');
-
-      let long = currCityData.long;
       let lat = currCityData.lat;
+      let long = currCityData.long;
 
-      // checks what the user selected and sets icon and query accordingly
+      // checks what weather option the user clicked and sets icon and query accordingly
       let weatherType = event.currentTarget.id;
       let weatherTypeUc = weatherType[0].toUpperCase() + weatherType.substr(1);
       Template.instance().wishCityIcon.set('wi wi-' + weatherType);
       Template.instance().query.set(weatherTypeUc);
 
-      // make the getCitiesList API call and set the result as 'weatherList'
-      Template.instance().weatherList.set(getCitiesListData(lat, long, weatherTypeUc, APIkey));
+      // call weather api to return a range of cities within an area of the current city, which matches the weather query
+      const currWeatherSet = getCitiesListData(currCityData.name, lat, long, weatherTypeUc, APIkey);
+      console.log('-------currWeatherSet------', currWeatherSet)
     }
 
 })

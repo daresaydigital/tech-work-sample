@@ -1,6 +1,6 @@
-export const getCitiesListData = (lat, long, que, APIkey) => {
+export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
 
-  //widen the search for cities
+  //widen the search for cities, with the current city as the center point
   const coordinateBox = (lat, long) => {
     let offset = 5;
     let latBottom = lat-offset;
@@ -8,29 +8,29 @@ export const getCitiesListData = (lat, long, que, APIkey) => {
     let longLeft = long-offset;
     let longRight = long+offset;
 
-    let stringMe = longLeft + ',' + latBottom + ',' + longRight + ',' + latTop;
+    let str = longLeft + ',' + latBottom + ',' + longRight + ',' + latTop;
 
-    return stringMe;
+    return str;
   }
 
-  //get list of cities based on the lat and long of the city you entered as a center point
+  //get list of cities based on the above lat, long and offset
   const search = 'http://api.openweathermap.org/data/2.5/box/city?bbox=' + coordinateBox(lat, long) + ',20&callback=?&units=metric&APPID=' + APIkey
 
   req = $.getJSON(search, function (data) {
     var rawJson = JSON.stringify(data);
     const json = JSON.parse(rawJson);
 
-
     let newArray = json.list.map(city => {
       return    {
-        'name': city.name,
+        'name': city.name || '',
         'weather': city.weather[0].main,
         'temp': Math.floor(city.main.temp) + '°C',
+        'link': 'https://www.google.es/search?ei=dGq2W97bAYXMaIClhpgH&q=flights+' + currCity + '+' + city.name + '&oq=flights+' + currCity + '+' + city.name + '&gs_l=psy-ab.3...4710.10300.0.10510.0.0.0.0.0.0.0.0..0.0....0...1c.1.64.psy-ab..0.0.0....0.1_7PSriwDpI'
       }
     }
   )
 
-  //filter the returned list of cities, only return cities that match the query
+  // takes the created array, compares it with the current query and returns only the cities that match the query.
   let filteredArray = (newArray, que) => {
     switch(que){
       case que:
@@ -42,7 +42,20 @@ export const getCitiesListData = (lat, long, que, APIkey) => {
     }
   }
 
-    //set current city list to be the filtered array
-    Session.set( 'getWishCityData', filteredArray(newArray, que)) //this should instead take the filtered list
+  //set current city list to be the filtered array
+  let cityList = filteredArray(newArray, que)
+
+  if (cityList < 10) {
+    cityList.length = cityList.length;
+  }
+
+  if (cityList >= 10) {
+    cityList.length = 10;
+  }
+
+  Session.set( 'weatherExists', true)
+  Session.set( 'getWishCityData', cityList)
+
+  console.log('----Session.get(getWishCityData)---', Session.get( 'getWishCityData'))
   })
 }

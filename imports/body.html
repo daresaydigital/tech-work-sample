@@ -1,13 +1,18 @@
 <body>
 
-  <div class="current-city-info">
-    {{#if cityExists}}
-    <div class="intro">You're in</div>
-    {{else}}
-    <div class="intro">This place doesn't seem to exist, try another city.</div>
+  <!-- Set current city -->
+  <div class="section">
+    {{#if hasSubmittedForm}}
+
+      {{#if cityExists}}
+      <h2>You're in</h2>
+      {{else}}
+      <h2>This place doesn't seem to exist, try another city.</h2>
+      {{/if}}
+
     {{/if}}
     <form>
-  	  <input type="text" name="cityName" placeholder="Where you at?" required class="search-box" />
+  	  <input type="text" name="cityName" placeholder="Where are you?" required class="search-box" />
   	</form>
   </div>
 
@@ -17,16 +22,17 @@
   <!-- For the current city object... -->
     {{#with currCity}}
 
-    <!-- ...show this if it has a name -->
+    <!-- ...show the below if it has a name -->
       {{#if name}}
-      <div class="info"> Where it is <i class={{icon}}></i> {{temp}} and {{description}}. But show me where it's currently:</div>
+      <div class="section">
+        <h2>Where it is <i class={{icon}}></i> {{temp}} and {{description}}. But show me where it's currently:</h2>
+      </div>
 
-      <div class="options">
-        <a href="#" id="rain" class="option"><i class="wi wi-rain"></i><h3>Rainy</h3></a>
-        <a href="#" id="snow" class="option"><i class="wi wi-snow"></i><h3>Snowy</h3></a>
-        <a href="#" id="cloud" class="option"><i class="wi wi-cloud"></i><h3>Cloudy</h3></a>
-        <a href="#" id="clear" class="option"><i class="wi wi-day-sunny"></i><h3>Sunny</h3></a>
-        <a href="#" id="wind" class="option"><i class="wi wi-strong-wind"></i><h3>Windy</h3></a>
+      <div class="section options">
+        <a href="#" id="rain" class="option"><i class="wi wi-rain"></i></a>
+        <a href="#" id="snow" class="option"><i class="wi wi-snow"></i></a>
+        <a href="#" id="cloud" class="option"><i class="wi wi-cloud"></i></a>
+        <a href="#" id="clear" class="option"><i class="wi wi-day-sunny"></i></a>
       </div>
 
       <a href={{picLink}}><img class="pic-author" src={{picAuthor}} /></a>
@@ -34,32 +40,29 @@
     {{/with}}
   {{/if}}
 
-  {{#if wishCitiesList}}
-  <div id="returned-cities">
-    <div class="top-icon"><i class={{selectedIcon}}></i></div>
-    {{#each wishCitiesList}}
-      {{> wishCity}}
-    {{/each}}
-  </div>
+  {{#if hasSelectedOption}}
+    {{#if weatherExists}}
+    <div id="returned-cities">
+      <div class="top-icon"><i class={{selectedIcon}}></i></div>
+      {{#each weatherList}}
+      <a class="city-list" href={{link}}>
+        <div class="left-hand-of-darkness">
+          <div class="icon-and-temp">{{temp}}</div>
+          <div>{{name}}</div>
+        </div>
+        <div class="right-hand-of-darkness">
+          <div>Let's go</div>
+          <div class="one-line-spread">
+           <div class="icon-and-temp">{{name}}</div>
+           <div><i class={{icon}}></i>{{temp}}</div>
+         </div>
+        </div>
+      </a>
+      {{/each}}
+    </div>
+    {{else}}
+    <div class="left-hand-of-darkness">Your selected weather <i class={{selectedIcon}}></i> doesn't exist within a cheapish distance of you.</div>
+    {{/if}}
   {{/if}}
 
 </body>
-
-<template name="wishCity">
-<a class="city-list" href={{link}}>
-
-  <div class="left-hand-of-darkness">
-    <div class="icon-and-temp">{{temp}}</div>
-    <div>{{name}}</div>
-  </div>
-
-  <div class="right-hand-of-darkness">
-    <div>Let's go</div>
-    <div class="one-line-spread">
-     <div class="icon-and-temp">{{name}}</div>
-     <div><i class={{icon}}></i>{{temp}}</div>
-   </div>
-  </div>
-
-</a>
-</template>

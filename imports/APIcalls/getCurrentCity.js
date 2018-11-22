@@ -33,8 +33,6 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=m
 .fail(function() {
   Session.set( 'cityExists', false);
   Session.set( 'picExists', false);
-  console.log('does city exist? from within fail in getCurrentCity', Session.get( 'cityExists'))
-  console.log('does pic exist? from within fail in getCurrentCity', Session.get( 'picExists'))
 });
 
 }
