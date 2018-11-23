@@ -2,7 +2,7 @@ export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
 
   // widen the search for cities, with the current city as the center point
   const coordinateBox = (lat, long) => {
-    const offset = 5;
+    const offset = 100;
     const str = (long - offset) + ',' + (lat - offset) + ',' + (long + offset) + ',' + (lat + offset);
 
     return str;
@@ -45,14 +45,14 @@ export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
       Session.set( 'clearCitiesList', true)
     }
 
-    if ((cityList.length > 0) && (cityList.length < 15)) {
+    if ((cityList.length > 0) && (cityList.length < 50)) {
       cityList.length = cityList.length;
       Session.set( 'getWishCityData', cityList)
       Session.set( 'clearCitiesList', false)
     }
 
-    if (cityList.length >= 30) {
-      cityList.length = 30;
+    if (cityList.length >= 50) {
+      cityList.length = 50;
       Session.set( 'getWishCityData', cityList)
       Session.set( 'clearCitiesList', false)
     }

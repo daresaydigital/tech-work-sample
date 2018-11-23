@@ -123,9 +123,6 @@ if (Meteor.isClient) {
       // sets that the user has selected an option
       Template.instance().hasSelectedOption.set(true);
 
-      const optionId = document.getElementById(event.target.id);
-      $(event.target.id).toggleClass('active')
-
       // sets the current city params to be passed to the second weather call getCitiesListData
       const currCityData = Session.get( 'getCityData');
       let lat = currCityData.lat;

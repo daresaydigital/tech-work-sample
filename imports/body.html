@@ -29,7 +29,7 @@
         <h3>...where it is <i class="big-icon {{icon}}"></i> <h1>{{temp}}</h1>and {{description}}.</h3>
       </div>
       <div class="section">
-        <h3>Take me where it is currently...</h3>
+        <h3>Show me where it is currently...</h3>
       </div>
       <div class="options">
         <i id="rain" class="option wi wi-rain"></i>
@@ -52,10 +52,11 @@
         <h1>{{temp}}</h1>
         <h2>{{name}}</h2>
       </div>
-      <h2 class="right-hand-of-darkness">Let's go <i class='big-icon {{selectedIcon}}'></i></h2>
+      <h2 class="right-hand-of-darkness">Take me there <i class='big-icon {{selectedIcon}}'></i></h2>
     </a>
     {{/each}}
   {{/if}}
+
   {{#if noWeather}}
   <h3>Your selected weather doesn't exist within a cheapish distance of you.</h3>
   {{/if}}

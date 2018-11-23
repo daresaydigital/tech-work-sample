@@ -7,13 +7,6 @@ $.getJSON('https://api.unsplash.com/search/photos/?page=1&per_page=1&query=' + c
   var rawJson = JSON.stringify(data);
   picJson = JSON.parse(rawJson);
 
-  console.log('----picJson.results[0].urls.regular-----', picJson.results['0'].urls.regular)
-  console.log('----picJson.results[0]-----', picJson.results['0'])
-  console.log('----picJson.results-----', picJson.results)
-  console.log('----picJson-----', picJson)
-  console.log('----picJson.results.length-----', picJson.results.length)
-  console.log('----picJson.length-----', picJson.length)
-
   if(picJson.results['0'].urls.regular) {
     Session.set( 'picExists', true);
     Session.set( 'getCityPic', {

@@ -152,6 +152,7 @@ select:-webkit-autofill {
     &:hover,
     &:active,
      {
+      animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) 5;
       font-size: 3rem;
       color: $select;
     }
@@ -219,6 +220,37 @@ select:-webkit-autofill {
   width: 40px;
   border-radius: 50%;
 }
+
+// loader
+.lds-circle {
+  display: inline-block;
+  transform: translateZ(1px);
+}
+.lds-circle > div {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: $select;
+  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) 5;
+}
+
+@keyframes lds-circle {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
 
 @media only screen and (max-width: 600px) {
   h1 {
