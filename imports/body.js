@@ -33,35 +33,17 @@ if (Meteor.isClient) {
      const cityExists = Session.get( 'cityExists');
 
      if (cityExists){
-       const picExists = Session.get( 'picExists')
-       let pic;
-
-       if(picExists) {
-         pic = Session.get( 'getCityPic');
-         // set the picture background with a pic of the current city
-         $('body').css('background-image', 'url(' + pic.url + ')');
-         return pic;
-       }
+       const pic = Session.get( 'getCityPic');
+       // set the picture background with a pic of the current city
+       $('body').css('background-image', 'url(' + pic.url + ')');
      } else {
-       // unset the picture background
-       $('body').css('background-image', 'url(#');
+       const pict = 'https://images.unsplash.com/photo-1504387103978-e4ee71416c38?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=864eaecaf88546a104521ac381504e4b&auto=format&fit=crop&w=634&q=80';
+       // set the picture background with a default pic
+       $('body').css('background-image', 'url(' + pict + ')');
      }
+     // return true or false - used to show/hide elements in UI
      return cityExists;
    },
-
-  hasNoWeather(){
-    const hasWeather = Session.get('getWishCityData')
-
-    if(hasWeather === false){
-      return true;
-    }
-
-    if(hasWeather === undefined){
-      return false;
-    }
-
-    return false;
-  },
 
    // sets the current city data and pic info
    currCity(){
@@ -85,7 +67,6 @@ if (Meteor.isClient) {
        Session.set('cityExists', false);
      }
      return cityObject;
-
    },
 
    hasSubmittedForm(){
@@ -94,6 +75,10 @@ if (Meteor.isClient) {
 
    hasSelectedOption(){
      return Template.instance().hasSelectedOption.get();
+   },
+
+   clearCitiesList(){
+     return Session.get( 'clearCitiesList');
    },
 
    selectedIcon() {
@@ -124,6 +109,7 @@ if (Meteor.isClient) {
       var city = event.target.cityName.value;
 
       Template.instance().hasSubmittedForm.set(true);
+      Session.set( 'clearCitiesList', true)
 
       // make API calls to get current city data and current city pic
       getCurrentCityData(city, APIkey, weatherIcons);
@@ -132,6 +118,7 @@ if (Meteor.isClient) {
 
     // set weather query to be passed to the wish list
     'click .option': function (event){
+      Session.set( 'clearCitiesList', true)
 
       // sets that the user has selected an option
       Template.instance().hasSelectedOption.set(true);
@@ -155,7 +142,7 @@ if (Meteor.isClient) {
       Template.instance().query.set(weatherTypeUc);
 
       // call weather api to return a range of cities within an area of the current city, which matches the weather query
-      const currWeatherSet = getCitiesListData(currCityData.name, lat, long, weatherTypeUc, APIkey);
+      getCitiesListData(currCityData.name, lat, long, weatherTypeUc, APIkey);
     }
 
 })

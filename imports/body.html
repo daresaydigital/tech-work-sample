@@ -2,17 +2,18 @@
 
   <!-- Set current city -->
   <div class="section">
-    {{#if hasSubmittedForm}}
 
-      {{#if cityExists}}
-      <div><h2>You're in</h2></div>
-      {{else}}
-      <div><h2>This place doesn't seem to exist, try another city.</h2></div>
-      {{/if}}
-
-    {{/if}}
     <form>
-  	  <input type="text" name="cityName" placeholder="Where are you?" required class="search-box" />
+      {{#if hasSubmittedForm}}
+
+        {{#if cityExists}}
+        <h2>You're in</h2>
+        {{else}}
+        <h3>This place doesn't seem to exist, try another city.</h3>
+        {{/if}}
+
+      {{/if}}
+  	  <input type="text" autocomplete="off" name="{{#if currCity.name}}{{currCity.name}}{{else}}cityName{{/if}}" placeholder="Where are you?" required class="search-box" />
   	</form>
   </div>
 
@@ -25,39 +26,39 @@
     <!-- ...show the below if it has a name -->
       {{#if name}}
       <div class="section">
-        <h2>Where it is <i class="big-icon {{icon}}"></i> {{temp}} and {{description}}. But show me where it's currently:</h2>
+        <h3>...where it is <i class="big-icon {{icon}}"></i> <h1>{{temp}}</h1>and {{description}}.</h3>
       </div>
-
-      <div class="section options">
+      <div class="section">
+        <h3>Take me where it is currently...</h3>
+      </div>
+      <div class="options">
         <i id="rain" class="option wi wi-rain"></i>
         <i id="snow" class="option wi wi-snow"></i>
         <i id="cloud" class="option wi wi-cloud"></i>
         <i id="clear" class="option wi wi-day-sunny"></i>
       </div>
-
       <a href={{picLink}}><img class="pic-author" src={{picAuthor}} /></a>
       {{/if}}
     {{/with}}
+  {{else}}
+  <a href='https://unsplash.com/@bendavisual'><img class="pic-author" src='https://images.unsplash.com/profile-1525018026535-581938eb5586?dpr=1&auto=format&fit=crop&w=64&h=64&q=60&crop=faces&bg=fff' /></a>
   {{/if}}
 
-  {{#if hasNoWeather}}
-  <div class="section">
-    <h2>Your selected weather doesn't exist within a cheapish distance of you.</h2>
-  </div>
-  {{/if}}
-  <div id="returned-cities">
+{{#unless clearCitiesList}}
+  {{#if weatherList}}
     {{#each weatherList}}
     <a class="city-item" href={{link}}>
       <div class="left-hand-of-darkness">
         <h1>{{temp}}</h1>
         <h2>{{name}}</h2>
       </div>
-      <div class="right-hand-of-darkness">
-        <h2>Let's go</h2>
-        <i class={{selectedIcon}}></i>
-      </div>
+      <h2 class="right-hand-of-darkness">Let's go <i class='big-icon {{selectedIcon}}'></i></h2>
     </a>
     {{/each}}
-  </div>
+  {{/if}}
+  {{#if noWeather}}
+  <h3>Your selected weather doesn't exist within a cheapish distance of you.</h3>
+  {{/if}}
+{{/unless}}
 
 </body>

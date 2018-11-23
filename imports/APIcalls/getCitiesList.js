@@ -42,16 +42,19 @@ export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
 
     if (cityList.length === 0) {
       Session.set( 'getWishCityData', false)
+      Session.set( 'clearCitiesList', true)
     }
 
     if ((cityList.length > 0) && (cityList.length < 15)) {
       cityList.length = cityList.length;
       Session.set( 'getWishCityData', cityList)
+      Session.set( 'clearCitiesList', false)
     }
 
-    if (cityList.length >= 15) {
-      cityList.length = 15;
+    if (cityList.length >= 30) {
+      cityList.length = 30;
       Session.set( 'getWishCityData', cityList)
+      Session.set( 'clearCitiesList', false)
     }
   })
 }
