@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Geolocation } from 'meteor/mdg:geolocation';
+import { Tracker } from 'meteor/tracker'
 import { weatherIcons } from './weatherIcons.js';
 
 //API Calls
@@ -23,6 +25,11 @@ Template.body.onCreated(function bodyOnCreated() {
 
   // sets the icon to match which option the user has clicked
   this.wishCityIcon = new ReactiveVar();
+
+  console.log('So - the geolocation in my environment did not work as I am on an insecure network. ' +
+  'I made a variation that instead of checking where the user currently is instead 1. asks for a city 2. gets the weather for this and ' +
+  '3. sets that city as the center point for a second API call that returns a list of cities with a certain weather type.'
+  )
  });
 
 if (Meteor.isClient) {
@@ -53,20 +60,30 @@ if (Meteor.isClient) {
      city = Session.get('getCityData');
      pic = Session.get('getCityPic');
 
-     //set cityObject
-     cityObject = {
-        name: city.name,
-        temp: city.temp,
-        icon: city.icon,
-        description: city.description,
-        picAuthor: pic.author,
-        picLink: pic.link
-     }
-     // sets cityExists to false if there is no temperature data point
-     if(!city.temp){
+     if(city && pic) {
+       //set cityObject
+       cityObject = {
+          name: city.name,
+          temp: city.temp,
+          icon: city.icon,
+          description: city.description,
+          picAuthor: pic.author,
+          picLink: pic.link
+       }
+     } else {
+       Session.set('clearCitiesList', true);
        Session.set('cityExists', false);
      }
      return cityObject;
+   },
+
+   // returns true if we are currently loading the list of cities
+   loadingList(){
+     return Session.get('loadingList');
+   },
+
+   textMessage(){
+     return Session.get('textMessage');
    },
 
    hasSubmittedForm(){
@@ -93,7 +110,7 @@ if (Meteor.isClient) {
    weatherList() {
      const weatherCities = Session.get('getWishCityData')
 
-     if(!weatherCities){
+     if(!weatherCities || (weatherCities === false)){
        return false;
      }
      return weatherCities;
@@ -110,6 +127,8 @@ if (Meteor.isClient) {
 
       Template.instance().hasSubmittedForm.set(true);
       Session.set( 'clearCitiesList', true)
+      Session.set( 'loadingList', false)
+      Session.set('textMessage', false)
 
       // make API calls to get current city data and current city pic
       getCurrentCityData(city, APIkey, weatherIcons);
@@ -118,6 +137,8 @@ if (Meteor.isClient) {
 
     // set weather query to be passed to the wish list
     'click .option': function (event){
+      Session.set( 'loadingList', false)
+      Session.set('textMessage', false)
       Session.set( 'clearCitiesList', true)
 
       // sets that the user has selected an option
@@ -130,6 +151,11 @@ if (Meteor.isClient) {
 
       // checks what weather option the user clicked and sets icon and query accordingly
       let weatherType = event.currentTarget.id;
+      const clickedId = '#' + weatherType;
+
+      $('i.active').removeClass('active');
+      $(clickedId).toggleClass('active');
+
       if (weatherType === 'clear'){
         Template.instance().wishCityIcon.set('wi wi-day-sunny');
       } else {

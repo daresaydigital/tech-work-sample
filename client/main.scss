@@ -4,7 +4,7 @@ $hovered-bg: rgba(#3d3d3f, 0.9);
 $text: #fff;
 $select: #efc5f8;
 
-// placeholders - use with @extend
+// placeholders
 %center-align {
   display: flex;
   justify-content: center;
@@ -50,7 +50,8 @@ html {
 body {
   @extend %center-align;
   flex-direction: column;
-  background: no-repeat center center fixed;
+  background: no-repeat center bottom fixed;
+  background-color: $select;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -104,7 +105,6 @@ a {
   text-decoration: none;
 }
 
-
 // general components
 .section {
   margin: 10px;
@@ -113,6 +113,7 @@ a {
 .big-icon {
   margin: 0 10px;
   font-size: 2.4rem;
+  animation: fade 1.5s;
 }
 
 // search section
@@ -148,15 +149,25 @@ select:-webkit-autofill {
     padding: 10px;
     margin: 10px;
 
-    /* Gradual color transition when for hovered/active options */
+    /* Gradual color transition and animation when for hovered/active options */
     &:hover,
-    &:active,
+    &.active,
      {
-      animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) 5;
       font-size: 3rem;
       color: $select;
     }
+
+    &:hover {
+      animation: twirl 2.4s cubic-bezier(0, 0.2, 0.8, 1) 1;
+    }
   }
+}
+
+.selected-weather {
+  color: $select;
+  font-size: 2rem;
+  margin: 0 8px;
+  animation: twirl 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
 // list section - cities with the required weather
@@ -222,20 +233,7 @@ select:-webkit-autofill {
 }
 
 // loader
-.lds-circle {
-  display: inline-block;
-  transform: translateZ(1px);
-}
-.lds-circle > div {
-  display: inline-block;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  background: $select;
-  animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) 5;
-}
-
-@keyframes lds-circle {
+@keyframes twirl {
   0%, 100% {
     animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
@@ -251,6 +249,15 @@ select:-webkit-autofill {
   }
 }
 
+@keyframes fade {
+  0% {
+   opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   h1 {

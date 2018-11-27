@@ -44,7 +44,16 @@
   <a href='https://unsplash.com/@bendavisual'><img class="pic-author" src='https://images.unsplash.com/profile-1525018026535-581938eb5586?dpr=1&auto=format&fit=crop&w=64&h=64&q=60&crop=faces&bg=fff' /></a>
   {{/if}}
 
+{{#if loadingList}}
+<h3>Finding cities where it is currently <i class='selected-weather {{selectedIcon}}'></i> Hold on.</h3>
+{{/if}}
+
+{{#if textMessage}}
+<h3>{{textMessage}}</h3>
+{{/if}}
+
 {{#unless clearCitiesList}}
+
   {{#if weatherList}}
     {{#each weatherList}}
     <a class="city-item" href={{link}}>
@@ -52,14 +61,11 @@
         <h1>{{temp}}</h1>
         <h2>{{name}}</h2>
       </div>
-      <h2 class="right-hand-of-darkness">Take me there <i class='big-icon {{selectedIcon}}'></i></h2>
+      <h2 class="right-hand-of-darkness">Take me there <i class='{{selectedIcon}}'></i></h2>
     </a>
     {{/each}}
   {{/if}}
 
-  {{#if noWeather}}
-  <h3>Your selected weather doesn't exist within a cheapish distance of you.</h3>
-  {{/if}}
 {{/unless}}
 
 </body>

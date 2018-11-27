@@ -2,11 +2,17 @@ export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
 
   // widen the search for cities, with the current city as the center point
   const coordinateBox = (lat, long) => {
-    const offset = 100;
+    const offset = 6;
     const str = (long - offset) + ',' + (lat - offset) + ',' + (long + offset) + ',' + (lat + offset);
 
     return str;
   }
+
+  Session.set('loadingList', true)
+
+  console.log("Hold on hold on - it usually returns a list in about five seconds. " +
+  "Three...two...one...if it hasn't returned anything by now try Stockholm, Inverness, New York, " +
+  "Hong Kong, Beijing, Edinburgh, Johannesburg, Lagos, Sydney, Cairo, Des Moines, Toronto...")
 
   // get list of cities based on the above lat, long and offset
   const search = 'http://api.openweathermap.org/data/2.5/box/city?bbox=' + coordinateBox(lat, long) + ',20&callback=?&units=metric&APPID=' + APIkey
@@ -43,18 +49,28 @@ export const getCitiesListData = (currCity, lat, long, que, APIkey) => {
     if (cityList.length === 0) {
       Session.set( 'getWishCityData', false)
       Session.set( 'clearCitiesList', true)
+      Session.set('loadingList', false)
+      Session.set('textMessage', "Oh boo - there are no cities with that weather close to your entered city. Try again.")
+      console.log("There we go. Aargh - there are no cities with that weather close to your entered city. Try again.")
     }
 
     if ((cityList.length > 0) && (cityList.length < 50)) {
       cityList.length = cityList.length;
       Session.set( 'getWishCityData', cityList)
       Session.set( 'clearCitiesList', false)
+      Session.set('loadingList', false)
+      Session.set('textMessage', false)
+      console.log("There we go, less than 50 cities with the selected weather. Try clicking on a city and see where it takes you.")
     }
 
     if (cityList.length >= 50) {
       cityList.length = 50;
       Session.set( 'getWishCityData', cityList)
       Session.set( 'clearCitiesList', false)
+      Session.set('loadingList', false)
+      Session.set('textMessage', false)
+      console.log("There we go, more than 50 cities with the selected weather. Try clicking on a city and see where it takes you.")
     }
+
   })
 }

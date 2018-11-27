@@ -23,3 +23,4 @@ http@1.4.1
 fortawesome:fontawesome
 fourseven:scss
 session@1.1.8
+mdg:geolocation

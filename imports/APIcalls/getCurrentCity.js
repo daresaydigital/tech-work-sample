@@ -10,23 +10,28 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=m
   var rawJson = JSON.stringify(data);
   const json = JSON.parse(rawJson);
 
-  // get matching weather icon
-  var prefix = 'wi wi-';
-  var code = json.weather[0].id;
-  var icon = weatherIcons[code].icon;
-  if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-    icon = 'day-' + icon;
-  }
-  icon = prefix + icon;
+  if(json.coord.lat){
+    // get matching weather icon
+    var prefix = 'wi wi-';
+    var code = json.weather[0].id;
+    var icon = weatherIcons[code].icon;
+    if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
+      icon = 'day-' + icon;
+    }
+    icon = prefix + icon;
 
-  Session.set( 'getCityData', {
-    'name': json.name,
-    'temp': Math.floor(json.main.temp) + '°C',
-    'lat': json.coord.lat,
-    'long': json.coord.lon,
-    'description': json.weather[0].description,
-    'icon': icon
-  });
+    Session.set( 'getCityData', {
+      'name': json.name,
+      'temp': Math.floor(json.main.temp) + '°C',
+      'lat': json.coord.lat,
+      'long': json.coord.lon,
+      'description': json.weather[0].description,
+      'icon': icon
+    });
+  } else {
+    Session.set( 'cityExists', false);
+    Session.set( 'picExists', false);
+  }
 
 })
 
