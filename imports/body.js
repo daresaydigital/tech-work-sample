@@ -27,8 +27,8 @@ Template.body.onCreated(function bodyOnCreated() {
   this.wishCityIcon = new ReactiveVar();
 
   console.log('So - the geolocation in my environment did not work as I am on an insecure network. ' +
-  'I made a variation that instead of checking where the user currently is instead 1. asks for a city 2. gets the weather for this and ' +
-  '3. sets that city as the center point for a second API call that returns a list of cities with a certain weather type.'
+  'I made a variation that instead 1. asks for a city 2. gets the weather for this and 3. sets that city ' +
+  'as the center point for a second API call that returns a list of cities with a certain weather type.'
   )
  });
 
