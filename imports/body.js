@@ -82,28 +82,24 @@ if (Meteor.isClient) {
      return Session.get('loadingList');
    },
 
+   // returns a text message if there are no cities with the selected weather
    textMessage(){
      return Session.get('textMessage');
    },
 
-   hasSubmittedForm(){
-     return Template.instance().hasSubmittedForm.get();
-   },
-
-   hasSelectedOption(){
-     return Template.instance().hasSelectedOption.get();
-   },
-
+   // determines when the list of returned cities should be cleared
    clearCitiesList(){
      return Session.get( 'clearCitiesList');
    },
 
-   selectedIcon() {
-     return Template.instance().wishCityIcon.get();
+   // checks if user has entered a city name
+   hasSubmittedForm(){
+     return Template.instance().hasSubmittedForm.get();
    },
 
-   noResult() {
-     return Template.instance().noResults.get();
+   // returns an icon matching which weather option the user selected
+   selectedIcon() {
+     return Template.instance().wishCityIcon.get();
    },
 
    //returns array of cities that match the selected option(s) from the user
@@ -168,5 +164,5 @@ if (Meteor.isClient) {
       getCitiesListData(currCityData.name, lat, long, weatherTypeUc, APIkey);
     }
 
-})
+  })
 }
