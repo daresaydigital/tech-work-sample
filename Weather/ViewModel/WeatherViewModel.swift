@@ -181,14 +181,18 @@ extension WeatherViewModel {
     
     private func calcDayTime(timeInterval: TimeInterval)-> DayTime {
         let time = DateConverter.timeIntervalToDayTimeInterval(timeInterval)
+        var adjustment: TimeInterval = 7200
+        if sunriseTime + adjustment > sunsetTime - adjustment {
+            adjustment = (sunsetTime - sunriseTime) / 4
+        }
         switch time {
         case 0..<sunriseTime:
             return .night
-        case sunriseTime..<(sunriseTime + 7200):
+        case sunriseTime..<(sunriseTime + adjustment):
             return .morning
-        case (sunriseTime + 7200)..<(sunsetTime - 7200):
+        case (sunriseTime + adjustment)..<(sunsetTime - adjustment):
             return .day
-        case (sunsetTime - 7200)..<sunsetTime:
+        case (sunsetTime - adjustment)..<sunsetTime:
             return .evening
         default:
             return .night

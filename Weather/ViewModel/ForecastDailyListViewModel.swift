@@ -11,7 +11,7 @@ import Foundation
 
 class ForecastDailyListViewModel: NSObject {
     private var forecastDailyRawList = [ForecastDaily]()
-    var forecastDailyList: Dynamic<[ForecastDailyViewModel]> = Dynamic([])
+    let forecastDailyList: Dynamic<[ForecastDailyViewModel]> = Dynamic([])
     var forecastDailyCount: Int {
         return forecastDailyList.value.count
     }

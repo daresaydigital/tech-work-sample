@@ -10,7 +10,7 @@ import UIKit
 
 class ForecastListViewModel: NSObject {
     private var forecastRawList = [Forecast]()
-    var forecastList: Dynamic<[ForecastViewModel]> = Dynamic([])
+    let forecastList: Dynamic<[ForecastViewModel]> = Dynamic([])
     var forecastCount: Int {
         return forecastList.value.count
     }
