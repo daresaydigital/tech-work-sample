@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FindLocWeather</string>
+    <string name="permission_needed_info_button">Tap here to grant location permission</string>
+</resources>

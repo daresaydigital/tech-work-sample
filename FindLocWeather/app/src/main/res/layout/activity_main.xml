@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weatherLayoutContainer"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- TextView of background emoji based on weather-->
+
+
+    <TextView
+        android:id="@+id/textViewBg"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginLeft="-120dp"
+        android:textSize="185sp"
+        android:alpha="0.7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/textViewCity"
+            android:layout_margin="5dp"
+            android:textSize="35sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/textViewDegree"
+            android:layout_marginTop="30dp"
+            android:textSize="35sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/textViewWeatherEmoji"
+            android:layout_marginTop="30dp"
+            android:textSize="45sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"/>
+
+        <TextView
+            android:layout_gravity="center"
+            android:id="@+id/textViewDesc"
+            android:layout_margin="5dp"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif-monospace"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:text="@string/permission_needed_info_button"
+        android:id="@+id/textViewPermissionNotGranted"
+        android:textSize="25sp"
+        android:padding="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif-monospace"/>
+
+</RelativeLayout>
