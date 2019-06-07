@@ -93,8 +93,8 @@ class MainActivity : AppCompatActivity() {
 
         val locationRequest = LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        locationRequest.interval = 60000; // two minute interval
-        locationRequest.fastestInterval = 15000;
+        locationRequest.interval = 60000; // a minute interval
+        locationRequest.fastestInterval = 15000; // arbitrary interval
 
 
         fusedLocationClient!!.requestLocationUpdates(locationRequest, object : LocationCallback() {
