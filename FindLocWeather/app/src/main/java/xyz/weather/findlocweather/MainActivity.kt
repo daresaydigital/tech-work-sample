@@ -8,13 +8,10 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.util.Log
 import android.view.View
 import android.widget.TextView
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationCallback
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationResult
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.*
 import xyz.weather.findlocweather.constants.RequestCodeConstants
 import xyz.weather.findlocweather.constants.WeatherConstants
 import xyz.weather.findlocweather.modals.CityWeatherResult
@@ -61,21 +58,51 @@ class MainActivity : AppCompatActivity() {
         }
 
     @SuppressLint("MissingPermission")
+    private fun getLastLocation() {
+        //not used at the moment, would be good to start with this and continue
+        // with a logic involving requestLocationUpdate
+
+        fusedLocationClient!!.lastLocation
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful && task.result != null) {
+
+                        val lat = task.result!!.latitude.toString()
+                        val lon = task.result!!.longitude.toString()
+
+                        OpenWeatherApi.instance.getWeather(lat, lon, object : OpenWeatherApi.WeatherResultSuccessCallback {
+                            override fun onWeatherResultSuccess(result: CityWeatherResult?) {
+                                if (result == null)
+                                    return
+
+                                return setViewsWithWeatherData(result)
+                            }
+                        })
+
+                    }
+                }
+    }
+
+    @SuppressLint("MissingPermission")
     private fun requestLocationUpdateAndSearchForWeather() {
+        //note that this app's UI is not supporting  "location services are off" case
+        //some emulators may act like location services are off
+        //please check with google maps app and turn on location services from the google maps app
 
         val locationRequest = LocationRequest()
         locationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
 
+
         fusedLocationClient!!.requestLocationUpdates(locationRequest, object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult?) {
-                if (locationResult == null) {
-                    return
-                }
-                for (location in locationResult.locations) {
+
+                locationResult ?: return
+
+                    var location = locationResult.locations[0]
+
                     if (location != null) {
 
-                        val lat = location.latitude.toString() + ""
-                        val lon = location.longitude.toString() + ""
+                        val lat = location.latitude.toString()
+                        val lon = location.longitude.toString()
 
                         //sample value
                         //val lat ="69.0015";
@@ -91,8 +118,9 @@ class MainActivity : AppCompatActivity() {
                         })
 
                     }
-                }
+
             }
+
         }, null)
 
 
