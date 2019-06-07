@@ -8,7 +8,6 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.google.android.gms.location.*
@@ -19,11 +18,14 @@ import xyz.weather.findlocweather.modals.CityWeatherResult
 class MainActivity : AppCompatActivity() {
 
     private var fusedLocationClient: FusedLocationProviderClient? = null
+    private var locationCallback: LocationCallback? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+
         showWeatherDataOfLocation()
     }
 
@@ -35,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
             if (shouldAskForPermissionDirectly())
                 ActivityCompat.requestPermissions(this@MainActivity,
-                        arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION),
+                        arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION),
                         RequestCodeConstants.PERMISSIONS_ACCESS_LOCATION)
 
         } else {
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             val permissionCheck = ContextCompat.checkSelfPermission(this@MainActivity,
-                    Manifest.permission.ACCESS_COARSE_LOCATION)
+                    Manifest.permission.ACCESS_FINE_LOCATION)
 
             return (permissionCheck == PackageManager.PERMISSION_GRANTED)
         }
@@ -82,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                 }
     }
 
+
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdateAndSearchForWeather() {
         //note that this app's UI is not supporting  "location services are off" case
@@ -89,7 +92,9 @@ class MainActivity : AppCompatActivity() {
         //please check with google maps app and turn on location services from the google maps app
 
         val locationRequest = LocationRequest()
-        locationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
+        locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        locationRequest.interval = 60000; // two minute interval
+        locationRequest.fastestInterval = 15000;
 
 
         fusedLocationClient!!.requestLocationUpdates(locationRequest, object : LocationCallback() {
@@ -170,6 +175,12 @@ class MainActivity : AppCompatActivity() {
 
         if (isLocPermitted)
             showWeatherDataOfLocation()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        
+        //remove location request update logic goes here
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
