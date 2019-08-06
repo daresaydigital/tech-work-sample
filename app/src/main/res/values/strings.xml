@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Weather App</string>
+    <string name="title_activity_city_selection">CitySelectionActivity</string>
+    <string name="current_location">Current Location</string>
+    <string name="separator">/</string>
+    <string name="add_city">Add City</string>
+    <string name="search">Search</string>
+    <string name="search_city">Search by City </string>
 </resources>

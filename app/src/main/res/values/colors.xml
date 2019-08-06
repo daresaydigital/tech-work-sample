@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="weather_good">#62abff</color>
+    <color name="weather_average">#bbcee3</color>
+    <color name="weather_bad">#ced5dd</color>
 </resources>
