@@ -1,9 +1,6 @@
 package com.example.weatherapp.database.daos
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Update
+import androidx.room.*
 
 interface BaseDao<T> {
 
@@ -12,8 +9,16 @@ interface BaseDao<T> {
      *
      * @param obj the object to be inserted.
      */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(obj: T)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(obj: T) : Long
+
+    @Transaction
+    fun insertOrUpdate(obj: T) {
+        val result = insert(obj)
+        if (result == -1L) {
+            update(obj)
+        }
+    }
 
     /**
      * Insert an array of objects in the database.

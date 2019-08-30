@@ -1,7 +1,7 @@
 package com.example.weatherapp.utils
 
 import android.content.Context
-import com.example.weatherapp.models.City
+import com.example.weatherapp.database.entities.City
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.nio.charset.Charset

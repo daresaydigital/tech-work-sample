@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
-import com.example.weatherapp.models.City
+import com.example.weatherapp.database.entities.City
 import com.example.weatherapp.viewModels.CityAddViewModel.CityEvent
 import com.example.weatherapp.viewModels.CityAddViewModel.CityEvent.SelectCity
 import kotlinx.android.synthetic.main.item_city.view.*

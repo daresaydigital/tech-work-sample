@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherapp.database.daos.CityDao
-import com.example.weatherapp.models.City
+import com.example.weatherapp.database.entities.City
 import com.example.weatherapp.utils.Event
 import com.example.weatherapp.utils.runOnIoThread
 

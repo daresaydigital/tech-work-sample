@@ -4,12 +4,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.weatherapp.database.WeatherDatabase
+import com.example.weatherapp.database.entities.CityWeather
 import com.example.weatherapp.services.WeatherService
 import com.example.weatherapp.utils.BASE_URL
 import com.example.weatherapp.utils.jsonUtils.Companion.getCitiesFromAsset
 import com.example.weatherapp.utils.runOnIoThread
 import com.example.weatherapp.viewModels.CityAddViewModel
-import com.example.weatherapp.viewModels.WeatherViewModel
+import com.example.weatherapp.viewModels.HomeViewModel
+import com.example.weatherapp.viewModels.CityViewModel
 import com.google.android.gms.location.LocationServices
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
@@ -38,11 +40,13 @@ val databaseModule = module {
             .build()
     }
     single { get<WeatherDatabase>().cityDao() }
+    single { get<WeatherDatabase>().cityWeatherDao() }
 }
 
 val viewModelModule = module {
-    viewModel { WeatherViewModel(get(), LocationServices.getFusedLocationProviderClient(androidApplication())) }
+    viewModel { (cityWeather: CityWeather) -> CityViewModel(get(), cityWeather) }
     viewModel { CityAddViewModel(get()) }
+    viewModel { HomeViewModel(get(), get()) }
 }
 
 fun provideDefaultOkhttpClient(): OkHttpClient {

@@ -2,7 +2,7 @@ package com.example.weatherapp.database.daos
 
 import androidx.room.Dao
 import androidx.room.Query
-import com.example.weatherapp.models.City
+import com.example.weatherapp.database.entities.City
 
 @Dao
 abstract class CityDao : BaseDao<City> {
