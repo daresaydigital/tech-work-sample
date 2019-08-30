@@ -3,7 +3,10 @@
     <string name="title_activity_city_selection">CitySelectionActivity</string>
     <string name="current_location">Current Location</string>
     <string name="separator">/</string>
-    <string name="add_city">Add City</string>
+    <string name="detect_location">Detect Location</string>
     <string name="search">Search</string>
+    <string name="detect_location_failure">Failure to detect your current location, please add city instead</string>
     <string name="search_city">Search by City </string>
+    <string name="welcome_message">Welcome to weather app. There are no cities selected yet, you can either get the weather for your current location, or lookup for your city</string>
+    <string name="add_city">Add City</string>
 </resources>

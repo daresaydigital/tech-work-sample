@@ -36,47 +36,51 @@ class CityFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        attachHandlers()
         subscribeUi()
     }
 
+    private fun attachHandlers() {
+        swipeToRefreshCity.setOnRefreshListener {
+            val cityWeather = arguments?.getParcelable<CityWeather>(CITY_WEATHER_ARGUMENT)
+            val cityId = cityWeather?.id
+            if (cityId != null)
+                weatherViewModel.fetchUsingCityId(cityId)
+            else swipeToRefreshCity.isRefreshing = false
+        }
+    }
+
     private fun subscribeUi() {
+        weatherViewModel.diffMinutes.observe(this, Observer {
+            it?.let {minutesDiff ->
+                when {
+                    minutesDiff < 5 -> lastRefreshDiff.text = "Updated in the last 5 minutes"
+                    minutesDiff < 60 -> lastRefreshDiff.text = "Updated in the last hour"
+                    minutesDiff < 120 -> lastRefreshDiff.text = "Updated in the last 2 hours"
+                    minutesDiff < 4 * 60 -> lastRefreshDiff.text = "Updated in the last ${minutesDiff/60} hours"
+                    else -> lastRefreshDiff.text = "expired weather info"
+                }
+            }
+
+        })
+
         weatherViewModel.currentWeather.observe(this, Observer {
             it?.let {
-
-                // cityOrLocation.text = it.city.name
 
                 currentTemp.text = "${it.weather.temp.fromKelvinToDegree()}\u00B0"
 
                 minTemp.text = "${it.weather.minTemp.fromKelvinToDegree()}\u00B0"
                 maxTemp.text = "${it.weather.maxTemp.fromKelvinToDegree()}\u00B0"
 
-                val moodColor = when {
-                    it.weather.description.contains("rains", true) -> R.color.weather_average
-                    it.weather.description.contains("storm", true) -> R.color.weather_bad
-                    else -> R.color.weather_good
-                }
-
-                activity?.window?.statusBarColor = ContextCompat.getColor(requireContext(), moodColor)
-                //root.setBackgroundColor(ContextCompat.getColor(this@WeatherActivity, moodColor))
-                root.background = GradientDrawable(
-                    GradientDrawable.Orientation.TOP_BOTTOM,
-                    intArrayOf(
-                        ContextCompat.getColor(requireContext(), moodColor),
-                        lightenColor(
-                            ContextCompat.getColor(
-                                requireContext(),
-                                moodColor
-                            ), 0.2f
-                        )
-                    )
-                )
-
                 weatherStatus.text = it.weather.description
 
-                Picasso.get().load("http://openweathermap.org/img/wn/${it.weather.icon}@2x.png").into(currentWeatherIcon);
+                Picasso.get().load("http://openweathermap.org/img/wn/${it.weather.icon}@2x.png")
+                    .into(currentWeatherIcon);
+
+
             }
 
+            swipeToRefreshCity.isRefreshing = false
         })
     }
 

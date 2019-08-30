@@ -9,5 +9,5 @@ import com.example.weatherapp.database.entities.CityWeather
 @Dao
 abstract class CityWeatherDao : BaseDao<CityWeather> {
     @Query("SELECT * FROM cityweather")
-    abstract fun getAll(): LiveData<List<CityWeather>>
+    abstract fun getAll(): List<CityWeather>
 }

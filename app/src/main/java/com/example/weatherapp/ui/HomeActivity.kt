@@ -3,8 +3,12 @@ package com.example.weatherapp.ui
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.annotation.ColorInt
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -13,6 +17,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.weatherapp.R
 import com.example.weatherapp.ui.CityAddActivity.Companion.CITY_ID_EXTRA
 import com.example.weatherapp.utils.My_PERMISSION_REQUEST_ACCESS_COARSE_LOCATION
+import com.example.weatherapp.utils.lightenColor
 import com.example.weatherapp.viewModels.HomeViewModel
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
@@ -20,6 +25,8 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.activity_home.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 fun Double.fromKelvinToDegree() = (this - 273.15).toInt()
@@ -37,6 +44,11 @@ class WeatherActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+
+        window.statusBarColor = Color.TRANSPARENT
+        val startColor =
+            ContextCompat.getColor(this, R.color.weather_good)
+        colorScreen(startColor)
 
         preparePager()
 
@@ -56,14 +68,40 @@ class WeatherActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 homeViewModel.select(position)
+                pageIndicatorView.selection = position
             }
         })
     }
 
+    val dateFormatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+
     private fun subscribeUi() {
-        homeViewModel.selectedCity.observe(this, Observer {
+        homeViewModel.selectedPosition.observe(this, Observer { position ->
+            cityPager.setCurrentItem(if (position > 0) position else 0)
+            homeViewModel.select(if (position > 0) position else 0)
+        })
+
+
+        homeViewModel.selectedCityWeather.observe(this, Observer {
             it?.let {
-                cityOrLocation.text = it.name
+                cityOrLocation.text = it.city.name
+                it.city.shiftTimezone?.let { shiftSeconds ->
+                    var systemMillis = System.currentTimeMillis()
+                    systemMillis -= TimeZone.getDefault().getOffset(systemMillis)
+                    val targetDate = systemMillis + shiftSeconds * 1000
+
+                    val cityDate = Date(targetDate)
+                    cityDateTime.text = dateFormatter.format(cityDate)
+                }
+
+
+                val startColor =
+                    ContextCompat.getColor(
+                        this,
+                        if (it.weather.description.contains("clear")) R.color.weather_good else R.color.weather_bad
+                    )
+                colorScreen(startColor)
+
             }
 
         })
@@ -71,12 +109,13 @@ class WeatherActivity : AppCompatActivity() {
         homeViewModel.listOfCityWithWeather.observe(this, Observer { citiesWithWeather ->
             if (citiesWithWeather != null) {
                 if (citiesWithWeather.isNotEmpty()) {
-                    if (dataAvailable.visibility == View.GONE)
-                        homeViewModel.select(0)
+//                    if (dataAvailable.visibility == View.GONE)
+//                        homeViewModel.select(0)
 
                     dataAvailable.visibility = View.VISIBLE
                     noDataAvailable.visibility = View.GONE
                     cityWeatherAdapter.update(citiesWithWeather)
+                    pageIndicatorView.count = citiesWithWeather.size
 
                 }
             } else {
@@ -85,6 +124,17 @@ class WeatherActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun colorScreen(@ColorInt color: Int) {
+        val bgDrawable = GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            intArrayOf(
+                color,
+                lightenColor(color, 0.2f)
+            )
+        )
+        window.setBackgroundDrawable(bgDrawable)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -125,6 +175,8 @@ class WeatherActivity : AppCompatActivity() {
                 fusedLocationProviderClient.lastLocation?.addOnSuccessListener {
                     if (it != null) {
                         homeViewModel.fetchWeatherForLocation(it.latitude, it.longitude)
+                    } else {
+                        Toast.makeText(this, getString(R.string.detect_location_failure), Toast.LENGTH_SHORT).show()
                     }
                 }
             }

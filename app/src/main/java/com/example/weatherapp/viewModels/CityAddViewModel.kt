@@ -15,9 +15,17 @@ class CityAddViewModel(private val cityDao: CityDao) : ViewModel() {
     val _selectCity = MutableLiveData<Event<City>>()
     val selectCity: LiveData<Event<City>> = _selectCity
 
+    init {
+        defaultResults()
+    }
 
+    private fun defaultResults() {
+        runOnIoThread {
+            _filteredList.postValue(cityDao.getTop())
+        }
+    }
     fun clearResult() {
-        _filteredList.postValue(emptyList())
+        defaultResults()
     }
     fun filter(keyword: String) {
         runOnIoThread {

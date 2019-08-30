@@ -9,6 +9,9 @@ abstract class CityDao : BaseDao<City> {
     @Query("SELECT * FROM city")
     abstract fun getAll(): List<City>
 
+    @Query("SELECT * FROM city LIMIT 20")
+    abstract fun getTop(): List<City>
+
     @Query("SELECT * FROM city WHERE name LIKE :pattern LIMIT 10")
     abstract fun getByName(pattern: String): List<City>
 }

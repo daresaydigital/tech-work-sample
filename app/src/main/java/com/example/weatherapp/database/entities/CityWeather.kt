@@ -6,13 +6,15 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.weatherapp.models.Weather
+import java.util.*
 
 @Entity
-data class CityWeather(@PrimaryKey val id: Long, val weather: Weather, val lastUpdate: Long, @Embedded(prefix = "city_") val city: City) : Parcelable {
+data class CityWeather(@PrimaryKey val id: Long, val weather: Weather, val lastUpdateClient: Long = Date().time, val lastUpdateServer: Long, @Embedded(prefix = "city_") val city: City) : Parcelable {
 
     constructor(parcel: Parcel) : this(
         parcel.readLong(),
         parcel.readParcelable(Weather::class.java.classLoader),
+        parcel.readLong(),
         parcel.readLong(),
         parcel.readParcelable(City::class.java.classLoader)
     )
@@ -20,7 +22,8 @@ data class CityWeather(@PrimaryKey val id: Long, val weather: Weather, val lastU
     override fun writeToParcel(dest: Parcel?, flags: Int) {
         dest?.writeLong(id)
         dest?.writeParcelable(weather, flags)
-        dest?.writeLong(lastUpdate)
+        dest?.writeLong(lastUpdateClient)
+        dest?.writeLong(lastUpdateServer)
         dest?.writeParcelable(city, flags)
     }
 

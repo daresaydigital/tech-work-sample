@@ -44,7 +44,7 @@ val databaseModule = module {
 }
 
 val viewModelModule = module {
-    viewModel { (cityWeather: CityWeather) -> CityViewModel(get(), cityWeather) }
+    viewModel { (cityWeather: CityWeather) -> CityViewModel(get(), get(), cityWeather) }
     viewModel { CityAddViewModel(get()) }
     viewModel { HomeViewModel(get(), get()) }
 }

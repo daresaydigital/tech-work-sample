@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp.R
 import com.example.weatherapp.viewModels.CityAddViewModel
@@ -36,8 +37,10 @@ class CityAddActivity : AppCompatActivity() {
 
     private fun prepareRecycler() {
         adapter = CityAddAdapter(this, cityAddViewModel::handleEvent)
-        filteredCitiesRecycler.layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(this)
+        filteredCitiesRecycler.layoutManager = layoutManager
         filteredCitiesRecycler.adapter = adapter
+        filteredCitiesRecycler.addItemDecoration(DividerItemDecoration(this, layoutManager.orientation))
     }
 
     private fun subscribeUi() {
@@ -64,10 +67,8 @@ class CityAddActivity : AppCompatActivity() {
         }
         searchCityEditText.textChanges()
             .debounce(300, TimeUnit.MILLISECONDS)
-            .filter { it.length >= 3 }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-                Toast.makeText(this@CityAddActivity, "Searching for : $it", Toast.LENGTH_SHORT).show()
                 cityAddViewModel.filter(it.toString())
             }
     }

@@ -12,4 +12,4 @@ data class Cloud(val all: Int)
 
 data class Sys(val country:String, val sunrise: Long, val sunset: Long)
 
-data class WeatherData(val coord: Coordinate, val weather: Array<WeatherExtraInfo>, val base: String, val sys: Sys, val main: WeatherInfo, val dt: Long, val id: Long, val name: String)
+data class WeatherData(val coord: Coordinate, val weather: Array<WeatherExtraInfo>, val base: String, val sys: Sys, val main: WeatherInfo, val dt: Long, val timezone: Long, val id: Long, val name: String)
