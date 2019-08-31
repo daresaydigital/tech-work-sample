@@ -2,6 +2,7 @@ package com.example.weatherapp.ui
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import com.example.weatherapp.database.entities.CityWeather
 
 class CityWeatherViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
@@ -10,6 +11,9 @@ class CityWeatherViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapt
 
     override fun getCount() = availableCityWeathers.size
 
+    override fun getItemPosition(`object`: Any): Int {
+        return PagerAdapter.POSITION_NONE
+    }
 
     fun update(cityWithWeathers: List<CityWeather>) {
         availableCityWeathers = cityWithWeathers

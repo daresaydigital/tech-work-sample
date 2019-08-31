@@ -67,10 +67,10 @@ class CityFragment : Fragment() {
         weatherViewModel.currentWeather.observe(this, Observer {
             it?.let {
 
-                currentTemp.text = "${it.weather.temp.fromKelvinToDegree()}\u00B0"
+                currentTemp.text = "${it.weather.temp}\u00B0"
 
-                minTemp.text = "${it.weather.minTemp.fromKelvinToDegree()}\u00B0"
-                maxTemp.text = "${it.weather.maxTemp.fromKelvinToDegree()}\u00B0"
+                minTemp.text = "${it.weather.minTemp}\u00B0"
+                maxTemp.text = "${it.weather.maxTemp}\u00B0"
 
                 weatherStatus.text = it.weather.description
 

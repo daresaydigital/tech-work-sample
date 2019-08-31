@@ -24,7 +24,7 @@
                               app:layout_constraintTop_toBottomOf="@+id/cityDateTime"
                               app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
                               app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                              android:layout_marginTop="4dp"/>
+                              android:layout_marginTop="4dp" android:visibility="gone"/>
     <TextView
             android:textColor="@color/black"
             android:text="@string/welcome_message"
@@ -63,7 +63,7 @@
     <androidx.constraintlayout.widget.Group android:layout_width="wrap_content" android:layout_height="wrap_content"
                                             android:id="@+id/dataAvailable"
                                             tools:visibility="visible" android:visibility="gone"
-                                            app:constraint_referenced_ids="cityPager,cityOrLocation"/>
+                                            app:constraint_referenced_ids="cityPager,cityOrLocation,cityDateTime"/>
     <Button
             android:text="@string/detect_location"
             android:padding="4dp"

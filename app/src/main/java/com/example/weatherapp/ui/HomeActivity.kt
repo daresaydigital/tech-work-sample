@@ -111,10 +111,10 @@ class WeatherActivity : AppCompatActivity() {
                 if (citiesWithWeather.isNotEmpty()) {
 //                    if (dataAvailable.visibility == View.GONE)
 //                        homeViewModel.select(0)
-
                     dataAvailable.visibility = View.VISIBLE
                     noDataAvailable.visibility = View.GONE
                     cityWeatherAdapter.update(citiesWithWeather)
+                    pageIndicatorView.visibility = if (citiesWithWeather.size > 1) View.VISIBLE else View.GONE
                     pageIndicatorView.count = citiesWithWeather.size
 
                 }
