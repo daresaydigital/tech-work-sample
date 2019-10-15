@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".views.MainActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        app:cardBackgroundColor="@color/Clouds"
+        app:cardUseCompatPadding="true"
+        card_view:cardCornerRadius="8dp"
+        card_view:contentPadding="10dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="96dp">
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/tvCityName"
+                android:textSize="@dimen/cityName"
+                android:text="Stockholm"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"/>
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/tvCityTemp"
+                android:textSize="@dimen/cityTemp"
+                android:textStyle="bold"
+                android:text="20"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"/>
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/tvCityStatus"
+                android:textSize="@dimen/cityStatus"
+                android:text="Rain"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"/>
+            <ImageView
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:id="@+id/imgIcon"
+                android:textSize="@dimen/cityName"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

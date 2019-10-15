@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">weatherforecast</string>
+    <string name="permission_location">We need your location in order to show weather!</string>
+    <string name="humidity">Humidity : %1$s </string>
+    <string name="wind">Wind : %1$s km/h</string>
+    <string name="pressure">Pressure : %1$s </string>
+    <string name="min_temp">MinTemp : %1$s c</string>
+    <string name="max_temp">MaxTemp : %1$s c</string>
+
+    <string name="city">City</string>
+
+    <string name="dialog_delete_title">Delete City</string>
+    <string name="dialog_delete_message">Are you sure you want to delete this city?</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
