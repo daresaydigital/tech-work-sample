@@ -52,7 +52,7 @@ public class TestGetCurrentCityWeather {
         Halt checker=new Halt(10000,1000);
         shadowOf(Looper.getMainLooper()).idle();
 
-        ControllerAPI.Companion.getInstance().getCurrentWeatherByName(new ModelParamCurrentWeatherByName("Stockholm", ControllerAPI.Companion.getInstance().getAPI_KEY()), new Callback<ModelCurrentWeater>() {
+        ControllerAPI.Companion.getInstance().getCurrentWeatherByName(new ModelParamCurrentWeatherByName("Stockholm", "62fc4256-8f8c-11e5-8994-feff819cdc9f"), new Callback<ModelCurrentWeater>() {
             @Override
             public void onResponse(Call<ModelCurrentWeater> call, Response<ModelCurrentWeater> response) {
                 finalResult=response.body().getName();
@@ -67,22 +67,22 @@ public class TestGetCurrentCityWeather {
         checker.execHalt(new ConditionCheck() {
             @Override
             public boolean condition() {
-                if (!finalResult.isEmpty()){
-                    Assert.assertEquals("Stockholm",finalResult);
-                    return false;
+                if (finalResult.isEmpty()){
+                    shadowOf(Looper.getMainLooper()).idle();
+                    return true;
                 }
-                return true;
+                shadowOf(Looper.getMainLooper()).idle();
+                return false;
             }
 
             @Override
             public void finalyAssert() {
-                Assert.assertEquals("Stockholm","-1");
+                Assert.assertEquals("Stockholm",finalResult);
             }
         });
 
         Robolectric.flushForegroundThreadScheduler();
         Robolectric.flushBackgroundThreadScheduler();
-
     }
 
     @After
