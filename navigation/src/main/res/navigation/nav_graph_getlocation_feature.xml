@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_getlocation_feature"
+    app:startDestination="@id/locationFragment">
+
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name=""
+        android:label="The Weather">
+
+        <action
+            android:id="@+id/action_launchesFragment_to_detailFragment"
+            app:destination="@id/nav_graph_weatherdetail_feature">
+            <argument
+                android:defaultValue="@null"
+                android:name="location"
+                app:argType="string" />
+            <argument
+                android:defaultValue="@null"
+                android:name="latitude"
+                app:argType="string" />
+            <argument
+                android:defaultValue="@null"
+                android:name="longitude"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+
+    <include app:graph="@navigation/nav_graph_weatherdetail_feature" />
+
+</navigation>

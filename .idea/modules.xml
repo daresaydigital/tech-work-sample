@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buildSrc/buildSrc.iml" filepath="$PROJECT_DIR$/buildSrc/buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/extensions/extensions.iml" filepath="$PROJECT_DIR$/common/extensions/extensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navigation/navigation.iml" filepath="$PROJECT_DIR$/navigation/navigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/network/network.iml" filepath="$PROJECT_DIR$/common/network/network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/presentation/presentation.iml" filepath="$PROJECT_DIR$/common/presentation/presentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tech-work-sample.iml" filepath="$PROJECT_DIR$/.idea/tech-work-sample.iml" />
+    </modules>
+  </component>
+</project>

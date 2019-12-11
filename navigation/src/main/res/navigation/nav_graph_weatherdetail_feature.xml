@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_weatherdetail_feature"
+    app:startDestination="@id/detailFragment">
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="">
+        <argument
+            android:defaultValue="@null"
+            android:name="location"
+            app:argType="string" />
+        <argument
+            android:defaultValue="@null"
+            android:name="latitude"
+            app:argType="string" />
+        <argument
+            android:defaultValue="@null"
+            android:name="longitude"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
