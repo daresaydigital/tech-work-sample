@@ -5,20 +5,22 @@
     app:startDestination="@id/detailFragment">
 
     <fragment
-        android:id="@+id/detailFragment"
-        android:name="">
+        android:id="@+id/detailFragment">
         <argument
             android:defaultValue="@null"
             android:name="location"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true"/>
         <argument
             android:defaultValue="@null"
             android:name="latitude"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true"/>
         <argument
             android:defaultValue="@null"
             android:name="longitude"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true"/>
     </fragment>
 
 </navigation>

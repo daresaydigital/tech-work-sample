@@ -14,6 +14,8 @@
             <option value="$PROJECT_DIR$/common/extensions" />
             <option value="$PROJECT_DIR$/common/network" />
             <option value="$PROJECT_DIR$/common/presentation" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/getlocation" />
             <option value="$PROJECT_DIR$/navigation" />
           </set>
         </option>

@@ -10,6 +10,7 @@ object Modules {
     val presentation = ":common:presentation"
     val extensions = ":common:extensions"
 
+    val getLocation = ":features:getlocation"
 
 }
 
@@ -36,6 +37,7 @@ object Versions {
     val recyclerview = "1.0.0"
     val constraintLayout = "1.1.3"
     val playServicesLocation = "17.0.0"
+    val legacySupport = "1.0.0"
 
     val ktx = "1.0.0-alpha1"
 
@@ -96,6 +98,7 @@ object SupportLibraries {
     val cardview = "androidx.cardview:cardview:${Versions.cardview}"
     val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
     val playServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServicesLocation}"
 }
 

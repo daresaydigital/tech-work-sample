@@ -29,6 +29,7 @@ dependencies {
     implementation project(Modules.navigation)
     implementation project(Modules.presentation)
     implementation project(Modules.extensions)
+    implementation project(Modules.getLocation)
 
     implementation Libraries.kotlin
     implementation SupportLibraries.design
