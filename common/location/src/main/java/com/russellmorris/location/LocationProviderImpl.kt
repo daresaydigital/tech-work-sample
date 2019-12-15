@@ -1,4 +1,4 @@
-package com.russellmorris.getlocation.data.provider
+package com.russellmorris.location
 
 import android.Manifest
 import android.app.Activity
@@ -85,7 +85,7 @@ class LocationProviderImpl (private val context: Context,
         LocationServices
             .getSettingsClient(activiy)
             .checkLocationSettings(builder.build())
-            .addOnSuccessListener { locationSettingsResponse: LocationSettingsResponse? -> lastKnownLocation }
+            .addOnSuccessListener { _: LocationSettingsResponse? -> lastKnownLocation }
             .addOnFailureListener { e: Exception ->
                 val status = (e as ApiException).statusCode
                 if (status == LocationSettingsStatusCodes.RESOLUTION_REQUIRED) {

@@ -43,4 +43,10 @@ dependencies {
     implementation Libraries.navigation
     implementation Libraries.navigationFrag
     implementation Libraries.places
+
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
 }

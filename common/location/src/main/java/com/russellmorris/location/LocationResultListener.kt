@@ -1,4 +1,4 @@
-package com.russellmorris.getlocation.data.provider
+package com.russellmorris.location
 
 import android.location.Location
 

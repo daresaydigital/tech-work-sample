@@ -9,6 +9,7 @@ object Modules {
     val network = ":common:network"
     val presentation = ":common:presentation"
     val extensions = ":common:extensions"
+    val locationProvider = ":common:location"
 
     val getLocation = ":features:getlocation"
 
@@ -22,6 +23,8 @@ object Releases {
 object API {
     val weatherKey = ""
     val weatherEndpoint = ""
+
+    val playServicesPlacesKey = "AIzaSyDuK7eD86RfUgfQESiRfZP28WSYEyfSiEI"
 }
 
 object Versions {
@@ -36,7 +39,8 @@ object Versions {
     val cardview = "1.0.0"
     val recyclerview = "1.0.0"
     val constraintLayout = "1.1.3"
-    val playServicesLocation = "17.0.0"
+    val playServices = "17.0.0"
+    val places = "1.1.0"
     val legacySupport = "1.0.0"
 
     val ktx = "1.0.0-alpha1"
@@ -90,6 +94,8 @@ object Libraries {
 
     val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
     val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+    val playServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServices}"
+    val places = "com.google.android.libraries.places:places:${Versions.places}"
 }
 
 object SupportLibraries {
@@ -99,7 +105,6 @@ object SupportLibraries {
     val recyclerview = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     val legacySupport = "androidx.legacy:legacy-support-v4:${Versions.legacySupport}"
-    val playServicesLocation = "com.google.android.gms:play-services-location:${Versions.playServicesLocation}"
 }
 
 

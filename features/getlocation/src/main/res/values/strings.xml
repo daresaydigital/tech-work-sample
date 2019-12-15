@@ -2,5 +2,5 @@
     <string name="app_name">Get Location</string>
     <string name="seach_for_a_location">Search for a location</string>
     <string name="or">or</string>
-    <string name="enable_location_permissions_to_see_local_forecast">Enable location permissions to see local forecast</string>
+    <string name="local_forecast_button">Use current location</string>
 </resources>

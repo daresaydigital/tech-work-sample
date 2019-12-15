@@ -1,2 +1,3 @@
+include ':showweather'
 include Modules.app, Modules.navigation, Modules.presentation, Modules.network,
-        Modules.extensions, Modules.getLocation
+        Modules.extensions, Modules.locationProvider, Modules.getLocation
