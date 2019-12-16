@@ -27,4 +27,14 @@ dependencies {
     testImplementation TestLibraries.mockitoKotlin
     testImplementation TestLibraries.mockitoInline
     testImplementation TestLibraries.lifecycleTesting
+    testImplementation TestLibraries.espresso
+    testImplementation TestLibraries.espressoContrib
+
+    androidTestImplementation TestLibraries.junit
+    androidTestImplementation TestLibraries.assertjCore
+    androidTestImplementation TestLibraries.mockitoKotlin
+    androidTestImplementation TestLibraries.mockitoInline
+    androidTestImplementation TestLibraries.lifecycleTesting
+    androidTestImplementation TestLibraries.espresso
+    androidTestImplementation TestLibraries.espressoContrib
 }

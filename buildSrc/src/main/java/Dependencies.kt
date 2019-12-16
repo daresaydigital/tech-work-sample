@@ -64,6 +64,7 @@ object Versions {
     val assertjCore = "3.12.2"
     val mockitoKotlin = "2.1.0"
     val mockitoInline = "3.0.0"
+    val espressoCore = "3.2.0-alpha02"
 }
 
 object Libraries {
@@ -115,4 +116,6 @@ object TestLibraries {
     val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     val mockitoInline = "org.mockito:mockito-inline:${Versions.mockitoInline}"
     val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifecycle}"
+    val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
+    val espressoContrib = "androidx.test.espresso:espresso-contrib:${Versions.espressoCore}"
 }
