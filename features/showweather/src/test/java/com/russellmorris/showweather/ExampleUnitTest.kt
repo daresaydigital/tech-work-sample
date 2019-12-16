@@ -1,4 +1,4 @@
-package com.russellmorris.features.showweather
+package com.russellmorris.showweather
 
 import org.junit.Test
 

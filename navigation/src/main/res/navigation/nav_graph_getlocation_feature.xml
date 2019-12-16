@@ -7,30 +7,25 @@
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.russellmorris.getlocation.ui.view.GetLocationFragment"
-        android:label="The Weather">
+        android:label="Weather Watch">
 
-<!--        <action-->
-<!--            android:id="@+id/action_launchesFragment_to_detailFragment"-->
-<!--            app:destination="@id/nav_graph_weatherdetail_feature">-->
-<!--            <argument-->
-<!--                android:defaultValue="@null"-->
-<!--                android:name="location"-->
-<!--                app:argType="string"-->
-<!--                app:nullable="true"/>-->
-<!--            <argument-->
-<!--                android:defaultValue="@null"-->
-<!--                android:name="latitude"-->
-<!--                app:argType="string"-->
-<!--                app:nullable="true"/>-->
-<!--            <argument-->
-<!--                android:defaultValue="@null"-->
-<!--                android:name="longitude"-->
-<!--                app:argType="string"-->
-<!--                app:nullable="true"/>-->
-<!--        </action>-->
+        <action
+            android:id="@+id/action_launchesFragment_to_detailFragment"
+            app:destination="@id/nav_graph_weatherdetail_feature">
+            <argument
+                android:defaultValue="@null"
+                android:name="latitude"
+                app:argType="string"
+                app:nullable="true"/>
+            <argument
+                android:defaultValue="@null"
+                android:name="longitude"
+                app:argType="string"
+                app:nullable="true"/>
+        </action>
 
     </fragment>
 
-<!--    <include app:graph="@navigation/nav_graph_weatherdetail_feature" />-->
+    <include app:graph="@navigation/nav_graph_weatherdetail_feature" />
 
 </navigation>

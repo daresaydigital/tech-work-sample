@@ -7,10 +7,12 @@ android {
 
     buildTypes {
         release {
-            buildConfigField "String", "PLACES_API_KEY", "\"${API.playServicesPlacesKey}\""
+            buildConfigField "String", "WEATHER_ENDPOINT", "\"${API.weatherServiceEndpoint}\""
+            buildConfigField "String", "WEATHER_API_KEY", "\"${API.weatherServiceKey}\""
         }
         debug {
-            buildConfigField "String", "PLACES_API_KEY", "\"${API.playServicesPlacesKey}\""
+            buildConfigField "String", "WEATHER_ENDPOINT", "\"${API.weatherServiceEndpoint}\""
+            buildConfigField "String", "WEATHER_API_KEY", "\"${API.weatherServiceKey}\""
         }
     }
 
@@ -28,9 +30,9 @@ dependencies {
     implementation project(Modules.navigation)
     implementation project(Modules.presentation)
     implementation project(Modules.extensions)
-    implementation project(Modules.locationProvider)
 
     implementation SupportLibraries.design
+    implementation SupportLibraries.cardview
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.constraintLayout
     implementation SupportLibraries.legacySupport
@@ -40,9 +42,12 @@ dependencies {
     implementation Libraries.ktx
     implementation Libraries.lifecycleExtensions
     implementation Libraries.lifecycleViewModel
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+    implementation Libraries.moshi
+    implementation Libraries.moshiConverter
     implementation Libraries.navigation
     implementation Libraries.navigationFrag
-    implementation Libraries.places
 
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.assertjCore

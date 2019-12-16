@@ -12,6 +12,7 @@ object Modules {
     val locationProvider = ":common:location"
 
     val getLocation = ":features:getlocation"
+    val showWeather = ":features:showweather"
 
 }
 
@@ -21,10 +22,10 @@ object Releases {
 }
 
 object API {
-    val weatherKey = ""
-    val weatherEndpoint = ""
+    val weatherServiceKey = "" //TODO: DO NOT COMMIT TO GITHUB!!
+    val weatherServiceEndpoint = "https://worksample-api.herokuapp.com/"
 
-    val playServicesPlacesKey = "AIzaSyDuK7eD86RfUgfQESiRfZP28WSYEyfSiEI"
+    val playServicesPlacesKey = "" //TODO: DO NOT COMMIT TO GITHUB!!
 }
 
 object Versions {

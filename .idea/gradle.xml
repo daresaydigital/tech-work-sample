@@ -17,8 +17,8 @@
             <option value="$PROJECT_DIR$/common/presentation" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/getlocation" />
+            <option value="$PROJECT_DIR$/features/showweather" />
             <option value="$PROJECT_DIR$/navigation" />
-            <option value="$PROJECT_DIR$/showweather" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

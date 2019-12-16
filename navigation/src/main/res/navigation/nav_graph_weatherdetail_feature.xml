@@ -5,12 +5,9 @@
     app:startDestination="@id/detailFragment">
 
     <fragment
-        android:id="@+id/detailFragment">
-        <argument
-            android:defaultValue="@null"
-            android:name="location"
-            app:argType="string"
-            app:nullable="true"/>
+        android:id="@+id/detailFragment"
+        android:name="com.russellmorris.showweather.ui.view.ShowWeatherFragment"
+        android:label="Current Weather">
         <argument
             android:defaultValue="@null"
             android:name="latitude"

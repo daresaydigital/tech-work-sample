@@ -8,8 +8,7 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.common.api.Status
 import com.google.android.libraries.places.api.Places
 import com.google.android.libraries.places.api.model.Place
@@ -19,13 +18,18 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import com.russellmorris.getlocation.BuildConfig
 import com.russellmorris.getlocation.R
 import com.russellmorris.getlocation.injectFeature
+import com.russellmorris.getlocation.ui.viewmodel.GetLocationViewModel
 import com.russellmorris.location.LocationProvider
 import com.russellmorris.location.LocationProviderImpl
 import com.russellmorris.location.LocationResultListener
+import com.russellmorris.presentation.base.BaseFragment
+import com.russellmorris.presentation.base.BaseViewModel
 import kotlinx.android.synthetic.main.get_location_fragment.*
+import org.koin.androidx.viewmodel.ext.viewModel
 
-class GetLocationFragment : Fragment(), LocationResultListener {
+class GetLocationFragment : BaseFragment(), LocationResultListener {
 
+    private val getLocationViewModel: GetLocationViewModel by viewModel()
     lateinit var locationProvider: LocationProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,10 +49,12 @@ class GetLocationFragment : Fragment(), LocationResultListener {
         return inflater.inflate(R.layout.get_location_fragment, container, false)
     }
 
+    override fun getViewModel(): BaseViewModel = getLocationViewModel
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         injectFeature()
-        locationPermissionButton.setOnClickListener{v -> activity?.let {
+        locationPermissionButton.setOnClickListener{_ -> activity?.let {
             locationProvider.getLocation(it)
         } }
     }
@@ -65,26 +71,35 @@ class GetLocationFragment : Fragment(), LocationResultListener {
         startActivity(settingsIntent)
     }
 
-    override fun setLocation(location: Location?) {
-        // Launch weather details fragment
-        println("Location: $location")
+    override fun setLocation(location: Location) {
+        launchNextView(location.latitude, location.longitude)
     }
 
     private fun setUpAutoComplete() {
         val autocompleteSupportFragment = childFragmentManager.findFragmentById(R.id.placeAutoComplete) as AutocompleteSupportFragment
-        autocompleteSupportFragment.setPlaceFields(arrayListOf(Place.Field.ID, Place.Field.NAME))
+        autocompleteSupportFragment.setPlaceFields(arrayListOf(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG))
         autocompleteSupportFragment.setTypeFilter(TypeFilter.CITIES)
         autocompleteSupportFragment.setHint(getString(R.string.seach_for_a_location))
         autocompleteSupportFragment.setOnPlaceSelectedListener(object:PlaceSelectionListener{
-            override fun onPlaceSelected(p0: Place) {
-                Toast.makeText(requireContext(), ""+p0.name, Toast.LENGTH_LONG).show()
+            override fun onPlaceSelected(place: Place) {
+                launchNextView(place.latLng?.latitude, place.latLng?.longitude)
             }
 
-            override fun onError(p0: Status) {
-                Toast.makeText(requireContext(), ""+p0.statusMessage, Toast.LENGTH_LONG).show()
+            override fun onError(status: Status) {
+                getLocationViewModel.snackBarError
             }
 
         })
+    }
+
+    private fun launchNextView(latitude: Double?, longitude: Double?) {
+        if (findNavController().currentDestination?.id == R.id.locationFragment) {
+            getLocationViewModel.navigate(
+                GetLocationFragmentDirections.actionLaunchesFragmentToDetailFragment(
+                    latitude.toString(), longitude.toString()
+                )
+            )
+        }
     }
 
 }
