@@ -19,8 +19,8 @@ class ShowWeatherViewModel constructor(private val weatherUseCase: WeatherUseCas
     val weather = MutableLiveData<Resource<Weather>>()
     private val compositeDisposable = CompositeDisposable()
 
-    fun getWeatherData(latitude: String?, longitude: String?) =
-        compositeDisposable.add(weatherUseCase.getWeather(latitude, longitude, BuildConfig.WEATHER_API_KEY)
+    fun getWeatherData(latitude: String?, longitude: String?, units: String) =
+        compositeDisposable.add(weatherUseCase.getWeather(latitude, longitude, BuildConfig.WEATHER_API_KEY, units)
             .doOnSubscribe{ weather.setLoading() }
             .subscribeOn(Schedulers.io())
             .map { it.mapToPresentation() }

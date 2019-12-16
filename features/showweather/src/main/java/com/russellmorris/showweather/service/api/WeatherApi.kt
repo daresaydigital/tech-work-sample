@@ -11,6 +11,7 @@ interface WeatherApi {
     fun getWeather(
         @Query("lat") latitude: String?,
         @Query("lon") longitude: String?,
-        @Query("key") key: String
+        @Query("key") key: String,
+        @Query("units") units: String
     ) : Single<WeatherDAO>
 }

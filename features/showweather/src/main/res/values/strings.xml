@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Show Weather</string>
+    <string name="km_h">%1$s kph</string>
+    <string name="degrees">%1$d\u00B0C</string>
 </resources>

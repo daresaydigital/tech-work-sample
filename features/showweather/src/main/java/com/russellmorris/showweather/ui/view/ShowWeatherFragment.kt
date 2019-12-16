@@ -1,14 +1,19 @@
 package com.russellmorris.showweather.ui.view
 
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getDrawable
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.russellmorris.extensions.Resource
+import com.russellmorris.extensions.convertToSingleDecimal
+import com.russellmorris.extensions.convertToTime
 import com.russellmorris.extensions.parseUtcDate
 import com.russellmorris.showweather.R
 import com.russellmorris.showweather.injectFeature
@@ -18,6 +23,8 @@ import com.russellmorris.presentation.base.BaseViewModel
 import com.russellmorris.showweather.ui.model.Weather
 import kotlinx.android.synthetic.main.fragment_show_weather.*
 import org.koin.androidx.viewmodel.ext.viewModel
+import java.math.BigDecimal
+import java.math.RoundingMode
 
 
 class ShowWeatherFragment : BaseFragment() {
@@ -32,7 +39,8 @@ class ShowWeatherFragment : BaseFragment() {
             .setAction("Retry") {
                 showWeatherViewModel.getWeatherData(
                     latitude = args.latitude,
-                    longitude = args.longitude)
+                    longitude = args.longitude,
+                    units = "metric")
             }
     }
 
@@ -48,7 +56,7 @@ class ShowWeatherFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         injectFeature()
         if (savedInstanceState == null) {
-            showWeatherViewModel.getWeatherData(args.latitude, args.longitude)
+            showWeatherViewModel.getWeatherData(args.latitude, args.longitude, "metric")
         }
     }
 
@@ -60,9 +68,28 @@ class ShowWeatherFragment : BaseFragment() {
     private fun update(resource: Resource<Weather>?) {
         resource?.let {
             it.data?.let {
-                weatherDetails.text = """${it.city} is ${it.temp}"""
+                location.text = it.city
+                temp.text = getString(R.string.degrees, it.temp.toInt())
+                windSpeed.text = getString(R.string.km_h, it.windSpeed.convertToSingleDecimal())
+                sunrise.text = it.sunrise.convertToTime(it.timezone)
+                sunset.text = it.sunset.convertToTime(it.timezone)
+                weatherDescription.text = it.weatherDescription
+                weatherIcon.setImageDrawable(getIconDrawable(it.weatherIcon))
+                weatherDetail.background = getbackgroundDrawable(it.weatherIcon)
             }
             it.message?.let { snackBar.show() }
         }
+    }
+
+    private fun getIconDrawable(iconName: String): Drawable? {
+        val drawableName = "ic_$iconName"
+        val resourceId: Int = resources.getIdentifier(drawableName, "drawable", activity?.packageName)
+        return getDrawable(requireContext(), resourceId)
+    }
+
+    private fun getbackgroundDrawable(iconName: String): Drawable? {
+        val drawableName = "bg_$iconName"
+        val resourceId: Int = resources.getIdentifier(drawableName, "drawable", activity?.packageName)
+        return getDrawable(requireContext(), resourceId)
     }
 }

@@ -12,9 +12,10 @@ class WeatherApiService constructor(
     override fun getWeather(
         latitude: String?,
         longitude: String?,
-        key: String
+        key: String,
+        units: String
     ): Single<WeatherEntity> {
-        return api.getWeather(latitude, longitude, key)
+        return api.getWeather(latitude, longitude, key, units)
             .map { it.mapToDomain() }
     }
 }
