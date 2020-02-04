@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import com.sneha.weatherapp.R
 import com.sneha.weatherapp.di.component.ActivityComponent
 import com.sneha.weatherapp.ui.base.BaseActivity
-import com.sneha.weatherapp.ui.dummy.DummyActivity
+import com.sneha.weatherapp.ui.weather.WeatherActivity
 import com.sneha.weatherapp.utils.common.Event
 
 class SplashActivity : BaseActivity<SplashViewModel>() {
@@ -31,7 +31,7 @@ class SplashActivity : BaseActivity<SplashViewModel>() {
         viewModel.launchDummy.observe(this, Observer<Event<Map<String, String>>> {
             it.getIfNotHandled()?.run {
                 finish()
-                startActivity(Intent(applicationContext, DummyActivity::class.java))
+                startActivity(Intent(applicationContext, WeatherActivity::class.java))
             }
         })
     }

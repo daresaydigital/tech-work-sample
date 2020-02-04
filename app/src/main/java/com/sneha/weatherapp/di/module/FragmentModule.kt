@@ -2,7 +2,7 @@ package com.sneha.weatherapp.di.module
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sneha.weatherapp.data.repository.DummyRepository
+import com.sneha.weatherapp.data.repository.WeatherRepository
 import com.sneha.weatherapp.ui.base.BaseFragment
 import com.sneha.weatherapp.ui.dummies.DummiesAdapter
 import com.sneha.weatherapp.ui.dummies.DummiesViewModel
@@ -24,7 +24,7 @@ class FragmentModule(private val fragment: BaseFragment<*>) {
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
-        dummyRepository: DummyRepository
+        dummyRepository: WeatherRepository
     ): DummiesViewModel =
         ViewModelProviders.of(fragment,
             ViewModelProviderFactory(DummiesViewModel::class) {

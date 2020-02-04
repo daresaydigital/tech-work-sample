@@ -2,12 +2,10 @@ package com.sneha.weatherapp.ui.dummies
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sneha.weatherapp.R
 import com.sneha.weatherapp.di.component.FragmentComponent
 import com.sneha.weatherapp.ui.base.BaseFragment
-import kotlinx.android.synthetic.main.fragment_dummies.*
 import javax.inject.Inject
 
 class DummiesFragment : BaseFragment<DummiesViewModel>() {
@@ -37,14 +35,14 @@ class DummiesFragment : BaseFragment<DummiesViewModel>() {
     }
 
     override fun setupObservers() {
-        viewModel.getDummies().observe(this, Observer {
-            it?.run { dummiesAdapter.appendData(this) }
-        })
+//        viewModel.getWeatherData().observe(this, Observer {
+//            Log.e(TAG, "${it?.main?.temperature}")
+////            it?.run { dummiesAdapter.appendData(this) }
+//        })
     }
 
     override fun setupView(view: View) {
-        rv_dummy.layoutManager = linearLayoutManager
-        rv_dummy.adapter = dummiesAdapter
+//        rv_dummy.layoutManager = linearLayoutManager
+//        rv_dummy.adapter = dummiesAdapter
     }
-
 }

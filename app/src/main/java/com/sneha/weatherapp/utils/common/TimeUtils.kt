@@ -1,5 +1,6 @@
 package com.sneha.weatherapp.utils.common
 
+import java.text.SimpleDateFormat
 import java.util.*
 
 object TimeUtils {
@@ -30,5 +31,12 @@ object TimeUtils {
         } else {
             "${diff / DAY_MILLIS} days ago"
         }
+    }
+
+    fun getCurrentTime(): String {
+        //EEEE, h:mm a
+        val sdf = SimpleDateFormat("EEEE, HH:mm")
+        val resultDate = Date(System.currentTimeMillis())
+        return sdf.format(resultDate)
     }
 }

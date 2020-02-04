@@ -2,10 +2,10 @@ package com.sneha.weatherapp.di.module
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sneha.weatherapp.data.repository.DummyRepository
+import com.sneha.weatherapp.data.repository.WeatherRepository
 import com.sneha.weatherapp.data.repository.UserRepository
 import com.sneha.weatherapp.ui.base.BaseActivity
-import com.sneha.weatherapp.ui.dummy.DummyViewModel
+import com.sneha.weatherapp.ui.weather.WeatherViewModel
 import com.sneha.weatherapp.ui.splash.SplashViewModel
 import com.sneha.weatherapp.utils.ViewModelProviderFactory
 import com.sneha.weatherapp.utils.network.NetworkHelper
@@ -38,13 +38,13 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         }).get(SplashViewModel::class.java)
 
     @Provides
-    fun provideDummyViewModel(
+    fun provideWeatherViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
-        dummyRepository: DummyRepository
-    ): DummyViewModel = ViewModelProviders.of(
-        activity, ViewModelProviderFactory(DummyViewModel::class) {
-            DummyViewModel(schedulerProvider, compositeDisposable, networkHelper, dummyRepository)
-        }).get(DummyViewModel::class.java)
+        weatherRepository: WeatherRepository
+    ): WeatherViewModel = ViewModelProviders.of(
+        activity, ViewModelProviderFactory(WeatherViewModel::class) {
+            WeatherViewModel(schedulerProvider, compositeDisposable, networkHelper, weatherRepository)
+        }).get(WeatherViewModel::class.java)
 }
