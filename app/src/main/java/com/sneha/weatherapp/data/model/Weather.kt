@@ -21,11 +21,11 @@ data class Weather(
     @SerializedName("wind")
     val wind: Wind,
 
-//    @SerializedName("clouds")
-//    val clouds: Clouds,
+    @SerializedName("clouds")
+    val clouds: Clouds,
 
     @SerializedName("dt")
-    val dt: Double,
+    val dt: Long,
 
     @SerializedName("sys")
     val sys: Sys,
@@ -37,7 +37,7 @@ data class Weather(
     val id: Double,
 
     @SerializedName("name")
-    val name: String,
+    val cityName: String,
 
     @SerializedName("cod")
     val cod: Int
@@ -62,7 +62,7 @@ data class Weather(
         val description: String,
 
         @SerializedName("icon")
-        val icon: Int
+        val icon: String
     )
 
     data class MainData(
@@ -79,10 +79,10 @@ data class Weather(
         val temperatureMax: Double,
 
         @SerializedName("pressure")
-        val pressure: Double,
+        val pressure: Int,
 
         @SerializedName("humidity")
-        val humidity: Double
+        val humidity: Int
     )
 
     data class Wind(
@@ -104,9 +104,14 @@ data class Weather(
         val country: String,
 
         @SerializedName("sunrise")
-        val sunrise: Double,
+        val sunrise: Long,
 
         @SerializedName("sunset")
-        val sunset: Double
+        val sunset: Long
+    )
+
+    data class Clouds(
+        @SerializedName("all")
+        val all: Int
     )
 }

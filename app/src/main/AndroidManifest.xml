@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".WeatherApplication"
@@ -20,13 +21,18 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
             android:name="com.sneha.weatherapp.ui.weather.WeatherActivity"
-            android:theme="@style/NoActionBarTheme"/>
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ui.weather.SelectedDayForecastActivity"
+            android:theme="@style/Theme.CustomTranslucent"/>
     </application>
 
 </manifest>

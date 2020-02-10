@@ -2,7 +2,8 @@ package com.sneha.weatherapp.di.component
 
 import com.sneha.weatherapp.di.ViewModelScope
 import com.sneha.weatherapp.di.module.ViewHolderModule
-import com.sneha.weatherapp.ui.dummies.DummyItemViewHolder
+import com.sneha.weatherapp.ui.weather.adapter.DailyForecastItemViewHolder
+import com.sneha.weatherapp.ui.weather.adapter.ForecastItemViewHolder
 import dagger.Component
 
 @ViewModelScope
@@ -12,5 +13,7 @@ import dagger.Component
 )
 interface ViewHolderComponent {
 
-    fun inject(viewHolder: DummyItemViewHolder)
+    fun inject(viewHolder: ForecastItemViewHolder)
+
+    fun inject(viewHolder: DailyForecastItemViewHolder)
 }

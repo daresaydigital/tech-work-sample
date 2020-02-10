@@ -17,17 +17,17 @@ interface NetworkService {
         @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY // default value set when Networking create is called
     ): Single<Weather>
 
-    @GET(Endpoints.FORECAST_DAILY)
-    fun getDailyForecast(
-        @Query("id") cityId: Long,
-        @Query("cnt") count: Int,
-        @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY
-    ): Single<DailyForecast>
-
     @GET(Endpoints.FORECAST)
     fun getTodayForecast(
         @Query("id") cityId: Long,
         @Query("cnt") count: Int,
         @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY
     ): Single<Forecast>
+
+    @GET(Endpoints.FORECAST_DAILY)
+    fun getDailyForecast(
+        @Query("id") cityId: Long,
+        @Query("cnt") count: Int,
+        @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY
+    ): Single<DailyForecast>
 }

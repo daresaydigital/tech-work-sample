@@ -27,6 +27,6 @@ class ViewModelProviderFactory<T : ViewModel>(
     @Throws(IllegalArgumentException::class)
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(kClass.java)) return creator() as T
-        throw IllegalArgumentException("Unknown class name")
+        throw IllegalArgumentException("Unknown class time")
     }
 }

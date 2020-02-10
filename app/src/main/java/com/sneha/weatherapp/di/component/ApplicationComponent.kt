@@ -3,6 +3,8 @@ package com.sneha.weatherapp.di.component
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.location.Geocoder
+import com.google.android.gms.location.FusedLocationProviderClient
 import com.sneha.weatherapp.WeatherApplication
 import com.sneha.weatherapp.data.local.db.DatabaseService
 import com.sneha.weatherapp.data.remote.NetworkService
@@ -58,4 +60,8 @@ interface ApplicationComponent {
     fun getSchedulerProvider(): SchedulerProvider
 
     fun getCompositeDisposable(): CompositeDisposable
+
+    fun getFusedLocationProviderClient() : FusedLocationProviderClient
+
+    fun getGeoCoder() : Geocoder
 }

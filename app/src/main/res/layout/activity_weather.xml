@@ -1,76 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.weather.WeatherActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:clipToPadding="false"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_city"
-                style="@style/AppTheme.Headline5"
-                android:layout_width="wrap_content"
-                android:text="Stockholm, Sweden"
-                android:layout_marginTop="32dp"
-                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="48dp"
+                android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_date"
-                style="@style/AppTheme.Headline6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thursday, 21:05"
-                android:layout_marginTop="10dp" />
+                <include layout="@layout/progress_bar" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_temperature"
-                style="@style/AppTheme.Headline2"
-                android:layout_width="wrap_content"
-                android:text="1"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_today_label"
+                    style="@style/AppTheme.Headline4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/today"
+                    android:visibility="gone" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_weather"
-                style="@style/AppTheme.Headline6"
-                android:layout_width="wrap_content"
-                android:text="partly cloudy"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_updated_at"
+                    style="@style/AppTheme.Chip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" />
 
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/rv_today_forecast"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"/>-->
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_temperature"
+                    style="@style/AppTheme.Headline1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center" />
 
-    <FrameLayout
-        android:id="@+id/bottom_sheet"
-        style="?attr/bottomSheetStyle"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blueMedium"
-        app:behavior_peekHeight="128dp"
-        app:behavior_hideable="true"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_weather"
+                    style="@style/AppTheme.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_bottom_sheet"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:text="Bottom Sheet" />
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/rv_temp_min_max"
+                    style="@style/AppTheme.Body1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:visibility="gone" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_today_forecast_label"
+                    style="@style/AppTheme.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="48dp"
+                    android:text="@string/today_forecast"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_today_forecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_today_weather_details"
+                    style="@style/AppTheme.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="48dp"
+                    android:visibility="gone"
+                    android:text="@string/weather_details" />
+
+                <include
+                    layout="@layout/layout_weather_details" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_week_forecast_label"
+                    style="@style/AppTheme.Body1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="48dp"
+                    android:text="@string/forecast_for_7_days"
+                    android:visibility="gone" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_daily_forecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

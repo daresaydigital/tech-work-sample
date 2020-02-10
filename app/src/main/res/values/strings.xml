@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WeatherApp</string>
+    <string name="app_name">Weather</string>
 
     <string name="network_connection_error">Internet connection lost, please retry again</string>
     <string name="network_default_error">Something wrong happened, please retry again</string>
@@ -8,4 +8,17 @@
     </string>
     <string name="server_connection_error">Not able to connect, please retry again</string>
     <string name="network_login_again">Please log in again</string>
+    <string name="forecast_for_7_days">Forecast for 7 days</string>
+    <string name="today_forecast">Forecast today</string>
+    <string name="clouds">Clouds</string>
+    <string name="sunset">Sunset</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="today">Stockholm, SE</string>
+    <string name="updated">Updated</string>
+    <string name="expected">Expected</string>
+    <string name="weather_details">Weather details</string>
+    <string name="temperature">Temperature</string>
 </resources>

@@ -1,9 +1,8 @@
-package com.sneha.weatherapp.ui.dummies
+package com.sneha.weatherapp.ui.weather.fragment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.sneha.weatherapp.data.model.Dummy
 import com.sneha.weatherapp.data.model.Weather
 import com.sneha.weatherapp.data.repository.WeatherRepository
 import com.sneha.weatherapp.ui.base.BaseViewModel
@@ -14,7 +13,7 @@ import com.sneha.weatherapp.utils.rx.SchedulerProvider
 import io.reactivex.disposables.CompositeDisposable
 
 
-class DummiesViewModel(
+class WeatherFragmentViewModel(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
     networkHelper: NetworkHelper,

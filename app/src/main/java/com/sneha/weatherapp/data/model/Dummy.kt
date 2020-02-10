@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Dummy(
     @Expose
-    @SerializedName("name")
+    @SerializedName("time")
     val name: String,
 
     @Expose

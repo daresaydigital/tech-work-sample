@@ -2,7 +2,7 @@ package com.sneha.weatherapp.di.component
 
 import com.sneha.weatherapp.di.FragmentScope
 import com.sneha.weatherapp.di.module.FragmentModule
-import com.sneha.weatherapp.ui.dummies.DummiesFragment
+import com.sneha.weatherapp.ui.weather.fragment.WeatherFragment
 import dagger.Component
 
 @FragmentScope
@@ -12,5 +12,5 @@ import dagger.Component
 )
 interface FragmentComponent {
 
-    fun inject(fragment: DummiesFragment)
+    fun inject(fragment: WeatherFragment)
 }

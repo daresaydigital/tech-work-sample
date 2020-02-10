@@ -16,9 +16,9 @@ class WeatherRepository @Inject constructor(
     fun fetchWeatherData(cityName: String): Single<Weather> =
         networkService.getWeatherData(cityName = cityName)
 
-    fun fetchDailyForecast(cityId: Long, count: Int): Single<DailyForecast> =
-        networkService.getDailyForecast(cityId, 7)
-
     fun fetchTodayForecast(cityId: Long): Single<Forecast> =
         networkService.getTodayForecast(cityId, 7)
+
+    fun fetchDailyForecast(cityId: Long): Single<DailyForecast> =
+        networkService.getDailyForecast(cityId, 7)
 }

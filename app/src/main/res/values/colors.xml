@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
 
-    <color name="blueLight">#C9DFF7</color>
-    <color name="blueMedium">#26C0FF</color>
-    <color name="blueDark">#3DD2FF</color>
-    <color name="cream">#F1F1F1</color>
-    <color name="blackShade">#2A2A2A</color>
+    <color name="blueDark">#0093c4</color>
+    <color name="blueMedium">#4fc3f7</color>
+    <color name="blueLight">#81d4fa</color>
+    <color name="cyanDark">#00acc1</color>
+    <color name="cyanMedium">#00acc1</color>
+    <color name="textColor">#616161</color>
+    <color name="white">#FFFFFF</color>
+
+    <integer-array name="cardColors">
+        <item>@color/blueDark</item>
+        <item>@color/blueMedium</item>
+        <item>@color/cyanDark</item>
+        <item>@color/cyanMedium</item>
+    </integer-array>
 </resources>

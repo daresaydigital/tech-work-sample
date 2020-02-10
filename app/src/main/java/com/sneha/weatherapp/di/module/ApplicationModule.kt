@@ -3,7 +3,10 @@ package com.sneha.weatherapp.di.module
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.location.Geocoder
 import androidx.room.Room
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.sneha.weatherapp.BuildConfig
 import com.sneha.weatherapp.WeatherApplication
 import com.sneha.weatherapp.data.local.db.DatabaseService
@@ -16,6 +19,7 @@ import com.sneha.weatherapp.utils.rx.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
+import java.util.*
 import javax.inject.Singleton
 
 @Module
@@ -70,4 +74,12 @@ class ApplicationModule(private val application: WeatherApplication) {
     @Singleton
     @Provides
     fun provideNetworkHelper(): NetworkHelper = NetworkHelper(application)
+
+    @Singleton
+    @Provides
+    fun provideFusedLocationProviderClient() : FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(application)
+
+    @Singleton
+    @Provides
+    fun provideGeoCoder() : Geocoder = Geocoder(application, Locale.getDefault())
 }

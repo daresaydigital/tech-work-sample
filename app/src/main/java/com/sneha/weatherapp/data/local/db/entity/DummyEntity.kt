@@ -12,7 +12,7 @@ data class DummyEntity(
     @NotNull
     val id: Long,
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "time")
     @NotNull
     val name: String
 )

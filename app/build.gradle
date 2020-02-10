@@ -24,7 +24,7 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://worksample-api.herokuapp.com/\"")
-            buildConfigField("String", "API_KEY", "\"HBNA19QVVAPP\"")
+            buildConfigField("String", "API_KEY", "\"62fc4256-8f8c-11e5-8994-feff819cdc9f\"")
         }
         release {
             minifyEnabled false
@@ -98,6 +98,9 @@ dependencies {
     // Parser
     implementation "com.google.code.gson:gson:$gson_version"
 
+    //Gps
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
     // Local Unit tests
     testImplementation "junit:junit:$junit_version"
     testImplementation "org.mockito:mockito-core:$mockito_version"
@@ -112,4 +115,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "org.mockito:mockito-core:$mockito_version"
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
