@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Weather</string>
+
+    <string name="network_connection_error">Internet connection lost, please retry again</string>
+    <string name="network_default_error">Something wrong happened, please retry again</string>
+    <string name="network_internal_error">Our systems got an error, please retry again</string>
+    <string name="network_server_not_available">Our services are under maintenance, please retry after some time
+    </string>
+    <string name="server_connection_error">Not able to connect, please retry again</string>
+    <string name="network_login_again">Please log in again</string>
+    <string name="forecast_for_7_days">Forecast for 7 days</string>
+    <string name="today_forecast">Forecast today</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="clouds">Clouds</string>
+    <string name="sunset">Sunset</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="humidity">Humidity</string>
+    <string name="pressure">Pressure</string>
+    <string name="city_name">Stockholm, SE</string>
+    <string name="updated">Updated</string>
+    <string name="expected">Expected</string>
+    <string name="weather_details">Weather details</string>
+    <string name="temperature">Temperature</string>
+
+<!--    Location-->
+    <string name="latLong">Longitude: %.3f, Latitude: %.3f</string>
+    <string name="enable_gps_message">The GPS signal is unavailable. Please turn Location on.</string>
+    <string name="permission_request">App requires location permission to show your city weather</string>
+    <string name="locate">locate</string>
+    <string name="enable_gps">Enable GPS</string>
+    <string name="locate_current_city">LOCATE CURRENT CITY</string>
+    <string name="turn_gps_on">Turn on GPS</string>
+    <string name="gps_status_enabled">GPS Enabled</string>
+    <string name="gps_status_disabled">GPS Disabled</string>
+    <string name="loading_data">Loading weather data for your city...</string>
+</resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font fontWeight="200" app:font="@font/proxima_nova_light"/>
+    <font fontWeight="400" app:font="@font/proxima_nova_regular"/>
+    <font fontWeight="600" app:font="@font/proxima_nova_medium"/>
+    <font fontWeight="800" app:font="@font/proxima_nova_bold"/>
+</font-family>

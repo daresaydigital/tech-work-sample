@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+
+    <color name="blueDark">#0093c4</color>
+    <color name="blueMedium">#4fc3f7</color>
+    <color name="blueLight">#81d4fa</color>
+    <color name="cyanDark">#00acc1</color>
+    <color name="cyanMedium">#00acc1</color>
+    <color name="textColor">#616161</color>
+    <color name="lightGrey">#e0e0e0</color>
+    <color name="white">#FFFFFF</color>
+
+    <integer-array name="cardColors">
+        <item>@color/blueDark</item>
+        <item>@color/blueMedium</item>
+        <item>@color/cyanDark</item>
+        <item>@color/cyanMedium</item>
+    </integer-array>
+</resources>

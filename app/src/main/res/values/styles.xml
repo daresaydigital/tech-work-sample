@@ -1,0 +1,116 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blueMedium</item>
+        <item name="colorPrimaryDark">@color/blueDark</item>
+        <item name="colorAccent">@color/blueLight</item>
+    </style>
+
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/blueMedium</item>
+        <item name="colorPrimaryDark">@color/blueDark</item>
+        <item name="colorAccent">@color/blueLight</item>
+    </style>
+
+    <style name="Theme.CustomTranslucent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">#D9FFFFFF</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="AppTheme.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Headline2" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/proxima_nova_light</item>
+        <item name="android:fontFamily">@font/proxima_nova_light</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="fontFamily">@font/proxima_nova_light</item>
+        <item name="android:fontFamily">@font/proxima_nova_light</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="fontFamily">@font/proxima_nova_medium</item>
+        <item name="android:fontFamily">@font/proxima_nova_medium</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/proxima_nova_light</item>
+        <item name="android:fontFamily">@font/proxima_nova_light</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/proxima_nova_regular</item>
+        <item name="android:fontFamily">@font/proxima_nova_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="fontFamily">@font/proxima_nova_regular</item>
+        <item name="android:fontFamily">@font/proxima_nova_regular</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/proxima_nova_medium</item>
+        <item name="android:fontFamily">@font/proxima_nova_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/proxima_nova_light</item>
+        <item name="android:fontFamily">@font/proxima_nova_light</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.Tab" parent="TextAppearance.MaterialComponents.Tab"/>
+    <style name="AppTheme.Chip" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/proxima_nova_light</item>
+        <item name="android:fontFamily">@font/proxima_nova_light</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="AppTheme.ChipMedium" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="fontFamily">@font/proxima_nova_medium</item>
+        <item name="android:fontFamily">@font/proxima_nova_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+</resources>

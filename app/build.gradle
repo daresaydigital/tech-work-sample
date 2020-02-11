@@ -1,0 +1,117 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    // uses the variables like compile_sdk_version to keep the dependencies same throughout the application
+    compileSdkVersion rootProject.compile_sdk_version
+    buildToolsVersion rootProject.build_tool_version
+
+    defaultConfig {
+        applicationId "com.sneha.weatherapp"
+        minSdkVersion rootProject.ext.min_sdk_version
+        targetSdkVersion rootProject.ext.target_sdk_version
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"https://worksample-api.herokuapp.com/\"")
+            buildConfigField("String", "API_KEY", "\"<YOUR_API_KEY_HERE>\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            buildConfigField("String", "BASE_URL", "\"https://worksample-api.herokuapp.com/\"")
+//            buildConfigField("String", "API_KEY", "\"HBNA19QVVAPP\"")
+        }
+    }
+}
+
+dependencies {
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //JARs
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android Support Library
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+
+    // Constraint Layout
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
+
+    // Material Design
+    implementation "com.google.android.material:material:$support_library_version"
+
+    // RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    // CardView
+    implementation "androidx.cardview:cardview:$support_library_version"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    // Lifecycle Annotations
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+
+    // Multidex
+    implementation "androidx.multidex:multidex:2.0.1"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    // Database
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0"
+
+    // Reactive
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version"
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    // Parser
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    //Gps
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    // Local Unit tests
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    kaptTest "com.google.dagger:dagger-compiler:$dagger_version"
+    testImplementation "android.arch.core:core-testing:$core_testing_version"
+    testImplementation "org.hamcrest:hamcrest-library:$hamcrest_version"
+
+    // UI Testing
+    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext_runner_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
+    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger_version"
+
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$refresh_layout_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+}
