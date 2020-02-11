@@ -8,6 +8,7 @@
     <color name="cyanDark">#00acc1</color>
     <color name="cyanMedium">#00acc1</color>
     <color name="textColor">#616161</color>
+    <color name="lightGrey">#e0e0e0</color>
     <color name="white">#FFFFFF</color>
 
     <integer-array name="cardColors">

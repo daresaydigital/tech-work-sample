@@ -4,20 +4,21 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.sneha.weatherapp.R
-import com.sneha.weatherapp.data.model.DailyForecast
 import com.sneha.weatherapp.di.component.ViewHolderComponent
 import com.sneha.weatherapp.ui.base.BaseItemViewHolder
 import kotlinx.android.synthetic.main.item_view_daily_forecast.view.*
 import kotlinx.android.synthetic.main.item_view_forecast.view.iv_image
 import java.util.*
 import com.google.gson.Gson
+import com.sneha.weatherapp.data.model.Forecast
 
 
 class DailyForecastItemViewHolder(parent: ViewGroup, var clickListener: ClickListener?) :
-    BaseItemViewHolder<DailyForecast.ForecastItem, DailyForecastItemViewModel>(
-        R.layout.item_view_daily_forecast, parent) {
+    BaseItemViewHolder<Forecast, DailyForecastItemViewModel>(
+        R.layout.item_view_daily_forecast, parent
+    ) {
 
-    var forecast: DailyForecast.ForecastItem? = null
+    var forecast: Forecast? = null
 
     override fun injectDependencies(viewHolderComponent: ViewHolderComponent) {
         viewHolderComponent.inject(this)
@@ -25,9 +26,12 @@ class DailyForecastItemViewHolder(parent: ViewGroup, var clickListener: ClickLis
 
     override fun setupObservers() {
         super.setupObservers()
-
         viewModel.time.observe(this, Observer {
-            itemView.tv_day.text = it
+           itemView.tv_day.text = when (position) {
+                0 -> itemView.context.getString(R.string.today)
+               1 -> itemView.context.getString(R.string.tomorrow)
+                else -> it
+            }
         })
 
         viewModel.feelsLike.observe(this, Observer {

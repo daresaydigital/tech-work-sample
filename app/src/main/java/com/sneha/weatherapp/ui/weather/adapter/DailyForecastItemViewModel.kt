@@ -2,9 +2,8 @@ package com.sneha.weatherapp.ui.weather.adapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.sneha.weatherapp.data.model.DailyForecast
+import com.sneha.weatherapp.data.model.Forecast
 import com.sneha.weatherapp.ui.base.BaseItemViewModel
-import com.sneha.weatherapp.utils.common.Resource
 import com.sneha.weatherapp.utils.common.TimeUtils
 import com.sneha.weatherapp.utils.display.WeatherToImage
 import com.sneha.weatherapp.utils.log.Logger
@@ -17,7 +16,7 @@ class DailyForecastItemViewModel @Inject constructor(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
     networkHelper: NetworkHelper
-) : BaseItemViewModel<DailyForecast.ForecastItem>(
+) : BaseItemViewModel<Forecast>(
     schedulerProvider,
     compositeDisposable,
     networkHelper
@@ -27,7 +26,7 @@ class DailyForecastItemViewModel @Inject constructor(
         const val TAG = "DailyForecastItemViewModel"
     }
 
-    val forecastItem: LiveData<DailyForecast.ForecastItem> = Transformations.map(data) {it}
+    val forecastItem: LiveData<Forecast> = Transformations.map(data) {it}
     val time: LiveData<String> =
         Transformations.map(data) { TimeUtils.getTimeInExpectedFormat(it.dt, "EEE") }
     val feelsLike: LiveData<String> = Transformations.map(data) { it.weather[0].description }

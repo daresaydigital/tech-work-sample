@@ -1,10 +1,10 @@
 package com.sneha.weatherapp.data.repository
 
 import com.sneha.weatherapp.data.local.db.DatabaseService
-import com.sneha.weatherapp.data.model.DailyForecast
-import com.sneha.weatherapp.data.model.Forecast
 import com.sneha.weatherapp.data.model.Weather
 import com.sneha.weatherapp.data.remote.NetworkService
+import com.sneha.weatherapp.data.remote.response.DailyForecastResponse
+import com.sneha.weatherapp.data.remote.response.TodayForecastResponse
 import io.reactivex.Single
 import javax.inject.Inject
 
@@ -16,9 +16,9 @@ class WeatherRepository @Inject constructor(
     fun fetchWeatherData(cityName: String): Single<Weather> =
         networkService.getWeatherData(cityName = cityName)
 
-    fun fetchTodayForecast(cityId: Long): Single<Forecast> =
+    fun fetchTodayForecast(cityId: Long): Single<TodayForecastResponse> =
         networkService.getTodayForecast(cityId, 7)
 
-    fun fetchDailyForecast(cityId: Long): Single<DailyForecast> =
+    fun fetchDailyForecast(cityId: Long): Single<DailyForecastResponse> =
         networkService.getDailyForecast(cityId, 7)
 }

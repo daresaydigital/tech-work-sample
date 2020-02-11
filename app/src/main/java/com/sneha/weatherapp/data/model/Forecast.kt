@@ -1,26 +1,27 @@
 package com.sneha.weatherapp.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-/**
- * Today forecast response object
- */
 data class Forecast(
+    @SerializedName("dt")
+    val dt: Long,
 
-    @SerializedName("list")
-    val weatherList: List<Item>
-) {
-    data class Item(
-        @SerializedName("main")
-        val main: Weather.MainData,
+    @SerializedName("weather")
+    val weather: List<Weather.WeatherData>,
 
-        @SerializedName("weather")
-        val weather: List<Weather.WeatherData>,
+    @SerializedName("temp")
+    val temp: Temp,
 
-        @SerializedName("dt")
-        val dt: Long,
+    @SerializedName("humidity")
+    val humidity: Int,
 
-        @SerializedName("dt_txt")
-        val dt_txt: String
-    )
-}
+    @SerializedName("pressure")
+    val pressure: Int,
+
+    @SerializedName("sunrise")
+    val sunrise: Long,
+
+    @SerializedName("sunset")
+    val sunset: Long
+): Serializable

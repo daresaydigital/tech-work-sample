@@ -4,14 +4,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.sneha.weatherapp.R
-import com.sneha.weatherapp.data.model.Forecast
+import com.sneha.weatherapp.data.model.ForecastItem
 import com.sneha.weatherapp.di.component.ViewHolderComponent
 import com.sneha.weatherapp.ui.base.BaseItemViewHolder
 import com.sneha.weatherapp.utils.display.WeatherToImage
 import kotlinx.android.synthetic.main.item_view_forecast.view.*
 
 class ForecastItemViewHolder(parent: ViewGroup) :
-    BaseItemViewHolder<Forecast.Item, ForecastItemViewModel>(R.layout.item_view_forecast, parent) {
+    BaseItemViewHolder<ForecastItem, ForecastItemViewModel>(R.layout.item_view_forecast, parent) {
 
     override fun injectDependencies(viewHolderComponent: ViewHolderComponent) {
         viewHolderComponent.inject(this)

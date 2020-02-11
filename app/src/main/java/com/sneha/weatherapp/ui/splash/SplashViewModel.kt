@@ -25,7 +25,7 @@ class SplashViewModel(
 
     init {
         GlobalScope.launch {
-            delay(5000)
+            delay(3000)
         }
     }
 

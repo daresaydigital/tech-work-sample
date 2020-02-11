@@ -12,6 +12,8 @@ class UserPreferences @Inject constructor(private val prefs: SharedPreferences) 
         const val KEY_USER_NAME = "PREF_KEY_USER_NAME"
         const val KEY_USER_EMAIL = "PREF_KEY_USER_EMAIL"
         const val KEY_ACCESS_TOKEN = "PREF_KEY_ACCESS_TOKEN"
+        const val KEY_LATITUDE = "PREF_KEY_LATITUDE"
+        const val KEY_LONGITUDE = "PREF_KEY_LONGITUDE"
     }
 
     fun getUserId(): String? =
@@ -49,4 +51,16 @@ class UserPreferences @Inject constructor(private val prefs: SharedPreferences) 
 
     fun removeAccessToken() =
         prefs.edit().remove(KEY_ACCESS_TOKEN).apply()
+
+    fun getLatitude(): String? =
+        prefs.getString(KEY_LATITUDE, null)
+
+    fun setLatitude(latitude: String) =
+        prefs.edit().putString(KEY_LATITUDE, latitude).apply()
+
+    fun getLongitude(): String? =
+        prefs.getString(KEY_LONGITUDE, null)
+
+    fun setLongitude(longitude: String) =
+        prefs.edit().putString(KEY_LONGITUDE, longitude).apply()
 }

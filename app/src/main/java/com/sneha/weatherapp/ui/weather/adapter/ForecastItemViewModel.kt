@@ -2,7 +2,7 @@ package com.sneha.weatherapp.ui.weather.adapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.sneha.weatherapp.data.model.Forecast
+import com.sneha.weatherapp.data.model.ForecastItem
 import com.sneha.weatherapp.ui.base.BaseItemViewModel
 import com.sneha.weatherapp.utils.common.TimeUtils
 import com.sneha.weatherapp.utils.log.Logger
@@ -15,7 +15,7 @@ class ForecastItemViewModel @Inject constructor(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
     networkHelper: NetworkHelper
-) : BaseItemViewModel<Forecast.Item>(
+) : BaseItemViewModel<ForecastItem>(
     schedulerProvider,
     compositeDisposable,
     networkHelper

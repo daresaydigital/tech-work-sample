@@ -2,7 +2,6 @@ package com.sneha.weatherapp.ui.weather
 
 import android.os.Bundle
 import com.sneha.weatherapp.R
-import com.sneha.weatherapp.data.model.DailyForecast
 import com.sneha.weatherapp.di.component.ActivityComponent
 import com.sneha.weatherapp.ui.base.BaseActivity
 import com.sneha.weatherapp.utils.common.TimeUtils
@@ -11,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_selected_day.*
 import kotlinx.android.synthetic.main.activity_selected_day.tv_day
 import kotlinx.android.synthetic.main.activity_selected_day.tv_feels_like
 import com.google.gson.Gson
+import com.sneha.weatherapp.data.model.Forecast
 
 
 class SelectedDayForecastActivity : BaseActivity<WeatherViewModel>() {
@@ -23,7 +23,7 @@ class SelectedDayForecastActivity : BaseActivity<WeatherViewModel>() {
 
         Gson().fromJson(
             intent.getStringExtra("forecast_data"),
-            DailyForecast.ForecastItem::class.java
+            Forecast::class.java
         ).let {
             tv_day.text = TimeUtils.getTimeInExpectedFormat(it.dt, "EEEE")
             tv_feels_like.text = it.weather[0].description.capitalize()

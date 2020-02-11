@@ -2,6 +2,7 @@ package com.sneha.weatherapp.data.repository
 
 import com.sneha.weatherapp.data.local.db.DatabaseService
 import com.sneha.weatherapp.data.local.prefs.UserPreferences
+import com.sneha.weatherapp.data.model.LocationData
 import com.sneha.weatherapp.data.model.User
 import com.sneha.weatherapp.data.remote.NetworkService
 import javax.inject.Inject
@@ -40,4 +41,18 @@ class UserRepository @Inject constructor(
         else
             null
     }
-}
+
+    fun saveLocationData(locationData: LocationData){
+        userPreferences.setLatitude(locationData.latitude.toString())
+        userPreferences.setLongitude(locationData.longitude.toString())
+    }
+
+    fun getLocationData() : LocationData? {
+        val latitude = userPreferences.getLatitude()
+        val longitude = userPreferences.getLongitude()
+        return  if(!latitude.isNullOrEmpty() && !longitude.isNullOrEmpty()) {
+            LocationData(longitude.toDouble(), latitude.toDouble())
+        }else
+            null
+    }
+ }

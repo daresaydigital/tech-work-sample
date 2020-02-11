@@ -10,59 +10,56 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:src="@drawable/ic_cancel" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_day"
-                style="@style/AppTheme.Headline4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:gravity="center"/>
-
-            <ImageView
-                android:id="@+id/tv_icon"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/ic_scattered_clouds"/>
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_feels_like"
-                style="@style/AppTheme.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/rv_temp_min_max"
-                style="@style/AppTheme.Body2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="center" />
-        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/blueLight"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_day"
+            style="@style/AppTheme.Headline4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/tv_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_scattered_clouds"
+            android:tint="@color/lightGrey" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_feels_like"
+            style="@style/AppTheme.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/rv_temp_min_max"
+            style="@style/AppTheme.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
 
             <ImageView
                 android:id="@+id/pressure"
@@ -76,9 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:textAllCaps="false"
                 android:layout_toEndOf="@+id/pressure"
-                android:text="@string/pressure" />
+                android:text="@string/pressure"
+                android:textAllCaps="false" />
 
             <TextView
                 android:id="@+id/tv_pressure"
@@ -88,13 +85,13 @@
                 android:layout_below="@+id/tv_pressure_label"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/pressure"/>
+                android:layout_toEndOf="@+id/pressure" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_margin="12dp">
 
             <ImageView
                 android:id="@+id/humidity"
@@ -119,13 +116,13 @@
                 android:layout_below="@+id/tv_humidity_label"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/humidity"/>
+                android:layout_toEndOf="@+id/humidity" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_margin="12dp">
 
             <ImageView
                 android:id="@+id/sunrise"
@@ -150,13 +147,13 @@
                 android:layout_below="@+id/tv_sunrise_label"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="2dp"
-                android:layout_toEndOf="@+id/sunrise"/>
+                android:layout_toEndOf="@+id/sunrise" />
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp">
+            android:layout_margin="12dp">
 
             <ImageView
                 android:id="@+id/sunset"
@@ -180,7 +177,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_sunset_label"
                 android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/sunset"/>
+                android:layout_toEndOf="@+id/sunset" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

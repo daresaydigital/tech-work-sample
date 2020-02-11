@@ -1,6 +1,7 @@
 package com.sneha.weatherapp.ui.weather
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -16,7 +17,6 @@ import kotlinx.android.synthetic.main.layout_weather_details.*
 import javax.inject.Inject
 import com.sneha.weatherapp.data.model.Weather
 import com.sneha.weatherapp.ui.weather.adapter.ClickListener
-import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Named
 
 
@@ -52,10 +52,6 @@ class WeatherActivity : BaseActivity<WeatherViewModel>() {
 
     override fun setupObservers() {
 
-        viewModel.isWeatherFetching().observe(this, Observer {
-            if (it) layout_progress.visibility = View.VISIBLE
-        })
-
         //fetching weather data
         viewModel.getWeatherData().observe(this, Observer {
             it?.let { weather ->
@@ -65,7 +61,7 @@ class WeatherActivity : BaseActivity<WeatherViewModel>() {
 
         //get today's forecast
         viewModel.getForecastData().observe(this, Observer {
-            it?.weatherList?.let {
+            it?.forecastList?.let {
                 tv_today_forecast_label.visibility = View.VISIBLE
                 forecastAdapter.appendData(it)
             }
@@ -100,7 +96,6 @@ class WeatherActivity : BaseActivity<WeatherViewModel>() {
     }
 
     private fun setWeatherData(weather: Weather) {
-        layout_progress.visibility = View.GONE
         tv_today_label.visibility = View.VISIBLE
         weather_details.visibility = View.VISIBLE
         tv_today_weather_details.visibility = View.VISIBLE
