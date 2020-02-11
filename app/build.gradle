@@ -24,7 +24,7 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "BASE_URL", "\"https://worksample-api.herokuapp.com/\"")
-            buildConfigField("String", "API_KEY", "\"HBNA19QVVAPP\"")
+            buildConfigField("String", "API_KEY", "\"<YOUR_API_KEY_HERE>\"")
         }
         release {
             minifyEnabled false

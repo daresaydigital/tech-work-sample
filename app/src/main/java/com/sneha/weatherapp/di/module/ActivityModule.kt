@@ -2,8 +2,8 @@ package com.sneha.weatherapp.di.module
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sneha.weatherapp.data.local.prefs.UserPreferences
 import com.sneha.weatherapp.data.repository.WeatherRepository
-import com.sneha.weatherapp.data.repository.UserRepository
 import com.sneha.weatherapp.ui.base.BaseActivity
 import com.sneha.weatherapp.ui.weather.WeatherViewModel
 import com.sneha.weatherapp.ui.splash.SplashViewModel
@@ -31,10 +31,10 @@ class ActivityModule(private val activity: BaseActivity<*>) {
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
         networkHelper: NetworkHelper,
-        userRepository: UserRepository
+        weatherRepository: WeatherRepository
     ): SplashViewModel = ViewModelProviders.of(
         activity, ViewModelProviderFactory(SplashViewModel::class) {
-            SplashViewModel(schedulerProvider, compositeDisposable, networkHelper, userRepository)
+            SplashViewModel(schedulerProvider, compositeDisposable, networkHelper, weatherRepository)
             //this lambda creates and return SplashViewModel
         }).get(SplashViewModel::class.java)
 

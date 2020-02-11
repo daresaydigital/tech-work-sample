@@ -13,20 +13,23 @@ interface NetworkService {
 
     @GET(Endpoints.WEATHER)
     fun getWeatherData(
-        @Query("q") cityName: String,
+        @Query("lat") latitude: String?,
+        @Query("lon") longitude: String?,
         @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY // default value set when Networking create is called
     ): Single<Weather>
 
     @GET(Endpoints.FORECAST)
     fun getTodayForecast(
-        @Query("id") cityId: Long,
+        @Query("lat") latitude: String?,
+        @Query("lon") longitude: String?,
         @Query("cnt") count: Int,
         @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY
     ): Single<TodayForecastResponse>
 
     @GET(Endpoints.FORECAST_DAILY)
     fun getDailyForecast(
-        @Query("id") cityId: Long,
+        @Query("lat") latitude: String?,
+        @Query("lon") longitude: String?,
         @Query("cnt") count: Int,
         @Query(Networking.HEADER_API_KEY) apiKey: String = Networking.API_KEY
     ): Single<DailyForecastResponse>

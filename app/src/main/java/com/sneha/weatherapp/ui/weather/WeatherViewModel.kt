@@ -23,8 +23,10 @@ class WeatherViewModel(
 ) : BaseViewModel(schedulerProvider, compositeDisposable, networkHelper) {
 
     private val weatherLiveData: MutableLiveData<Resource<Weather>> = MutableLiveData()
-    private val forecastLiveData: MutableLiveData<Resource<TodayForecastResponse>> = MutableLiveData()
-    private val dailyForecastLiveData: MutableLiveData<Resource<DailyForecastResponse>> = MutableLiveData()
+    private val forecastLiveData: MutableLiveData<Resource<TodayForecastResponse>> =
+        MutableLiveData()
+    private val dailyForecastLiveData: MutableLiveData<Resource<DailyForecastResponse>> =
+        MutableLiveData()
 
     fun getWeatherData(): LiveData<Weather> =
         Transformations.map(weatherLiveData) {
@@ -35,7 +37,8 @@ class WeatherViewModel(
         it.data
     }
 
-    fun getDailyForecastData(): LiveData<DailyForecastResponse> = Transformations.map(dailyForecastLiveData) {
+    fun getDailyForecastData(): LiveData<DailyForecastResponse> =
+        Transformations.map(dailyForecastLiveData) {
             it.data
         }
 
@@ -48,7 +51,7 @@ class WeatherViewModel(
         if (forecastLiveData.value == null && checkInternetConnectionWithMessage()) {
             forecastLiveData.postValue(Resource.loading())
             compositeDisposable.add(
-                weatherRepository.fetchTodayForecast(2673730)
+                weatherRepository.fetchTodayForecast()
                     .subscribeOn(schedulerProvider.io())
                     .subscribe(
                         { forecastLiveData.postValue(Resource.success(it)) },
@@ -62,7 +65,7 @@ class WeatherViewModel(
         if (dailyForecastLiveData.value == null && checkInternetConnectionWithMessage()) {
             dailyForecastLiveData.postValue(Resource.loading())
             compositeDisposable.add(
-                weatherRepository.fetchDailyForecast(2673730)
+                weatherRepository.fetchDailyForecast()
                     .subscribeOn(schedulerProvider.io())
                     .subscribe(
                         { dailyForecastLiveData.postValue(Resource.success(it)) },
@@ -76,7 +79,7 @@ class WeatherViewModel(
 
     private fun callWeatherApi() {
         compositeDisposable.add(
-            weatherRepository.fetchWeatherData("Stockholm,SE")
+            weatherRepository.fetchWeatherData()
                 .subscribeOn(schedulerProvider.io())
                 .subscribe({
                     weatherLiveData.postValue(Resource.success(it))

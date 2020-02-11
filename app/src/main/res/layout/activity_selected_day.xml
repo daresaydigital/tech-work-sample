@@ -65,6 +65,7 @@
                 android:id="@+id/pressure"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:tint="@color/textColor"
                 android:src="@drawable/ic_pressure" />
 
             <TextView
@@ -97,6 +98,7 @@
                 android:id="@+id/humidity"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:tint="@color/textColor"
                 android:src="@drawable/ic_humidity" />
 
             <TextView
@@ -128,6 +130,7 @@
                 android:id="@+id/sunrise"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:tint="@color/textColor"
                 android:src="@drawable/ic_sunrise" />
 
             <TextView
@@ -159,6 +162,7 @@
                 android:id="@+id/sunset"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
+                android:tint="@color/textColor"
                 android:src="@drawable/ic_sunset" />
 
             <TextView

@@ -27,12 +27,11 @@
                 <include layout="@layout/progress_bar" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_today_label"
+                    android:id="@+id/tv_city_name"
                     style="@style/AppTheme.Headline4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/city_name"
                     android:visibility="gone" />
 
                 <androidx.appcompat.widget.AppCompatTextView

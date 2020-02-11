@@ -1,17 +1,15 @@
 package com.sneha.weatherapp.data.repository
 
-import com.sneha.weatherapp.data.local.db.DatabaseService
 import com.sneha.weatherapp.data.local.prefs.UserPreferences
 import com.sneha.weatherapp.data.model.LocationData
 import com.sneha.weatherapp.data.model.User
-import com.sneha.weatherapp.data.remote.NetworkService
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class UserRepository @Inject constructor(
-    private val networkService: NetworkService,
-    private val databaseService: DatabaseService,
+//    private val networkService: NetworkService,
+//    private val databaseService: DatabaseService,
     private val userPreferences: UserPreferences
 ) {
 

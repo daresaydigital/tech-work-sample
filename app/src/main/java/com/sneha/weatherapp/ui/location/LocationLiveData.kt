@@ -2,15 +2,19 @@ package com.sneha.weatherapp.ui.location
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
 import android.location.Location
 import androidx.lifecycle.LiveData
 import com.google.android.gms.location.*
+import com.sneha.weatherapp.data.local.prefs.UserPreferences
 import com.sneha.weatherapp.data.model.LocationData
 
 class LocationLiveData(context: Application) :
     LiveData<LocationData>() {
 
     private var fusedLocationClient = LocationServices.getFusedLocationProviderClient(context)
+    private var sharedPreference =
+        context.getSharedPreferences("weather-app-prefs", Context.MODE_PRIVATE)
 
     override fun onInactive() {
         super.onInactive()
@@ -53,6 +57,10 @@ class LocationLiveData(context: Application) :
             longitude = location.longitude,
             latitude = location.latitude
         )
+
+        val userPreferences = UserPreferences(sharedPreference)
+        userPreferences.setLatitude(location.latitude.toString())
+        userPreferences.setLongitude(location.longitude.toString())
     }
 
     companion object {

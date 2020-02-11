@@ -32,7 +32,7 @@ class WeatherFragmentViewModel(
         if (weatherLiveData.value == null && checkInternetConnectionWithMessage()) {
             weatherLiveData.postValue(Resource.loading())
             compositeDisposable.add(
-                weatherRepository.fetchWeatherData("Stockholm,SE")
+                weatherRepository.fetchWeatherData()
                     .subscribeOn(schedulerProvider.io())
                     .subscribe(
                         { weatherLiveData.postValue(Resource.success(it)) },

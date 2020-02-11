@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.layout_weather_details.*
 import javax.inject.Inject
 import com.sneha.weatherapp.data.model.Weather
 import com.sneha.weatherapp.ui.weather.adapter.ClickListener
+import kotlinx.android.synthetic.main.activity_location.*
 import javax.inject.Named
 
 
@@ -96,9 +97,10 @@ class WeatherActivity : BaseActivity<WeatherViewModel>() {
     }
 
     private fun setWeatherData(weather: Weather) {
-        tv_today_label.visibility = View.VISIBLE
+        tv_city_name.visibility = View.VISIBLE
         weather_details.visibility = View.VISIBLE
         tv_today_weather_details.visibility = View.VISIBLE
+        tv_city_name.text = weather.cityName
         tv_updated_at.text = getString(R.string.updated).plus(" ").plus(TimeUtils.getTimeAgo(weather.dt))
         tv_pressure.text = weather.main.pressure.toString().plus(" ").plus("hpa")
         tv_humidity.text = weather.main.humidity.toString().plus("%")

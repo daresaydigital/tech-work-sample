@@ -11,6 +11,7 @@ import androidx.core.app.ActivityCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.sneha.weatherapp.R
+import com.sneha.weatherapp.ui.weather.WeatherActivity
 import com.sneha.weatherapp.utils.ViewModelProviderFactory
 import kotlinx.android.synthetic.main.activity_location.*
 
@@ -69,7 +70,7 @@ class LocationActivity : AppCompatActivity() {
             //            latLong.text = getString(R.string.latLong, it.longitude, it.latitude)
             latLong.text = getString(R.string.loading_data)
             finish()
-//            startActivity(Intent(applicationContext, WeatherActivity::class.java))
+            startActivity(Intent(applicationContext, WeatherActivity::class.java))
         })
     }
 
