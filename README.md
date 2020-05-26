@@ -1,3 +1,20 @@
+So, a bit overworked, but it was such good fun!
+
+To run, add file config.properties with key and api-key below in res/raw and compile.
+
+api-key=62fc...
+
+Started with a tab ambition but time ran out, so it's just one fragment in a tab control. However, it's prepared for more....
+
+Enjoy!
+
+
+
+
+---
+
+
+----
 # Work sample - Application developer
 
 ## Assignment
