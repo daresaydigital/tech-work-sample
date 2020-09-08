@@ -11,18 +11,19 @@
 - Discover most popular and highly rated movies
 - Display the movies with creative look and feel of an app to meet design guidelines for your platform (Material etc)
 - Launch a detail screen whenever a particular movie is selected
+
+## Examples of bonus features
+
 - Allow user to save a favorite movie for offline access
 - Allow user to read movie reviews
 
-## Expectations
-
-We expect you to
+## We expect you to
 
 - Write clean code
 - Create a responsive design
 - Handle error cases
-
-Use of latest libraries and technologies such as Rx/coroutines etc and tested code is a big plus.
+- Use the latest libraries and technologies
+- tested code is a big plus.
 
 ###### User experience
 
