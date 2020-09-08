@@ -14,10 +14,6 @@
 - Allow user to save a favorite movie for offline access
 - Allow user to read movie reviews
 
-## Assets
-
-You can find some icon assets at [https://github.com/erikflowers/weather-icons](https://github.com/erikflowers/weather-icons) that you can use if you please. You are more than welcome to use other assets that you feel are better fitted for your solution. We do not expect you to be a designer, but since application development on Daresay most often includes visual interfaces we do expect you to to be well aware of your platforms design guidelines and conventions.
-
 ## Expectations
 
 We expect you to
