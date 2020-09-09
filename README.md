@@ -25,17 +25,18 @@
 - Use the latest libraries and technologies.
 - Tested code is a big plus.
 
-###### User experience
+### User experience
 
 The features of the app might be few, but we expect you to deliver a solution with a high user experience. Imagine this application to be used by real users, with real needs. Make it interesting, fun and intuitive to use. And of course you are allowed to extend your applications functionality.
 
-###### Code
+### Code
 
 We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
 
 ## Delivery
 
-Fork the repository, code in your fork and make a pull request when done. Also send us an e-mail to let us know!
+Fork the repository, code in your fork and make a pull request when done. A nice commit history describing your work is preferred over squashing it into one commit.
+Also send us an e-mail to let us know!
 
 ### Good luck!
 
