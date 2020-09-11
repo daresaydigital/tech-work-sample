@@ -1,0 +1,2 @@
+rootProject.name='Daresay Weather'
+include ':app'

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Daresay Weather</string>
+    <string name="tab_text_1">Current</string>
+    <string name="tab_text_2">Forecast</string>
+    <string name="permission_status_granted">Location permission granted</string>
+    <string name="permission_status_denied">Location permission denied</string>
+    <string name="permission_status_blocked">Location permission blocked</string>
+    <string name="check_network">Network error: check network connection</string>
+    <string name="no_location_check">Permission not granted for using location. Please check settings.</string>
+    <string name="ask_use_permission">Hello! We must have your permission to use your location. If not, the app is very boring.</string>
+    <string name="no_config_file">Could not aquire api-key from file. Does config.properties exist?</string>
+    <string name="location">Location</string>
+    <string name="fahrenheit">Fahrenheit</string>
+
+</resources>
