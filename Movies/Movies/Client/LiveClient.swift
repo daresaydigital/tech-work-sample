@@ -10,13 +10,14 @@ class LiveClient: Client {
   let key = ""
   let session = URLSession.shared
     
-  func movies(sorting: MovieSorting) -> AnyPublisher<[Movie],ClientError> {
+  func movies(sorting: MovieSorting) -> AnyPublisher<[Movie],Error> {
+    // https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
     let url = URL(string: """
-      https://api.themoviedb.org/3/discover/movie?api_key=\(key)\
+      https://api.themoviedb.org/3/movie/\
+      \(sorting.queryString)?\
+      api_key=\(key)\
       &language=en-US\
-      \(sorting.queryString)\
-      &include_adult=false\
-      &include_video=false&page=1
+      &page=1
       """)!
     return session
     .dataTaskPublisher(for: url)
@@ -29,7 +30,7 @@ class LiveClient: Client {
     }
     .decode(type: ListResponse.self, decoder: JSONDecoder.convertFromSnakeCase)
     .map { $0.results.map { $0.movie } }
-    .mapError { error -> ClientError in
+    .mapError { error -> Error in
       switch error {
       case let error as Swift.DecodingError:
         return .decoding(error)
@@ -39,6 +40,7 @@ class LiveClient: Client {
         return .other(error)
       }
     }
+    .receive(on: RunLoop.main)
     .eraseToAnyPublisher()
   }
 }
@@ -76,9 +78,9 @@ fileprivate extension MovieSorting {
   var queryString: String {
     switch self {
     case .popularity:
-      return "&sort_by=popularity.desc"
-    case .rating(let voteCountGreaterThan):
-      return "&sort_by=vote_average.desc&vote_count.gte=\(voteCountGreaterThan)"
+      return "popular"
+    case .rating:
+      return "top_rated"
     }
   }
 }

@@ -1,7 +1,8 @@
 import Foundation
 
-enum MovieSorting {
+enum MovieSorting: String, CaseIterable, Identifiable {
   case popularity
-  case rating(voteCountGreaterThan: Int)
+  case rating
+  var id: String { self.rawValue }
 }
 

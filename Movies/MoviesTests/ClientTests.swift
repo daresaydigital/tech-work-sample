@@ -13,7 +13,7 @@ class ClientTests: XCTestCase {
     let client = LiveClient()
     let expectation = self.expectation(description: "receive value")
     client
-      .movies(sorting: .rating(voteCountGreaterThan: 200))
+      .movies(sorting: .rating)
       .sink(
         receiveCompletion: {
           switch $0 {
