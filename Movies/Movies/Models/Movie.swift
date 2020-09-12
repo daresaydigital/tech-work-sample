@@ -1,0 +1,12 @@
+import Foundation
+
+struct Movie: Identifiable {
+  var id: Int
+  var title: String
+  var rating: Double
+  var popularity: Double
+  var releaseDate: Date
+  var posterPath: String?
+  var backdropPath: String?
+  var overview: String
+}

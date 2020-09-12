@@ -1,44 +1,30 @@
-# Work sample - Application developer
+# Hello Daresay!
 
-## Assignment
+I enjoyed working with this assignment. The eight hour time-limit got me though, so no creative awesomeness or bonus features. Just the basic requirements with an unpolished (but nice and standard) UI.
 
-- Build an awesome movie app that shows popular and high rated movies.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+My API key secret is not committed to the repository. Remember to add yours to the `LiveClient` when testing. Also, as a hint, Xcode will show a warning about it.
 
-## Requirements
+Things implemented / prioritized:
+- Made using SwiftUI and Combine.
+- Support for light and dark mode.
+- Dynamic type (accessibility).
+- Error handling is in place, but no UI for it yet.
 
-- Use an open https://developers.themoviedb.org/open source API. Please read the API [Authentication section](https://developers.themoviedb.org/3/getting-started/authentication) to get started.
-- Discover most popular and highly rated movies.
-- Display the movies with creative look and feel of an app to meet design guidelines for your platform (Material Design etc.).
-- Launch a detail screen whenever a particular movie is selected.
+The next step if, I were to continue this app, would be to introduce a higher-order `Client` that wraps / maps other `Clients` and lets you transform and add side effects to them. Then you can simulate a flaky internet by adding delays and random errors to the `LiveClient`, which you otherwise can't since you don't have control over that endpoint. Then, adding spinners, pagination, error handling UI and testing edge cases would be nice and fun. Some more things to consider:
 
-## Examples of bonus features
+- A `MockClient` for offline development and testing.
+- An option to choose between rows and grid in `MovieListView`.
+- Pagination for the movie list (not just one page as it is now).
+- Spinner when loading.
+- UI for error handling when it can't be avoided by design.
+- A more interesting and detailed `DetailView`. 
+- ...
 
-- Allow user to save a favorite movie for offline access.
-- Allow user to read movie reviews.
+Well, I'm looking forward to discuss this assignment with you!
 
-## We expect you to
+Cheers,
 
-- Write clean code.
-- Create a responsive design.
-- Handle error cases.
-- Use the latest libraries and technologies.
-- Tested code is a big plus.
-
-### User experience
-
-The features of the app might be few, but we expect you to deliver a solution with a high user experience. Imagine this application to be used by real users, with real needs. Make it interesting, fun and intuitive to use. And of course you are allowed to extend your applications functionality.
-
-### Code
-
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
-
-## Delivery
-
-Fork the repository, code in your fork and make a pull request when done. A nice commit history describing your work is preferred over squashing it into one commit.
-Also send us an e-mail to let us know!
-
-### Good luck!
+Gustaf Jorlin
 
 ---
 
