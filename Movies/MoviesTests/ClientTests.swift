@@ -1,14 +1,15 @@
-import XCTest
 import Combine
+import XCTest
+
 
 class ClientTests: XCTestCase {
-  
+
   var cancellables = Set<AnyCancellable>()
 
   override func tearDownWithError() throws {
     cancellables.removeAll()
   }
-  
+
   func testLiveClientMovieDecodable() throws {
     let client = LiveClient()
     let expectation = self.expectation(description: "receive value")
@@ -22,17 +23,18 @@ class ClientTests: XCTestCase {
           case .finished:
             break
           }
-      },
+        },
         receiveValue: { value in
           expectation.fulfill()
-      })
+        }
+      )
       .store(in: &cancellables)
 
     wait(for: [expectation], timeout: 1)
   }
-  
+
   func testLiveClientImage() throws {
-    // The image url, posterPath is the last component.
+    // The image url, path is the last component.
     // https://image.tmdb.org/t/p/w342/bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg
     //let path = "ndlQ2Cuc3cjTL7lTynw6I4boP4S.jpg"
     let path = "bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg"
@@ -48,12 +50,13 @@ class ClientTests: XCTestCase {
           case .finished:
             break
           }
-      },
+        },
         receiveValue: { value in
           expectation.fulfill()
-      })
+        }
+      )
       .store(in: &cancellables)
-    
+
     wait(for: [expectation], timeout: 1)
   }
 

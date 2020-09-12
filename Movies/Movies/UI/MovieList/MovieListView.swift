@@ -1,5 +1,5 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 
 class MovieListViewModel: ObservableObject {
@@ -7,12 +7,12 @@ class MovieListViewModel: ObservableObject {
   @Published var movieSorting: MovieSorting = .rating
   @Published var movies: [Movie] = []
   @Published var hasFailed: Error?
-  
+
   private var cancellables = Set<AnyCancellable>()
-  
+
   init(client: Client) {
     self.client = client
-    
+
     $movieSorting
       .setFailureType(to: Error.self)
       .flatMap { self.client.movies(sorting: $0) }
@@ -24,8 +24,9 @@ class MovieListViewModel: ObservableObject {
           case .finished:
             break
           }
-      },
-        receiveValue: { self.movies = $0 } )
+        },
+        receiveValue: { self.movies = $0 }
+      )
       .store(in: &cancellables)
   }
 }
@@ -34,18 +35,20 @@ struct MovieListView: View {
   @ObservedObject var viewModel: MovieListViewModel
   var body: some View {
     List {
-      Section(header:
-        Picker("", selection: self.$viewModel.movieSorting) {
-          ForEach.init(MovieSorting.allCases) { sorting in
-            Text(sorting.rawValue.capitalized).tag(sorting)
+      Section(
+        header:
+          Picker("", selection: self.$viewModel.movieSorting) {
+            ForEach.init(MovieSorting.allCases) { sorting in
+              Text(sorting.rawValue.capitalized).tag(sorting)
+            }
           }
-        }
-        .pickerStyle(SegmentedPickerStyle())
-        .padding())
-      {
+          .pickerStyle(SegmentedPickerStyle())
+          .padding()
+      ) {
         ForEach(viewModel.movies) { movie in
           NavigationLink(
-          destination: self.detailView(movie: movie)) {
+            destination: self.detailView(movie: movie)
+          ) {
             self.movieListRow(movie: movie)
           }
         }
@@ -53,11 +56,11 @@ struct MovieListView: View {
     }
     .listStyle(GroupedListStyle())
   }
-  
+
   func detailView(movie: Movie) -> some View {
     MovieDetailView(viewModel: .init(client: self.viewModel.client, movie: movie))
   }
-  
+
   func movieListRow(movie: Movie) -> some View {
     MovieListRow(viewModel: .init(client: self.viewModel.client, movie: movie))
   }

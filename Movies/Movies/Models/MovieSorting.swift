@@ -5,4 +5,3 @@ enum MovieSorting: String, CaseIterable, Identifiable {
   case popularity
   var id: String { self.rawValue }
 }
-

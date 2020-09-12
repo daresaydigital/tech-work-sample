@@ -1,5 +1,5 @@
-import SwiftUI
 import Combine
+import SwiftUI
 
 
 class MovieListRowViewModel: ObservableObject {
@@ -10,11 +10,11 @@ class MovieListRowViewModel: ObservableObject {
   var movieRating: String { String(format: "%.1f", movie.rating) }
 
   private var cancellables = Set<AnyCancellable>()
-  
+
   init(client: Client, movie: Movie) {
     self.client = client
     self.movie = movie
-    
+
     if let posterPath = movie.posterPath {
       client
         .image(path: posterPath, type: .poster, size: .thumbnail)
@@ -56,17 +56,18 @@ struct MovieListRow: View {
 
 struct MovieListRow_Previews: PreviewProvider {
   static var previews: some View {
-    MovieListRow(viewModel: .init(
-      client: LiveClient(),
-      movie: .init(
-        id: 0,
-        title: "Testing a very long title, like extremely super duper long!",
-        //title: "Short one two",
-        rating: 5.0,
-        popularity: 6.0,
-        releaseDate: Date(),
-        posterPath: "bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg",
-        overview: "overview"))
+    MovieListRow(
+      viewModel: .init(
+        client: LiveClient(),
+        movie: .init(
+          id: 0,
+          title: "Testing a very long title, like extremely super duper long!",
+          //title: "Short",
+          rating: 5.0,
+          popularity: 6.0,
+          releaseDate: Date(),
+          posterPath: "bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg",
+          overview: "overview"))
     )
   }
 }

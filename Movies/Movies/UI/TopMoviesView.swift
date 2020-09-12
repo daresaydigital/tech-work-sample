@@ -11,3 +11,9 @@ struct TopMoviesView: View {
     .accentColor(Color.yellow)
   }
 }
+
+struct TopMoviesView_Previews: PreviewProvider {
+  static var previews: some View {
+    TopMoviesView(client: LiveClient())
+  }
+}
