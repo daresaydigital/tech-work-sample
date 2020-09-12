@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 
+
 class MovieListViewModel: ObservableObject {
   let client: Client
   @Published var movieSorting: MovieSorting = .rating
@@ -43,14 +44,22 @@ struct MovieListView: View {
         .padding())
       {
         ForEach(viewModel.movies) { movie in
-          NavigationLink(destination: Text("Detail \(movie.id)")) {
-            MovieListRow(viewModel: .init(client: self.viewModel.client, movie: movie))
-              .frame(height: 120)
+          NavigationLink(
+          destination: self.detailView(movie: movie)) {
+            self.movieListRow(movie: movie)
           }
         }
       }
     }
     .listStyle(GroupedListStyle())
+  }
+  
+  func detailView(movie: Movie) -> some View {
+    MovieDetailView(viewModel: .init(client: self.viewModel.client, movie: movie))
+  }
+  
+  func movieListRow(movie: Movie) -> some View {
+    MovieListRow(viewModel: .init(client: self.viewModel.client, movie: movie))
   }
 }
 

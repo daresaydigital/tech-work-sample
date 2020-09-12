@@ -24,7 +24,6 @@ class ClientTests: XCTestCase {
           }
       },
         receiveValue: { value in
-          print(value.count)
           expectation.fulfill()
       })
       .store(in: &cancellables)
@@ -35,10 +34,12 @@ class ClientTests: XCTestCase {
   func testLiveClientImage() throws {
     // The image url, posterPath is the last component.
     // https://image.tmdb.org/t/p/w342/bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg
+    //let path = "ndlQ2Cuc3cjTL7lTynw6I4boP4S.jpg"
+    let path = "bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg"
     let client = LiveClient()
     let expectation = self.expectation(description: "receive value")
     client
-      .poster(posterPath: "bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg", size: .thumbnail)
+      .image(path: path, type: .backdrop, size: .thumbnail)
       .sink(
         receiveCompletion: {
           switch $0 {
@@ -49,7 +50,6 @@ class ClientTests: XCTestCase {
           }
       },
         receiveValue: { value in
-          print(value.size)
           expectation.fulfill()
       })
       .store(in: &cancellables)

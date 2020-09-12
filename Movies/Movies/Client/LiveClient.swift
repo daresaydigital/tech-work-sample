@@ -49,7 +49,7 @@ class LiveClient: Client {
         return .other(error)
       }
     }
-    .receive(on: RunLoop.main)
+    .receive(on: DispatchQueue.main)
     .eraseToAnyPublisher()
   }
   
@@ -65,9 +65,9 @@ class LiveClient: Client {
   ///
   /// A production release should use api-configuration instead:
   /// https://developers.themoviedb.org/3/configuration/get-api-configuration  
-  func poster(posterPath: String, size: ImageSize) -> AnyPublisher<UIImage,Error> {
+  func image(path: String, type: ImageType, size: ImageSize) -> AnyPublisher<UIImage,Error> {
     let url = URL(string: """
-      https://image.tmdb.org/t/p/\(size.sizeString)/\(posterPath)
+      https://image.tmdb.org/t/p/\(sizeString(type: type, size: size))/\(path)
       """)!
     return session
       .dataTaskPublisher(for: url)
@@ -96,7 +96,7 @@ class LiveClient: Client {
         return .other(error)
       }
     }
-    .receive(on: RunLoop.main)
+    .receive(on: DispatchQueue.main)
     .eraseToAnyPublisher()
   }
 }
@@ -112,30 +112,36 @@ extension LiveClient {
       var popularity: Double
       var releaseDate: String
       var posterPath: String?
-
-      /// Maps a `MovieResponse` to a `Movie`.
-      var movie: Movie? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        guard
-          let date = dateFormatter.date(from:releaseDate)
-          else { return nil }
-        
-        return Movie(
-          id: id,
-          title: title,
-          rating: voteAverage,
-          popularity: popularity,
-          releaseDate: date,
-          posterPath: posterPath
-        )
-      }
+      var backdropPath: String?
+      var overview: String
     }
     var page: Int
     var totalResults: Int
     var totalPages: Int
     var results: [MovieResponse]
+  }
+}
+
+extension LiveClient.ListResponse.MovieResponse {
+  /// Maps a `MovieResponse` to a `Movie`.
+  var movie: Movie? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    guard
+      let date = dateFormatter.date(from:releaseDate)
+      else { return nil }
+    
+    return Movie(
+      id: id,
+      title: title,
+      rating: voteAverage,
+      popularity: popularity,
+      releaseDate: date,
+      posterPath: posterPath,
+      backdropPath: backdropPath,
+      overview: overview
+    )
   }
 }
 
@@ -151,13 +157,17 @@ fileprivate extension MovieSorting {
   }
 }
 
-fileprivate extension ImageSize {
+fileprivate extension LiveClient {
   /// Translates a `ImageSize` to the corresponding size string used by the endpoint.
-  var sizeString: String {
-    switch self {
-    case .thumbnail:
+  func sizeString(type: ImageType, size: ImageSize) -> String {
+    switch (type,size) {
+    case (.poster, .thumbnail):
       return "w342"
-    case .full:
+    case (.poster, .full):
+      return "original"
+    case (.backdrop, .thumbnail):
+      return "w300"
+    case (.backdrop, .full):
       return "original"
     }
   }

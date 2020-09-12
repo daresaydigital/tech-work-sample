@@ -7,4 +7,6 @@ struct Movie: Identifiable {
   var popularity: Double
   var releaseDate: Date
   var posterPath: String?
+  var backdropPath: String?
+  var overview: String
 }

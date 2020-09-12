@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
@@ -10,10 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     options connectionOptions: UIScene.ConnectionOptions
   ) {
 
-    let view = NavigationView {
-      MovieListView(viewModel: .init(client: LiveClient()))
-        .navigationBarTitle("Top Movies", displayMode: .inline)
-    }
+    let view = TopMoviesView(client: LiveClient())
     
     if let windowScene = scene as? UIWindowScene {
       let window = UIWindow(windowScene: windowScene)
