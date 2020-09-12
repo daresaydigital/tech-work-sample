@@ -9,8 +9,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     _ scene: UIScene, willConnectTo session: UISceneSession,
     options connectionOptions: UIScene.ConnectionOptions
   ) {
-    let view = MovieListView(viewModel: .init(client: LiveClient()))
 
+    let view = NavigationView {
+      MovieListView(viewModel: .init(client: LiveClient()))
+        .navigationBarTitle("Top Movies", displayMode: .inline)
+    }
+    
     if let windowScene = scene as? UIWindowScene {
       let window = UIWindow(windowScene: windowScene)
       window.rootViewController = UIHostingController(rootView: view)

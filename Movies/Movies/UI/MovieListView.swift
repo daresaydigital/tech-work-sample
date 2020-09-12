@@ -26,7 +26,6 @@ class MovieListViewModel: ObservableObject {
       },
         receiveValue: { self.movies = $0 } )
       .store(in: &cancellables)
-    
   }
 }
 
@@ -44,15 +43,22 @@ struct MovieListView: View {
         .padding())
       {
         ForEach(viewModel.movies) { movie in
-          Text("\(movie.title)")
+          NavigationLink(destination: Text("Detail \(movie.id)")) {
+            MovieListRow(viewModel: .init(client: self.viewModel.client, movie: movie))
+              .frame(height: 120)
+          }
         }
       }
     }
+    .listStyle(GroupedListStyle())
   }
 }
 
 struct MovieListView_Previews: PreviewProvider {
   static var previews: some View {
-    MovieListView(viewModel: .init(client: LiveClient()))
+    NavigationView {
+      MovieListView(viewModel: .init(client: LiveClient()))
+        .navigationBarTitle("Top Movies", displayMode: .inline)
+    }
   }
 }

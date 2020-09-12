@@ -5,5 +5,6 @@ struct Movie: Identifiable {
   var title: String
   var rating: Double
   var popularity: Double
-  var releaseDate: String
+  var releaseDate: Date
+  var posterPath: String?
 }
