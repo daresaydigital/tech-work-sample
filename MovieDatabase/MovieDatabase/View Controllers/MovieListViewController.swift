@@ -33,29 +33,29 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // MARK: - UITableViewDelegate
 
-       func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.totalNumberOfMoviesForTheSelectedListType
-       }
+    }
 
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
 
-           if isLoading(for: indexPath) {
-               cell.configure(for: MovieCellConfigureState.loading)
-           } else {
+        if isLoading(for: indexPath) {
+            cell.configure(for: MovieCellConfigureState.loading)
+        } else {
             let movie = viewModel.movie(at: indexPath.row)
-               cell.configure(for: MovieCellConfigureState.data(movie))
-           }
-           return cell
-       }
+            cell.configure(for: MovieCellConfigureState.data(movie))
+        }
+        return cell
+    }
 
-       func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           let movie = viewModel.movie(at: indexPath.row)
-        #warning("Add Segue")
-       }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = viewModel.movie(at: indexPath.row)
+        performSegue(withIdentifier: "Movie Details Segue", sender: movie)
+    }
 
 
-       // MARK: - MoviesViewModelDelegate
+    // MARK: - MoviesViewModelDelegate
 
     func fetchSucceded(with newIndexPaths: [IndexPath]?) {
         if let newIndexPaths = newIndexPaths {
@@ -76,33 +76,43 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         print(errorString)
     }
 
-       // MARK: - UITableViewDataSourcePrefetching
+    // MARK: - UITableViewDataSourcePrefetching
 
-       func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-           if indexPaths.contains(where: { (indexPath) -> Bool in
-               isLoading(for: indexPath)
-           }) {
-               viewModel.fetchMovies()
-           }
-       }
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: { (indexPath) -> Bool in
+            isLoading(for: indexPath)
+        }) {
+            viewModel.fetchMovies()
+        }
+    }
 
 
-       // MARK: - Utilities
+    // MARK: - Utilities
 
-       func isLoading(for indexPath: IndexPath) -> Bool {
+    func isLoading(for indexPath: IndexPath) -> Bool {
         return indexPath.row >= viewModel.numberOfCurrentlyLoadedMovies
-       }
+    }
 
-       func indexPathsToReload(indexPaths: [IndexPath]) -> [IndexPath] {
-           let visibleRows = tableView.indexPathsForVisibleRows ?? []
-           let intersectingIndexPaths = Set(visibleRows).intersection(indexPaths)
-           return Array(intersectingIndexPaths)
-       }
+    func indexPathsToReload(indexPaths: [IndexPath]) -> [IndexPath] {
+        let visibleRows = tableView.indexPathsForVisibleRows ?? []
+        let intersectingIndexPaths = Set(visibleRows).intersection(indexPaths)
+        return Array(intersectingIndexPaths)
+    }
 
-        // MARK: - User Actions
+    // MARK: - User Actions
 
     @IBAction func didTapSegmentedControl(_ sender: UISegmentedControl) {
         viewModel.switchList(to: sender.selectedSegmentIndex)
+    }
+
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? MovieDetailsViewController, let movie = sender as? Movie {
+            let movieDetailsViewModel = MovieDetailsViewModel(with: movie, delegate: destinationVC)
+            destinationVC.viewModel = movieDetailsViewModel
+        }
     }
 
 }
