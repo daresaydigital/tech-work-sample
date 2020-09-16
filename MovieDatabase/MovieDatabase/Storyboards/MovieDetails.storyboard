@@ -341,11 +341,49 @@
                         <outlet property="posterImage" destination="p3E-K0-b49" id="VSx-1G-xXM"/>
                         <outlet property="posterImageLoadingIndicator" destination="WUE-MU-UKi" id="q4Q-Cr-DkS"/>
                         <outlet property="releaseDateLabel" destination="PK3-Xw-s1N" id="pmU-sJ-GeH"/>
+                        <segue destination="uDb-WL-TM5" kind="show" identifier="Show Reviews Segue" id="EOB-O0-QTB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cxp-q6-cep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672.46376811594212" y="217.63392857142856"/>
+        </scene>
+        <!--Movie Reviews View Controller-->
+        <scene sceneID="16W-lX-qVq">
+            <objects>
+                <viewController id="uDb-WL-TM5" customClass="MovieReviewsViewController" customModule="MovieDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W9y-KQ-nBr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="152" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="E66-5W-Zn4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vwP-QS-foG">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vwP-QS-foG" firstAttribute="centerX" secondItem="GDx-Y5-F1Y" secondAttribute="centerX" id="7pb-sn-rJ6"/>
+                            <constraint firstItem="GDx-Y5-F1Y" firstAttribute="trailing" secondItem="E66-5W-Zn4" secondAttribute="trailing" id="BnA-Ah-9vf"/>
+                            <constraint firstItem="E66-5W-Zn4" firstAttribute="top" secondItem="GDx-Y5-F1Y" secondAttribute="top" id="UeN-fq-vdz"/>
+                            <constraint firstItem="GDx-Y5-F1Y" firstAttribute="bottom" secondItem="E66-5W-Zn4" secondAttribute="bottom" id="ZwC-Qc-ypC"/>
+                            <constraint firstItem="E66-5W-Zn4" firstAttribute="leading" secondItem="GDx-Y5-F1Y" secondAttribute="leading" id="jrr-T9-QTW"/>
+                            <constraint firstItem="vwP-QS-foG" firstAttribute="centerY" secondItem="GDx-Y5-F1Y" secondAttribute="centerY" id="v7X-rF-j3f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GDx-Y5-F1Y"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nrq-tB-rqq"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="vwP-QS-foG" id="taR-ri-q4f"/>
+                        <outlet property="tableView" destination="E66-5W-Zn4" id="c3g-iv-0vT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFm-fh-MDx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1581" y="218"/>
         </scene>
     </scenes>
     <resources>
