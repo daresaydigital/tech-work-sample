@@ -84,8 +84,17 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
         }
     }
 
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? MovieReviewsViewController, let movieId = sender as? Int {
+            destinationVC.movieId = movieId
+        }
+    }
+
     @IBAction func didTapReviewsButton(_ sender: Any) {
-        #warning("add segue to reviews")
+        performSegue(withIdentifier: "Show Reviews Segue", sender: viewModel.id)
     }
 
     @IBAction func didTapFavorite(_ sender: Any) {
