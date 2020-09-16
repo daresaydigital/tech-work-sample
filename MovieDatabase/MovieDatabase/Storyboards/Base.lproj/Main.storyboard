@@ -31,10 +31,45 @@
                     <view key="view" contentMode="scaleToFill" id="gKi-W7-daZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bOM-Ql-WhF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="sqw-zI-0nA">
+                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="OhQ-UF-U3u" firstAttribute="bottom" secondItem="bOM-Ql-WhF" secondAttribute="bottom" id="53C-bM-7hY"/>
+                            <constraint firstItem="sqw-zI-0nA" firstAttribute="centerX" secondItem="OhQ-UF-U3u" secondAttribute="centerX" id="82a-Sd-P7A"/>
+                            <constraint firstItem="sqw-zI-0nA" firstAttribute="centerY" secondItem="OhQ-UF-U3u" secondAttribute="centerY" id="MUR-61-eaF"/>
+                            <constraint firstItem="bOM-Ql-WhF" firstAttribute="leading" secondItem="gKi-W7-daZ" secondAttribute="leading" id="P3S-Wv-5T2"/>
+                            <constraint firstAttribute="trailing" secondItem="bOM-Ql-WhF" secondAttribute="trailing" id="hqL-Qu-7xf"/>
+                            <constraint firstItem="bOM-Ql-WhF" firstAttribute="top" secondItem="OhQ-UF-U3u" secondAttribute="top" id="qJU-BE-vkk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OhQ-UF-U3u"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7aC-g6-7UH"/>
+                    <navigationItem key="navigationItem" id="7aC-g6-7UH">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="4tT-MD-biK">
+                            <rect key="frame" x="116" y="5.5" width="182" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Top Rated" width="-0.5"/>
+                                <segment title="Most Popular"/>
+                            </segments>
+                            <connections>
+                                <action selector="didTapSegmentedControl:" destination="xka-xy-nMV" eventType="valueChanged" id="0fu-kE-45Y"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="sqw-zI-0nA" id="cSR-kB-Nzg"/>
+                        <outlet property="segmentedControl" destination="4tT-MD-biK" id="1ml-be-fuq"/>
+                        <outlet property="tableView" destination="bOM-Ql-WhF" id="fRf-Fm-iOI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miW-kI-VuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
