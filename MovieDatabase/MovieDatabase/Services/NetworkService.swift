@@ -63,6 +63,39 @@ class NetworkService {
         task.resume()
     }
 
+    func fetchMostPopularMovies(page: Int, completion: @escaping (Result<PagedMoviesResponse, MovieDatabaseNetworkError>) -> Void)  {
+           baseURL.path = "/3/movie/popular"
+           baseURL.queryItems = [
+               URLQueryItem(name: "api_key", value: APIKeys.tmdbKey),
+               URLQueryItem(name: "language", value: "en-US"),
+               URLQueryItem(name: "page", value: "\(page)")
+           ]
+
+           let unsafeURL = baseURL.url
+
+           guard let safeURL = unsafeURL else {
+               return completion(.failure(.invalidURLError))
+           }
+
+           let task = session.dataTask(with: safeURL) { (data, response, error) in
+               guard let urlResponse = response as? HTTPURLResponse,
+                   urlResponse.hasSuccessStatusCode,
+                   let jsonData = data else {
+                       completion(Result.failure(.responseError))
+                       return
+               }
+
+               do {
+                   let topRatedMovies = try JSONDecoder().decode(PagedMoviesResponse.self, from: jsonData)
+                   completion(Result.success(topRatedMovies))
+               } catch {
+                   completion(Result.failure(.jsonDecodeError))
+               }
+
+           }
+           task.resume()
+       }
+
 }
 
 extension HTTPURLResponse {
