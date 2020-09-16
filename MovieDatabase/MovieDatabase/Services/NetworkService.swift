@@ -96,6 +96,39 @@ class NetworkService {
            task.resume()
        }
 
+      func fetchGenres(completion: @escaping (Result<GenreResponse, MovieDatabaseNetworkError>) -> Void) {
+          baseURL.path = "/3/genre/movie/list"
+          baseURL.queryItems = [
+              URLQueryItem(name: "api_key", value: APIKeys.tmdbKey),
+              URLQueryItem(name: "language", value: "en-US"),
+          ]
+
+          let unsafeURL = baseURL.url
+
+          guard let safeURL = unsafeURL else {
+              return completion(.failure(.invalidURLError))
+          }
+          print("URL: \(safeURL)")
+
+          let task = session.dataTask(with: safeURL) { (data, response, error) in
+              guard let urlResponse = response as? HTTPURLResponse,
+                  urlResponse.hasSuccessStatusCode,
+                  let jsonData = data else {
+                      completion(Result.failure(.invalidURLError))
+                      return
+              }
+
+              do {
+                  let genres = try JSONDecoder().decode(GenreResponse.self, from: jsonData)
+                  completion(Result.success(genres))
+              } catch {
+                  completion(Result.failure(.jsonDecodeError))
+              }
+
+          }
+          task.resume()
+      }
+
 }
 
 extension HTTPURLResponse {
