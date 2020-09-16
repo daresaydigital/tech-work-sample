@@ -53,7 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7aC-g6-7UH">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="4tT-MD-biK">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bar" selectedSegmentIndex="0" id="4tT-MD-biK">
                             <rect key="frame" x="116" y="5.5" width="182" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
@@ -69,11 +69,22 @@
                         <outlet property="loadingIndicator" destination="sqw-zI-0nA" id="cSR-kB-Nzg"/>
                         <outlet property="segmentedControl" destination="4tT-MD-biK" id="1ml-be-fuq"/>
                         <outlet property="tableView" destination="bOM-Ql-WhF" id="fRf-Fm-iOI"/>
+                        <segue destination="tvI-RY-u9U" kind="show" identifier="Movie Details Segue" id="akT-io-nXz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="miW-kI-VuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1704" y="-583"/>
+        </scene>
+        <!--MovieDetailsViewController-->
+        <scene sceneID="4n7-5D-BG0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MovieDetails" referencedIdentifier="MovieDetailsViewController" id="tvI-RY-u9U" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="eIP-wj-efW"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F87-y8-LYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2588" y="-583"/>
         </scene>
         <!--Discover-->
         <scene sceneID="pKa-JH-FV3">
