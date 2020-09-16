@@ -14,6 +14,13 @@ enum MovieDatabaseNetworkError: Error {
     case responseError
 }
 
+enum MovieReviewsError: Error {
+    case networkError
+    case noReviews
+    case jsonDecodeError
+    case invalidURLError
+}
+
 class NetworkService {
 
     private var baseURL: URLComponents = {
@@ -129,6 +136,43 @@ class NetworkService {
           task.resume()
       }
 
+    func fetchReviews(for movieId: Int, page: Int, completion: @escaping (Result<PagedReviewResponse,MovieReviewsError>) -> Void) {
+        baseURL.path = "/3/movie/\(movieId)/reviews"
+        baseURL.queryItems = [
+            URLQueryItem(name: "api_key", value: APIKeys.tmdbKey),
+            URLQueryItem(name: "language", value: "en-US"),
+            URLQueryItem(name: "page", value: "\(page)")
+        ]
+
+        let unsafeURL = baseURL.url
+
+        guard let safeURL = unsafeURL else {
+            return completion(.failure(.invalidURLError))
+        }
+        print("URL: \(safeURL)")
+
+        let configuration: URLSessionConfiguration = .default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        let session = URLSession(configuration: configuration)
+
+        let task = session.dataTask(with: safeURL) { (data, response, error) in
+            guard let urlResponse = response as? HTTPURLResponse,
+                urlResponse.hasSuccessStatusCode,
+                let jsonData = data else {
+                    completion(Result.failure(.invalidURLError))
+                    return
+            }
+
+            do {
+                let reviews = try JSONDecoder().decode(PagedReviewResponse.self, from: jsonData)
+                completion(Result.success(reviews))
+            } catch {
+                completion(Result.failure(.jsonDecodeError))
+            }
+
+        }
+        task.resume()
+    }
 }
 
 extension HTTPURLResponse {
