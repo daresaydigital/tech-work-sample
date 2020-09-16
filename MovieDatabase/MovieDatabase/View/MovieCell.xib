@@ -80,7 +80,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="zDm-za-tnk"/>
             <connections>
-                <outlet property="dateLabel" destination="X5K-1F-pwk" id="oCH-wh-3a3"/>
+                <outlet property="genreLabel" destination="X5K-1F-pwk" id="6cs-gY-sWN"/>
                 <outlet property="imageLoadingIndicator" destination="5rd-UB-Htj" id="w1E-Sq-2jZ"/>
                 <outlet property="loadingIndicator" destination="Vbh-uu-jkf" id="tqm-x6-G92"/>
                 <outlet property="posterImageView" destination="Wlh-of-msO" id="gnI-RE-8lh"/>

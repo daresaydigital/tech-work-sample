@@ -18,7 +18,7 @@ class MovieCell: UITableViewCell {
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var ratingLabel: UILabel!
-    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var genreLabel: UILabel!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var imageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var stackView: UIStackView!
@@ -48,7 +48,7 @@ class MovieCell: UITableViewCell {
         self.imageView?.image = nil
         self.titleLabel.text = ""
         self.ratingLabel.text = ""
-        self.dateLabel.text = ""
+        self.genreLabel.text = ""
     }
 
     func configure(for state: MovieCellConfigureState) {
@@ -61,7 +61,7 @@ class MovieCell: UITableViewCell {
         case .data(let movie):
             stackView.alpha = 1
             titleLabel.text = movie.title
-            dateLabel.text = "Release Date: \(movie.releaseDate)"
+            genreLabel.text = "Genre: " + ((GenreService.shared.genre(for: movie)?.name) ?? "")
             ratingLabel.text = "Rating: \(movie.rating)"
             loadingIndicator.stopAnimating()
             loadImage(for: movie)
