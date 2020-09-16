@@ -17,6 +17,11 @@
 		C0F468B22512587E00759FC9 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468B12512587E00759FC9 /* MovieListViewController.swift */; };
 		C0F468B825125A5200759FC9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468B725125A5200759FC9 /* NetworkService.swift */; };
 		C0F468C125125B8700759FC9 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468C025125B8700759FC9 /* Keys.swift */; };
+		C0F468C325125EE900759FC9 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468C225125EE900759FC9 /* MovieListViewModel.swift */; };
+		C0F468C62512604800759FC9 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468C42512604800759FC9 /* MovieCell.swift */; };
+		C0F468C72512604800759FC9 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F468C52512604800759FC9 /* MovieCell.xib */; };
+		C0F468C9251263E200759FC9 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468C8251263E200759FC9 /* ImageService.swift */; };
+		C0F468CB251268C700759FC9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468CA251268C700759FC9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		C0F468B12512587E00759FC9 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		C0F468B725125A5200759FC9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		C0F468C025125B8700759FC9 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		C0F468C225125EE900759FC9 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		C0F468C42512604800759FC9 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		C0F468C52512604800759FC9 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		C0F468C8251263E200759FC9 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		C0F468CA251268C700759FC9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,8 @@
 		C0F468AC2512570700759FC9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C0F468C42512604800759FC9 /* MovieCell.swift */,
+				C0F468C52512604800759FC9 /* MovieCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +127,7 @@
 		C0F468B5251259F200759FC9 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				C0F468C225125EE900759FC9 /* MovieListViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -123,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				C0F468B725125A5200759FC9 /* NetworkService.swift */,
+				C0F468C8251263E200759FC9 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -131,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				C0F468C025125B8700759FC9 /* Keys.swift */,
+				C0F468CA251268C700759FC9 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -195,6 +210,7 @@
 			files = (
 				C0F4689E25124BC700759FC9 /* LaunchScreen.storyboard in Resources */,
 				C0F4689B25124BC700759FC9 /* Assets.xcassets in Resources */,
+				C0F468C72512604800759FC9 /* MovieCell.xib in Resources */,
 				C0F4689925124BC600759FC9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,8 +223,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F4689225124BC600759FC9 /* AppDelegate.swift in Sources */,
+				C0F468CB251268C700759FC9 /* Constants.swift in Sources */,
 				C0F468C125125B8700759FC9 /* Keys.swift in Sources */,
+				C0F468C62512604800759FC9 /* MovieCell.swift in Sources */,
+				C0F468C9251263E200759FC9 /* ImageService.swift in Sources */,
 				C0F468B22512587E00759FC9 /* MovieListViewController.swift in Sources */,
+				C0F468C325125EE900759FC9 /* MovieListViewModel.swift in Sources */,
 				C0F468AE2512576400759FC9 /* PagedMovieResponse.swift in Sources */,
 				C0F468B0251257A400759FC9 /* Movie.swift in Sources */,
 				C0F468B825125A5200759FC9 /* NetworkService.swift in Sources */,
