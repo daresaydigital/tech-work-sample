@@ -14,6 +14,7 @@
 		C0F4689E25124BC700759FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F4689C25124BC700759FC9 /* LaunchScreen.storyboard */; };
 		C0F468AE2512576400759FC9 /* PagedMovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468AD2512576400759FC9 /* PagedMovieResponse.swift */; };
 		C0F468B0251257A400759FC9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468AF251257A400759FC9 /* Movie.swift */; };
+		C0F468B22512587E00759FC9 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F468B12512587E00759FC9 /* MovieListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C0F4689F25124BC700759FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F468AD2512576400759FC9 /* PagedMovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedMovieResponse.swift; sourceTree = "<group>"; };
 		C0F468AF251257A400759FC9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		C0F468B12512587E00759FC9 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		C0F468A52512553B00759FC9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C0F468B12512587E00759FC9 /* MovieListViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F4689225124BC600759FC9 /* AppDelegate.swift in Sources */,
+				C0F468B22512587E00759FC9 /* MovieListViewController.swift in Sources */,
 				C0F468AE2512576400759FC9 /* PagedMovieResponse.swift in Sources */,
 				C0F468B0251257A400759FC9 /* Movie.swift in Sources */,
 				C0F4689425124BC600759FC9 /* SceneDelegate.swift in Sources */,
