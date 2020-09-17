@@ -25,7 +25,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
 
         viewModel = FavoritesViewModel(delegate: self)
-        viewModel.fetchTopRatedMovies()
+        viewModel.fetchFavorites()
 
         title = "My Favorites"
 
@@ -63,7 +63,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // MARK: - FavoritesViewModelDelegate
 
-    func fetchMovies() {
+    func fetchFavoriteMovies() {
         if viewModel.totalNumberOfFavoriteMovies == 0 {
             emptyStateView.configure(for: .noFavorites, delegate: self)
             setupForEmptyState()

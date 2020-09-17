@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FavoritesViewModelDelegate: AnyObject {
-    func fetchMovies()
+    func fetchFavoriteMovies()
 }
 
 final class FavoritesViewModel {
@@ -23,20 +23,20 @@ final class FavoritesViewModel {
 
     init(delegate: FavoritesViewModelDelegate) {
         self.delegate = delegate
-        self.favoriteMovies = UserDefaults.standard.movies
+        self.favoriteMovies = FavoritesService.favorites
         NotificationCenter.default.addObserver(self, selector: #selector(favoritesChanged), name: .FavoritesChangedNotification, object: nil)
     }
 
     @objc private func favoritesChanged() {
-        fetchTopRatedMovies()
+        fetchFavorites()
     }
 
     func favoriteMovie(at index: Int) -> Movie {
         return favoriteMovies[index]
     }
 
-    func fetchTopRatedMovies() {
-        self.favoriteMovies = UserDefaults.standard.movies
-        delegate?.fetchMovies()
+    func fetchFavorites() {
+        self.favoriteMovies = FavoritesService.favorites
+        delegate?.fetchFavoriteMovies()
     }
 }
