@@ -8,10 +8,11 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewModelDelegate {
+class FavoritesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FavoritesViewModelDelegate, EmptyStateDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var emptyStateView: EmptyStateView!
 
     private var viewModel: FavoritesViewModel!
 
@@ -26,7 +27,16 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         viewModel = FavoritesViewModel(delegate: self)
         viewModel.fetchTopRatedMovies()
 
+        title = "My Favorites"
+
         NotificationCenter.default.addObserver(self, selector: #selector(favoritesChanged), name: .FavoritesChangedNotification, object: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.indexPathsForSelectedRows?.forEach {
+            tableView.deselectRow(at: $0, animated: false)
+        }
     }
 
 
@@ -53,9 +63,22 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // MARK: - FavoritesViewModelDelegate
 
-    func fetchMovies(_ movies: [Movie]) {
-        loadingIndicator.stopAnimating()
-        tableView.isHidden = false
+    func fetchMovies() {
+        if viewModel.totalNumberOfFavoriteMovies == 0 {
+            emptyStateView.configure(for: .noFavorites, delegate: self)
+            setupForEmptyState()
+        } else {
+            setupForTable()
+            loadingIndicator.stopAnimating()
+            tableView.isHidden = false
+            tableView.reloadData()
+        }
+    }
+
+
+     // MARK: - EmptyStateViewDelegate
+
+    func emptyStateButtonTapped() {
         tableView.reloadData()
     }
 
@@ -64,6 +87,25 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc private func favoritesChanged() {
         tableView.reloadData()
+    }
+
+
+    // MARK: - Utilities
+
+    private func setupForEmptyState() {
+        emptyStateView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tableView.alpha = 0
+            self.emptyStateView.alpha = 1
+        })
+    }
+
+    private func setupForTable() {
+        tableView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.tableView.alpha = 1
+            self.emptyStateView.alpha = 0
+        })
     }
 
 

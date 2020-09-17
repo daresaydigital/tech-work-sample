@@ -52,6 +52,7 @@ class MovieDetailsViewModel {
         }
         totalVotes = movie.numberOfTotalVotes
         rating = movie.rating
+        isFavorite = isFavoritedMovie()
     }
 
     func editFavorites() {
