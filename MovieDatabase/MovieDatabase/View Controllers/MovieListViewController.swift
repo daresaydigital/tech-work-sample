@@ -33,6 +33,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.addSubview(refreshControl)
 
         viewModel = MovieListViewModel(delegate: self)
+        loadingIndicator.startAnimating()
         viewModel.fetchMovies()
     }
 
@@ -43,14 +44,15 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
+    
     // MARK: - UITableViewDelegate
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.totalNumberOfMoviesForTheSelectedListType
+        return viewModel.totalNumberOfMoviesForTheSelectedList
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.reuseIdentifier, for: indexPath) as! MovieCell
 
         if isLoading(for: indexPath) {
             cell.configure(for: MovieCellConfigureState.loading, rank: nil)
@@ -70,9 +72,11 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - MoviesViewModelDelegate
 
     func fetchSucceded(with newIndexPaths: [IndexPath]?) {
+        loadingIndicator.stopAnimating()
         if let newIndexPaths = newIndexPaths {
             let newIndexPathsToReload = indexPathsToReload(indexPaths: newIndexPaths)
-            if viewModel.totalNumberOfMoviesForTheSelectedListType != tableView.numberOfRows(inSection: 0) {
+            // API returns different values for total_results, in order to avoid tahat
+            if viewModel.totalNumberOfMoviesForTheSelectedList != tableView.numberOfRows(inSection: 0) {
                 tableView.reloadData()
                 setupForTable()
             } else {
@@ -86,11 +90,11 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             if tableView.alpha == 0 {
                 setupForTable()
             }
-            setupForTable()
         }
     }
 
     func fetchFailed(with error: MovieDatabaseNetworkError) {
+        loadingIndicator.stopAnimating()
         switch error {
         case .invalidURLError:
             emptyStateView.configure(for: .networkError, delegate: self)
@@ -103,6 +107,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             setupForEmptyState()
         }
     }
+
 
     // MARK: - UITableViewDataSourcePrefetching
 
@@ -130,7 +135,6 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     private func setupForEmptyState() {
         emptyStateView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
-            self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 0
             self.emptyStateView.alpha = 1
         })
@@ -138,7 +142,6 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     private func setupForTable() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 1
             self.emptyStateView.alpha = 0
         })
@@ -147,13 +150,23 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
+
     // MARK: - User Actions
 
     @IBAction  private func didTapSegmentedControl(_ sender: UISegmentedControl) {
         viewModel.switchList(to: sender.selectedSegmentIndex)
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            tableView.setContentOffset(CGPoint(x: 0, y: viewModel.topRatedContentOffset), animated: false)
+        case 1:
+            tableView.setContentOffset(CGPoint(x: 0, y: viewModel.mostPopularContentOffset), animated: false)
+        default:
+            break
+        }
     }
 
     @objc func refreshTable() {
+        loadingIndicator.startAnimating()
         viewModel.fetchMovies(isRefresh: true)
     }
 
@@ -161,10 +174,11 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - EmptyStateDelegate
 
     func emptyStateButtonTapped() {
+        loadingIndicator.startAnimating()
         viewModel.fetchMovies()
         tableView.alpha = 0
         emptyStateView.alpha = 0
-        loadingIndicator.startAnimating()
+
     }
 
 
@@ -174,6 +188,20 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         if let destinationVC = segue.destination as? MovieDetailsViewController, let movie = sender as? Movie {
             let movieDetailsViewModel = MovieDetailsViewModel(with: movie, delegate: destinationVC)
             destinationVC.viewModel = movieDetailsViewModel
+        }
+    }
+
+
+    // MARK: - UIScrollViewDelegate
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            viewModel.topRatedContentOffset = scrollView.contentOffset.y
+        case 1:
+            viewModel.mostPopularContentOffset = scrollView.contentOffset.y
+        default:
+            break
         }
     }
 

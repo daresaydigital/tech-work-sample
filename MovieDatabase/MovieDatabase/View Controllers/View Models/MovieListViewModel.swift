@@ -6,7 +6,7 @@
 //  Copyright © 2020 Cem Atilgan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol MovieListViewModelDelegate: AnyObject {
     func fetchSucceded(with newIndexPaths: [IndexPath]?)
@@ -25,14 +25,17 @@ final class MovieListViewModel {
     private var isFetching = false
     private var switchedLists = false
 
-    private var currentlyDisplayedListType: listType = .topRated
+    var topRatedContentOffset: CGFloat = 0
+    var mostPopularContentOffset: CGFloat = 0
 
-    private enum listType: Int {
+    private var currentlyDisplayedListType: ListType = .topRated
+
+    private enum ListType: Int {
         case topRated
         case mostPopular
     }
 
-    var totalNumberOfMoviesForTheSelectedListType: Int {
+    var totalNumberOfMoviesForTheSelectedList: Int {
         switch currentlyDisplayedListType {
         case .topRated:
             return totalNumberOfTopRatedMovies
@@ -67,7 +70,7 @@ final class MovieListViewModel {
 
     func switchList(to index: Int) {
         //Check if there's a valid list type for the selected index and the selected list is different than the one being displayed to avoid redundant fetching
-        guard let selectedListType = listType(rawValue: index), selectedListType.rawValue != currentlyDisplayedListType.rawValue else { return }
+        guard let selectedListType = ListType(rawValue: index), selectedListType.rawValue != currentlyDisplayedListType.rawValue else { return }
 
         switch selectedListType {
         case .topRated:
@@ -115,8 +118,6 @@ final class MovieListViewModel {
 
                     if response.page == 1 {
                         self.delegate?.fetchSucceded(with: nil)
-                    } else if self.switchedLists {
-                        self.delegate?.fetchSucceded(with: nil)
                     } else {
                         let recentlyFetchedIndexPaths = self.indexPathsToReload(from: response.results, existingElements: self.topRatedMovies)
                         self.delegate?.fetchSucceded(with: recentlyFetchedIndexPaths)
@@ -150,8 +151,6 @@ final class MovieListViewModel {
                     self.mostPopularMovies.append(contentsOf: response.results)
 
                     if response.page == 1 {
-                        self.delegate?.fetchSucceded(with: nil)
-                    } else if self.switchedLists {
                         self.delegate?.fetchSucceded(with: nil)
                     } else {
                         let recentlyFetchedIndexPaths = self.indexPathsToReload(from: response.results, existingElements: self.mostPopularMovies)
