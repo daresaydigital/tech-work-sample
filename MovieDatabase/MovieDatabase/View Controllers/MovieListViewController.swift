@@ -16,6 +16,7 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet private weak var emptyStateView: EmptyStateView!
 
     private var viewModel: MovieListViewModel!
+    private var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,11 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.prefetchDataSource = self
 
         tableView.register(UINib(nibName: MovieCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: MovieCell.reuseIdentifier)
-
         tableView.estimatedRowHeight = 96
+
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.addSubview(refreshControl)
 
         viewModel = MovieListViewModel(delegate: self)
         viewModel.fetchMovies()
@@ -73,9 +77,15 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
                 setupForTable()
             } else {
                 tableView.reloadRows(at: newIndexPathsToReload, with: .automatic)
+                if refreshControl.isRefreshing {
+                    refreshControl.endRefreshing()
+                }
             }
         } else {    
             tableView.reloadData()
+            if tableView.alpha == 0 {
+                setupForTable()
+            }
             setupForTable()
         }
     }
@@ -127,18 +137,24 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     private func setupForTable() {
-        tableView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
             self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 1
             self.emptyStateView.alpha = 0
         })
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
     }
 
     // MARK: - User Actions
 
-    @IBAction func didTapSegmentedControl(_ sender: UISegmentedControl) {
+    @IBAction  private func didTapSegmentedControl(_ sender: UISegmentedControl) {
         viewModel.switchList(to: sender.selectedSegmentIndex)
+    }
+
+    @objc func refreshTable() {
+        viewModel.fetchMovies(isRefresh: true)
     }
 
 

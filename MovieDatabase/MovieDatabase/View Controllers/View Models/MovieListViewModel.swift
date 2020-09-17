@@ -81,16 +81,16 @@ final class MovieListViewModel {
         }
     }
 
-    func fetchMovies() {
+    func fetchMovies(isRefresh: Bool = false) {
         switch currentlyDisplayedListType {
         case .topRated:
-            fetchTopRatedMovies()
+            fetchTopRatedMovies(isRefresh: isRefresh)
         case .mostPopular:
-            fetchMostPopularMovies()
+            fetchMostPopularMovies(isRefresh: isRefresh)
         }
     }
 
-    private func fetchTopRatedMovies() {
+    private func fetchTopRatedMovies(isRefresh: Bool = false) {
         guard !isFetching else { return }
 
         isFetching = true
@@ -105,7 +105,11 @@ final class MovieListViewModel {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.isFetching = false
-                    self.currentTopRatedMoviesPage += 1
+                    if isRefresh {
+                        self.currentTopRatedMoviesPage = 1
+                    } else {
+                         self.currentTopRatedMoviesPage += 1
+                    }
                     self.totalNumberOfTopRatedMovies = response.totalResults
                     self.topRatedMovies.append(contentsOf: response.results)
 
@@ -122,7 +126,7 @@ final class MovieListViewModel {
         }
     }
 
-    private func fetchMostPopularMovies() {
+    private func fetchMostPopularMovies(isRefresh: Bool = false) {
         guard !isFetching else { return }
 
         isFetching = true
@@ -137,7 +141,11 @@ final class MovieListViewModel {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.isFetching = false
-                    self.currentMostPopularMoviesPage += 1
+                    if isRefresh {
+                        self.currentMostPopularMoviesPage = 1
+                    } else {
+                        self.currentMostPopularMoviesPage += 1
+                    }
                     self.totalNumberOfMostPopularMovies = response.totalResults
                     self.mostPopularMovies.append(contentsOf: response.results)
 

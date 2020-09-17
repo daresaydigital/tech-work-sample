@@ -16,6 +16,7 @@ class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITable
 
     var movieId: Int!
     private var viewModel: MovieReviewsViewModel!
+    private var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,11 @@ class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITable
         tableView.prefetchDataSource = self
 
         tableView.register(UINib(nibName: ReviewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ReviewCell.reuseIdentifier)
-
         tableView.estimatedRowHeight = 124
+
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshTable), for: .valueChanged)
+        tableView.addSubview(refreshControl)
 
         title = "Reviews"
 
@@ -70,12 +74,16 @@ class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITable
     func fetchSucceded(with newIndexPaths: [IndexPath]?) {
         if let newIndexPaths = newIndexPaths {
             let newIndexPathsToReload = indexPathsToReload(indexPaths: newIndexPaths)
+            if refreshControl.isRefreshing {
+                refreshControl.endRefreshing()
+            }
             tableView.reloadRows(at: newIndexPathsToReload, with: .automatic)
         } else {
-            //   setupForTable()
+            if refreshControl.isRefreshing {
+                refreshControl.endRefreshing()
+            }
             loadingIndicator.stopAnimating()
             tableView.isHidden = false
-            //  setupForTable()
             tableView.reloadData()
         }
     }
@@ -136,6 +144,10 @@ class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITable
         let visibleRows = tableView.indexPathsForVisibleRows ?? []
         let intersectingIndexPaths = Set(visibleRows).intersection(indexPaths)
         return Array(intersectingIndexPaths)
+    }
+
+    @objc func refreshTable() {
+        viewModel.fetchMovieReviews(isRefresh: true)
     }
 
 }

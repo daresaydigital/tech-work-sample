@@ -47,7 +47,7 @@ final class MovieReviewsViewModel {
         return reviews[index]
     }
 
-    func fetchMovieReviews() {
+    func fetchMovieReviews(isRefresh: Bool = false) {
         guard !isFetching else { return }
 
         isFetching = true
@@ -57,11 +57,15 @@ final class MovieReviewsViewModel {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.isFetching = false
-                    self.page += 1
+                    if isRefresh {
+                        self.page = 1
+                    } else {
+                        self.page += 1
+                    }
                     self.totalNumberOfReviews = response.totalResults
                     self.reviews.append(contentsOf: response.results)
 
-                    guard response.results.count > 0 else {
+                    guard self.reviews.count > 0 else {
                         self.delegate?.fetchFailed(with: .noReviews)
                         return
                     }
