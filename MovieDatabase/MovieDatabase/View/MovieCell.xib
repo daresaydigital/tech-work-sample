@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wlh-of-msO">
-                        <rect key="frame" x="16" y="4" width="86.5" height="144"/>
+                        <rect key="frame" x="44" y="4" width="86.5" height="144"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Wlh-of-msO" secondAttribute="height" multiplier="0.6" id="aBT-dF-LlJ"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Haf-p2-sSE">
-                        <rect key="frame" x="110.5" y="4" width="42" height="144"/>
+                        <rect key="frame" x="138.5" y="4" width="42" height="144"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh7-3l-0TG">
                                 <rect key="frame" x="0.0" y="0.0" width="42" height="48"/>
@@ -49,30 +49,38 @@
                         <rect key="frame" x="175" y="66" width="20" height="20"/>
                     </activityIndicatorView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMa-Pk-OGT">
-                        <rect key="frame" x="110.5" y="151" width="259.5" height="1"/>
+                        <rect key="frame" x="138.5" y="151" width="231.5" height="1"/>
                         <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="NOf-RF-TGa"/>
                         </constraints>
                     </view>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-UB-Htj">
-                        <rect key="frame" x="49" y="66" width="20" height="20"/>
+                        <rect key="frame" x="77" y="66" width="20" height="20"/>
                     </activityIndicatorView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSF-Kw-Jfq">
+                        <rect key="frame" x="2" y="66" width="38.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="Wlh-of-msO" secondAttribute="bottom" constant="4" id="8Ia-eI-ge4"/>
-                    <constraint firstItem="Wlh-of-msO" firstAttribute="leading" secondItem="NYi-26-f4E" secondAttribute="leading" constant="16" id="9nf-Q7-Pk3"/>
+                    <constraint firstItem="Wlh-of-msO" firstAttribute="leading" secondItem="NYi-26-f4E" secondAttribute="leading" constant="44" id="9nf-Q7-Pk3"/>
                     <constraint firstItem="Haf-p2-sSE" firstAttribute="top" secondItem="NYi-26-f4E" secondAttribute="top" constant="4" id="EAF-fT-A45"/>
                     <constraint firstItem="5rd-UB-Htj" firstAttribute="centerX" secondItem="Wlh-of-msO" secondAttribute="centerX" id="ExW-nd-c78"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Haf-p2-sSE" secondAttribute="trailing" constant="8" id="GIP-dI-8hV"/>
                     <constraint firstItem="Wlh-of-msO" firstAttribute="top" secondItem="NYi-26-f4E" secondAttribute="top" constant="4" id="Gw7-6J-JKR"/>
                     <constraint firstItem="Vbh-uu-jkf" firstAttribute="centerX" secondItem="NYi-26-f4E" secondAttribute="centerX" id="Jik-vH-lso"/>
                     <constraint firstAttribute="bottom" secondItem="Haf-p2-sSE" secondAttribute="bottom" constant="4" id="OnW-sS-yxH"/>
+                    <constraint firstItem="RSF-Kw-Jfq" firstAttribute="leading" secondItem="NYi-26-f4E" secondAttribute="leading" constant="2" id="WW7-dD-YMV"/>
                     <constraint firstItem="yMa-Pk-OGT" firstAttribute="leading" secondItem="Haf-p2-sSE" secondAttribute="leading" id="WcW-xT-mia"/>
                     <constraint firstAttribute="bottom" secondItem="yMa-Pk-OGT" secondAttribute="bottom" id="cp7-I5-AOo"/>
                     <constraint firstItem="5rd-UB-Htj" firstAttribute="centerY" secondItem="Wlh-of-msO" secondAttribute="centerY" id="ctC-Bk-8uN"/>
                     <constraint firstItem="Wlh-of-msO" firstAttribute="centerY" secondItem="NYi-26-f4E" secondAttribute="centerY" id="g2a-Qp-wy9"/>
                     <constraint firstAttribute="trailing" secondItem="yMa-Pk-OGT" secondAttribute="trailing" id="hhU-Zd-q8Q"/>
+                    <constraint firstItem="RSF-Kw-Jfq" firstAttribute="centerY" secondItem="NYi-26-f4E" secondAttribute="centerY" id="nXv-sX-sWb"/>
                     <constraint firstItem="Vbh-uu-jkf" firstAttribute="centerY" secondItem="NYi-26-f4E" secondAttribute="centerY" id="pa7-tV-SQH"/>
                     <constraint firstItem="Haf-p2-sSE" firstAttribute="leading" secondItem="Wlh-of-msO" secondAttribute="trailing" constant="8" id="rsb-Gk-aiK"/>
                 </constraints>
@@ -84,6 +92,7 @@
                 <outlet property="imageLoadingIndicator" destination="5rd-UB-Htj" id="w1E-Sq-2jZ"/>
                 <outlet property="loadingIndicator" destination="Vbh-uu-jkf" id="tqm-x6-G92"/>
                 <outlet property="posterImageView" destination="Wlh-of-msO" id="gnI-RE-8lh"/>
+                <outlet property="rankLabel" destination="RSF-Kw-Jfq" id="MnE-8r-ajV"/>
                 <outlet property="ratingLabel" destination="yBh-17-44M" id="cJZ-Z0-UWL"/>
                 <outlet property="stackView" destination="Haf-p2-sSE" id="qVz-jF-eyx"/>
                 <outlet property="titleLabel" destination="xh7-3l-0TG" id="zRc-1n-7Fo"/>

@@ -22,6 +22,7 @@ class MovieCell: UITableViewCell {
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var imageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private weak var rankLabel: UILabel!
 
     static var reuseIdentifier: String {
         return nibName
@@ -38,6 +39,7 @@ class MovieCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        rankLabel.font = UIFont.preferredFont(for: .headline, weight: .semibold)
         posterImageView.alpha = 0
         stackView.alpha = 0
     }
@@ -49,9 +51,10 @@ class MovieCell: UITableViewCell {
         self.titleLabel.text = ""
         self.ratingLabel.text = ""
         self.genreLabel.text = ""
+        self.rankLabel.text = ""
     }
 
-    func configure(for state: MovieCellConfigureState) {
+    func configure(for state: MovieCellConfigureState, rank: Int?) {
         switch state {
         case .loading:
             posterImageView.alpha = 0
@@ -65,6 +68,12 @@ class MovieCell: UITableViewCell {
             ratingLabel.text = "Rating: \(movie.rating)"
             loadingIndicator.stopAnimating()
             loadImage(for: movie)
+            if let rank = rank {
+                rankLabel.text = "\(rank)."
+            } else {
+                rankLabel.text = ""
+                rankLabel.isHidden = true
+            }
         }
     }
 
