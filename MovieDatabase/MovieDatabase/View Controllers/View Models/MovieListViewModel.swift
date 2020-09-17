@@ -10,7 +10,7 @@ import Foundation
 
 protocol MovieListViewModelDelegate: AnyObject {
     func fetchSucceded(with newIndexPaths: [IndexPath]?)
-    func fetchFailed(with errorString: String)
+    func fetchFailed(with error: MovieDatabaseNetworkError)
 }
 
 final class MovieListViewModel {
@@ -100,7 +100,7 @@ final class MovieListViewModel {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.isFetching = false
-                    self.delegate?.fetchFailed(with: error.localizedDescription)
+                    self.delegate?.fetchFailed(with: error)
                 }
             case .success(let response):
                 DispatchQueue.main.async {
@@ -132,7 +132,7 @@ final class MovieListViewModel {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self.isFetching = false
-                    self.delegate?.fetchFailed(with: error.localizedDescription)
+                    self.delegate?.fetchFailed(with: error)
                 }
             case .success(let response):
                 DispatchQueue.main.async {

@@ -63,7 +63,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUT-xj-Mo9">
                                                         <rect key="frame" x="16" y="233.5" width="93.5" height="140"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p3E-K0-b49" userLabel="Poster Image View">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p3E-K0-b49" userLabel="Poster Image View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="93.5" height="140"/>
                                                             </imageView>
                                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="WUE-MU-UKi">
@@ -356,6 +356,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjB-Qs-6ea" customClass="EmptyStateView" customModule="MovieDatabase" customModuleProvider="target">
+                                <rect key="frame" x="87" y="355" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="4vO-5f-DSv"/>
+                                    <constraint firstAttribute="width" constant="240" id="k6K-Zj-iMi"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="152" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="E66-5W-Zn4">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -370,13 +378,16 @@
                             <constraint firstItem="GDx-Y5-F1Y" firstAttribute="trailing" secondItem="E66-5W-Zn4" secondAttribute="trailing" id="BnA-Ah-9vf"/>
                             <constraint firstItem="E66-5W-Zn4" firstAttribute="top" secondItem="GDx-Y5-F1Y" secondAttribute="top" id="UeN-fq-vdz"/>
                             <constraint firstItem="GDx-Y5-F1Y" firstAttribute="bottom" secondItem="E66-5W-Zn4" secondAttribute="bottom" id="ZwC-Qc-ypC"/>
+                            <constraint firstItem="yjB-Qs-6ea" firstAttribute="centerX" secondItem="GDx-Y5-F1Y" secondAttribute="centerX" id="avO-jz-eVk"/>
                             <constraint firstItem="E66-5W-Zn4" firstAttribute="leading" secondItem="GDx-Y5-F1Y" secondAttribute="leading" id="jrr-T9-QTW"/>
                             <constraint firstItem="vwP-QS-foG" firstAttribute="centerY" secondItem="GDx-Y5-F1Y" secondAttribute="centerY" id="v7X-rF-j3f"/>
+                            <constraint firstItem="yjB-Qs-6ea" firstAttribute="centerY" secondItem="GDx-Y5-F1Y" secondAttribute="centerY" id="vat-PP-HBA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GDx-Y5-F1Y"/>
                     </view>
                     <navigationItem key="navigationItem" id="nrq-tB-rqq"/>
                     <connections>
+                        <outlet property="emptyStateView" destination="yjB-Qs-6ea" id="QMB-dY-B4t"/>
                         <outlet property="loadingIndicator" destination="vwP-QS-foG" id="taR-ri-q4f"/>
                         <outlet property="tableView" destination="E66-5W-Zn4" id="c3g-iv-0vT"/>
                     </connections>

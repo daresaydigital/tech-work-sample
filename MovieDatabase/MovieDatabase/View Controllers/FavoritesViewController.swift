@@ -50,7 +50,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
 
         let movie = viewModel.favoriteMovie(at: indexPath.row)
-        cell.configure(for: MovieCellConfigureState.data(movie))
+        cell.configure(for: MovieCellConfigureState.data(movie), rank: indexPath.row+1)
 
         return cell
     }
@@ -76,7 +76,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
 
-     // MARK: - EmptyStateViewDelegate
+    // MARK: - EmptyStateViewDelegate
 
     func emptyStateButtonTapped() {
         tableView.reloadData()
@@ -95,6 +95,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     private func setupForEmptyState() {
         emptyStateView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
+            self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 0
             self.emptyStateView.alpha = 1
         })
@@ -103,6 +104,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     private func setupForTable() {
         tableView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
+            self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 1
             self.emptyStateView.alpha = 0
         })

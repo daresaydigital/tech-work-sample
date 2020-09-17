@@ -8,10 +8,11 @@
 
 import UIKit
 
-class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching, MovieReviewsViewModelDelegate {
+class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching, MovieReviewsViewModelDelegate, EmptyStateDelegate {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var emptyStateView: EmptyStateView!
 
     var movieId: Int!
     private var viewModel: MovieReviewsViewModel!
@@ -71,31 +72,60 @@ class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITable
             let newIndexPathsToReload = indexPathsToReload(indexPaths: newIndexPaths)
             tableView.reloadRows(at: newIndexPathsToReload, with: .automatic)
         } else {
+            //   setupForTable()
             loadingIndicator.stopAnimating()
             tableView.isHidden = false
+            //  setupForTable()
             tableView.reloadData()
         }
     }
 
     func fetchFailed(with error: MovieReviewsError) {
         switch error {
-        case .invalidURLError, .jsonDecodeError, .networkError:
-            break
+        case .invalidURLError:
+            emptyStateView.configure(for: .networkError, delegate: self)
+            setupForEmptyState()
+        case .jsonDecodeError:
+            emptyStateView.configure(for: .networkError, delegate: self)
+            setupForEmptyState()
+        case .networkError:
+            emptyStateView.configure(for: .networkError, delegate: self)
+            setupForEmptyState()
         case .noReviews:
-            showAlert()
+            emptyStateView.configure(for: .noReviews, delegate: self)
+            setupForEmptyState()
         }
+    }
+
+
+    // MARK: - EmptyStateDelegate
+
+    func emptyStateButtonTapped() {
+        viewModel.fetchMovieReviews()
+        tableView.alpha = 0
+        emptyStateView.alpha = 0
+        loadingIndicator.startAnimating()
     }
     
 
     // MARK: - Utilities
 
-    private func showAlert() {
-        let alert = UIAlertController(title: "No Reviews", message: "No Reviews Yet!", preferredStyle: UIAlertController.Style.alert)
+    private func setupForEmptyState() {
+        emptyStateView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.loadingIndicator.stopAnimating()
+            self.tableView.alpha = 0
+            self.emptyStateView.alpha = 1
+        })
+    }
 
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
-            //Cancel Action
-        }))
-        self.present(alert, animated: true, completion: nil)
+    private func setupForTable() {
+        tableView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.loadingIndicator.stopAnimating()
+            self.tableView.alpha = 1
+            self.emptyStateView.alpha = 0
+        })
     }
 
     private func isLoading(for indexPath: IndexPath) -> Bool {

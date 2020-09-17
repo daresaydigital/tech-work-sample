@@ -95,7 +95,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
 
 
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? MovieReviewsViewController, let movieId = sender as? Int {
             destinationVC.movieId = movieId

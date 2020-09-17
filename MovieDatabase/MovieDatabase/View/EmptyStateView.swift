@@ -46,6 +46,7 @@ class EmptyStateView: UIView {
     func configure(for emptyState: EmptyState, delegate: EmptyStateDelegate) {
         imageView.image = UIImage(systemName: emptyState.imageName)
         titleLabel.text = emptyState.title
+        self.delegate = delegate
     }
 
     @IBAction func didTapOnButton(_ sender: Any) {

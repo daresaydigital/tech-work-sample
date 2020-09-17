@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieListViewModelDelegate, UITableViewDataSourcePrefetching {
+class MovieListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MovieListViewModelDelegate, UITableViewDataSourcePrefetching, EmptyStateDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
+    @IBOutlet private weak var emptyStateView: EmptyStateView!
 
     private var viewModel: MovieListViewModel!
 
@@ -48,10 +49,10 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
 
         if isLoading(for: indexPath) {
-            cell.configure(for: MovieCellConfigureState.loading)
+            cell.configure(for: MovieCellConfigureState.loading, rank: nil)
         } else {
             let movie = viewModel.movie(at: indexPath.row)
-            cell.configure(for: MovieCellConfigureState.data(movie))
+            cell.configure(for: MovieCellConfigureState.data(movie), rank: indexPath.row+1)
         }
         return cell
     }
@@ -69,18 +70,28 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             let newIndexPathsToReload = indexPathsToReload(indexPaths: newIndexPaths)
             if viewModel.totalNumberOfMoviesForTheSelectedListType != tableView.numberOfRows(inSection: 0) {
                 tableView.reloadData()
+                setupForTable()
             } else {
                 tableView.reloadRows(at: newIndexPathsToReload, with: .automatic)
             }
-        } else {
-            loadingIndicator.stopAnimating()
-            tableView.isHidden = false
+        } else {    
             tableView.reloadData()
+            setupForTable()
         }
     }
 
-    func fetchFailed(with errorString: String) {
-        print(errorString)
+    func fetchFailed(with error: MovieDatabaseNetworkError) {
+        switch error {
+        case .invalidURLError:
+            emptyStateView.configure(for: .networkError, delegate: self)
+            setupForEmptyState()
+        case .jsonDecodeError:
+            emptyStateView.configure(for: .networkError, delegate: self)
+            setupForEmptyState()
+        case .responseError:
+            emptyStateView.configure(for: .noInternet, delegate: self)
+            setupForEmptyState()
+        }
     }
 
     // MARK: - UITableViewDataSourcePrefetching
@@ -106,10 +117,38 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
         return Array(intersectingIndexPaths)
     }
 
+    private func setupForEmptyState() {
+        emptyStateView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.loadingIndicator.stopAnimating()
+            self.tableView.alpha = 0
+            self.emptyStateView.alpha = 1
+        })
+    }
+
+    private func setupForTable() {
+        tableView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.loadingIndicator.stopAnimating()
+            self.tableView.alpha = 1
+            self.emptyStateView.alpha = 0
+        })
+    }
+
     // MARK: - User Actions
 
     @IBAction func didTapSegmentedControl(_ sender: UISegmentedControl) {
         viewModel.switchList(to: sender.selectedSegmentIndex)
+    }
+
+
+    // MARK: - EmptyStateDelegate
+
+    func emptyStateButtonTapped() {
+        viewModel.fetchMovies()
+        tableView.alpha = 0
+        emptyStateView.alpha = 0
+        loadingIndicator.startAnimating()
     }
 
 

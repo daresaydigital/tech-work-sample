@@ -34,6 +34,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nH5-WO-fxZ" customClass="EmptyStateView" customModule="MovieDatabase" customModuleProvider="target">
+                                <rect key="frame" x="87" y="330.5" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="AS5-y4-XbU"/>
+                                    <constraint firstAttribute="width" constant="240" id="Z0v-l0-bJj"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" estimatedRowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bOM-Ql-WhF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -49,7 +57,9 @@
                             <constraint firstItem="sqw-zI-0nA" firstAttribute="centerY" secondItem="OhQ-UF-U3u" secondAttribute="centerY" id="MUR-61-eaF"/>
                             <constraint firstItem="bOM-Ql-WhF" firstAttribute="leading" secondItem="gKi-W7-daZ" secondAttribute="leading" id="P3S-Wv-5T2"/>
                             <constraint firstAttribute="trailing" secondItem="bOM-Ql-WhF" secondAttribute="trailing" id="hqL-Qu-7xf"/>
+                            <constraint firstItem="nH5-WO-fxZ" firstAttribute="centerX" secondItem="OhQ-UF-U3u" secondAttribute="centerX" id="nYB-rM-GTB"/>
                             <constraint firstItem="bOM-Ql-WhF" firstAttribute="top" secondItem="OhQ-UF-U3u" secondAttribute="top" id="qJU-BE-vkk"/>
+                            <constraint firstItem="nH5-WO-fxZ" firstAttribute="centerY" secondItem="OhQ-UF-U3u" secondAttribute="centerY" id="ye6-jO-cUW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OhQ-UF-U3u"/>
                     </view>
@@ -68,6 +78,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="emptyStateView" destination="nH5-WO-fxZ" id="U7b-xc-jdD"/>
                         <outlet property="loadingIndicator" destination="sqw-zI-0nA" id="cSR-kB-Nzg"/>
                         <outlet property="segmentedControl" destination="4tT-MD-biK" id="1ml-be-fuq"/>
                         <outlet property="tableView" destination="bOM-Ql-WhF" id="fRf-Fm-iOI"/>
