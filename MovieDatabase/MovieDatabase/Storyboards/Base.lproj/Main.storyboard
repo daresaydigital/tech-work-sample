@@ -15,9 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="xat-ab-xjC" kind="relationship" relationship="viewControllers" id="0CE-pS-V8L"/>
+                        <segue destination="WPv-2v-1sJ" kind="relationship" relationship="viewControllers" id="bmS-nK-Axa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MA4-Ty-T7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -32,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="96" estimatedRowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bOM-Ql-WhF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="96" estimatedRowHeight="96" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bOM-Ql-WhF">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
@@ -76,6 +78,44 @@
             </objects>
             <point key="canvasLocation" x="1704" y="-583"/>
         </scene>
+        <!--Favorites View Controller-->
+        <scene sceneID="RqL-Hk-RO2">
+            <objects>
+                <viewController id="jaG-mr-mSo" customClass="FavoritesViewController" customModule="MovieDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L9d-8D-qUt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Vrt-cx-zTO">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SsD-Pp-OXh">
+                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SsD-Pp-OXh" firstAttribute="centerX" secondItem="exU-A1-Nb2" secondAttribute="centerX" id="4jG-B1-P0r"/>
+                            <constraint firstItem="SsD-Pp-OXh" firstAttribute="centerY" secondItem="exU-A1-Nb2" secondAttribute="centerY" id="7hC-4F-K9B"/>
+                            <constraint firstItem="exU-A1-Nb2" firstAttribute="trailing" secondItem="Vrt-cx-zTO" secondAttribute="trailing" id="CRD-bP-lHI"/>
+                            <constraint firstItem="Vrt-cx-zTO" firstAttribute="leading" secondItem="exU-A1-Nb2" secondAttribute="leading" id="DBq-yd-lXc"/>
+                            <constraint firstItem="Vrt-cx-zTO" firstAttribute="top" secondItem="exU-A1-Nb2" secondAttribute="top" id="ZNS-Yf-Hqx"/>
+                            <constraint firstItem="exU-A1-Nb2" firstAttribute="bottom" secondItem="Vrt-cx-zTO" secondAttribute="bottom" id="h23-Vv-TeY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="exU-A1-Nb2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YYt-6c-yX2"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="SsD-Pp-OXh" id="AVK-23-Ev0"/>
+                        <outlet property="tableView" destination="Vrt-cx-zTO" id="53w-va-yvh"/>
+                        <segue destination="tvI-RY-u9U" kind="show" identifier="Show Movie Details Segue" id="Hia-mo-80N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M9E-BM-fNy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1609" y="157"/>
+        </scene>
         <!--MovieDetailsViewController-->
         <scene sceneID="4n7-5D-BG0">
             <objects>
@@ -84,7 +124,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F87-y8-LYd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2588" y="-583"/>
+            <point key="canvasLocation" x="2416" y="-166"/>
         </scene>
         <!--Discover-->
         <scene sceneID="pKa-JH-FV3">
@@ -105,8 +145,31 @@
             </objects>
             <point key="canvasLocation" x="699" y="-582"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="6y6-KH-CM8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WPv-2v-1sJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="heart" catalog="system" id="9h1-ib-1Hy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qNZ-qW-DFV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jaG-mr-mSo" kind="relationship" relationship="rootViewController" id="Ycl-bp-AEQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuk-dp-diG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="699" y="156"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="akT-io-nXz"/>
+    </inferredMetricsTieBreakers>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>
 </document>
