@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         GenreService.shared.fetchGenres()
+        FavoritesService.fetchFavoriteMovies()
+        FavoritesService.fetchFavoriteMovieImages()
         return true
     }
 

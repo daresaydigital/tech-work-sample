@@ -18,7 +18,7 @@ protocol MovieDetailsViewModelDelegate: AnyObject {
 }
 
 extension NSNotification.Name {
-    /// Notification posted when favorites have changed.
+    // Notification posted when favorites have changed.
     public static let FavoritesChangedNotification = NSNotification.Name("FavoritesHaveChanged")
 }
 
@@ -57,19 +57,18 @@ class MovieDetailsViewModel {
 
     func editFavorites() {
         if isFavoritedMovie() {
-            let editedFavorites = UserDefaults.standard.movies.filter({$0.id != movie.id})
-            UserDefaults.standard.movies = editedFavorites
+            FavoritesService.removeMovie(movie)
             NotificationCenter.default.post(name: .FavoritesChangedNotification, object: nil)
             isFavorite = false
         } else {
-            UserDefaults.standard.movies.append(movie)
+            FavoritesService.addMovie(movie)
             NotificationCenter.default.post(name: .FavoritesChangedNotification, object: nil)
             isFavorite = true
         }
     }
 
     private func isFavoritedMovie() -> Bool {
-        return !UserDefaults.standard.movies.filter({ $0.id == movie.id }).isEmpty
+        return FavoritesService.isFavoriteMovie(movie)
     }
 
     private func getGenre(for movie: Movie) -> String {
@@ -83,7 +82,7 @@ class MovieDetailsViewModel {
         }
 
         let ratingAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 0.6705882353, blue: 0, alpha: 1),
+            NSAttributedString.Key.foregroundColor : UIColor(red: 1, green: 0.7, blue: 0, alpha: 1),
             NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: CGFloat(24))
         ]
         let textAttributes: [NSAttributedString.Key: Any] = [
