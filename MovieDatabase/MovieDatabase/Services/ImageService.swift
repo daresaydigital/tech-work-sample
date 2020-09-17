@@ -14,9 +14,10 @@ enum ImageLoaderError: Error {
 
 class ImageService {
 
-    static private let imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+    private let imageCache: NSCache<NSString, UIImage> = NSCache<NSString, UIImage>()
+    private var tasks: Set<URLSessionTask> = []
 
-    static func getImage(url: URL?, isFavorite: Bool = false, completion: @escaping (Result<UIImage,ImageLoaderError>)->Void) {
+    func getImage(url: URL?, isFavorite: Bool = false, completion: @escaping (Result<UIImage,ImageLoaderError>)->Void) {
         guard let imageURL = url else {
             completion(.failure(.imageNotLoaded))
             return
@@ -32,16 +33,22 @@ class ImageService {
                     completion(.failure(.imageNotLoaded))
                     return
                 }
-                if let responseURL = response?.url, responseURL == imageURL,
-                    let data = data,
+                if let data = data,
                     let image = UIImage(data: data) {
-                    FavoritesService.addImage(Image(withImage: image), forKey: imageURL.absoluteString)
+                    if isFavorite {
+                        FavoritesService.addImage(Image(withImage: image), forKey: imageURL.absoluteString)
+                    }
                     completion(.success(image))
                 } else {
                     completion(.failure(.imageNotLoaded))
                 }
             }
             task.resume()
+            tasks.insert(task)
         }
+    }
+
+    func cancelAllRequests() {
+        tasks.forEach { $0.cancel() }
     }
 }

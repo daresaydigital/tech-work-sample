@@ -328,7 +328,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="ReleaseDateTitleLabel" destination="PxH-Kg-Vax" id="bKc-LH-AGM"/>
                         <outlet property="backdropImage" destination="BiX-6j-J32" id="7hp-AR-QvY"/>
                         <outlet property="backgroundImageLoadingIndicator" destination="upn-9J-gHZ" id="kOU-fd-iTl"/>
                         <outlet property="favoriteButton" destination="IqD-3l-wmM" id="jim-HD-Rep"/>
@@ -341,6 +340,7 @@
                         <outlet property="posterImage" destination="p3E-K0-b49" id="VSx-1G-xXM"/>
                         <outlet property="posterImageLoadingIndicator" destination="WUE-MU-UKi" id="q4Q-Cr-DkS"/>
                         <outlet property="releaseDateLabel" destination="PK3-Xw-s1N" id="pmU-sJ-GeH"/>
+                        <outlet property="releaseDateTitleLabel" destination="PxH-Kg-Vax" id="bKc-LH-AGM"/>
                         <segue destination="uDb-WL-TM5" kind="show" identifier="Show Reviews Segue" id="EOB-O0-QTB"/>
                     </connections>
                 </viewController>

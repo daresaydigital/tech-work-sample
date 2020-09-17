@@ -24,6 +24,8 @@ class MovieCell: UITableViewCell {
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var rankLabel: UILabel!
 
+    private var imageService = ImageService()
+
     static var reuseIdentifier: String {
         return nibName
     }
@@ -47,11 +49,11 @@ class MovieCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.posterImageView.image = nil
-        self.imageView?.image = nil
         self.titleLabel.text = ""
         self.ratingLabel.text = ""
         self.genreLabel.text = ""
         self.rankLabel.text = ""
+        imageService.cancelAllRequests()
     }
 
     func configure(for state: MovieCellConfigureState, rank: Int?) {
@@ -60,13 +62,13 @@ class MovieCell: UITableViewCell {
             posterImageView.alpha = 0
             stackView.alpha = 0
             loadingIndicator.startAnimating()
-            imageLoadingIndicator.startAnimating()
         case .data(let movie):
             stackView.alpha = 1
             titleLabel.text = movie.title
             genreLabel.text = "Genre: " + ((GenreService.shared.genre(for: movie)?.name) ?? "")
             ratingLabel.text = "Rating: \(movie.rating)"
             loadingIndicator.stopAnimating()
+            imageLoadingIndicator.startAnimating()
             loadImage(for: movie)
             if let rank = rank {
                 rankLabel.text = "\(rank)."
@@ -79,7 +81,7 @@ class MovieCell: UITableViewCell {
 
     private func loadImage(for movie: Movie) {
         let imageURL = URL(string: URLStrings.baseImageURL + movie.posterPath)
-        ImageService.getImage(url: imageURL) { [weak self](result) in
+        imageService.getImage(url: imageURL) { [weak self](result) in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
@@ -88,8 +90,11 @@ class MovieCell: UITableViewCell {
                     self?.imageLoadingIndicator.stopAnimating()
                 }
             case .failure(let error):
-                self?.posterImageView.image = UIImage(systemName: "burst")
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.posterImageView.image = UIImage(systemName: "burst")
+                    self?.imageLoadingIndicator.stopAnimating()
+                    print(error)
+                }
             }
         }
     }

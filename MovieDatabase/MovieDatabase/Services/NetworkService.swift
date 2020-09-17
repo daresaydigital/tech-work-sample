@@ -92,11 +92,11 @@ class NetworkService {
                        return
                }
 
-               do {
-                   let topRatedMovies = try JSONDecoder().decode(PagedMoviesResponse.self, from: jsonData)
-                   completion(Result.success(topRatedMovies))
-               } catch {
-                   completion(Result.failure(.jsonDecodeError))
+            do {
+                let mostPopularMovies = try JSONDecoder().decode(PagedMoviesResponse.self, from: jsonData)
+                completion(Result.success(mostPopularMovies))
+            } catch {
+                completion(Result.failure(.jsonDecodeError))
                }
 
            }
