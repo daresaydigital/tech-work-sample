@@ -54,6 +54,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
         popularityTitleLabel.text = "Rating"
         popularityDetailLabel.attributedText = viewModel.ratings()
         overviewLabel.text = viewModel.overview
+        updateFavoritesImage()
     }
 
     private func updateFavoritesImage() {
