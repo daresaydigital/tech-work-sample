@@ -24,6 +24,8 @@ class ImageService {
 
         if let cachedImage = imageCache.object(forKey: imageURL.absoluteString as NSString) {
             completion(.success(cachedImage))
+        } else if let cachedImage = UserDefaults.standard.images[imageURL.absoluteString], let image = cachedImage.getImage() {
+            completion(.success(image))
         } else {
             let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
                 guard error == nil else {
