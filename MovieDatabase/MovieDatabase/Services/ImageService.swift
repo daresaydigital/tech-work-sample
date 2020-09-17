@@ -24,7 +24,7 @@ class ImageService {
 
         if let cachedImage = imageCache.object(forKey: imageURL.absoluteString as NSString) {
             completion(.success(cachedImage))
-        } else if let cachedImage = UserDefaults.standard.images[imageURL.absoluteString], let image = cachedImage.getImage() {
+        } else if let cachedImage = FavoritesService.images[imageURL.absoluteString], let image = cachedImage.getImage() {
             completion(.success(image))
         } else {
             let task = URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
@@ -35,6 +35,7 @@ class ImageService {
                 if let responseURL = response?.url, responseURL == imageURL,
                     let data = data,
                     let image = UIImage(data: data) {
+                    FavoritesService.addImage(Image(withImage: image), forKey: imageURL.absoluteString)
                     completion(.success(image))
                 } else {
                     completion(.failure(.imageNotLoaded))
