@@ -22,7 +22,6 @@
 		C00C70D52512B03B001AC04A /* ReviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00C70D32512B03B001AC04A /* ReviewCell.xib */; };
 		C00C70D72512B5BB001AC04A /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C70D62512B5BB001AC04A /* FavoritesViewController.swift */; };
 		C00C70D92512B61B001AC04A /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C70D82512B61B001AC04A /* FavoritesViewModel.swift */; };
-		C00C70DB2512B751001AC04A /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C70DA2512B751001AC04A /* UserDefaults+Extension.swift */; };
 		C00C70DD2512B7B8001AC04A /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00C70DC2512B7B8001AC04A /* Image.swift */; };
 		C063054B251359A50068E276 /* EmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063054A251359A50068E276 /* EmptyState.swift */; };
 		C063055125135F8D0068E276 /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C063055025135F8D0068E276 /* EmptyStateView.xib */; };
@@ -61,7 +60,6 @@
 		C00C70D32512B03B001AC04A /* ReviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewCell.xib; sourceTree = "<group>"; };
 		C00C70D62512B5BB001AC04A /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		C00C70D82512B61B001AC04A /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
-		C00C70DA2512B751001AC04A /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		C00C70DC2512B7B8001AC04A /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C063054A251359A50068E276 /* EmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyState.swift; sourceTree = "<group>"; };
 		C063055025135F8D0068E276 /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				C00C70C02512A382001AC04A /* UIFont+Extension.swift */,
-				C00C70DA2512B751001AC04A /* UserDefaults+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,7 +320,6 @@
 				C00C70C72512A4B0001AC04A /* GenreResponse.swift in Sources */,
 				C00C70D72512B5BB001AC04A /* FavoritesViewController.swift in Sources */,
 				C0F4689425124BC600759FC9 /* SceneDelegate.swift in Sources */,
-				C00C70DB2512B751001AC04A /* UserDefaults+Extension.swift in Sources */,
 				C00C70D42512B03B001AC04A /* ReviewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
