@@ -9,5 +9,5 @@
 import Foundation
 
 enum APIKeys {
-    static let tmdbKey = "<<API KEY>>"
+    static let tmdbKey = "3cdcb6e716ef71e21b8cd8f0e894088c"
 }
