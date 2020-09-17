@@ -17,6 +17,11 @@ protocol MovieDetailsViewModelDelegate: AnyObject {
     func fetchMoviePosterImageFailed(with image: ImageLoaderError)
 }
 
+extension NSNotification.Name {
+    /// Notification posted when favorites have changed.
+    public static let FavoritesChangedNotification = NSNotification.Name("FavoritesHaveChanged")
+}
+
 class MovieDetailsViewModel {
 
     var id: Int!
@@ -29,6 +34,7 @@ class MovieDetailsViewModel {
     var totalVotes: Int!
     var rating: Double!
     var movie: Movie
+    var isFavorite = false
 
     var delegate: MovieDetailsViewModelDelegate?
 
@@ -46,6 +52,23 @@ class MovieDetailsViewModel {
         }
         totalVotes = movie.numberOfTotalVotes
         rating = movie.rating
+    }
+
+    func editFavorites() {
+        if isFavoritedMovie() {
+            let editedFavorites = UserDefaults.standard.movies.filter({$0.id != movie.id})
+            UserDefaults.standard.movies = editedFavorites
+            NotificationCenter.default.post(name: .FavoritesChangedNotification, object: nil)
+            isFavorite = false
+        } else {
+            UserDefaults.standard.movies.append(movie)
+            NotificationCenter.default.post(name: .FavoritesChangedNotification, object: nil)
+            isFavorite = true
+        }
+    }
+
+    private func isFavoritedMovie() -> Bool {
+        return !UserDefaults.standard.movies.filter({ $0.id == movie.id }).isEmpty
     }
 
     private func getGenre(for movie: Movie) -> String {
@@ -88,7 +111,7 @@ class MovieDetailsViewModel {
             }
         }
     }
-
+    
     func fetchPosterImage() {
         ImageService.getImage(url: posterURL) { [weak self](result) in
             switch result {
