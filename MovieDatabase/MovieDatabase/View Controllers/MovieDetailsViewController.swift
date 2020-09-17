@@ -38,6 +38,9 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
         setupUI()
     }
 
+
+    // MARK: - Setup
+
     private func setupUI() {
         movieTitleLabel.text = viewModel.title
         movieTitleLabel.font = UIFont.preferredFont(for: .headline, weight: .bold)
@@ -52,6 +55,11 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
         popularityDetailLabel.attributedText = viewModel.ratings()
         overviewLabel.text = viewModel.overview
     }
+
+    private func updateFavoritesImage() {
+        favoriteButton.image = viewModel.isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
+    }
+
 
 
     // MARK: - MovieDetailsViewModelDelegate
@@ -93,11 +101,15 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
         }
     }
 
-    @IBAction func didTapReviewsButton(_ sender: Any) {
+
+    // MARK: - User Action
+
+    @IBAction private func didTapReviewsButton(_ sender: Any) {
         performSegue(withIdentifier: "Show Reviews Segue", sender: viewModel.id)
     }
 
-    @IBAction func didTapFavorite(_ sender: Any) {
-        #warning("Add tapping favorites")
+    @IBAction private func didTapFavorite(_ sender: Any) {
+        viewModel.editFavorites()
+        updateFavoritesImage()
     }
 }
