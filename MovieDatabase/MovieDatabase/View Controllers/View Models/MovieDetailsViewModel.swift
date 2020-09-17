@@ -35,7 +35,7 @@ class MovieDetailsViewModel {
     var rating: Double!
     var movie: Movie
     var isFavorite = false
-
+    var imageService: ImageService!
     var delegate: MovieDetailsViewModelDelegate?
 
     init(with movie: Movie, delegate: MovieDetailsViewModelDelegate) {
@@ -53,6 +53,7 @@ class MovieDetailsViewModel {
         totalVotes = movie.numberOfTotalVotes
         rating = movie.rating
         isFavorite = isFavoritedMovie()
+        imageService = ImageService()
     }
 
     func editFavorites() {
@@ -99,7 +100,7 @@ class MovieDetailsViewModel {
     }
 
     func fetchBackdropImage() {
-        ImageService.getImage(url: backgroundImageURL) { [weak self](result) in
+        imageService.getImage(url: backgroundImageURL) { [weak self](result) in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
@@ -113,7 +114,7 @@ class MovieDetailsViewModel {
     }
     
     func fetchPosterImage() {
-        ImageService.getImage(url: posterURL) { [weak self](result) in
+        imageService.getImage(url: posterURL) { [weak self](result) in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {

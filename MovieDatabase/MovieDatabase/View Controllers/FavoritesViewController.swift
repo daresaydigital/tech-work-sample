@@ -84,7 +84,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
 
     // MARK: - Notifications
-    
+
     @objc private func favoritesChanged() {
         tableView.reloadData()
     }

@@ -16,7 +16,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var genreTitleLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var ReleaseDateTitleLabel: UILabel!
+    @IBOutlet weak var releaseDateTitleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var backgroundImageLoadingIndicator: UIActivityIndicatorView!
@@ -47,8 +47,8 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
         genreTitleLabel.text = "Genre"
         genreTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         genreLabel.text = viewModel.genre
-        ReleaseDateTitleLabel.text = "Release Date"
-        ReleaseDateTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
+        releaseDateTitleLabel.text = "Release Date"
+        releaseDateTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         releaseDateLabel.text = viewModel.releaseDate
         popularityTitleLabel.font = UIFont.preferredFont(for: .subheadline, weight: .semibold)
         popularityTitleLabel.text = "Rating"
@@ -60,7 +60,6 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModelDelegat
     private func updateFavoritesImage() {
         favoriteButton.image = viewModel.isFavorite ? UIImage(systemName: "heart.fill") : UIImage(systemName: "heart")
     }
-
 
 
     // MARK: - MovieDetailsViewModelDelegate
