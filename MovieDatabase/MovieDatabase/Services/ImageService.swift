@@ -38,6 +38,7 @@ class ImageService {
                     if isFavorite {
                         FavoritesService.addImage(Image(withImage: image), forKey: imageURL.absoluteString)
                     }
+                    self.imageCache.setObject(image, forKey: imageURL.absoluteString as NSString)
                     completion(.success(image))
                 } else {
                     completion(.failure(.imageNotLoaded))
