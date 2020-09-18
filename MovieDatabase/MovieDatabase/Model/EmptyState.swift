@@ -31,11 +31,11 @@ enum EmptyState {
     var title: String {
         switch self {
         case .noInternet:
-            return "No Internet Connection!"
+            return "Something went wrong!"
         case .networkError:
             return "There is something wrong with the network!"
         case .noReviews:
-            return "No reviews yet for this movie!"
+            return "No reviews for this movie yet!"
         case .noFavorites:
             return "You haven't selected any favorites yet!"
         }

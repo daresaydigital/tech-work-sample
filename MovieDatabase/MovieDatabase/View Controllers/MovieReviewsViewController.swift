@@ -91,16 +91,16 @@ class MovieReviewsViewController: UIViewController, UITableViewDelegate, UITable
     func fetchFailed(with error: MovieReviewsError) {
         switch error {
         case .invalidURLError:
-            emptyStateView.configure(for: .networkError, delegate: self)
+            emptyStateView.configure(for: .networkError, delegate: self, showButton: true)
             setupForEmptyState()
         case .jsonDecodeError:
-            emptyStateView.configure(for: .networkError, delegate: self)
+            emptyStateView.configure(for: .networkError, delegate: self, showButton: true)
             setupForEmptyState()
         case .networkError:
-            emptyStateView.configure(for: .networkError, delegate: self)
+            emptyStateView.configure(for: .networkError, delegate: self, showButton: true)
             setupForEmptyState()
         case .noReviews:
-            emptyStateView.configure(for: .noReviews, delegate: self)
+            emptyStateView.configure(for: .noReviews, delegate: self, showButton: false)
             setupForEmptyState()
         }
     }

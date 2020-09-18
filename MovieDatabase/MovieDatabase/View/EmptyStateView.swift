@@ -43,7 +43,9 @@ class EmptyStateView: UIView {
         addSubview(contentView)
     }
 
-    func configure(for emptyState: EmptyState, delegate: EmptyStateDelegate) {
+    func configure(for emptyState: EmptyState, delegate: EmptyStateDelegate, showButton: Bool) {
+        button.isHidden = !showButton
+        button.titleLabel?.text = button.isHidden ? "" : "Try Again!"
         imageView.image = UIImage(systemName: emptyState.imageName)
         titleLabel.text = emptyState.title
         self.delegate = delegate

@@ -73,9 +73,12 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func fetchSucceded(with newIndexPaths: [IndexPath]?) {
         loadingIndicator.stopAnimating()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
         if let newIndexPaths = newIndexPaths {
             let newIndexPathsToReload = indexPathsToReload(indexPaths: newIndexPaths)
-            // API returns different values for total_results, in order to avoid tahat
+            // Sometimes the movie database API has returned different values for total_results value with different paged responses, in order to crash when the API returns a different value than the
             if viewModel.totalNumberOfMoviesForTheSelectedList != tableView.numberOfRows(inSection: 0) {
                 tableView.reloadData()
                 setupForTable()
@@ -95,15 +98,18 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
 
     func fetchFailed(with error: MovieDatabaseNetworkError) {
         loadingIndicator.stopAnimating()
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
         switch error {
         case .invalidURLError:
-            emptyStateView.configure(for: .networkError, delegate: self)
+            emptyStateView.configure(for: .networkError, delegate: self, showButton: true)
             setupForEmptyState()
         case .jsonDecodeError:
-            emptyStateView.configure(for: .networkError, delegate: self)
+            emptyStateView.configure(for: .networkError, delegate: self, showButton: true)
             setupForEmptyState()
         case .responseError:
-            emptyStateView.configure(for: .noInternet, delegate: self)
+            emptyStateView.configure(for: .noInternet, delegate: self, showButton: true)
             setupForEmptyState()
         }
     }
@@ -145,9 +151,6 @@ class MovieListViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tableView.alpha = 1
             self.emptyStateView.alpha = 0
         })
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
-        }
     }
 
 
