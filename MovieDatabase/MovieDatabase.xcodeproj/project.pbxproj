@@ -27,6 +27,7 @@
 		C063055125135F8D0068E276 /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C063055025135F8D0068E276 /* EmptyStateView.xib */; };
 		C06305552513601A0068E276 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06305542513601A0068E276 /* EmptyStateView.swift */; };
 		C06305572513AC9E0068E276 /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06305562513AC9E0068E276 /* FavoritesService.swift */; };
+		C0A6890925148F19009268CB /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A6890825148F19009268CB /* BaseTableViewCell.swift */; };
 		C0F4689225124BC600759FC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F4689125124BC600759FC9 /* AppDelegate.swift */; };
 		C0F4689425124BC600759FC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F4689325124BC600759FC9 /* SceneDelegate.swift */; };
 		C0F4689925124BC600759FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0F4689725124BC600759FC9 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		C063055025135F8D0068E276 /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		C06305542513601A0068E276 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		C06305562513AC9E0068E276 /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
+		C0A6890825148F19009268CB /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C0F4688E25124BC600759FC9 /* MovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0F4689125124BC600759FC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0F4689325124BC600759FC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				C00C70D32512B03B001AC04A /* ReviewCell.xib */,
 				C063055025135F8D0068E276 /* EmptyStateView.xib */,
 				C06305542513601A0068E276 /* EmptyStateView.swift */,
+				C0A6890825148F19009268CB /* BaseTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				C00C70D12512AF99001AC04A /* Review.swift in Sources */,
 				C06305572513AC9E0068E276 /* FavoritesService.swift in Sources */,
 				C0F468CB251268C700759FC9 /* Constants.swift in Sources */,
+				C0A6890925148F19009268CB /* BaseTableViewCell.swift in Sources */,
 				C0F468C125125B8700759FC9 /* Keys.swift in Sources */,
 				C0F468C62512604800759FC9 /* MovieCell.swift in Sources */,
 				C06305552513601A0068E276 /* EmptyStateView.swift in Sources */,
@@ -464,6 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CFF5X8PH8W;
 				INFOPLIST_FILE = MovieDatabase/Info.plist;
@@ -473,6 +478,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CemAtilgan.MovieDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -482,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CFF5X8PH8W;
 				INFOPLIST_FILE = MovieDatabase/Info.plist;
@@ -491,6 +498,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = CemAtilgan.MovieDatabase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
