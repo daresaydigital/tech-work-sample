@@ -36,7 +36,7 @@ class MovieDetailsViewModel {
     var movie: Movie
     var isFavorite = false
     var imageService: ImageService!
-    var delegate: MovieDetailsViewModelDelegate?
+    private weak var delegate: MovieDetailsViewModelDelegate?
 
     init(with movie: Movie, delegate: MovieDetailsViewModelDelegate) {
         self.delegate = delegate
@@ -57,7 +57,7 @@ class MovieDetailsViewModel {
     }
 
     func editFavorites() {
-        if isFavoritedMovie() {
+        if isFavorite {
             FavoritesService.removeMovie(movie)
             NotificationCenter.default.post(name: .FavoritesChangedNotification, object: nil)
             isFavorite = false
@@ -100,28 +100,28 @@ class MovieDetailsViewModel {
     }
 
     func fetchBackdropImage() {
-        imageService.getImage(url: backgroundImageURL) { [weak self](result) in
+        imageService.getImage(url: backgroundImageURL) { (result) in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self?.delegate?.fetchMovieBackdropImageSucceded(with: image)
+                    self.delegate?.fetchMovieBackdropImageSucceded(with: image)
                 }
             case .failure(let error):
-                self?.delegate?.fetchMovieBackdropImageFailed(with: error)
+                self.delegate?.fetchMovieBackdropImageFailed(with: error)
                 print(error.localizedDescription)
             }
         }
     }
     
     func fetchPosterImage() {
-        imageService.getImage(url: posterURL) { [weak self](result) in
+        imageService.getImage(url: posterURL) { (result) in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    self?.delegate?.fetchMoviePosterImageSucceded(with: image)
+                    self.delegate?.fetchMoviePosterImageSucceded(with: image)
                 }
             case .failure(let error):
-                self?.delegate?.fetchMoviePosterImageFailed(with: error)
+                self.delegate?.fetchMoviePosterImageFailed(with: error)
                 print(error.localizedDescription)
             }
         }
