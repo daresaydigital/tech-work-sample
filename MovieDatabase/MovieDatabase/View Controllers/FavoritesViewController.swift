@@ -63,15 +63,14 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
 
     // MARK: - FavoritesViewModelDelegate
 
-    func fetchFavoriteMovies() {
+    func fetchedFavoriteMoviesSuccessfully() {
+        loadingIndicator.stopAnimating()
         if viewModel.totalNumberOfFavoriteMovies == 0 {
-            emptyStateView.configure(for: .noFavorites, delegate: self)
+            emptyStateView.configure(for: .noFavorites, delegate: self, showButton: false)
             setupForEmptyState()
         } else {
-            setupForTable()
-            loadingIndicator.stopAnimating()
-            tableView.isHidden = false
             tableView.reloadData()
+            setupForTable()
         }
     }
 
@@ -95,16 +94,13 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
     private func setupForEmptyState() {
         emptyStateView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
-            self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 0
             self.emptyStateView.alpha = 1
         })
     }
 
     private func setupForTable() {
-        tableView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
-            self.loadingIndicator.stopAnimating()
             self.tableView.alpha = 1
             self.emptyStateView.alpha = 0
         })

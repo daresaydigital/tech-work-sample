@@ -9,7 +9,7 @@
 import Foundation
 
 protocol FavoritesViewModelDelegate: AnyObject {
-    func fetchFavoriteMovies()
+    func fetchedFavoriteMoviesSuccessfully()
 }
 
 final class FavoritesViewModel {
@@ -37,6 +37,6 @@ final class FavoritesViewModel {
 
     func fetchFavorites() {
         self.favoriteMovies = FavoritesService.favorites
-        delegate?.fetchFavoriteMovies()
+        delegate?.fetchedFavoriteMoviesSuccessfully()
     }
 }
