@@ -13,24 +13,12 @@ enum ReviewCellConfigureState {
     case loading
 }
 
-class ReviewCell: UITableViewCell {
+class ReviewCell: BaseTableViewCell {
 
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-
-    static var reuseIdentifier: String {
-        return nibName
-    }
-
-    static var nib: UINib {
-        return UINib(nibName: nibName, bundle: .main)
-    }
-
-    private static var nibName: String {
-        return String(describing: self)
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

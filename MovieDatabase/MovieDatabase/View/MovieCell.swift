@@ -13,7 +13,7 @@ enum MovieCellConfigureState {
     case loading
 }
 
-class MovieCell: UITableViewCell {
+class MovieCell: BaseTableViewCell {
 
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -25,18 +25,6 @@ class MovieCell: UITableViewCell {
     @IBOutlet private weak var rankLabel: UILabel!
 
     private var imageService = ImageService()
-
-    static var reuseIdentifier: String {
-        return nibName
-    }
-
-    static var nib: UINib {
-        return UINib(nibName: nibName, bundle: .main)
-    }
-
-    private static var nibName: String {
-        return String(describing: self)
-    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
