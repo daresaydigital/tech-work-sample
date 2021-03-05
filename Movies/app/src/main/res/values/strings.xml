@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Movies</string>
+
+    <!-- Main -->
+    <string name="main_bottom_navigation_movies">Movies</string>
+    <string name="main_bottom_navigation_favorites">Favorites</string>
+
+    <!-- Fragment Movies -->
+    <string name="fragment_movies_top_rated_title">Top rated</string>
+    <string name="fragment_movies_popular_title">Popular</string>
+
+    <!-- Fragment Favorites -->
+    <string name="fragment_favorites_title">Favorites</string>
+</resources>
