@@ -19,6 +19,16 @@ class MovieCell: UICollectionViewCell {
     //MARK: - Properties
     static let resuseId = "MovieCell"
     
+    var movieViewModel: MoviesViewModel? {
+        didSet{
+            titleLabel.text = movieViewModel?.title
+            releaseDateLabel.text = movieViewModel?.release_date
+            scoreLabel.text = "\(movieViewModel?.vote_average ?? 0.0)"
+            guard let url = movieViewModel?.posterURL else { return }
+            loadImage(fromURL: url)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

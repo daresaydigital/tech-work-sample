@@ -16,7 +16,7 @@ class MoviesHeader: UICollectionReusableView {
     
     //MARK: Properties
     
-//    static var languageDelegate: LanguageDelegate?
+    static var languageDelegate: LanguageDelegate?
     static var movieSegmentDelegate: MovieSegmentDelegate?
     static let reuseId = "MoviesHeader"
     

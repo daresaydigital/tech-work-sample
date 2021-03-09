@@ -46,7 +46,7 @@ extension MoviesVC {
         collectionView.dataSource = self
         collectionView.contentInsetAdjustmentBehavior = .never
         
-//        MoviesHeader.languageDelegate = self
+        MoviesHeader.languageDelegate = self
         MoviesHeader.movieSegmentDelegate = self
         
         self.navigationController?.navigationBar.isHidden = true
@@ -131,20 +131,20 @@ extension MoviesVC: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCell.resuseId, for: indexPath) as! MovieCell
         
-//        cell.movieViewModel = movieViewModelList[indexPath.row]
+        cell.movieViewModel = movieViewModelList[indexPath.row]
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-//        
-//        if !movieViewModelList.isEmpty{
-//            let selectedMovieVC = SelectedMovieVC(nibName: SelectedMovieVC.reuseId, bundle: nil)
-//            selectedMovieVC.movieId = movieViewModelList[indexPath.row].id
-//            selectedMovieVC.backdropUrl = movieViewModelList[indexPath.row].backdropURL
-//            self.present(selectedMovieVC, animated: true, completion: nil)
-//        }
+        
+        if !movieViewModelList.isEmpty{
+            let selectedMovieVC = SelectedMovieVC(nibName: SelectedMovieVC.reuseId, bundle: nil)
+            selectedMovieVC.movieId = movieViewModelList[indexPath.row].id
+            selectedMovieVC.backdropUrl = movieViewModelList[indexPath.row].backdropURL
+            self.present(selectedMovieVC, animated: true, completion: nil)
+        }
     }
 }
 
