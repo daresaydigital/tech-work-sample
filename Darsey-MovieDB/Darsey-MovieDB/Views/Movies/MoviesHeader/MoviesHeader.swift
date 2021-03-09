@@ -13,6 +13,7 @@ class MoviesHeader: UICollectionReusableView {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var movieSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var view: UIView!
     
     //MARK: Properties
     
@@ -50,7 +51,7 @@ class MoviesHeader: UICollectionReusableView {
         movieSegmentedControl.insertSegment(withTitle: "now.playing".localized, at: 0, animated: true)
         movieSegmentedControl.insertSegment(withTitle: "popular".localized, at: 1, animated: true)
         movieSegmentedControl.insertSegment(withTitle: "top.rated".localized, at: 2, animated: true)
-
+        view.layer.cornerRadius = 10
         movieSegmentedControl.selectedSegmentIndex = 0
         setTitleLabel()
         
