@@ -200,12 +200,12 @@
                                                     </constraints>
                                                 </stackView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TrT-83-lZY">
-                                                    <rect key="frame" x="0.0" y="160" width="335" height="120"/>
+                                                    <rect key="frame" x="0.0" y="160" width="335" height="150"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="dbd-K4-jXj"/>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="120" id="qW7-Po-0X1"/>
-                                                        <constraint firstAttribute="height" constant="120" id="yoJ-9T-X3v"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="150" id="qW7-Po-0X1"/>
+                                                        <constraint firstAttribute="height" constant="150" id="yoJ-9T-X3v"/>
                                                     </constraints>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -220,7 +220,7 @@
                                                 <constraint firstItem="jXK-BD-dvf" firstAttribute="leading" secondItem="gKY-ab-meJ" secondAttribute="leading" id="Wmq-pw-zfv"/>
                                                 <constraint firstAttribute="trailing" secondItem="jXK-BD-dvf" secondAttribute="trailing" id="oFl-og-xek"/>
                                                 <constraint firstAttribute="height" constant="280" id="u1q-2F-fDh"/>
-                                                <constraint firstAttribute="bottom" secondItem="TrT-83-lZY" secondAttribute="bottom" id="xV9-Wa-PIU"/>
+                                                <constraint firstAttribute="bottom" secondItem="TrT-83-lZY" secondAttribute="bottom" constant="-30" id="xV9-Wa-PIU"/>
                                             </constraints>
                                         </view>
                                     </subviews>

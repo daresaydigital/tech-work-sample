@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4872D16025F6B06A007DB11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D15F25F6B06A007DB11A /* AppDelegate.swift */; };
 		4872D16225F6B06A007DB11A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D16125F6B06A007DB11A /* SceneDelegate.swift */; };
-		4872D16725F6B06A007DB11A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4872D16525F6B06A007DB11A /* Main.storyboard */; };
 		4872D16A25F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4872D16825F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld */; };
 		4872D16C25F6B06D007DB11A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4872D16B25F6B06D007DB11A /* Assets.xcassets */; };
 		4872D16F25F6B06D007DB11A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4872D16D25F6B06D007DB11A /* LaunchScreen.storyboard */; };
@@ -41,6 +40,7 @@
 		4872D28B25F7A1D5007DB11A /* SelectedMovieVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D28A25F7A1D5007DB11A /* SelectedMovieVM.swift */; };
 		48759E2025F7BE9600239CAB /* TrailerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48759E1E25F7BE9600239CAB /* TrailerVC.swift */; };
 		48759E2125F7BE9600239CAB /* TrailerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48759E1F25F7BE9600239CAB /* TrailerVC.xib */; };
+		48759E3B25F7DD6C00239CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48759E3A25F7DD6C00239CAB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		4872D15C25F6B06A007DB11A /* Darsey-MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Darsey-MovieDB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4872D15F25F6B06A007DB11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4872D16125F6B06A007DB11A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4872D16625F6B06A007DB11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4872D16925F6B06A007DB11A /* Darsey_MovieDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Darsey_MovieDB.xcdatamodel; sourceTree = "<group>"; };
 		4872D16B25F6B06D007DB11A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4872D16E25F6B06D007DB11A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,11 +99,11 @@
 		4872D28325F7A17F007DB11A /* SelectedMovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovieVC.swift; sourceTree = "<group>"; };
 		4872D28425F7A17F007DB11A /* SelectedMovieVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedMovieVC.xib; sourceTree = "<group>"; };
 		4872D28A25F7A1D5007DB11A /* SelectedMovieVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovieVM.swift; sourceTree = "<group>"; };
-		4872D2A025F7A89C007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		4872D2A125F7A89C007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4872D2A225F7AA8E007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = "../../../../../../../../../../Downloads/tmdbChallenge-main/TMDBChallenge/Language/sv.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		48759E1E25F7BE9600239CAB /* TrailerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerVC.swift; sourceTree = "<group>"; };
 		48759E1F25F7BE9600239CAB /* TrailerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerVC.xib; sourceTree = "<group>"; };
+		48759E3A25F7DD6C00239CAB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,11 +162,11 @@
 				4872D1D325F785EB007DB11A /* Views */,
 				4872D1C025F7838C007DB11A /* Utilities */,
 				4872D19625F6B10D007DB11A /* Services */,
-				4872D16525F6B06A007DB11A /* Main.storyboard */,
 				4872D16B25F6B06D007DB11A /* Assets.xcassets */,
 				4872D16D25F6B06D007DB11A /* LaunchScreen.storyboard */,
 				4872D17025F6B06D007DB11A /* Info.plist */,
 				4872D16825F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld */,
+				48759E3A25F7DD6C00239CAB /* Main.storyboard */,
 			);
 			path = "Darsey-MovieDB";
 			sourceTree = "<group>";
@@ -428,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4872D1EE25F78BF6007DB11A /* MovieCell.xib in Resources */,
+				48759E3B25F7DD6C00239CAB /* Main.storyboard in Resources */,
 				4872D16F25F6B06D007DB11A /* LaunchScreen.storyboard in Resources */,
 				4872D16C25F6B06D007DB11A /* Assets.xcassets in Resources */,
 				4872D1BC25F7820C007DB11A /* key-info.plist in Resources */,
@@ -436,7 +436,6 @@
 				4872D23125F7932C007DB11A /* Localizable.strings in Resources */,
 				4872D20125F78F12007DB11A /* MoviesHeader.xib in Resources */,
 				4872D28625F7A17F007DB11A /* SelectedMovieVC.xib in Resources */,
-				4872D16725F6B06A007DB11A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,15 +517,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4872D16525F6B06A007DB11A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4872D16625F6B06A007DB11A /* Base */,
-				4872D2A025F7A89C007DB11A /* sv */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4872D16D25F6B06D007DB11A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

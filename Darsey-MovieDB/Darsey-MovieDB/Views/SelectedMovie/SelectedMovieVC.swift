@@ -52,9 +52,6 @@ extension SelectedMovieVC {
         ViewProperties.configureCircularViewWithShadow(backgroundView: closeButtonView)
         ViewProperties.configureViewWithRoundBorderAndShadow(backgroundView: playTrailerView)
         if UIDevice.current.userInterfaceIdiom == .pad {
-            posterLeadingConstraint.constant = self.view.bounds.width / 3
-            posterTrailingConstraint.constant = self.view.bounds.width / 3
-            trailerViewConstraint.constant = self.view.bounds.width / 3 + 10
             summaryTextView.font = .systemFont(ofSize: 20)
         }
         posterImageView.contentMode = .scaleAspectFill
@@ -114,8 +111,8 @@ extension SelectedMovieVC {
     
     @IBAction func trailerButtonTapped(_ sender: Any) {
         guard let trailerId = trailerId else { return }
-//        let trailerVC = TrailerVC(trailerId: trailerId)
+        let trailerVC = TrailerVC(trailerId: trailerId)
         
-//        self.present(trailerVC, animated: true, completion: nil)
+        self.present(trailerVC, animated: true, completion: nil)
     }
 }
