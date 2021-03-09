@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="e1A-JD-Xzu" customClass="MoviesHeader" customModule="TMDBChallenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="505" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSs-yJ-qLM" userLabel="Label">
+                    <rect key="frame" x="20" y="10" width="420" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="dJS-e5-5p3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLP-vR-OXC">
+                    <rect key="frame" x="460" y="10" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="4zg-Wp-BWd"/>
+                        <constraint firstAttribute="height" constant="25" id="nNQ-xj-ReI"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="languageButtonTapped:" destination="e1A-JD-Xzu" eventType="touchUpInside" id="kTF-lW-j8r"/>
+                    </connections>
+                </button>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="X3J-w8-J12">
+                    <rect key="frame" x="20" y="45" width="465" height="32"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                        <segment title=""/>
+                    </segments>
+                    <color key="selectedSegmentTintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <connections>
+                        <action selector="segmentedControlTapped:" destination="e1A-JD-Xzu" eventType="valueChanged" id="Auk-7D-chw"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="t8z-1D-3qc"/>
+            <constraints>
+                <constraint firstItem="X3J-w8-J12" firstAttribute="top" secondItem="BSs-yJ-qLM" secondAttribute="bottom" constant="10" id="B9S-B9-YmZ"/>
+                <constraint firstItem="qLP-vR-OXC" firstAttribute="leading" secondItem="BSs-yJ-qLM" secondAttribute="trailing" constant="20" id="BkZ-hk-RrT"/>
+                <constraint firstItem="X3J-w8-J12" firstAttribute="leading" secondItem="t8z-1D-3qc" secondAttribute="leading" constant="20" id="CBC-nE-UeX"/>
+                <constraint firstItem="BSs-yJ-qLM" firstAttribute="top" secondItem="e1A-JD-Xzu" secondAttribute="top" constant="10" id="FgJ-wo-J4F"/>
+                <constraint firstItem="BSs-yJ-qLM" firstAttribute="leading" secondItem="t8z-1D-3qc" secondAttribute="leading" constant="20" id="Jf9-Y1-2eT"/>
+                <constraint firstItem="X3J-w8-J12" firstAttribute="centerX" secondItem="e1A-JD-Xzu" secondAttribute="centerX" id="ZnH-qD-5gU"/>
+                <constraint firstAttribute="trailing" secondItem="qLP-vR-OXC" secondAttribute="trailing" constant="20" id="cPM-sz-8Xd"/>
+                <constraint firstItem="qLP-vR-OXC" firstAttribute="top" secondItem="e1A-JD-Xzu" secondAttribute="top" constant="10" id="p8m-Xi-402"/>
+                <constraint firstItem="t8z-1D-3qc" firstAttribute="trailing" secondItem="X3J-w8-J12" secondAttribute="trailing" constant="20" id="w6E-7p-jYU"/>
+            </constraints>
+            <connections>
+                <outlet property="movieSegmentedControl" destination="X3J-w8-J12" id="219-6B-K5e"/>
+                <outlet property="titleLabel" destination="BSs-yJ-qLM" id="WEd-Hb-FCS"/>
+            </connections>
+            <point key="canvasLocation" x="133" y="76"/>
+        </collectionReusableView>
+    </objects>
+</document>

@@ -22,6 +22,7 @@ class MovieService {
         
         guard let url = URL(string: ApiURL.baseURL + movieType.value) else {
             completion(.failure(.invalidURL))
+
             return
         }
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }

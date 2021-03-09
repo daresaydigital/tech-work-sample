@@ -11,10 +11,17 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if #available(iOS 13, *) { // if device is running iOS 13 or later
+            
+        } else { // if device is running iOS 12 or lower
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = UINavigationController(rootViewController: MoviesVC(nibName: "MoviesVC", bundle: nil))
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
