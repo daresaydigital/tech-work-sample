@@ -156,13 +156,13 @@
 			isa = PBXGroup;
 			children = (
 				4872D1AA25F77DF1007DB11A /* AppDelegates */,
-				4872D20B25F790BE007DB11A /* Language */,
 				4872D1E125F788C1007DB11A /* Protocols */,
+				4872D20B25F790BE007DB11A /* Language */,
+				4872D19725F6B12F007DB11A /* Configuration */,
+				4872D19525F6B0F5007DB11A /* Models */,
 				4872D1D325F785EB007DB11A /* Views */,
 				4872D1C025F7838C007DB11A /* Utilities */,
-				4872D19725F6B12F007DB11A /* Configuration */,
 				4872D19625F6B10D007DB11A /* Services */,
-				4872D19525F6B0F5007DB11A /* Models */,
 				4872D16525F6B06A007DB11A /* Main.storyboard */,
 				4872D16B25F6B06D007DB11A /* Assets.xcassets */,
 				4872D16D25F6B06D007DB11A /* LaunchScreen.storyboard */,

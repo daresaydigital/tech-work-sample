@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Go8-9J-xr4" customClass="MovieCell" customModule="TMDBChallenge" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Go8-9J-xr4" customClass="MovieCell" customModule="Darsey_MovieDB" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="230" height="290"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOQ-Nt-owy">
                         <rect key="frame" x="8" y="8" width="214" height="274"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.tv" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DJA-CF-1bk">
-                                <rect key="frame" x="0.0" y="0.5" width="214" height="273"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty_image" translatesAutoresizingMaskIntoConstraints="NO" id="DJA-CF-1bk">
+                                <rect key="frame" x="0.0" y="0.0" width="214" height="274"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3uR-2N-4qF">
                                 <rect key="frame" x="0.0" y="223" width="214" height="51"/>
@@ -114,7 +114,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="photo.tv" catalog="system" width="128" height="97"/>
+        <image name="empty_image" width="512" height="512"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
