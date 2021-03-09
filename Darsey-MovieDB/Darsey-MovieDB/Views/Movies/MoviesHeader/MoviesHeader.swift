@@ -23,7 +23,7 @@ class MoviesHeader: UICollectionReusableView {
     //MARK:- Actions
     
     @IBAction func languageButtonTapped(_ sender: Any) {
-       // MoviesHeader.languageDelegate?.chooseLanguage()
+        MoviesHeader.languageDelegate?.chooseLanguage()
         
     }
     

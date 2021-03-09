@@ -214,6 +214,13 @@ extension MoviesVC: LanguageDelegate {
                                         self.resetCollectionView()
                                       }))
         
+        alert.addAction(UIAlertAction(title: "swedish.language".localized,
+                                      style: .default,
+                                      handler: { (_) in
+                                        UserDefaults.standard.set("sv", forKey: Keys.APP_LANGUAGE)
+                                        self.resetCollectionView()
+                                      }))
+        
         alert.addAction(UIAlertAction(title: "spanish.language".localized,
                                       style: .default,
                                       handler: { (_) in
