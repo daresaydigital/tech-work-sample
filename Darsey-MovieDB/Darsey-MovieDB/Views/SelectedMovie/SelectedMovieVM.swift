@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct SelectedMovieViewModel {
     private let selectedMovie: SelectedMovie
     

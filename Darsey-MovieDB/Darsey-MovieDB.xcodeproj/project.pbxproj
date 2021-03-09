@@ -39,6 +39,8 @@
 		4872D28525F7A17F007DB11A /* SelectedMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D28325F7A17F007DB11A /* SelectedMovieVC.swift */; };
 		4872D28625F7A17F007DB11A /* SelectedMovieVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4872D28425F7A17F007DB11A /* SelectedMovieVC.xib */; };
 		4872D28B25F7A1D5007DB11A /* SelectedMovieVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D28A25F7A1D5007DB11A /* SelectedMovieVM.swift */; };
+		48759E2025F7BE9600239CAB /* TrailerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48759E1E25F7BE9600239CAB /* TrailerVC.swift */; };
+		48759E2125F7BE9600239CAB /* TrailerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48759E1F25F7BE9600239CAB /* TrailerVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		4872D2A025F7A89C007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		4872D2A125F7A89C007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		4872D2A225F7AA8E007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = "../../../../../../../../../../Downloads/tmdbChallenge-main/TMDBChallenge/Language/sv.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		48759E1E25F7BE9600239CAB /* TrailerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerVC.swift; sourceTree = "<group>"; };
+		48759E1F25F7BE9600239CAB /* TrailerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,8 @@
 		4872D1D525F78638007DB11A /* Trailer */ = {
 			isa = PBXGroup;
 			children = (
+				48759E1E25F7BE9600239CAB /* TrailerVC.swift */,
+				48759E1F25F7BE9600239CAB /* TrailerVC.xib */,
 			);
 			path = Trailer;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 				4872D16F25F6B06D007DB11A /* LaunchScreen.storyboard in Resources */,
 				4872D16C25F6B06D007DB11A /* Assets.xcassets in Resources */,
 				4872D1BC25F7820C007DB11A /* key-info.plist in Resources */,
+				48759E2125F7BE9600239CAB /* TrailerVC.xib in Resources */,
 				4872D1DA25F7867C007DB11A /* MoviesVC.xib in Resources */,
 				4872D23125F7932C007DB11A /* Localizable.strings in Resources */,
 				4872D20125F78F12007DB11A /* MoviesHeader.xib in Resources */,
@@ -454,6 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48759E2025F7BE9600239CAB /* TrailerVC.swift in Sources */,
 				4872D19925F6B197007DB11A /* Movies.swift in Sources */,
 				4872D16A25F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld in Sources */,
 				4872D27325F7A022007DB11A /* ActivityIndicator.swift in Sources */,
