@@ -36,7 +36,7 @@ class SelectedMovieVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        posterImageView.layer.cornerRadius = 7
         setupVC()
     }
     
