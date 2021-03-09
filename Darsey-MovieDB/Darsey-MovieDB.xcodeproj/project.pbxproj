@@ -19,6 +19,12 @@
 		4872D19925F6B197007DB11A /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D19825F6B197007DB11A /* Movies.swift */; };
 		4872D1A125F6B223007DB11A /* SelectedMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1A025F6B223007DB11A /* SelectedMovie.swift */; };
 		4872D1A625F6B255007DB11A /* Trailers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1A525F6B255007DB11A /* Trailers.swift */; };
+		4872D1AF25F7814E007DB11A /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1AE25F7814D007DB11A /* MovieService.swift */; };
+		4872D1B725F781A6007DB11A /* PlistService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1B625F781A6007DB11A /* PlistService.swift */; };
+		4872D1BC25F7820C007DB11A /* key-info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4872D1BB25F7820C007DB11A /* key-info.plist */; };
+		4872D1C225F783C1007DB11A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1C125F783C1007DB11A /* Constants.swift */; };
+		4872D1CA25F78422007DB11A /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1C925F78422007DB11A /* APIKey.swift */; };
+		4872D1CF25F7844E007DB11A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1CE25F7844E007DB11A /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +63,12 @@
 		4872D19825F6B197007DB11A /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		4872D1A025F6B223007DB11A /* SelectedMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovie.swift; sourceTree = "<group>"; };
 		4872D1A525F6B255007DB11A /* Trailers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailers.swift; sourceTree = "<group>"; };
+		4872D1AE25F7814D007DB11A /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
+		4872D1B625F781A6007DB11A /* PlistService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistService.swift; sourceTree = "<group>"; };
+		4872D1BB25F7820C007DB11A /* key-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "key-info.plist"; sourceTree = "<group>"; };
+		4872D1C125F783C1007DB11A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4872D1C925F78422007DB11A /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		4872D1CE25F7844E007DB11A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +119,7 @@
 		4872D15E25F6B06A007DB11A /* Darsey-MovieDB */ = {
 			isa = PBXGroup;
 			children = (
+				4872D1C025F7838C007DB11A /* Utilities */,
 				4872D1AA25F77DF1007DB11A /* AppDelegates */,
 				4872D19725F6B12F007DB11A /* Configuration */,
 				4872D19625F6B10D007DB11A /* Services */,
@@ -152,6 +165,9 @@
 		4872D19625F6B10D007DB11A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4872D1AE25F7814D007DB11A /* MovieService.swift */,
+				4872D1B625F781A6007DB11A /* PlistService.swift */,
+				4872D1BB25F7820C007DB11A /* key-info.plist */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -170,6 +186,16 @@
 				4872D16125F6B06A007DB11A /* SceneDelegate.swift */,
 			);
 			path = AppDelegates;
+			sourceTree = "<group>";
+		};
+		4872D1C025F7838C007DB11A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4872D1C125F783C1007DB11A /* Constants.swift */,
+				4872D1C925F78422007DB11A /* APIKey.swift */,
+				4872D1CE25F7844E007DB11A /* APIError.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +303,7 @@
 			files = (
 				4872D16F25F6B06D007DB11A /* LaunchScreen.storyboard in Resources */,
 				4872D16C25F6B06D007DB11A /* Assets.xcassets in Resources */,
+				4872D1BC25F7820C007DB11A /* key-info.plist in Resources */,
 				4872D16725F6B06A007DB11A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,7 +331,12 @@
 			files = (
 				4872D19925F6B197007DB11A /* Movies.swift in Sources */,
 				4872D16A25F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld in Sources */,
+				4872D1B725F781A6007DB11A /* PlistService.swift in Sources */,
+				4872D1AF25F7814E007DB11A /* MovieService.swift in Sources */,
 				4872D16425F6B06A007DB11A /* ViewController.swift in Sources */,
+				4872D1CF25F7844E007DB11A /* APIError.swift in Sources */,
+				4872D1C225F783C1007DB11A /* Constants.swift in Sources */,
+				4872D1CA25F78422007DB11A /* APIKey.swift in Sources */,
 				4872D1A125F6B223007DB11A /* SelectedMovie.swift in Sources */,
 				4872D16025F6B06A007DB11A /* AppDelegate.swift in Sources */,
 				4872D1A625F6B255007DB11A /* Trailers.swift in Sources */,
@@ -486,6 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Darsey-MovieDB/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -504,6 +537,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Darsey-MovieDB/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
