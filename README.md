@@ -1,3 +1,52 @@
+Weather
+======
+
+This repository contains a sample Weather app for requesting Weather's API.
+
+
+---
+# Installation
+
+To install the dependencies
+* Open a terminal and cd to the directory containing the Podfile
+* Run the `pod install` command
+
+(For further details regarding cocoapod installation see https://cocoapods.org/)
+
+Notes:
+Don't forget to change the apiKey for the Weather's API in "Constants.swift"
+
+---
+# Existing Functionalities
+
+The app is currently able to load Weather data from Weather's API, and show it in 2 UI designs (list form and dashboard)
+
+* When the app loads, it will load the Weather data from Weather's API, and show them in list form ( like iOS default "Weather" app)
+* Upon selecting "Other Design", it will open a view with Dashboard like presentation of Weather data
+
+
+---
+# Development Steps
+
+1. Create new project based on single view app
+2. Create folders for MVVM pattern
+3. Add WeatherViewController and Design the UI layout to Weather data
+4. Add LocationManager to detect user current location
+5. Add Networking Layer to handle the Weather's API
+6. Add ViewModel and Model, that will show the Weather data at WeatherViewController
+7. Add Forecast and ForecastDaily features
+8. Add scroll effect feature
+9. Add pods: Kingfisher
+10. Add MyWeatherViewController and Design the Dashboard UI layout
+11. Implement existing ViewModels to MyWeatherViewController
+10. Add Unit Test to test the process
+
+
+
+
+==================================================================
+
+
 # Work sample - Application developer
 
 ## Assignment

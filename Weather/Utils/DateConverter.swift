@@ -1,0 +1,71 @@
+//
+//  DateConverter.swift
+//  Weather
+//
+//  Created by Christian  Huang on 07/11/18.
+//  Copyright © 2018 Christian Huang. All rights reserved.
+//
+
+import Foundation
+
+
+class DateConverter {
+    
+    static func timeIntervalToDayString(_ time: TimeInterval) -> String{
+        let date = Date(timeIntervalSince1970: time)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: date)
+    }
+    static func timeIntervalToDayShortString(_ time: TimeInterval) -> String{
+        let date = Date(timeIntervalSince1970: time)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EE"
+        return dateFormatter.string(from: date)
+    }
+    
+    static func timeIntervalToHourString(_ time: TimeInterval) -> String{
+        let date = Date(timeIntervalSince1970: time)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        return dateFormatter.string(from: date)
+    }
+    
+    static func timeIntervalToHourMinuteString(_ time: TimeInterval) -> String{
+        let date = Date(timeIntervalSince1970: time)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH':'mm"
+        return dateFormatter.string(from: date)
+    }
+    
+    static func timeIntervalToDayTimeInterval(_ time: TimeInterval) -> TimeInterval{
+        let date = Date(timeIntervalSince1970: time)
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.hour, .minute], from: date)
+        return TimeInterval(((components.hour! * 60) + components.minute!) * 60)
+    }
+    
+    static func stringToDate(dateString: String, timezone: String = "CEST") -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        dateFormatter.timeZone = TimeZone(abbreviation: timezone)
+        let date = dateFormatter.date(from: dateString)
+        return date
+    }
+    
+    static func dateToDateString(date: Date, timezone: String = "CEST") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "E. dd.MM"
+        dateFormatter.timeZone = TimeZone(abbreviation: timezone)
+        
+        return dateFormatter.string(from:date)
+    }
+    
+    static func dateToTimeString(date: Date, timezone: String = "CEST") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh.mm"
+        dateFormatter.timeZone = TimeZone(abbreviation: timezone)
+        
+        return dateFormatter.string(from:date)
+    }
+}
