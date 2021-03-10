@@ -37,7 +37,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{result.content, default=Placeholder}"
-                android:maxLength="@integer/review_preview_max_length"
                 android:maxLines="4"
                 android:ellipsize="end"
                 android:layout_marginTop="@dimen/padding_tiny"
