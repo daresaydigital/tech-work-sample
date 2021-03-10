@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:background="@color/colorBackground"
         android:padding="@dimen/padding_tiny"
-        android:layout_marginBottom="@dimen/padding_large">
+        android:layout_marginBottom="@dimen/padding_normal">
 
         <ImageView
             android:id="@+id/movie_image"
