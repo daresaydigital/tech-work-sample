@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.daresay.movies.R
 import com.daresay.movies.ui.adapters.HomePagerAdapter
 import com.daresay.movies.databinding.FragmentHomeViewPagerBinding
@@ -23,6 +24,7 @@ class HomeViewPagerFragment : Fragment() {
     ): View {
         binding = FragmentHomeViewPagerBinding.inflate(inflater, container, false)
         binding.viewPager.adapter = HomePagerAdapter(this)
+        binding.viewPager.isUserInputEnabled = false
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.setIcon(getTabIcon(position))
@@ -34,7 +36,7 @@ class HomeViewPagerFragment : Fragment() {
 
     private fun getTabIcon(position: Int): Int {
         return when (position) {
-            HomePagerAdapter.MOVIES_PAGE_INDEX -> R.drawable.ic_baseline_list_24
+            HomePagerAdapter.MOVIES_PAGE_INDEX -> R.drawable.ic_baseline_local_movies_24
             HomePagerAdapter.FAVORITES_PAGE_INDEX -> R.drawable.ic_baseline_favorite_24
             else -> throw IndexOutOfBoundsException()
         }

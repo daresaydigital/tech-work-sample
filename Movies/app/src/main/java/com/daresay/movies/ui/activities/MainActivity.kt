@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.daresay.movies.R
 import com.daresay.movies.data.models.authentication.SessionRequestBody
 import com.daresay.movies.data.user.UserData
@@ -42,11 +44,6 @@ class MainActivity : AppCompatActivity() {
         intent?.data?.let {
             parseUrlData(it)
         }
-    }
-
-    private fun setUpBottomNavigation() {
-        val navController = findNavController(R.id.nav_host)
-
     }
 
     /**

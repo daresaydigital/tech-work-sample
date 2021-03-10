@@ -20,9 +20,10 @@
             style="@style/Widget.MaterialComponents.TabLayout.PrimarySurface"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:tabTextAppearance="@style/CustomTabTextAppearance"
             app:tabIconTint="@color/tab_layout_item_selector"
             app:tabTextColor="@color/tab_layout_item_selector"
-            app:tabIndicatorColor="@color/colorAccent"
+            app:tabIndicatorColor="@color/colorBackground"
             app:tabRippleColor="@color/colorBackground"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
