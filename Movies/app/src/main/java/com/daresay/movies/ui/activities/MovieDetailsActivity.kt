@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.daresay.movies.R
 import com.daresay.movies.databinding.ActivityMovieDetailsBinding
+import com.daresay.movies.extensions.snack
 import com.daresay.movies.ui.adapters.GenreItemAdapter
 import com.daresay.movies.ui.adapters.ReviewAdapter
 import com.daresay.movies.ui.viewmodels.MovieDetailsViewModel
@@ -107,7 +108,7 @@ class MovieDetailsActivity : AppCompatActivity() {
                 }
 
                 Resource.Status.ERROR -> {
-
+                    binding.root.snack(R.string.activity_movie_details_error_failed_to_load_movie)
                 }
 
                 Resource.Status.LOADING -> {

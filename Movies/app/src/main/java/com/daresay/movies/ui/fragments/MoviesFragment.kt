@@ -10,8 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.daresay.movies.R
 import com.daresay.movies.data.models.movie.Movie
 import com.daresay.movies.databinding.FragmentMoviesBinding
+import com.daresay.movies.extensions.snack
 import com.daresay.movies.ui.activities.MovieDetailsActivity
 import com.daresay.movies.ui.adapters.MoviePopularAdapter
 import com.daresay.movies.ui.adapters.MovieTopRatedAdapter
@@ -91,7 +93,7 @@ class MoviesFragment : Fragment(), MovieOnClickListener {
                 }
 
                 Resource.Status.ERROR -> {
-
+                    view?.snack(R.string.fragment_movie_error_failed_to_load_top_rated_list)
                 }
 
                 Resource.Status.LOADING -> {
@@ -137,7 +139,7 @@ class MoviesFragment : Fragment(), MovieOnClickListener {
                 }
 
                 Resource.Status.ERROR -> {
-
+                    view?.snack(R.string.fragment_movie_error_failed_to_load_popular_list)
                 }
 
                 Resource.Status.LOADING -> {

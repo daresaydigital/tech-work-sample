@@ -5,6 +5,9 @@
     <string name="placeholder">Placeholder</string>
     <string name="error">Error</string>
 
+    <!-- General errors -->
+    <string name="no_internet">No internet available</string>
+
     <!-- Activity Main -->
     <string name="main_bottom_navigation_movies">Movies</string>
     <string name="main_bottom_navigation_favorites">Favorites</string>
@@ -12,6 +15,8 @@
     <!-- Fragment Movies -->
     <string name="fragment_movies_top_rated_title">Top rated</string>
     <string name="fragment_movies_popular_title">Popular</string>
+    <string name="fragment_movie_error_failed_to_load_top_rated_list">Failed to load top rated movies</string>
+    <string name="fragment_movie_error_failed_to_load_popular_list">Failed to load popular movies</string>
 
     <!-- Fragment Favorites -->
     <string name="fragment_favorites_title">Favorites</string>
@@ -22,6 +27,7 @@
     <string name="activity_movie_details_minutes">%d Minutes</string>
     <string name="activity_movie_details_fab_description">Add to favorites</string>
     <string name="activity_movie_details_poster_description">Movie poster</string>
+    <string name="activity_movie_details_error_failed_to_load_movie">Failed to load popular movie details</string>
 
     <!-- Dialog Error -->
     <string name="dialog_error_title">Error</string>

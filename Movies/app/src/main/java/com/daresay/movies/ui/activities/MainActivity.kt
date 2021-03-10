@@ -44,6 +44,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setUpBottomNavigation() {
+        val navController = findNavController(R.id.nav_host)
+
+    }
+
     /**
      * Here we will parse the uri from the intent after authenticating a user.
      * If the authentication was successful, we will move to home screen.
