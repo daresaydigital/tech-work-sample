@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_bottom"
-    app:startDestination="@id/homeViewPagerFragment">
+    app:startDestination="@id/loadingFragment">
+
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.daresay.movies.ui.fragments.LoadingFragment"
+        android:label="LoadingFragment" />
 
     <fragment
         android:id="@+id/homeViewPagerFragment"
-        android:name="com.daresay.movies.fragments.HomeViewPagerFragment"
+        android:name="com.daresay.movies.ui.fragments.HomeViewPagerFragment"
         android:label="HomeViewPagerFragment" />
 
     <fragment
         android:id="@+id/moviesFragment"
-        android:name="com.daresay.movies.fragments.MoviesFragment"
+        android:name="com.daresay.movies.ui.fragments.MoviesFragment"
         android:label="MoviesFragment" />
 
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.daresay.movies.fragments.FavoritesFragment"
+        android:name="com.daresay.movies.ui.fragments.FavoritesFragment"
         android:label="FavoritesFragment" />
 
 </navigation>

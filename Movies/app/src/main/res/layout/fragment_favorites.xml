@@ -5,7 +5,7 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="visible"
         android:background="@color/colorBackground"
@@ -41,11 +41,10 @@
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/popular_recycler_view"
+                android:id="@+id/favorite_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/padding_normal"
-                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/popular_header"/>
 
         </LinearLayout>

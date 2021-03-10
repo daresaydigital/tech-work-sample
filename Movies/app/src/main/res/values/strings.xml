@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Movies</string>
 
-    <!-- Main -->
+    <!-- General -->
+    <string name="placeholder">Placeholder</string>
+    <string name="error">Error</string>
+
+    <!-- Activity Main -->
     <string name="main_bottom_navigation_movies">Movies</string>
     <string name="main_bottom_navigation_favorites">Favorites</string>
 
@@ -11,4 +15,18 @@
 
     <!-- Fragment Favorites -->
     <string name="fragment_favorites_title">Favorites</string>
+
+    <!-- Activity Movie Details -->
+    <string name="activity_movie_details_story_title">Story</string>
+    <string name="activity_movie_details_reviews_title">Reviews</string>
+    <string name="activity_movie_details_minutes">%d Minutes</string>
+    <string name="activity_movie_details_fab_description">Add to favorites</string>
+    <string name="activity_movie_details_poster_description">Movie poster</string>
+
+    <!-- Dialog Error -->
+    <string name="dialog_error_title">Error</string>
+
+    <!-- Movie Top Rated Adapter -->
+    <string name="adapter_movie_poster_description">Movie poster</string>
+
 </resources>

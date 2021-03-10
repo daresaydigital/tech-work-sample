@@ -10,14 +10,29 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:name=".App"
         android:supportsRtl="true"
         android:theme="@style/Theme.Movies">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name="com.daresay.movies.ui.activities.MainActivity"
+            android:launchMode="singleInstance">
+            <intent-filter
+                android:label="test">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="movies"
+                    android:host="authentication"
+                    android:pathPattern=".*"/>
+            </intent-filter>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activities.MovieDetailsActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.daresay.movies.fragments
+package com.daresay.movies.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.daresay.movies.R
-import com.daresay.movies.adapters.HomePagerAdapter
+import com.daresay.movies.ui.adapters.HomePagerAdapter
 import com.daresay.movies.databinding.FragmentHomeViewPagerBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.IndexOutOfBoundsException
 
+@AndroidEntryPoint
 class HomeViewPagerFragment : Fragment() {
     private lateinit var binding: FragmentHomeViewPagerBinding
 
@@ -42,7 +44,7 @@ class HomeViewPagerFragment : Fragment() {
         return when (position) {
             HomePagerAdapter.MOVIES_PAGE_INDEX -> getString(R.string.main_bottom_navigation_movies)
             HomePagerAdapter.FAVORITES_PAGE_INDEX -> getString(R.string.main_bottom_navigation_favorites)
-            else -> ""
+            else -> throw IndexOutOfBoundsException()
         }
     }
 }
