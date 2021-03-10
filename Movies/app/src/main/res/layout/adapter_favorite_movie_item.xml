@@ -41,6 +41,8 @@
                 android:layout_height="wrap_content"
                 android:text="@{movieDetails.overview, default=Placeholder}"
                 android:layout_marginTop="@dimen/padding_tiny"
+                android:maxLines="4"
+                android:ellipsize="end"
                 style="@style/TextBody"/>
 
             <TextView
