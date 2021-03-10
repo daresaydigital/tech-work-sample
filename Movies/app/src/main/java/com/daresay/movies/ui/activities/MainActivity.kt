@@ -12,6 +12,7 @@ import com.daresay.movies.R
 import com.daresay.movies.data.models.authentication.SessionRequestBody
 import com.daresay.movies.data.user.UserData
 import com.daresay.movies.databinding.ActivityMainBinding
+import com.daresay.movies.extensions.snack
 import com.daresay.movies.ui.viewmodels.AuthenticationViewModel
 import com.daresay.movies.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
@@ -80,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 Resource.Status.ERROR -> {
-
+                    binding.root.snack(R.string.main_error_getting_request_token)
                 }
 
                 Resource.Status.LOADING -> {
@@ -106,7 +107,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 Resource.Status.ERROR -> {
-
+                    binding.root.snack(R.string.main_error_getting_session_token)
                 }
 
                 Resource.Status.LOADING -> {
