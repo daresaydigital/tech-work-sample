@@ -140,6 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/padding_normal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
                     android:orientation="horizontal"/>
 
                 <TextView

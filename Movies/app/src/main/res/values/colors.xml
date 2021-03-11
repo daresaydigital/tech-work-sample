@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Application colors -->
-    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimary">#121212</color>
     <color name="colorPrimaryLight">#484848</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#006495</color>
     <color name="colorAccentLight">#1ab4ff</color>
-    <color name="colorBackground">#212121</color>
+    <color name="colorBackground">#121212</color>
 
     <!-- Text colors -->
     <color name="text">#FFFFFF</color>

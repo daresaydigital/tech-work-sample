@@ -18,7 +18,6 @@ import com.daresay.movies.ui.adapters.ReviewAdapter
 import com.daresay.movies.ui.viewmodels.MovieDetailsViewModel
 import com.daresay.movies.utils.Resource
 import com.daresay.movies.utils.getMoviePosterBigUrl
-import com.google.android.flexbox.FlexboxLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.collections.ArrayList
 
@@ -56,16 +55,14 @@ class MovieDetailsActivity : AppCompatActivity() {
     }
 
     private fun setUpGenreRecyclerView() {
-        val layoutManager = FlexboxLayoutManager(this)
-        binding.genreRecyclerView.layoutManager = layoutManager
         binding.genreRecyclerView.adapter = genreItemAdapter
     }
 
     private fun setUpReviewRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
-
         binding.reviewsRecyclerView.layoutManager = layoutManager
+
         binding.reviewsRecyclerView.adapter = reviewItemAdapter
         binding.reviewsRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -90,13 +87,9 @@ class MovieDetailsActivity : AppCompatActivity() {
                 Resource.Status.SUCCESS -> {
                     it.data?.let { movieDetails ->
                         binding.movieDetails = movieDetails
-
                         reviewsMaxPage = movieDetails.reviews.total_pages
                         reviewItemAdapter.setItems(ArrayList(movieDetails.reviews.results))
-
-                        genreItemAdapter.setItems(movieDetails.genres.map { genre ->
-                            genre.name
-                        })
+                        genreItemAdapter.setItems(movieDetails.genres.map { genre -> genre.name})
 
                         Glide.with(binding.root)
                                 .load(getMoviePosterBigUrl(movieDetails.poster_path))
