@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#673AB7</color>
+    <color name="colorPrimaryDark">#512DA8</color>
+    <color name="primary_light">#D1C4E9</color>
+    <color name="colorAccent">#FFC107</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="Black">#000000</color>
+
+    <color name="Clouds">#6D5DF1</color>
+    <color name="Clear">#FFC107</color>
+    <color name="Tornado">#757575</color>
+    <color name="Squall">#757575</color>
+    <color name="Ash">#9E9E9E</color>
+    <color name="Sand">#795548</color>
+    <color name="Fog">#BDBDBD</color>
+    <color name="Dust">#455A64</color>
+    <color name="Haze">#BDBDBD</color>
+    <color name="Smoke">#BDBDBD</color>
+    <color name="Mist">#BDBDBD</color>
+    <color name="Snow">#BDBDBD</color>
+    <color name="Rain">#0097A7</color>
+    <color name="Drizzle">#00BCD4</color>
+    <color name="Thunderstorm">#303F9F</color>
+</resources>

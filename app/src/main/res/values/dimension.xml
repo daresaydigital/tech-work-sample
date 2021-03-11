@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cityName">16sp</dimen>
+    <dimen name="cityStatus">16sp</dimen>
+    <dimen name="cityStatusDesc">14sp</dimen>
+    <dimen name="cityTemp">34sp</dimen>
+
+</resources>
