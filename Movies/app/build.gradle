@@ -1,0 +1,111 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    defaultConfig {
+        applicationId "com.daresay.movies"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0.0"
+
+        buildConfigField("String", "TMDB_API_KEY", "\"" + getTmdbApiKey() + "\"")
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    // Google
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$rootProject.kotlin_version"
+    implementation "androidx.core:core-ktx:$rootProject.ktx_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.app_compat_version"
+    implementation "com.google.android.material:material:$rootProject.material_design_version"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraint_layout_version"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.recycler_view_version"
+    implementation "androidx.viewpager2:viewpager2:$rootProject.view_pager_version"
+    implementation "com.google.android:flexbox:$rootProject.flexbox_version"
+    implementation "androidx.paging:paging-runtime-ktx:$rootProject.paging_version"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.nav_version"
+
+    // Facebook
+    implementation "com.facebook.shimmer:shimmer:$rootProject.facebook_shimmer_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$rootProject.room_version"
+    kapt "androidx.room:room-compiler:$rootProject.room_version"
+    implementation "androidx.room:room-ktx:$rootProject.room_version"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp_logging_version"
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:$rootProject.hilt_version"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hilt_compiler_version"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hilt_version"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hilt_compiler_version"
+
+    // Ktx Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines_version"
+
+    // Lifecycle
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycle_version_ktx"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version_ktx"
+
+    // Timber (logging)
+    implementation "com.jakewharton.timber:timber:$rootProject.timer_version"
+
+    // SpinKit (loading animations)
+    implementation "com.github.ybq:Android-SpinKit:$rootProject.spinkit_version"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glide_version"
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glide_version"
+
+    // Debug database
+    debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debug_db_version"
+
+    // Testing
+    testImplementation "junit:junit:$rootProject.junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.junit_test_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espresso_core_version"
+    testImplementation "androidx.room:room-testing:$rootProject.room_version"
+}
+
+kapt {
+    generateStubs = true
+}
+
+def getTmdbApiKey() {
+    return project.findProperty("tmdb_api_key")
+}

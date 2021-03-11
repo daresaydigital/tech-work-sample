@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="movieDetails"
+            type="com.daresay.movies.data.models.moviedetails.MovieDetails"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorBackground"
+        android:padding="@dimen/padding_tiny"
+        android:layout_marginBottom="@dimen/padding_normal">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="150dp"
+            android:layout_height="225dp"
+            android:contentDescription="@string/adapter_movie_poster_description"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/padding_normal">
+
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{movieDetails.title, default=Placeholder}"
+                style="@style/TextHeadingSmall"/>
+
+            <TextView
+                android:id="@+id/movie_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{movieDetails.overview, default=Placeholder}"
+                android:layout_marginTop="@dimen/padding_tiny"
+                android:maxLines="4"
+                android:ellipsize="end"
+                style="@style/TextBody"/>
+
+            <TextView
+                android:id="@+id/movie_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder"
+                android:layout_marginTop="@dimen/padding_normal"
+                style="@style/TextBody"/>
+
+            <RatingBar
+                android:id="@+id/movie_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:rating="@{movieDetails.vote_average / 2f, default=5}"
+                android:stepSize="0.5"
+                style="@style/RatingBar"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

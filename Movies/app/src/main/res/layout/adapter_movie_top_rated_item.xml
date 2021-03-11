@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="movie"
+            type="com.daresay.movies.data.models.movie.Movie"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorBackground"
+        android:padding="@dimen/padding_tiny">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:contentDescription="@string/adapter_movie_poster_description"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{movie.title, default=Placeholder}"
+            android:layout_marginTop="@dimen/padding_small"
+            app:layout_constraintTop_toBottomOf="@+id/movie_image"
+            app:layout_constraintStart_toStartOf="@+id/movie_image"
+            app:layout_constraintEnd_toEndOf="@+id/movie_image"
+            style="@style/TextTitle"/>
+
+        <TextView
+            android:id="@+id/movie_tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder"
+            app:layout_constraintTop_toBottomOf="@+id/movie_title"
+            app:layout_constraintStart_toStartOf="@+id/movie_image"
+            app:layout_constraintEnd_toEndOf="@+id/movie_image"
+            style="@style/TextBody"/>
+
+        <RatingBar
+            android:id="@+id/movie_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:rating="@{movie.vote_average / 2f, default=5}"
+            android:stepSize="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/movie_tags"
+            app:layout_constraintStart_toStartOf="@+id/movie_image"
+            style="@style/RatingBar"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
