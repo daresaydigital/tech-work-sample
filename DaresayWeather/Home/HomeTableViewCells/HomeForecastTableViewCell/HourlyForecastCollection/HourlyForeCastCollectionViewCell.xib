@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HourlyForeCastCollectionViewCell" id="gTV-IL-0wX" customClass="HourlyForeCastCollectionViewCell" customModule="DaresayWeather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJv-S9-JVA">
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SZf-Op-cNS">
+                            <rect key="frame" x="0.0" y="0.0" width="95" height="132"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <blurEffect style="dark"/>
+                    </visualEffectView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFL-e9-tnV" customClass="baseUiLabel" customModule="DaresayWeather" customModuleProvider="target">
+                        <rect key="frame" x="41.5" y="5" width="12" height="33"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <integer key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efT-6V-VmC" customClass="baseUiLabel" customModule="DaresayWeather" customModuleProvider="target">
+                        <rect key="frame" x="41.5" y="94" width="12" height="33"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isTemparture" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <integer key="value" value="14"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUF-eJ-fWA">
+                        <rect key="frame" x="27.5" y="46" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="0sG-0Q-NtU"/>
+                            <constraint firstAttribute="height" constant="40" id="hhP-PQ-ckz"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sFL-e9-tnV" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" constant="5" id="1bj-Yn-GdZ"/>
+                <constraint firstItem="yJv-S9-JVA" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="D7p-Et-Bhh"/>
+                <constraint firstItem="gUF-eJ-fWA" firstAttribute="top" secondItem="sFL-e9-tnV" secondAttribute="bottom" constant="8" id="Isd-3m-hgn"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="efT-6V-VmC" secondAttribute="bottom" constant="5" id="RcA-9o-lNE"/>
+                <constraint firstItem="yJv-S9-JVA" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="YPI-uQ-iFY"/>
+                <constraint firstItem="sFL-e9-tnV" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="ZZv-9D-BHU"/>
+                <constraint firstItem="gUF-eJ-fWA" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="iac-4X-YLh"/>
+                <constraint firstItem="efT-6V-VmC" firstAttribute="top" secondItem="gUF-eJ-fWA" secondAttribute="bottom" constant="8" id="lRB-Ra-XPT"/>
+                <constraint firstItem="efT-6V-VmC" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="sn0-GR-t2p"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="yJv-S9-JVA" secondAttribute="trailing" id="wHT-Ux-xm3"/>
+                <constraint firstItem="gUF-eJ-fWA" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="yq5-wD-LwS"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="yJv-S9-JVA" secondAttribute="bottom" id="zeM-te-Zyy"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="95" height="132"/>
+            <connections>
+                <outlet property="imgIcon" destination="gUF-eJ-fWA" id="APB-zO-o87"/>
+                <outlet property="lblTemp" destination="efT-6V-VmC" id="N8E-VV-jm0"/>
+                <outlet property="lblTime" destination="sFL-e9-tnV" id="Swf-gc-GLo"/>
+                <outlet property="viusalEffectView" destination="yJv-S9-JVA" id="iVw-kY-8S2"/>
+            </connections>
+            <point key="canvasLocation" x="56.5" y="58"/>
+        </collectionViewCell>
+    </objects>
+</document>

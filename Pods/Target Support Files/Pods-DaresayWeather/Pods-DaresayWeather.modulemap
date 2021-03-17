@@ -1,0 +1,6 @@
+framework module Pods_DaresayWeather {
+  umbrella header "Pods-DaresayWeather-umbrella.h"
+
+  export *
+  module * { export * }
+}
