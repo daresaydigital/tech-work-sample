@@ -11,7 +11,7 @@ struct MoviePayload: Codable {
     let page: Int
     let results: [Movie]
     let totalPages, totalResults: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case page, results
         case totalPages = "total_pages"
@@ -30,7 +30,7 @@ struct Movie: Codable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"

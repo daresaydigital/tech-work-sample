@@ -6,14 +6,32 @@
 //
 
 import UIKit
+import RxSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
+        let api = ReviewAPI().rx
+
+        api.fetchReviews(for: 791373, page: 1)
+            .debug("🙃")
+            .subscribe()
+            .disposed(by: disposeBag)
+
+        //        api.fetchReviews(for: 791373, page: 1) { result in
+        //            switch result {
+        //            case .success(let payload):
+        //                print("Payload: \(payload) 😇")
+        //            case .failure(let error):
+        //                print("Error: \(error) 😩")
+        //            }
+        //        }
+
         return true
     }
 
@@ -31,6 +49,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
 }
-

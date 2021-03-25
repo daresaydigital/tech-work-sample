@@ -4,13 +4,13 @@
 target 'Movie' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
+  
   # Pods for Movie
-  pod 'Resolver'
+  #  pod 'Resolver'
   pod 'RxSwift'
-	pod 'RxCocoa'
-	# pod 'RxFeedback'
-	pod 'RxDataSources'
+  pod 'RxCocoa'
+  # pod 'RxFeedback'
+  pod 'RxDataSources'
   pod 'RxNuke'
-
+  
 end
