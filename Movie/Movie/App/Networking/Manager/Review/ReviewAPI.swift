@@ -19,33 +19,8 @@ extension ReviewAPI {
         completion: @escaping (Result<ReviewPayload, Error>
         ) -> Void) {
         router.request(.fetchReviews(for: movie, page: page, locale: locale)) { data, response, error in
-            if let error = error {
-                completion(Result.failure(error))
-                return
-            }
-
-            if let response = response as? HTTPURLResponse {
-                let result = NetworkResponse.handleNetworkResponse(response)
-
-                switch result {
-                case .success:
-                    guard let data = data else {
-                        completion(Result.failure(NetworkResponse.noData))
-                        return
-                    }
-
-                    do {
-                        completion(Result.success(try JSONDecoder().decode(ReviewPayload.self, from: data)))
-                        return
-                    } catch let error {
-                        completion(Result.failure(error))
-                        return
-                    }
-                case .failure(let networkError):
-                    completion(Result.failure(networkError))
-                    return
-                }
-            }
+            let result: Result<ReviewPayload, Error> = decode(data: data, response: response, error: error)
+            completion(result)
         }
     }
 }
