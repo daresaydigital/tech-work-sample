@@ -7,11 +7,8 @@
 
 import Foundation
 
-struct MApiConstants {
-    static let token = """
-0e3d23cbe1ef8e612bd89882bbf65290
-"""
-    static let locale = "en_US"
+struct MBaseURL {
+    static let url: URL = URL(string: "https://api.themoviedb.org/3/")!
 }
 
 /*
