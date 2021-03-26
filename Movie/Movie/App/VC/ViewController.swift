@@ -130,6 +130,7 @@ final class ViewController: UIViewController {
 
         collectionView.rx
             .modelSelected(Movie.self)
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] movie in
                 let vm = DetailViewModel(movie: movie)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
