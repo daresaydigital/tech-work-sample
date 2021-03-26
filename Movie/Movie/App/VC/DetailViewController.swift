@@ -12,18 +12,13 @@ import Nuke
 final class DetailViewController: UIViewController {
 
     @IBOutlet weak var cancelButton: UIButton!
-
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
-
     @IBOutlet weak var movieName: UILabel!
-
     @IBOutlet weak var releaseLabel: UILabel!
     @IBOutlet weak var releaseLabelText: UILabel!
-
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var genreLabelText: UILabel!
-
     @IBOutlet weak var descriptionLabel: UILabel!
 
     var viewModel: DetailViewModelType!
@@ -46,6 +41,7 @@ final class DetailViewController: UIViewController {
         cancelButton.setTitle("", for: [.normal])
         cancelButton.rx.tap
             .asObservable()
+            .observe(on: MainScheduler.instance)
             .take(1)
             .subscribe(onNext: { [weak self] _ in self?.dismiss(animated: true)})
             .disposed(by: disposeBag)
