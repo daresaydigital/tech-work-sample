@@ -20,6 +20,8 @@ final class ViewController: UIViewController {
         // in a larger scale app, this should be passed from outside.
         viewModel = HomeContainerViewModel(movieApi: MovieAPI())
 
+        viewModel.input.fetchMovies(filter: .popular) // def
+
         setupComponents()
         bindViewModel()
     }
@@ -73,30 +75,43 @@ final class ViewController: UIViewController {
             .disposed(by: disposeBag)
 
         collectionView.rx
-            .reachedBottom()
-            .skip(1)
+            .reachedBottom(offset: 1)
+            //            .skip(1)
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { _ in input.loadMore() })
             .disposed(by: disposeBag)
 
         // MARK: - Output
 
-        output.movies
+        let movies = output.movies
+            .observe(on: MainScheduler.instance)
+            .share()
+
+        movies
+            .map { $0.isEmpty }
+            .subscribe() // show an empty view, etc.
+            .disposed(by: disposeBag)
+
+        movies
             .map { [HomeDataSource.Model(model: "", items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: HomeDataSource.dataSource()))
             .disposed(by: disposeBag)
 
         output.error
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { error in
+            .subscribe(onNext: { [weak self] error in
                 #if DEBUG
                 print("Error: \(error)")
                 #endif
+                self?.errorAlert(error)
             }).disposed(by: disposeBag)
 
-        output.isLoading
+        let isLoading =
+            output.isLoading
             //            .debug("🤩")
             .observe(on: MainScheduler.instance)
+
+        isLoading
             .bind(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
 
@@ -155,6 +170,15 @@ final class ViewController: UIViewController {
         alertController.addAction(topRatedAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+
+    private func errorAlert(_ error: Error) {
+        let alert = UIAlertController(
+            title: "Error", message: error.localizedDescription, preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 
 }
