@@ -6,11 +6,10 @@ target 'Movie' do
   use_frameworks!
   
   # Pods for Movie
-  #  pod 'Resolver'
+  # pod 'Resolver'
   pod 'RxSwift'
   pod 'RxCocoa'
   # pod 'RxFeedback'
   pod 'RxDataSources'
-  pod 'RxNuke'
-  
+  pod 'Nuke'
 end
