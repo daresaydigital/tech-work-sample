@@ -24,14 +24,14 @@ final class ViewController: UIViewController {
 
         // test:
         viewModel.input.fetchMovies(filter: .popular)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-//            self.viewModel.input.fetchMovies(filter: .trending)
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-//            self.viewModel.input.loadMore()
-//        }
+        //
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        //            self.viewModel.input.fetchMovies(filter: .trending)
+        //        }
+        //
+        //        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+        //            self.viewModel.input.loadMore()
+        //        }
 
         setupComponents()
         bindViewModel()
@@ -43,15 +43,23 @@ final class ViewController: UIViewController {
         collectionView.delegate = nil
         collectionView.dataSource = nil
 
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: HomeDataSource.cellReuseIdentifier)
-
+        collectionView
+            .register(UINib(nibName: MovieCollectionViewCell.className, bundle: nil),
+                      forCellWithReuseIdentifier: HomeDataSource.cellReuseIdentifier)
         collectionView.refreshControl = refreshControl
+
+        let width = collectionView.frame.width - 32
+        let layout = VerticalFlowLayout(preferredWidth: width,
+                                        preferredHeight: 200)
+
+        collectionView.collectionViewLayout = layout
 
         let barButtonItem = UIBarButtonItem(
             barButtonSystemItem: .action, target: self, action: #selector(filterButtonTapped)
         )
 
         navigationItem.rightBarButtonItems = [barButtonItem]
+        barButtonItem.isEnabled = false
     }
 
     @objc func filterButtonTapped() {
@@ -73,21 +81,14 @@ final class ViewController: UIViewController {
             })
             .disposed(by: disposeBag)
 
-//        collectionView.rx
-//            .reachedBottom()
-//            .skip(1)
-//            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-//            .subscribe(onNext: { _ in input.loadMore() })
-//            .disposed(by: disposeBag)
-//
+        collectionView.rx
+            .reachedBottom()
+            .skip(1)
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { _ in input.loadMore() })
+            .disposed(by: disposeBag)
 
         // MARK: - Output
-
-//        output
-//            .movies
-//            .debug("🥰")
-//            .subscribe()
-//            .disposed(by: disposeBag)
 
         output
             .movies

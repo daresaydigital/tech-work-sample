@@ -22,10 +22,9 @@ struct HomeDataSource {
         return .init(configureCell: { _, collectionView, indexPath, model in
 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.cellReuseIdentifier,
-                                                          for: indexPath)
+                                                          for: indexPath) as! MovieCollectionViewCell
 
-            print("Model: \(model) for cell: \(cell)")
-            cell.backgroundColor = .green
+            cell.setupCell(model: model)
             return cell
         })
     }

@@ -9,6 +9,7 @@ import Foundation
 
 struct MBaseURL {
     static let url: URL = URL(string: "https://api.themoviedb.org/3/")!
+    static let imageURL: URL = URL(string: "https://image.tmdb.org/t/p/w500")!
 }
 
 /*

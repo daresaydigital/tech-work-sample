@@ -55,6 +55,12 @@ struct Movie: Codable {
     }
 }
 
+extension Movie {
+    var backDropUrl: URL {
+        MBaseURL.imageURL.appendingPathComponent(backdropPath)
+    }
+}
+
 extension Movie: Equatable, Comparable {
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         lhs.id == rhs.id
