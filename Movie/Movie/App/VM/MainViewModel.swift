@@ -92,6 +92,8 @@ final class HomeContainerViewModel: HomeContainerViewModelInput,
         case .reachedBottom:
             state.page += 1
         case .error(let error):
+            //            state.page = 1
+            //            state.movies = []
             state.error = error
         }
         return state
@@ -167,6 +169,14 @@ final class HomeContainerViewModel: HomeContainerViewModelInput,
             }
         }.share()
 
+        /*
+         best would be to send a typed error with the localized description according to the model coming from the web, for example:
+         {
+         "status_code": 7,
+         "status_message": "Invalid API key: You must be granted a valid key.",
+         "success": false
+         }
+         */
         moviesResult
             .map(extractFailure)
             .compactMap { error in Action.error(error) }
