@@ -2,8 +2,8 @@
 
 <div style="width:830px; background-color:white; height:120px; overflow:auto;">
 		<div style="width: 2000px; height: 90px;">
-			<img src="https://github.com/andriansergheev/tech-work-sample/blob/master/screenshots/1.jpg" width=250/>
-			<img src="https://github.com/andriansergheev/tech-work-sample/blob/master/screenshots/2.jpg" width=250/>
+			<img src="https://github.com/adriansergheev/tech-work-sample/blob/master/screenshots/1.PNG" width=250/>
+			<img src="https://github.com/adriansergheev/tech-work-sample/blob/master/screenshots/2.PNG" width=250/>
 		</div>
 	</div>
 
