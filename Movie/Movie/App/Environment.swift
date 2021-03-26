@@ -10,7 +10,6 @@ import Foundation
 /*
  inspired from pointfree.co
  https://vimeo.com/291588126
- 
  */
 
 // swiftlint:disable all
