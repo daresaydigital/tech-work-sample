@@ -19,6 +19,8 @@
 		045D51A9260E24FD0096814A /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045D51A7260E24FD0096814A /* MovieCollectionViewCell.xib */; };
 		045D51AD260E28A20096814A /* NSObject+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D51AC260E28A10096814A /* NSObject+Ext.swift */; };
 		045D51B2260E2B530096814A /* VerticalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D51B1260E2B530096814A /* VerticalFlowLayout.swift */; };
+		045D51BF260E4B6A0096814A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D51BE260E4B6A0096814A /* DetailViewController.swift */; };
+		045D51C2260E4B9F0096814A /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D51C1260E4B9F0096814A /* DetailViewModel.swift */; };
 		04AC97E7260C899900FDBF81 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC97E1260C899900FDBF81 /* HTTPTask.swift */; };
 		04AC97E8260C899900FDBF81 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC97E2260C899900FDBF81 /* NetworkRouter.swift */; };
 		04AC97E9260C899900FDBF81 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC97E3260C899900FDBF81 /* NetworkLogger.swift */; };
@@ -64,6 +66,8 @@
 		045D51A7260E24FD0096814A /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		045D51AC260E28A10096814A /* NSObject+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Ext.swift"; sourceTree = "<group>"; };
 		045D51B1260E2B530096814A /* VerticalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlowLayout.swift; sourceTree = "<group>"; };
+		045D51BE260E4B6A0096814A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		045D51C1260E4B9F0096814A /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		04AC97E1260C899900FDBF81 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		04AC97E2260C899900FDBF81 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		04AC97E3260C899900FDBF81 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				04AC9836260CCFB700FDBF81 /* MainViewModel.swift */,
+				045D51C1260E4B9F0096814A /* DetailViewModel.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -294,6 +299,7 @@
 				045D51B0260E2B3D0096814A /* Layout */,
 				045D51A5260E241F0096814A /* Cell */,
 				043F710F260B9EB4005FA9CB /* ViewController.swift */,
+				045D51BE260E4B6A0096814A /* DetailViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -466,8 +472,10 @@
 				04AC97EB260C899900FDBF81 /* HTTPMethod.swift in Sources */,
 				043F710E260B9EB4005FA9CB /* SceneDelegate.swift in Sources */,
 				04AC97F8260C8A3A00FDBF81 /* JSONParameterEncoder.swift in Sources */,
+				045D51C2260E4B9F0096814A /* DetailViewModel.swift in Sources */,
 				04AC97F1260C8A0000FDBF81 /* NetworkEnvironment.swift in Sources */,
 				04AC9806260C8BDE00FDBF81 /* Shared.swift in Sources */,
+				045D51BF260E4B6A0096814A /* DetailViewController.swift in Sources */,
 				04AC980C260C922500FDBF81 /* ReviewAPI.swift in Sources */,
 				04AC981B260CB08800FDBF81 /* JSONDecoderHelper.swift in Sources */,
 				04AC97E9260C899900FDBF81 /* NetworkLogger.swift in Sources */,
@@ -633,7 +641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "daresay-tech-task.Movie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -653,7 +661,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "daresay-tech-task.Movie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,21 +17,8 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .red
-
         // in a larger scale app, this should be passed from outside.
         viewModel = HomeContainerViewModel(movieApi: MovieAPI())
-
-        // test:
-        viewModel.input.fetchMovies(filter: .popular)
-        //
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-        //            self.viewModel.input.fetchMovies(filter: .trending)
-        //        }
-        //
-        //        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-        //            self.viewModel.input.loadMore()
-        //        }
 
         setupComponents()
         bindViewModel()
@@ -54,16 +41,20 @@ final class ViewController: UIViewController {
 
         collectionView.collectionViewLayout = layout
 
+        let image = UIImage(systemName: "film")!
         let barButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .action, target: self, action: #selector(filterButtonTapped)
+            image: image,
+            style: .done,
+            target: self,
+            action: #selector(filterButtonTapped)
         )
+        barButtonItem.tintColor = .black
 
         navigationItem.rightBarButtonItems = [barButtonItem]
-        barButtonItem.isEnabled = false
     }
 
     @objc func filterButtonTapped() {
-        viewModel.input.fetchMovies(filter: .popular)
+        showAlertAction()
     }
 
     private func bindViewModel() {
@@ -90,8 +81,7 @@ final class ViewController: UIViewController {
 
         // MARK: - Output
 
-        output
-            .movies
+        output.movies
             .map { [HomeDataSource.Model(model: "", items: $0)]}
             .bind(to: collectionView.rx.items(dataSource: HomeDataSource.dataSource()))
             .disposed(by: disposeBag)
@@ -110,13 +100,61 @@ final class ViewController: UIViewController {
             .bind(to: refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
 
+        output.pickedFilter
+            .map { $0.rawValue }
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] title in
+                self?.title = title
+            })
+            .disposed(by: disposeBag)
+
         // MARK: - Navigation
 
         // normally i'd pass this up to the coordinators. However, since only have two views
         // it is ok to do it like this.
 
-        //        collectionView.rx
-        //            .modelSelected()
+        collectionView.rx
+            .modelSelected(Movie.self)
+            .subscribe(onNext: { [weak self] movie in
+                let vm = DetailViewModel(movie: movie)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: DetailViewController.className) as! DetailViewController
+                vc.viewModel = vm
+                self?.present(vc, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func showAlertAction() {
+        let alertController = UIAlertController(title: "",
+                                                message: "Pick a filter!",
+                                                preferredStyle: .actionSheet)
+
+        let popularAction = UIAlertAction(
+            title: "Popular", style: .default, handler: { [weak self] _ in self?.viewModel.input.fetchMovies(filter: .popular)
+            }
+        )
+
+        let trendingAction = UIAlertAction(
+            title: "Trending(Daily)", style: .default, handler: { [weak self] _ in self?.viewModel.input.fetchMovies(filter: .trending)
+            }
+        )
+
+        let topRatedAction = UIAlertAction(
+            title: "TopRated", style: .default, handler: { [weak self] _ in self?.viewModel.input.fetchMovies(filter: .topRated)
+            }
+        )
+
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        )
+        alertController.addAction(popularAction)
+        alertController.addAction(trendingAction)
+        alertController.addAction(topRatedAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
 
 }

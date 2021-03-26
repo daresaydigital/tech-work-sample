@@ -59,6 +59,9 @@ extension Movie {
     var backDropUrl: URL {
         MBaseURL.imageURL.appendingPathComponent(backdropPath)
     }
+    var posterUrl: URL {
+        MBaseURL.imageURL.appendingPathComponent(posterPath)
+    }
 }
 
 extension Movie: Equatable, Comparable {
