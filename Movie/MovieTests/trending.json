@@ -1,0 +1,427 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/pcDc2WJAYGJTTvRSEIpRZwM3Ola.jpg",
+            "genre_ids": [
+                28,
+                12,
+                14,
+                878
+            ],
+            "id": 791373,
+            "original_language": "en",
+            "original_title": "Zack Snyder's Justice League",
+            "poster_path": "/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg",
+            "video": false,
+            "title": "Zack Snyder's Justice League",
+            "vote_count": 4032,
+            "overview": "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
+            "release_date": "2021-03-18",
+            "vote_average": 8.7,
+            "popularity": 9701.638,
+            "media_type": "movie"
+        },
+        {
+            "genre_ids": [
+                28,
+                878
+            ],
+            "title": "Godzilla vs. Kong",
+            "original_language": "en",
+            "original_title": "Godzilla vs. Kong",
+            "poster_path": "/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg",
+            "video": false,
+            "vote_average": 7.1,
+            "overview": "In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.",
+            "release_date": "2021-03-24",
+            "vote_count": 155,
+            "id": 399566,
+            "adult": false,
+            "backdrop_path": "/iopYFB1b6Bh7FWZh3onQhph1sih.jpg",
+            "popularity": 9043.741,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/tzm0qUH5fL01BtPazpksCtVaDcf.jpg",
+            "genre_ids": [
+                18
+            ],
+            "id": 600354,
+            "original_language": "en",
+            "original_title": "The Father",
+            "poster_path": "/pr3bEQ517uMb5loLvjFQi8uLAsp.jpg",
+            "video": false,
+            "title": "The Father",
+            "vote_count": 100,
+            "overview": "A man refuses all assistance from his daughter as he ages and, as he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality.",
+            "release_date": "2020-12-23",
+            "vote_average": 8.1,
+            "popularity": 168.781,
+            "media_type": "movie"
+        },
+        {
+            "video": false,
+            "vote_average": 6.1,
+            "title": "Bad Trip",
+            "vote_count": 42,
+            "overview": "Two pals embark on a road trip full of funny pranks that pull real people into mayhem.",
+            "adult": false,
+            "backdrop_path": "/mtwThSQ8AJ2hV5KkVsDETgZISAw.jpg",
+            "id": 578908,
+            "genre_ids": [
+                35
+            ],
+            "release_date": "2021-03-26",
+            "original_language": "en",
+            "original_title": "Bad Trip",
+            "poster_path": "/A1Gy5HX3DKGaNW1Ay30NTIVJqJ6.jpg",
+            "popularity": 51.705,
+            "media_type": "movie"
+        },
+        {
+            "overview": "Troubled teen Will Hawkins has a run-in with the law that puts him at an important crossroad: go to juvenile detention or attend a Christian summer camp. At first a fish-out-of-water, Will opens his heart, discovers love with a camp regular, and sense of belonging in the last place he expected to find it.",
+            "release_date": "2021-03-26",
+            "adult": false,
+            "backdrop_path": "/sA07ynKTNXW2UMMOgPfLmFmmjgm.jpg",
+            "genre_ids": [
+                18,
+                10751,
+                10402,
+                10749
+            ],
+            "vote_count": 60,
+            "original_language": "en",
+            "original_title": "A Week Away",
+            "poster_path": "/htTS07IvYv3rv57ftzNEprefwSq.jpg",
+            "id": 699102,
+            "video": false,
+            "vote_average": 7.4,
+            "title": "A Week Away",
+            "popularity": 207.523,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/hJuDvwzS0SPlsE6MNFOpznQltDZ.jpg",
+            "genre_ids": [
+                16,
+                12,
+                14,
+                10751,
+                28
+            ],
+            "id": 527774,
+            "original_language": "en",
+            "original_title": "Raya and the Last Dragon",
+            "poster_path": "/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
+            "video": false,
+            "title": "Raya and the Last Dragon",
+            "vote_count": 1815,
+            "overview": "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. But when an evil force threatened the land, the dragons sacrificed themselves to save humanity. Now, 500 years later, that same evil has returned and it’s up to a lone warrior, Raya, to track down the legendary last dragon to restore the fractured land and its divided people.",
+            "release_date": "2021-03-03",
+            "vote_average": 8.3,
+            "popularity": 3152.527,
+            "media_type": "movie"
+        },
+        {
+            "genre_ids": [
+                16,
+                35,
+                14
+            ],
+            "title": "Secret Magic Control Agency",
+            "original_language": "ru",
+            "original_title": "Ганзель, Гретель и Агентство Магии",
+            "poster_path": "/4ZSzEDVdxWVMVO4oZDvoodQOEfr.jpg",
+            "video": false,
+            "vote_average": 7.7,
+            "overview": "The Secret Magic Control Agency sends its two best agents, Hansel and Gretel, to fight against the witch of the Gingerbread House.",
+            "release_date": "2021-03-18",
+            "vote_count": 39,
+            "id": 797394,
+            "adult": false,
+            "backdrop_path": "/tzJZaglq1hR7RS35BKG68Xz7KY0.jpg",
+            "popularity": 48.528,
+            "media_type": "movie"
+        },
+        {
+            "overview": "A botched store robbery places Wonder Woman in a global battle against a powerful and mysterious ancient force that puts her powers in jeopardy.",
+            "release_date": "2020-12-16",
+            "title": "Wonder Woman 1984",
+            "adult": false,
+            "backdrop_path": "/egg7KFi18TSQc1s24RMmR9i2zO6.jpg",
+            "genre_ids": [
+                14,
+                28,
+                12
+            ],
+            "vote_count": 4533,
+            "id": 464052,
+            "original_title": "Wonder Woman 1984",
+            "poster_path": "/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
+            "original_language": "en",
+            "video": false,
+            "vote_average": 6.8,
+            "popularity": 1894.648,
+            "media_type": "movie"
+        },
+        {
+            "genre_ids": [
+                28,
+                35,
+                10751
+            ],
+            "title": "Tom & Jerry",
+            "original_language": "en",
+            "original_title": "Tom & Jerry",
+            "poster_path": "/6KErczPBROQty7QoIsaa6wJYXZi.jpg",
+            "video": false,
+            "vote_average": 7.4,
+            "overview": "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
+            "release_date": "2021-02-11",
+            "vote_count": 1019,
+            "id": 587807,
+            "adult": false,
+            "backdrop_path": "/fev8UFNFFYsD5q7AcYS8LyTzqwl.jpg",
+            "popularity": 1931.099,
+            "media_type": "movie"
+        },
+        {
+            "video": false,
+            "vote_average": 8.3,
+            "overview": "Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.",
+            "release_date": "2020-12-25",
+            "title": "Soul",
+            "adult": false,
+            "backdrop_path": "/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg",
+            "id": 508442,
+            "genre_ids": [
+                10751,
+                16,
+                35,
+                18,
+                10402,
+                14
+            ],
+            "vote_count": 5474,
+            "original_language": "en",
+            "original_title": "Soul",
+            "poster_path": "/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg",
+            "popularity": 805.443,
+            "media_type": "movie"
+        },
+        {
+            "original_language": "en",
+            "original_title": "Monster Hunter",
+            "poster_path": "/1UCOF11QCw8kcqvce8LKOO6pimh.jpg",
+            "video": false,
+            "vote_average": 7.1,
+            "overview": "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.",
+            "release_date": "2020-12-03",
+            "id": 458576,
+            "vote_count": 1292,
+            "adult": false,
+            "backdrop_path": "/z8TvnEVRenMSTemxYZwLGqFofgF.jpg",
+            "title": "Monster Hunter",
+            "genre_ids": [
+                14,
+                28,
+                12
+            ],
+            "popularity": 2021.063,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/gzycjJWGw04DF6C7IYOA1F0cWhc.jpg",
+            "genre_ids": [
+                18,
+                10749
+            ],
+            "id": 694256,
+            "original_language": "it",
+            "original_title": "Sulla stessa onda",
+            "poster_path": "/j9O2WXJqF45ynkng4SAsZ1h0OCt.jpg",
+            "video": false,
+            "title": "Caught by a Wave",
+            "vote_count": 44,
+            "overview": "A summer fling born under the Sicilian sun quickly develops into a heartbreaking love story that forces a boy and girl to grow up too quickly.",
+            "release_date": "2021-03-25",
+            "vote_average": 6.8,
+            "popularity": 158.642,
+            "media_type": "movie"
+        },
+        {
+            "overview": "Task Force X - aka the Suicide Squad - is dropped on the remote, enemy-infused island of Corto Maltese to find and destroy Jotunheim, a Nazi-era prison and laboratory.",
+            "release_date": "2021-07-30",
+            "adult": false,
+            "backdrop_path": "/7h0ZX8MalKLQeWaAhsnpBX6TKGA.jpg",
+            "genre_ids": [
+                28,
+                12,
+                14,
+                80
+            ],
+            "vote_count": 0,
+            "original_language": "en",
+            "original_title": "The Suicide Squad",
+            "poster_path": "/aQjO0ifNY8kv8ZA6U61wyNh5sGg.jpg",
+            "title": "The Suicide Squad",
+            "video": false,
+            "vote_average": 0.0,
+            "id": 436969,
+            "popularity": 125.121,
+            "media_type": "movie"
+        },
+        {
+            "video": false,
+            "vote_average": 8.3,
+            "title": "Avengers: Endgame",
+            "vote_count": 17650,
+            "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
+            "adult": false,
+            "backdrop_path": "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg",
+            "id": 299534,
+            "genre_ids": [
+                12,
+                878,
+                28
+            ],
+            "release_date": "2019-04-24",
+            "original_language": "en",
+            "original_title": "Avengers: Endgame",
+            "poster_path": "/ulzhLuWrPK07P1YkdWQLZnQh1JL.jpg",
+            "popularity": 355.688,
+            "media_type": "movie"
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/vfuzELmhBjBTswXj2Vqxnu5ge4g.jpg",
+            "genre_ids": [
+                53,
+                80
+            ],
+            "id": 602269,
+            "original_language": "en",
+            "original_title": "The Little Things",
+            "poster_path": "/c7VlGCCgM9GZivKSzBgzuOVxQn7.jpg",
+            "video": false,
+            "title": "The Little Things",
+            "vote_count": 664,
+            "overview": "Deputy Sheriff Joe \"Deke\" Deacon joins forces with Sgt. Jim Baxter to search for a serial killer who's terrorizing Los Angeles. As they track the culprit, Baxter is unaware that the investigation is dredging up echoes of Deke's past, uncovering disturbing secrets that could threaten more than his case.",
+            "release_date": "2021-01-28",
+            "vote_average": 6.4,
+            "popularity": 1015.758,
+            "media_type": "movie"
+        },
+        {
+            "overview": "Following the loss of their son, a retired sheriff and his wife leave their Montana ranch to rescue their young grandson from the clutches of a dangerous family living off the grid in the Dakotas.",
+            "release_date": "2020-11-05",
+            "adult": false,
+            "backdrop_path": "/abCn6fJjCPEZE3Q2dCmfidMxrEG.jpg",
+            "genre_ids": [
+                18,
+                53,
+                80
+            ],
+            "vote_count": 212,
+            "original_language": "en",
+            "original_title": "Let Him Go",
+            "poster_path": "/EsLZoT8oHhQlGd1QpdbnvnwTzO.jpg",
+            "id": 596161,
+            "video": false,
+            "vote_average": 7.1,
+            "title": "Let Him Go",
+            "popularity": 49.928,
+            "media_type": "movie"
+        },
+        {
+            "original_language": "en",
+            "original_title": "Godzilla",
+            "poster_path": "/iBZhbCVhLpyxAfW1B8ePUxjScrx.jpg",
+            "video": false,
+            "vote_average": 6.2,
+            "overview": "Ford Brody, a Navy bomb expert, has just reunited with his family in San Francisco when he is forced to go to Japan to help his estranged father, Joe. Soon, both men are swept up in an escalating crisis when an ancient alpha predator arises from the sea to combat malevolent adversaries that threaten the survival of humanity. The creatures leave colossal destruction in their wake, as they make their way toward their final battleground: San Francisco.",
+            "release_date": "2014-05-14",
+            "id": 124905,
+            "vote_count": 6745,
+            "adult": false,
+            "backdrop_path": "/zCjZfevPFBbOh2SAx2syIBHSqEI.jpg",
+            "title": "Godzilla",
+            "genre_ids": [
+                28,
+                18,
+                878
+            ],
+            "popularity": 558.563,
+            "media_type": "movie"
+        },
+        {
+            "overview": "Tina Turner overcame impossible odds to become one of the first female African American artists to reach a mainstream international audience. Her road to superstardom is an undeniable story of triumph over adversity. It’s the ultimate story of survival – and an inspirational story of our times.",
+            "release_date": "2021-03-02",
+            "title": "TINA",
+            "adult": false,
+            "backdrop_path": "/rv3bNtqYpARfJNPFctMeZrxq6bL.jpg",
+            "genre_ids": [
+                99,
+                10402
+            ],
+            "vote_count": 5,
+            "id": 773736,
+            "original_title": "TINA",
+            "poster_path": "/bL2FNPhiPqDyirzU3rfaXDiWRXs.jpg",
+            "original_language": "en",
+            "video": false,
+            "vote_average": 8.4,
+            "popularity": 29.596,
+            "media_type": "movie"
+        },
+        {
+            "overview": "Following the abduction of her daughter, Zara does all she can to get her back. However, when she discovers that she has been targeted by crime boss Patrick, who she has previous dealings with, Zara realises that her troubled past will be used against her. Once Zara has a heart-to-heart with her husband, Brian, the pair work together to settle old scores and ensure the safety of their daughter.",
+            "release_date": "2021-11-06",
+            "adult": false,
+            "backdrop_path": "/tipRMVAH00gEvIhaWYKjkHMKDVJ.jpg",
+            "genre_ids": [
+                28,
+                53
+            ],
+            "vote_count": 0,
+            "original_language": "en",
+            "original_title": "Take Back",
+            "poster_path": "/16JXKkATNiSKouOhxyg9lkHBag9.jpg",
+            "title": "Take Back",
+            "video": false,
+            "vote_average": 0.0,
+            "id": 695282,
+            "popularity": 27.738,
+            "media_type": "movie"
+        },
+        {
+            "original_language": "it",
+            "original_title": "Pinocchio",
+            "poster_path": "/lzqJcPaZA9G8C6eS4Hch475Ng3A.jpg",
+            "video": false,
+            "vote_average": 6.7,
+            "overview": "In this live-action adaptation of the beloved fairytale, old woodcarver Geppetto fashions a wooden puppet, Pinocchio, who magically comes to life. Pinocchio longs for adventure and is easily led astray, encountering magical beasts, fantastical spectacles, while making friends and foes along his journey. However, his dream is to become a real boy, which can only come true if he finally changes his ways.",
+            "release_date": "2019-12-19",
+            "id": 413518,
+            "vote_count": 949,
+            "adult": false,
+            "backdrop_path": "/AdqOBPw4PdtzOcfEuQuZ8MNeTKb.jpg",
+            "title": "Pinocchio",
+            "genre_ids": [
+                14,
+                10751,
+                12,
+                18
+            ],
+            "popularity": 89.292,
+            "media_type": "movie"
+        }
+    ],
+    "total_pages": 1000,
+    "total_results": 20000
+}

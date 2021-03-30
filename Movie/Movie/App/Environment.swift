@@ -20,6 +20,5 @@ struct Environment {
 0e3d23cbe1ef8e612bd89882bbf65290
 """
     let locale = "en-US"
-//    let networkEnvironment: NetworkEnvironment = .staging
 }
 // swiftlint:enable all

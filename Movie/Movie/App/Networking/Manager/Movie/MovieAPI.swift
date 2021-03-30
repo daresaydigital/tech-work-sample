@@ -8,7 +8,11 @@
 import Foundation
 
 struct MovieAPI {
-    let router: NetworkRouter = NetworkRouter<MovieApiProvider>()
+    let router: NetworkRouter<MovieApiProvider>
+
+    init(_ router: NetworkRouter<MovieApiProvider> = NetworkRouter<MovieApiProvider>()) {
+        self.router = router
+    }
 }
 
 extension MovieAPI {

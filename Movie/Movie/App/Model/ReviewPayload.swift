@@ -37,8 +37,8 @@ struct Review: Codable {
 }
 
 struct AuthorDetails: Codable {
-    let name, username, avatarPath: String
-    let rating: Int
+    let name, username, avatarPath: String?
+    let rating: Int?
 
     enum CodingKeys: String, CodingKey {
         case name, username
