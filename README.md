@@ -1,44 +1,33 @@
-# Work sample - Application developer
+# Movie App
 
-## Assignment
+<div style="width:830px; background-color:white; height:120px; overflow:auto;">
+		<div style="width: 2000px; height: 90px;">
+			<img src="https://github.com/adriansergheev/tech-work-sample/blob/master/screenshots/1.PNG" width=250/>
+			<img src="https://github.com/adriansergheev/tech-work-sample/blob/master/screenshots/2.PNG" width=250/>
+		</div>
+	</div>
 
-- Build an awesome movie app that shows popular and high rated movies.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+# Features
+- [x] Main View. Shows the list of the movies. Can be filtered by popular, trending, top rated.
+- [x] Detail View, shows detailed info about a specific movie.
+- [x] Clean Architecture (Subjectively) 
+- [x] Error Handling
+- [x] Unit Tests (RxTest) for main vm.
+## Bonus Features
+- [x] Pagination (infinite scrolling)
+- [x] Pull to Refresh
 
-## Requirements
 
-- Use an open https://developers.themoviedb.org/open source API. Please read the API [Authentication section](https://developers.themoviedb.org/3/getting-started/authentication) to get started.
-- Discover most popular and highly rated movies.
-- Display the movies with creative look and feel of an app to meet design guidelines for your platform (Material Design etc.).
-- Launch a detail screen whenever a particular movie is selected.
+# Technical Overview
 
-## Examples of bonus features
+  * Generally, the architecture is inspired from pointfree.co creators, specifically the style used here: https://github.com/kickstarter/ios-oss. 
+  * Swift\RxSwift. While Combine+SwiftUI could have been used and I am comfortable with those  technologies as well, I have written more code in RxSwift thus given the limited time I chose RxSwift. Plain Swift (no reactive stuff) works as well.
+  * Plain navigation. No Coordinators given there are very few views. 
+  * MVVM + Redux. Redux is used for more complex state management, in our case pagination.
+  * Expandable and highly customizable networking layer. New endpoints (supporting search, via GET /search/movie for example) can be added in less than 100 lines of code. Please check MovieApiProvider Enum as an example. No dependencies were used for this. Some of the code was reused from my older projects. The endpoint for fetching reviews is as well ready to use.
+  * Dependency Injection. Usually I am using a service-locator for this (such as Resolver: https://github.com/hmlongco/Resolver) however for our app it is an overkill.
+  * RxDataSources for effective collectionView diffing.
+  * UI is a mix of storyboards&code. Generally code is prioritized(As in, text is not hardcoded so it can be further localized etc.). For larger scale projects, only code.
 
-- Allow user to save a favorite movie for offline access.
-- Allow user to read movie reviews.
-
-## We expect you to
-
-- Write clean code.
-- Create a responsive design.
-- Handle error cases.
-- Use the latest libraries and technologies.
-- Tested code is a big plus.
-
-### User experience
-
-The features of the app might be few, but we expect you to deliver a solution with a high user experience. Imagine this application to be used by real users, with real needs. Make it interesting, fun and intuitive to use. And of course you are allowed to extend your applications functionality.
-
-### Code
-
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
-
-## Delivery
-
-Fork the repository, code in your fork and make a pull request when done. A nice commit history describing your work is preferred over squashing it into one commit.
-Also send us an e-mail to let us know!
-
-### Good luck!
-
----
-
+## How to run:
+cd into Movie folder, run pod install, open Movie.xcworkspace.
