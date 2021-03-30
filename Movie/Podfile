@@ -15,6 +15,7 @@ target 'Movie' do
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'RxDataSources'
+    pod 'RxTest'
   end
 
 end

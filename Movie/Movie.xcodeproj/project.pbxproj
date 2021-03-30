@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		0438DCE22613219E0010E33D /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DCE12613219E0010E33D /* MovieTests.swift */; };
 		0438DCEC261322220010E33D /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438DCEB261322220010E33D /* ModelTest.swift */; };
-		0438DCEF261326210010E33D /* MoviePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F694A6260BB68F00E45B48 /* MoviePayload.swift */; };
-		0438DCF2261326250010E33D /* ReviewPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F694AE260BBC7700E45B48 /* ReviewPayload.swift */; };
-		0438DCF5261326280010E33D /* GenrePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F694B1260BBD4200E45B48 /* GenrePayload.swift */; };
 		043F710C260B9EB4005FA9CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F710B260B9EB4005FA9CB /* AppDelegate.swift */; };
 		043F710E260B9EB4005FA9CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F710D260B9EB4005FA9CB /* SceneDelegate.swift */; };
 		043F7110260B9EB4005FA9CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F710F260B9EB4005FA9CB /* ViewController.swift */; };
@@ -33,6 +30,7 @@
 		0470A2BD26132AED003FDD1F /* reviews.json in Resources */ = {isa = PBXBuildFile; fileRef = 0470A2B226132A74003FDD1F /* reviews.json */; };
 		0470A2C026132AF2003FDD1F /* trending.json in Resources */ = {isa = PBXBuildFile; fileRef = 0470A2B126132A74003FDD1F /* trending.json */; };
 		0470A2C326132AF5003FDD1F /* reviews.json in Resources */ = {isa = PBXBuildFile; fileRef = 0470A2B226132A74003FDD1F /* reviews.json */; };
+		047BCA8B2613B6F5009CCEBB /* TestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BCA8A2613B6F5009CCEBB /* TestsHelper.swift */; };
 		04AC97E7260C899900FDBF81 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC97E1260C899900FDBF81 /* HTTPTask.swift */; };
 		04AC97E8260C899900FDBF81 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC97E2260C899900FDBF81 /* NetworkRouter.swift */; };
 		04AC97E9260C899900FDBF81 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AC97E3260C899900FDBF81 /* NetworkLogger.swift */; };
@@ -97,6 +95,7 @@
 		0470A2B026132A74003FDD1F /* genre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = genre.json; sourceTree = "<group>"; };
 		0470A2B126132A74003FDD1F /* trending.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = trending.json; sourceTree = "<group>"; };
 		0470A2B226132A74003FDD1F /* reviews.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = reviews.json; sourceTree = "<group>"; };
+		047BCA8A2613B6F5009CCEBB /* TestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsHelper.swift; sourceTree = "<group>"; };
 		04AC97E1260C899900FDBF81 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		04AC97E2260C899900FDBF81 /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		04AC97E3260C899900FDBF81 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
@@ -160,6 +159,7 @@
 				0438DCE32613219E0010E33D /* Info.plist */,
 				0438DCEB261322220010E33D /* ModelTest.swift */,
 				0438DCE12613219E0010E33D /* MovieTests.swift */,
+				047BCA8A2613B6F5009CCEBB /* TestsHelper.swift */,
 			);
 			path = MovieTests;
 			sourceTree = "<group>";
@@ -580,12 +580,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0438DCEF261326210010E33D /* MoviePayload.swift in Sources */,
-				0438DCF5261326280010E33D /* GenrePayload.swift in Sources */,
 				0438DCE22613219E0010E33D /* MovieTests.swift in Sources */,
-				0438DCF2261326250010E33D /* ReviewPayload.swift in Sources */,
 				0470A2AD261327A6003FDD1F /* MBaseURL.swift in Sources */,
 				0438DCEC261322220010E33D /* ModelTest.swift in Sources */,
+				047BCA8B2613B6F5009CCEBB /* TestsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
