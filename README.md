@@ -12,7 +12,7 @@
 - [x] Detail View, shows detailed info about a specific movie.
 - [x] Clean Architecture (Subjectively) 
 - [x] Error Handling
-- [ ] Unfortunately, no tests. I'd happily have done TDD if i'd have more time though ; )
+- [x] Unit Tests (RxTest) for main vm.
 ## Bonus Features
 - [x] Pagination (infinite scrolling)
 - [x] Pull to Refresh
