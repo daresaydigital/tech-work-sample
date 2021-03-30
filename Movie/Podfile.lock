@@ -1,6 +1,6 @@
 PODS:
   - Differentiator (5.0.0)
-  - Nuke (9.3.0)
+  - Nuke (9.4.1)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
@@ -29,12 +29,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
-  Nuke: 56a7266398951d9af3a897a71a7b662344915ec5
+  Nuke: ca782d1a417904db70f2c65d6feb2329a2679491
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
 
-PODFILE CHECKSUM: 983936b20dc101b31dfea6e9140b8554616f442a
+PODFILE CHECKSUM: a76d37bdf86264138545c0193f7f6eb26f4a54eb
 
 COCOAPODS: 1.10.1
