@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486A882F26166A9D00691E14 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 486A883126166A9D00691E14 /* Localizable.strings */; };
 		4872D16025F6B06A007DB11A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D15F25F6B06A007DB11A /* AppDelegate.swift */; };
 		4872D16225F6B06A007DB11A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D16125F6B06A007DB11A /* SceneDelegate.swift */; };
 		4872D16A25F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4872D16825F6B06A007DB11A /* Darsey_MovieDB.xcdatamodeld */; };
@@ -32,7 +33,6 @@
 		4872D20025F78F12007DB11A /* MoviesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D1FE25F78F12007DB11A /* MoviesHeader.swift */; };
 		4872D20125F78F12007DB11A /* MoviesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4872D1FF25F78F12007DB11A /* MoviesHeader.xib */; };
 		4872D21D25F791EA007DB11A /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D21C25F791EA007DB11A /* Languages.swift */; };
-		4872D23125F7932C007DB11A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4872D22E25F7932C007DB11A /* Localizable.strings */; };
 		4872D27325F7A022007DB11A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D27225F7A022007DB11A /* ActivityIndicator.swift */; };
 		4872D27B25F7A06B007DB11A /* ViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D27A25F7A06B007DB11A /* ViewProperties.swift */; };
 		4872D28525F7A17F007DB11A /* SelectedMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4872D28325F7A17F007DB11A /* SelectedMovieVC.swift */; };
@@ -62,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		486A882726165BF500691E14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		486A882B26165C3E00691E14 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		486A883026166A9D00691E14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		486A883526166AA300691E14 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		486A883626166AA500691E14 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4872D15C25F6B06A007DB11A /* Darsey-MovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Darsey-MovieDB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4872D15F25F6B06A007DB11A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4872D16125F6B06A007DB11A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,15 +98,11 @@
 		4872D1FE25F78F12007DB11A /* MoviesHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesHeader.swift; sourceTree = "<group>"; };
 		4872D1FF25F78F12007DB11A /* MoviesHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesHeader.xib; sourceTree = "<group>"; };
 		4872D21C25F791EA007DB11A /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
-		4872D22F25F7932C007DB11A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "../../../../../../../../../../Downloads/tmdbChallenge-main/TMDBChallenge/Language/en.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		4872D23025F7932C007DB11A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "../../../../../../../../../../Downloads/tmdbChallenge-main/TMDBChallenge/Language/es.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4872D27225F7A022007DB11A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		4872D27A25F7A06B007DB11A /* ViewProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewProperties.swift; sourceTree = "<group>"; };
 		4872D28325F7A17F007DB11A /* SelectedMovieVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovieVC.swift; sourceTree = "<group>"; };
 		4872D28425F7A17F007DB11A /* SelectedMovieVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedMovieVC.xib; sourceTree = "<group>"; };
 		4872D28A25F7A1D5007DB11A /* SelectedMovieVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMovieVM.swift; sourceTree = "<group>"; };
-		4872D2A125F7A89C007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		4872D2A225F7AA8E007DB11A /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = "../../../../../../../../../../Downloads/tmdbChallenge-main/TMDBChallenge/Language/sv.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		48759E1E25F7BE9600239CAB /* TrailerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerVC.swift; sourceTree = "<group>"; };
 		48759E1F25F7BE9600239CAB /* TrailerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrailerVC.xib; sourceTree = "<group>"; };
 		48759E3A25F7DD6C00239CAB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -310,7 +311,7 @@
 		4872D20B25F790BE007DB11A /* Language */ = {
 			isa = PBXGroup;
 			children = (
-				4872D22E25F7932C007DB11A /* Localizable.strings */,
+				486A883126166A9D00691E14 /* Localizable.strings */,
 			);
 			path = Language;
 			sourceTree = "<group>";
@@ -434,9 +435,9 @@
 				4872D16F25F6B06D007DB11A /* LaunchScreen.storyboard in Resources */,
 				4872D16C25F6B06D007DB11A /* Assets.xcassets in Resources */,
 				4872D1BC25F7820C007DB11A /* key-info.plist in Resources */,
+				486A882F26166A9D00691E14 /* Localizable.strings in Resources */,
 				48759E2125F7BE9600239CAB /* TrailerVC.xib in Resources */,
 				4872D1DA25F7867C007DB11A /* MoviesVC.xib in Resources */,
-				4872D23125F7932C007DB11A /* Localizable.strings in Resources */,
 				4872D20125F78F12007DB11A /* MoviesHeader.xib in Resources */,
 				4872D28625F7A17F007DB11A /* SelectedMovieVC.xib in Resources */,
 			);
@@ -521,23 +522,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		486A883126166A9D00691E14 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				486A883026166A9D00691E14 /* en */,
+				486A883526166AA300691E14 /* es */,
+				486A883626166AA500691E14 /* sv */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		4872D16D25F6B06D007DB11A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4872D16E25F6B06D007DB11A /* Base */,
-				4872D2A125F7A89C007DB11A /* sv */,
+				486A882726165BF500691E14 /* es */,
+				486A882B26165C3E00691E14 /* sv */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		4872D22E25F7932C007DB11A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4872D22F25F7932C007DB11A /* en */,
-				4872D23025F7932C007DB11A /* es */,
-				4872D2A225F7AA8E007DB11A /* sv */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -547,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -608,6 +611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
