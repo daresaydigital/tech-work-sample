@@ -18,14 +18,14 @@
 "choose.language" = "Elija su idioma";
 "english.language" = "Inglés";
 "spanish.language" = "Español";
-"swedish.language" = "Swedish";
+"swedish.language" = "Sueco";
 "cancel" = "Cancelar";
 "refresh.catalog" = "Actualizar catálogo";
 
 "error" = "Error";
-"error.unknown" = "An unknown error has occurred";
-"error.invalidURL" = "Please verify the URL";
-"error.response" = "Invalid response from the server";
-"error.data" = "Invalid data received from the server";
-"error.decode" = "Cannot decode data";
+"error.unknown" = "Se ha producido un error desconocido";
+"error.invalidURL" = "Verifique la URL";
+"error.response" = "Respuesta no válida del servidor";
+"error.data" = "Datos no válidos recibidos del servidor";
+"error.decode" = "No se pueden decodificar los datos";
 "ok" = "Ok";

@@ -16,17 +16,17 @@
 "top.rated.films" = "Topprankade filmer";
 "now.playing.in.theathers" = "Spelas nu i teatrar";
 "change.language" = "Ändra språk?";
-"select.language" = "Välj ditt språk";
+"choose.language" = "Välj ditt språk";
 "english.language" = "Engelska";
 "spanish.language" = "Spanska";
 "swedish.language" = "Svenska";
 "cancel" = "Avbryt";
 "refresh.catalog" = "Uppdatera katalog";
 
-"error" = "Error";
-"error.unknown" = "An unknown error has occurred";
-"error.invalidURL" = "Please verify the URL";
-"error.response" = "Invalid response from the server";
-"error.data" = "Invalid data received from the server";
-"error.decode" = "Cannot decode data";
+"error" = "Fel";
+"error.unknown" = "Ett okänt fel har inträffat";
+"error.invalidURL" = "Verifiera webbadressen";
+"error.response" = "Ogiltigt svar från servern";
+"error.data" = "Ogiltiga data mottagna från servern";
+"error.decode" = "Det går inte att avkoda data";
 "ok" = "Ok";
