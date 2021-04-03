@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  Darsey-MovieDB
+
+  Created by Emil Vaklinov on 01/04/2021.
+  
+*/
+// MoviesVC
+
+"Movies" = "Filmer";
+"now.playing" = "Spelas nu";
+"in.theaters" = "Nu på bio";
+"popular" = "Popular";
+"most.popular" = "Mest populära";
+"top.rated" = "Högst rankad";
+"top.rated.films" = "Topprankade filmer";
+"now.playing.in.theathers" = "Spelas nu i teatrar";
+"change.language" = "Ändra språk?";
+"choose.language" = "Välj ditt språk";
+"english.language" = "Engelska";
+"spanish.language" = "Spanska";
+"swedish.language" = "Svenska";
+"cancel" = "Avbryt";
+"refresh.catalog" = "Uppdatera katalog";
+
+"error" = "Fel";
+"error.unknown" = "Ett okänt fel har inträffat";
+"error.invalidURL" = "Verifiera webbadressen";
+"error.response" = "Ogiltigt svar från servern";
+"error.data" = "Ogiltiga data mottagna från servern";
+"error.decode" = "Det går inte att avkoda data";
+"ok" = "Ok";

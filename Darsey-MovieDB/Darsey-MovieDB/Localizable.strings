@@ -1,0 +1,64 @@
+/* 
+  Localizables(English).strings
+  TMDBChallenge
+
+  Created by Miguel Aquino on 14/01/21.
+  
+*/
+
+// MoviesVC
+"Movies" = "Movies";
+"now.playing" = "Now playing";
+"in.theaters" = "Now in cinema";
+"popular" = "Popular";
+"most.popular" = "Most popular";
+"top.rated" = "Top Rated";
+"top.rated.films" = "Top Rated Films";
+"now.playing.in.theathers" = "Now playing in theaters";
+"change.language" = "Change language?";
+"choose.language" = "Choose your language";
+"english.language" = "English";
+"spanish.language" = "Spanish";
+"swidish.language" = "Swidish";
+"cancel" = "Cancel";
+"refresh.catalog" = "Refresh Catalog";
+
+"Movies" = "Películas";
+"now.playing" = "Reproduciendo ahora";
+"in.theaters" = "Ahora en el cine";
+"popular" = "Popular";
+"most.popular" = "Más popular";
+"top.rated" = "Mejor calificados";
+"top.rated.films" = "Películas mejor calificadas";
+"now.playing.in.theathers" = "Ahora se proyecta en cines";
+"change.language" = "Cambiar idioma?";
+"choose.language" = "Elija su idioma";
+"english.language" = "Inglés";
+"spanish.language" = "Español";
+"swidish.language" = "Swidish";
+"cancel" = "Cancelar";
+"refresh.catalog" = "Actualizar catálogo";
+
+"Movies" = "Filmer";
+"now.playing" = "Spelas nu";
+"in.theaters" = "Nu på bio";
+"popular" = "Popular";
+"most.popular" = "Mest populära";
+"top.rated" = "Högst rankad";
+"top.rated.films" = "Topprankade filmer";
+"now.playing.in.theathers" = "Spelas nu i teatrar";
+"change.language" = "Ändra språk?";
+"select.language" = "Välj ditt språk";
+"english.language" = "Engelska";
+"spanish.language" = "Spanska";
+"swidish.language" = "Svenska";
+"cancel" = "Avbryt";
+"refresh.catalog" = "Uppdatera katalog";
+
+"error" = "Error";
+"error.unknown" = "An unknown error has occurred";
+"error.invalidURL" = "Please verify the URL";
+"error.response" = "Invalid response from the server";
+"error.data" = "Invalid data received from the server";
+"error.decode" = "Cannot decode data";
+"ok" = "Ok";
