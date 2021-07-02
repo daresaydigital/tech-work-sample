@@ -11,7 +11,13 @@ import SwiftUI
 struct DareFilmApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack{
+                Color("BackgroundColor")
+                    .ignoresSafeArea()
+                HomeView()
+                    .edgesIgnoringSafeArea(.bottom)
+            }
+
         }
     }
 }
