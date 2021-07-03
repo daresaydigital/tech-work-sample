@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
-
+/*
+ The view represtning each movie object
+ */
 struct MovieView: View {
     @ObservedObject var imageHandler = ImageHandler()
     @State private var showingDetails = false
@@ -14,6 +16,7 @@ struct MovieView: View {
     var body: some View {
         HStack{
             ZStack{
+                //MARK: Background and placeholder
                 Rectangle()
                     .fill(Color.yellow)
                     .frame(width: 155, height: 235)
@@ -23,7 +26,8 @@ struct MovieView: View {
                 Text("\(movie.title)")
                     .italic()
                     .padding()
-                    
+                
+                //MARK: Fetched poster
                 Image(uiImage: imageHandler.image ?? UIImage())
                     .resizable()
                     .frame(width: 150, height: 230)
@@ -31,11 +35,10 @@ struct MovieView: View {
                     .onAppear(){
                         imageHandler.loadImage(withPath: movie.posterPath)
                     }
-                
-                    
             }
             .frame(width: 155, height: 235)
-
+            
+            //MARK: General movie information
             VStack(alignment: .leading, spacing: 10){
                 Text(movie.title)
                     .font(.title2)
@@ -52,14 +55,9 @@ struct MovieView: View {
             hapticGenerator.impactOccurred()
             showingDetails.toggle()
         }
+        //MARK: Detailed movie sheet shown on tap
         .sheet(isPresented: $showingDetails) {
             MovieDetailView(isShowing: $showingDetails, movie: movie)
         }
     }
 }
-
-//struct MovieView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieView(movie: Movie(title: "The best movie ever", description: "Johannes searches for greatness when he tries to build the best app ever seen", rating: "5/5"))
-//    }
-//}

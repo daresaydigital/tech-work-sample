@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
-
+/*
+ Lists each movie in a scrollable list
+ */
 struct MovieListView: View {
     var movies: [Movie]
     var body: some View {
@@ -23,12 +25,5 @@ struct MovieListView: View {
             }
         }
         .padding()
-        
     }
 }
-
-//struct MovieListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieListView()
-//    }
-//}

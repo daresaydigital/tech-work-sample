@@ -7,16 +7,23 @@
 
 import SwiftUI
 
+/*
+ First landing page of the app, building the overall structure
+ */
 struct HomeView: View {
     @State private var tabSelection = "Popular"
     @ObservedObject var movieHandler = MovieHandler()
     let popularSectionTitle = "Popular"
     let ratedSectionTitile = "Top rated"
+    
     var body: some View {
         VStack(spacing: 0){
+            // MARK: Title
             Text("DareFilm")
                 .font(.title)
                 .padding()
+            
+            //MARK: Top selection bar
             HStack{
                 Spacer()
                 Button(tabSelection == popularSectionTitle ? "\(popularSectionTitle)🍿" : popularSectionTitle){
@@ -36,6 +43,7 @@ struct HomeView: View {
             .padding(.bottom)
             Divider()
             
+            //MARK: Tabview content
             TabView(selection: $tabSelection){
                 MovieListView(movies: movieHandler.popularMovies)
                     .tag(popularSectionTitle)
@@ -55,11 +63,5 @@ struct HomeView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

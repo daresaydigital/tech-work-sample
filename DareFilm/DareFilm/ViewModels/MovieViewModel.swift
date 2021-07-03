@@ -11,11 +11,20 @@ enum movieFilter {
     case popular, topRated
 }
 
+/*
+ Handles and fecthes the data from TMDB
+ */
 class MovieHandler: ObservableObject {
     @Published var popularMovies: [Movie] = []
     @Published var topRatedMovies: [Movie] = []
-    let apiKey = TMDBapiKey //TODO: Add your TMDB key here
-
+    let apiKey = TMDBapiKey //TODO: Add your TMDB key here (string)
+    
+    /**
+        Fetches movie data from TMDB
+     
+     -Parameter filter: The order type to filter the data on (popular or top rated)
+     -Returns: Adds movies to the corresponing property wrapper
+     */
     func fetchMovieData(withFilter filter: movieFilter) {
         var filterType: String {
             switch filter {
@@ -37,7 +46,6 @@ class MovieHandler: ObservableObject {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 if let decodedResponse = try? decoder.decode(MovieDataResponse.self, from: data) {
                     DispatchQueue.main.async {
-                        print(decodedResponse.results)
                         switch filter{
                         case .popular:
                             self.popularMovies = decodedResponse.results
@@ -45,9 +53,7 @@ class MovieHandler: ObservableObject {
                         case .topRated:
                             self.topRatedMovies = decodedResponse.results
                         }
-                        
                     }
-
                     return
                 }
             }

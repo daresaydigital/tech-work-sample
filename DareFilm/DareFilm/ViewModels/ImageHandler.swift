@@ -13,9 +13,21 @@ enum imageSize: String {
     case w300, w1280 //Extra Backdrop sizes along with w780 and original
 }
 
+/*
+ Handles and fecthes the images from TMDB
+ */
 class ImageHandler: ObservableObject {
     @Published private(set) var image: UIImage?
     
+    /**
+        Fetches images from TMDB
+     
+     -Parameters:
+        - imagePath: The specific image path of the url
+        - size: The optional size of the image
+     
+     -Returns: Puts the returning image in the image property wrapper
+     */
     func loadImage(withPath imagePath: String?, size: imageSize? = .w500){
         if imagePath == nil{
             print("Error: no image path")
