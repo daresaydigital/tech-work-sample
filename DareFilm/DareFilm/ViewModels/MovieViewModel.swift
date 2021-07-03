@@ -14,9 +14,9 @@ enum movieFilter {
 class MovieHandler: ObservableObject {
     @Published var popularMovies: [Movie] = []
     @Published var topRatedMovies: [Movie] = []
-    
+    let apiKey = TMDBapiKey //TODO: Add your TMDB key here
+
     func fetchMovieData(withFilter filter: movieFilter) {
-        let apiKey = TMDBapiKey //TODO: Add your TMDB key here
         var filterType: String {
             switch filter {
             case .popular:
@@ -27,7 +27,7 @@ class MovieHandler: ObservableObject {
         }
         
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(filterType)?api_key=\(apiKey)&language=en-US&page=1") else{
-                print("Url broken")
+                print("Data url broken")
                 return
         }
         
@@ -37,7 +37,6 @@ class MovieHandler: ObservableObject {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 if let decodedResponse = try? decoder.decode(MovieDataResponse.self, from: data) {
                     DispatchQueue.main.async {
-                        print(decodedResponse.results)
                         switch filter{
                         case .popular:
                             self.popularMovies = decodedResponse.results
@@ -51,7 +50,7 @@ class MovieHandler: ObservableObject {
                     return
                 }
             }
-            print("\(error?.localizedDescription ?? "Unknown error")")
+            print("Error while downloading data. Error: \(String(describing: error))")
             
         }.resume()
     }

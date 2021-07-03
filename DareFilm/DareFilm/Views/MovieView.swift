@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct MovieView: View {
+    @ObservedObject var imageHandler = ImageHandler()
     @State private var showingDetails = false
     var movie: Movie
     var body: some View {
         HStack{
-            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(Color.yellow)
-                .frame(width: 150, height: 230)
+            ZStack{
+                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                    .fill(Color.yellow)
+                    
+                Image(uiImage: imageHandler.image ?? UIImage())
+                    .resizable()
+                    .cornerRadius(25)
+                    .onAppear(){
+                        imageHandler.loadImage(withPath: movie.posterPath)
+                    }
+            }
+            .frame(width: 150, height: 230)
+
             VStack(alignment: .leading, spacing: 10){
                 Text(movie.title)
                     .font(.title2)
