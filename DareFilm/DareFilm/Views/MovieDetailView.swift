@@ -12,8 +12,8 @@ struct MovieDetailView: View {
     var body: some View {
         VStack{
             Text(movie.title)
-            Text(movie.description)
-            Text(movie.rating)
+            Text(movie.overview)
+            Text(String(movie.voteAverage))
         }
     }
 }

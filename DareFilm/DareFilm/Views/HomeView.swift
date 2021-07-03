@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var tabSelection = "Popular"
+    @ObservedObject var movieHandler = MovieHandler()
     let popularSectionTitle = "Popular"
     let ratedSectionTitile = "Top rated"
-    let movies = [Movie(title: "The best movie ever", description: "Johannes searches for greatness when he tries to build the best app ever seen", rating: "5/5"), Movie(title: "The worst movie ever", description: "Johannes searches for failure when he tries to build the best app ever seen", rating: "1/5")]
     var body: some View {
         VStack(spacing: 0){
             Text("DareFilm")
@@ -37,10 +37,10 @@ struct HomeView: View {
             Divider()
             
             TabView(selection: $tabSelection){
-                MovieListView(movies: movies.reversed())
+                MovieListView(movies: movieHandler.movies)
                     .tag(popularSectionTitle)
                 
-                MovieListView(movies: movies)
+                MovieListView(movies: movieHandler.movies.reversed())
                     .tag(ratedSectionTitile)
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))

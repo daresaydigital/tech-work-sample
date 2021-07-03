@@ -12,6 +12,7 @@
 		F581A4B9268F301400CCD578 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4B8268F301400CCD578 /* MovieView.swift */; };
 		F581A4BF268F35D100CCD578 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4BE268F35D100CCD578 /* Movie.swift */; };
 		F581A4C1268F3A6D00CCD578 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4C0268F3A6D00CCD578 /* MovieDetailView.swift */; };
+		F581A4C3268F44D800CCD578 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4C2268F44D800CCD578 /* MovieViewModel.swift */; };
 		F5D3BB9E268DE775006D1C26 /* DareFilmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3BB9D268DE775006D1C26 /* DareFilmApp.swift */; };
 		F5D3BBA2268DE775006D1C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D3BBA1268DE775006D1C26 /* Assets.xcassets */; };
 		F5D3BBA5268DE775006D1C26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D3BBA4268DE775006D1C26 /* Preview Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		F581A4B8268F301400CCD578 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		F581A4BE268F35D100CCD578 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		F581A4C0268F3A6D00CCD578 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		F581A4C2268F44D800CCD578 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		F5D3BB9A268DE775006D1C26 /* DareFilm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DareFilm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5D3BB9D268DE775006D1C26 /* DareFilmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DareFilmApp.swift; sourceTree = "<group>"; };
 		F5D3BBA1268DE775006D1C26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		F5D3BBAD268DE8E5006D1C26 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F581A4C2268F44D800CCD578 /* MovieViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				F581A4B5268F2E4200CCD578 /* HomeView.swift in Sources */,
 				F581A4BF268F35D100CCD578 /* Movie.swift in Sources */,
 				F581A4B7268F2F8000CCD578 /* MovieListView.swift in Sources */,
+				F581A4C3268F44D800CCD578 /* MovieViewModel.swift in Sources */,
 				F5D3BB9E268DE775006D1C26 /* DareFilmApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

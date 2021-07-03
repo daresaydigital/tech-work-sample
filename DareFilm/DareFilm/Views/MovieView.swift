@@ -18,10 +18,10 @@ struct MovieView: View {
             VStack(alignment: .leading, spacing: 10){
                 Text(movie.title)
                     .font(.title2)
-                Text(movie.description)
+                Text(movie.overview)
                     .italic()
                     .lineLimit(3)
-                Text(movie.rating)
+                Text(String(movie.voteAverage))
             }
             Spacer()
         }
@@ -35,8 +35,8 @@ struct MovieView: View {
     }
 }
 
-struct MovieView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieView(movie: Movie(title: "The best movie ever", description: "Johannes searches for greatness when he tries to build the best app ever seen", rating: "5/5"))
-    }
-}
+//struct MovieView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieView(movie: Movie(title: "The best movie ever", description: "Johannes searches for greatness when he tries to build the best app ever seen", rating: "5/5"))
+//    }
+//}

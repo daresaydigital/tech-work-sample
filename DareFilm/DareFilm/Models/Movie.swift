@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct Movie: Identifiable {
-    var id = UUID()
+struct MovieDataResponse: Codable {
+    var results: [Movie]
+}
+
+struct Movie: Identifiable, Codable {
+    var id: Int
     var title: String
-    var description: String
-    var rating: String
+    var overview: String
+    var voteAverage: Double
+    var posterPath: String
 }
