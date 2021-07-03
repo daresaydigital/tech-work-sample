@@ -16,10 +16,13 @@ struct MovieView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 25, style: .continuous)
                     .fill(Color.yellow)
+                Text("\(movie.title)")
+                    .italic()
+                    .padding()
                     
                 Image(uiImage: imageHandler.image ?? UIImage())
                     .resizable()
-                    .cornerRadius(25)
+                    .cornerRadius(20)
                     .onAppear(){
                         imageHandler.loadImage(withPath: movie.posterPath)
                     }
@@ -32,12 +35,14 @@ struct MovieView: View {
                 Text(movie.overview)
                     .italic()
                     .lineLimit(3)
-                Text(String(movie.voteAverage))
+                Text("⭐️\(String(movie.voteAverage))")
             }
             Spacer()
         }
-        .padding()
+        .padding(.bottom)
         .onTapGesture {
+            let hapticGenerator = UIImpactFeedbackGenerator(style: .light)
+            hapticGenerator.impactOccurred()
             showingDetails.toggle()
         }
         .sheet(isPresented: $showingDetails) {

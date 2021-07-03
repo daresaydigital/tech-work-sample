@@ -8,13 +8,41 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    @ObservedObject var imageHandler = ImageHandler()
     var movie: Movie
     var body: some View {
         VStack{
+            ZStack{
+                Rectangle()
+                    .fill(Color.yellow)
+                    .frame(minHeight: 100)
+                Text("\(movie.title)")
+                    .italic()
+                    .padding()
+                Image(uiImage: imageHandler.image ?? UIImage())
+                    .resizable()
+                    .onAppear(){
+                        imageHandler.loadImage(withPath: movie.backdropPath)
+                    }
+            }
+            .scaledToFit()
             Text(movie.title)
-            Text(movie.overview)
-            Text(String(movie.voteAverage))
+                .font(.title)
+            VStack(alignment: .leading){
+                Text("Released: \(movie.releaseDate ?? "")")
+                Text("⭐️: \(String(movie.voteAverage))")
+                        
+                Text("Description:")
+                    .italic()
+                    .padding(.top)
+                Text(movie.overview)
+                
+            }
+            .padding()
+            Spacer()
         }
+        .background(Color("BackgroundColor"))
+        .ignoresSafeArea()
     }
 }
 

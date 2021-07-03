@@ -9,14 +9,19 @@ import Foundation
 import SwiftUI
 
 enum imageSize: String {
-    case w92, w154, w185, w342, w500, w780, original
+    case w92, w154, w185, w342, w500, w780, original //Poster sizes
+    case w300, w1280 //Extra Backdrop sizes along with w780 and original
 }
 
 class ImageHandler: ObservableObject {
     @Published private(set) var image: UIImage?
     
-    func loadImage(withPath posterPath: String, size: imageSize? = .w342){
-        guard let url = URL(string: "https://image.tmdb.org/t/p/\(size!.rawValue)\(posterPath)") else{
+    func loadImage(withPath imagePath: String?, size: imageSize? = .w500){
+        if imagePath == nil{
+            print("Error: no image path")
+            return
+        }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/\(size!.rawValue)\(imagePath!)") else{
                 print("Image url broken")
                 return
         }

@@ -22,6 +22,8 @@ struct MovieListView: View {
                 }
             }
         }
+        .padding()
+        
     }
 }
 

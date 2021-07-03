@@ -37,6 +37,7 @@ class MovieHandler: ObservableObject {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 if let decodedResponse = try? decoder.decode(MovieDataResponse.self, from: data) {
                     DispatchQueue.main.async {
+                        print(decodedResponse.results)
                         switch filter{
                         case .popular:
                             self.popularMovies = decodedResponse.results
