@@ -37,11 +37,21 @@ struct HomeView: View {
             Divider()
             
             TabView(selection: $tabSelection){
-                MovieListView(movies: movieHandler.movies)
+                MovieListView(movies: movieHandler.popularMovies)
                     .tag(popularSectionTitle)
+                    .onAppear(){
+                        if movieHandler.popularMovies.isEmpty{
+                            movieHandler.fetchMovieData(withFilter: .popular)
+                        }
+                    }
                 
-                MovieListView(movies: movieHandler.movies.reversed())
+                MovieListView(movies: movieHandler.topRatedMovies)
                     .tag(ratedSectionTitile)
+                    .onAppear(){
+                        if movieHandler.topRatedMovies.isEmpty{
+                            movieHandler.fetchMovieData(withFilter: .topRated)
+                        }
+                    }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
         }
