@@ -15,7 +15,7 @@ class MovieHandler: ObservableObject {
     }
     
     func fetchMovieData() {
-        let apiKey = "" //TODO: Add your TMDB key here
+        let apiKey = TMDBapiKey //TODO: Add your TMDB key here
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=en-US&page=1") else{
             print("Url broken")
             return
