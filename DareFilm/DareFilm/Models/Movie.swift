@@ -19,4 +19,5 @@ struct Movie: Identifiable, Codable {
     var posterPath: String
     var backdropPath: String?
     var releaseDate: String?
+    var voteCount: Int
 }

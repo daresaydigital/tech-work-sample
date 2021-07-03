@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     @ObservedObject var imageHandler = ImageHandler()
+    @Binding var isShowing: Bool
     var movie: Movie
     var body: some View {
         VStack{
@@ -26,20 +27,31 @@ struct MovieDetailView: View {
                     }
             }
             .scaledToFit()
-            Text(movie.title)
-                .font(.title)
-            VStack(alignment: .leading){
-                Text("Released: \(movie.releaseDate ?? "")")
-                Text("⭐️: \(String(movie.voteAverage))")
-                        
-                Text("Description:")
-                    .italic()
-                    .padding(.top)
-                Text(movie.overview)
-                
+            
+            ScrollView{
+                Text(movie.title)
+                    .font(.title)
+                VStack(alignment: .leading){
+                    
+                    Text("⭐️: \(String(movie.voteAverage))")
+                        .font(.title2)
+                    Text("Number of votes: \(movie.voteCount)")
+                    Text("Released: \(movie.releaseDate ?? "")")
+                        .padding(.top)
+                    Text("Description:")
+                        .italic()
+                        .padding(.top)
+                    Text(movie.overview)
+                    
+                }
+                .padding()
+                Spacer()
             }
-            .padding()
-            Spacer()
+            
+            Button("Close"){
+                isShowing = false
+            }
+            .padding(.bottom, 50)
         }
         .background(Color("BackgroundColor"))
         .ignoresSafeArea()

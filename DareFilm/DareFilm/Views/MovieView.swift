@@ -14,20 +14,27 @@ struct MovieView: View {
     var body: some View {
         HStack{
             ZStack{
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                Rectangle()
                     .fill(Color.yellow)
+                    .frame(width: 155, height: 235)
+
+                    .cornerRadius(20)
+
                 Text("\(movie.title)")
                     .italic()
                     .padding()
                     
                 Image(uiImage: imageHandler.image ?? UIImage())
                     .resizable()
+                    .frame(width: 150, height: 230)
                     .cornerRadius(20)
                     .onAppear(){
                         imageHandler.loadImage(withPath: movie.posterPath)
                     }
+                
+                    
             }
-            .frame(width: 150, height: 230)
+            .frame(width: 155, height: 235)
 
             VStack(alignment: .leading, spacing: 10){
                 Text(movie.title)
@@ -46,7 +53,7 @@ struct MovieView: View {
             showingDetails.toggle()
         }
         .sheet(isPresented: $showingDetails) {
-            MovieDetailView(movie: movie)
+            MovieDetailView(isShowing: $showingDetails, movie: movie)
         }
     }
 }
