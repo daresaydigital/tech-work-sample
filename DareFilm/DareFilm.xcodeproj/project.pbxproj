@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5301BD5269072A800CC3AEF /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5301BD4269072A800CC3AEF /* Keys.swift */; };
+		F5301BD726907F5900CC3AEF /* ImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5301BD626907F5900CC3AEF /* ImageHandler.swift */; };
+		F581A4B5268F2E4200CCD578 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4B4268F2E4200CCD578 /* HomeView.swift */; };
+		F581A4B7268F2F8000CCD578 /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4B6268F2F8000CCD578 /* MovieListView.swift */; };
+		F581A4B9268F301400CCD578 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4B8268F301400CCD578 /* MovieView.swift */; };
+		F581A4BF268F35D100CCD578 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4BE268F35D100CCD578 /* Movie.swift */; };
+		F581A4C1268F3A6D00CCD578 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4C0268F3A6D00CCD578 /* MovieDetailView.swift */; };
+		F581A4C3268F44D800CCD578 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F581A4C2268F44D800CCD578 /* MovieViewModel.swift */; };
+		F5D3BB9E268DE775006D1C26 /* DareFilmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D3BB9D268DE775006D1C26 /* DareFilmApp.swift */; };
+		F5D3BBA2268DE775006D1C26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D3BBA1268DE775006D1C26 /* Assets.xcassets */; };
+		F5D3BBA5268DE775006D1C26 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5D3BBA4268DE775006D1C26 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5301BD4269072A800CC3AEF /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		F5301BD626907F5900CC3AEF /* ImageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHandler.swift; sourceTree = "<group>"; };
+		F581A4B4268F2E4200CCD578 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F581A4B6268F2F8000CCD578 /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		F581A4B8268F301400CCD578 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
+		F581A4BE268F35D100CCD578 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		F581A4C0268F3A6D00CCD578 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		F581A4C2268F44D800CCD578 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		F5D3BB9A268DE775006D1C26 /* DareFilm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DareFilm.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D3BB9D268DE775006D1C26 /* DareFilmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DareFilmApp.swift; sourceTree = "<group>"; };
+		F5D3BBA1268DE775006D1C26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5D3BBA4268DE775006D1C26 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F5D3BBA6268DE775006D1C26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5D3BB97268DE775006D1C26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5D3BB91268DE775006D1C26 = {
+			isa = PBXGroup;
+			children = (
+				F5D3BB9C268DE775006D1C26 /* DareFilm */,
+				F5D3BB9B268DE775006D1C26 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5D3BB9B268DE775006D1C26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5D3BB9A268DE775006D1C26 /* DareFilm.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5D3BB9C268DE775006D1C26 /* DareFilm */ = {
+			isa = PBXGroup;
+			children = (
+				F5D3BBAE268DE8EF006D1C26 /* Views */,
+				F5D3BBAD268DE8E5006D1C26 /* ViewModels */,
+				F5D3BBAC268DE8D9006D1C26 /* Models */,
+				F5D3BB9D268DE775006D1C26 /* DareFilmApp.swift */,
+				F5D3BBA1268DE775006D1C26 /* Assets.xcassets */,
+				F5D3BBA6268DE775006D1C26 /* Info.plist */,
+				F5D3BBA3268DE775006D1C26 /* Preview Content */,
+				F5301BD4269072A800CC3AEF /* Keys.swift */,
+			);
+			path = DareFilm;
+			sourceTree = "<group>";
+		};
+		F5D3BBA3268DE775006D1C26 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F5D3BBA4268DE775006D1C26 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F5D3BBAC268DE8D9006D1C26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F581A4BE268F35D100CCD578 /* Movie.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F5D3BBAD268DE8E5006D1C26 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F581A4C2268F44D800CCD578 /* MovieViewModel.swift */,
+				F5301BD626907F5900CC3AEF /* ImageHandler.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F5D3BBAE268DE8EF006D1C26 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F581A4B4268F2E4200CCD578 /* HomeView.swift */,
+				F581A4B6268F2F8000CCD578 /* MovieListView.swift */,
+				F581A4B8268F301400CCD578 /* MovieView.swift */,
+				F581A4C0268F3A6D00CCD578 /* MovieDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5D3BB99268DE775006D1C26 /* DareFilm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5D3BBA9268DE775006D1C26 /* Build configuration list for PBXNativeTarget "DareFilm" */;
+			buildPhases = (
+				F5D3BB96268DE775006D1C26 /* Sources */,
+				F5D3BB97268DE775006D1C26 /* Frameworks */,
+				F5D3BB98268DE775006D1C26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DareFilm;
+			productName = DareFilm;
+			productReference = F5D3BB9A268DE775006D1C26 /* DareFilm.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5D3BB92268DE775006D1C26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					F5D3BB99268DE775006D1C26 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = F5D3BB95268DE775006D1C26 /* Build configuration list for PBXProject "DareFilm" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5D3BB91268DE775006D1C26;
+			productRefGroup = F5D3BB9B268DE775006D1C26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5D3BB99268DE775006D1C26 /* DareFilm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5D3BB98268DE775006D1C26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5D3BBA5268DE775006D1C26 /* Preview Assets.xcassets in Resources */,
+				F5D3BBA2268DE775006D1C26 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5D3BB96268DE775006D1C26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F581A4C1268F3A6D00CCD578 /* MovieDetailView.swift in Sources */,
+				F5301BD5269072A800CC3AEF /* Keys.swift in Sources */,
+				F581A4B9268F301400CCD578 /* MovieView.swift in Sources */,
+				F581A4B5268F2E4200CCD578 /* HomeView.swift in Sources */,
+				F581A4BF268F35D100CCD578 /* Movie.swift in Sources */,
+				F581A4B7268F2F8000CCD578 /* MovieListView.swift in Sources */,
+				F581A4C3268F44D800CCD578 /* MovieViewModel.swift in Sources */,
+				F5301BD726907F5900CC3AEF /* ImageHandler.swift in Sources */,
+				F5D3BB9E268DE775006D1C26 /* DareFilmApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F5D3BBA7268DE775006D1C26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F5D3BBA8268DE775006D1C26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5D3BBAA268DE775006D1C26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DareFilm/Preview Content\"";
+				DEVELOPMENT_TEAM = 762W6V8USZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DareFilm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = loor.DareFilm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F5D3BBAB268DE775006D1C26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"DareFilm/Preview Content\"";
+				DEVELOPMENT_TEAM = 762W6V8USZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = DareFilm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = loor.DareFilm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5D3BB95268DE775006D1C26 /* Build configuration list for PBXProject "DareFilm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D3BBA7268DE775006D1C26 /* Debug */,
+				F5D3BBA8268DE775006D1C26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5D3BBA9268DE775006D1C26 /* Build configuration list for PBXNativeTarget "DareFilm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5D3BBAA268DE775006D1C26 /* Debug */,
+				F5D3BBAB268DE775006D1C26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5D3BB92268DE775006D1C26 /* Project object */;
+}
