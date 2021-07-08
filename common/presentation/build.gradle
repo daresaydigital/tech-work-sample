@@ -1,0 +1,8 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+dependencies {
+    implementation SupportLibraries.appcompat
+    implementation Libraries.navigation
+    implementation Libraries.navigationFrag
+    implementation project(Modules.navigation)
+}

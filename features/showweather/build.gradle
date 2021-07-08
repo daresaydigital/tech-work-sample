@@ -1,0 +1,57 @@
+apply from: "$rootDir/common-android-library.gradle"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    buildTypes {
+        release {
+            buildConfigField "String", "WEATHER_ENDPOINT", "\"${API.weatherServiceEndpoint}\""
+            buildConfigField "String", "WEATHER_API_KEY", "\"${API.weatherServiceKey}\""
+        }
+        debug {
+            buildConfigField "String", "WEATHER_ENDPOINT", "\"${API.weatherServiceEndpoint}\""
+            buildConfigField "String", "WEATHER_API_KEY", "\"${API.weatherServiceKey}\""
+        }
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation project(Modules.network)
+    implementation project(Modules.navigation)
+    implementation project(Modules.presentation)
+    implementation project(Modules.extensions)
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.cardview
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.constraintLayout
+    implementation SupportLibraries.legacySupport
+
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinViewModel
+    implementation Libraries.ktx
+    implementation Libraries.lifecycleExtensions
+    implementation Libraries.lifecycleViewModel
+    implementation Libraries.rxjava
+    implementation Libraries.rxkotlin
+    implementation Libraries.moshi
+    implementation Libraries.moshiConverter
+    implementation Libraries.navigation
+    implementation Libraries.navigationFrag
+
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
+}

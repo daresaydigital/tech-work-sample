@@ -1,0 +1,46 @@
+apply from: "$rootDir/common-android-library.gradle"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    buildTypes {
+        release {
+            buildConfigField "String", "PLACES_API_KEY", "\"${API.playServicesPlacesKey}\""
+        }
+        debug {
+            buildConfigField "String", "PLACES_API_KEY", "\"${API.playServicesPlacesKey}\""
+        }
+    }
+
+    testOptions {
+        animationsDisabled = true
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation project(Modules.network)
+    implementation project(Modules.navigation)
+    implementation project(Modules.presentation)
+    implementation project(Modules.extensions)
+    implementation project(Modules.locationProvider)
+
+    implementation SupportLibraries.design
+    implementation SupportLibraries.appcompat
+    implementation SupportLibraries.constraintLayout
+    implementation SupportLibraries.legacySupport
+
+    implementation Libraries.koinAndroid
+    implementation Libraries.koinViewModel
+    implementation Libraries.ktx
+    implementation Libraries.lifecycleExtensions
+    implementation Libraries.lifecycleViewModel
+    implementation Libraries.navigation
+    implementation Libraries.navigationFrag
+    implementation Libraries.places
+}

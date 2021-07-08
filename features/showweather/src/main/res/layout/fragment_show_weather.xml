@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/weatherDetail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:paddingStart="16dp"
+    android:paddingTop="?attr/actionBarSize"
+    android:paddingEnd="16dp"
+    tools:context=".ui.view.ShowWeatherFragment">
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Glasgow" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_wi_sunrise"
+        android:tint="@android:color/holo_orange_light"
+        app:layout_constraintBottom_toBottomOf="@+id/sunrise"
+        app:layout_constraintEnd_toStartOf="@+id/sunrise"
+        app:layout_constraintTop_toTopOf="@+id/sunrise" />
+
+    <TextView
+        android:id="@+id/sunrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/sunset"
+        app:layout_constraintEnd_toStartOf="@+id/sunset"
+        tools:text="08:42" />
+
+    <TextView
+        android:id="@+id/sunset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        tools:text="15:43" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sunset"
+        tools:text="23\u00B0C" />
+
+    <ImageView
+        android:id="@+id/weatherIcon"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:tint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        tools:src="@drawable/ic_wi_day_sunny" />
+
+    <TextView
+        android:id="@+id/windSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temp"
+        tools:text="14 km/h" />
+
+    <ImageView
+        android:id="@+id/windIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_wi_strong_wind"
+        android:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/windSpeed"
+        app:layout_constraintEnd_toStartOf="@+id/windSpeed"
+        app:layout_constraintTop_toTopOf="@+id/windSpeed" />
+
+    <TextView
+        android:id="@+id/weatherDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherIcon"
+        tools:text="A beautiful sunny day" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

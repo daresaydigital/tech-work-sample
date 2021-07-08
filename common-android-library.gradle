@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+}
+
+dependencies {
+    implementation Libraries.kotlin
+
+    testImplementation TestLibraries.junit
+    testImplementation TestLibraries.assertjCore
+    testImplementation TestLibraries.mockitoKotlin
+    testImplementation TestLibraries.mockitoInline
+    testImplementation TestLibraries.lifecycleTesting
+    testImplementation TestLibraries.espresso
+    testImplementation TestLibraries.espressoContrib
+
+    androidTestImplementation TestLibraries.junit
+    androidTestImplementation TestLibraries.assertjCore
+    androidTestImplementation TestLibraries.mockitoKotlin
+    androidTestImplementation TestLibraries.mockitoInline
+    androidTestImplementation TestLibraries.lifecycleTesting
+    androidTestImplementation TestLibraries.espresso
+    androidTestImplementation TestLibraries.espressoContrib
+}
