@@ -1,0 +1,71 @@
+<body>
+
+  <!-- Set current city -->
+  <div class="section">
+
+    <form>
+      {{#if hasSubmittedForm}}
+
+        {{#if cityExists}}
+        <h2>You're in</h2>
+        {{else}}
+        <h3>This place doesn't seem to exist, try another city.</h3>
+        {{/if}}
+
+      {{/if}}
+  	  <input type="text" autocomplete="off" name="{{#if currCity.name}}{{currCity.name}}{{else}}cityName{{/if}}" placeholder="Where are you?" required class="search-box" />
+  	</form>
+  </div>
+
+  <!-- Only show current city data if current city data exists -->
+  {{#if cityExists}}
+
+  <!-- For the current city object... -->
+    {{#with currCity}}
+
+    <!-- ...show the below if it has a name -->
+      {{#if name}}
+      <div class="section">
+        <h3>...where it is <i class="big-icon {{icon}}"></i> <h1>{{temp}}</h1>and {{description}}.</h3>
+      </div>
+      <div class="section">
+        <h3>Show me where it is currently...</h3>
+      </div>
+      <div class="options">
+        <i id="rain" class="option wi wi-rain"></i>
+        <i id="snow" class="option wi wi-snow"></i>
+        <i id="cloud" class="option wi wi-cloud"></i>
+        <i id="clear" class="option wi wi-day-sunny"></i>
+      </div>
+      <a href={{picLink}}><img class="pic-author" src={{picAuthor}} /></a>
+      {{/if}}
+    {{/with}}
+  {{else}}
+  <a href='https://unsplash.com/@bendavisual'><img class="pic-author" src='https://images.unsplash.com/profile-1525018026535-581938eb5586?dpr=1&auto=format&fit=crop&w=64&h=64&q=60&crop=faces&bg=fff' /></a>
+  {{/if}}
+
+{{#if loadingList}}
+<h3>Finding cities where it is currently <i class='selected-weather {{selectedIcon}}'></i> Hold on.</h3>
+{{/if}}
+
+{{#if textMessage}}
+<h3>{{textMessage}}</h3>
+{{/if}}
+
+{{#unless clearCitiesList}}
+
+  {{#if weatherList}}
+    {{#each weatherList}}
+    <a class="city-item" href={{link}}>
+      <div class="left-hand-of-darkness">
+        <h1>{{temp}}</h1>
+        <h2>{{name}}</h2>
+      </div>
+      <h2 class="right-hand-of-darkness">Take me there <i class='{{selectedIcon}}'></i></h2>
+    </a>
+    {{/each}}
+  {{/if}}
+
+{{/unless}}
+
+</body>

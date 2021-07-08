@@ -1,0 +1,274 @@
+// colors
+$bg: rgba(#3d3d3f, 0.7);
+$hovered-bg: rgba(#3d3d3f, 0.9);
+$text: #fff;
+$select: #efc5f8;
+
+// placeholders
+%center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+%one-line-spread {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+%block {
+  @extend %center-align;
+  border-radius: 2px;
+}
+
+%colors {
+  color: $text;
+  background-color: $bg;
+}
+
+%transition {
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+}
+
+// general
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %center-align;
+  flex-direction: column;
+  background: no-repeat center bottom fixed;
+  background-color: $select;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3 {
+  @extend %block;
+  min-width: fit-content;
+  font-family: Raleway;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  padding: 0 10px;
+}
+
+h2,
+h3 {
+  @extend %colors;
+}
+
+h2 {
+  padding: 8px 10px;
+}
+
+h3 {
+  @extend %center-align;
+  padding: 5px 10px;
+}
+
+form {
+  @extend %block;
+  @extend %colors;
+  display: inline-block;
+  text-align: -webkit-center;
+
+  h2,
+  h3  {
+    background-color: transparent;
+  }
+}
+
+a {
+  color: $text;
+  text-decoration: none;
+}
+
+// general components
+.section {
+  margin: 10px;
+}
+
+.big-icon {
+  margin: 0 10px;
+  font-size: 2.4rem;
+  animation: fade 1.5s;
+}
+
+// search section
+input {
+  @extend h2;
+  text-align: -webkit-center;
+  font-size: 2rem;
+  background-color: transparent;
+  text-transform: Capitalize;
+  border: 0;
+  outline: 0;
+  padding: 10px 0;
+}
+
+.search-box:-webkit-autofill,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: transparent;
+  -webkit-box-shadow: 0 0 0 100px #fff inset;
+}
+
+// option section - select desired weather type
+.options {
+  padding: 20px 10px;
+
+  i {
+    @extend %transition;
+    @extend %colors;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 2rem;
+    padding: 10px;
+    margin: 10px;
+
+    /* Gradual color transition and animation when for hovered/active options */
+    &:hover,
+    &.active,
+     {
+      font-size: 3rem;
+      color: $select;
+    }
+
+    &:hover {
+      animation: twirl 2.4s cubic-bezier(0, 0.2, 0.8, 1) 1;
+    }
+  }
+}
+
+.selected-weather {
+  color: $select;
+  font-size: 2rem;
+  margin: 0 8px;
+  animation: twirl 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+// list section - cities with the required weather
+.city-item {
+  @extend %transition;
+  @extend %center-align;
+  cursor: pointer;
+  width: 70%;
+  margin: 8px 0;
+
+  h2 {
+    background-color: transparent;
+  }
+
+  &:hover,
+  &:active {
+   width: 100%;
+   background-color: $hovered-bg;
+   justify-content: space-around;
+
+   .left-hand-of-darkness {
+     background-color: transparent;
+   }
+
+    .right-hand-of-darkness {
+      display: flex;
+      opacity: 1;
+    }
+  }
+}
+
+.left-hand-of-darkness {
+  @extend %colors;
+  display: flex;
+  min-width: fit-content;
+}
+
+.right-hand-of-darkness {
+  @extend %transition;
+  display: none;
+  align-items: right;
+  padding-right: 10px;
+  opacity: 0;
+  color: $select;
+
+
+  i {
+    font-size: 1.8rem;
+    padding-left: 8px;
+    color: $select;
+  }
+}
+
+// picture of unsplash author
+.pic-author {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 2px solid $bg;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+// loader
+@keyframes twirl {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}
+
+@keyframes fade {
+  0% {
+   opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .city-item {
+    width: 90%;
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
