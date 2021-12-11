@@ -3,4 +3,102 @@
    uuid = "6DBA445E-9181-48EE-9D92-9986682FFDF3"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9A40BCB-FA05-475B-A0AA-99815FDB93BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieDB/Features/Movie Details/MovieDetailsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "fetchMovieDetails(withID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E9A40BCB-FA05-475B-A0AA-99815FDB93BD - e89285f381527841"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieDB.MovieDetailsViewModel.fetchMovieDetails(withID: Swift.Int) -&gt; ()"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sani/Documents/Software/tech-work-sample/TheMovieDB/TheMovieDB/Features/Movie%20Details/MovieDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "227">
+               </Location>
+               <Location
+                  uuid = "E9A40BCB-FA05-475B-A0AA-99815FDB93BD - da978c99a86fca5f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TheMovieDB.MovieDetails, TheMovieDB.TMSError&gt;) -&gt; () in TheMovieDB.MovieDetailsViewModel.fetchMovieDetails(withID: Swift.Int) -&gt; ()"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sani/Documents/Software/tech-work-sample/TheMovieDB/TheMovieDB/Features/Movie%20Details/MovieDetailsViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "213">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53F2C978-C2CA-4554-B98F-F81340AC77A3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieDB/Networking/HTTPRequestImpl.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "get(from:params:returnType:completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "53F2C978-C2CA-4554-B98F-F81340AC77A3 - 7858942bde6d9669"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieDB.HTTPRequestImpl.get&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(from: Foundation.URL, params: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, returnType: &#x3c4;_0_0.Type, completed: (Swift.Result&lt;&#x3c4;_0_0, TheMovieDB.TMSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sani/Documents/Software/tech-work-sample/TheMovieDB/TheMovieDB/Networking/HTTPRequestImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "1894">
+               </Location>
+               <Location
+                  uuid = "53F2C978-C2CA-4554-B98F-F81340AC77A3 - 86cfc81a092ebf33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TheMovieDB.HTTPRequestImpl.get&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(from: Foundation.URL, params: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, returnType: &#x3c4;_0_0.Type, completed: (Swift.Result&lt;&#x3c4;_0_0, TheMovieDB.TMSError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Sani/Documents/Software/tech-work-sample/TheMovieDB/TheMovieDB/Networking/HTTPRequestImpl.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "365">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
