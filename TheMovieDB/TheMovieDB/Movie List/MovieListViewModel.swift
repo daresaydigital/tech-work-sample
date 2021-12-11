@@ -18,6 +18,7 @@ class MoviesListViewModel {
  
     var onShouldReloadTableView: (() -> Void)?
     var onLoadingStateShouldChange: ((LoadingState) -> Void)?
+    var onShowDetailViewController: ((MovieDetailsViewModel) -> Void)?
 
     typealias PopularInfo = (nextPage: Int, totalPage: Int)
     typealias TopRatedInfo = (nextPage: Int, totalPage: Int)
@@ -92,6 +93,26 @@ extension MoviesListViewModel {
         fetchMovieList()
     }
     
+    func didSelectMovie(at indexPath: IndexPath) {
+        
+        var selectedMovieId: Int?
+        switch self.listType
+        {
+        case .popular:
+            selectedMovieId = self.popularMoviesArray[indexPath.row].id
+        case .topRated:
+            selectedMovieId = self.topRatedMoviesArray[indexPath.row].id
+        }
+        
+        guard let selectedMovieId = selectedMovieId else {
+            assertionFailure("Internal failure: MovieId not found")
+            return
+        }
+        
+        let movieDetailsVM = MovieDetailsViewModel(MovieDetailsService: MovieDetailsAPIServiceImpl(httpRequest: HTTPRequestImpl()), movieId: selectedMovieId)
+        onShowDetailViewController?(movieDetailsVM)
+    }
+
     func movieSegmentDidChange(selectedSegmentIndex: Int) {
         
         switch selectedSegmentIndex

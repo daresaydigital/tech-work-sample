@@ -21,6 +21,7 @@ class MovieListVC: UIViewController {
         
         // tableview
         moviesTableView.dataSource = self
+        moviesTableView.delegate = self
 
         viewModel = MoviesListViewModel(movieListServices: MovieListAPIServiceImpl(httpRequest: HTTPRequestImpl()))
         registerMovieCell()
@@ -47,6 +48,16 @@ class MovieListVC: UIViewController {
                 self?.loadingView.hide()
                 self?.showErrorIfDisplayable(error: error)
             }
+        }
+        viewModel.onShowDetailViewController = { viewModel in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            guard let movieDetailsVC = storyboard.instantiateViewController(withIdentifier: "MovieDetailsVC") as? MovieDetailsVC else {
+                assertionFailure("Failed to create movie details view controller")
+                return
+            }
+            movieDetailsVC.viewModel = viewModel
+            self.navigationController?.pushViewController(movieDetailsVC, animated: true)
         }
     }
     
@@ -79,6 +90,14 @@ extension MovieListVC : UITableViewDataSource {
         
         cell.selectionStyle = .none
         return cell
+    }
+}
+
+//MARK: - Tableview Delegate
+extension MovieListVC : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectMovie(at: indexPath)
     }
 }
 
