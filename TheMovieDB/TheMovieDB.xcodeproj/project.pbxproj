@@ -27,6 +27,7 @@
 		22812A1E2764D0DA002A8878 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A1D2764D0DA002A8878 /* LoadingView.swift */; };
 		22812A202764D252002A8878 /* UIViewController+UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A1F2764D252002A8878 /* UIViewController+UIAlert.swift */; };
 		22812A222764DA98002A8878 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A212764DA98002A8878 /* MovieDetails.swift */; };
+		22812A242764DBB0002A8878 /* MovieDetailsAPIServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A232764DBB0002A8878 /* MovieDetailsAPIServiceImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		22812A1D2764D0DA002A8878 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		22812A1F2764D252002A8878 /* UIViewController+UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlert.swift"; sourceTree = "<group>"; };
 		22812A212764DA98002A8878 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
+		22812A232764DBB0002A8878 /* MovieDetailsAPIServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsAPIServiceImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				22812A0427649D92002A8878 /* MovieListAPIServiceImpl.swift */,
+				22812A232764DBB0002A8878 /* MovieDetailsAPIServiceImpl.swift */,
 				22812A0C2764A090002A8878 /* HTTPRequestImpl.swift */,
 			);
 			path = "API Services";
@@ -380,6 +383,7 @@
 				22812A1E2764D0DA002A8878 /* LoadingView.swift in Sources */,
 				22812A122764A8EA002A8878 /* MovieListVC.swift in Sources */,
 				228129D327649576002A8878 /* ViewController.swift in Sources */,
+				22812A242764DBB0002A8878 /* MovieDetailsAPIServiceImpl.swift in Sources */,
 				22812A102764A8C0002A8878 /* MovieListViewModel.swift in Sources */,
 				228129CF27649576002A8878 /* AppDelegate.swift in Sources */,
 				22812A0D2764A090002A8878 /* HTTPRequestImpl.swift in Sources */,
