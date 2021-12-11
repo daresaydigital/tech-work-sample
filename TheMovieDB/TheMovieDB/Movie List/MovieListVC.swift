@@ -22,8 +22,14 @@ class MovieListVC: UIViewController {
         moviesTableView.dataSource = self
 
         viewModel = MoviesListViewModel(movieListServices: MovieListAPIServiceImpl(httpRequest: HTTPRequestImpl()))
+        registerMovieCell()
         bind()
         viewModel.viewDidLoad()
+    }
+    
+    func registerMovieCell() {
+        let movieCell = UINib(nibName: "MovieTableViewCell", bundle: nil)
+        self.moviesTableView.register(movieCell, forCellReuseIdentifier: MovieTableViewCell.identifier)
     }
     
     func bind() {
@@ -43,13 +49,23 @@ class MovieListVC: UIViewController {
 extension MovieListVC : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = UITableViewCell()
+        guard let cell:MovieTableViewCell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier,
+                                                       for: indexPath) as? MovieTableViewCell else {
+            let cell: UITableViewCell = UITableViewCell()
+            return cell
+        }
 
+        guard let cellData = viewModel.getCellData(for: indexPath) else {
+            return cell
+        }
+        cell.configure(movieData: cellData)
+        
+        cell.selectionStyle = .none
         return cell
     }
 }

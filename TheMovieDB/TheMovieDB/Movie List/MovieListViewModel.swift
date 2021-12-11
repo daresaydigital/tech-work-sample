@@ -66,7 +66,6 @@ class MoviesListViewModel {
             
         }
     }
-
 }
 
 // MARK: - View Actions
@@ -97,5 +96,27 @@ extension MoviesListViewModel {
         }
         
         fetchMovieList()
+    }
+    
+    func getCellData(for indexPath: IndexPath) -> Movie? {
+        
+        switch self.listType
+        {
+        case .popular:
+            return self.popularMoviesArray[indexPath.row]
+        case .topRated:
+            return self.topRatedMoviesArray[indexPath.row]
+        }
+    }
+    
+    var numberOfRows: Int {
+        
+        switch self.listType
+        {
+        case .popular:
+            return self.popularMoviesArray.count
+        case .topRated:
+            return self.topRatedMoviesArray.count
+        }
     }
 }
