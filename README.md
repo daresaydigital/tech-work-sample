@@ -2,7 +2,7 @@
 
 <div style="width:830px; background-color:white; height:120px; overflow:auto;">
         <div style="width: 2000px; height: 90px;">
-            <img src="https://github.com/adriansergheev/tech-work-sample/blob/master/AppScreens/TheMovieAppMockup.png" width=500/>
+            <img src="https://github.com/AliSani/tech-work-sample/blob/master/AppScreens/TheMovieAppMockup.png" width=500/>
     </div>
 
 # Features
