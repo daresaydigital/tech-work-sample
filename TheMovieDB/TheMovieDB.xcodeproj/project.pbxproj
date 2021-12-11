@@ -26,6 +26,7 @@
 		22812A1B2764C990002A8878 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 22812A1A2764C990002A8878 /* SDWebImage */; };
 		22812A1E2764D0DA002A8878 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A1D2764D0DA002A8878 /* LoadingView.swift */; };
 		22812A202764D252002A8878 /* UIViewController+UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A1F2764D252002A8878 /* UIViewController+UIAlert.swift */; };
+		22812A222764DA98002A8878 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22812A212764DA98002A8878 /* MovieDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		22812A162764BFB2002A8878 /* MovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 		22812A1D2764D0DA002A8878 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		22812A1F2764D252002A8878 /* UIViewController+UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlert.swift"; sourceTree = "<group>"; };
+		22812A212764DA98002A8878 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				22812A0127649B3A002A8878 /* Movie.swift */,
+				22812A212764DA98002A8878 /* MovieDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				22812A0527649D92002A8878 /* MovieListAPIServiceImpl.swift in Sources */,
 				22812A0827649E2A002A8878 /* TMError.swift in Sources */,
 				22812A202764D252002A8878 /* UIViewController+UIAlert.swift in Sources */,
+				22812A222764DA98002A8878 /* MovieDetails.swift in Sources */,
 				22812A1E2764D0DA002A8878 /* LoadingView.swift in Sources */,
 				22812A122764A8EA002A8878 /* MovieListVC.swift in Sources */,
 				228129D327649576002A8878 /* ViewController.swift in Sources */,
