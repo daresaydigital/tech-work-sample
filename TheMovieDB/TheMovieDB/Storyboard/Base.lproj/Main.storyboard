@@ -36,6 +36,14 @@
                                     <outlet property="delegate" destination="dks-qA-dHP" id="RBA-Kg-bMp"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b32-im-GAD" customClass="LoadingView" customModule="TheMovieDB" customModuleProvider="target">
+                                <rect key="frame" x="157" y="425" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="CdA-ae-7o8"/>
+                                    <constraint firstAttribute="width" constant="100" id="o87-8v-0ev"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eGk-hT-O5L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -44,6 +52,8 @@
                             <constraint firstItem="7xE-tN-fZ4" firstAttribute="trailing" secondItem="eGk-hT-O5L" secondAttribute="trailing" id="F1q-gP-2BR"/>
                             <constraint firstItem="7xE-tN-fZ4" firstAttribute="leading" secondItem="eGk-hT-O5L" secondAttribute="leading" id="FiY-iZ-TRs"/>
                             <constraint firstItem="7xE-tN-fZ4" firstAttribute="bottom" secondItem="eGk-hT-O5L" secondAttribute="bottom" id="dTB-zN-8kk"/>
+                            <constraint firstItem="b32-im-GAD" firstAttribute="centerX" secondItem="eGk-hT-O5L" secondAttribute="centerX" id="mbW-Cz-P6p"/>
+                            <constraint firstItem="b32-im-GAD" firstAttribute="centerY" secondItem="eGk-hT-O5L" secondAttribute="centerY" id="oHs-YI-uQ9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="The Movie DB" id="tOB-Hw-VrX">
@@ -51,6 +61,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="filterSegment" destination="Xfk-ve-5gC" id="s4z-T2-Q1x"/>
+                        <outlet property="loadingView" destination="b32-im-GAD" id="Oc6-aP-7SK"/>
                         <outlet property="moviesTableView" destination="7xE-tN-fZ4" id="H84-YH-EKM"/>
                     </connections>
                 </viewController>

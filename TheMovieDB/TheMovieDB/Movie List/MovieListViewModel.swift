@@ -8,10 +8,17 @@
 import Foundation
 import UIKit
 
+enum LoadingState {
+    case loading
+    case loaded
+    case failed(TMSError)
+}
+
 class MoviesListViewModel {
  
     var onShouldReloadTableView: (() -> Void)?
-    
+    var onLoadingStateShouldChange: ((LoadingState) -> Void)?
+
     typealias PopularInfo = (nextPage: Int, totalPage: Int)
     typealias TopRatedInfo = (nextPage: Int, totalPage: Int)
     private var listConfig: (popular: PopularInfo, topRated: TopRatedInfo)
@@ -53,15 +60,18 @@ class MoviesListViewModel {
     }
 
     private func fetchMovieList() {
-                
+        
+        onLoadingStateShouldChange?(.loading)
+
         let pageNumber = (listType == .popular) ? listConfig.popular.nextPage : listConfig.topRated.nextPage
         movieListService.getMoviesList(for: listType, pageNumber: pageNumber ) { [weak self] result in
             
             switch result {
             case .success(let response):
                 self?.didSuccessfullyReceiveResponse(response: response)
-            case .failure(_):
-                return
+                self?.onLoadingStateShouldChange?(.loaded)
+            case .failure(let error):
+                self?.onLoadingStateShouldChange?(.failed(error))
             }
         }
     }

@@ -11,6 +11,7 @@ class MovieListVC: UIViewController {
 
     @IBOutlet weak var moviesTableView: UITableView!
     @IBOutlet weak var filterSegment: UISegmentedControl!
+    @IBOutlet weak var loadingView: LoadingView!
 
     var viewModel: MoviesListViewModel!
 
@@ -35,6 +36,17 @@ class MovieListVC: UIViewController {
     func bind() {
         viewModel.onShouldReloadTableView = { [weak self] in
             self?.moviesTableView.reloadData()
+        }
+        viewModel.onLoadingStateShouldChange = { [weak self] state in
+            switch state {
+            case .loading:
+                self?.loadingView.unHide()
+            case .loaded:
+                self?.loadingView.hide()
+            case .failed(let error):
+                self?.loadingView.hide()
+                self?.showErrorIfDisplayable(error: error)
+            }
         }
     }
     
