@@ -10,24 +10,48 @@ import XCTest
 
 class TheMovieDBTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewModel: MovieDetailsViewModel!
+    
+    override func setUp() {
+        super.setUp()
+        viewModel = MovieDetailsViewModel(MovieDetailsService: MovieDetailsAPIServiceFake(), movieId: 0)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testNumberOfRowsReturnsZeroWhenMovieDetailsIsNil() {
+        viewModel.movieDetails = nil
+        XCTAssert(viewModel.numberOfRows == 0)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testNumberOfRowsReturnsOneWhenMovieDetailsIsNotNil() {
+        viewModel.movieDetails = FakeModels.FakeMovieDetails
+        XCTAssert(viewModel.numberOfRows == 1)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testCellDataReturnsMovieDetailsForAnyIndexPath() {
+        viewModel.movieDetails = FakeModels.FakeMovieDetails
+        var result = viewModel.getCellData(for: IndexPath(row: 0, section: 0))
+        XCTAssertEqual(result, FakeModels.FakeMovieDetails)
+        
+        result = viewModel.getCellData(for: IndexPath(row: 1, section: 1))
+        XCTAssertEqual(result, FakeModels.FakeMovieDetails)
+        
+        result = viewModel.getCellData(for: IndexPath(row: 1, section: 0))
+        XCTAssertEqual(result, FakeModels.FakeMovieDetails)
+    }
+    
+    func testAsksForReloadWhenMovieDetailsIsSet() {
+        let expectation = self.expectation(description: "loadingState")
+        
+        viewModel.onShouldReloadTableView = {
+            expectation.fulfill()
         }
+        
+        viewModel.movieDetails = FakeModels.FakeMovieDetails
+        waitForExpectations(timeout: 2, handler: nil)
     }
-
+    
+    func testMovieDetailsIsSetWhenAPICallSucceeded() {
+        viewModel.viewDidLoad()
+        XCTAssertEqual(viewModel.movieDetails, FakeModels.FakeMovieDetails)
+    }
 }
