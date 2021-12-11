@@ -70,3 +70,14 @@ extension MovieListVC : UITableViewDataSource {
     }
 }
 
+//MARK: - UIScrollViewDelegate
+extension MovieListVC : UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 20.0 {
+            viewModel.listReachedBottom()
+        }
+    }
+}

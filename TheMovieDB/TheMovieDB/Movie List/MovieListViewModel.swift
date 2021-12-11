@@ -63,8 +63,14 @@ class MoviesListViewModel {
             case .failure(_):
                 return
             }
-            
         }
+    }
+    
+    private func shouldLoadMorePages() -> Bool {
+        
+        return (listType == .popular) ?
+            listConfig.popular.nextPage <= listConfig.popular.totalPage:
+            listConfig.topRated.nextPage <= listConfig.topRated.totalPage
     }
 }
 
@@ -119,4 +125,11 @@ extension MoviesListViewModel {
             return self.topRatedMoviesArray.count
         }
     }
+    
+    func listReachedBottom(){
+        guard shouldLoadMorePages() else { return }
+    
+        fetchMovieList()
+    }
+
 }

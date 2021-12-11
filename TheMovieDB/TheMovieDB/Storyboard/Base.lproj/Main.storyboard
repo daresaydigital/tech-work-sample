@@ -33,6 +33,7 @@
                                 </segmentedControl>
                                 <connections>
                                     <outlet property="dataSource" destination="dks-qA-dHP" id="P0j-Ul-H1N"/>
+                                    <outlet property="delegate" destination="dks-qA-dHP" id="RBA-Kg-bMp"/>
                                 </connections>
                             </tableView>
                         </subviews>
