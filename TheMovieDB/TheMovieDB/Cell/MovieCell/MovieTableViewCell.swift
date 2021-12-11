@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieTableViewCell: UITableViewCell {
 
@@ -29,7 +30,7 @@ class MovieTableViewCell: UITableViewCell {
         titleLabel.text = movieData.title
         releaseDateLabel.text = movieData.releaseDate.releaseFormattedDate
         rateLabel.text = "\(movieData.voteAverage)"
-        
+        posterImageView.sd_setImage(with: movieData.posterURL, placeholderImage: UIImage(named: "placeholder.png"))
     }
     
     // MARK: - Private
