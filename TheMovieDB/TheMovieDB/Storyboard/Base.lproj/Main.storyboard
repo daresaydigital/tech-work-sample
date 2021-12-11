@@ -1,24 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RUq-rJ-rcu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--The Movie DB-->
+        <scene sceneID="HBp-DL-IDW">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="dks-qA-dHP" customClass="MovieListVC" customModule="TheMovieDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i1f-jQ-qrP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-tN-fZ4">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" id="Xfk-ve-5gC">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <segments>
+                                        <segment title="Popular"/>
+                                        <segment title="Top rated"/>
+                                    </segments>
+                                    <color key="selectedSegmentTintColor" red="0.7760672569" green="0.62732845540000004" blue="0.29786023499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <connections>
+                                        <action selector="filterSegmentChanged:" destination="dks-qA-dHP" eventType="valueChanged" id="feG-8U-Tfr"/>
+                                    </connections>
+                                </segmentedControl>
+                                <connections>
+                                    <outlet property="dataSource" destination="dks-qA-dHP" id="P0j-Ul-H1N"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eGk-hT-O5L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7xE-tN-fZ4" firstAttribute="top" secondItem="eGk-hT-O5L" secondAttribute="top" id="0MV-xr-WxB"/>
+                            <constraint firstItem="7xE-tN-fZ4" firstAttribute="trailing" secondItem="eGk-hT-O5L" secondAttribute="trailing" id="F1q-gP-2BR"/>
+                            <constraint firstItem="7xE-tN-fZ4" firstAttribute="leading" secondItem="eGk-hT-O5L" secondAttribute="leading" id="FiY-iZ-TRs"/>
+                            <constraint firstItem="7xE-tN-fZ4" firstAttribute="bottom" secondItem="eGk-hT-O5L" secondAttribute="bottom" id="dTB-zN-8kk"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="The Movie DB" id="tOB-Hw-VrX">
+                        <barButtonItem key="backBarButtonItem" title=" " id="FrU-9B-ZGl"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="filterSegment" destination="Xfk-ve-5gC" id="s4z-T2-Q1x"/>
+                        <outlet property="moviesTableView" destination="7xE-tN-fZ4" id="H84-YH-EKM"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DLI-Kr-GI2" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="93.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oHJ-X7-ETl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RUq-rJ-rcu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="HMa-b3-VHT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.7760672569" green="0.62732845540000004" blue="0.29786023499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textShadowColor" red="0.7760672569" green="0.62732845540000004" blue="0.29786023499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.7760672569" green="0.62732845540000004" blue="0.29786023499999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dks-qA-dHP" kind="relationship" relationship="rootViewController" id="ami-8A-WJC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3n4-pf-Gqb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

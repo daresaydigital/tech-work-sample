@@ -1,0 +1,101 @@
+//
+//  MovieListViewModel.swift
+//  TheMovieDB
+//
+//  Created by Ali Sani on 12/11/21.
+//
+
+import Foundation
+import UIKit
+
+class MoviesListViewModel {
+ 
+    var onShouldReloadTableView: (() -> Void)?
+    
+    typealias PopularInfo = (nextPage: Int, totalPage: Int)
+    typealias TopRatedInfo = (nextPage: Int, totalPage: Int)
+    private var listConfig: (popular: PopularInfo, topRated: TopRatedInfo)
+    
+    var listType: MovieListType
+
+    var popularMoviesArray: [Movie] = [] {
+        didSet {
+            onShouldReloadTableView?()
+        }
+    }
+    var topRatedMoviesArray: [Movie] = [] {
+        didSet {
+            onShouldReloadTableView?()
+        }
+    }
+
+    private var movieListService : MovieListAPIService!
+    
+    init(movieListServices: MovieListAPIService) {
+        self.movieListService = movieListServices
+        // Defaults
+        listConfig = ((1,1), (1,1))
+        self.listType = .popular
+    }
+    
+    private func didSuccessfullyReceiveResponse(response: MoviesResponse) {
+        
+        switch listType {
+        case .popular:
+            self.listConfig.popular.nextPage = self.listConfig.popular.nextPage + 1
+            self.listConfig.popular.totalPage = response.totalPages
+            self.popularMoviesArray.append(contentsOf: response.results)
+        case .topRated:
+            self.listConfig.topRated.nextPage = self.listConfig.topRated.nextPage + 1
+            self.listConfig.topRated.totalPage = response.totalPages
+            self.topRatedMoviesArray.append(contentsOf: response.results)
+        }
+    }
+
+    private func fetchMovieList() {
+                
+        let pageNumber = (listType == .popular) ? listConfig.popular.nextPage : listConfig.topRated.nextPage
+        movieListService.getMoviesList(for: listType, pageNumber: pageNumber ) { [weak self] result in
+            
+            switch result {
+            case .success(let response):
+                self?.didSuccessfullyReceiveResponse(response: response)
+            case .failure(_):
+                return
+            }
+            
+        }
+    }
+
+}
+
+// MARK: - View Actions
+
+extension MoviesListViewModel {
+    
+    func viewDidLoad(){
+        fetchMovieList()
+    }
+    
+    func movieSegmentDidChange(selectedSegmentIndex: Int) {
+        
+        switch selectedSegmentIndex
+        {
+        case 0:
+            self.listType = .popular
+            guard self.popularMoviesArray.count == 0 else {
+                onShouldReloadTableView?()
+                return
+            }
+        case 1:
+            self.listType = .topRated
+            guard self.topRatedMoviesArray.count == 0 else {
+                onShouldReloadTableView?()
+                return
+            }
+        default: ()
+        }
+        
+        fetchMovieList()
+    }
+}
