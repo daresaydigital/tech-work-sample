@@ -1,44 +1,30 @@
-# Work sample - Application developer
+# The Movie DB
 
-## Assignment
+<div style="width:830px; background-color:white; height:120px; overflow:auto;">
+        <div style="width: 2000px; height: 90px;">
+            <img src="https://github.com/AliSani/tech-work-sample/blob/master/AppScreens/TheMovieAppMockup.png" width=500/>
+    </div>
 
-- Build an awesome movie app that shows popular and high rated movies.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+# Features
+- [x] Home view: Shows list of movies could be filtered by popular or top rated by a segment
+- [x] Movie details view: Shows details of a movie including the overview, genres and posters.
+- [x] Pagination for movie lists
+- [x] Memory caching for filtering: No extra requests are sent to backend when filter is changed if data already exists in memory.
+- [x] Architecture: MVVM, protocol oriented, covering SOLID principles, inversion of control (dependency injection via protocols instead of concerete types), error handlings. 
+- [x] Unit Test demonstration for movie details view model
+- [x] UI Test demonstration
 
-## Requirements
 
-- Use an open https://developers.themoviedb.org/open source API. Please read the API [Authentication section](https://developers.themoviedb.org/3/getting-started/authentication) to get started.
-- Discover most popular and highly rated movies.
-- Display the movies with creative look and feel of an app to meet design guidelines for your platform (Material Design etc.).
-- Launch a detail screen whenever a particular movie is selected.
+# Tech discussions
 
-## Examples of bonus features
+* Due to my UI/UX design experience we have discussed earlier, I used my budget for both tech and design parts to demonstrate both.  
+  * Due to simplicity of the requirements no complex or advanced networking is been implemented and the shared `URLSession` has been used. Usually I go with using Almofire which was an overkill for this project.
+  * For the binding between view and viewmodel I have used clousures.
+  * There is no coordinator implemeted since there is very few navigations in the project. 
+  * Dependency Injection: Please check the view models where there API services are injected as protocols instead of concerete types. So we can easily create fakes for our unit testing purposes.
+  * I have put a few unit tests to just demonstrate the testability of the the view models but in a real project full unit test coverage for view models is preffered.
+  * I have put a few UI tests to just demonstrate it but due to shortage of time I did not use mocked data and am testing against real data which should definitely be changed, thus I have put a TODO in code instead of putting more time than the budget. 
+  * I have used storyboard and XIB for creating the most of UI parts but have also created the `LoadingView` programmatically to just demonstrate the preffered way of creating UIs for biggers teams to avoid conflicts.    
 
-- Allow user to save a favorite movie for offline access.
-- Allow user to read movie reviews.
-
-## We expect you to
-
-- Write clean code.
-- Create a responsive design.
-- Handle error cases.
-- Use the latest libraries and technologies.
-- Tested code is a big plus.
-
-### User experience
-
-The features of the app might be few, but we expect you to deliver a solution with a high user experience. Imagine this application to be used by real users, with real needs. Make it interesting, fun and intuitive to use. And of course you are allowed to extend your applications functionality.
-
-### Code
-
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
-
-## Delivery
-
-Fork the repository, code in your fork and make a pull request when done. A nice commit history describing your work is preferred over squashing it into one commit.
-Also send us an e-mail to let us know!
-
-### Good luck!
-
----
-
+## How to run:
+Clone the repo and open TheMovieDB.xcodeproj.
