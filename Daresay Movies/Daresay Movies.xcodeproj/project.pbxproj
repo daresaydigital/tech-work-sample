@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		0FC598325C86BD80EB642891 /* libPods-Daresay Movies-Daresay MoviesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Daresay Movies-Daresay MoviesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A86DAB5A31D669AB61C228D /* Pods-Daresay Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies.debug.xcconfig"; path = "Target Support Files/Pods-Daresay Movies/Pods-Daresay Movies.debug.xcconfig"; sourceTree = "<group>"; };
-		7B655AC027675C690045C710 /* Daresay Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daresay Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B655AC027675C690045C710 /* DaMovies Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaMovies Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B655ACA27675C690045C710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		7B655AFC276779040045C710 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		7B93E24C2767B3A900D5DD07 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		7B93E24F2767B47700D5DD07 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
+		7B93E2522767B5D800D5DD07 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		7B93E2532767B5E900D5DD07 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		7D49A58F839CA1265B438AF1 /* Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Daresay Movies-Daresay MoviesUITests/Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9147351F64134092812D4963 /* Pods-Daresay MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay MoviesTests.release.xcconfig"; path = "Target Support Files/Pods-Daresay MoviesTests/Pods-Daresay MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7A6FA2DA7E4D0C034F37DED /* Pods-Daresay Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies.release.xcconfig"; path = "Target Support Files/Pods-Daresay Movies/Pods-Daresay Movies.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,7 +116,7 @@
 		7B655AC127675C690045C710 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7B655AC027675C690045C710 /* Daresay Movies.app */,
+				7B655AC027675C690045C710 /* DaMovies Dev.app */,
 				7B655AD927675C6B0045C710 /* Daresay MoviesTests.xctest */,
 				7B655AE327675C6B0045C710 /* Daresay MoviesUITests.xctest */,
 			);
@@ -124,6 +126,7 @@
 		7B655AC227675C690045C710 /* Daresay Movies */ = {
 			isa = PBXGroup;
 			children = (
+				7B93E2512767B5B100D5DD07 /* XcodeConfig */,
 				7B655AF8276777E20045C710 /* UIKitUtilities */,
 				7B655AF62767776E0045C710 /* Utilities */,
 				7B655AC327675C690045C710 /* AppDelegate.swift */,
@@ -212,6 +215,15 @@
 			path = Deeplink;
 			sourceTree = "<group>";
 		};
+		7B93E2512767B5B100D5DD07 /* XcodeConfig */ = {
+			isa = PBXGroup;
+			children = (
+				7B93E2532767B5E900D5DD07 /* Production.xcconfig */,
+				7B93E2522767B5D800D5DD07 /* Dev.xcconfig */,
+			);
+			path = XcodeConfig;
+			sourceTree = "<group>";
+		};
 		B5B394CD48A787858C0717D5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +265,7 @@
 			);
 			name = "Daresay Movies";
 			productName = "Daresay Movies";
-			productReference = 7B655AC027675C690045C710 /* Daresay Movies.app */;
+			productReference = 7B655AC027675C690045C710 /* DaMovies Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7B655AD827675C6B0045C710 /* Daresay MoviesTests */ = {
@@ -502,6 +514,7 @@
 /* Begin XCBuildConfiguration section */
 		7B655AEB27675C6B0045C710 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B93E2522767B5D800D5DD07 /* Dev.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -551,18 +564,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		7B655AEC27675C6B0045C710 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B93E2532767B5E900D5DD07 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -606,12 +621,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -620,7 +636,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A86DAB5A31D669AB61C228D /* Pods-Daresay Movies.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -629,19 +645,20 @@
 				INFOPLIST_FILE = "Daresay Movies/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.beyrami.Daresay-Movies";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -649,7 +666,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7A6FA2DA7E4D0C034F37DED /* Pods-Daresay Movies.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "$(APP_ICON)";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -658,19 +675,20 @@
 				INFOPLIST_FILE = "Daresay Movies/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.beyrami.Daresay-Movies";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(BASE_BUNDLE_ID)";
+				PRODUCT_NAME = "$(APP_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

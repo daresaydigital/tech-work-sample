@@ -1,0 +1,15 @@
+//
+//  Dev.xcconfig
+//  Daresay Movies
+//
+//  Created by Emad Bayramy on 12/13/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = DaMovies Dev
+BASE_BUNDLE_ID = com.beyrami.Daresay-Movies.dev
+URL_SCHEME = damovies
+APP_ICON = AppIcon-dev
+BASE_API_URL = https:\/\/api.themoviedb.org\/
