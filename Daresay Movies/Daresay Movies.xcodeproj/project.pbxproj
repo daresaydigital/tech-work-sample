@@ -18,6 +18,9 @@
 		7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7572767DE37004D1473 /* FlowControlViewController.swift */; };
 		7B42E75A2767E238004D1473 /* FlowControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B42E7592767E238004D1473 /* FlowControl.storyboard */; };
 		7B42E7632767E9EE004D1473 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7622767E9EE004D1473 /* HomeCoordinator.swift */; };
+		7B42E7672767F34A004D1473 /* HomeMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7662767F34A004D1473 /* HomeMovieCell.swift */; };
+		7B42E7692767F377004D1473 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7682767F377004D1473 /* TestModel.swift */; };
+		7B42E76B2767F443004D1473 /* HomeMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B42E76A2767F443004D1473 /* HomeMovieCell.xib */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
 		7B655AC827675C690045C710 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* HomeViewController.swift */; };
 		7B655ACB27675C690045C710 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B655AC927675C690045C710 /* Home.storyboard */; };
@@ -68,6 +71,9 @@
 		7B42E7572767DE37004D1473 /* FlowControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlViewController.swift; sourceTree = "<group>"; };
 		7B42E7592767E238004D1473 /* FlowControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlowControl.storyboard; sourceTree = "<group>"; };
 		7B42E7622767E9EE004D1473 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		7B42E7662767F34A004D1473 /* HomeMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMovieCell.swift; sourceTree = "<group>"; };
+		7B42E7682767F377004D1473 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		7B42E76A2767F443004D1473 /* HomeMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMovieCell.xib; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* DaMovies Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaMovies Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -182,9 +188,7 @@
 			children = (
 				7B42E7602767E3EA004D1473 /* Coordinator */,
 				7B42E7612767E3F2004D1473 /* Service */,
-				7B42E75F2767E3E3004D1473 /* Model */,
-				7B42E75E2767E3DC004D1473 /* ViewModel */,
-				7B42E75D2767E3D1004D1473 /* View */,
+				7B42E7642767F273004D1473 /* HomeView */,
 			);
 			path = HomeScene;
 			sourceTree = "<group>";
@@ -192,6 +196,7 @@
 		7B42E75D2767E3D1004D1473 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7B42E7652767F31F004D1473 /* Cell */,
 				7B655AC727675C690045C710 /* HomeViewController.swift */,
 				7B655AC927675C690045C710 /* Home.storyboard */,
 			);
@@ -208,6 +213,7 @@
 		7B42E75F2767E3E3004D1473 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7B42E7682767F377004D1473 /* TestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,6 +231,25 @@
 			children = (
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		7B42E7642767F273004D1473 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E75F2767E3E3004D1473 /* Model */,
+				7B42E75E2767E3DC004D1473 /* ViewModel */,
+				7B42E75D2767E3D1004D1473 /* View */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		7B42E7652767F31F004D1473 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7662767F34A004D1473 /* HomeMovieCell.swift */,
+				7B42E76A2767F443004D1473 /* HomeMovieCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		7B655AB727675C690045C710 = {
@@ -490,6 +515,7 @@
 				7B655AD327675C6B0045C710 /* LaunchScreen.storyboard in Resources */,
 				7B42E73F2767D0C1004D1473 /* Localizable.strings in Resources */,
 				7B655AD027675C6B0045C710 /* Assets.xcassets in Resources */,
+				7B42E76B2767F443004D1473 /* HomeMovieCell.xib in Resources */,
 				7B655ACB27675C690045C710 /* Home.storyboard in Resources */,
 				7B42E75A2767E238004D1473 /* FlowControl.storyboard in Resources */,
 			);
@@ -610,6 +636,7 @@
 				7B93E2502767B47700D5DD07 /* Deeplink.swift in Sources */,
 				7B655AC827675C690045C710 /* HomeViewController.swift in Sources */,
 				7B42E7492767D2AA004D1473 /* UserDefaultStorage.swift in Sources */,
+				7B42E7672767F34A004D1473 /* HomeMovieCell.swift in Sources */,
 				7B42E74D2767D8FF004D1473 /* main.swift in Sources */,
 				7B42E7502767D957004D1473 /* LanguageManager.swift in Sources */,
 				7B42E7532767DA81004D1473 /* Bundle+SetLanguage.swift in Sources */,
@@ -617,6 +644,7 @@
 				7B655AFD276779040045C710 /* Storyboarded.swift in Sources */,
 				7B655AC427675C690045C710 /* AppDelegate.swift in Sources */,
 				7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */,
+				7B42E7692767F377004D1473 /* TestModel.swift in Sources */,
 				7B655ACE27675C690045C710 /* Daresay_Movies.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
