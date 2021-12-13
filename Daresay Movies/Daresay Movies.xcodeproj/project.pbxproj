@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6531228A1E3EBB90B2155EBB /* libPods-Daresay Movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEDA65F33F74A422D79DBF0 /* libPods-Daresay Movies.a */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
 		7B655AC627675C690045C710 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC527675C690045C710 /* SceneDelegate.swift */; };
 		7B655AC827675C690045C710 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* ViewController.swift */; };
@@ -17,6 +18,8 @@
 		7B655ADE27675C6B0045C710 /* Daresay_MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655ADD27675C6B0045C710 /* Daresay_MoviesTests.swift */; };
 		7B655AE827675C6B0045C710 /* Daresay_MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AE727675C6B0045C710 /* Daresay_MoviesUITests.swift */; };
 		7B655AEA27675C6B0045C710 /* Daresay_MoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AE927675C6B0045C710 /* Daresay_MoviesUITestsLaunchTests.swift */; };
+		8BC23F020EEEC97A687CBCA6 /* libPods-Daresay Movies-Daresay MoviesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC598325C86BD80EB642891 /* libPods-Daresay Movies-Daresay MoviesUITests.a */; };
+		D7E22CDA3B0D3AB9EE5C584B /* libPods-Daresay MoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB21DA4A5DE2AC346CC51C29 /* libPods-Daresay MoviesTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FC598325C86BD80EB642891 /* libPods-Daresay Movies-Daresay MoviesUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Daresay Movies-Daresay MoviesUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A86DAB5A31D669AB61C228D /* Pods-Daresay Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies.debug.xcconfig"; path = "Target Support Files/Pods-Daresay Movies/Pods-Daresay Movies.debug.xcconfig"; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* Daresay Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daresay Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC527675C690045C710 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +56,13 @@
 		7B655AE327675C6B0045C710 /* Daresay MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daresay MoviesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AE727675C6B0045C710 /* Daresay_MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daresay_MoviesUITests.swift; sourceTree = "<group>"; };
 		7B655AE927675C6B0045C710 /* Daresay_MoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daresay_MoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D49A58F839CA1265B438AF1 /* Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Daresay Movies-Daresay MoviesUITests/Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9147351F64134092812D4963 /* Pods-Daresay MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay MoviesTests.release.xcconfig"; path = "Target Support Files/Pods-Daresay MoviesTests/Pods-Daresay MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
+		A7A6FA2DA7E4D0C034F37DED /* Pods-Daresay Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies.release.xcconfig"; path = "Target Support Files/Pods-Daresay Movies/Pods-Daresay Movies.release.xcconfig"; sourceTree = "<group>"; };
+		AFEDA65F33F74A422D79DBF0 /* libPods-Daresay Movies.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Daresay Movies.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C194457ED3A23648A6825E0A /* Pods-Daresay MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay MoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-Daresay MoviesTests/Pods-Daresay MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6047E6ECB3D01699AD85F2B /* Pods-Daresay Movies-Daresay MoviesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies-Daresay MoviesUITests.release.xcconfig"; path = "Target Support Files/Pods-Daresay Movies-Daresay MoviesUITests/Pods-Daresay Movies-Daresay MoviesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FB21DA4A5DE2AC346CC51C29 /* libPods-Daresay MoviesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Daresay MoviesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6531228A1E3EBB90B2155EBB /* libPods-Daresay Movies.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7E22CDA3B0D3AB9EE5C584B /* libPods-Daresay MoviesTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC23F020EEEC97A687CBCA6 /* libPods-Daresay Movies-Daresay MoviesUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +100,8 @@
 				7B655ADC27675C6B0045C710 /* Daresay MoviesTests */,
 				7B655AE627675C6B0045C710 /* Daresay MoviesUITests */,
 				7B655AC127675C690045C710 /* Products */,
+				B5B394CD48A787858C0717D5 /* Pods */,
+				FF60DEC173AA24BA1646A615 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +147,30 @@
 			path = "Daresay MoviesUITests";
 			sourceTree = "<group>";
 		};
+		B5B394CD48A787858C0717D5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A86DAB5A31D669AB61C228D /* Pods-Daresay Movies.debug.xcconfig */,
+				A7A6FA2DA7E4D0C034F37DED /* Pods-Daresay Movies.release.xcconfig */,
+				7D49A58F839CA1265B438AF1 /* Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig */,
+				E6047E6ECB3D01699AD85F2B /* Pods-Daresay Movies-Daresay MoviesUITests.release.xcconfig */,
+				C194457ED3A23648A6825E0A /* Pods-Daresay MoviesTests.debug.xcconfig */,
+				9147351F64134092812D4963 /* Pods-Daresay MoviesTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FF60DEC173AA24BA1646A615 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFEDA65F33F74A422D79DBF0 /* libPods-Daresay Movies.a */,
+				0FC598325C86BD80EB642891 /* libPods-Daresay Movies-Daresay MoviesUITests.a */,
+				FB21DA4A5DE2AC346CC51C29 /* libPods-Daresay MoviesTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,6 +178,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B655AED27675C6B0045C710 /* Build configuration list for PBXNativeTarget "Daresay Movies" */;
 			buildPhases = (
+				BD551B9EAED8D2306024B50C /* [CP] Check Pods Manifest.lock */,
 				7B655ABC27675C690045C710 /* Sources */,
 				7B655ABD27675C690045C710 /* Frameworks */,
 				7B655ABE27675C690045C710 /* Resources */,
@@ -154,6 +196,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B655AF027675C6B0045C710 /* Build configuration list for PBXNativeTarget "Daresay MoviesTests" */;
 			buildPhases = (
+				77D66F46EF20DE78FB8D8CE6 /* [CP] Check Pods Manifest.lock */,
 				7B655AD527675C6B0045C710 /* Sources */,
 				7B655AD627675C6B0045C710 /* Frameworks */,
 				7B655AD727675C6B0045C710 /* Resources */,
@@ -172,6 +215,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B655AF327675C6B0045C710 /* Build configuration list for PBXNativeTarget "Daresay MoviesUITests" */;
 			buildPhases = (
+				F3F42CD1977498CBAFEE287C /* [CP] Check Pods Manifest.lock */,
 				7B655ADF27675C6B0045C710 /* Sources */,
 				7B655AE027675C6B0045C710 /* Frameworks */,
 				7B655AE127675C6B0045C710 /* Resources */,
@@ -255,6 +299,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		77D66F46EF20DE78FB8D8CE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daresay MoviesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD551B9EAED8D2306024B50C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daresay Movies-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3F42CD1977498CBAFEE287C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Daresay Movies-Daresay MoviesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B655ABC27675C690045C710 /* Sources */ = {
@@ -438,6 +551,7 @@
 		};
 		7B655AEE27675C6B0045C710 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A86DAB5A31D669AB61C228D /* Pods-Daresay Movies.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -466,6 +580,7 @@
 		};
 		7B655AEF27675C6B0045C710 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7A6FA2DA7E4D0C034F37DED /* Pods-Daresay Movies.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -494,6 +609,7 @@
 		};
 		7B655AF127675C6B0045C710 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C194457ED3A23648A6825E0A /* Pods-Daresay MoviesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +635,7 @@
 		};
 		7B655AF227675C6B0045C710 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9147351F64134092812D4963 /* Pods-Daresay MoviesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -544,6 +661,7 @@
 		};
 		7B655AF427675C6B0045C710 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D49A58F839CA1265B438AF1 /* Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -567,6 +685,7 @@
 		};
 		7B655AF527675C6B0045C710 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6047E6ECB3D01699AD85F2B /* Pods-Daresay Movies-Daresay MoviesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
