@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController, Storyboarded {
 
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: HomeCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()

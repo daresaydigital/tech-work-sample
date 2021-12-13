@@ -17,6 +17,7 @@
 		7B42E7552767DBE8004D1473 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7542767DBE8004D1473 /* LocalizedStrings.swift */; };
 		7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7572767DE37004D1473 /* FlowControlViewController.swift */; };
 		7B42E75A2767E238004D1473 /* FlowControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B42E7592767E238004D1473 /* FlowControl.storyboard */; };
+		7B42E7632767E9EE004D1473 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7622767E9EE004D1473 /* HomeCoordinator.swift */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
 		7B655AC827675C690045C710 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* HomeViewController.swift */; };
 		7B655ACB27675C690045C710 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B655AC927675C690045C710 /* Home.storyboard */; };
@@ -66,6 +67,7 @@
 		7B42E7542767DBE8004D1473 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		7B42E7572767DE37004D1473 /* FlowControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlViewController.swift; sourceTree = "<group>"; };
 		7B42E7592767E238004D1473 /* FlowControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlowControl.storyboard; sourceTree = "<group>"; };
+		7B42E7622767E9EE004D1473 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* DaMovies Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaMovies Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,64 @@
 			path = FlowControl;
 			sourceTree = "<group>";
 		};
+		7B42E75B2767E368004D1473 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E75C2767E371004D1473 /* HomeScene */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7B42E75C2767E371004D1473 /* HomeScene */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7602767E3EA004D1473 /* Coordinator */,
+				7B42E7612767E3F2004D1473 /* Service */,
+				7B42E75F2767E3E3004D1473 /* Model */,
+				7B42E75E2767E3DC004D1473 /* ViewModel */,
+				7B42E75D2767E3D1004D1473 /* View */,
+			);
+			path = HomeScene;
+			sourceTree = "<group>";
+		};
+		7B42E75D2767E3D1004D1473 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7B655AC727675C690045C710 /* HomeViewController.swift */,
+				7B655AC927675C690045C710 /* Home.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7B42E75E2767E3DC004D1473 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B42E75F2767E3E3004D1473 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B42E7602767E3EA004D1473 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7622767E9EE004D1473 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7B42E7612767E3F2004D1473 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		7B655AB727675C690045C710 = {
 			isa = PBXGroup;
 			children = (
@@ -197,8 +257,7 @@
 				7B655AF8276777E20045C710 /* UIKitUtilities */,
 				7B655AF62767776E0045C710 /* Utilities */,
 				7B42E73C2767D081004D1473 /* Supporting Files */,
-				7B655AC727675C690045C710 /* HomeViewController.swift */,
-				7B655AC927675C690045C710 /* Home.storyboard */,
+				7B42E75B2767E368004D1473 /* Scenes */,
 				7B42E7512767DA69004D1473 /* Extensions */,
 				7B655AD427675C6B0045C710 /* Info.plist */,
 				7B655ACC27675C690045C710 /* Daresay_Movies.xcdatamodeld */,
@@ -546,6 +605,7 @@
 			files = (
 				7B93E24D2767B3A900D5DD07 /* AppCoordinator.swift in Sources */,
 				7B42E74B2767D3A7004D1473 /* UserDefaultData.swift in Sources */,
+				7B42E7632767E9EE004D1473 /* HomeCoordinator.swift in Sources */,
 				7B655AFA276778060045C710 /* Coordinator.swift in Sources */,
 				7B93E2502767B47700D5DD07 /* Deeplink.swift in Sources */,
 				7B655AC827675C690045C710 /* HomeViewController.swift in Sources */,

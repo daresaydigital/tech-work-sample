@@ -34,13 +34,20 @@ class AppCoordinator: NSObject, Coordinator {
         window.makeKeyAndVisible()
         
         let flowVC = FlowControlViewController.instantiate(coordinator: self)
-        self.navigationController.pushViewController(flowVC, animated: true)
+        navigationController.pushViewController(flowVC, animated: true)
     }
     
     // To Home scene
     func toHome() {
-        let homeVC = HomeViewController.instantiate(coordinator: self)
-        self.navigationController.pushViewController(homeVC, animated: true)
+        let homeScene = HomeCoordinator(navigationController: navigationController)
+        homeScene.parentCoordinator = self
+        childCoordinators.append(homeScene)
+        
+        homeScene.start()
+        // we dont need FlowVC in our navigation anymore so we remove it
+        if  let flowVC = navigationController.viewControllers.first as? FlowControlViewController {
+            self.navigationController.viewControllers.removeAll(where: { $0 == flowVC })
+        }
     }
     
     // We need to reset app when User changed app's language.
@@ -55,7 +62,7 @@ class AppCoordinator: NSObject, Coordinator {
         self.childCoordinators.removeAll()
         
         window?.rootViewController?.dismiss(animated: false, completion: nil)
-        
+        self.navigationController.viewControllers.removeAll()
         self.start()
     }
 }
@@ -72,5 +79,9 @@ extension AppCoordinator: UINavigationControllerDelegate {
             return
         }
         
+        // We’re still here – it means we’re popping the view controller, so we can check whether it’s a Home view controller
+        if let homeViewController = fromViewController as? HomeViewController {
+            childDidFinish(homeViewController.coordinator)
+        }
     }
 }
