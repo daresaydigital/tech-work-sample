@@ -265,6 +265,13 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		7B42E7712767F853004D1473 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		7B655AB727675C690045C710 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +330,7 @@
 		7B655AF62767776E0045C710 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				7B42E7712767F853004D1473 /* Network */,
 				7B42E74E2767D942004D1473 /* LanguageManager */,
 				7B42E7472767D20C004D1473 /* Data */,
 			);
