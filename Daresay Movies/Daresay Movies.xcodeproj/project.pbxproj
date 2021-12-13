@@ -21,6 +21,8 @@
 		7B42E7672767F34A004D1473 /* HomeMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7662767F34A004D1473 /* HomeMovieCell.swift */; };
 		7B42E7692767F377004D1473 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7682767F377004D1473 /* TestModel.swift */; };
 		7B42E76B2767F443004D1473 /* HomeMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B42E76A2767F443004D1473 /* HomeMovieCell.xib */; };
+		7B42E76E2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E76D2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift */; };
+		7B42E7702767F51E004D1473 /* DaMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E76F2767F51E004D1473 /* DaMoviesCollectionViewCell.swift */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
 		7B655AC827675C690045C710 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* HomeViewController.swift */; };
 		7B655ACB27675C690045C710 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B655AC927675C690045C710 /* Home.storyboard */; };
@@ -74,6 +76,8 @@
 		7B42E7662767F34A004D1473 /* HomeMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMovieCell.swift; sourceTree = "<group>"; };
 		7B42E7682767F377004D1473 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		7B42E76A2767F443004D1473 /* HomeMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMovieCell.xib; sourceTree = "<group>"; };
+		7B42E76D2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaMoviesCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		7B42E76F2767F51E004D1473 /* DaMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* DaMovies Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaMovies Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -252,6 +256,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		7B42E76C2767F4BA004D1473 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E76D2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift */,
+				7B42E76F2767F51E004D1473 /* DaMoviesCollectionViewCell.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		7B655AB727675C690045C710 = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +340,7 @@
 		7B655AF8276777E20045C710 /* UIKitUtilities */ = {
 			isa = PBXGroup;
 			children = (
+				7B42E76C2767F4BA004D1473 /* CollectionView */,
 				7B655AF72767778F0045C710 /* Coordinator */,
 			);
 			path = UIKitUtilities;
@@ -635,6 +649,7 @@
 				7B655AFA276778060045C710 /* Coordinator.swift in Sources */,
 				7B93E2502767B47700D5DD07 /* Deeplink.swift in Sources */,
 				7B655AC827675C690045C710 /* HomeViewController.swift in Sources */,
+				7B42E7702767F51E004D1473 /* DaMoviesCollectionViewCell.swift in Sources */,
 				7B42E7492767D2AA004D1473 /* UserDefaultStorage.swift in Sources */,
 				7B42E7672767F34A004D1473 /* HomeMovieCell.swift in Sources */,
 				7B42E74D2767D8FF004D1473 /* main.swift in Sources */,
@@ -644,6 +659,7 @@
 				7B655AFD276779040045C710 /* Storyboarded.swift in Sources */,
 				7B655AC427675C690045C710 /* AppDelegate.swift in Sources */,
 				7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */,
+				7B42E76E2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift in Sources */,
 				7B42E7692767F377004D1473 /* TestModel.swift in Sources */,
 				7B655ACE27675C690045C710 /* Daresay_Movies.xcdatamodeld in Sources */,
 			);

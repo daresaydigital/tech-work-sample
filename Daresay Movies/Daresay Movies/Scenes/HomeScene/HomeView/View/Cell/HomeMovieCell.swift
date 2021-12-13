@@ -35,3 +35,15 @@ class HomeMovieCell: UICollectionViewCell {
         self.thumbnailImageView.image = model.image
     }
 }
+
+extension HomeMovieCell: DaMoviesCollectionViewCell {
+    
+    func configureCellWith(_ item: TestMovieModel) {
+        fill(item)
+    }
+    
+    func configCellSize(item: TestMovieModel) -> CGSize {
+        let deviceWidth = UIScreen.main.bounds.width
+        return CGSize(width: (deviceWidth - 12) / 3, height: 140)
+    }
+}
