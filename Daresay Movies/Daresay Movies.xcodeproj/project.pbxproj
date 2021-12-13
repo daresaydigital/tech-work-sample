@@ -23,6 +23,17 @@
 		7B42E76B2767F443004D1473 /* HomeMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B42E76A2767F443004D1473 /* HomeMovieCell.xib */; };
 		7B42E76E2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E76D2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift */; };
 		7B42E7702767F51E004D1473 /* DaMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E76F2767F51E004D1473 /* DaMoviesCollectionViewCell.swift */; };
+		7B42E7742767F8AB004D1473 /* RequestManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7732767F8AB004D1473 /* RequestManagerProtocol.swift */; };
+		7B42E7772767F8FD004D1473 /* URLRequestLoggableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7762767F8FD004D1473 /* URLRequestLoggableProtocol.swift */; };
+		7B42E7792767F918004D1473 /* ResponseLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7782767F918004D1473 /* ResponseLog.swift */; };
+		7B42E77C2767F958004D1473 /* ResponseValidatableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E77B2767F958004D1473 /* ResponseValidatableProtocol.swift */; };
+		7B42E77E2767F99B004D1473 /* ResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E77D2767F99B004D1473 /* ResponseValidator.swift */; };
+		7B42E7812767F9DD004D1473 /* CacheManagableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7802767F9DD004D1473 /* CacheManagableProtocol.swift */; };
+		7B42E7832767FA43004D1473 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7822767FA43004D1473 /* CacheManager.swift */; };
+		7B42E7852767FACC004D1473 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7842767FACC004D1473 /* RequestError.swift */; };
+		7B42E7872767FAEB004D1473 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7862767FAEB004D1473 /* HTTPMethod.swift */; };
+		7B42E7892767FB03004D1473 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7882767FB03004D1473 /* RequestManager.swift */; };
+		7B42E78D2767FB90004D1473 /* Bundle+info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E78C2767FB90004D1473 /* Bundle+info.swift */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
 		7B655AC827675C690045C710 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* HomeViewController.swift */; };
 		7B655ACB27675C690045C710 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B655AC927675C690045C710 /* Home.storyboard */; };
@@ -78,6 +89,17 @@
 		7B42E76A2767F443004D1473 /* HomeMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMovieCell.xib; sourceTree = "<group>"; };
 		7B42E76D2767F4D3004D1473 /* DaMoviesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaMoviesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		7B42E76F2767F51E004D1473 /* DaMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		7B42E7732767F8AB004D1473 /* RequestManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerProtocol.swift; sourceTree = "<group>"; };
+		7B42E7762767F8FD004D1473 /* URLRequestLoggableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestLoggableProtocol.swift; sourceTree = "<group>"; };
+		7B42E7782767F918004D1473 /* ResponseLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseLog.swift; sourceTree = "<group>"; };
+		7B42E77B2767F958004D1473 /* ResponseValidatableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseValidatableProtocol.swift; sourceTree = "<group>"; };
+		7B42E77D2767F99B004D1473 /* ResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseValidator.swift; sourceTree = "<group>"; };
+		7B42E7802767F9DD004D1473 /* CacheManagableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagableProtocol.swift; sourceTree = "<group>"; };
+		7B42E7822767FA43004D1473 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		7B42E7842767FACC004D1473 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		7B42E7862767FAEB004D1473 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		7B42E7882767FB03004D1473 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		7B42E78C2767FB90004D1473 /* Bundle+info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+info.swift"; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* DaMovies Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaMovies Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +187,7 @@
 		7B42E7512767DA69004D1473 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7B42E7522767DA81004D1473 /* Bundle+SetLanguage.swift */,
+				7B42E78A2767FB6A004D1473 /* Foundation */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,8 +290,67 @@
 		7B42E7712767F853004D1473 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7B42E7722767F87C004D1473 /* Protocol */,
+				7B42E7752767F8D9004D1473 /* APILogger */,
+				7B42E77A2767F932004D1473 /* ResponseValidator */,
+				7B42E77F2767F9C5004D1473 /* CacheManager */,
+				7B42E7842767FACC004D1473 /* RequestError.swift */,
+				7B42E7862767FAEB004D1473 /* HTTPMethod.swift */,
+				7B42E7882767FB03004D1473 /* RequestManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7B42E7722767F87C004D1473 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7732767F8AB004D1473 /* RequestManagerProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7B42E7752767F8D9004D1473 /* APILogger */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7762767F8FD004D1473 /* URLRequestLoggableProtocol.swift */,
+				7B42E7782767F918004D1473 /* ResponseLog.swift */,
+			);
+			path = APILogger;
+			sourceTree = "<group>";
+		};
+		7B42E77A2767F932004D1473 /* ResponseValidator */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E77B2767F958004D1473 /* ResponseValidatableProtocol.swift */,
+				7B42E77D2767F99B004D1473 /* ResponseValidator.swift */,
+			);
+			path = ResponseValidator;
+			sourceTree = "<group>";
+		};
+		7B42E77F2767F9C5004D1473 /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7802767F9DD004D1473 /* CacheManagableProtocol.swift */,
+				7B42E7822767FA43004D1473 /* CacheManager.swift */,
+			);
+			path = CacheManager;
+			sourceTree = "<group>";
+		};
+		7B42E78A2767FB6A004D1473 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E78B2767FB7B004D1473 /* Bundle */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		7B42E78B2767FB7B004D1473 /* Bundle */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7522767DA81004D1473 /* Bundle+SetLanguage.swift */,
+				7B42E78C2767FB90004D1473 /* Bundle+info.swift */,
+			);
+			path = Bundle;
 			sourceTree = "<group>";
 		};
 		7B655AB727675C690045C710 = {
@@ -651,19 +732,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B42E7832767FA43004D1473 /* CacheManager.swift in Sources */,
 				7B93E24D2767B3A900D5DD07 /* AppCoordinator.swift in Sources */,
 				7B42E74B2767D3A7004D1473 /* UserDefaultData.swift in Sources */,
+				7B42E77C2767F958004D1473 /* ResponseValidatableProtocol.swift in Sources */,
 				7B42E7632767E9EE004D1473 /* HomeCoordinator.swift in Sources */,
+				7B42E7812767F9DD004D1473 /* CacheManagableProtocol.swift in Sources */,
 				7B655AFA276778060045C710 /* Coordinator.swift in Sources */,
 				7B93E2502767B47700D5DD07 /* Deeplink.swift in Sources */,
+				7B42E7852767FACC004D1473 /* RequestError.swift in Sources */,
+				7B42E78D2767FB90004D1473 /* Bundle+info.swift in Sources */,
 				7B655AC827675C690045C710 /* HomeViewController.swift in Sources */,
 				7B42E7702767F51E004D1473 /* DaMoviesCollectionViewCell.swift in Sources */,
 				7B42E7492767D2AA004D1473 /* UserDefaultStorage.swift in Sources */,
+				7B42E7772767F8FD004D1473 /* URLRequestLoggableProtocol.swift in Sources */,
+				7B42E7892767FB03004D1473 /* RequestManager.swift in Sources */,
 				7B42E7672767F34A004D1473 /* HomeMovieCell.swift in Sources */,
+				7B42E7742767F8AB004D1473 /* RequestManagerProtocol.swift in Sources */,
 				7B42E74D2767D8FF004D1473 /* main.swift in Sources */,
+				7B42E7872767FAEB004D1473 /* HTTPMethod.swift in Sources */,
 				7B42E7502767D957004D1473 /* LanguageManager.swift in Sources */,
 				7B42E7532767DA81004D1473 /* Bundle+SetLanguage.swift in Sources */,
+				7B42E77E2767F99B004D1473 /* ResponseValidator.swift in Sources */,
 				7B42E7552767DBE8004D1473 /* LocalizedStrings.swift in Sources */,
+				7B42E7792767F918004D1473 /* ResponseLog.swift in Sources */,
 				7B655AFD276779040045C710 /* Storyboarded.swift in Sources */,
 				7B655AC427675C690045C710 /* AppDelegate.swift in Sources */,
 				7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */,
