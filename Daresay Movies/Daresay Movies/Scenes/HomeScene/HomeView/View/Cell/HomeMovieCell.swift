@@ -44,6 +44,6 @@ extension HomeMovieCell: DaMoviesCollectionViewCell {
     
     func configCellSize(item: TestMovieModel) -> CGSize {
         let deviceWidth = UIScreen.main.bounds.width
-        return CGSize(width: (deviceWidth - 12) / 3, height: 140)
+        return CGSize(width: (deviceWidth - 12) / 3, height: 180)
     }
 }
