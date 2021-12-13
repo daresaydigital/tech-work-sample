@@ -10,11 +10,15 @@ import Foundation
 struct UserDefaultData {
     
     enum UserDefaultsKey: String {
-        case test
+        case appleLanguages  = "AppleLanguages"
+        case currentLanguage
     }
     
-    @UserDefaultStorage(.test, defaultValue: "test string")
-    static var test: String
+    @UserDefaultStorage(.currentLanguage, defaultValue: "en")
+    static var currentLanguage: String
+    
+    @UserDefaultStorage(.appleLanguages, defaultValue: ["en"])
+    static var appleLanguage: [String]
     
     static func clearUserDefaultFor(_ key: UserDefaultsKey) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)

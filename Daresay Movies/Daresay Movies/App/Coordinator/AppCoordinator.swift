@@ -33,6 +33,8 @@ class AppCoordinator: NSObject, Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
+        let homeVC = HomeViewController.instantiate(coordinator: self)
+        self.navigationController.pushViewController(homeVC, animated: true)
     }
 }
 
