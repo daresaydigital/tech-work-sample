@@ -9,10 +9,19 @@ import UIKit
 
 enum SupportedLanguages: Int, CaseIterable {
     case english
+    case german
+    case finnish
+    case swedish
     
     var languageDirection: LanguageDirection {
         switch self {
         case .english:
+            return .ltr
+        case .german:
+            return .ltr
+        case .finnish:
+            return .ltr
+        case .swedish:
             return .ltr
         }
     }
@@ -69,6 +78,12 @@ extension SupportedLanguages {
         switch self {
         case .english:
             return "English"
+        case .finnish:
+            return "Suomi"
+        case .german:
+            return "Deutsch"
+        case .swedish:
+            return "Swedish"
         }
     }
     
@@ -76,12 +91,24 @@ extension SupportedLanguages {
         switch self {
         case .english:
             return "en-US"
+        case .finnish:
+            return "fi"
+        case .german:
+            return "de"
+        case .swedish:
+            return "sv"
         }
     }
     
     var direction: LanguageDirection {
         switch self {
         case .english:
+            return .ltr
+        case .finnish:
+            return .ltr
+        case .german:
+            return .ltr
+        case .swedish:
             return .ltr
         }
     }
@@ -90,12 +117,24 @@ extension SupportedLanguages {
         switch self {
         case .english:
             return .left
+        case .finnish:
+            return .left
+        case .german:
+            return .left
+        case .swedish:
+            return .left
         }
     }
     
     var oppositeTextAlignment: NSTextAlignment {
         switch self {
         case .english:
+            return .left
+        case .finnish:
+            return .left
+        case .german:
+            return .left
+        case .swedish:
             return .left
         }
     }
@@ -104,6 +143,12 @@ extension SupportedLanguages {
         switch self {
         case .english:
             return "en"
+        case .finnish:
+            return "fi"
+        case .german:
+            return "de"
+        case .swedish:
+            return "sv"
         }
     }
     
@@ -111,6 +156,12 @@ extension SupportedLanguages {
         switch identifier ?? "en-US" {
         case "en-US":
             self = .english
+        case "fi":
+            self = .finnish
+        case "de":
+            self = .german
+        case "sv":
+            self = .swedish
         default:
             self = .english
         }

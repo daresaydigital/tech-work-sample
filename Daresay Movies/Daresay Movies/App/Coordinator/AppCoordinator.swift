@@ -33,8 +33,30 @@ class AppCoordinator: NSObject, Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
+        let flowVC = FlowControlViewController.instantiate(coordinator: self)
+        self.navigationController.pushViewController(flowVC, animated: true)
+    }
+    
+    // To Home scene
+    func toHome() {
         let homeVC = HomeViewController.instantiate(coordinator: self)
         self.navigationController.pushViewController(homeVC, animated: true)
+    }
+    
+    // We need to reset app when User changed app's language.
+    func userChangedLanguage() {
+        self.reloadApplication()
+    }
+    
+    // Resetting and removing all childcoordinators of AppCoordinator
+    private func reloadApplication() {
+        self.childCoordinators.forEach {$0.navigationController.popToRootViewController(animated: false)}
+        
+        self.childCoordinators.removeAll()
+        
+        window?.rootViewController?.dismiss(animated: false, completion: nil)
+        
+        self.start()
     }
 }
 

@@ -5,3 +5,10 @@
   Created by Emad Bayramy on 12/13/21.
   
 */
+
+"Test_Value" = "detta är ett lokaliseringstest";
+
+"Change_Language" = "Ändra språk";
+"cancel" = "avbryt";
+"to_home" = "Till hem";
+"guideline" = "På den här sidan kan du antingen ändra språk eller fortsätta till startvyn";

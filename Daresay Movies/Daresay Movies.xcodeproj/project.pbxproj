@@ -15,6 +15,8 @@
 		7B42E7502767D957004D1473 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E74F2767D957004D1473 /* LanguageManager.swift */; };
 		7B42E7532767DA81004D1473 /* Bundle+SetLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7522767DA81004D1473 /* Bundle+SetLanguage.swift */; };
 		7B42E7552767DBE8004D1473 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7542767DBE8004D1473 /* LocalizedStrings.swift */; };
+		7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42E7572767DE37004D1473 /* FlowControlViewController.swift */; };
+		7B42E75A2767E238004D1473 /* FlowControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B42E7592767E238004D1473 /* FlowControl.storyboard */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
 		7B655AC827675C690045C710 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* HomeViewController.swift */; };
 		7B655ACB27675C690045C710 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B655AC927675C690045C710 /* Home.storyboard */; };
@@ -62,6 +64,8 @@
 		7B42E74F2767D957004D1473 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		7B42E7522767DA81004D1473 /* Bundle+SetLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SetLanguage.swift"; sourceTree = "<group>"; };
 		7B42E7542767DBE8004D1473 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		7B42E7572767DE37004D1473 /* FlowControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowControlViewController.swift; sourceTree = "<group>"; };
+		7B42E7592767E238004D1473 /* FlowControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FlowControl.storyboard; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* DaMovies Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaMovies Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,15 @@
 				7B42E7522767DA81004D1473 /* Bundle+SetLanguage.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B42E7562767DE07004D1473 /* FlowControl */ = {
+			isa = PBXGroup;
+			children = (
+				7B42E7572767DE37004D1473 /* FlowControlViewController.swift */,
+				7B42E7592767E238004D1473 /* FlowControl.storyboard */,
+			);
+			path = FlowControl;
 			sourceTree = "<group>";
 		};
 		7B655AB727675C690045C710 = {
@@ -247,6 +260,7 @@
 		7B655AFE27677B1D0045C710 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				7B42E7562767DE07004D1473 /* FlowControl */,
 				7B655AFF27677B230045C710 /* Coordinator */,
 				7B93E24E2767B46900D5DD07 /* Deeplink */,
 				7B655AC327675C690045C710 /* AppDelegate.swift */,
@@ -418,6 +432,7 @@
 				7B42E73F2767D0C1004D1473 /* Localizable.strings in Resources */,
 				7B655AD027675C6B0045C710 /* Assets.xcassets in Resources */,
 				7B655ACB27675C690045C710 /* Home.storyboard in Resources */,
+				7B42E75A2767E238004D1473 /* FlowControl.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +556,7 @@
 				7B42E7552767DBE8004D1473 /* LocalizedStrings.swift in Sources */,
 				7B655AFD276779040045C710 /* Storyboarded.swift in Sources */,
 				7B655AC427675C690045C710 /* AppDelegate.swift in Sources */,
+				7B42E7582767DE37004D1473 /* FlowControlViewController.swift in Sources */,
 				7B655ACE27675C690045C710 /* Daresay_Movies.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
