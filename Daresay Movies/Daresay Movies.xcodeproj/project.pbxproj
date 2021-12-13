@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6531228A1E3EBB90B2155EBB /* libPods-Daresay Movies.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFEDA65F33F74A422D79DBF0 /* libPods-Daresay Movies.a */; };
 		7B655AC427675C690045C710 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC327675C690045C710 /* AppDelegate.swift */; };
-		7B655AC627675C690045C710 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC527675C690045C710 /* SceneDelegate.swift */; };
 		7B655AC827675C690045C710 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AC727675C690045C710 /* ViewController.swift */; };
 		7B655ACB27675C690045C710 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B655AC927675C690045C710 /* Main.storyboard */; };
 		7B655ACE27675C690045C710 /* Daresay_Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7B655ACC27675C690045C710 /* Daresay_Movies.xcdatamodeld */; };
@@ -18,6 +17,10 @@
 		7B655ADE27675C6B0045C710 /* Daresay_MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655ADD27675C6B0045C710 /* Daresay_MoviesTests.swift */; };
 		7B655AE827675C6B0045C710 /* Daresay_MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AE727675C6B0045C710 /* Daresay_MoviesUITests.swift */; };
 		7B655AEA27675C6B0045C710 /* Daresay_MoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AE927675C6B0045C710 /* Daresay_MoviesUITestsLaunchTests.swift */; };
+		7B655AFA276778060045C710 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AF9276778060045C710 /* Coordinator.swift */; };
+		7B655AFD276779040045C710 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B655AFC276779040045C710 /* Storyboarded.swift */; };
+		7B93E24D2767B3A900D5DD07 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93E24C2767B3A900D5DD07 /* AppCoordinator.swift */; };
+		7B93E2502767B47700D5DD07 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B93E24F2767B47700D5DD07 /* Deeplink.swift */; };
 		8BC23F020EEEC97A687CBCA6 /* libPods-Daresay Movies-Daresay MoviesUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC598325C86BD80EB642891 /* libPods-Daresay Movies-Daresay MoviesUITests.a */; };
 		D7E22CDA3B0D3AB9EE5C584B /* libPods-Daresay MoviesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB21DA4A5DE2AC346CC51C29 /* libPods-Daresay MoviesTests.a */; };
 /* End PBXBuildFile section */
@@ -44,7 +47,6 @@
 		6A86DAB5A31D669AB61C228D /* Pods-Daresay Movies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies.debug.xcconfig"; path = "Target Support Files/Pods-Daresay Movies/Pods-Daresay Movies.debug.xcconfig"; sourceTree = "<group>"; };
 		7B655AC027675C690045C710 /* Daresay Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Daresay Movies.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AC327675C690045C710 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7B655AC527675C690045C710 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7B655AC727675C690045C710 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B655ACA27675C690045C710 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B655ACD27675C690045C710 /* Daresay_Movies.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Daresay_Movies.xcdatamodel; sourceTree = "<group>"; };
@@ -56,6 +58,10 @@
 		7B655AE327675C6B0045C710 /* Daresay MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Daresay MoviesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B655AE727675C6B0045C710 /* Daresay_MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daresay_MoviesUITests.swift; sourceTree = "<group>"; };
 		7B655AE927675C6B0045C710 /* Daresay_MoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daresay_MoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7B655AF9276778060045C710 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		7B655AFC276779040045C710 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		7B93E24C2767B3A900D5DD07 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		7B93E24F2767B47700D5DD07 /* Deeplink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		7D49A58F839CA1265B438AF1 /* Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig"; path = "Target Support Files/Pods-Daresay Movies-Daresay MoviesUITests/Pods-Daresay Movies-Daresay MoviesUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9147351F64134092812D4963 /* Pods-Daresay MoviesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay MoviesTests.release.xcconfig"; path = "Target Support Files/Pods-Daresay MoviesTests/Pods-Daresay MoviesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7A6FA2DA7E4D0C034F37DED /* Pods-Daresay Movies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Daresay Movies.release.xcconfig"; path = "Target Support Files/Pods-Daresay Movies/Pods-Daresay Movies.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,8 +124,10 @@
 		7B655AC227675C690045C710 /* Daresay Movies */ = {
 			isa = PBXGroup;
 			children = (
+				7B655AF8276777E20045C710 /* UIKitUtilities */,
+				7B655AF62767776E0045C710 /* Utilities */,
 				7B655AC327675C690045C710 /* AppDelegate.swift */,
-				7B655AC527675C690045C710 /* SceneDelegate.swift */,
+				7B655AFE27677B1D0045C710 /* App */,
 				7B655AC727675C690045C710 /* ViewController.swift */,
 				7B655AC927675C690045C710 /* Main.storyboard */,
 				7B655ACF27675C6B0045C710 /* Assets.xcassets */,
@@ -147,6 +155,63 @@
 			path = "Daresay MoviesUITests";
 			sourceTree = "<group>";
 		};
+		7B655AF62767776E0045C710 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7B655AF72767778F0045C710 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7B655AFB276778180045C710 /* Protocols */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7B655AF8276777E20045C710 /* UIKitUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				7B655AF72767778F0045C710 /* Coordinator */,
+			);
+			path = UIKitUtilities;
+			sourceTree = "<group>";
+		};
+		7B655AFB276778180045C710 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				7B655AF9276778060045C710 /* Coordinator.swift */,
+				7B655AFC276779040045C710 /* Storyboarded.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		7B655AFE27677B1D0045C710 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7B93E24E2767B46900D5DD07 /* Deeplink */,
+				7B655AFF27677B230045C710 /* Coordinator */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		7B655AFF27677B230045C710 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7B93E24C2767B3A900D5DD07 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7B93E24E2767B46900D5DD07 /* Deeplink */ = {
+			isa = PBXGroup;
+			children = (
+				7B93E24F2767B47700D5DD07 /* Deeplink.swift */,
+			);
+			path = Deeplink;
+			sourceTree = "<group>";
+		};
 		B5B394CD48A787858C0717D5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +222,6 @@
 				C194457ED3A23648A6825E0A /* Pods-Daresay MoviesTests.debug.xcconfig */,
 				9147351F64134092812D4963 /* Pods-Daresay MoviesTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -374,10 +438,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B93E24D2767B3A900D5DD07 /* AppCoordinator.swift in Sources */,
+				7B655AFA276778060045C710 /* Coordinator.swift in Sources */,
+				7B93E2502767B47700D5DD07 /* Deeplink.swift in Sources */,
 				7B655AC827675C690045C710 /* ViewController.swift in Sources */,
+				7B655AFD276779040045C710 /* Storyboarded.swift in Sources */,
 				7B655AC427675C690045C710 /* AppDelegate.swift in Sources */,
 				7B655ACE27675C690045C710 /* Daresay_Movies.xcdatamodeld in Sources */,
-				7B655AC627675C690045C710 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
