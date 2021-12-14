@@ -6,12 +6,33 @@
 //
 
 import UIKit
-
+protocol MovieCellDelagate: AnyObject {
+    func isFaved(_ isFaved: Bool, model: MovieModel, cellIndex: Int)
+}
 class HomeMovieCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet var thumbnailImageView: UIImageView!
-    @IBOutlet var sizeLabel: UILabel!
+    @IBOutlet var FavBtn: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    
+    // MARK: - Properties
+    private lazy var placeHolderImage: UIImage = {
+        let image = UIImage(systemName: "film")!.withTintColor(.systemGreen, renderingMode: .alwaysTemplate)
+        return image
+    }()
+    private var isFaved: Bool = false {
+        didSet {
+            model.isFaved = isFaved
+            FavBtn.imageView?.image = isFaved ? favedImage : unfavedImage
+        }
+    }
+    
+    private let favedImage: UIImage = UIImage(systemName: "heart.fill")!
+    private let unfavedImage: UIImage = UIImage(systemName: "heart")!
+    private var model: MovieModel!
+    var index: Int!
+    weak var delegate: MovieCellDelagate?
     
     // MARK: - LifeCycle
     override func awakeFromNib() {
@@ -22,27 +43,48 @@ class HomeMovieCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         thumbnailImageView.image = nil
-        sizeLabel.text = ""
+        titleLabel.text = ""
+        model = nil
+        index = nil
     }
     
     // MARK: - setupView
     private func initialize() {
-        sizeLabel.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.5)
+        titleLabel.backgroundColor = UIColor.systemGreen.withAlphaComponent(0.5)
+        FavBtn.addTarget(self, action: #selector(favButtonPressed), for: .touchUpInside)
+        setCornerRadius(15)
+    }
+    
+    @objc private func favButtonPressed(_ button: UIButton) {
+        isFaved = !isFaved
+        delegate?.isFaved(isFaved, model: model, cellIndex: index)
     }
     
     // MARK: - Setters and Getters
-    private func fill(_ model: TestMovieModel) {
-        self.thumbnailImageView.image = model.image
+    private func fill(_ model: MovieModel) {
+        self.model = model
+        isFaved = model.isFaved
+        titleLabel.text = model.title
+        if let imageURL = imageURL(model.posterPath) {
+            thumbnailImageView.load(url: imageURL, placeholder: placeHolderImage)
+        }
+    }
+    
+    private func imageURL(_ url: String?) -> URL? {
+        guard let url = url else { return nil }
+        let urlBuilder = ImageBaseUrlBuilder(forTypeAndSize: .poster(.w342))
+        let fullUrl = urlBuilder.createURL(filePath: url)
+        return fullUrl
     }
 }
 
 extension HomeMovieCell: DaMoviesCollectionViewCell {
     
-    func configureCellWith(_ item: TestMovieModel) {
+    func configureCellWith(_ item: MovieModel) {
         fill(item)
     }
     
-    func configCellSize(item: TestMovieModel) -> CGSize {
+    func configCellSize(item: MovieModel) -> CGSize {
         let deviceWidth = UIScreen.main.bounds.width
         return CGSize(width: (deviceWidth - 12) / 3, height: 180)
     }

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     fileprivate func setupCoordinator() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let navController = UINavigationController()
+        let navController = DaMoviesNavigationController()
 
         appCoordinator = AppCoordinator(navigationController: navController, window: window)
         appCoordinator.start()

@@ -16,7 +16,7 @@ typealias CodableResponse<T: Codable> = (Result<T, RequestError>) -> Void
 final class RequestManager: NSObject, URLSessionDelegate {
     
     private let baseAPIPrefix = Bundle.main.info(for: InfoPlistKey.baseAPIURL)!
-    private let baseAPIVersion = "4/"
+    private let baseAPIVersion = "3/"
     var baseApi: String
     
     var session: URLSession!
@@ -55,7 +55,7 @@ extension RequestManager: RequestManagerProtocol {
     }
     
     var accessToken: String? {
-        return Bundle.main.info(for: InfoPlistKey.APIAccessToken)
+        return UserDefaultData.accessToken
     }
     
     func performRequestWith<T: Codable>(url: String, httpMethod: HTTPMethod, completionHandler: @escaping CodableResponse<T>) {
@@ -69,7 +69,7 @@ extension RequestManager: RequestManagerProtocol {
     
     private func headerBuilder() -> Headers {
         var headers = [
-            "Content-Type": "application/json"
+            "Content-Type": "json;charset=utf-8"
         ]
         if let token = accessToken {
             headers["Authorization"] = "Bearer " + token

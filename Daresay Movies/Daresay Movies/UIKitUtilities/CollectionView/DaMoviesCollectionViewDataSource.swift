@@ -19,6 +19,7 @@ protocol DaMoviesCollectionViewDelegate: class {
     func collection(_ collectionView: UICollectionView, didSelectItem index: IndexPath)
     func collection(_ collectionView: UICollectionView, didDeselectItemAt index: IndexPath)
     func colelction<T>(didSelectModelAt model: T)
+    func scrollDidEndDragging(_ scrollView: UIScrollView, willDecelerate: Bool)
 }
 
 extension DaMoviesCollectionViewDelegate {
@@ -26,6 +27,7 @@ extension DaMoviesCollectionViewDelegate {
     func collection(_ collectionView: UICollectionView, didSelectItem index: IndexPath) { }
     func collection(_ collectionView: UICollectionView, didDeselectItemAt index: IndexPath) { }
     func colelction<T>(didSelectModelAt model: T) { }
+    func scrollDidEndDragging(_ scrollView: UIScrollView, willDecelerate: Bool) { }
 }
 
 class DaMoviesCollectionViewDataSource<T: DaMoviesCollectionViewCell>: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -60,6 +62,16 @@ class DaMoviesCollectionViewDataSource<T: DaMoviesCollectionViewCell>: NSObject,
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         delegate?.collection(collectionView, didSelectItem: indexPath)
         delegate?.colelction(didSelectModelAt: items[indexPath.row])
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = cell as! T
+        delegate?.collection(willDisplay: indexPath, cell: cell)
+    }
+    
+    // MARK: - ScrollView Delegate
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        delegate?.scrollDidEndDragging(scrollView, willDecelerate: decelerate)
     }
     
     // MARK: - UICollectionView Delegate FlowLayout

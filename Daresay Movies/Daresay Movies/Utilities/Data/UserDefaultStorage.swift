@@ -14,10 +14,16 @@ import Foundation
 
 // Responsible for UserDefault of App
 @propertyWrapper
-struct UserDefaultStorage<T> {
-    let key: UserDefaultData.UserDefaultsKey
-    let defaultValue: T
-
+struct UserDefaultStorage<T: Codable> {
+    
+    struct Wrapper<T>: Codable where T : Codable {
+        let wrapper: T
+    }
+    
+    private let key: UserDefaultData.UserDefaultsKey
+    private let defaultValue: T
+    private let storage: UserDefaults = .standard
+    
     init(_ key: UserDefaultData.UserDefaultsKey, defaultValue: T) {
         self.key = key
         self.defaultValue = defaultValue
@@ -25,11 +31,25 @@ struct UserDefaultStorage<T> {
 
     var wrappedValue: T {
         get {
-            return UserDefaults.standard.object(forKey: key.rawValue) as? T ?? defaultValue
+            // Read value from UserDefaults
+            guard let data = storage.object(forKey: key.rawValue) as? Data else {
+                // Return defaultValue when no data in UserDefaults
+                return defaultValue
+            }
+            
+            // Convert data to the desire data type
+            let value = try? JSONDecoder().decode(Wrapper<T>.self, from: data)
+            return value?.wrapper ?? defaultValue
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: key.rawValue)
-            UserDefaults.standard.synchronize()
+            // Convert newValue to data
+            do {
+                let data = try JSONEncoder().encode(Wrapper(wrapper: newValue))
+                storage.set(data, forKey: key.rawValue)
+            } catch {
+                storage.removeObject(forKey: key.rawValue)
+                print(error)
+            }
         }
     }
 }

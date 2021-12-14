@@ -12,6 +12,9 @@ struct UserDefaultData {
     enum UserDefaultsKey: String {
         case appleLanguages  = "AppleLanguages"
         case currentLanguage
+        case accessToken
+        case configModel
+        case favorites
     }
     
     @UserDefaultStorage(.currentLanguage, defaultValue: "en")
@@ -19,6 +22,15 @@ struct UserDefaultData {
     
     @UserDefaultStorage(.appleLanguages, defaultValue: ["en"])
     static var appleLanguage: [String]
+    
+    @UserDefaultStorage(.accessToken, defaultValue: Constants.accessToken)
+    static var accessToken: String
+    
+    @UserDefaultStorage(.configModel, defaultValue: ConfigModel())
+    static var configModel: ConfigModel
+    
+    @UserDefaultStorage(.favorites, defaultValue: MovieArrayModel())
+    static var favoriteList: MovieArrayModel
     
     static func clearUserDefaultFor(_ key: UserDefaultsKey) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)

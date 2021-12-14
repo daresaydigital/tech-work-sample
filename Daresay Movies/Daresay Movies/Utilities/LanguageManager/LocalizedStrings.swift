@@ -11,6 +11,7 @@ import Foundation
 enum LocalizedStrings: String {
     
     case test = "Test_Value"
+    case popularMovies
     case changeLanguage = "Change_Language"
     case cancel
     case toHome = "to_home"

@@ -7,6 +7,7 @@
 */
 "Test_Value" = "Dies ist ein Lokalisierungstest";
 
+"popularMovies" = "Beliebte Filme"
 "Change_Language" = "Sprache ändern";
 "cancel" = "abbrechen";
 "to_home" = "Nach Hause";
