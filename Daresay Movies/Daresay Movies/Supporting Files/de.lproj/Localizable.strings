@@ -5,7 +5,7 @@
   Created by Emad Bayramy on 12/13/21.
   
 */
-"Test_Value" = "Dies ist ein Lokalisierungstest";
+"titleName" = "DaMovies";
 
 "popularMovies" = "Beliebte Filme";
 "Change_Language" = "Sprache ändern";

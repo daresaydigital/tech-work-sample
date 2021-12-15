@@ -5,7 +5,7 @@
   Created by Emad Bayramy on 12/13/21.
   
 */
-"Test_Value" = "tämä on lokalisointitesti";
+"titleName" = "DaMovies";
 
 "popularMovies" = "suosittuja elokuvia";
 "Change_Language" = "Vaihda kieli";

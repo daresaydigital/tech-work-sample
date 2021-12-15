@@ -20,9 +20,11 @@ class HomeViewController: UIViewController, Storyboarded {
     
     // MARK: - Properties
     private lazy var favListBtn: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .refresh,
+        let button = UIBarButtonItem(image: UIImage(systemName: "heart"),
+                                     style: .plain,
                                      target: self,
                                      action: #selector(openFavList(_:)))
+        button.image = UIImage(systemName: "heart")
         return button
     }()
     private var moviesDataSource: DaMoviesCollectionViewDataSource<HomeMovieCell>!
@@ -44,7 +46,7 @@ class HomeViewController: UIViewController, Storyboarded {
     // MARK: - View
     private func setupView() {
         
-        self.title = LocalizedStrings.test.value
+        self.title = LocalizedStrings.titleName.value
         
         moviesDataSource = DaMoviesCollectionViewDataSource(items: [], collectionView: collectionView, delegate: self)
         collectionView.dataSource = moviesDataSource
@@ -124,7 +126,6 @@ extension HomeViewController: DaMoviesCollectionViewDelegate {
 
 extension HomeViewController: MovieCellDelagate {
     func isFaved(_ isFaved: Bool, model: MovieModel, cellIndex: Int) {
-        print("isFAVED: ====", isFaved, model, cellIndex)
         homeVM.isFaved(isFaved, model: model)
     }
 }

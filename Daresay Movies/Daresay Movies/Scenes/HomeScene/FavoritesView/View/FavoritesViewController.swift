@@ -32,8 +32,6 @@ class FavoritesViewController: UIViewController, Storyboarded {
             return
         }
         
-        self.title = LocalizedStrings.test.value
-        
         moviesDataSource = DaMoviesCollectionViewDataSource(items: favoriteList, collectionView: collectionView, delegate: self)
         collectionView.dataSource = moviesDataSource
         collectionView.delegate = moviesDataSource

@@ -6,7 +6,7 @@
   
 */
 
-"Test_Value" = "this is a Localization Test";
+"titleName" = "DaMovies";
 "popularMovies" = "Popular Movies";
 "Change_Language" = "Change Language";
 "cancel" = "cancel";

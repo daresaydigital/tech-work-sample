@@ -5,8 +5,7 @@
   Created by Emad Bayramy on 12/13/21.
   
 */
-
-"Test_Value" = "detta är ett lokaliseringstest";
+"titleName" = "DaMovies";
 "popularMovies" = "populära filmer";
 "Change_Language" = "Ändra språk";
 "cancel" = "avbryt";
