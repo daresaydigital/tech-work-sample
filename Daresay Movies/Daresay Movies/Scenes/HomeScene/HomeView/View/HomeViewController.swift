@@ -19,6 +19,12 @@ class HomeViewController: UIViewController, Storyboarded {
     @IBOutlet var collectionView: UICollectionView!
     
     // MARK: - Properties
+    private lazy var favListBtn: UIBarButtonItem = {
+        let button = UIBarButtonItem(barButtonSystemItem: .refresh,
+                                     target: self,
+                                     action: #selector(openFavList(_:)))
+        return button
+    }()
     private var moviesDataSource: DaMoviesCollectionViewDataSource<HomeMovieCell>!
     
     // MARK: - LifeCycle
@@ -45,7 +51,8 @@ class HomeViewController: UIViewController, Storyboarded {
         collectionView.delegate = moviesDataSource
         collectionView.contentInset.top = 10
         
-        self.navigationController?.navigationBar.tintColor = .systemGreen
+        // right bar button
+        self.navigationItem.setRightBarButton(favListBtn, animated: true)
     }
     
     // AlertVeiw
@@ -83,6 +90,10 @@ class HomeViewController: UIViewController, Storyboarded {
         }
     }
     
+    @objc private func openFavList(_ button: UIBarButtonItem) {
+        coordinator?.showFavourites()
+    }
+    
     // MARK: - service
     private func callService() {
         homeVM.getMovies()
@@ -105,13 +116,15 @@ extension HomeViewController: DaMoviesCollectionViewDelegate {
         }
     }
     
+    func colelction<T>(didSelectModelAt model: T) {
+        guard let model = model as? MovieModel else { return }
+        coordinator?.showDetail(model: model)
+    }
 }
 
 extension HomeViewController: MovieCellDelagate {
     func isFaved(_ isFaved: Bool, model: MovieModel, cellIndex: Int) {
         print("isFAVED: ====", isFaved, model, cellIndex)
         homeVM.isFaved(isFaved, model: model)
-        moviesDataSource.items[cellIndex].isFaved = isFaved
-        moviesDataSource.collectionView.reloadData()
     }
 }

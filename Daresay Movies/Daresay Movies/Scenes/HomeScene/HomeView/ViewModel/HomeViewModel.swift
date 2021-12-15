@@ -125,5 +125,7 @@ class HomeViewModel {
     
     func isFaved(_ isFaved: Bool, model: MovieModel) {
         isFaved ? FavoriteMoviesHandler.shared.fave(model) : FavoriteMoviesHandler.shared.unfave(model)
+        allMovies = allMovies.fetchFavorites(from: UserDefaultData.favoriteList)
+        list?(allMovies)
     }
 }

@@ -7,7 +7,7 @@
 */
 
 "Test_Value" = "this is a Localization Test";
-"popularMovies" = "Popular Movies"
+"popularMovies" = "Popular Movies";
 "Change_Language" = "Change Language";
 "cancel" = "cancel";
 "to_home" = "to home";

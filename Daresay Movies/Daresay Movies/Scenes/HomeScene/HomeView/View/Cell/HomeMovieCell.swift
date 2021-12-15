@@ -21,7 +21,7 @@ class HomeMovieCell: UICollectionViewCell {
         let image = UIImage(systemName: "film")!.withTintColor(.systemGreen, renderingMode: .alwaysTemplate)
         return image
     }()
-    private var isFaved: Bool = false {
+    private var isFaved: Bool! {
         didSet {
             model.isFaved = isFaved
             FavBtn.imageView?.image = isFaved ? favedImage : unfavedImage
@@ -62,6 +62,7 @@ class HomeMovieCell: UICollectionViewCell {
     
     // MARK: - Setters and Getters
     private func fill(_ model: MovieModel) {
+        print("🔴 isFaved ", model.isFaved)
         self.model = model
         isFaved = model.isFaved
         titleLabel.text = model.title
