@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Daresay Movies
+
+  Created by Emad Bayramy on 12/13/21.
+  
+*/
+"titleName" = "DaMovies";
+
+"popularMovies" = "suosittuja elokuvia";
+"Change_Language" = "Vaihda kieli";
+"cancel" = "peruuta";
+"to_home" = "Kotiin";
+"guideline" = "Tällä sivulla voit joko vaihtaa kieltä tai siirtyä aloitusnäkymään";

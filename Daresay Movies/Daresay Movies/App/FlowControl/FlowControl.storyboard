@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Flow Control View Controller-->
+        <scene sceneID="VSK-yv-5TO">
+            <objects>
+                <viewController storyboardIdentifier="FlowControlViewController" id="e9m-0R-uJh" customClass="FlowControlViewController" customModule="kiliaro" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vg7-Zu-ECU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r3Z-he-fVy">
+                                <rect key="frame" x="107" y="415" width="200" height="76"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="60F-DT-hAM">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Veb-Go-qTi"/>
+                                            <constraint firstAttribute="height" constant="30" id="WJS-as-ihp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSk-RU-lei">
+                                        <rect key="frame" x="0.0" y="46" width="200" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QSk-RU-lei" firstAttribute="height" secondItem="60F-DT-hAM" secondAttribute="height" id="8Rp-lb-fCT"/>
+                                    <constraint firstItem="QSk-RU-lei" firstAttribute="width" secondItem="60F-DT-hAM" secondAttribute="width" id="kEo-jL-XZX"/>
+                                </constraints>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AJ8-2C-v9N">
+                                <rect key="frame" x="182" y="284" width="50" height="98"/>
+                                <color key="tintColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="J8A-C3-aDx"/>
+                                    <constraint firstAttribute="height" constant="100" id="OXH-P1-zPJ"/>
+                                </constraints>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dif-DL-7f9">
+                                <rect key="frame" x="16" y="222.5" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="S07-zM-hMr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AJ8-2C-v9N" firstAttribute="centerX" secondItem="S07-zM-hMr" secondAttribute="centerX" id="6dy-CF-U7S"/>
+                            <constraint firstItem="Dif-DL-7f9" firstAttribute="centerX" secondItem="S07-zM-hMr" secondAttribute="centerX" id="Bu7-Yi-HH2"/>
+                            <constraint firstItem="r3Z-he-fVy" firstAttribute="centerY" secondItem="S07-zM-hMr" secondAttribute="centerY" id="Cfb-F6-rRw"/>
+                            <constraint firstItem="r3Z-he-fVy" firstAttribute="centerX" secondItem="S07-zM-hMr" secondAttribute="centerX" id="Dc0-kj-lCc"/>
+                            <constraint firstItem="60F-DT-hAM" firstAttribute="top" secondItem="AJ8-2C-v9N" secondAttribute="bottom" constant="32" id="ESK-Ug-x5s"/>
+                            <constraint firstItem="S07-zM-hMr" firstAttribute="trailing" secondItem="Dif-DL-7f9" secondAttribute="trailing" constant="16" id="JoP-wj-vby"/>
+                            <constraint firstItem="AJ8-2C-v9N" firstAttribute="top" secondItem="Dif-DL-7f9" secondAttribute="bottom" constant="40" id="gkD-2R-Tza"/>
+                            <constraint firstItem="Dif-DL-7f9" firstAttribute="leading" secondItem="S07-zM-hMr" secondAttribute="leading" constant="16" id="him-o1-7nn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="changeLanguageButton" destination="QSk-RU-lei" id="Iv3-LK-hgy"/>
+                        <outlet property="noteLabel" destination="Dif-DL-7f9" id="kru-F1-tAt"/>
+                        <outlet property="toHomeButton" destination="60F-DT-hAM" id="ntY-kf-34w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F3h-ON-peT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="288" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.down" catalog="system" width="120" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

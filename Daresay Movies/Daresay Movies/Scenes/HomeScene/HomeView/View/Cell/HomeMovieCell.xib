@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="D9O-sP-GR5" customClass="HomeMovieCell" customModule="DaMovies" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="185" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XI5-CC-wap">
+                <rect key="frame" x="0.0" y="0.0" width="185" height="165"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jJT-B2-jEt">
+                        <rect key="frame" x="0.0" y="0.0" width="185" height="140"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="cW0-VW-GDK">
+                        <rect key="frame" x="0.0" y="140" width="185" height="25"/>
+                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="0.20505680309999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="4w0-mW-HSA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcc-2R-yHv">
+                        <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="DOK-0z-maZ"/>
+                            <constraint firstAttribute="width" secondItem="dcc-2R-yHv" secondAttribute="height" multiplier="1:1" id="RPh-Kk-Gcx"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="">
+                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="semibold"/>
+                            <color key="baseForegroundColor" systemColor="systemPinkColor"/>
+                        </buttonConfiguration>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="jJT-B2-jEt" secondAttribute="trailing" id="312-fL-px2"/>
+                    <constraint firstAttribute="trailing" secondItem="cW0-VW-GDK" secondAttribute="trailing" id="62a-yM-K74"/>
+                    <constraint firstItem="jJT-B2-jEt" firstAttribute="centerX" secondItem="XI5-CC-wap" secondAttribute="centerX" id="GRq-Ml-yJm"/>
+                    <constraint firstItem="cW0-VW-GDK" firstAttribute="top" secondItem="jJT-B2-jEt" secondAttribute="bottom" id="LI5-rD-xRa"/>
+                    <constraint firstAttribute="bottom" secondItem="cW0-VW-GDK" secondAttribute="bottom" id="Q9E-Kr-SoE"/>
+                    <constraint firstItem="dcc-2R-yHv" firstAttribute="leading" secondItem="XI5-CC-wap" secondAttribute="leading" constant="10" id="RU2-6f-Vk2"/>
+                    <constraint firstItem="cW0-VW-GDK" firstAttribute="leading" secondItem="XI5-CC-wap" secondAttribute="leading" id="bNI-xH-n8n"/>
+                    <constraint firstItem="dcc-2R-yHv" firstAttribute="top" secondItem="XI5-CC-wap" secondAttribute="top" constant="10" id="twf-Yx-Crx"/>
+                    <constraint firstItem="jJT-B2-jEt" firstAttribute="leading" secondItem="XI5-CC-wap" secondAttribute="leading" id="wl5-6a-yRp"/>
+                    <constraint firstItem="jJT-B2-jEt" firstAttribute="top" secondItem="XI5-CC-wap" secondAttribute="top" id="xSI-SF-Ct7"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="185" height="165"/>
+            <connections>
+                <outlet property="FavBtn" destination="dcc-2R-yHv" id="4Ix-3q-lbL"/>
+                <outlet property="thumbnailImageView" destination="jJT-B2-jEt" id="Z6o-hg-neH"/>
+                <outlet property="titleLabel" destination="cW0-VW-GDK" id="KHS-cd-228"/>
+            </connections>
+            <point key="canvasLocation" x="441.304347826087" y="149.66517857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
