@@ -4,4 +4,7 @@
     <string name="menu_item_favorites">Favorites</string>
     <string name="title_top_movies">Top Movies</string>
     <string name="content_description_poster_image">Poster Image</string>
+    <string name="content_description_backdrop_image">backdrop image</string>
+    <string name="transition_name_poster">poster</string>
+    <string name="votes_place_holder">From %1$d Votes</string>
 </resources>
