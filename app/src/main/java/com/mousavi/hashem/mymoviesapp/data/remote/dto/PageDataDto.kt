@@ -1,6 +1,10 @@
 package com.mousavi.hashem.mymoviesapp.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
+import com.mousavi.hashem.mymoviesapp.data.remote.Api
+import com.mousavi.hashem.mymoviesapp.domain.model.Genres
+import com.mousavi.hashem.mymoviesapp.domain.model.Movie
+import com.mousavi.hashem.mymoviesapp.domain.model.PageData
 
 data class PageDataDto(
     @SerializedName("page")
@@ -11,7 +15,16 @@ data class PageDataDto(
     val totalPages: Int,
     @SerializedName("total_results")
     val totalResults: Int,
-)
+) {
+    fun toPageData(genres: Genres): PageData {
+        return PageData(
+            page = page,
+            movies = movies.map { it.toMovie(genres) }.toMutableList(),
+            totalPages = totalPages,
+            totalResults = totalResults
+        )
+    }
+}
 
 data class MovieDto(
     @SerializedName("adult")
@@ -42,4 +55,36 @@ data class MovieDto(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int,
-)
+){
+    fun toMovie(genres: Genres): Movie {
+        return Movie(
+            adult = adult,
+            backdropPath = Api.IMAGE_BASE_URL + backdropPath,
+            genreIds = mapGenreIdToName(genreIds, genres),
+            id = id,
+            originalLanguage = originalLanguage,
+            originalTitle = originalTitle,
+            overview = overview,
+            popularity = popularity,
+            posterPath = Api.IMAGE_BASE_URL + posterPath,
+            releaseDate = releaseDate,
+            title = title,
+            video = video,
+            voteAverage = voteAverage,
+            voteCount = voteCount
+        )
+    }
+
+    private fun mapGenreIdToName(list: List<Int>, genres: Genres): List<String> {
+        val genreNames = mutableListOf<String>()
+
+        genres.genres.forEach { genre ->
+            list.forEach { id->
+                if (id == genre.id){
+                    genreNames.add(genre.name)
+                }
+            }
+        }
+        return genreNames
+    }
+}
