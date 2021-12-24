@@ -30,25 +30,6 @@ class PopularMoviesViewModel @Inject constructor(
     private val _popularMoviesLoading = MutableSharedFlow<Boolean>()
     val popularMoviesLoading = _popularMoviesLoading.asSharedFlow()
 
-    init {
-        //we get genre list and cache it in repository
-        getGenreList()
-    }
-
-    private fun getGenreList(){
-        viewModelScope.launch(Dispatchers.IO) {
-            _popularMoviesLoading.emit(true)
-            when (val genres = getGenres()) {
-                is Either.Success -> {
-                    getPopularMovies()
-                }
-                is Either.Error -> {
-                    //TODO
-                }
-            }
-        }
-    }
-
     fun getPopularMovies(
         language: String = "en-US",
         page: Int = 1,
