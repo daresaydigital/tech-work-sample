@@ -5,6 +5,10 @@ import com.mousavi.hashem.mymoviesapp.BuildConfig
 import com.mousavi.hashem.mymoviesapp.data.remote.Api
 import com.mousavi.hashem.mymoviesapp.data.remote.Api.Companion.API_KEY
 import com.mousavi.hashem.mymoviesapp.data.remote.Api.Companion.BASE_URL
+import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSource
+import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSourceImpl
+import com.mousavi.hashem.mymoviesapp.data.repository.MoviesRepositoryImpl
+import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -58,6 +62,18 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Api::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNetworkDataSource(api: Api): NetworkDataSource {
+        return NetworkDataSourceImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMoviesRepository(repository: MoviesRepositoryImpl): MoviesRepository {
+        return repository
     }
 }
 
