@@ -9,6 +9,8 @@ import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSource
 import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSourceImpl
 import com.mousavi.hashem.mymoviesapp.data.repository.MoviesRepositoryImpl
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetGenres
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetPopularMovies
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -74,6 +76,18 @@ object AppModule {
     @Singleton
     fun provideMoviesRepository(repository: MoviesRepositoryImpl): MoviesRepository {
         return repository
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetPopularMoviesUseCase(repository: MoviesRepository): GetPopularMovies {
+        return GetPopularMovies(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetGenresUseCase(repository: MoviesRepository): GetGenres {
+        return GetGenres(repository)
     }
 }
 
