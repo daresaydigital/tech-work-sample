@@ -5,7 +5,6 @@ import com.mousavi.hashem.mymoviesapp.data.remote.Api
 import com.mousavi.hashem.mymoviesapp.domain.model.Genres
 import com.mousavi.hashem.mymoviesapp.domain.model.Movie
 import com.mousavi.hashem.mymoviesapp.domain.model.PageData
-
 data class PageDataDto(
     @SerializedName("page")
     val page: Int,
@@ -16,10 +15,10 @@ data class PageDataDto(
     @SerializedName("total_results")
     val totalResults: Int,
 ) {
-    fun toPageData(genres: Genres): PageData {
+    fun toPageData(): PageData {
         return PageData(
             page = page,
-            movies = movies.map { it.toMovie(genres) }.toMutableList(),
+            movies = movies.map { it.toMovie() }.toMutableList(),
             totalPages = totalPages,
             totalResults = totalResults
         )
@@ -55,36 +54,17 @@ data class MovieDto(
     val voteAverage: Double,
     @SerializedName("vote_count")
     val voteCount: Int,
-){
-    fun toMovie(genres: Genres): Movie {
+) {
+    fun toMovie(): Movie {
         return Movie(
-            adult = adult,
             backdropPath = Api.IMAGE_BASE_URL + backdropPath,
-            genreIds = mapGenreIdToName(genreIds, genres),
             id = id,
-            originalLanguage = originalLanguage,
-            originalTitle = originalTitle,
             overview = overview,
-            popularity = popularity,
             posterPath = Api.IMAGE_BASE_URL + posterPath,
             releaseDate = releaseDate,
             title = title,
-            video = video,
             voteAverage = voteAverage,
             voteCount = voteCount
         )
-    }
-
-    private fun mapGenreIdToName(list: List<Int>, genres: Genres): List<String> {
-        val genreNames = mutableListOf<String>()
-
-        genres.genres.forEach { genre ->
-            list.forEach { id->
-                if (id == genre.id){
-                    genreNames.add(genre.name)
-                }
-            }
-        }
-        return genreNames
     }
 }

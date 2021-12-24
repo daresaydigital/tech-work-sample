@@ -18,7 +18,7 @@ class MoviesRepositoryImpl @Inject constructor(
     override suspend fun getPopularMovies(language: String, page: Int): Either<PageData, String> {
         return when (val popularMovies = networkDataSource.getPopularMovies(language, page)) {
             is Either.Success -> {
-                Either.Success(popularMovies.data.toPageData(cachedGenres.get()))
+                Either.Success(popularMovies.data.toPageData())
             }
             is Either.Error -> {
                 Either.Error(popularMovies.error)
