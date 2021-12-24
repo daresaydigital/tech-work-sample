@@ -28,6 +28,11 @@ class PopularMoviesFragment : BaseFragment(R.layout.fragment_popular_movies) {
         }
     )
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getPopularMovies()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bindView(view)
