@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyMoviesApp</string>
+    <string name="menu_item_explore">Explore</string>
+    <string name="menu_item_favorites">Favorites</string>
+    <string name="title_top_movies">Top Movies</string>
+    <string name="content_description_poster_image">Poster Image</string>
 </resources>

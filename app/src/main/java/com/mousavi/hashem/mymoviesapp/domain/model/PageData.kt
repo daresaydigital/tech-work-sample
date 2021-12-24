@@ -1,10 +1,11 @@
 package com.mousavi.hashem.mymoviesapp.domain.model
 
+//-1 indicates dummy data for using as MutableSharedFlow default value
 data class PageData(
-    val page: Int,
-    val movies: MutableList<Movie>,
-    val totalPages: Int,
-    val totalResults: Int,
+    val page: Int = -1,
+    val movies: MutableList<Movie> = mutableListOf(),
+    val totalPages: Int = -1,
+    val totalResults: Int = -1,
 )
 
 data class Movie(

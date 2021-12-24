@@ -6,8 +6,9 @@ import com.mousavi.hashem.mymoviesapp.domain.model.Genres
 import com.mousavi.hashem.mymoviesapp.domain.model.PageData
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 import java.util.concurrent.atomic.AtomicReference
+import javax.inject.Inject
 
-class MoviesRepositoryImpl(
+class MoviesRepositoryImpl @Inject constructor(
     private val networkDataSource: NetworkDataSource,
     ) : MoviesRepository {
 
