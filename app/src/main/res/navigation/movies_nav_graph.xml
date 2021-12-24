@@ -9,5 +9,14 @@
         android:id="@+id/popularMoviesFragment"
         android:name="com.mousavi.hashem.mymoviesapp.presentaion.explore.list.PopularMoviesFragment"
         android:label="PopularMoviesFragment"
-        tools:layout="@layout/fragment_popular_movies" />
+        tools:layout="@layout/fragment_popular_movies" >
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.mousavi.hashem.mymoviesapp.presentaion.explore.details.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details"/>
 </navigation>

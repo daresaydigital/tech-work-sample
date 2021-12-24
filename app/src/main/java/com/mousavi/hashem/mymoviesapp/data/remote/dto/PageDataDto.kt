@@ -59,6 +59,7 @@ data class MovieDto(
         return Movie(
             backdropPath = Api.IMAGE_BASE_URL + backdropPath,
             id = id,
+            genreIds = genreIds,
             overview = overview,
             posterPath = Api.IMAGE_BASE_URL + posterPath,
             releaseDate = releaseDate,
