@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/explore"
+    app:startDestination="@id/popularMoviesFragment">
+
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.mousavi.hashem.mymoviesapp.presentaion.explore.list.PopularMoviesFragment"
+        android:label="PopularMoviesFragment"
+        tools:layout="@layout/fragment_popular_movies" />
+</navigation>
