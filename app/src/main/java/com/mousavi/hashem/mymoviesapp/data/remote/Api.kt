@@ -2,7 +2,9 @@ package com.mousavi.hashem.mymoviesapp.data.remote
 
 import com.mousavi.hashem.mymoviesapp.data.remote.dto.GenresDto
 import com.mousavi.hashem.mymoviesapp.data.remote.dto.PageDataDto
+import com.mousavi.hashem.mymoviesapp.data.remote.dto.ReviewsDto
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface Api {
@@ -21,4 +23,11 @@ interface Api {
 
     @GET("genre/movie/list")
     suspend fun getGenres(): GenresDto
+
+    @GET("/movie/{movie_id}/reviews")
+    suspend fun getReviews(
+        @Path("movie_id") movieId: Int,
+        @Query("language") language: String,
+        @Query("page") page: Int,
+    ): ReviewsDto
 }
