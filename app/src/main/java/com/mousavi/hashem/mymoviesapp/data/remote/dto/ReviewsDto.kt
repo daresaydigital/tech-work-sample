@@ -2,6 +2,9 @@ package com.mousavi.hashem.mymoviesapp.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.mousavi.hashem.mymoviesapp.domain.model.AuthorDetails
+import com.mousavi.hashem.mymoviesapp.domain.model.Review
+import com.mousavi.hashem.mymoviesapp.domain.model.Reviews
 
 data class ReviewsDto(
     @SerializedName("id")
@@ -13,8 +16,18 @@ data class ReviewsDto(
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")
-    val totalResults: Int
-)
+    val totalResults: Int,
+) {
+    fun toReviews(): Reviews {
+        return Reviews(
+            id = id,
+            page = page,
+            reviewDtos = reviewDtos.map { it.toReview() },
+            totalPages = totalPages,
+            totalResults = totalResults
+        )
+    }
+}
 
 data class ReviewDto(
     @SerializedName("author")
@@ -30,8 +43,18 @@ data class ReviewDto(
     @SerializedName("updated_at")
     val updatedAt: String?,
     @SerializedName("url")
-    val url: String?
-)
+    val url: String?,
+) {
+    fun toReview(): Review {
+        return Review(
+            author = author,
+            authorDetails = authorDetailsDto.toAuthorDetails(),
+            content = content,
+            createdAt = createdAt,
+            id = id
+        )
+    }
+}
 
 data class AuthorDetailsDto(
     @SerializedName("avatar_path")
@@ -41,5 +64,14 @@ data class AuthorDetailsDto(
     @SerializedName("rating")
     val rating: Int?,
     @SerializedName("username")
-    val username: String
-)
+    val username: String,
+) {
+    fun toAuthorDetails(): AuthorDetails {
+        return AuthorDetails(
+            avatarPath = avatarPath,
+            name = name,
+            rating = rating,
+            username = username
+        )
+    }
+}
