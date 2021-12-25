@@ -7,4 +7,9 @@
     <string name="content_description_backdrop_image">backdrop image</string>
     <string name="transition_name_poster">poster</string>
     <string name="votes_place_holder">From %1$d Votes</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="empty_state_no_favorite">You have no favorite movie!</string>
+    <string name="release_date">Release Date</string>
+    <string name="message_add_to_favorite">Added to favorites</string>
+    <string name="message_removed_from_favorite">Removed from favorites</string>
 </resources>

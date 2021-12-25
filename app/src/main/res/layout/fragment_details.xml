@@ -16,7 +16,7 @@
         android:insetLeft="0dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        app:backgroundTint="@color/surface_variant"
+        app:backgroundTint="@color/surface_50"
         app:cornerRadius="20dp"
         app:icon="@drawable/ic_not_bookmark"
         app:iconGravity="textStart"
@@ -36,7 +36,7 @@
         android:insetLeft="0dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        app:backgroundTint="@color/surface_variant"
+        app:backgroundTint="@color/surface_50"
         app:cornerRadius="20dp"
         app:icon="@drawable/ic_back"
         app:iconGravity="textStart"
@@ -69,9 +69,9 @@
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         android:fillViewport="true"
         android:paddingTop="100dp"
-        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,9 +135,11 @@
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:textColor="@color/on_surface"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,10 +151,10 @@
                 android:id="@+id/flow_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_title">
 
                 <androidx.constraintlayout.helper.widget.Flow
@@ -160,11 +162,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:flow_horizontalBias="0"
+                    app:flow_horizontalGap="8dp"
+                    app:flow_horizontalStyle="packed"
                     app:flow_maxElementsWrap="4"
                     app:flow_verticalBias="0"
                     app:flow_verticalGap="8dp"
-                    app:flow_horizontalGap="8dp"
-                    app:flow_horizontalStyle="packed"
                     app:flow_wrapMode="aligned"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -172,15 +174,62 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <View
+                android:id="@+id/divider1"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/flow_layout" />
+
+            <TextView
+                android:id="@+id/tv_release_date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/release_date"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/divider1"
+                app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+            <TextView
+                android:id="@+id/tv_release_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/on_surface"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_release_date_title"
+                app:layout_constraintEnd_toEndOf="@id/divider2"
+                app:layout_constraintTop_toTopOf="@id/tv_release_date_title"
+                tools:text="2021-12-15" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/outline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_release_date_title" />
+
+
             <TextView
                 android:id="@+id/tv_overview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="32dp"
                 android:textColor="@color/on_surface_variant"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/flow_layout"
+                app:layout_constraintTop_toBottomOf="@id/divider2"
                 tools:text="Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man." />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
