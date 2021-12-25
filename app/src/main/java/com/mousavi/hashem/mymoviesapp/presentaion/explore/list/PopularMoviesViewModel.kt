@@ -18,7 +18,6 @@ import javax.inject.Inject
 @HiltViewModel
 class PopularMoviesViewModel @Inject constructor(
     private val getPopularMoviesUseCase: GetPopularMovies,
-    private val getGenres: GetGenres
 ) : ViewModel() {
 
     private val _popularMovies = MutableStateFlow(PageData())

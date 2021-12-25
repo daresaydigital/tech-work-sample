@@ -2,11 +2,11 @@ package com.mousavi.hashem.mymoviesapp.domain.model
 
 
 data class Reviews(
-    val id: Int,
-    val page: Int,
-    val reviewDtos: List<Review>,
-    val totalPages: Int,
-    val totalResults: Int,
+    val id: Int = -1,
+    val page: Int = -1,
+    val reviews: List<Review> = emptyList(),
+    val totalPages: Int = -1,
+    val totalResults: Int = -1,
 )
 
 data class Review(

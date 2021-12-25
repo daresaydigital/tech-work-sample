@@ -46,12 +46,12 @@ class NetworkDataSourceImpl(
         page: Int,
     ): Either<ReviewsDto, String> {
         return try {
-            val genresDto = api.getReviews(
+            val reviewsDto = api.getReviews(
                 movieId,
                 language,
                 page
             )
-            Either.Success(genresDto)
+            Either.Success(reviewsDto)
         } catch (e: HttpException) {
             Either.Error(error = e.message ?: "Error occurred")
         } catch (e: IOException) {

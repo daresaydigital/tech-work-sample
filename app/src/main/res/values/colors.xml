@@ -13,6 +13,6 @@
     <color name="on_surface">#E6E6DC</color>
     <color name="primary">#9FD74B</color>
     <color name="on_primary">#000000</color>
-    <color name="trasparent">#00000000</color>
+    <color name="transparent">#00000000</color>
     <color name="outline">#C5C8B9</color>
 </resources>

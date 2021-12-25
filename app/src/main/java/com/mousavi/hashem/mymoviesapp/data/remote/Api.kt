@@ -24,7 +24,7 @@ interface Api {
     @GET("genre/movie/list")
     suspend fun getGenres(): GenresDto
 
-    @GET("/movie/{movie_id}/reviews")
+    @GET("movie/{movie_id}/reviews")
     suspend fun getReviews(
         @Path("movie_id") movieId: Int,
         @Query("language") language: String,
