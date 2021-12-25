@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable-v24/selector_action_button.xml" value="0.23177083333333334" />
+        <entry key="app/src/main/res/drawable-v24/selector_card_button.xml" value="0.3902564102564103" />
+        <entry key="app/src/main/res/drawable-v24/selector_number_box.xml" value="0.23177083333333334" />
+        <entry key="app/src/main/res/drawable-v24/shape_small_radius_background.xml" value="0.23177083333333334" />
+        <entry key="app/src/main/res/drawable/authentication_background_gradient.xml" value="0.3902564102564103" />
+        <entry key="app/src/main/res/drawable/background_chips.xml" value="0.3902564102564103" />
+        <entry key="app/src/main/res/drawable/background_searchbar.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/drawable/bottom_sheet_dialog_shape.xml" value="0.23177083333333334" />
+        <entry key="app/src/main/res/drawable/cover_gradient_background.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/drawable/daresay_logo.xml" value="0.3902564102564103" />
+        <entry key="app/src/main/res/drawable/genre_chip.xml" value="0.23177083333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.23177083333333334" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1609375" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.1609375" />
+        <entry key="app/src/main/res/font/iran_sans_mobile_fa_num_font_family.xml" value="0.24102564102564103" />
+        <entry key="app/src/main/res/font/roboto_font_family.xml" value="0.13240740740740742" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.29041095890410956" />
+        <entry key="app/src/main/res/layout/activity_no_internet.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/dialog_sign_in_with_mobile.xml" value="0.20052083333333334" />
+        <entry key="app/src/main/res/layout/fragment_movie_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_cast.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/item_genre.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/item_movie.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/item_poster.xml" value="0.3802083333333333" />
+        <entry key="app/src/main/res/layout/item_review.xml" value="0.209375" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3902564102564103" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

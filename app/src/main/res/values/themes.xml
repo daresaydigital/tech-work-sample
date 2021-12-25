@@ -1,0 +1,351 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DaresayMovieAndroid" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorSecondaryVariant">@color/persianRed</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/black</item>
+        <item name="bottomSheetDialogTheme">@style/BottomSheetDialogStyle</item>
+    </style>
+
+    <style name="BottomSheetDialogStyle" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Small</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.Small</item>
+        <item name="textAppearanceButton">@style/AppCompatButton.Medium</item>
+        <item name="bottomSheetStyle">@style/BottomSheet.Radius.Up</item>
+    </style>
+
+    <style name="ShapeAppearance.Small" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/corner_radius_medium</item>
+    </style>
+
+
+    <style name="BottomSheet.Radius.Up" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_dialog_shape</item>
+    </style>
+
+
+
+    <style name="CardBox" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/box_radius_size</item>
+        <item name="cardElevation">@dimen/box_shadow_size</item>
+        <item name="cardBackgroundColor">#ffffff</item>
+        <item name="android:background">#ffffff</item>
+    </style>
+
+
+
+    <style name="Hint">
+        <item name="android:textColor">@color/field_box_lable_color</item>
+        <item name="android:textSize">@dimen/text_size_heading4</item>
+    </style>
+
+    <style name="HintError">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">@dimen/text_size_heading4</item>
+    </style>
+
+
+    <style name="ExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/field_box_with_lable_stroke_color</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="android:height">48dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextAppearance">@style/Hint</item>
+        <item name="android:textColorHint">@color/field_box_lable_color</item>
+        <item name="hintTextColor">@color/field_box_lable_color</item>
+        <item name="endIconTint">@color/colorGray2</item>
+    </style>
+
+    <style name="OutlineTextInputLayoutError" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/field_box_with_lable_error_stroke_color</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="android:height">48dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="hintTextAppearance">@style/HintError</item>
+        <item name="android:textColorHint">@color/red</item>
+        <item name="hintTextColor">@color/red</item>
+        <item name="endIconTint">@color/colorGray2</item>
+    </style>
+
+    <style name="CardButtonStyle">
+        <item name="android:height">@dimen/height_action_button</item>
+        <item name="android:textColor">@color/textColorCardButton</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/textColorCardButtonDisabled</item>
+        <item name="android:textSize">@dimen/text_size_action_button</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CardButtonOutlineStyle">
+        <item name="android:height">@dimen/height_action_button</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/textColorCardButtonOutlineDisabled</item>
+        <item name="android:textSize">@dimen/text_size_action_button</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:height">@dimen/height_action_button</item>
+        <item name="android:textColor">@color/textColorActionButtonFill</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/textColorActionButtonDisabled</item>
+        <item name="android:textSize">@dimen/text_size_action_button</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ActionButtonStyle.Float">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_marginBottom">@dimen/float_action_button_margin_bottom</item>
+        <item name="android:paddingStart">@dimen/float_action_button_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/float_action_button_padding_horizontal</item>
+    </style>
+
+    <style name="NumberBox" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/colorGray1</item>
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:background">@drawable/selector_number_box</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Number">
+        <item name="android:textColor">@color/colorGray1</item>
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+    </style>
+
+
+    //Number
+    <style name="NumberBox.Number22">
+        <item name="android:textSize">@dimen/text_size_bigTitle</item>
+    </style>
+
+    <style name="NumberBox.Number16">
+        <item name="android:textSize">@dimen/text_size_heading1</item>
+    </style>
+
+    <style name="NumberBox.Number14">
+        <item name="android:textSize">@dimen/text_size_heading2</item>
+    </style>
+
+    <style name="NumberBox.Number12">
+        <item name="android:textSize">@dimen/text_size_heading3</item>
+    </style>
+
+    <style name="NumberBox.Number10">
+        <item name="android:textSize">@dimen/text_size_heading4</item>
+    </style>
+
+
+
+    <style name="Number.Number22">
+        <item name="android:textSize">@dimen/text_size_bigTitle</item>
+    </style>
+
+    <style name="Number.Number16">
+        <item name="android:textSize">@dimen/text_size_heading1</item>
+    </style>
+
+    <style name="Number.Number14">
+        <item name="android:textSize">@dimen/text_size_heading2</item>
+    </style>
+
+    <style name="Number.Number12">
+        <item name="android:textSize">@dimen/text_size_heading3</item>
+    </style>
+
+    <style name="Number.Number10">
+        <item name="android:textSize">@dimen/text_size_heading4</item>
+    </style>
+
+
+    //BigTitle
+    <style name="BigTitle">
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_bigTitle</item>
+    </style>
+
+    <style name="BigTitle.Gray1">
+        <item name="android:textColor">@color/colorGray1</item>
+    </style>
+
+    <style name="BigTitle.Gray2">
+        <item name="android:textColor">@color/colorGray2</item>
+    </style>
+
+    <style name="BigTitle.Gray3">
+        <item name="android:textColor">@color/colorGray3</item>
+    </style>
+
+    <style name="BigTitle.Gray4">
+        <item name="android:textColor">@color/colorGray4</item>
+    </style>
+
+
+    //Heading1
+    <style name="Heading1">
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/text_size_heading1</item>
+    </style>
+
+    <style name="Heading1.Gray1">
+        <item name="android:textColor">@color/colorGray1</item>
+    </style>
+
+    <style name="Heading1.Gray2">
+        <item name="android:textColor">@color/colorGray2</item>
+    </style>
+
+    <style name="Heading1.Gray3">
+        <item name="android:textColor">@color/colorGray3</item>
+    </style>
+
+    <style name="Heading1.Gray4">
+        <item name="android:textColor">@color/colorGray4</item>
+    </style>
+
+    <style name="Heading1.Gray1.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Heading1.Gray2.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Heading1.Gray3.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Heading1.Gray4.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+
+    //Heading2
+
+    <style name="Heading2">
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">@dimen/text_size_heading2</item>
+    </style>
+
+    <style name="Heading2.Gray1">
+        <item name="android:textColor">@color/colorGray1</item>
+    </style>
+
+    <style name="Heading2.Gray2">
+        <item name="android:textColor">@color/colorGray2</item>
+    </style>
+
+    <style name="Heading2.Gray3">
+        <item name="android:textColor">@color/colorGray3</item>
+    </style>
+
+    <style name="Heading2.Gray4">
+        <item name="android:textColor">@color/colorGray4</item>
+    </style>
+
+    <style name="Heading2.Gray1.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+
+    //Heading 3
+    <style name="Heading3">
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_heading3</item>
+    </style>
+
+    <style name="Heading3.Gray1">
+        <item name="android:textColor">@color/colorGray1</item>
+    </style>
+
+    <style name="Heading3.Gray2">
+        <item name="android:textColor">@color/colorGray2</item>
+    </style>
+
+    <style name="Heading3.Gray3">
+        <item name="android:textColor">@color/colorGray3</item>
+    </style>
+
+    <style name="Heading3.Gray4">
+        <item name="android:textColor">@color/colorGray4</item>
+    </style>
+
+    <style name="Heading3.Gray1.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Heading3.Gray2.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Heading3.Gray3.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Heading3.Gray4.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+
+
+    <style name="Heading4">
+        <item name="android:textColorHint">@color/colorGray2</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_size_heading4</item>
+    </style>
+
+    <style name="Heading4.Gray1">
+        <item name="android:textColor">@color/colorGray1</item>
+    </style>
+
+    <style name="Heading4.Gray2">
+        <item name="android:textColor">@color/colorGray2</item>
+    </style>
+
+    <style name="Heading4.Gray3">
+        <item name="android:textColor">@color/colorGray3</item>
+    </style>
+
+    <style name="Heading4.Gray4">
+        <item name="android:textColor">@color/colorGray4</item>
+    </style>
+
+
+    <style name="Link">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_heading2</item>
+    </style>
+
+    <style name="AppTheme.SearchBox" parent="Theme.MaterialComponents">
+        <item name="boxStrokeColor">@color/grayD</item>
+        <item name="strokeWidth">1.dp</item>
+        <item name="minHeight">@dimen/TextInputEditTextHeight</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1.5dp</item>
+        <item name="hintTextColor">@color/grayC</item>
+        <item name="endIconDrawable">@drawable/ic_search</item>
+        <item name="endIconTint">@color/grayD</item>
+        <item name="endIconMode">custom</item>
+    </style>
+
+</resources>
