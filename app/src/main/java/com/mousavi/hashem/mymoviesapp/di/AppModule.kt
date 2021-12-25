@@ -1,7 +1,12 @@
 package com.mousavi.hashem.mymoviesapp.di
 
+import android.app.Application
 import android.util.Log
+import androidx.room.Room
 import com.mousavi.hashem.mymoviesapp.BuildConfig
+import com.mousavi.hashem.mymoviesapp.data.local.MovieDao
+import com.mousavi.hashem.mymoviesapp.data.local.MoviesDatabase
+import com.mousavi.hashem.mymoviesapp.data.local.MoviesDatabase.Companion.DATABASE_NAME
 import com.mousavi.hashem.mymoviesapp.data.remote.Api
 import com.mousavi.hashem.mymoviesapp.data.remote.Api.Companion.API_KEY
 import com.mousavi.hashem.mymoviesapp.data.remote.Api.Companion.BASE_URL
@@ -88,6 +93,22 @@ object AppModule {
     @Singleton
     fun provideGetGenresUseCase(repository: MoviesRepository): GetGenres {
         return GetGenres(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRoomDatabase(app: Application): MoviesDatabase {
+        return Room.databaseBuilder(
+            app,
+            MoviesDatabase::class.java,
+            DATABASE_NAME
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideDao(moviesDatabase: MoviesDatabase): MovieDao {
+        return moviesDatabase.dao
     }
 }
 
