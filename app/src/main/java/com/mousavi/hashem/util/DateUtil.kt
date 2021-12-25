@@ -1,22 +1,15 @@
 package com.mousavi.hashem.util
 
-import java.util.*
-
 val monthNames = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun",
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
-
-val calendar = Calendar.getInstance()
 
 fun dateFormat(dateString: String?): String {
     if (dateString == null) return ""
     if (!dateString.contains("-")) return ""
 
     val arr = dateString.split("-")
-    val year = arr[0].toIntOrNull()
-    val month = arr[1].toIntOrNull()
-    val day = arr[2].toIntOrNull()
+    if (arr.size != 3) return ""
+    val month = arr[1].toIntOrNull() ?: return ""
 
-    if (year == null || month == null || day == null) return ""
-
-    return arr[0] + " ${monthNames[month]} " + arr[2]
+    return arr[0] + " ${monthNames[month - 1]} " + arr[2]
 }
