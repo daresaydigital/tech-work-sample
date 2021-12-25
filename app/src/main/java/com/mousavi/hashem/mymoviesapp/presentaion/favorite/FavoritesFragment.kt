@@ -34,7 +34,7 @@ class FavoritesFragment : BaseFragment(R.layout.fragment_favorites) {
                 )
 
             findNavController().navigate(
-                resId = R.id.action_favoritesFragment_to_detailsFragment2,
+                resId = R.id.action_favoritesFragment_to_detailsFragment,
                 args = Bundle().apply {
                     putParcelable(DetailsFragment.ARG_MOVIE, movie)
                 },

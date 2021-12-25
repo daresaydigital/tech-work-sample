@@ -12,4 +12,6 @@
     <string name="release_date">Release Date</string>
     <string name="message_add_to_favorite">Added to favorites</string>
     <string name="message_removed_from_favorite">Removed from favorites</string>
+    <string name="user_reviews">User Reviews</string>
+    <string name="title_reviews">Reviews</string>
 </resources>

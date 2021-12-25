@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     navController.popBackStack()
                 }
             } else if (menuItem.itemId == R.id.favorite) {
-                if ((navController.currentDestination?.id == R.id.detailsFragment2)) {
+                if ((navController.currentDestination?.id == R.id.detailsFragment)) {
                     navController.popBackStack()
                 }
             }

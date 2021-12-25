@@ -18,6 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.domain.model.Movie
 import com.mousavi.hashem.mymoviesapp.presentaion.BaseFragment
+import com.mousavi.hashem.mymoviesapp.presentaion.reviews.ReviewsFragment.Companion.ARG_MOVIE_ID
 import com.mousavi.hashem.util.dateFormat
 import com.mousavi.hashem.util.dp
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,6 +44,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
     private lateinit var flowLayout: ConstraintLayout
     private lateinit var flowHelper: Flow
     private lateinit var releaseDateTextView: TextView
+    private lateinit var btnReviews: MaterialButton
 
     private lateinit var movie: Movie
 
@@ -77,6 +79,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
         flowLayout = view.findViewById(R.id.flow_layout)
         flowHelper = view.findViewById(R.id.flow)
         releaseDateTextView = view.findViewById(R.id.tv_release_date)
+        btnReviews = view.findViewById(R.id.btn_reviews)
     }
 
     private fun listeners(view: View) {
@@ -93,6 +96,15 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                     getString(R.string.message_removed_from_favorite),
                     Snackbar.LENGTH_SHORT).show()
             }
+        }
+
+        btnReviews.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_detailsFragment_to_reviewsFragment,
+                args = Bundle().apply {
+                    putInt(ARG_MOVIE_ID, movie.id)
+                }
+            )
         }
     }
 
@@ -148,7 +160,7 @@ class DetailsFragment : BaseFragment(R.layout.fragment_details) {
                     R.color.on_surface))
                 backgroundTintList = ColorStateList.valueOf(
                     ContextCompat.getColor(context ?: return emptyList(),
-                        R.color.trasparent)
+                        R.color.transparent)
                 )
             }
             listOfGenreViews.add(materialButton)

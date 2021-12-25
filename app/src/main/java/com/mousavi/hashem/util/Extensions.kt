@@ -30,3 +30,13 @@ fun View?.showGone(show: Boolean?) {
         this?.gone()
     }
 }
+
+fun View?.showHide(show: Boolean?) {
+    if (show == null) return
+
+    if (show) {
+        this?.show()
+    } else {
+        this?.hide()
+    }
+}

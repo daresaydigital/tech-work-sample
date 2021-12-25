@@ -2,6 +2,7 @@ package com.mousavi.hashem.mymoviesapp.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName
+import com.mousavi.hashem.mymoviesapp.data.remote.Api
 import com.mousavi.hashem.mymoviesapp.domain.model.AuthorDetails
 import com.mousavi.hashem.mymoviesapp.domain.model.Review
 import com.mousavi.hashem.mymoviesapp.domain.model.Reviews
@@ -22,7 +23,7 @@ data class ReviewsDto(
         return Reviews(
             id = id,
             page = page,
-            reviewDtos = reviewDtos.map { it.toReview() },
+            reviews = reviewDtos.map { it.toReview() },
             totalPages = totalPages,
             totalResults = totalResults
         )
@@ -68,7 +69,7 @@ data class AuthorDetailsDto(
 ) {
     fun toAuthorDetails(): AuthorDetails {
         return AuthorDetails(
-            avatarPath = avatarPath,
+            avatarPath = Api.IMAGE_BASE_URL + avatarPath,
             name = name,
             rating = rating,
             username = username
