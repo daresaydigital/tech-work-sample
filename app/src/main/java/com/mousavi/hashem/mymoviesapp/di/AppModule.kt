@@ -133,6 +133,12 @@ object AppModule {
     fun provideSaveFavoriteMovieToDatabaseUseCase(repository: MoviesRepository): SaveFavoriteMovieToDatabase {
         return SaveFavoriteMovieToDatabase(repository)
     }
+
+    @Provides
+    @Singleton
+    fun provideGetReviewsUseCase(repository: MoviesRepository): GetReviews {
+        return GetReviews(repository)
+    }
 }
 
 private fun addApiKeyToRequests(chain: Interceptor.Chain): Response {

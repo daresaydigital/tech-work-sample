@@ -6,6 +6,7 @@ import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSource
 import com.mousavi.hashem.mymoviesapp.domain.model.Genres
 import com.mousavi.hashem.mymoviesapp.domain.model.Movie
 import com.mousavi.hashem.mymoviesapp.domain.model.PageData
+import com.mousavi.hashem.mymoviesapp.domain.model.Reviews
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -45,6 +46,21 @@ class MoviesRepositoryImpl @Inject constructor(
 
     override suspend fun saveToFavoriteMovieDatabase(movie: Movie) {
         dao.insertMovieEntity(movie.toMovieEntity())
+    }
+
+    override suspend fun getReviews(
+        movieId: Int,
+        language: String,
+        page: Int,
+    ): Either<Reviews, String> {
+        return when (val popularMovies = networkDataSource.getReviews(movieId, language, page)) {
+            is Either.Success -> {
+                Either.Success(popularMovies.data.toReviews())
+            }
+            is Either.Error -> {
+                Either.Error(popularMovies.error)
+            }
+        }
     }
 
     override suspend fun getGenres(): Either<Genres, String> {

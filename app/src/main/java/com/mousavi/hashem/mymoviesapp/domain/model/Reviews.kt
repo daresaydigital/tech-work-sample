@@ -11,11 +11,10 @@ data class Reviews(
 
 data class Review(
     val author: String,
-    val authorDetailsDto: AuthorDetails,
+    val authorDetails: AuthorDetails,
     val content: String?,
     val createdAt: String?,
     val id: String,
-    val updatedAt: String?,
 )
 
 data class AuthorDetails(
