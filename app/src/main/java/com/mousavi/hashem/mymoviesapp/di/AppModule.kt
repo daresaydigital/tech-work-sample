@@ -14,8 +14,7 @@ import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSource
 import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSourceImpl
 import com.mousavi.hashem.mymoviesapp.data.repository.MoviesRepositoryImpl
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
-import com.mousavi.hashem.mymoviesapp.domain.usecases.GetGenres
-import com.mousavi.hashem.mymoviesapp.domain.usecases.GetPopularMovies
+import com.mousavi.hashem.mymoviesapp.domain.usecases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -109,6 +108,30 @@ object AppModule {
     @Singleton
     fun provideDao(moviesDatabase: MoviesDatabase): MovieDao {
         return moviesDatabase.dao
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetFavoriteMoviesFromDatabaseUseCase(repository: MoviesRepository): GetFavoriteMoviesFromDatabase {
+        return GetFavoriteMoviesFromDatabase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDeleteFavoriteMovieUseCase(repository: MoviesRepository): DeleteFavoriteMovie {
+        return DeleteFavoriteMovie(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCheckIfFavoriteUseCase(repository: MoviesRepository): CheckIfFavorite {
+        return CheckIfFavorite(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSaveFavoriteMovieToDatabaseUseCase(repository: MoviesRepository): SaveFavoriteMovieToDatabase {
+        return SaveFavoriteMovieToDatabase(repository)
     }
 }
 

@@ -6,6 +6,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#646464</color>
 
+    <color name="surface_50">#801B1C18</color>
     <color name="surface_variant">#303329</color>
     <color name="on_surface_variant">#CCCCB8</color>
     <color name="surface">#1B1C18</color>
@@ -13,4 +14,5 @@
     <color name="primary">#9FD74B</color>
     <color name="on_primary">#000000</color>
     <color name="trasparent">#00000000</color>
+    <color name="outline">#C5C8B9</color>
 </resources>

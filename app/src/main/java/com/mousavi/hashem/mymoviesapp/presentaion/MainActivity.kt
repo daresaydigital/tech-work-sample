@@ -32,6 +32,22 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
         bottomNavigationView.setupWithNavController(navController)
+
+        bottomNavigationView.setOnItemReselectedListener { menuItem ->
+            if (menuItem.itemId == R.id.explore) {
+                if ((navController.currentDestination?.id == R.id.detailsFragment)) {
+                    navController.popBackStack()
+                }
+            } else if (menuItem.itemId == R.id.favorite) {
+                if ((navController.currentDestination?.id == R.id.detailsFragment2)) {
+                    navController.popBackStack()
+                }
+            }
+        }
+    }
+
+    fun selectExplorePage() {
+        bottomNavigationView.selectedItemId = R.id.explore
     }
 
 }

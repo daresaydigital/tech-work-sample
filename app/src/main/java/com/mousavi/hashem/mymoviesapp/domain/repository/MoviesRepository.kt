@@ -2,7 +2,9 @@ package com.mousavi.hashem.mymoviesapp.domain.repository
 
 import com.mousavi.hashem.common.Either
 import com.mousavi.hashem.mymoviesapp.domain.model.Genres
+import com.mousavi.hashem.mymoviesapp.domain.model.Movie
 import com.mousavi.hashem.mymoviesapp.domain.model.PageData
+import kotlinx.coroutines.flow.Flow
 
 interface MoviesRepository {
 
@@ -12,4 +14,12 @@ interface MoviesRepository {
     ): Either<PageData, String>
 
     suspend fun getGenres(): Either<Genres, String>
+
+    suspend fun checkIfFavoriteMovie(movie: Movie): Boolean
+
+    fun getFavoriteMoviesFromDatabase(): Flow<List<Movie>>
+
+    suspend fun deleteFavoriteMovieFromDatabase(movie: Movie)
+
+    suspend fun saveToFavoriteMovieDatabase(movie: Movie)
 }

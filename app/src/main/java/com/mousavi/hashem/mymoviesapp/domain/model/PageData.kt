@@ -1,6 +1,7 @@
 package com.mousavi.hashem.mymoviesapp.domain.model
 
 import android.os.Parcelable
+import com.mousavi.hashem.mymoviesapp.data.local.MovieEntity
 import kotlinx.android.parcel.Parcelize
 
 //-1 indicates dummy data for using as MutableSharedFlow default value
@@ -23,4 +24,18 @@ data class Movie(
     val title: String = "",
     val voteAverage: Double = 0.0,
     val voteCount: Int = 0,
-) : Parcelable
+) : Parcelable {
+    fun toMovieEntity(): MovieEntity {
+        return MovieEntity(
+            backdropPath = this.backdropPath,
+            genreIds = this.genreNames,
+            id = this.id,
+            overview = this.overview,
+            posterPath = this.posterPath,
+            releaseDate = this.releaseDate,
+            title = this.title,
+            voteAverage = this.voteAverage,
+            voteCount = this.voteCount
+        )
+    }
+}
