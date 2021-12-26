@@ -1,0 +1,25 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+
+    // kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    api "androidx.core:core-ktx:$kotlinCore"
+
+    // coroutines
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCorutineVersion"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCorutineVersion"
+
+    // di (hilt)
+    implementation "com.google.dagger:hilt-core:$hiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
+}
