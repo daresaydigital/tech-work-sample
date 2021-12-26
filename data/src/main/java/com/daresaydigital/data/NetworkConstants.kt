@@ -10,8 +10,8 @@ object NetworkConstants {
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val POPULAR_ENDPOINT = "movie/popular"
     const val TOP_RATED_ENDPOINT = "movie/top_rated"
-    const val MOVIE_DETAIL_ENDPOINT = "movie"
-    const val MOVIE_REVIEW_ENDPOINT = "movie"
+    const val MOVIE_DETAIL_ENDPOINT = "movie/{id}"
+    const val MOVIE_REVIEW_ENDPOINT = "movie/{id}/reviews"
 
 
 }
