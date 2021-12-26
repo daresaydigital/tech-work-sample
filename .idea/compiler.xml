@@ -4,6 +4,7 @@
     <bytecodeTargetLevel target="1.8">
       <module name="TMDB.app" target="11" />
       <module name="TMDB.data" target="11" />
+      <module name="TMDB.presentation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
