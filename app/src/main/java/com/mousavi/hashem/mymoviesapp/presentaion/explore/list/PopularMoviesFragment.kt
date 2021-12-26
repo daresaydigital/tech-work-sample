@@ -73,6 +73,12 @@ class PopularMoviesFragment : BaseFragment(R.layout.fragment_popular_movies) {
         }
 
         lifecycleScope.launchWhenStarted {
+            viewModel.popularMoviesError.collectLatest {
+               adapter.isError = it
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
             viewModel.popularMoviesLoading.collectLatest {
                 adapter.isLoading = it
             }

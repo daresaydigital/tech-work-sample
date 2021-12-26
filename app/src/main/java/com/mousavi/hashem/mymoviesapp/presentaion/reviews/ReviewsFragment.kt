@@ -65,10 +65,15 @@ class ReviewsFragment : BaseFragment(R.layout.fragment_reviews) {
             }
         }
 
-
         lifecycleScope.launchWhenStarted {
             viewModel.loading.collectLatest {
                 adapter.isLoading = it
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.error.collectLatest {
+                adapter.isError = it
             }
         }
     }
