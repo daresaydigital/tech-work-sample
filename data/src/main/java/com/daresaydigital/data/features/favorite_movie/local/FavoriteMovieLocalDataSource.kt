@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Singleton
 class FavoriteMovieLocalDataSource @Inject constructor(
-    private val favMovieDao: FavMovieDao,
+    private val favMovieDao: FavMoviesDao,
     private val globalDispatcher: GlobalDispatcher
 ) {
 

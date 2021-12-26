@@ -5,7 +5,7 @@ import com.daresaydigital.data.features.favorite_movie.model.FavMovieLocalEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface FavMovieDao {
+interface FavMoviesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(favMovie: FavMovieLocalEntity)

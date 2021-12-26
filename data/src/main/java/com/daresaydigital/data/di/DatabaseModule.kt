@@ -3,7 +3,7 @@ package com.daresaydigital.data.di
 import android.content.Context
 import androidx.room.Room
 import com.daresaydigital.data.db.AppDatabase
-import com.daresaydigital.data.features.favorite_movie.local.FavMovieDao
+import com.daresaydigital.data.features.favorite_movie.local.FavMoviesDao
 import com.daresaydigital.data.features.movie_details.local.MovieDetailsDao
 import dagger.Module
 import dagger.Provides
@@ -33,7 +33,7 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideFavMovieDao(appDatabase: AppDatabase): FavMovieDao {
+    fun provideFavMovieDao(appDatabase: AppDatabase): FavMoviesDao {
         return appDatabase.favMovieDao()
     }
 
