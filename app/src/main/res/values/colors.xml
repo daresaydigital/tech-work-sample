@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#292929</color>
+    <color name="colorSecondary">#E61E25</color>
+    <color name="persianRed">#B12025</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="dark_purple">#270077</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#B721FF</color>
+
+    <color name="primaryGreenB">#0CE7DC</color>
+    <color name="primaryGreenC">#6FF3EC</color>
+    <color name="primaryGreenD">#AAFBF7</color>
+    <color name="primaryGreenE">#EAFEFD</color>
+    <color name="primaryGreenF">#F5FEFE</color>
+    <color name="primaryGreenDark">#00948A</color>
+
+
+    <color name="primaryBlueB">#4A6C90</color>
+    <color name="primaryBlueC">#7393B7</color>
+    <color name="primaryBlueD">#A7BCD2</color>
+    <color name="primaryBlueE">#EDF2F6</color>
+    <color name="primaryBlueF">#F6F8FA</color>
+    <color name="primaryBlueG">#D3DDE8</color>
+    <color name="primaryBlueDark">#031E32</color>
+
+
+    <color name="primaryRedB">#FF7F87</color>
+    <color name="primaryRedC">#FFA2A8</color>
+    <color name="primaryRedD">#FFC5C9</color>
+    <color name="primaryRedE">#FFF3F4</color>
+    <color name="primaryRedF">#FFFCFC</color>
+    <color name="primaryRedDark">#C6243D</color>
+
+
+    <color name="pastelYellow">#FFE2A4</color>
+    <color name="pastelPink">#F4C9DE</color>
+    <color name="pastelBlue">#CBECF5</color>
+    <color name="pastelPurple">#BDBFEF</color>
+    <color name="pastelGreen">#CDEDDA</color>
+
+
+    <color name="grayA">#373737</color>
+    <color name="grayB">#636363</color>
+    <color name="grayC">#8D8D8D</color>
+    <color name="grayD">#B8B8B8</color>
+    <color name="grayE">#D4D4D4</color>
+    <color name="grayF">#F1F1F1</color>
+
+
+    <color name="green">#00C559</color>
+    <color name="yellow">#FFCA0F</color>
+    <color name="blue">#179EF8</color>
+
+
+    <color name="statesSuccess">@color/green</color>
+    <color name="statesWarning">@color/yellow</color>
+    <color name="statesError">@color/primaryRedDark</color>
+    <color name="statesDisabled">@color/grayE</color>
+    <color name="linksInformational">@color/blue</color>
+
+
+    <color name="surfaceCardA">@color/white</color>
+    <color name="surfaceCardC">@color/primaryBlueF</color>
+    <color name="surfaceCardD">@color/primaryBlueE</color>
+
+
+    <color name="buttonNormalC">@color/grayC</color>
+    <color name="buttonNormalD">@color/primaryBlueE</color>
+    <color name="buttonNormalE">@color/white</color>
+    <color name="buttonNormalF">@color/primaryBlueB</color>
+    <color name="buttonOverlayA">@color/white</color>
+
+    <color name="iconColorB">@color/primaryBlueB</color>
+    <color name="iconColorC">@color/white</color>
+    <color name="iconColorD">@color/grayB</color>
+    <color name="iconColorE">@color/grayD</color>
+    <color name="iconColorG">@color/primaryBlueC</color>
+
+    <color name="backgroundBGA">@color/white</color>
+    <color name="backgroundBGB">@color/primaryBlueF</color>
+
+    <color name="separatorColorA">@color/grayE</color>
+    <color name="separatorColorB">@color/primaryBlueC</color>
+    <color name="separatorColorC">@color/primaryBlueE</color>
+
+    <color name="textFieldsNormal">@color/grayD</color>
+    <color name="textFieldsActivated">@color/grayB</color>
+    <color name="textFieldsFill">@color/grayD</color>
+    <color name="textFieldsError">@color/primaryRedE</color>
+    <color name="textFieldsHover">@color/grayA</color>
+    <color name="textFieldsSuccess">@color/primaryGreenF</color>
+
+    <color name="textHeadlineColorC">@color/white</color>
+
+    <color name="textSubtitleColorB">@color/grayA</color>
+    <color name="textSubtitleColorC">@color/grayB</color>
+    <color name="textSubtitleColorD">@color/white</color>
+    <color name="textSubtitleColorE">@color/primaryBlueC</color>
+
+    <color name="textButtonTextColorC">@color/primaryGreenB</color>
+    <color name="textButtonTextColorD">@color/white</color>
+
+    <color name="textBodyColorB">@color/grayB</color>
+    <color name="textBodyColorC">@color/grayC</color>
+    <color name="textBodyColorD">@color/white</color>
+    <color name="textBodyColorE">@color/primaryBlueC</color>
+
+    <color name="textCaptionColorA">@color/grayB</color>
+    <color name="textCaptionColorB">@color/grayC</color>
+    <color name="textCaptionColorC">@color/primaryBlueD</color>
+    <color name="textCaptionColorD">@color/white</color>
+    <color name="textCaptionColorF">@color/primaryBlueB</color>
+
+    <color name="textOverlineColorB">@color/grayB</color>
+    <color name="textOverlineColorC">@color/grayC</color>
+    <color name="textOverlineColorD">@color/white</color>
+
+    <color name="selectionControlsStateNormalColorB">@color/grayC</color>
+    <color name="selectionControlsStateNormalColorC">@color/grayD</color>
+    <color name="selectionControlsStateNormalColorD">@color/grayE</color>
+    <color name="selectionControlsStateNormalColorE">@color/primaryBlueD</color>
+    <color name="selectionControlsStateNormalColorF">@color/primaryBlueE</color>
+    <color name="selectionControlsStateNormalColorG">@color/primaryBlueF</color>
+    <color name="selectionControlsStateNormalColorH">@color/white</color>
+
+    <color name="selectionControlsStateHoverColorA">@color/primaryGreenDark</color>
+    <color name="selectionControlsStateHoverColorB">@color/grayC</color>
+    <color name="selectionControlsStateHoverColorC">@color/grayD</color>
+    <color name="selectionControlsStateHoverColorD">@color/primaryBlueB</color>
+    <color name="selectionControlsStateHoverColorE">@color/primaryBlueD</color>
+    <color name="selectionControlsStateHoverColorF">@color/primaryBlueE</color>
+    <color name="selectionControlsStateHoverColorG">@color/primaryBlueF</color>
+    <color name="selectionControlsStateHoverColorH">@color/white</color>
+
+    <color name="selectionControlsStateSelectedColorC">@color/primaryBlueB</color>
+
+    <color name="selectionControlsStateDisabledColorA">@color/grayE</color>
+    <color name="selectionControlsStateDisabledColorB">@color/grayF</color>
+
+    <color name="selectionControlsSliderLine">@color/grayE</color>
+    <color name="selectionControlsSliderTicks">@color/white</color>
+
+    <color name="selectionControlsSliderTrackState3">@color/primaryBlueB</color>
+    <color name="selectionControlsSliderTrackState4">@color/primaryBlueB</color>
+
+    <color name="selectionControlsSliderKnobState1">@color/primaryRedDark</color>
+    <color name="selectionControlsSliderKnobState2">@color/primaryRedDark</color>
+    <color name="selectionControlsSliderKnobState3">@color/primaryBlueDark</color>
+    <color name="selectionControlsSliderKnobState4">@color/primaryBlueDark</color>
+    <color name="selectionControlsSliderKnobState5">@color/primaryGreenDark</color>
+
+    <color name="selectionControlsBadgesColorA">@color/primaryGreenDark</color>
+    <color name="selectionControlsBadgesColorB">@color/primaryRedDark</color>
+    <color name="selectionControlsBadgesStrokeA">@color/white</color>
+
+    <color name="barsSnackBarA">@color/grayA</color>
+    <color name="barsSnackBarB">@color/pastelBlue</color>
+    <color name="barsSnackBarC">@color/primaryRedE</color>
+    <color name="barsMenuBar">@color/white</color>
+
+    <color name="tabsTopTabFrameA">@color/primaryBlueB</color>
+    <color name="tabsTopTabFrameB">@color/primaryBlueE</color>
+    <color name="tabsTopTabSelectedItem">@color/white</color>
+
+    <color name="messagingSendSend">@color/primaryBlueB</color>
+    <color name="messagingSendUnsend">@color/primaryBlueD</color>
+    <color name="messagingSendReply">@color/white</color>
+
+    <color name="messagingReceiveReceive">@color/white</color>
+    <color name="messagingReceiveReply">@color/primaryBlueC</color>
+
+    <color name="messagingSystemNormal">@color/primaryBlueG</color>
+    <color name="messagingSystemSuccess">@color/pastelGreen</color>
+    <color name="messagingSystemError">@color/pastelPink</color>
+
+
+    <color name="windowBackground">@color/backgroundBGB</color>
+    <color name="line">@color/grayE</color>
+
+    <color name="skeletonColor">@color/grayF</color>
+
+    <color name="transactionWithdrawBackground">#1AC6243D</color>
+    <color name="transactionDepositBackground">#1A00C559</color>
+
+    <color name="borderEditText">#CCE7EEF8</color>
+    <color name="backgroundRadioButton">#bedcf0</color>
+    <color name="borderRadioButton">#66bedcf0</color>
+    <color name="borderRadioButtonChecked">#bedcf0</color>
+    <color name="slideShowBackground">#e0e0e0</color>
+    <color name="attachmentThumbnailBoxBackground">#e0e0e0</color>
+    <color name="typeBackground">#d3d3d3</color>
+    <color name="textColorInverse">#ffffff</color>
+    <color name="background_activity">#f5f5f5</color>
+    <color name="searchIconColor">#000000</color>
+    <color name="greyBoxBackground">#E5E5E5</color>
+    <color name="cardBackgroundColor">#ffffff</color>
+    <color name="borderColor">#d3d3d3</color>
+
+    <color name="background">#f5f5f5</color>
+
+    <color name="colorGray2">#666666</color>
+    <color name="colorGray1">#212121</color>
+    <color name="colorGray3">#9E9E9E</color>
+    <color name="colorGray4">#c1c1c1</color>
+
+    <color name="textColorActionButtonFill">#ffffff</color>
+    <color name="textColorActionButtonDisabled">#9E9E9E</color>
+    <color name="actionButtonHover">#16AFF4</color>
+    <color name="actionButtonPressed">#54C4F7</color>
+    <color name="actionButtonFocus">#3FBDF6</color>
+    <color name="actionButtonDisabled">#E0E0E0</color>
+
+    <color name="textColorCardButton">#ffffff</color>
+    <color name="textColorCardButtonDisabled">#9E9E9E</color>
+    <color name="cardButtonHover">#16AFF4</color>
+    <color name="cardButtonPressed">#54C4F7</color>
+    <color name="cardButtonFocus">#3FBDF6</color>
+    <color name="cardButtonDisabled">#E0E0E0</color>
+
+    <color name="textColorCardButtonOutlineDisabled">#D3D3D3</color>
+    <color name="borderCardButtonOutline">#E0E0E0</color>
+    <color name="cardButtonOutlineFill">#FFFFFF</color>
+    <color name="cardButtonOutlineHover">#EBF8FF</color>
+    <color name="cardButtonOutlinePressed">#C2EAFD</color>
+    <color name="cardButtonOutlineFocus">#ADE3FC</color>
+    <color name="cardButtonOutlineDisabled">#F5F5F5</color>
+
+    <color name="textColorTextButtonDisabled">#E0E0E0</color>
+    <color name="textButtonFill">#FFFFFF</color>
+    <color name="textButtonHover">#F5FCFF</color>
+    <color name="textButtonPressed">#E0F5FE</color>
+    <color name="textButtonFocus">#E0F5FE</color>
+    <color name="textButtonDisabled">#F5F5F5</color>
+
+    <color name="red">#f75038</color>
+    <color name="blue1">#53CCF7</color>
+    <color name="blue2">#017DD8</color>
+
+    <color name="category_pressed_color">#29D6F1FE</color>
+    <color name="category_selected_color">#14D6F1FE</color>
+    <color name="backgroundAttachmentFullScreenDescription">#CCFFFFFF</color>
+
+    <color name="bottomSheetBackground">#78000000</color>
+
+</resources>

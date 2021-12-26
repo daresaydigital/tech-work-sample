@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.arashafsharpour.daresaymovie.features.movies.MoviesFragmentViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="145dp"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior"
+            android:background="@color/black">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="@color/black"
+                app:scrimAnimationDuration="120"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+                <LinearLayout
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_58"
+                    android:orientation="horizontal"
+                    app:layout_collapseMode="parallax"
+
+                    android:layout_gravity="top">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/name"
+                            style="@style/Heading1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/spacing_16"
+                            android:text="Hello, Arash"
+                            android:textColor="@color/persianRed" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:layout_gravity="center_vertical|end"
+                            android:layout_marginEnd="@dimen/spacing_16"
+                            android:src="@mipmap/arash_image" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_68"
+                    app:layout_collapseMode="pin"
+                    android:layout_gravity="bottom"
+                    app:contentInsetEnd="@dimen/spacing_0"
+                    app:contentInsetStart="@dimen/spacing_0">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/keywordFiled"
+                        style="@style/AppTheme.SearchBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="@dimen/shadow_4"
+                        android:layout_gravity="bottom"
+                        android:padding="0dp"
+                        app:hintAnimationEnabled="false"
+                        app:hintEnabled="false">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/keyword"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/spacing_48"
+                            android:background="@drawable/background_searchbar"
+                            android:paddingStart="@dimen/spacing_8"
+                            android:hint="@string/search"
+                            android:textColorHint="@color/grayC"
+                            android:layout_marginVertical="@dimen/spacing_8"
+                            android:layout_marginHorizontal="@dimen/spacing_16"
+                            android:singleLine="true"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:textAppearance="@style/Body2.Regular"
+                            android:textColor="@color/white"
+                            tools:text="@string/search" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Heading1"
+                        android:layout_marginTop="@dimen/spacing_32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/spacing_16"
+                        android:text="@string/popular_movies"
+                        android:textColor="@color/white" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/popular_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        data="@{vm.popularMovies}"
+                        tools:listitem="@layout/item_movie"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Heading1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_32"
+                        android:paddingStart="@dimen/spacing_16"
+                        android:text="@string/now_playing"
+                        android:textColor="@color/white" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/nowPlaying_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        data="@{vm.nowPlayingMovies}"
+                        tools:listitem="@layout/item_movie"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Heading1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_32"
+                        android:paddingStart="@dimen/spacing_16"
+                        android:text="@string/upcoming_movies"
+                        android:textColor="@color/white" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/upcoming_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        data="@{vm.upcomingMovies}"
+                        tools:listitem="@layout/item_movie"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Heading1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_32"
+                        android:paddingStart="@dimen/spacing_16"
+                        android:text="@string/top_rated"
+                        android:textColor="@color/white" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/top_rated_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="@dimen/spacing_8"
+                        data="@{vm.topRatedMovies}"
+                        tools:listitem="@layout/item_movie"/>
+
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

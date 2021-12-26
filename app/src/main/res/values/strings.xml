@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Daresay Movie</string>
+    <string name="error_badRequest">Something went wrong, please try again later</string>
+    <string name="error_server">Oops! seems we have a problem, please try again in a moment!</string>
+    <string name="timeout_error">it seems there\'s some issues came up, please try again in a moment</string>
+    <string name="popular_movies">What\'s Popular</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="upcoming_movies">Upcoming</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="search">Search</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="watchlist">Watchlist</string>
+</resources>

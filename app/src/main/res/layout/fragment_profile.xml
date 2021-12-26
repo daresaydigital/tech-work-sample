@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.arashafsharpour.daresaymovie.features.profile.ProfileFragmentViewModel" />
+    </data>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_58"
+            app:contentInsetEnd="@dimen/spacing_0"
+            app:contentInsetStart="@dimen/spacing_0">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/spacing_32"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_back_button" />
+
+            </FrameLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/arash_image"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/spacing_16"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Heading1"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/spacing_16"
+                    android:text="Arash Afsharpour"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grayD"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    android:layout_marginHorizontal="@dimen/spacing_58"/>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Heading1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_32"
+                    android:paddingStart="@dimen/spacing_16"
+                    android:text="@string/favorite_movies"
+                    android:textColor="@color/white" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/favorite_recycler"
+                    data="@{profile.favoriteMovies}"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    tools:listitem="@layout/item_movie" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Heading1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_32"
+                    android:paddingStart="@dimen/spacing_16"
+                    android:text="@string/watchlist"
+                    android:textColor="@color/white" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/watchlist_recycler"
+                    data="@{profile.watchLaterMovies}"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="@dimen/spacing_8"
+                    tools:listitem="@layout/item_movie" />
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </RelativeLayout>
+
+
+</layout>

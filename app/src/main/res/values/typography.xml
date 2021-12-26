@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppCompatButton.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="AppCompatButton">
+        <item name="android:textSize">@dimen/text_size_button</item>
+    </style>
+
+    <style name="AppCompatTextView">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="Subtitle1">
+        <item name="android:textSize">@dimen/text_size_subtitle1</item>
+    </style>
+
+    <style name="Subtitle1.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Subtitle1.Regular">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="Subtitle1.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Subtitle1.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Subtitle1.ExtraBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Subtitle1.Black">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Subtitle2">
+        <item name="android:textSize">@dimen/text_size_subtitle2</item>
+    </style>
+
+    <style name="Subtitle2.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Subtitle2.Regular">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="Subtitle2.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Subtitle2.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Subtitle2.ExtraBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Subtitle2.Black">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Body1">
+        <item name="android:textSize">@dimen/text_size_body1</item>
+    </style>
+
+    <style name="Body1.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Body1.Regular">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Body1.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Body1.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Body1.ExtraBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Body1.Black">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Body2">
+        <item name="android:textSize">@dimen/text_size_body2</item>
+    </style>
+
+    <style name="Body2.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Body2.Regular">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Body2.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Body2.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Body2.ExtraBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Body2.Black">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="Caption">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <style name="Caption.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Caption.Regular">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Caption.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Caption.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Caption.ExtraBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Caption.Black">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+
+    <style name="Overline">
+        <item name="android:textSize">@dimen/text_size_overLine</item>
+    </style>
+
+    <style name="Overline.Light">
+        <item name="fontFamily">@font/roboto_light</item>
+    </style>
+
+    <style name="Overline.Regular">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Overline.Medium">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="Overline.Bold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Overline.ExtraBold">
+        <item name="fontFamily">@font/roboto_bold</item>
+    </style>
+
+    <style name="Overline.Black">
+        <item name="fontFamily">@font/roboto_medium</item>
+    </style>
+</resources>
