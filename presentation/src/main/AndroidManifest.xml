@@ -7,6 +7,7 @@
         <activity
             android:name=".feature.splash.SplashActivity"
             android:screenOrientation="portrait"
+            android:exported="true"
             android:theme="@style/Theme.Daresay.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

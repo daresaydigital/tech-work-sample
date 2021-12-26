@@ -1,10 +1,10 @@
 ext {
 
     // app
-    compilesdk = 30
+    compilesdk = 31
     minsdk = 21
-    targetsdk = 30
-    buildtools = '30.0.3'
+    targetsdk = 31
+    buildtools = '31.0.0'
 
     // kotlin
     kotlinVersion = '1.5.30'
