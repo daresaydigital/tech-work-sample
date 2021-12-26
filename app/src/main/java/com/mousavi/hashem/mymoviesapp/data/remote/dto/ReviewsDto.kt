@@ -63,7 +63,7 @@ data class AuthorDetailsDto(
     @SerializedName("name")
     val name: String?,
     @SerializedName("rating")
-    val rating: Int?,
+    val rating: Float?,
     @SerializedName("username")
     val username: String,
 ) {
