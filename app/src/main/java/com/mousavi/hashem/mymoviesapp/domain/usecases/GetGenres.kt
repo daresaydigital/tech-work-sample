@@ -6,9 +6,13 @@ import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 
 class GetGenres(
     private val repository: MoviesRepository,
-) {
+) : GetGenresUseCase {
 
-    suspend operator fun invoke(): Either<Genres, String> {
+    override suspend operator fun invoke(): Either<Genres, String> {
         return repository.getGenres()
     }
+}
+
+interface GetGenresUseCase {
+    suspend operator fun invoke(): Either<Genres, String>
 }

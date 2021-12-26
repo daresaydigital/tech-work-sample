@@ -8,9 +8,10 @@ import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 
 class GetPopularMovies(
     private val repository: MoviesRepository,
+    private var getGenres: GetGenresUseCase
 ) {
     suspend operator fun invoke(language: String, page: Int): Either<PageData, String> {
-        return when (val genres = repository.getGenres()) {
+        return when (val genres = getGenres()) {
             is Either.Success -> {
                 return when (val popularMovies = repository.getPopularMovies(language, page)) {
                     is Either.Success -> {
@@ -42,5 +43,6 @@ class GetPopularMovies(
         }
         return genreNames
     }
+
 }
 
