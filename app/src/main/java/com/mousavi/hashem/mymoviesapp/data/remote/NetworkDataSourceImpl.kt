@@ -21,11 +21,11 @@ class NetworkDataSourceImpl(
             val popularMovies = api.getPopularMovies(language, page)
             Either.Success(popularMovies)
         } catch (e: HttpException) {
-            Either.Error(error = e.message ?: stringProvider.getHttpError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.error_occurred))
         } catch (e: IOException) {
-            Either.Error(error = e.message ?: stringProvider.getIOExceptionError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.check_internet_connection))
         } catch (e: Exception) {
-            Either.Error(error = e.message ?: stringProvider.getUnknownError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.unknown_error))
         }
     }
 
@@ -34,11 +34,11 @@ class NetworkDataSourceImpl(
             val genresDto = api.getGenres()
             Either.Success(genresDto)
         } catch (e: HttpException) {
-            Either.Error(error = e.message ?: stringProvider.getHttpError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.error_occurred))
         } catch (e: IOException) {
-            Either.Error(error = e.message ?: stringProvider.getIOExceptionError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.check_internet_connection))
         } catch (e: Exception) {
-            Either.Error(error = e.message ?: stringProvider.getUnknownError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.unknown_error))
         }
     }
 
@@ -55,11 +55,11 @@ class NetworkDataSourceImpl(
             )
             Either.Success(reviewsDto)
         } catch (e: HttpException) {
-            Either.Error(error = e.message ?: stringProvider.getHttpError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.error_occurred))
         } catch (e: IOException) {
-            Either.Error(error = e.message ?: stringProvider.getIOExceptionError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.check_internet_connection))
         } catch (e: Exception) {
-            Either.Error(error = e.message ?: stringProvider.getUnknownError())
+            Either.Error(error = e.message ?: stringProvider.getString(R.string.unknown_error))
         }
     }
 }
