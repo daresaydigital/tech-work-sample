@@ -33,7 +33,7 @@ class PopularMoviesAdapter(
         }
 
     var noMoreData = false
-    var currentPage = 1
+    var currentPage = 0
 
     private val itemDecoration = object : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
@@ -76,7 +76,8 @@ class PopularMoviesAdapter(
         recyclerView.removeItemDecoration(itemDecoration)
     }
 
-    fun appendData(list: List<Movie>, page: Int) {
+    fun appendData(list: List<Movie>, page: Int, totalPages: Int) {
+        if (page == -1) return
         if (currentPage == page) return // if we go to details and back, the viewmodel give redundant data(last list)
         currentPage = page
         val currentItemsSize = items.size
@@ -84,6 +85,10 @@ class PopularMoviesAdapter(
             items.addAll(list)
             val newItemsSize = items.size
             notifyItemRangeChanged(currentItemsSize, newItemsSize - currentItemsSize)
+        }
+
+        if (page >= totalPages){
+            noMoreData = true
         }
     }
 
