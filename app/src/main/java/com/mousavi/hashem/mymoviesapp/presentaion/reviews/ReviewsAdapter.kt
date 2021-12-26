@@ -12,6 +12,7 @@ import coil.load
 import com.google.android.material.button.MaterialButton
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.domain.model.Review
+import com.mousavi.hashem.mymoviesapp.presentaion.explore.list.PopularMoviesAdapter
 import com.mousavi.hashem.util.dateFormat
 import com.mousavi.hashem.util.gone
 import com.mousavi.hashem.util.show
@@ -89,6 +90,10 @@ class ReviewsAdapter(
         val inflater = LayoutInflater.from(parent.context)
         if (viewType == VIEW_TYPE_LOADING) {
             return LoadingViewHolder(inflater.inflate(R.layout.item_loading, parent, false))
+        }
+
+        if (viewType == VIEW_TYPE_ERROR) {
+            return ErrorViewHolder(inflater.inflate(R.layout.item_error, parent, false))
         }
 
         return ReviewViewHolder(inflater.inflate(R.layout.item_review, parent, false))
