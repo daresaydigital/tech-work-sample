@@ -14,11 +14,13 @@ class NetworkDataSourceImplTest {
 
     private lateinit var api: Api
     private lateinit var networkDataSource: NetworkDataSource
+    private lateinit var stringProvider: StringProvider
 
     @Before
     fun setUp() {
         api = Mockito.mock(Api::class.java)
-        networkDataSource = NetworkDataSourceImpl(api)
+        stringProvider = Mockito.mock(StringProvider::class.java)
+        networkDataSource = NetworkDataSourceImpl(api, stringProvider)
     }
 
     @Test
@@ -42,6 +44,7 @@ class NetworkDataSourceImplTest {
         `when`(api.getPopularMovies(language = "en-US", page = 1))
             .thenThrow(exception)
 
+        `when`(stringProvider.getHttpError()).thenReturn("Error occurred")
         val popularMovies: Either<PageDataDto, String> =
             networkDataSource.getPopularMovies(language = "en-US", page = 1)
         assertThat(popularMovies).isInstanceOf(Either.Error::class.java)
