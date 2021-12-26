@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="genre"
+            type="com.arashafsharpour.daresaymovie.infrastructure.models.contracts.Genres" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/background_chips"
+        android:layout_marginHorizontal="@dimen/spacing_8">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Subtitle1.Medium"
+            android:textColor="@color/white"
+            android:text="@{genre.name}"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/spacing_6"/>
+
+    </LinearLayout>
+</layout>

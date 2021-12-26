@@ -1,0 +1,5 @@
+package com.arashafsharpour.daresaymovie.features.reviews.infrastracture
+
+import com.arashafsharpour.daresaymovie.infrastructure.coordinator.ICoordinator
+
+interface IReviewsListCoordinator : ICoordinator

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    tools:context=".screens.bottomSheet.BottomSheetFragment">
+
+    <data>
+        <variable
+            name="review"
+            type="com.arashafsharpour.daresaymovie.features.reviews.ReviewsListDialogViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/black">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_58"
+            app:contentInsetEnd="@dimen/spacing_0"
+            app:contentInsetStart="@dimen/spacing_0">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Heading2.Gray1.Bold"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:text="@{review.movieName + `Review's`}"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/spacing_32"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_16"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_back_button" />
+
+            </FrameLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_below="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/review_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_review"
+            data="@{review.review}"
+            android:visibility="@{!review.review.empty ? View.VISIBLE : View.GONE}" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </RelativeLayout>
+</layout>

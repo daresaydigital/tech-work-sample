@@ -6,9 +6,12 @@ import com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandl
 import com.arashafsharpour.daresaymovie.infrastructure.extensions.launch
 import com.arashafsharpour.daresaymovie.infrastructure.extensions.notifyObserver
 import com.arashafsharpour.daresaymovie.infrastructure.models.MovieCategoryType
+import com.arashafsharpour.daresaymovie.infrastructure.models.contracts.Account
 import com.arashafsharpour.daresaymovie.infrastructure.models.contracts.Movie
 import com.arashafsharpour.daresaymovie.infrastructure.platform.BaseViewModel
+import com.arashafsharpour.daresaymovie.persistence.API_KEY
 import com.arashafsharpour.daresaymovie.persistence.repositories.movies.IMoviesRepository
+import com.arashafsharpour.daresaymovie.persistence.repositories.profile.IProfileRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -17,6 +20,7 @@ class MoviesFragmentViewModel
 @Inject constructor(
     val coordinator: IMoviesCoordinator,
     private val movieRepository: IMoviesRepository,
+    private val profileRepository: IProfileRepository,
     override val exceptionHandler: ExceptionHandler
 ) : BaseViewModel(coordinator) {
 
@@ -24,6 +28,14 @@ class MoviesFragmentViewModel
     val nowPlayingMovies = MutableLiveData(mutableListOf<Movie>())
     val upcomingMovies = MutableLiveData(mutableListOf<Movie>())
     val topRatedMovies = MutableLiveData(mutableListOf<Movie>())
+    val profile = MutableLiveData<Account>()
+
+    fun getProfile() = launch {
+        profileRepository.getProfile(API_KEY)
+            .onSuccess { profile.postValue(it) }
+            .onError { exceptionHandler.handle(it, coordinator) }
+            .call()
+    }
 
     init {
         if (popularMovies.value.isNullOrEmpty()) {

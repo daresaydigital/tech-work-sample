@@ -1,0 +1,5 @@
+package com.arashafsharpour.daresaymovie.features.moviedetail.infrastracture
+
+import com.arashafsharpour.daresaymovie.infrastructure.coordinator.ICoordinator
+
+interface IMovieDetailCoordinator : ICoordinator
