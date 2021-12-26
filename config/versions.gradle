@@ -1,0 +1,60 @@
+ext {
+
+    // app
+    compilesdk = 30
+    minsdk = 21
+    targetsdk = 30
+    buildtools = '30.0.3'
+
+    // kotlin
+    kotlinVersion = '1.5.10'
+    kotlinCore = '1.3.2'
+
+    // ktx
+    fragmentVersion = '1.3.3'
+    activityVersion = '1.2.3'
+
+    // kotlin coroutines
+    kotlinCorutineVersion = '1.4.2'
+
+    // di
+    hiltVersion = '2.38.1'
+
+    // compat
+    appcompat = '1.2.0'
+
+    // material
+    material = '1.3.0'
+
+    // UI
+    constrainLayout = '2.0.4'
+
+    // glide
+    glideVersion = '4.12.0'
+
+    // navigation component
+    navigationComponent = '2.4.0-alpha01'
+
+    // network
+    retrofitVersion = '2.9.0'
+    gsonConverterVersion = '2.9.0'
+    okHttpVersion = '5.0.0-alpha.2'
+    okHttpLoggingInterceptorVerion = '5.0.0-alpha.2'
+
+    // gson
+    gsonVersion = '2.8.6'
+
+    // room
+    roomVersion = '2.3.0'
+
+    // test
+    junit = '4.13.2'
+    androidx_junitVersion = "1.1.2"
+    androidxJRunnerVersion = "1.3.0"
+    mockitoKotlin = '2.2.0'
+    mockitoInline = '2.24.5'
+    mockitoCore = '3.5.15'
+    coreTesting = '1.1.1'
+    mockwebserverVersion = "4.9.0"
+    budy = '1.10.19'
+}
