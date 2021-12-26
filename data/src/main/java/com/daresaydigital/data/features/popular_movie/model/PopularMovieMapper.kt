@@ -9,3 +9,21 @@ fun PopularMoviesLocalEntity.toDomainModel() = MovieDomain(
 fun MovieDomain.toLocalModel() = PopularMoviesLocalEntity(
     adult,backdropPath,genreIds,id,originalLanguage,originalTitle,overview,popularity,posterPath,releaseDate,title,video,voteAverage,voteCount
 )
+
+@JvmName("toDomainArrayModelPopularMoviesLocal")
+fun List<PopularMoviesLocalEntity>.toDomainArrayModel(): List<MovieDomain> {
+    val arrays = mutableListOf<MovieDomain>()
+    this.forEach {
+        arrays.add(it.toDomainModel())
+    }
+    return arrays.toList()
+}
+
+@JvmName("toLocalArrayModelPopularMoviesLocal")
+fun List<MovieDomain>.toLocalArrayModel(): List<PopularMoviesLocalEntity> {
+    val arrays = mutableListOf<PopularMoviesLocalEntity>()
+    this.forEach {
+        arrays.add(it.toLocalModel())
+    }
+    return arrays.toList()
+}

@@ -20,7 +20,7 @@ class TopRatedMoviesRemoteDataSource @Inject constructor(
      * and also it prevent issues in other layers.
      */
 
-    suspend fun getPopularMovies(page:Int): ApiResult<List<MovieDTO>> {
+    suspend fun getTopRatedMovies(page:Int): ApiResult<List<MovieDTO>> {
         return withContext(globalDispatcher.io) {
             getTopRatedApiService.getTopRatedMovies(page).callAwait { response ->
                 response
