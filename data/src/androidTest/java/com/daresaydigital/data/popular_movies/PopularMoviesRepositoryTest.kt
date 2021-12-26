@@ -57,7 +57,7 @@ class PopularMoviesRepositoryTest {
 //        fakeServer.start()
 
         localDataSource = PopularMoviesLocalDataSource(database.popularMoviesDao(),globalDispatcher)
-        repository = PopularMoviesRepositoryImpl(remoteDataSource,localDataSource,globalDispatcher,GlobalScope)
+        repository = PopularMoviesRepositoryImpl(remoteDataSource,localDataSource)
     }
 
     @After

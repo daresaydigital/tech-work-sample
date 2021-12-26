@@ -20,8 +20,6 @@ import javax.inject.Singleton
 class PopularMoviesRepositoryImpl @Inject constructor(
     private val remoteDataSource: PopularMoviesRemoteDataSource,
     private val localDataSource: PopularMoviesLocalDataSource,
-    private val globalDispatcher: GlobalDispatcher,
-    private val scope: CoroutineScope
 ) : PopularMoviesRepository{
 
     companion object {
@@ -30,17 +28,16 @@ class PopularMoviesRepositoryImpl @Inject constructor(
 
     override fun getPopularMovies(page: Int): Flow<Result<PopularMoviesDomain>> {
         return flow {
-            val localJob = scope.launch(globalDispatcher.io){
-                localDataSource.getAllPopularMovies().collect {
-                    it?.let {
-                        emit(Result.Success(it.toPopularMoviesDomain()))
-                    }
-                }
-            }
+            //todo retrieve from db
+//            val localJob = scope.launch(globalDispatcher.io){
+//                localDataSource.getAllPopularMovies().collect {
+//                    it?.let {
+//                        emit(Result.Success(it.toPopularMoviesDomain()))
+//                    }
+//                }
+//            }
 
-            val remoteResult = remoteDataSource.getPopularMovies(page)
-            localJob.cancel()
-            when(remoteResult){
+            when(val remoteResult = remoteDataSource.getPopularMovies(page)){
                 is ApiResult.Success -> {
                     emit(Result.Success(remoteResult.value.toPopularMoviesDomain()))
                     //todo store to db

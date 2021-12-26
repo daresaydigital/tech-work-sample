@@ -3,6 +3,7 @@ package com.daresaydigital.data.features.movie_details
 import com.daresaydigital.data.features.movie_details.local.MovieDetailsLocalDataSource
 import com.daresaydigital.data.features.movie_details.remote.MovieDetailsRemoteDataSource
 import com.daresaydigital.data.features.movie_details.util.toDomainModel
+import com.daresaydigital.data.features.movie_details.util.toLocalModel
 import com.daresaydigital.data.util.ApiResult
 import com.daresaydigital.domain.features.movie_details.model.MovieDetailsDomain
 import com.daresaydigital.domain.features.movie_details.repository.MovieDetailsRepository
@@ -29,10 +30,10 @@ class MovieDetailsRepositoryImpl @Inject constructor(
                 emit(Result.Success(it))
             }
 
-            val remoteResult = remoteDataSource.getMovieDetails(id)
-            when(remoteResult){
+            when(val remoteResult = remoteDataSource.getMovieDetails(id)){
                 is ApiResult.Success -> {
                     emit(Result.Success(remoteResult.value.toDomainModel()))
+                    localDataSource.insertMovieDetails(remoteResult.value.toDomainModel().toLocalModel())
                 }
                 is ApiResult.Failure -> {
                     emit(Result.Failure(remoteResult.error.message ?: UNKNOWN_API_EXCEPTION))
