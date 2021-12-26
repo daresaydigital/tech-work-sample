@@ -14,7 +14,9 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class PopularMoviesRepositoryImpl @Inject constructor(
     private val remoteDataSource: PopularMoviesRemoteDataSource,
     private val localDataSource: PopularMoviesLocalDataSource,

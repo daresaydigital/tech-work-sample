@@ -10,7 +10,9 @@ import com.daresaydigital.domain.model.Result
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MovieDetailsRepositoryImpl @Inject constructor(
     private val remoteDataSource: MovieDetailsRemoteDataSource,
     private val localDataSource: MovieDetailsLocalDataSource

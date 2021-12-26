@@ -19,7 +19,7 @@ class GetFavouriteMovieByIdUseCase @Inject constructor(
 
     override suspend fun execute(params: GetFavouriteMovieByIdParams?): Result<Unit> {
         params?.movieDomain?.let {
-            repository.getFavouriteMovieByNumber(it.id)
+            repository.getFavouriteMovieById(it.id)
         }
         return Result.Success(Unit)
     }
