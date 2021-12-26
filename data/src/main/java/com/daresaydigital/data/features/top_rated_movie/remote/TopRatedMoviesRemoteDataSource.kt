@@ -1,6 +1,7 @@
 package com.daresaydigital.data.features.top_rated_movie.remote
 
 import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.data.features.top_rated_movie.model.TopRatedMoviesDTO
 import com.daresaydigital.data.model.MovieDTO
 import com.daresaydigital.data.util.ApiResult
 import com.daresaydigital.data.util.callAwait
@@ -20,7 +21,7 @@ class TopRatedMoviesRemoteDataSource @Inject constructor(
      * and also it prevent issues in other layers.
      */
 
-    suspend fun getTopRatedMovies(page:Int): ApiResult<List<MovieDTO>> {
+    suspend fun getTopRatedMovies(page:Int): ApiResult<TopRatedMoviesDTO> {
         return withContext(globalDispatcher.io) {
             getTopRatedApiService.getTopRatedMovies(page).callAwait { response ->
                 response
