@@ -68,7 +68,7 @@ class PopularMoviesFragment : BaseFragment(R.layout.fragment_popular_movies) {
     private fun observers() {
         lifecycleScope.launchWhenStarted {
             viewModel.popularMovies.collectLatest { pageData ->
-                adapter.appendData(pageData.movies, pageData.page)
+                adapter.appendData(pageData.movies, pageData.page, pageData.totalPages)
             }
         }
 
