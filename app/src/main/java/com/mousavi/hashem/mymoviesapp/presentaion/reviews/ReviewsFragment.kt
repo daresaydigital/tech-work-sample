@@ -1,7 +1,9 @@
 package com.mousavi.hashem.mymoviesapp.presentaion.reviews
 
 import android.os.Bundle
+import android.view.TextureView
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -9,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.presentaion.BaseFragment
+import com.mousavi.hashem.util.show
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -23,10 +26,14 @@ class ReviewsFragment : BaseFragment(R.layout.fragment_reviews) {
 
     private lateinit var toolbar: Toolbar
     private lateinit var recyclerView: RecyclerView
+    private lateinit var emptyStateTextView: TextView
 
     private val adapter = ReviewsAdapter(
         onLoadMoreListener = { newPage ->
-
+            viewModel.getReviews(movieId, page = newPage)
+        },
+        showEmptyState = {
+            emptyStateTextView.show()
         }
     )
 
@@ -54,7 +61,7 @@ class ReviewsFragment : BaseFragment(R.layout.fragment_reviews) {
     private fun observers() {
         lifecycleScope.launchWhenStarted {
             viewModel.reviews.collectLatest {
-                adapter.appendData(it.reviews, it.page)
+                adapter.appendData(it.reviews, it.page, it.totalPages)
             }
         }
 
@@ -69,6 +76,7 @@ class ReviewsFragment : BaseFragment(R.layout.fragment_reviews) {
     private fun bindViews(view: View) {
         toolbar = view.findViewById(R.id.toolbar)
         recyclerView = view.findViewById(R.id.recycler_view)
+        emptyStateTextView = view.findViewById(R.id.tv_empty_state)
     }
 
     private fun listeners() {

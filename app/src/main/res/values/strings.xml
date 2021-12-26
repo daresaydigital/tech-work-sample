@@ -14,4 +14,5 @@
     <string name="message_removed_from_favorite">Removed from favorites</string>
     <string name="user_reviews">User Reviews</string>
     <string name="title_reviews">Reviews</string>
+    <string name="empty_state_no_reviews">No reviews for this movie</string>
 </resources>
