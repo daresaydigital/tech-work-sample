@@ -47,27 +47,6 @@ class ReviewsAdapter(
     var noMoreData = false
     var currentPage = 0
 
-    private val itemDecoration = object : RecyclerView.ItemDecoration() {
-        override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State,
-        ) {
-            super.getItemOffsets(outRect, view, parent, state)
-        }
-    }
-
-    override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
-        super.onAttachedToRecyclerView(recyclerView)
-        recyclerView.addItemDecoration(itemDecoration)
-    }
-
-    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
-        super.onDetachedFromRecyclerView(recyclerView)
-        recyclerView.removeItemDecoration(itemDecoration)
-    }
-
     fun appendData(list: List<Review>, page: Int, totalPages: Int) {
         if (page == -1) return
         if (currentPage == page) return
