@@ -4,10 +4,12 @@ const val USER_TOKEN = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NzI0NDczZjhhNWZk
 
 const val API_KEY = "6724473f8a5fd95815c1c1be97f3f87e"
 
-const val TIMEOUT: Long = 5
+const val TIMEOUT: Long = 15
 
 const val CONFIG_KEY = "_CONFIG_KEY"
 
 const val BASE_URL_KEY = "_BASE_URL_KEY"
 
 const val BASE_IMAGE_URL = "https://image.tmdb.org/t/p"
+
+const val MOVIE_REVIEW_DIALOG_TAG = "_MOVIE_REVIEW_DIALOG_TAG"

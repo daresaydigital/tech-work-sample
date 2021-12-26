@@ -1,6 +1,5 @@
 package com.arashafsharpour.daresaymovie.infrastructure.network
 
-import android.util.Log
 import com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling.policy.NetworkTimeoutExceptionPolicy
 import com.arashafsharpour.daresaymovie.persistence.USER_TOKEN
 import okhttp3.Interceptor
@@ -8,7 +7,6 @@ import okhttp3.Protocol
 import okhttp3.Request
 import okhttp3.Response
 import okhttp3.ResponseBody.Companion.toResponseBody
-import java.net.SocketTimeoutException
 
 class ApiCallHeaderInterceptor() : Interceptor {
 

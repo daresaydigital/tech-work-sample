@@ -13,5 +13,4 @@ class ConfigModuleProvider {
     @Provides
     @Singleton
     fun provideConfigRepository(dataSource: ConfigRepository) : IConfigRepository = dataSource
-
 }

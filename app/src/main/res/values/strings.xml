@@ -8,4 +8,6 @@
     <string name="upcoming_movies">Upcoming</string>
     <string name="top_rated">Top Rated</string>
     <string name="search">Search</string>
+    <string name="favorite_movies">Favorite Movies</string>
+    <string name="watchlist">Watchlist</string>
 </resources>

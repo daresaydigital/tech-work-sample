@@ -1,6 +1,5 @@
 package com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling
 
-import android.util.Log
 import com.arashafsharpour.daresaymovie.infrastructure.coordinator.ICoordinator
 import com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling.policy.GeneralExceptionPolicy
 import timber.log.Timber

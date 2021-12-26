@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.arashafsharpour.daresaymovie.R
 import com.arashafsharpour.daresaymovie.databinding.ActivitySplashBinding
+import com.arashafsharpour.daresaymovie.features.main.MainActivity
 import com.arashafsharpour.daresaymovie.infrastructure.platform.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
-
 
     override val viewModel: SplashViewModel by viewModels()
     override val layoutRes: Int = R.layout.activity_splash
@@ -34,11 +34,11 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
     }
 
     private fun relocateToMainActivity() {
-//        Intent().apply {
-//            intent.setClass(this@SplashActivity, MainActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK
-//            startActivity(intent)
-//            finish()
-//        }
+        Intent().apply {
+            intent.setClass(this@SplashActivity, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish()
+        }
     }
 }

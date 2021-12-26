@@ -63,6 +63,8 @@ abstract class BaseBottomSheetDialogFragment<VM : BaseViewModel, DB : ViewDataBi
                 bottomSheetDialog.findViewById<View>(R.id.design_bottom_sheet) as View
             behavior = BottomSheetBehavior.from(designBottomSheet)
             behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            behavior.isDraggable = false
+            behavior.isHideable = false
         }
     }
 }

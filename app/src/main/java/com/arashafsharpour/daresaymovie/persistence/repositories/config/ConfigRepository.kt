@@ -8,7 +8,6 @@ import com.arashafsharpour.daresaymovie.persistence.database.sharedpreference.IS
 import com.google.gson.Gson
 import javax.inject.Inject
 
-
 class ConfigRepository @Inject constructor(
     private val configApi: IConfigApi,
     private val sharedPrefHelper: ISharedPreferencesHelper

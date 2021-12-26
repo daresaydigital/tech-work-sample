@@ -1,10 +1,7 @@
 package com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling.policy
 
-import android.content.Context
-import android.util.Log
 import com.arashafsharpour.daresaymovie.R
 import com.arashafsharpour.daresaymovie.infrastructure.coordinator.ICoordinator
-import com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling.ExceptionPolicy
 import com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling.HttpExceptionPolicy
 import com.arashafsharpour.daresaymovie.infrastructure.exceptions.exceptionHandling.exceptions.NetworkConnectionException
 import retrofit2.HttpException

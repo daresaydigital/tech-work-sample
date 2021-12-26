@@ -2,18 +2,15 @@ package com.arashafsharpour.daresaymovie.infrastructure.platform
 
 import android.graphics.Rect
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.window.layout.WindowMetricsCalculator
 import com.arashafsharpour.daresaymovie.R
-import com.arashafsharpour.daresaymovie.features.splash.SplashActivity
 import com.arashafsharpour.daresaymovie.infrastructure.coordinator.observeActions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,7 +42,12 @@ abstract class BaseActivity<VM: BaseViewModel, VDB: ViewDataBinding> : AppCompat
     protected open fun subscribeSpecificObservables() {}
 
     open fun initializeNavigator() {
-
+        if (hasNavigation) {
+            navController = (supportFragmentManager.findFragmentById(R.id.main_nav_host) as NavHostFragment).navController
+            val navHostFragment =
+                supportFragmentManager.findFragmentById(navigationId) as NavHostFragment?
+            navController = navHostFragment!!.navController
+        }
     }
 
     private fun getScreenHeightAndWidth() {

@@ -26,12 +26,15 @@ class SplashViewModel
             .beforeCall { isLoading.postValue(true) }
             .afterCall { isLoading.postValue(false) }
             .onSuccess { saveConfigLocally(it) }
-            .onError { exceptionHandler.handle(it, coordinator) }
+            .onError {
+                exceptionHandler.handle(it, coordinator)
+                isConfigRecieved.postValue(true)
+            }
             .call()
     }
 
     private fun saveConfigLocally(config: Config) {
         configRepository.saveConfigLocally(config).apply { isConfigRecieved.postValue(this) }
     }
-
 }
+

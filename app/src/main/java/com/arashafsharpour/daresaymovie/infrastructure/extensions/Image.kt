@@ -1,6 +1,5 @@
 package com.arashafsharpour.daresaymovie.infrastructure.extensions
 
-import android.util.Log
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.arashafsharpour.daresaymovie.R

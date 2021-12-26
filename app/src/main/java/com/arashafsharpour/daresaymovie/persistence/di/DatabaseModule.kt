@@ -3,7 +3,6 @@ package com.arashafsharpour.daresaymovie.persistence.di
 import android.content.Context
 import androidx.room.Room
 import com.arashafsharpour.daresaymovie.persistence.database.roomdatabase.DaresayMovieDatabase
-import com.arashafsharpour.daresaymovie.persistence.database.roomdatabase.dao.IConfigDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
