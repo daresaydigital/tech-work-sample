@@ -2,6 +2,7 @@ package com.mousavi.hashem.mymoviesapp.data.remote
 
 import com.google.common.truth.Truth.assertThat
 import com.mousavi.hashem.common.Either
+import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.data.remote.dto.PageDataDto
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
@@ -44,7 +45,7 @@ class NetworkDataSourceImplTest {
         `when`(api.getPopularMovies(language = "en-US", page = 1))
             .thenThrow(exception)
 
-        `when`(stringProvider.getHttpError()).thenReturn("Error occurred")
+        `when`(stringProvider.getString(R.string.error_occurred)).thenReturn("Error occurred")
         val popularMovies: Either<PageDataDto, String> =
             networkDataSource.getPopularMovies(language = "en-US", page = 1)
         assertThat(popularMovies).isInstanceOf(Either.Error::class.java)
