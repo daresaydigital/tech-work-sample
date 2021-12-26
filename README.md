@@ -1,44 +1,20 @@
-# Work sample - Application developer
+# Daresay Movie App
 
-## Assignment
 
-- Build an awesome movie app that shows popular and high rated movies.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+![1](https://user-images.githubusercontent.com/16135942/147400151-eb54c4b0-bfbf-4856-80e0-4e0677223c96.jpg)
+![2](https://user-images.githubusercontent.com/16135942/147400152-d1195ff3-2c18-4228-846e-7c07dacb3b37.jpg)
+![3](https://user-images.githubusercontent.com/16135942/147400153-662858f6-4844-4caa-b081-0014657d6156.jpg)
+![4](https://user-images.githubusercontent.com/16135942/147400154-51958097-2bf9-45d1-9550-12a080b9b67f.jpg)
+![5](https://user-images.githubusercontent.com/16135942/147400155-56e7effc-5a9c-4d15-b19b-c2bc9dfcfb85.jpg)
+![6](https://user-images.githubusercontent.com/16135942/147400156-5d72d780-6947-4b73-bf8c-12ccbc79ce5e.jpg)
+![7](https://user-images.githubusercontent.com/16135942/147400158-2c593eb7-6841-4d77-ab13-84a0d1b3e134.jpg)
 
-## Requirements
 
-- Use an open https://developers.themoviedb.org/open source API. Please read the API [Authentication section](https://developers.themoviedb.org/3/getting-started/authentication) to get started.
-- Discover most popular and highly rated movies.
-- Display the movies with creative look and feel of an app to meet design guidelines for your platform (Material Design etc.).
-- Launch a detail screen whenever a particular movie is selected.
+## What did I Do
 
-## Examples of bonus features
-
-- Allow user to save a favorite movie for offline access.
-- Allow user to read movie reviews.
-
-## We expect you to
-
-- Write clean code.
-- Create a responsive design.
-- Handle error cases.
-- Use the latest libraries and technologies.
-- Tested code is a big plus.
-
-### User experience
-
-The features of the app might be few, but we expect you to deliver a solution with a high user experience. Imagine this application to be used by real users, with real needs. Make it interesting, fun and intuitive to use. And of course you are allowed to extend your applications functionality.
-
-### Code
-
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
-
-## Delivery
-
-Fork the repository, code in your fork and make a pull request when done. A nice commit history describing your work is preferred over squashing it into one commit.
-Also send us an e-mail to let us know!
-
-### Good luck!
-
----
+- Movie App using MVVM Architecture
+- Main Fragment for showing four Categories of Movies
+- DetailsFragment for showing movie Details like Director, budget, list of Cast and Posters and even Reviews!
+- Profile fragment fow showing Users most favorite Movies depends on his Tastes.
+- Fully Internet base Application.
 
