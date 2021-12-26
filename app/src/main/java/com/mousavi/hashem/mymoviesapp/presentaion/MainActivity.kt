@@ -1,7 +1,7 @@
 package com.mousavi.hashem.mymoviesapp.presentaion
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -33,15 +33,11 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottom_navigation_view)
         bottomNavigationView.setupWithNavController(navController)
 
-        bottomNavigationView.setOnItemReselectedListener { menuItem ->
-            if (menuItem.itemId == R.id.explore) {
-                if ((navController.currentDestination?.id == R.id.detailsFragment)) {
-                    navController.popBackStack()
-                }
-            } else if (menuItem.itemId == R.id.favorite) {
-                if ((navController.currentDestination?.id == R.id.detailsFragment)) {
-                    navController.popBackStack()
-                }
+        bottomNavigationView.setOnItemReselectedListener {
+            if ((navController.currentDestination?.id == R.id.detailsFragment) ||
+                navController.currentDestination?.id == R.id.reviewsFragment
+            ) {
+                navController.popBackStack()
             }
         }
     }
