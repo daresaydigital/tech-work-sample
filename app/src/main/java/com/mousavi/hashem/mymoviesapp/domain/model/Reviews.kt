@@ -20,6 +20,6 @@ data class Review(
 data class AuthorDetails(
     val avatarPath: String?,
     val name: String?,
-    val rating: Int?,
+    val rating: Float?,
     val username: String,
 )
