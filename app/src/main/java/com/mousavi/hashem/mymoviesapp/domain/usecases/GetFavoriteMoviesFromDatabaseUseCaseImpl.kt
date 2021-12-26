@@ -4,10 +4,14 @@ import com.mousavi.hashem.mymoviesapp.domain.model.Movie
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetFavoriteMoviesFromDatabase(
+class GetFavoriteMoviesFromDatabaseUseCaseImpl(
     private val repository: MoviesRepository,
-) {
-    operator fun invoke(): Flow<List<Movie>> {
+): GetFavoriteMoviesFromDatabaseUseCase {
+    override operator fun invoke(): Flow<List<Movie>> {
         return repository.getFavoriteMoviesFromDatabase()
     }
+}
+
+interface GetFavoriteMoviesFromDatabaseUseCase{
+    operator fun invoke(): Flow<List<Movie>>
 }

@@ -3,9 +3,7 @@ package com.mousavi.hashem.mymoviesapp.presentaion.explore.details
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mousavi.hashem.mymoviesapp.domain.model.Movie
-import com.mousavi.hashem.mymoviesapp.domain.usecases.CheckIfFavorite
-import com.mousavi.hashem.mymoviesapp.domain.usecases.DeleteFavoriteMovie
-import com.mousavi.hashem.mymoviesapp.domain.usecases.SaveFavoriteMovieToDatabase
+import com.mousavi.hashem.mymoviesapp.domain.usecases.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,9 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsViewModel @Inject constructor(
-    private val saveMovieToDatabase: SaveFavoriteMovieToDatabase,
-    private val deleteFavoriteMovie: DeleteFavoriteMovie,
-    private val checkIfFavorite: CheckIfFavorite,
+    private val saveMovieToDatabaseUseCaseImpl: SaveFavoriteMovieToDatabaseUseCase,
+    private val deleteFavoriteMovieUseCaseImpl: DeleteFavoriteMovieUseCase,
+    private val checkIfFavoriteUseCaseImpl: CheckIfFavoriteUseCase,
 ) : ViewModel() {
 
     private var _ifFavorite = MutableStateFlow(false)
@@ -26,21 +24,21 @@ class DetailsViewModel @Inject constructor(
 
     fun saveAsFavorite(movie: Movie) {
         viewModelScope.launch(Dispatchers.IO) {
-            saveMovieToDatabase.invoke(movie)
+            saveMovieToDatabaseUseCaseImpl.invoke(movie)
             checkIsFavorite(movie)
         }
     }
 
     fun deleteFavorite(movie: Movie) {
         viewModelScope.launch(Dispatchers.IO) {
-            deleteFavoriteMovie.invoke(movie)
+            deleteFavoriteMovieUseCaseImpl.invoke(movie)
             checkIsFavorite(movie)
         }
     }
 
     fun checkIsFavorite(movie: Movie) {
         viewModelScope.launch(Dispatchers.IO) {
-            _ifFavorite.value = checkIfFavorite(movie)
+            _ifFavorite.value = checkIfFavoriteUseCaseImpl(movie)
         }
     }
 }

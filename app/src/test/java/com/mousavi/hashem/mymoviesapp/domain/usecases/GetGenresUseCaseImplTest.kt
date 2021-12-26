@@ -9,7 +9,7 @@ import org.mockito.Mockito
 import org.mockito.kotlin.times
 import org.mockito.kotlin.verify
 
-class GetGenresTest {
+class GetGenresUseCaseImplTest {
 
     private lateinit var getGenres: GetGenresUseCase
     private lateinit var moviesRepository: MoviesRepository
@@ -17,7 +17,7 @@ class GetGenresTest {
     @Before
     fun setUp() {
         moviesRepository = Mockito.mock(MoviesRepository::class.java)
-        getGenres = GetGenres(moviesRepository)
+        getGenres = GetGenresUseCaseImpl(moviesRepository)
     }
 
     @Test

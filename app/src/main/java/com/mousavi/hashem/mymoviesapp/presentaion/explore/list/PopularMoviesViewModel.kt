@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mousavi.hashem.common.Either
 import com.mousavi.hashem.mymoviesapp.domain.model.PageData
-import com.mousavi.hashem.mymoviesapp.domain.usecases.GetGenres
-import com.mousavi.hashem.mymoviesapp.domain.usecases.GetPopularMovies
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetPopularMoviesUseCase
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetPopularMoviesUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PopularMoviesViewModel @Inject constructor(
-    private val getPopularMoviesUseCase: GetPopularMovies,
+    private val getPopularMoviesUseCaseImplUseCase: GetPopularMoviesUseCase,
 ) : ViewModel() {
 
     private val _popularMovies = MutableStateFlow(PageData())
@@ -35,7 +35,7 @@ class PopularMoviesViewModel @Inject constructor(
     ) {
         viewModelScope.launch(Dispatchers.IO) {
             _popularMoviesLoading.emit(true)
-            when (val result = getPopularMoviesUseCase(language, page)) {
+            when (val result = getPopularMoviesUseCaseImplUseCase(language, page)) {
                 is Either.Success -> {
                     _popularMoviesLoading.emit(false)
                     _popularMovies.value = result.data

@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mousavi.hashem.common.Either
 import com.mousavi.hashem.mymoviesapp.domain.model.Reviews
-import com.mousavi.hashem.mymoviesapp.domain.usecases.GetReviews
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetReviewsUseCase
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetReviewsUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ReviewsViewModel @Inject constructor(
-    private val useCase: GetReviews,
+    private val useCase: GetReviewsUseCase,
 ) : ViewModel() {
 
     private val _reviews = MutableStateFlow(Reviews())
