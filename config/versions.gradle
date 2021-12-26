@@ -7,12 +7,12 @@ ext {
     buildtools = '30.0.3'
 
     // kotlin
-    kotlinVersion = '1.5.10'
+    kotlinVersion = '1.5.30'
     kotlinCore = '1.3.2'
 
     // ktx
-    fragmentVersion = '1.3.3'
-    activityVersion = '1.2.3'
+    fragmentVersion = '1.4.0'
+    activityVersion = '1.4.0'
 
     // kotlin coroutines
     kotlinCorutineVersion = '1.4.2'
@@ -21,19 +21,19 @@ ext {
     hiltVersion = '2.38.1'
 
     // compat
-    appcompat = '1.2.0'
+    appcompat = '1.4.0'
 
     // material
-    material = '1.3.0'
+    material = '1.4.0'
 
     // UI
-    constrainLayout = '2.0.4'
+    constrainLayout = '2.1.2'
 
     // glide
     glideVersion = '4.12.0'
 
     // navigation component
-    navigationComponent = '2.4.0-alpha01'
+    navigationComponent = '2.4.0-rc01'
 
     // network
     retrofitVersion = '2.9.0'
