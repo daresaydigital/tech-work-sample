@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Singleton
 class TopRatedMoviesRemoteDataSource @Inject constructor(
-    private val getTopRatedApiService: TopRatedApiService,
+    private val getTopRatedApiService: TopRatedMoviesApiService,
     private val globalDispatcher: GlobalDispatcher
 ) {
 

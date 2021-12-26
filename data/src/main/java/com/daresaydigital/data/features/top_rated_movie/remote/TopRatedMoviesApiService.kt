@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface TopRatedApiService {
+interface TopRatedMoviesApiService {
 
     @GET(NetworkConstants.TOP_RATED_ENDPOINT)
     fun getTopRatedMovies(@Query("page") id:Int): Call<List<MovieDTO>>

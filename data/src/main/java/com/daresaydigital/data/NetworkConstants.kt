@@ -7,6 +7,8 @@ package com.daresaydigital.data
  */
 object NetworkConstants {
 
+    const val api_key = "638714c562c6bdba5ca9cc1299816e09"
+
     const val BASE_URL = "https://api.themoviedb.org/3/"
     const val POPULAR_ENDPOINT = "movie/popular"
     const val TOP_RATED_ENDPOINT = "movie/top_rated"
