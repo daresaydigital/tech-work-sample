@@ -6,6 +6,7 @@ import com.daresaydigital.core.utils.GlobalDispatcher
 import com.daresaydigital.data.db.AppDatabase
 import com.daresaydigital.data.di.DatabaseModule
 import com.daresaydigital.data.di.NetworkModule
+import com.daresaydigital.data.features.popular_movie.PopularMoviesRepositoryImpl
 import com.daresaydigital.data.features.popular_movie.local.PopularMoviesLocalDataSource
 import com.daresaydigital.data.features.popular_movie.remote.PopularMoviesRemoteDataSource
 import com.daresaydigital.data.utils.FakeServer
@@ -15,6 +16,7 @@ import com.google.gson.Gson
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import javax.inject.Inject
@@ -55,7 +57,7 @@ class PopularMoviesRepositoryTest {
 //        fakeServer.start()
 
         localDataSource = PopularMoviesLocalDataSource(database.popularMoviesDao(),globalDispatcher)
-        repository = PopularRepositoryImpl(remoteDataSource,localDataSource)
+        repository = PopularMoviesRepositoryImpl(remoteDataSource,localDataSource,globalDispatcher,GlobalScope)
     }
 
     @After
