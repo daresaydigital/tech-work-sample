@@ -97,6 +97,6 @@ dependencies {
     androidTestImplementation("com.squareup.okhttp3:mockwebserver:$mockwebserverVersion")
 
     // module dependency
-//    implementation project(':domain')
+    implementation project(':domain')
     implementation project(':core')
 }
