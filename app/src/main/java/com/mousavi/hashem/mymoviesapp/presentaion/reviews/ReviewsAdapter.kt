@@ -12,14 +12,15 @@ import coil.load
 import com.google.android.material.button.MaterialButton
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.domain.model.Review
-import com.mousavi.hashem.mymoviesapp.presentaion.explore.list.PopularMoviesAdapter
 import com.mousavi.hashem.util.dateFormat
+import com.mousavi.hashem.util.gone
+import com.mousavi.hashem.util.show
 import com.mousavi.hashem.util.showHide
 
 
 class ReviewsAdapter(
     private var onLoadMoreListener: (Int) -> Unit,
-    private var showEmptyState: () -> Unit
+    private var showEmptyState: () -> Unit,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -76,10 +77,10 @@ class ReviewsAdapter(
             val newItemsSize = items.size
             notifyItemRangeChanged(currentItemsSize, newItemsSize - currentItemsSize)
         }
-        if (page >= totalPages){
+        if (page >= totalPages) {
             noMoreData = true
         }
-        if (items.isEmpty() && page != -1){
+        if (items.isEmpty() && page != -1) {
             showEmptyState()
         }
     }
@@ -138,12 +139,13 @@ class ReviewsAdapter(
         private val rateTextView: TextView = itemView.findViewById(R.id.tv_rate)
         private val dateTextView: TextView = itemView.findViewById(R.id.tv_date)
         private val contentTextView: TextView = itemView.findViewById(R.id.tv_content)
+        private val readMoreButton: MaterialButton = itemView.findViewById(R.id.btn_read_more)
 
         @SuppressLint("SetTextI18n")
         fun bind(position: Int) {
             with(items[position]) {
                 nameTextView.text = authorDetails.name ?: ""
-                imageViewAvatar.load(authorDetails.avatarPath){
+                imageViewAvatar.load(authorDetails.avatarPath) {
                     placeholder(R.drawable.avatar_place_holder)
                     error(R.drawable.avatar_place_holder)
                 }
@@ -151,6 +153,25 @@ class ReviewsAdapter(
                 rateTextView.showHide(authorDetails.rating != null)
                 dateTextView.text = dateFormat(createdAt?.substringBefore("T"))
                 contentTextView.text = content
+                contentTextView.maxLines = 4
+
+                contentTextView.post {
+                    val lines = contentTextView.lineCount
+                    if (lines >= 1) {
+                        val ellipsisCount = contentTextView.layout.getEllipsisCount(lines - 1)
+                        if (ellipsisCount > 0) {
+                            readMoreButton.show()
+                            readMoreButton.setOnClickListener {
+                                contentTextView.maxLines = 1000
+                                it.gone()
+                            }
+                        } else {
+                            readMoreButton.gone()
+                        }
+                    }
+
+                }
+
             }
         }
     }
