@@ -26,8 +26,8 @@ class PopularMoviesViewModel @Inject constructor(
     private val _popularMoviesError = MutableSharedFlow<String>()
     val popularMoviesError = _popularMoviesError.asSharedFlow()
 
-    private val _popularMoviesLoading = MutableSharedFlow<Boolean>()
-    val popularMoviesLoading = _popularMoviesLoading.asSharedFlow()
+    private val _popularMoviesLoading = MutableStateFlow(false)
+    val popularMoviesLoading = _popularMoviesLoading.asStateFlow()
 
     fun getPopularMovies(
         language: String = "en-US",
