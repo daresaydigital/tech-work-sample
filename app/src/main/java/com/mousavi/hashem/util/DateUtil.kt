@@ -13,7 +13,7 @@ fun dateFormat(dateString: String?): String {
     val month = arr[1].toIntOrNull() ?: return ""
     val day = arr[2].toIntOrNull() ?: return ""
     calendar.set(Calendar.YEAR, year)
-    calendar.set(Calendar.MONTH, month - 1)
+    calendar.set(Calendar.MONTH, month - 1)//in java month is zero index but api get Jan as 1
     calendar.set(Calendar.DAY_OF_MONTH, day)
     val date = Date(calendar.timeInMillis)
     val dateFormatter = SimpleDateFormat("yyyy MMM d", Locale.US)
