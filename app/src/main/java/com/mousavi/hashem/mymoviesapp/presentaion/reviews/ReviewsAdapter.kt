@@ -7,18 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.domain.model.Review
 import com.mousavi.hashem.util.dateFormat
-import com.mousavi.hashem.util.dp
 import com.mousavi.hashem.util.showHide
 
 
 class ReviewsAdapter(
     private var onLoadMoreListener: (Int) -> Unit,
+    private var showEmptyState: () -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
@@ -35,7 +34,7 @@ class ReviewsAdapter(
         }
 
     var noMoreData = false
-    var currentPage = 1
+    var currentPage = 0
 
     private val itemDecoration = object : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
@@ -58,7 +57,8 @@ class ReviewsAdapter(
         recyclerView.removeItemDecoration(itemDecoration)
     }
 
-    fun appendData(list: List<Review>, page: Int) {
+    fun appendData(list: List<Review>, page: Int, totalPages: Int) {
+        if (page == -1) return
         if (currentPage == page) return
         currentPage = page
         val currentItemsSize = items.size
@@ -66,6 +66,12 @@ class ReviewsAdapter(
             items.addAll(list)
             val newItemsSize = items.size
             notifyItemRangeChanged(currentItemsSize, newItemsSize - currentItemsSize)
+        }
+        if (page >= totalPages){
+            noMoreData = true
+        }
+        if (items.isEmpty() && page != -1){
+            showEmptyState()
         }
     }
 

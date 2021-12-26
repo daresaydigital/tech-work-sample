@@ -18,7 +18,7 @@
 
     <TextView
         android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:textColor="@color/on_surface"
@@ -26,7 +26,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_date"
         app:layout_constraintStart_toEndOf="@+id/iv_avatar"
         app:layout_constraintTop_toTopOf="@+id/iv_avatar"
-        tools:text="Hashem Mousavi hhhhhhhhhhhhhhhhh" />
+        tools:text="Hashem Mousavi " />
 
     <TextView
         android:id="@+id/tv_date"
@@ -53,7 +53,6 @@
         android:paddingHorizontal="6dp"
         android:paddingVertical="6dp"
         android:textColor="@color/white"
-        app:layout_constraintWidth="match_parent"
         android:textSize="14sp"
         app:drawableStartCompat="@drawable/ic_star"
         app:drawableTint="@color/white"
