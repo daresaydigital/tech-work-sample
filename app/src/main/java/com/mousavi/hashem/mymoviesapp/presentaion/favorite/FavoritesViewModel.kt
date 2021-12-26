@@ -3,7 +3,8 @@ package com.mousavi.hashem.mymoviesapp.presentaion.favorite
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mousavi.hashem.mymoviesapp.domain.model.Movie
-import com.mousavi.hashem.mymoviesapp.domain.usecases.GetFavoriteMoviesFromDatabase
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetFavoriteMoviesFromDatabaseUseCase
+import com.mousavi.hashem.mymoviesapp.domain.usecases.GetFavoriteMoviesFromDatabaseUseCaseImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FavoritesViewModel @Inject constructor(
-    private val useCase: GetFavoriteMoviesFromDatabase,
+    private val useCase: GetFavoriteMoviesFromDatabaseUseCase,
 ) : ViewModel() {
 
     private var _favorites = MutableStateFlow<List<Movie>>(emptyList())

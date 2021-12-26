@@ -1,23 +1,23 @@
 package com.mousavi.hashem.mymoviesapp.di
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.room.Room
 import com.mousavi.hashem.mymoviesapp.BuildConfig
 import com.mousavi.hashem.mymoviesapp.data.local.MovieDao
 import com.mousavi.hashem.mymoviesapp.data.local.MoviesDatabase
 import com.mousavi.hashem.mymoviesapp.data.local.MoviesDatabase.Companion.DATABASE_NAME
-import com.mousavi.hashem.mymoviesapp.data.remote.Api
+import com.mousavi.hashem.mymoviesapp.data.remote.*
 import com.mousavi.hashem.mymoviesapp.data.remote.Api.Companion.API_KEY
 import com.mousavi.hashem.mymoviesapp.data.remote.Api.Companion.BASE_URL
-import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSource
-import com.mousavi.hashem.mymoviesapp.data.remote.NetworkDataSourceImpl
 import com.mousavi.hashem.mymoviesapp.data.repository.MoviesRepositoryImpl
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 import com.mousavi.hashem.mymoviesapp.domain.usecases.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -72,8 +72,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNetworkDataSource(api: Api): NetworkDataSource {
-        return NetworkDataSourceImpl(api)
+    fun provideNetworkDataSource(api: Api, stringProvider: StringProvider): NetworkDataSource {
+        return NetworkDataSourceImpl(api, stringProvider)
+    }
+
+    @Provides
+    fun provideStringProvider(@ApplicationContext appContext: Context): StringProvider {
+        return StringProviderImpl(appContext)
     }
 
     @Provides
@@ -83,13 +88,16 @@ object AppModule {
     }
 
     @Provides
-    fun provideGetPopularMoviesUseCase(repository: MoviesRepository, getGenresUseCase: GetGenresUseCase): GetPopularMovies {
-        return GetPopularMovies(repository, getGenresUseCase)
+    fun provideGetPopularMoviesUseCase(
+        repository: MoviesRepository,
+        getGenresUseCase: GetGenresUseCase,
+    ): GetPopularMoviesUseCase {
+        return GetPopularMoviesUseCaseImpl(repository, getGenresUseCase)
     }
 
     @Provides
     fun provideGetGenresUseCase(repository: MoviesRepository): GetGenresUseCase {
-        return GetGenres(repository)
+        return GetGenresUseCaseImpl(repository)
     }
 
     @Provides
@@ -110,32 +118,32 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGetFavoriteMoviesFromDatabaseUseCase(repository: MoviesRepository): GetFavoriteMoviesFromDatabase {
-        return GetFavoriteMoviesFromDatabase(repository)
+    fun provideGetFavoriteMoviesFromDatabaseUseCase(repository: MoviesRepository): GetFavoriteMoviesFromDatabaseUseCase {
+        return GetFavoriteMoviesFromDatabaseUseCaseImpl(repository)
     }
 
     @Provides
     @Singleton
-    fun provideDeleteFavoriteMovieUseCase(repository: MoviesRepository): DeleteFavoriteMovie {
-        return DeleteFavoriteMovie(repository)
+    fun provideDeleteFavoriteMovieUseCase(repository: MoviesRepository): DeleteFavoriteMovieUseCase {
+        return DeleteFavoriteMovieUseCaseImpl(repository)
     }
 
     @Provides
     @Singleton
-    fun provideCheckIfFavoriteUseCase(repository: MoviesRepository): CheckIfFavorite {
-        return CheckIfFavorite(repository)
+    fun provideCheckIfFavoriteUseCase(repository: MoviesRepository): CheckIfFavoriteUseCase {
+        return CheckIfFavoriteUseCaseImpl(repository)
     }
 
     @Provides
     @Singleton
-    fun provideSaveFavoriteMovieToDatabaseUseCase(repository: MoviesRepository): SaveFavoriteMovieToDatabase {
-        return SaveFavoriteMovieToDatabase(repository)
+    fun provideSaveFavoriteMovieToDatabaseUseCase(repository: MoviesRepository): SaveFavoriteMovieToDatabaseUseCase {
+        return SaveFavoriteMovieToDatabaseUseCaseImpl(repository)
     }
 
     @Provides
     @Singleton
-    fun provideGetReviewsUseCase(repository: MoviesRepository): GetReviews {
-        return GetReviews(repository)
+    fun provideGetReviewsUseCase(repository: MoviesRepository): GetReviewsUseCase {
+        return GetReviewsUseCaseImpl(repository)
     }
 }
 

@@ -1,6 +1,7 @@
 package com.mousavi.hashem.mymoviesapp.data.remote
 
 import com.mousavi.hashem.common.Either
+import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.data.remote.dto.GenresDto
 import com.mousavi.hashem.mymoviesapp.data.remote.dto.PageDataDto
 import com.mousavi.hashem.mymoviesapp.data.remote.dto.ReviewsDto
@@ -9,6 +10,7 @@ import java.io.IOException
 
 class NetworkDataSourceImpl(
     private val api: Api,
+    private var stringProvider: StringProvider
 ) : NetworkDataSource {
 
     override suspend fun getPopularMovies(
@@ -19,11 +21,11 @@ class NetworkDataSourceImpl(
             val popularMovies = api.getPopularMovies(language, page)
             Either.Success(popularMovies)
         } catch (e: HttpException) {
-            Either.Error(error = e.message ?: "Error occurred")
+            Either.Error(error = e.message ?: stringProvider.getHttpError())
         } catch (e: IOException) {
-            Either.Error(error = e.message ?: "Check your internet connection!")
+            Either.Error(error = e.message ?: stringProvider.getIOExceptionError())
         } catch (e: Exception) {
-            Either.Error(error = e.message ?: "Unknown error!")
+            Either.Error(error = e.message ?: stringProvider.getUnknownError())
         }
     }
 
@@ -32,11 +34,11 @@ class NetworkDataSourceImpl(
             val genresDto = api.getGenres()
             Either.Success(genresDto)
         } catch (e: HttpException) {
-            Either.Error(error = e.message ?: "Error occurred")
+            Either.Error(error = e.message ?: stringProvider.getHttpError())
         } catch (e: IOException) {
-            Either.Error(error = e.message ?: "Check your internet connection!")
+            Either.Error(error = e.message ?: stringProvider.getIOExceptionError())
         } catch (e: Exception) {
-            Either.Error(error = e.message ?: "Unknown error!")
+            Either.Error(error = e.message ?: stringProvider.getUnknownError())
         }
     }
 
@@ -53,11 +55,11 @@ class NetworkDataSourceImpl(
             )
             Either.Success(reviewsDto)
         } catch (e: HttpException) {
-            Either.Error(error = e.message ?: "Error occurred")
+            Either.Error(error = e.message ?: stringProvider.getHttpError())
         } catch (e: IOException) {
-            Either.Error(error = e.message ?: "Check your internet connection!")
+            Either.Error(error = e.message ?: stringProvider.getIOExceptionError())
         } catch (e: Exception) {
-            Either.Error(error = e.message ?: "Unknown error!")
+            Either.Error(error = e.message ?: stringProvider.getUnknownError())
         }
     }
 }

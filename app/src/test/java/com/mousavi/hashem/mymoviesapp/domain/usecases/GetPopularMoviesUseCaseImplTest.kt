@@ -14,9 +14,9 @@ import org.junit.Test
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 
-class GetPopularMoviesTest {
+class GetPopularMoviesUseCaseImplTest {
 
-    private lateinit var getPopularMovies: GetPopularMovies
+    private lateinit var getPopularMoviesUseCaseImpl: GetPopularMoviesUseCaseImpl
     private lateinit var moviesRepository: MoviesRepository
     private lateinit var getGenresUseCase: GetGenresUseCase
 
@@ -25,7 +25,7 @@ class GetPopularMoviesTest {
     fun setUp() {
         moviesRepository = Mockito.mock(MoviesRepository::class.java)
         getGenresUseCase = Mockito.mock(GetGenresUseCase::class.java)
-        getPopularMovies = GetPopularMovies(moviesRepository, getGenresUseCase)
+        getPopularMoviesUseCaseImpl = GetPopularMoviesUseCaseImpl(moviesRepository, getGenresUseCase)
     }
 
     @Test
@@ -43,7 +43,7 @@ class GetPopularMoviesTest {
                 )
             )
 
-        val popularMovies: Either<PageData, String> = getPopularMovies("en-US", 1)
+        val popularMovies: Either<PageData, String> = getPopularMoviesUseCaseImpl("en-US", 1)
         assertThat(popularMovies).isInstanceOf(Either.Success::class.java)
         val pageData: PageData = (popularMovies as Either.Success).data
         assertThat(pageData.movies).hasSize(2)

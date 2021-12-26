@@ -4,7 +4,7 @@ import com.mousavi.hashem.common.Either
 import com.mousavi.hashem.mymoviesapp.domain.model.Genres
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 
-class GetGenres(
+class GetGenresUseCaseImpl(
     private val repository: MoviesRepository,
 ) : GetGenresUseCase {
 

@@ -7,10 +7,10 @@ import com.mousavi.hashem.mymoviesapp.domain.model.Reviews
 import com.mousavi.hashem.mymoviesapp.domain.repository.MoviesRepository
 
 
-class GetReviews(
+class GetReviewsUseCaseImpl(
     private val repository: MoviesRepository,
-) {
-    suspend operator fun invoke(movieId:Int, language: String, page: Int): Either<Reviews, String> {
+): GetReviewsUseCase {
+    override suspend operator fun invoke(movieId:Int, language: String, page: Int): Either<Reviews, String> {
         return when (val reviews = repository.getReviews(movieId, language,page)) {
             is Either.Success -> {
                 Either.Success(reviews.data)
@@ -20,5 +20,9 @@ class GetReviews(
             }
         }
     }
+}
+
+interface GetReviewsUseCase {
+    suspend operator fun invoke(movieId:Int, language: String, page: Int): Either<Reviews, String>
 }
 
