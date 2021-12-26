@@ -83,14 +83,12 @@ object AppModule {
     }
 
     @Provides
-    @Singleton
-    fun provideGetPopularMoviesUseCase(repository: MoviesRepository): GetPopularMovies {
-        return GetPopularMovies(repository)
+    fun provideGetPopularMoviesUseCase(repository: MoviesRepository, getGenresUseCase: GetGenresUseCase): GetPopularMovies {
+        return GetPopularMovies(repository, getGenresUseCase)
     }
 
     @Provides
-    @Singleton
-    fun provideGetGenresUseCase(repository: MoviesRepository): GetGenres {
+    fun provideGetGenresUseCase(repository: MoviesRepository): GetGenresUseCase {
         return GetGenres(repository)
     }
 

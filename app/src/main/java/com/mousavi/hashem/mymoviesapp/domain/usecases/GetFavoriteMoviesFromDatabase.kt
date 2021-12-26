@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 class GetFavoriteMoviesFromDatabase(
     private val repository: MoviesRepository,
 ) {
-    suspend operator fun invoke(): Flow<List<Movie>> {
+    operator fun invoke(): Flow<List<Movie>> {
         return repository.getFavoriteMoviesFromDatabase()
     }
 }
