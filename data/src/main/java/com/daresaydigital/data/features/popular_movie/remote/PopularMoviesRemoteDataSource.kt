@@ -1,7 +1,7 @@
 package com.daresaydigital.data.features.popular_movie.remote
 
 import com.daresaydigital.core.utils.GlobalDispatcher
-import com.daresaydigital.data.model.MovieDTO
+import com.daresaydigital.data.features.popular_movie.model.PopularMoviesDTO
 import com.daresaydigital.data.util.ApiResult
 import com.daresaydigital.data.util.callAwait
 import kotlinx.coroutines.withContext
@@ -20,7 +20,7 @@ class PopularMoviesRemoteDataSource @Inject constructor(
      * and also it prevent issues in other layers.
      */
 
-    suspend fun getPopularMovies(page:Int): ApiResult<List<MovieDTO>> {
+    suspend fun getPopularMovies(page:Int): ApiResult<PopularMoviesDTO> {
         return withContext(globalDispatcher.io) {
             getPopularMovieApiService.getPopularMovies(page).callAwait { response ->
                 response

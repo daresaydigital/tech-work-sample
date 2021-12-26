@@ -1,5 +1,7 @@
 package com.daresaydigital.data.features.popular_movie.model
 
+import com.daresaydigital.data.model.toDomainArrayModel
+import com.daresaydigital.domain.features.popular_movie.model.PopularMoviesDomain
 import com.daresaydigital.domain.model.MovieDomain
 
 fun PopularMoviesLocalEntity.toDomainModel() = MovieDomain(
@@ -26,4 +28,14 @@ fun List<MovieDomain>.toLocalArrayModel(): List<PopularMoviesLocalEntity> {
         arrays.add(it.toLocalModel())
     }
     return arrays.toList()
+}
+
+@JvmName("popularMoviesLocalEntityToPopularMoviesDomain")
+fun List<PopularMoviesLocalEntity>.toPopularMoviesDomain(): PopularMoviesDomain {
+    return PopularMoviesDomain(1,this.toDomainArrayModel(),0,0)
+}
+
+@JvmName("popularMoviesLocalEntityToPopularMoviesDomain")
+fun PopularMoviesDTO.toPopularMoviesDomain(): PopularMoviesDomain {
+    return PopularMoviesDomain(this.page,this.results.toDomainArrayModel(),this.total_pages,this.total_results)
 }
