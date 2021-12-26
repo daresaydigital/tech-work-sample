@@ -1,0 +1,102 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion compilesdk
+    buildToolsVersion buildtools
+
+    defaultConfig {
+        minSdkVersion minsdk
+        targetSdkVersion targetsdk
+        versionCode = properties.get("shortcut.versionCode")
+        versionName = properties.get("shortcut.versionName")
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
+
+        testInstrumentationRunner "com.sama.data.HiltTestRunner"
+    }
+
+    buildTypes {
+        debug {
+            manifestPlaceholders = [usesCleartextTraffic:"true"]
+        }
+        release {
+            minifyEnabled false
+            manifestPlaceholders = [usesCleartextTraffic:"false"]
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    testOptions { // 2
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+
+    //network
+    api "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
+    api "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingInterceptorVerion"
+
+    //gson
+    api "com.google.code.gson:gson:$gsonVersion"
+
+    // Room
+    api "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$roomVersion"
+
+    // di (hilt)
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+    // junit for unit testing
+    testImplementation "junit:junit:$junit"
+
+    //junit for android test
+    androidTestImplementation "androidx.test.ext:junit:$androidx_junitVersion"
+    androidTestImplementation "androidx.test:runner:$androidxJRunnerVersion"
+
+    //to have instant executor rule - threads
+    androidTestImplementation "android.arch.core:core-testing:$coreTesting"
+
+    // for mockito and better mockito using with coroutines
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin"
+    testImplementation "org.mockito:mockito-inline:$mockitoInline"
+
+    //test hilt test
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+
+    // test mock web server
+    testImplementation("com.squareup.okhttp3:mockwebserver:$mockwebserverVersion")
+    androidTestImplementation("com.squareup.okhttp3:mockwebserver:$mockwebserverVersion")
+
+    // module dependency
+//    implementation project(':domain')
+    implementation project(':core')
+}
