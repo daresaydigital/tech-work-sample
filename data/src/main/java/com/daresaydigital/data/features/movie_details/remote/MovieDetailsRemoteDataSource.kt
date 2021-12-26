@@ -9,7 +9,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MovieReviewRemoteDataSource @Inject constructor(
+class MovieDetailsRemoteDataSource @Inject constructor(
     private val getMovieDetailsApiService: MovieDetailsApiService,
     private val globalDispatcher: GlobalDispatcher
 ) {
