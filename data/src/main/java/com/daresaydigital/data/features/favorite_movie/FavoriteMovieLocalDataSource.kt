@@ -1,7 +1,7 @@
 package com.daresaydigital.data.features.favorite_movie
 
 import com.daresaydigital.core.utils.GlobalDispatcher
-import com.daresaydigital.data.model.FavMovieLocalEntity
+import com.daresaydigital.data.model.entity.FavMovieLocalEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
