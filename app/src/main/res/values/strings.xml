@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MyMoviesApp</string>
+    <string name="menu_item_explore">Explore</string>
+    <string name="menu_item_favorites">Favorites</string>
+    <string name="title_top_movies">Top Movies</string>
+    <string name="content_description_poster_image">Poster Image</string>
+    <string name="content_description_backdrop_image">backdrop image</string>
+    <string name="transition_name_poster">poster</string>
+    <string name="votes_place_holder">From %1$d Votes</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="empty_state_no_favorite">You have no favorite movie!</string>
+    <string name="release_date">Release Date</string>
+    <string name="message_add_to_favorite">Added to favorites</string>
+    <string name="message_removed_from_favorite">Removed from favorites</string>
+    <string name="user_reviews">User Reviews</string>
+    <string name="title_reviews">Reviews</string>
+    <string name="empty_state_no_reviews">No reviews for this movie</string>
+    <string name="error_occurred">Error occurred</string>
+    <string name="check_internet_connection">Check your internet connection!</string>
+    <string name="unknown_error">Unknown error!</string>
+    <string name="retry">Retry</string>
+    <string name="read_more">Read More</string>
+</resources>
