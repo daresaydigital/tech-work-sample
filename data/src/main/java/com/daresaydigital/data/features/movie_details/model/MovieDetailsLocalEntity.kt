@@ -1,8 +1,8 @@
-package com.daresaydigital.data.model.entity
+package com.daresaydigital.data.features.movie_details.model
 
 import androidx.room.Entity
 import androidx.room.Index
-import com.daresaydigital.data.model.*
+import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "movie_details",
@@ -15,6 +15,7 @@ data class MovieDetailsLocalEntity(
     val budget: Int,
     val genres: List<GenreLocal>,
     val homepage: String,
+    @PrimaryKey
     val id: Int,
     val imdb_id: String,
     val original_language: String,

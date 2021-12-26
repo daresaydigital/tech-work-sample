@@ -1,4 +1,4 @@
-package com.daresaydigital.data.model
+package com.daresaydigital.data.features.movie_details.model
 
 data class BelongsToCollectionLocal(
     val backdrop_path: String,

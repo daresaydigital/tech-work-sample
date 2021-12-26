@@ -1,16 +1,15 @@
-package com.daresaydigital.data.features.movie_details
+package com.daresaydigital.data.features.movie_details.local
 
 import com.daresaydigital.core.utils.GlobalDispatcher
-import com.daresaydigital.data.model.entity.MovieDetailsLocalEntity
+import com.daresaydigital.data.features.movie_details.model.MovieDetailsLocalEntity
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class MovieDetailsLocalDataSource @Inject constructor(
-    private val movieDetailsDao: MovieDetailsLocalDao,
+    private val movieDetailsDao: MovieDetailsDao,
     private val globalDispatcher: GlobalDispatcher
 ) {
 
@@ -26,7 +25,7 @@ class MovieDetailsLocalDataSource @Inject constructor(
     }
 
     @Throws
-    suspend fun getMovieDetailsById(movieId: Int): Flow<MovieDetailsLocalEntity?> {
+    suspend fun getMovieDetailsById(movieId: Int): MovieDetailsLocalEntity? {
         return withContext(globalDispatcher.io) {
             movieDetailsDao.getMovieDetailsById(movieId)
         }

@@ -23,7 +23,7 @@ android {
             }
         }
 
-        testInstrumentationRunner "com.sama.data.HiltTestRunner"
+        testInstrumentationRunner "com.daresaydigital.data.HiltTestRunner"
     }
 
     buildTypes {

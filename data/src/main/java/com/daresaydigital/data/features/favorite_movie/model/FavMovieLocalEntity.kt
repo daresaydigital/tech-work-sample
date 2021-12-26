@@ -1,8 +1,8 @@
-package com.daresaydigital.data.model.entity
+package com.daresaydigital.data.features.favorite_movie.model
 
 import androidx.room.Entity
 import androidx.room.Index
-import com.daresaydigital.data.model.AuthorDetailsLocal
+import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "fav_movies",
@@ -10,9 +10,10 @@ import com.daresaydigital.data.model.AuthorDetailsLocal
 )
 data class FavMovieLocalEntity(
     val author: String,
-    val author_details: AuthorDetailsLocal,
+    val author_details: AuthorDetailsLocal?=null,
     val content: String,
     val created_at: String,
+    @PrimaryKey
     val id: String,
     val updated_at: String,
     val url: String
