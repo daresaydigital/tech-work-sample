@@ -24,12 +24,17 @@ class ReviewsViewModel @Inject constructor(
     private val _loading = MutableStateFlow(false)
     val loading = _loading.asStateFlow()
 
+    private val _error = MutableStateFlow(false)
+    val error = _error.asStateFlow()
+
+
     fun getReviews(
         movieId: Int,
         language: String = "en-US",
         page: Int = 1,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
+            _error.emit(false)
             _loading.emit(true)
             when (val result = useCase(movieId, language, page)) {
                 is Either.Success -> {
@@ -38,7 +43,7 @@ class ReviewsViewModel @Inject constructor(
                 }
                 is Either.Error -> {
                     _loading.emit(false)
-                    //TODO
+                    _error.emit(true)
                 }
             }
 

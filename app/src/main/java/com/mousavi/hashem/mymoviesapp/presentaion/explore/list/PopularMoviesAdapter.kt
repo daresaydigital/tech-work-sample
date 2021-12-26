@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.google.android.material.button.MaterialButton
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.domain.model.Movie
 import com.mousavi.hashem.util.dp
@@ -22,11 +23,18 @@ class PopularMoviesAdapter(
     companion object {
         private const val VIEW_TYPE_LOADING = 0
         private const val VIEW_TYPE_DATA = 1
+        private const val VIEW_TYPE_ERROR = 2
     }
 
     private val items = mutableListOf<Movie>()
 
     var isLoading = false
+        set(value) {
+            field = value
+            notifyItemChanged(itemCount)
+        }
+
+    var isError = false
         set(value) {
             field = value
             notifyItemChanged(itemCount)
@@ -64,7 +72,8 @@ class PopularMoviesAdapter(
         (recyclerView.layoutManager as? GridLayoutManager)?.let { layoutManager ->
             layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                 override fun getSpanSize(position: Int): Int {
-                    if (getItemViewType(position) == VIEW_TYPE_LOADING) return 2
+                    val itemViewType = getItemViewType(position)
+                    if (itemViewType == VIEW_TYPE_LOADING || itemViewType == VIEW_TYPE_ERROR) return 2
                     return 1
                 }
             }
@@ -87,7 +96,7 @@ class PopularMoviesAdapter(
             notifyItemRangeChanged(currentItemsSize, newItemsSize - currentItemsSize)
         }
 
-        if (page >= totalPages){
+        if (page >= totalPages) {
             noMoreData = true
         }
     }
@@ -96,6 +105,9 @@ class PopularMoviesAdapter(
         val inflater = LayoutInflater.from(parent.context)
         if (viewType == VIEW_TYPE_LOADING) {
             return LoadingViewHolder(inflater.inflate(R.layout.item_loading, parent, false))
+        }
+        if (viewType == VIEW_TYPE_ERROR) {
+            return ErrorViewHolder(inflater.inflate(R.layout.item_error, parent, false))
         }
 
         return MovieViewHolder(inflater.inflate(R.layout.item_movie, parent, false))
@@ -106,7 +118,7 @@ class PopularMoviesAdapter(
         if (holder is MovieViewHolder) {
             holder.bind(position)
         }
-        if (!noMoreData && !isLoading && position == itemCount - 1) {
+        if (!noMoreData && !isError && !isLoading && position == itemCount - 1) {
             onLoadMoreListener.invoke(currentPage + 1)
         }
     }
@@ -115,6 +127,9 @@ class PopularMoviesAdapter(
     override fun getItemCount(): Int {
         var dataCount = items.size
         if (isLoading) {
+            dataCount++
+        }
+        if (isError) {//isError and isLoading never be true at the same time
             dataCount++
         }
         return dataCount
@@ -128,6 +143,12 @@ class PopularMoviesAdapter(
                 VIEW_TYPE_DATA
             } else {
                 VIEW_TYPE_LOADING
+            }
+        } else if (isError) {
+            if (position < dataCount) {
+                VIEW_TYPE_DATA
+            } else {
+                VIEW_TYPE_ERROR
             }
         } else {
             VIEW_TYPE_DATA
@@ -158,4 +179,13 @@ class PopularMoviesAdapter(
         internal val loading: View = itemView.findViewById(R.id.loading)
     }
 
+    inner class ErrorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val errorButton: MaterialButton = itemView.findViewById(R.id.btn_Error)
+
+        init {
+            errorButton.setOnClickListener {
+                onLoadMoreListener(currentPage + 1)
+            }
+        }
+    }
 }

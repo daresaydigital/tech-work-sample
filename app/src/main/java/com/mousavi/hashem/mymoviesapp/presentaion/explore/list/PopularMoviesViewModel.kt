@@ -23,8 +23,8 @@ class PopularMoviesViewModel @Inject constructor(
     private val _popularMovies = MutableStateFlow(PageData())
     val popularMovies = _popularMovies.asStateFlow()
 
-    private val _popularMoviesError = MutableSharedFlow<String>()
-    val popularMoviesError = _popularMoviesError.asSharedFlow()
+    private val _popularMoviesError = MutableStateFlow(false)
+    val popularMoviesError = _popularMoviesError.asStateFlow()
 
     private val _popularMoviesLoading = MutableStateFlow(false)
     val popularMoviesLoading = _popularMoviesLoading.asStateFlow()
@@ -34,6 +34,7 @@ class PopularMoviesViewModel @Inject constructor(
         page: Int = 1,
     ) {
         viewModelScope.launch(Dispatchers.IO) {
+            _popularMoviesError.emit(false)
             _popularMoviesLoading.emit(true)
             when (val result = getPopularMoviesUseCaseImplUseCase(language, page)) {
                 is Either.Success -> {
@@ -42,7 +43,7 @@ class PopularMoviesViewModel @Inject constructor(
                 }
                 is Either.Error -> {
                     _popularMoviesLoading.emit(false)
-                    _popularMoviesError.emit(result.error)
+                    _popularMoviesError.emit(true)
                 }
             }
 

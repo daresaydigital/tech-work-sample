@@ -9,8 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.google.android.material.button.MaterialButton
 import com.mousavi.hashem.mymoviesapp.R
 import com.mousavi.hashem.mymoviesapp.domain.model.Review
+import com.mousavi.hashem.mymoviesapp.presentaion.explore.list.PopularMoviesAdapter
 import com.mousavi.hashem.util.dateFormat
 import com.mousavi.hashem.util.showHide
 
@@ -23,11 +25,18 @@ class ReviewsAdapter(
     companion object {
         private const val VIEW_TYPE_LOADING = 0
         private const val VIEW_TYPE_DATA = 1
+        private const val VIEW_TYPE_ERROR = 2
     }
 
     private val items = mutableListOf<Review>()
 
     var isLoading = false
+        set(value) {
+            field = value
+            notifyItemChanged(itemCount)
+        }
+
+    var isError = false
         set(value) {
             field = value
             notifyItemChanged(itemCount)
@@ -89,7 +98,7 @@ class ReviewsAdapter(
         if (holder is ReviewViewHolder) {
             holder.bind(position)
         }
-        if (!noMoreData && !isLoading && position == itemCount - 1) {
+        if (!noMoreData && !isError && !isLoading && position == itemCount - 1) {
             onLoadMoreListener.invoke(currentPage + 1)
         }
     }
@@ -111,6 +120,12 @@ class ReviewsAdapter(
                 VIEW_TYPE_DATA
             } else {
                 VIEW_TYPE_LOADING
+            }
+        } else if (isError) {
+            if (position < dataCount) {
+                VIEW_TYPE_DATA
+            } else {
+                VIEW_TYPE_ERROR
             }
         } else {
             VIEW_TYPE_DATA
@@ -142,6 +157,16 @@ class ReviewsAdapter(
 
     class LoadingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal val loading: View = itemView.findViewById(R.id.loading)
+    }
+
+    inner class ErrorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val errorButton: MaterialButton = itemView.findViewById(R.id.btn_Error)
+
+        init {
+            errorButton.setOnClickListener {
+                onLoadMoreListener(currentPage + 1)
+            }
+        }
     }
 
 }
