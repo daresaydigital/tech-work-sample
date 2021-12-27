@@ -26,6 +26,7 @@ class MovieVC: UIViewController {
         view.backgroundColor = .green
         print("DEBUG: sections ARE \(sections)")
         getMovies(from: .popular)
+        getMovies(from: .topRated)
         cofigureCollectionView()
         createDataSource()
         reloadData()
@@ -36,10 +37,11 @@ class MovieVC: UIViewController {
     func cofigureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .systemPink
+        collectionView.backgroundColor = .black
         view.addSubview(collectionView)
         
         collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: PopularMovieCell.reuseID)
+        collectionView.register(TopRatedCell.self, forCellWithReuseIdentifier: TopRatedCell.reuseID)
     }
     
     func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with viewmodel: MovieViewModel, for indexPath: IndexPath) -> T {
@@ -54,6 +56,8 @@ class MovieVC: UIViewController {
         dataSource = UICollectionViewDiffableDataSource<Section, Movie>(collectionView: collectionView, cellProvider: { collectionView, indexPath, movie in
             let viewModel = MovieViewModel(movie: movie)
             switch self.sections[indexPath.section].title {
+            case "Popular": return self.configure(PopularMovieCell.self, with: viewModel, for: indexPath)
+            case "Top Rated": return self.configure(TopRatedCell.self, with: viewModel, for: indexPath)
             default: return self.configure(PopularMovieCell.self, with: viewModel, for: indexPath)
             }
         })
@@ -74,13 +78,27 @@ class MovieVC: UIViewController {
         let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
         layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         
-        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.45), heightDimension: .estimated(UIScreen.main.bounds.height * 0.33))
+        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .estimated(UIScreen.main.bounds.width * 0.47), heightDimension: .estimated(UIScreen.main.bounds.height * 0.33))
         let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .continuous
         
-//
+        return layoutSection
+    }
+    
+    
+    func createTopRatedMoviesSection(using: Section) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+        
+        let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .estimated(UIScreen.main.bounds.width * 0.37), heightDimension: .estimated(UIScreen.main.bounds.height * 0.3))
+        let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+        
+        let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+        layoutSection.orthogonalScrollingBehavior = .continuous
+        
         return layoutSection
     }
     
@@ -90,6 +108,8 @@ class MovieVC: UIViewController {
             let section = self.sections[sectionIndex]
             
             switch section.title {
+            case "Popular": return self.createPopularMovieSection(using: section)
+            case "Top Rated": return self.createTopRatedMoviesSection(using: section)
             default: return self.createPopularMovieSection(using: section)
             }
         }
