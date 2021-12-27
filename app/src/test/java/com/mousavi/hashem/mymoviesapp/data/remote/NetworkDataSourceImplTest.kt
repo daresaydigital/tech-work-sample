@@ -25,7 +25,7 @@ class NetworkDataSourceImplTest {
     }
 
     @Test
-    fun test(): Unit = runBlocking {
+    fun `test http exception in get popular movies`(): Unit = runBlocking {
         val exception = Mockito.mock(HttpException::class.java)
         `when`(exception.message).thenReturn("Http test message")
         `when`(api.getPopularMovies(language = "en-US", page = 1))
@@ -39,7 +39,7 @@ class NetworkDataSourceImplTest {
     }
 
     @Test
-    fun test2(): Unit = runBlocking {
+    fun `test exception in get popular movies when http message is null`(): Unit = runBlocking {
         val exception = Mockito.mock(HttpException::class.java)
         `when`(exception.message).thenReturn(null)
         `when`(api.getPopularMovies(language = "en-US", page = 1))
