@@ -14,7 +14,9 @@ import com.daresaydigital.presentation.util.extensions.observeNullSafe
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_popular_movie.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@InternalCoroutinesApi
 @AndroidEntryPoint
 class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
 
@@ -83,7 +85,7 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
     private fun viewFailureError(message: String, listener: View.OnClickListener) {
         val snackBar = Snackbar.make(
             root,
-            message, Snackbar.LENGTH_LONG
+            message, Snackbar.LENGTH_INDEFINITE
         )
         snackBar.setAction(R.string.retry, listener)
         snackBar.show()

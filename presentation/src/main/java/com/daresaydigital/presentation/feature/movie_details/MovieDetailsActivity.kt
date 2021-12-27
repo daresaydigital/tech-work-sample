@@ -100,7 +100,7 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsViewModel>(){
     private fun viewFailureError(message: String, listener: View.OnClickListener) {
         val snackBar = Snackbar.make(
             mainLayout,
-            message, Snackbar.LENGTH_LONG
+            message, Snackbar.LENGTH_INDEFINITE
         )
         snackBar.setAction(R.string.retry, listener)
         snackBar.show()

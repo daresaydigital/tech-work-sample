@@ -85,7 +85,7 @@ class TopRatedMovieFragment : BaseFragment<TopRatedMovieViewModel>(){
     private fun viewFailureError(message: String, listener: View.OnClickListener) {
         val snackBar = Snackbar.make(
             root,
-            message, Snackbar.LENGTH_LONG
+            message, Snackbar.LENGTH_INDEFINITE
         )
         snackBar.setAction(R.string.retry, listener)
         snackBar.show()
