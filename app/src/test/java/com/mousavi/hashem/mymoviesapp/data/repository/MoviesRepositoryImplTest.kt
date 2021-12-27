@@ -32,7 +32,7 @@ class MoviesRepositoryImplTest {
     }
 
     @Test
-    fun test(): Unit = runBlocking {
+    fun `test get popular movies success`(): Unit = runBlocking {
         `when`(networkDataSource.getPopularMovies("en-US", 1))
             .thenReturn(Either.Success(PageDataDto(page = 1,
                 getMovieDtoList(),
