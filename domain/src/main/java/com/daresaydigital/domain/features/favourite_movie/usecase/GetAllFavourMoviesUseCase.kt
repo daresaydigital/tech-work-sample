@@ -26,7 +26,7 @@ class GetAllFavourMoviesUseCase @Inject constructor(
         return Result.Success(movie)
     }
 
-    override fun executeStream(params: GetAllFavourMoviesParams?): Flow<List<FavMovie>> {
+    override fun executeStream(params: GetAllFavourMoviesParams?): Flow<Result<List<FavMovie>>> {
         return repository.getAllFavouriteMoviesStream().filter {
             it != null
         }

@@ -11,9 +11,11 @@ import kotlinx.coroutines.flow.Flow
  */
 interface UseCase<Type, Params : UseCaseParam> {
 
-    suspend fun execute(params: Params?=null): Result<Type>
+    suspend fun execute(params: Params?=null): Result<Type>?{
+        return null
+    }
 
-    fun executeStream(params: Params?=null): Flow<Type>?{
+    fun executeStream(params: Params?=null): Flow<Result<Type>>?{
         return null
     }
 }

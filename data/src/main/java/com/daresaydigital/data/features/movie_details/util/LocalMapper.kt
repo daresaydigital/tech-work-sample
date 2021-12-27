@@ -4,13 +4,13 @@ import com.daresaydigital.data.features.movie_details.model.*
 import com.daresaydigital.domain.features.movie_details.model.*
 
 fun MovieDetailsLocalEntity.toDomainModel() = MovieDetails(
-    adult,backdrop_path,belongs_to_collection.toDomainModel(),budget,genres.toDomainArrayModel(),homepage,id,imdb_id,original_language,original_title,overview,popularity,poster_path,
-    production_companies.toDomainArrayModel(),production_countries.toDomainArrayModel(),release_date,revenue,runtime,spoken_languages.toDomainArrayModel(),status,tagline,title,video,vote_average,vote_count
+    adult,backdrop_path,belongs_to_collection?.toDomainModel(),budget,genres?.toDomainArrayModel(),homepage,id,imdb_id,original_language,original_title,overview,popularity,poster_path,
+    production_companies?.toDomainArrayModel(),production_countries?.toDomainArrayModel(),release_date,revenue,runtime,spoken_languages?.toDomainArrayModel(),status,tagline,title,video,vote_average,vote_count
 )
 
 fun MovieDetails.toLocalModel() = MovieDetailsLocalEntity(
-    adult,backdropPath,belongsToCollection.toLocalModel(),budget,genres.toLocalArrayModel(),homepage,id,imdbId,originalLanguage,originalTitle,overview,popularity,posterPath,
-    productionCompanies.toLocalArrayModel(),productionCountries.toLocalArrayModel(),releaseDate,revenue,runtime,spokenLanguages.toLocalArrayModel(),status,tagline,title,video,voteAverage,voteCount
+    adult,backdropPath,belongsToCollection?.toLocalModel(),budget,genres?.toLocalArrayModel(),homepage,id,imdbId,originalLanguage,originalTitle,overview,popularity,posterPath,
+    productionCompanies?.toLocalArrayModel(),productionCountries?.toLocalArrayModel(),releaseDate,revenue,runtime,spokenLanguages?.toLocalArrayModel(),status,tagline,title,video,voteAverage,voteCount
 )
 
 fun BelongsToCollectionLocal.toDomainModel() = BelongsToCollection(

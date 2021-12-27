@@ -23,7 +23,7 @@ class MovieDetailsRepositoryImpl @Inject constructor(
         private const val UNKNOWN_API_EXCEPTION = "unknown api exception"
     }
 
-    override suspend fun getMovieDetails(id: Int): Flow<Result<MovieDetails>> {
+    override fun getMovieDetails(id: Int): Flow<Result<MovieDetails>> {
 
         return flow {
             localDataSource.getMovieDetailsById(id)?.toDomainModel()?.let {

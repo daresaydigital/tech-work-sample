@@ -1,8 +1,8 @@
 package com.daresaydigital.domain.features.movie_details.model
 
 data class BelongsToCollection(
-    val backdropPath: String,
+    val backdropPath: String?,
     val id: Int,
-    val name: String,
-    val posterPath: String
+    val name: String?,
+    val posterPath: String?
 )

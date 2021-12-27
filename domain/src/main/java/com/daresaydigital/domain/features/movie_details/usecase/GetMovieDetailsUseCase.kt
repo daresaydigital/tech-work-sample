@@ -5,6 +5,7 @@ import com.daresaydigital.domain.features.movie_details.repository.MovieDetailsR
 import com.daresaydigital.domain.model.usecase.UseCase
 import com.daresaydigital.domain.model.usecase.UseCaseParam
 import com.daresaydigital.domain.model.Result
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
@@ -15,17 +16,14 @@ import javax.inject.Inject
 
 class GetMovieDetailsUseCase @Inject constructor(
     private val repository: MovieDetailsRepository
-) : UseCase<Unit, MovieDetailsParams> {
+) : UseCase<MovieDetails, MovieDetailsParams> {
 
-    override suspend fun execute(params: MovieDetailsParams?): Result<Unit> {
-        params?.movieDomain?.let {
-            repository.getMovieDetails(it.id)
-        }
-        return Result.Success(Unit)
+    override fun executeStream(params: MovieDetailsParams?): Flow<Result<MovieDetails>> {
+        return repository.getMovieDetails(params?.id ?: 0)
     }
 }
 
 /**
  * UseCase param for getting movie details
  */
-data class MovieDetailsParams(val movieDomain: MovieDetails) : UseCaseParam()
+data class MovieDetailsParams(val id: Int) : UseCaseParam()

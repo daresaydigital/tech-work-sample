@@ -14,7 +14,9 @@ import com.daresaydigital.presentation.util.extensions.observeNullSafe
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_top_rated.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
+@InternalCoroutinesApi
 @AndroidEntryPoint
 class TopRatedMovieFragment : BaseFragment<TopRatedMovieViewModel>(){
 

@@ -34,7 +34,7 @@ class MovieAdapter(private val dataList: MutableList<Movie>, private val onClick
 
         fun bind(movie: Movie) {
             tvTitle.text = movie.title
-            ImageLoader.load(ivCover,NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath, 700,  700)
+            ImageLoader.load(ivCover,NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath, 700,  700, R.drawable.ic_movie_placeholder)
         }
     }
 
