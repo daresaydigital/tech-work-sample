@@ -20,10 +20,10 @@ class GetAllFavourMoviesUseCase @Inject constructor(
 ) : UseCase<List<FavMovie>, GetAllFavourMoviesParams> {
 
     override suspend fun execute(params: GetAllFavourMoviesParams?): Result<List<FavMovie>> {
-        val comic = repository.getAllFavouriteMovies().filter {
+        val movie = repository.getAllFavouriteMovies().filter {
             it != null
         }
-        return Result.Success(comic)
+        return Result.Success(movie)
     }
 
     override fun executeStream(params: GetAllFavourMoviesParams?): Flow<List<FavMovie>> {

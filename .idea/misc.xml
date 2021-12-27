@@ -12,6 +12,8 @@
         <entry key="presentation/src/main/res/drawable/splash_background.xml" value="0.4197916666666667" />
         <entry key="presentation/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
         <entry key="presentation/src/main/res/layout/activity_splash.xml" value="0.40307971014492755" />
+        <entry key="presentation/src/main/res/layout/fragment_favourite_movie.xml" value="0.23369565217391305" />
+        <entry key="presentation/src/main/res/layout/fragment_home.xml" value="0.4036458333333333" />
         <entry key="presentation/src/main/res/menu/menu_bottom_main.xml" value="0.4036458333333333" />
       </map>
     </option>

@@ -2,9 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="Theme.Daresay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/black1</item>
-        <item name="colorPrimaryDark">@color/black2</item>
-        <item name="colorPrimaryVariant">@color/black2</item>
+        <item name="colorPrimary">@color/black2</item>
+        <item name="colorPrimaryDark">@color/black1</item>
+        <item name="colorPrimaryVariant">@color/black1</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="colorSecondary">@color/red</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>

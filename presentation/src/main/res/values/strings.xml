@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="title_home">Home</string>
-    <string name="title_favorite">Like</string>
+    <string name="title_search">Search</string>
+    <string name="title_favorite">Favourite</string>
     <string name="no_movie_found">Sorry, no movie found</string>
     <string name="retry">Retry</string>
     <string name="something_went_wrong">oops something went wrong</string>
