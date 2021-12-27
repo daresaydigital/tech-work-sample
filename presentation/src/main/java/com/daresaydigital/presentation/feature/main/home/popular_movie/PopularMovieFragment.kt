@@ -12,4 +12,5 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
 
     override fun layoutId(): Int = R.layout.fragment_popular_movie
 
+
 }

@@ -1,6 +1,6 @@
 package com.daresaydigital.data.utils
 
-import com.daresaydigital.data.NetworkConstants
+import com.daresaydigital.core.utils.NetworkConstants
 import com.daresaydigital.data.R
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse

@@ -1,4 +1,4 @@
-package com.daresaydigital.data
+package com.daresaydigital.core.utils
 
 /**
  *  constants for network, we can use gradle fields
@@ -14,6 +14,9 @@ object NetworkConstants {
     const val TOP_RATED_ENDPOINT = "movie/top_rated"
     const val MOVIE_DETAIL_ENDPOINT = "movie/{id}"
     const val MOVIE_REVIEW_ENDPOINT = "movie/{id}/reviews"
+
+    const val BASE_URL_IMAGE_W500 = "https://image.tmdb.org/t/p/w500"
+    const val BASE_URL_IMAGE_ORIGINAL = "https://image.tmdb.org/t/p/original"
 
 
 }

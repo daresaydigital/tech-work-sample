@@ -1,7 +1,7 @@
 package com.daresaydigital.data.di
 
-import com.daresaydigital.data.NetworkConstants
-import com.daresaydigital.data.NetworkConstants.BASE_URL
+import com.daresaydigital.core.utils.NetworkConstants
+import com.daresaydigital.core.utils.NetworkConstants.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 

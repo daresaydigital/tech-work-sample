@@ -16,6 +16,7 @@
         <entry key="presentation/src/main/res/layout/fragment_home.xml" value="0.4036458333333333" />
         <entry key="presentation/src/main/res/layout/fragment_popular_movie.xml" value="0.4036458333333333" />
         <entry key="presentation/src/main/res/layout/fragment_top_rated.xml" value="0.4036458333333333" />
+        <entry key="presentation/src/main/res/layout/movie_item.xml" value="0.4036458333333333" />
         <entry key="presentation/src/main/res/menu/menu_bottom_main.xml" value="0.4036458333333333" />
       </map>
     </option>
