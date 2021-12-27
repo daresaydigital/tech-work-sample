@@ -7,6 +7,7 @@ import com.daresaydigital.data.R
 import com.daresaydigital.data.db.AppDatabase
 import com.daresaydigital.data.di.DatabaseModule
 import com.daresaydigital.data.di.NetworkModule
+import com.daresaydigital.data.features.favorite_movie.di.FavouriteRepositoryModule
 import com.daresaydigital.data.features.favorite_movie.local.FavoriteMovieLocalDataSource
 import com.daresaydigital.data.features.favorite_movie.model.FavMovieLocalEntity
 import com.daresaydigital.data.utils.JsonReader
@@ -23,7 +24,7 @@ import javax.inject.Inject
 
 
 @HiltAndroidTest
-@UninstallModules(DatabaseModule::class, CoreModule::class, NetworkModule::class)
+@UninstallModules(DatabaseModule::class, CoreModule::class, NetworkModule::class, FavouriteRepositoryModule::class)
 class FavMoviesLocalTest {
 
     @get:Rule

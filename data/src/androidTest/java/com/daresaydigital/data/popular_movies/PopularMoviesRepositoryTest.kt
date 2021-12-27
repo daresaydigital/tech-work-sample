@@ -8,6 +8,7 @@ import com.daresaydigital.data.di.DatabaseModule
 import com.daresaydigital.data.di.NetworkModule
 import com.daresaydigital.data.features.popular_movie.PopularMoviesRepositoryImpl
 import com.daresaydigital.data.features.popular_movie.di.PopularMoviesNetworkModule
+import com.daresaydigital.data.features.popular_movie.di.PopularMoviesRepositoryModule
 import com.daresaydigital.data.features.popular_movie.local.PopularMoviesLocalDataSource
 import com.daresaydigital.data.features.popular_movie.remote.PopularMoviesRemoteDataSource
 import com.daresaydigital.data.utils.FakeServer
@@ -26,7 +27,7 @@ import javax.inject.Inject
 
 
 @HiltAndroidTest
-@UninstallModules(DatabaseModule::class, CoreModule::class, NetworkModule::class, PopularMoviesNetworkModule::class)
+@UninstallModules(DatabaseModule::class, CoreModule::class, NetworkModule::class, PopularMoviesNetworkModule::class, PopularMoviesRepositoryModule::class)
 class PopularMoviesRepositoryTest {
 
     @get:Rule
@@ -74,10 +75,7 @@ class PopularMoviesRepositoryTest {
         fakeServer.setHappyPopularMoviesPathDispatcher()
 
         // When
-        var res : Result<PopularMovies>? = null
-        repository.getPopularMovies(1).take(1).collect {
-            res = it
-        }
+        val res : Result<PopularMovies> = repository.getPopularMovies(1)
 
         // Then
         Assert.assertTrue(res is Result.Success)

@@ -1,5 +1,6 @@
 package com.daresaydigital.domain.features.top_rated_movie.usecase
 
+import com.daresaydigital.domain.features.top_rated_movie.model.TopRatedMovies
 import com.daresaydigital.domain.features.top_rated_movie.repository.TopRatedMoviesRepository
 import com.daresaydigital.domain.model.usecase.UseCase
 import com.daresaydigital.domain.model.usecase.UseCaseParam
@@ -14,13 +15,10 @@ import javax.inject.Inject
 
 class GetTopRatedMoviesUseCase @Inject constructor(
     private val repository: TopRatedMoviesRepository
-) : UseCase<Unit, GetTopRatedMoviesParams> {
+) : UseCase<TopRatedMovies, GetTopRatedMoviesParams> {
 
-    override suspend fun execute(params: GetTopRatedMoviesParams?): Result<Unit> {
-        params?.let {
-            repository.getTopRatedMovies(it.page)
-        }
-        return Result.Success(Unit)
+    override suspend fun execute(params: GetTopRatedMoviesParams?): Result<TopRatedMovies> {
+        return repository.getTopRatedMovies(params?.page ?: 1)
     }
 }
 

@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 import com.daresaydigital.domain.model.Result
 
 interface PopularMoviesRepository {
-    fun getPopularMovies(page:Int): Flow<Result<PopularMovies>>
+    suspend fun getPopularMovies(page:Int): Result<PopularMovies>
 }
