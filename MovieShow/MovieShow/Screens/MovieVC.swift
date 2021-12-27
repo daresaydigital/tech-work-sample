@@ -38,10 +38,12 @@ class MovieVC: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .black
+        collectionView.delegate = self
         view.addSubview(collectionView)
         
         collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: PopularMovieCell.reuseID)
         collectionView.register(TopRatedCell.self, forCellWithReuseIdentifier: TopRatedCell.reuseID)
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseID)
     }
     
     func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with viewmodel: MovieViewModel, for indexPath: IndexPath) -> T {
@@ -53,14 +55,24 @@ class MovieVC: UIViewController {
     }
     
     func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, Movie>(collectionView: collectionView, cellProvider: { collectionView, indexPath, movie in
+        dataSource = UICollectionViewDiffableDataSource<Section, Movie>(collectionView: collectionView) { collectionView, indexPath, movie in
             let viewModel = MovieViewModel(movie: movie)
             switch self.sections[indexPath.section].title {
             case "Popular": return self.configure(PopularMovieCell.self, with: viewModel, for: indexPath)
             case "Top Rated": return self.configure(TopRatedCell.self, with: viewModel, for: indexPath)
             default: return self.configure(PopularMovieCell.self, with: viewModel, for: indexPath)
             }
-        })
+        }
+        
+        dataSource?.supplementaryViewProvider = { [weak self] collectionview, kind, indexPath in
+            guard let sectionHeader = collectionview.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseID, for: indexPath) as?  SectionHeader else { return nil
+            }
+            guard let firstMovie = self?.dataSource?.itemIdentifier(for: indexPath) else { return nil}
+            guard let section = self?.dataSource?.snapshot().sectionIdentifier(containingItem: firstMovie) else { return nil}
+            if section.title.isEmpty { return nil}
+            sectionHeader.title.text = section.title
+            return sectionHeader
+        }
     }
     
     func reloadData() {
@@ -84,6 +96,10 @@ class MovieVC: UIViewController {
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .continuous
         
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(80))
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
+        
         return layoutSection
     }
     
@@ -98,6 +114,10 @@ class MovieVC: UIViewController {
         
         let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
         layoutSection.orthogonalScrollingBehavior = .continuous
+        
+        let layoutSectionHeaderSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.93), heightDimension: .estimated(60))
+        let layoutSectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: layoutSectionHeaderSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+        layoutSection.boundarySupplementaryItems = [layoutSectionHeader]
         
         return layoutSection
     }
@@ -136,6 +156,12 @@ class MovieVC: UIViewController {
                 print("DEBUG: error \(err.localizedDescription)")
             }
         }
+    }
+}
+
+extension MovieVC: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print("DEBUG: I am a cell and my indexPath is \(indexPath)")
     }
 }
 

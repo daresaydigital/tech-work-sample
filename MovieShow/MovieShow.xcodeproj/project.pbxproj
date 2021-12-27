@@ -30,6 +30,7 @@
 		58F7BB39277A0B7600AB47AC /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BB38277A0B7600AB47AC /* MovieViewModel.swift */; };
 		58F7BB3C277A0CF600AB47AC /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BB3B277A0CF600AB47AC /* Section.swift */; };
 		58F7BB3E277A266F00AB47AC /* TopRatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BB3D277A266F00AB47AC /* TopRatedCell.swift */; };
+		58F7BB40277A35E900AB47AC /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7BB3F277A35E900AB47AC /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		58F7BB38277A0B7600AB47AC /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		58F7BB3B277A0CF600AB47AC /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		58F7BB3D277A266F00AB47AC /* TopRatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedCell.swift; sourceTree = "<group>"; };
+		58F7BB3F277A35E900AB47AC /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 				58F7BB202779FA8E00AB47AC /* MovieTabBarController.swift */,
 				58F7BB34277A0AE600AB47AC /* PopularMovieCell.swift */,
 				58F7BB3D277A266F00AB47AC /* TopRatedCell.swift */,
+				58F7BB3F277A35E900AB47AC /* SectionHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				58F7BB3E277A266F00AB47AC /* TopRatedCell.swift in Sources */,
 				58F7BAE92779F80F00AB47AC /* AppDelegate.swift in Sources */,
 				58F7BB2B2779FDF200AB47AC /* Utils.swift in Sources */,
+				58F7BB40277A35E900AB47AC /* SectionHeader.swift in Sources */,
 				58F7BB2F277A097400AB47AC /* UIImageView+EXT.swift in Sources */,
 				58F7BAEB2779F80F00AB47AC /* SceneDelegate.swift in Sources */,
 				58F7BB2D2779FE9800AB47AC /* Movie.swift in Sources */,
