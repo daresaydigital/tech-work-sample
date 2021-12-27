@@ -14,7 +14,7 @@
 
     <!-- theme for splash screen-->
     <style name="Theme.Daresay.Splash">
-<!--        <item name="android:windowBackground">@drawable/splash_background</item>-->
+        <item name="android:windowBackground">@drawable/splash_background</item>
         <item name="android:statusBarColor">@color/transparent</item>
     </style>
 
