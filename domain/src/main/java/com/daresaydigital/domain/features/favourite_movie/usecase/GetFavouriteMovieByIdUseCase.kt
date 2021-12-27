@@ -15,17 +15,15 @@ import javax.inject.Inject
 
 class GetFavouriteMovieByIdUseCase @Inject constructor(
     private val repository: FavouriteMoviesRepository
-) : UseCase<Unit, GetFavouriteMovieByIdParams> {
+) : UseCase<FavMovie?, GetFavouriteMovieByIdParams> {
 
-    override suspend fun execute(params: GetFavouriteMovieByIdParams?): Result<Unit> {
-        params?.movieDomain?.let {
-            repository.getFavouriteMovieById(it.id)
-        }
-        return Result.Success(Unit)
+    override suspend fun execute(params: GetFavouriteMovieByIdParams?): Result<FavMovie?> {
+        val result = repository.getFavouriteMovieById(params?.id ?: 0)
+        return Result.Success(result)
     }
 }
 
 /**
  * UseCase param for favour movie
  */
-data class GetFavouriteMovieByIdParams(val movieDomain: FavMovie) : UseCaseParam()
+data class GetFavouriteMovieByIdParams(val id: Int) : UseCaseParam()

@@ -18,7 +18,7 @@ class UnFavourMovieUseCase @Inject constructor(
 ) : UseCase<Unit, UnFavourMovieParams> {
 
     override suspend fun execute(params: UnFavourMovieParams?): Result<Unit> {
-        params?.movieDomain?.let {
+        params?.let {
             repository.removeFavouriteMovie(it.id)
         }
         return Result.Success(Unit)
@@ -28,4 +28,4 @@ class UnFavourMovieUseCase @Inject constructor(
 /**
  * UseCase param for unfavour movie
  */
-data class UnFavourMovieParams(val movieDomain: FavMovie) : UseCaseParam()
+data class UnFavourMovieParams(val id: Int) : UseCaseParam()

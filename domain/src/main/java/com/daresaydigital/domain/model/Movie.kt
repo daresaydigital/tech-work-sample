@@ -1,5 +1,6 @@
 package com.daresaydigital.domain.model
 
+import com.daresaydigital.domain.features.favourite_movie.model.FavMovie
 import java.io.Serializable
 
 data class Movie(
@@ -18,3 +19,7 @@ data class Movie(
     val voteAverage: Double,
     val voteCount: Int
 ): Serializable
+
+fun Movie.toFavMovie() = FavMovie(
+    adult,backdropPath,genreIds,id,originalLanguage,originalTitle,overview,popularity,posterPath,releaseDate,title,video,voteAverage,voteCount
+)

@@ -58,7 +58,7 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsViewModel>(){
             onBackPressed()
         }
         ibFav.setOnClickListener {
-            //todo on fav clicked
+            selectedMovie?.let { it1 -> viewModel.changeFavouriteState(it1) }
         }
     }
 
@@ -82,6 +82,14 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsViewModel>(){
 
         viewModel.movieListLiveData.observeNullSafe(this){ movieDetails ->
             updateViews(movieDetails)
+        }
+
+        viewModel.movieIsFavouriteLiveData.observeNullSafe(this){ it ->
+            if (it){
+                ibFav.setImageResource(R.drawable.ic_fav)
+            } else {
+                ibFav.setImageResource(R.drawable.ic_empty_fav)
+            }
         }
     }
 
