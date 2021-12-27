@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.base.BaseFragment
@@ -21,6 +22,7 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
     override fun layoutId(): Int = R.layout.fragment_popular_movie
 
     private var movieAdapter : MovieAdapter? = null
+    private var layoutManager : GridLayoutManager? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,10 +39,11 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
     }
 
     private fun setupViews(){
-        movieAdapter = MovieAdapter { movie -> adapterOnClick(movie) }
-
-        recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        movieAdapter = MovieAdapter(mutableListOf()) { movie -> adapterOnClick(movie) }
+        layoutManager = GridLayoutManager(requireContext(),2)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = movieAdapter
+        recyclerView.addOnScrollListener(recyclerViewOnScrollListener)
     }
 
     private fun setupObservers(){
@@ -64,9 +67,14 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
             }
         }
 
-        viewModel.movieListLiveData.observeNullSafe(viewLifecycleOwner){
-            it?.let {
-                movieAdapter?.submitList(it)
+        val currentMovieList = mutableListOf<Movie>()
+        viewModel.movieListLiveData.observeNullSafe(viewLifecycleOwner){ pair ->
+            pair.first?.let {
+                if (pair.second == 1) {
+                    currentMovieList.clear()
+                }
+                currentMovieList.addAll(it)
+                movieAdapter?.setData(currentMovieList)
             }
         }
     }
@@ -83,4 +91,21 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
     private fun adapterOnClick(movie: Movie) {
         //todo
     }
+
+    private val PAGE_SIZE = 20
+    private val recyclerViewOnScrollListener: RecyclerView.OnScrollListener =
+        object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val visibleItemCount: Int = layoutManager?.childCount ?: 0
+                val totalItemCount: Int = layoutManager?.itemCount ?: 0
+                val firstVisibleItemPosition: Int = layoutManager?.findFirstVisibleItemPosition() ?: 0
+                if (viewModel.progressVisibilityLiveData.value?.first == false && !viewModel.checkIsLastPage()) {
+                    if (visibleItemCount + firstVisibleItemPosition >= totalItemCount && firstVisibleItemPosition >= 0 && totalItemCount >= PAGE_SIZE) {
+                        viewModel.getPopularPage(false)
+                    }
+                }
+            }
+        }
 }

@@ -14,31 +14,36 @@ import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.util.ImageLoader
 
-class MovieAdapter(private val onClick: (Movie) -> Unit) :
-    ListAdapter<Movie, MovieAdapter.MovieViewHolder>(MovieDiffCallback) {
+class MovieAdapter(private val dataList: MutableList<Movie>, private val onClick: (Movie) -> Unit) :
+    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
-    class MovieViewHolder(itemView: View, val onClick: (Movie) -> Unit) :
+    inner class MovieViewHolder(itemView: View, val onClick: (Movie) -> Unit) :
         RecyclerView.ViewHolder(itemView) {
 
         private val mainLayout = itemView.findViewById<LinearLayout>(R.id.mainLayout)
         private val ivCover = itemView.findViewById<ImageView>(R.id.ivCover)
         private val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
 
-        private var currentMovie: Movie? = null
         init {
             mainLayout.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
-                    currentMovie?.let(onClick)
+                    dataList[adapterPosition].let(onClick)
                 }
             }
         }
 
         fun bind(movie: Movie) {
-            currentMovie = movie
-
             tvTitle.text = movie.title
             ImageLoader.load(ivCover,NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath, 700,  700)
         }
+    }
+
+    fun setData(newMovies: List<Movie>) {
+        val diffCallback = MovieDiffCallback(dataList, newMovies)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        dataList.clear()
+        dataList.addAll(newMovies)
+        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -48,18 +53,28 @@ class MovieAdapter(private val onClick: (Movie) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = getItem(position)
+        val movie = dataList[position]
         holder.bind(movie)
 
     }
+
+    override fun getItemCount(): Int = dataList.size
 }
 
-object MovieDiffCallback : DiffUtil.ItemCallback<Movie>() {
-    override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-        return oldItem == newItem
+class MovieDiffCallback(private val oldList: List<Movie>, private val newList: List<Movie>) : DiffUtil.Callback() {
+
+    override fun getOldListSize(): Int = oldList.size
+
+    override fun getNewListSize(): Int = newList.size
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return oldList[oldItemPosition].id == newList[newItemPosition].id
     }
 
-    override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-        return oldItem.id == newItem.id
+    override fun areContentsTheSame(oldPosition: Int, newPosition: Int): Boolean {
+        val (_, value, name) = oldList[oldPosition]
+        val (_, value1, name1) = newList[newPosition]
+
+        return name == name1 && value == value1
     }
 }

@@ -4,6 +4,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.daresaydigital.presentation.R
 
 object ImageLoader {
 
@@ -11,7 +12,7 @@ object ImageLoader {
         val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
         Glide.with(view.context)
             .load(url)
-//            .placeholder(R.color.dark)
+            .placeholder(R.drawable.ic_movie_placeholder)
             .apply(requestOptions)
             .centerInside()
             .override(width,height)
