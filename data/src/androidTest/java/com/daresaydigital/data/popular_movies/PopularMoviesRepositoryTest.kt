@@ -11,17 +11,15 @@ import com.daresaydigital.data.features.popular_movie.di.PopularMoviesNetworkMod
 import com.daresaydigital.data.features.popular_movie.local.PopularMoviesLocalDataSource
 import com.daresaydigital.data.features.popular_movie.remote.PopularMoviesRemoteDataSource
 import com.daresaydigital.data.utils.FakeServer
-import com.daresaydigital.domain.features.popular_movie.model.PopularMoviesDomain
+import com.daresaydigital.domain.features.popular_movie.model.PopularMovies
 import com.daresaydigital.domain.model.Result
 import com.daresaydigital.domain.features.popular_movie.repository.PopularMoviesRepository
 import com.google.gson.Gson
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.take
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import javax.inject.Inject
@@ -76,7 +74,7 @@ class PopularMoviesRepositoryTest {
         fakeServer.setHappyPopularMoviesPathDispatcher()
 
         // When
-        var res : Result<PopularMoviesDomain>? = null
+        var res : Result<PopularMovies>? = null
         repository.getPopularMovies(1).take(1).collect {
             res = it
         }

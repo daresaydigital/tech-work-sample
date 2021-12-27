@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.movie_details.usecase
 
-import com.daresaydigital.domain.features.movie_details.model.MovieDetailsDomain
+import com.daresaydigital.domain.features.movie_details.model.MovieDetails
 import com.daresaydigital.domain.features.movie_details.repository.MovieDetailsRepository
 import com.daresaydigital.domain.model.usecase.UseCase
 import com.daresaydigital.domain.model.usecase.UseCaseParam
@@ -28,4 +28,4 @@ class GetMovieDetailsUseCase @Inject constructor(
 /**
  * UseCase param for getting movie details
  */
-data class MovieDetailsParams(val movieDomain: MovieDetailsDomain) : UseCaseParam()
+data class MovieDetailsParams(val movieDomain: MovieDetails) : UseCaseParam()

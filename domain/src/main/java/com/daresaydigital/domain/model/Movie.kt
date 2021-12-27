@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.model
 
-data class MovieDomain(
+data class Movie(
     val adult: Boolean,
     val backdropPath: String,
     val genreIds: List<Int>,

@@ -9,10 +9,7 @@ import com.daresaydigital.data.di.DatabaseModule
 import com.daresaydigital.data.di.NetworkModule
 import com.daresaydigital.data.features.favorite_movie.local.FavoriteMovieLocalDataSource
 import com.daresaydigital.data.features.favorite_movie.model.FavMovieLocalEntity
-import com.daresaydigital.data.features.favorite_movie.util.toLocalModel
 import com.daresaydigital.data.utils.JsonReader
-import com.daresaydigital.domain.features.favourite_movie.model.FavMovieDomain
-import com.daresaydigital.domain.model.MovieDomain
 import com.google.gson.Gson
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest

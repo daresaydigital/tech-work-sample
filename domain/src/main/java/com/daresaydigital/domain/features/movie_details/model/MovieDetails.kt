@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.movie_details.model
 
-data class MovieDetailsDomain(
+data class MovieDetails(
     val adult: Boolean,
     val backdropPath: String,
     val belongsToCollection: BelongsToCollection,

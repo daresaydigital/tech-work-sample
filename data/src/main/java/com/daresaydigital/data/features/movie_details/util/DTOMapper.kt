@@ -3,12 +3,12 @@ package com.daresaydigital.data.features.movie_details.util
 import com.daresaydigital.data.features.movie_details.model.*
 import com.daresaydigital.domain.features.movie_details.model.*
 
-fun MovieDetailsDTO.toDomainModel() = MovieDetailsDomain(
+fun MovieDetailsDTO.toDomainModel() = MovieDetails(
     adult,backdrop_path,belongs_to_collection.toDomainModel(),budget,genres.toDomainArrayModel(),homepage,id,imdb_id,original_language,original_title,overview,popularity,poster_path,
     production_companies.toDomainArrayModel(),production_countries.toDomainArrayModel(),release_date,revenue,runtime,spoken_languages.toDomainArrayModel(),status,tagline,title,video,vote_average,vote_count
 )
 
-fun MovieDetailsDomain.toRemoteModel() = MovieDetailsDTO(
+fun MovieDetails.toRemoteModel() = MovieDetailsDTO(
     adult,backdropPath,belongsToCollection.toRemoteModel(),budget,genres.toRemoteArrayModel(),homepage,id,imdbId,originalLanguage,originalTitle,overview,popularity,posterPath,
     productionCompanies.toRemoteArrayModel(),productionCountries.toRemoteArrayModel(),releaseDate,revenue,runtime,spokenLanguages.toRemoteArrayModel(),status,tagline,title,video,voteAverage,voteCount
 )

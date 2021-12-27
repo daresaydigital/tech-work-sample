@@ -1,11 +1,11 @@
 package com.daresaydigital.domain.features.popular_movie.model
 
-import com.daresaydigital.domain.model.MovieDomain
+import com.daresaydigital.domain.model.Movie
 
 
-data class PopularMoviesDomain (
+data class PopularMovies (
     val page:Int,
-    val results:List<MovieDomain>,
+    val results:List<Movie>,
     val totalPages:Int,
     val totalResults:Int
     )

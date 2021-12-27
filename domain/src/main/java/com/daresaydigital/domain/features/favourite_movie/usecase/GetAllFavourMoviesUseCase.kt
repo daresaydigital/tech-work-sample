@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.favourite_movie.usecase
 
-import com.daresaydigital.domain.features.favourite_movie.model.FavMovieDomain
+import com.daresaydigital.domain.features.favourite_movie.model.FavMovie
 import com.daresaydigital.domain.features.favourite_movie.repository.FavouriteMoviesRepository
 import com.daresaydigital.domain.model.usecase.UseCase
 import com.daresaydigital.domain.model.usecase.UseCaseParam
@@ -17,16 +17,16 @@ import javax.inject.Inject
 
 class GetAllFavourMoviesUseCase @Inject constructor(
     private val repository: FavouriteMoviesRepository
-) : UseCase<List<FavMovieDomain>, GetAllFavourMoviesParams> {
+) : UseCase<List<FavMovie>, GetAllFavourMoviesParams> {
 
-    override suspend fun execute(params: GetAllFavourMoviesParams?): Result<List<FavMovieDomain>> {
+    override suspend fun execute(params: GetAllFavourMoviesParams?): Result<List<FavMovie>> {
         val comic = repository.getAllFavouriteMovies().filter {
             it != null
         }
         return Result.Success(comic)
     }
 
-    override fun executeStream(params: GetAllFavourMoviesParams?): Flow<List<FavMovieDomain>> {
+    override fun executeStream(params: GetAllFavourMoviesParams?): Flow<List<FavMovie>> {
         return repository.getAllFavouriteMoviesStream().filter {
             it != null
         }
@@ -36,4 +36,4 @@ class GetAllFavourMoviesUseCase @Inject constructor(
 /**
  * UseCase param for using get all favourite movies by UseCase
  */
-data class GetAllFavourMoviesParams(val movieDomain: FavMovieDomain) : UseCaseParam()
+data class GetAllFavourMoviesParams(val movieDomain: FavMovie) : UseCaseParam()

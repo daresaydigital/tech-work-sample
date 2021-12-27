@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.favourite_movie.model
 
-data class FavMovieDomain(
+data class FavMovie(
     val adult: Boolean,
     val backdropPath: String,
     val genreIds: List<Int>,

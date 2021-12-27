@@ -3,7 +3,7 @@ package com.daresaydigital.data.features.favorite_movie
 import com.daresaydigital.data.features.favorite_movie.local.FavoriteMovieLocalDataSource
 import com.daresaydigital.data.features.favorite_movie.util.toDomainModel
 import com.daresaydigital.data.features.favorite_movie.util.toLocalModel
-import com.daresaydigital.domain.features.favourite_movie.model.FavMovieDomain
+import com.daresaydigital.domain.features.favourite_movie.model.FavMovie
 import com.daresaydigital.domain.features.favourite_movie.repository.FavouriteMoviesRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -15,11 +15,11 @@ class FavouriteMovieRepositoryImpl @Inject constructor(
     private val localDataSource: FavoriteMovieLocalDataSource
 ) : FavouriteMoviesRepository {
 
-    override suspend fun insertFavouriteMovie(favMovie: FavMovieDomain) {
+    override suspend fun insertFavouriteMovie(favMovie: FavMovie) {
         return localDataSource.insertFavouriteMovie(favMovie.toLocalModel())
     }
 
-    override suspend fun getFavouriteMovieById(id: Int): FavMovieDomain? {
+    override suspend fun getFavouriteMovieById(id: Int): FavMovie? {
         return localDataSource.getFavouriteMovieById(id)?.toDomainModel()
     }
 
@@ -27,13 +27,13 @@ class FavouriteMovieRepositoryImpl @Inject constructor(
         return localDataSource.removeFavouriteMovie(id)
     }
 
-    override suspend fun getAllFavouriteMovies(): List<FavMovieDomain> {
+    override suspend fun getAllFavouriteMovies(): List<FavMovie> {
         return localDataSource.getAllFavouriteMovies().map {
             it.toDomainModel()
         }
     }
 
-    override fun getAllFavouriteMoviesStream(): Flow<List<FavMovieDomain>> {
+    override fun getAllFavouriteMoviesStream(): Flow<List<FavMovie>> {
         return localDataSource.getAllFavouriteMoviesStream().map {
             it.map {
                 it.toDomainModel()

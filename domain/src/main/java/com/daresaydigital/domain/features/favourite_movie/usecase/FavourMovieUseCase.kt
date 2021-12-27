@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.favourite_movie.usecase
 
-import com.daresaydigital.domain.features.favourite_movie.model.FavMovieDomain
+import com.daresaydigital.domain.features.favourite_movie.model.FavMovie
 import com.daresaydigital.domain.features.favourite_movie.repository.FavouriteMoviesRepository
 import com.daresaydigital.domain.model.usecase.UseCase
 import com.daresaydigital.domain.model.usecase.UseCaseParam
@@ -28,4 +28,4 @@ class FavourMovieUseCase @Inject constructor(
 /**
  * UseCase param for favour movie
  */
-data class FavourMovieParams(val movieDomain: FavMovieDomain) : UseCaseParam()
+data class FavourMovieParams(val movieDomain: FavMovie) : UseCaseParam()

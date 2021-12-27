@@ -5,7 +5,7 @@ import com.daresaydigital.data.features.movie_details.remote.MovieDetailsRemoteD
 import com.daresaydigital.data.features.movie_details.util.toDomainModel
 import com.daresaydigital.data.features.movie_details.util.toLocalModel
 import com.daresaydigital.data.util.ApiResult
-import com.daresaydigital.domain.features.movie_details.model.MovieDetailsDomain
+import com.daresaydigital.domain.features.movie_details.model.MovieDetails
 import com.daresaydigital.domain.features.movie_details.repository.MovieDetailsRepository
 import com.daresaydigital.domain.model.Result
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +23,7 @@ class MovieDetailsRepositoryImpl @Inject constructor(
         private const val UNKNOWN_API_EXCEPTION = "unknown api exception"
     }
 
-    override suspend fun getMovieDetails(id: Int): Flow<Result<MovieDetailsDomain>> {
+    override suspend fun getMovieDetails(id: Int): Flow<Result<MovieDetails>> {
 
         return flow {
             localDataSource.getMovieDetailsById(id)?.toDomainModel()?.let {
