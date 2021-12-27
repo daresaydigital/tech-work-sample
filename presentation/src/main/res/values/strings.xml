@@ -8,4 +8,6 @@
     <string name="something_went_wrong">oops something went wrong</string>
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
+    <string name="release_date">Release date:</string>
+    <string name="rate">Rate:</string>
 </resources>

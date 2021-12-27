@@ -20,5 +20,11 @@
             android:name=".feature.main.MainActivity"
             android:screenOrientation="portrait"
             />
+
+        <activity
+            android:name=".feature.movie_details.MovieDetailsActivity"
+            android:screenOrientation="portrait"
+            />
+
     </application>
 </manifest>
