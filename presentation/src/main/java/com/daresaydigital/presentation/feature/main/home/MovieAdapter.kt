@@ -37,7 +37,7 @@ class MovieAdapter(private val onClick: (Movie) -> Unit) :
             currentMovie = movie
 
             tvTitle.text = movie.title
-            ImageLoader.load(ivCover,NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath)
+            ImageLoader.load(ivCover,NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath, 700,  700)
         }
     }
 

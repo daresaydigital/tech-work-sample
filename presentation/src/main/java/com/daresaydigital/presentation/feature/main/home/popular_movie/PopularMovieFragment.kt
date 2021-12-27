@@ -3,8 +3,11 @@ package com.daresaydigital.presentation.feature.main.home.popular_movie
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.base.BaseFragment
+import com.daresaydigital.presentation.feature.main.home.MovieAdapter
 import com.daresaydigital.presentation.util.extensions.observeNullSafe
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,6 +20,7 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
 
     override fun layoutId(): Int = R.layout.fragment_popular_movie
 
+    private var movieAdapter : MovieAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,8 +31,16 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
         viewModel.getPopularPage()
     }
 
-    private fun setupViews(){
+    override fun onDestroyView() {
+        super.onDestroyView()
+        movieAdapter = null
+    }
 
+    private fun setupViews(){
+        movieAdapter = MovieAdapter { movie -> adapterOnClick(movie) }
+
+        recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        recyclerView.adapter = movieAdapter
     }
 
     private fun setupObservers(){
@@ -43,7 +55,9 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
         }
 
         viewModel.movieListLiveData.observeNullSafe(viewLifecycleOwner){
-
+            it?.let {
+                movieAdapter?.submitList(it)
+            }
         }
     }
 
@@ -54,5 +68,9 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
         )
         snackBar.setAction(R.string.retry, listener)
         snackBar.show()
+    }
+
+    private fun adapterOnClick(movie: Movie) {
+
     }
 }

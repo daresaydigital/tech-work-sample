@@ -3,16 +3,18 @@
     android:id="@+id/mainLayout"
     android:foreground="?selectableItemBackgroundBorderless"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_margin="16dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/ivCover"
-        android:layout_width="180dp"
-        android:layout_height="234dp"
-        android:scaleType="centerInside"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
         tools:src="@drawable/ic_logo"
+        android:layout_gravity="center"
         />
 
     <TextView
