@@ -6,4 +6,6 @@
     <string name="no_movie_found">Sorry, no movie found</string>
     <string name="retry">Retry</string>
     <string name="something_went_wrong">oops something went wrong</string>
+    <string name="popular">Popular</string>
+    <string name="top_rated">Top Rated</string>
 </resources>
