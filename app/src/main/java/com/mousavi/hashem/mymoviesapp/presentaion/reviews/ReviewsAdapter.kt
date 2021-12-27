@@ -94,6 +94,9 @@ class ReviewsAdapter(
         if (isLoading) {
             dataCount++
         }
+        if(isError){//isError and isLoading never be true at the same time
+            dataCount++
+        }
         return dataCount
     }
 
