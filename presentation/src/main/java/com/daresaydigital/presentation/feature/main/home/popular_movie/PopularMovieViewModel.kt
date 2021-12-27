@@ -20,8 +20,8 @@ class PopularMovieViewModel @Inject constructor(
     private val globalDispatcher: GlobalDispatcher
 ) : BaseViewModel(){
 
-    private val _progressVisibilityLiveData = MutableLiveData<Boolean>()
-    val progressVisibilityLiveData: LiveData<Boolean> = _progressVisibilityLiveData
+    private val _progressVisibilityLiveData = MutableLiveData<Pair<Boolean,Int>>()
+    val progressVisibilityLiveData: LiveData<Pair<Boolean,Int>> = _progressVisibilityLiveData
 
     private val _failureEventLiveData = SingleLiveEvent<Pair<String?,Int>>()
     val failureEventLiveData: LiveData<Pair<String?,Int>> = _failureEventLiveData
@@ -62,7 +62,7 @@ class PopularMovieViewModel @Inject constructor(
     }
 
     private fun setPageLoading(isLoading: Boolean) {
-        _progressVisibilityLiveData.value = isLoading
+        _progressVisibilityLiveData.value = Pair(isLoading,currentPageNumber)
     }
 
     private fun handleDataFailure(error: String) {

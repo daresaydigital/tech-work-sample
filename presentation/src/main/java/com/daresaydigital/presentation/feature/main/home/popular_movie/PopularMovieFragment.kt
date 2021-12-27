@@ -45,7 +45,17 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
 
     private fun setupObservers(){
         viewModel.progressVisibilityLiveData.observeNullSafe(viewLifecycleOwner){
-
+            if (it.first){
+                if (it.second == 1) {
+                    frmLoading.visibility = View.VISIBLE
+                } else {
+                    bottomProgressbar.visibility = View.VISIBLE
+                }
+            }
+            else {
+                frmLoading.visibility = View.GONE
+                bottomProgressbar.visibility = View.GONE
+            }
         }
 
         viewModel.failureEventLiveData.observeNullSafe(viewLifecycleOwner){ pair ->
@@ -71,6 +81,6 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
     }
 
     private fun adapterOnClick(movie: Movie) {
-
+        //todo
     }
 }

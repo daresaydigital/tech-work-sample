@@ -16,4 +16,31 @@
         android:layout_height="match_parent"
         />
 
+    <FrameLayout
+        android:id="@+id/frmLoading"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/progress_loading_background"
+        >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/white"
+            />
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/bottomProgressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
