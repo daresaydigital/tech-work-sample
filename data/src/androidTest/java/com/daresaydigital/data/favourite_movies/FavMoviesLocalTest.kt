@@ -8,6 +8,7 @@ import com.daresaydigital.data.db.AppDatabase
 import com.daresaydigital.data.di.DatabaseModule
 import com.daresaydigital.data.di.NetworkModule
 import com.daresaydigital.data.features.favorite_movie.local.FavoriteMovieLocalDataSource
+import com.daresaydigital.data.features.favorite_movie.model.FavMovieLocalEntity
 import com.daresaydigital.data.features.favorite_movie.util.toLocalModel
 import com.daresaydigital.data.utils.JsonReader
 import com.daresaydigital.domain.features.favourite_movie.model.FavMovieDomain
@@ -53,28 +54,29 @@ class FavMoviesLocalTest {
     }
 
     @Test
-    fun favoriteNewComic_success() = runBlocking{
+    fun favoriteNewMovie_success() = runBlocking{
         // Given
-        val fakeMovie = (gson.fromJson(JsonReader.getJson(R.raw.movie), FavMovieDomain::class.java)).toLocalModel()
+        val fakeMovie = (gson.fromJson(JsonReader.getJson(R.raw.movie), FavMovieLocalEntity::class.java))
 
         // When
         favMoviesLocalDataSource.insertFavouriteMovie(fakeMovie)
 
         // Then
-        val resultComic = favMoviesLocalDataSource.getFavouriteMovieById(fakeMovie.id)
-        Assert.assertEquals(fakeMovie.original_title, resultComic!!.original_title)
+        val result = favMoviesLocalDataSource.getFavouriteMovieById(fakeMovie.id)
+        Assert.assertEquals(fakeMovie.original_title, result!!.original_title)
     }
 
     @Test
-    fun unFavouriteComic_success() = runBlocking{
+    fun unFavouriteMovie_success() = runBlocking{
         // Given
-        val fakeMovie = (gson.fromJson(JsonReader.getJson(R.raw.movie), FavMovieDomain::class.java)).toLocalModel()
-
-        // When
+        val fakeMovie = (gson.fromJson(JsonReader.getJson(R.raw.movie), FavMovieLocalEntity::class.java))
         favMoviesLocalDataSource.insertFavouriteMovie(fakeMovie)
 
+        // When
+        favMoviesLocalDataSource.removeFavouriteMovie(fakeMovie.id)
+
         // Then
-        val resultComic = favMoviesLocalDataSource.getFavouriteMovieById(fakeMovie.id)
-        Assert.assertNull(resultComic)
+        val resultMovie = favMoviesLocalDataSource.getFavouriteMovieById(fakeMovie.id)
+        Assert.assertNull(resultMovie)
     }
 }

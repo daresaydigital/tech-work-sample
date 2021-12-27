@@ -3,7 +3,7 @@ ext {
     // app
     compilesdk = 31
     minsdk = 21
-    targetsdk = 31
+    targetsdk = 30
     buildtools = '31.0.0'
 
     // kotlin
