@@ -17,7 +17,7 @@ class MovieTabBarController: UITabBarController {
     
     //MARK: Helpers
     private func createMovieStoreNC() -> UINavigationController {
-        let controller = ViewController()
+        let controller = MovieVC()
         let nav = UINavigationController(rootViewController: controller)
         nav.tabBarItem = UITabBarItem(title: "Movies", image: SFSymbols.film, selectedImage: SFSymbols.filmSelected)
         return nav
