@@ -63,6 +63,27 @@
             android:scaleType="centerCrop"
             />
 
+        <FrameLayout
+            android:id="@+id/frmLoading"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:background="@drawable/progress_loading_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/white"
+                />
+        </FrameLayout>
     </androidx.cardview.widget.CardView>
 
     <TextView

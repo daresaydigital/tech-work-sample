@@ -1,5 +1,7 @@
 package com.daresaydigital.domain.model
 
+import java.io.Serializable
+
 data class Movie(
     val adult: Boolean,
     val backdropPath: String?,
@@ -15,4 +17,4 @@ data class Movie(
     val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int
-)
+): Serializable

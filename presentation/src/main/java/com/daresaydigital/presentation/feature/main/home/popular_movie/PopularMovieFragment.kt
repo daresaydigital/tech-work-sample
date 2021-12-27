@@ -9,6 +9,7 @@ import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.base.BaseFragment
 import com.daresaydigital.presentation.feature.main.home.MovieAdapter
+import com.daresaydigital.presentation.feature.movie_details.MovieDetailsActivity
 import com.daresaydigital.presentation.util.extensions.observeNullSafe
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -89,7 +90,9 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
     }
 
     private fun adapterOnClick(movie: Movie) {
-        //todo
+        startActivity(
+            MovieDetailsActivity.getLaunchIntent(requireContext(), movie)
+        )
     }
 
     private val PAGE_SIZE = 20
