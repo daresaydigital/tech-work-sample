@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieVC: UIViewController {
+class MovieVC: DataLoadingVC {
     
     //MARK: Properties
     var collectionView:  UICollectionView!
@@ -19,6 +19,12 @@ class MovieVC: UIViewController {
     }
     
     //MARK: Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showLoadingView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
@@ -137,6 +143,7 @@ class MovieVC: UIViewController {
     }
     
     func getMovies(from endpoint: MovieEndpoing) {
+        showLoadingView()
         NetworkManager.shared.fetchMovies(from: endpoint) { [weak self] result  in
             guard let self = self else { return }
             switch result {
@@ -148,6 +155,7 @@ class MovieVC: UIViewController {
                 case .topRated:
                     self.sections.append(Section(title: "Top Rated", movies: movies))
                 }
+            self.dismissLoadingView()
             case .failure(let err):
                 self.presentErrorMessageAlert(title: "Something wrong", message: err.localizedDescription)
             }
