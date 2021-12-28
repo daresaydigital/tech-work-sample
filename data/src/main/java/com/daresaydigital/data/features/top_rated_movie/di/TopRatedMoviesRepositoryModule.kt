@@ -18,7 +18,7 @@ abstract class TopRatedMoviesRepositoryModule {
 
     @Binds
     @ActivityRetainedScoped
-    abstract fun bindComicRepository(
+    abstract fun bindMovieRepository(
         repositoryImpl: TopRatedMoviesRepositoryImpl
     ): TopRatedMoviesRepository
 }

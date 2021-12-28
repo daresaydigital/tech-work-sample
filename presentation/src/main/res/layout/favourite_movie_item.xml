@@ -43,7 +43,7 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginBottom="8dp"
         android:ellipsize="end"
-        android:fontFamily="@font/helvetica_neue_roman"
+        android:fontFamily="@font/helvetica_oblique"
         android:maxLines="3"
         android:textColor="@color/white"
         android:textSize="13dp"
