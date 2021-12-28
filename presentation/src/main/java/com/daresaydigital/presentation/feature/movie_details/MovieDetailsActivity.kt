@@ -100,7 +100,7 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsViewModel>(){
             tvRate.text = "${getString(R.string.rate)} ${voteAverage}"
             tvReleaseDate.text = "${getString(R.string.release_date)} ${releaseDate}"
 
-            ImageLoader.loadWithDefaultSize(ivPooster, NetworkConstants.BASE_URL_IMAGE_ORIGINAL + posterPath)
+            ImageLoader.loadWithDefaultSize(ivPoster, NetworkConstants.BASE_URL_IMAGE_ORIGINAL + posterPath)
             ImageLoader.loadWithDefaultSize(ivBackgroundImage, NetworkConstants.BASE_URL_IMAGE_ORIGINAL + posterPath)
         }
     }

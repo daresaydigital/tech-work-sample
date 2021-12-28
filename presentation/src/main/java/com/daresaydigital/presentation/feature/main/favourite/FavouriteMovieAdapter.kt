@@ -1,40 +1,46 @@
-package com.daresaydigital.presentation.feature.main.home
+package com.daresaydigital.presentation.feature.main.favourite
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.daresaydigital.core.utils.NetworkConstants
 import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.util.ImageLoader
 
-class MovieAdapter(private val dataList: MutableList<Movie>, private val onClick: (Movie) -> Unit) :
-    RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class FavouriteMovieAdapter(private val dataList: MutableList<Movie>, private val onFavClicked: (Movie) -> Unit) :
+    RecyclerView.Adapter<FavouriteMovieAdapter.FavouriteMovieViewHolder>() {
 
-    inner class MovieViewHolder(itemView: View) :
+    inner class FavouriteMovieViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
         private val mainLayout = itemView.findViewById<LinearLayout>(R.id.mainLayout)
         private val ivCover = itemView.findViewById<ImageView>(R.id.ivCover)
         private val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
+        private val tvDescription = itemView.findViewById<TextView>(R.id.tvDescription)
+        private val tvRate = itemView.findViewById<TextView>(R.id.tvRate)
+        private val ibFav = itemView.findViewById<ImageButton>(R.id.ibFav)
 
         init {
-            mainLayout.setOnClickListener {
+            ibFav.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
-                    dataList[adapterPosition].let(onClick)
+                    dataList[adapterPosition].let(onFavClicked)
                 }
             }
         }
 
         fun bind(movie: Movie) {
             tvTitle.text = movie.title
-            ImageLoader.load(ivCover,NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath, 700,  700, R.drawable.ic_movie_placeholder)
+            tvDescription.text = movie.overview
+            tvRate.text = "${itemView.context.getString(R.string.rate)} ${movie.voteAverage}"
+            ImageLoader.load(ivCover,
+                NetworkConstants.BASE_URL_IMAGE_W500 + movie.posterPath, 500,  500, R.drawable.ic_movie_placeholder)
         }
     }
 
@@ -46,13 +52,13 @@ class MovieAdapter(private val dataList: MutableList<Movie>, private val onClick
         diffResult.dispatchUpdatesTo(this)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteMovieViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.movie_item, parent, false)
-        return MovieViewHolder(view)
+            .inflate(R.layout.favourite_movie_item, parent, false)
+        return FavouriteMovieViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavouriteMovieViewHolder, position: Int) {
         val movie = dataList[position]
         holder.bind(movie)
 

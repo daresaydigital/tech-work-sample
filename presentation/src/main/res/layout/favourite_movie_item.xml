@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    tools:background="@color/black1"
+    >
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="72dp"
+        android:layout_height="113dp"
+        android:scaleType="centerInside"
+        tools:src="@drawable/sample_pooster"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica_neue_roman"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="14dp"
+        android:textColor="@color/white"
+        tools:text="Movie Name"
+        app:layout_constraintTop_toTopOf="@id/ivCover"
+        app:layout_constraintStart_toEndOf="@id/ivCover"
+        />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/helvetica_neue_roman"
+        android:maxLines="3"
+        android:textColor="@color/white"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toTopOf="@id/tvRate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivCover"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintVertical_bias="0.38"
+        tools:text="Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man." />
+
+    <TextView
+        android:id="@+id/tvRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica_neue_roman"
+        android:text="@string/rate"
+        android:textColor="@color/white"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="13dp"
+        app:layout_constraintBottom_toBottomOf="@id/ivCover"
+        app:layout_constraintStart_toEndOf="@id/ivCover" />
+
+    <ImageView
+        android:id="@+id/ivRate"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="12dp"
+        android:backgroundTint="@color/transparent"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_rate"
+        app:layout_constraintStart_toEndOf="@id/tvRate"
+        app:layout_constraintTop_toTopOf="@id/tvRate"
+        app:layout_constraintBottom_toBottomOf="@id/tvRate"
+        />
+
+    <ImageButton
+        android:id="@+id/ibFav"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="8dp"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:backgroundTint="@color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_fav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvRate"
+        app:layout_constraintBottom_toBottomOf="@id/tvRate"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

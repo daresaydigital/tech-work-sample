@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:alpha="0.2"
         android:scaleType="centerCrop"
-        tools:src="@drawable/sample_pooster" />
+        tools:src="@drawable/sample_poster" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -145,7 +145,7 @@
                 </FrameLayout>
 
                 <ImageView
-                    android:id="@+id/ivPooster"
+                    android:id="@+id/ivPoster"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
