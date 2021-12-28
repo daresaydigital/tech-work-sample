@@ -25,7 +25,7 @@ class MovieDetailViewController: UIViewController {
         let button = UIButton(type: .system)
         button.setImage(SFSymbols.downloaded, for: .normal)
         button.tintColor = .white
-        button.setTitle("Dowload", for: .normal)
+        button.setTitle("Donwload", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.contentHorizontalAlignment = .center
