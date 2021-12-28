@@ -15,64 +15,25 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    let imageView: UIImageView = {
-        let iv = UIImageView()
-        iv.layer.cornerRadius = 8
-        iv.clipsToBounds = true
-        return iv
-    }()
-    let titleLabel: UILabel = {
-        let title = UILabel()
-        title.textColor = .white
-        title.numberOfLines = 0
-        title.font = UIFont.boldSystemFont(ofSize: 35)
-        return title
-    }()
-    let releaseYearLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 25)
-        return label
-    }()
-    
-    let durationLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 25)
-        return label
-    }()
-    
-    let separatorDot: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 25)
-        label.text = "•"
-        return label
-    }()
-    
+    lazy var imageView = MovieDetailImageView(viewmodel: viewmodel)
+    let titleLabel = TextLabel(font: 30, weight: .semibold)
+    let releaseYearLabel = TextLabel(font: 18, weight: .regular)
+    let durationLabel = TextLabel(font: 18, weight: .regular)
+    let separatorDot = TextLabel(font: 25, weight: .heavy)
+    let overviewLabel = TextLabel(font: 18, weight: .thin)
     let downloadButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(SFSymbols.downloaded, for: .normal)
         button.tintColor = .white
         button.setTitle("Dowload", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.contentHorizontalAlignment = .center
-        button.backgroundColor = .systemGray
+        button.backgroundColor = UIColor(white: 0.2, alpha: 1)
         button.anchor(height: 44)
         button.layer.cornerRadius = 4
         button.clipsToBounds = true
         return button
-    }()
-    
-    let overviewLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 18)
-        return label
     }()
 
     //MARK: Lifecycle
@@ -94,18 +55,16 @@ class MovieDetailViewController: UIViewController {
     
     //MARK: Helpers
     func configure() {
-        imageView.load(url: viewmodel.backdropURL)
         titleLabel.text = viewmodel.title
         releaseYearLabel.text = viewmodel.releaseYear
         durationLabel.text = viewmodel.durationText
         overviewLabel.text = viewmodel.overview
+        separatorDot.text = "•"
     }
     
     func configureUI() {
         view.addSubview(imageView)
-        imageView.setContentHuggingPriority(.required, for: .vertical)
         imageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
-        imageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.55).isActive = true
         let innerStack = UIStackView(arrangedSubviews: [releaseYearLabel, separatorDot, durationLabel])
         releaseYearLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         separatorDot.setContentHuggingPriority(.defaultHigh, for: .horizontal)

@@ -58,4 +58,14 @@ extension UIView {
         layer.shadowOffset = CGSize(width: 0.5, height: 0.5)
         layer.masksToBounds = false
     }
+    
+    func pinToEdges(of superView: UIView) {
+            translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                topAnchor.constraint(equalTo: superView.topAnchor),
+                leadingAnchor.constraint(equalTo: superView.leadingAnchor),
+                trailingAnchor.constraint(equalTo: superView.trailingAnchor),
+                bottomAnchor.constraint(equalTo: superView.bottomAnchor)
+            ])
+    }
 }
