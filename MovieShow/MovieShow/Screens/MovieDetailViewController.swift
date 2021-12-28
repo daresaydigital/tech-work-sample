@@ -15,26 +15,16 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     lazy var imageView = MovieDetailImageView(viewmodel: viewmodel)
     let titleLabel = TextLabel(font: 30, weight: .semibold)
     let releaseYearLabel = TextLabel(font: 18, weight: .regular)
     let durationLabel = TextLabel(font: 18, weight: .regular)
     let separatorDot = TextLabel(font: 25, weight: .heavy)
     let overviewLabel = TextLabel(font: 18, weight: .thin)
-    let downloadButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(SFSymbols.downloaded, for: .normal)
-        button.tintColor = .white
-        button.setTitle("Donwload", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.contentHorizontalAlignment = .center
-        button.backgroundColor = UIColor(white: 0.2, alpha: 1)
-        button.anchor(height: 44)
-        button.layer.cornerRadius = 4
-        button.clipsToBounds = true
-        return button
-    }()
+    let downloadButton = WideButton(title: "Download", image: SFSymbols.downloaded)
+    let reviewButton = WideButton(title: "Read Reviews")
 
     //MARK: Lifecycle
     init(viewmodel: MovieViewModel) {
@@ -63,8 +53,12 @@ class MovieDetailViewController: UIViewController {
     }
     
     func configureUI() {
-        view.addSubview(imageView)
-        imageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        scrollView.pinToEdges(of: view)
+        contentView.pinToEdges(of: scrollView)
+        contentView.heightAnchor.constraint(equalToConstant: 800).isActive = true
+        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         let innerStack = UIStackView(arrangedSubviews: [releaseYearLabel, separatorDot, durationLabel])
         releaseYearLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         separatorDot.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -72,12 +66,14 @@ class MovieDetailViewController: UIViewController {
         innerStack.spacing = 15
         innerStack.distribution = .fill
         innerStack.tintColor = .white
-        let outerStack = UIStackView(arrangedSubviews: [titleLabel, innerStack, downloadButton, overviewLabel])
+        
+        let outerStack = UIStackView(arrangedSubviews: [imageView, titleLabel, innerStack, downloadButton, reviewButton, overviewLabel])
         outerStack.axis = .vertical
         outerStack.setCustomSpacing(20, after: innerStack)
-        outerStack.setCustomSpacing(20, after: downloadButton)
+        outerStack.setCustomSpacing(10, after: downloadButton)
+        outerStack.setCustomSpacing(20, after: reviewButton)
         
-        view.addSubview(outerStack)
-        outerStack.anchor(top: imageView.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingLeft: 10, paddingRight: 10)
+        contentView.addSubview(outerStack)
+        outerStack.anchor(top: contentView.topAnchor, left: contentView.leftAnchor, right: contentView.rightAnchor, paddingLeft: 10, paddingRight: 10)
     }
 }

@@ -24,13 +24,21 @@ class NetworkManager {
         self.loadURLAndDecode(url: url, completion: completion)
     }
     
+    func fetchReviews(for movie: MovieViewModel, completion: @escaping (Result<ReviewResponse, MovieError>) -> Void) {
+        guard let url = URL(string: "\(baseURL)movie/\(movie.id)/reviews") else {
+            completion(.failure(.invalidEndPoint))
+            return
+        }
+        self.loadURLAndDecode(url: url, completion: completion)
+    }
+    
     private func loadURLAndDecode<D: Decodable>(url: URL, parameters: [String:String]? = nil, completion: @escaping (Result<D, MovieError>) -> Void) {
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             completion(.failure(.invalidEndPoint))
             return
         }
 
-        var queryItems = [URLQueryItem(name: "api_key", value: apiKey), URLQueryItem(name: "append_to_response", value: "runtime")]
+        var queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
         if let parameters = parameters {
             queryItems.append(contentsOf: parameters.map { URLQueryItem(name: $0.key, value: $0.value)})
         }

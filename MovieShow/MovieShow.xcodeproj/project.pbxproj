@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58338BC3277B6C8E008378A7 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58338BC2277B6C8E008378A7 /* Review.swift */; };
 		5846FE14277B224800CAEE3F /* MovieDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846FE13277B224800CAEE3F /* MovieDetailImageView.swift */; };
 		5846FE16277B27A000CAEE3F /* TextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846FE15277B27A000CAEE3F /* TextLabel.swift */; };
 		5846FE18277B2AA100CAEE3F /* WideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5846FE17277B2AA100CAEE3F /* WideButton.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58338BC2277B6C8E008378A7 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		5846FE13277B224800CAEE3F /* MovieDetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailImageView.swift; sourceTree = "<group>"; };
 		5846FE15277B27A000CAEE3F /* TextLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabel.swift; sourceTree = "<group>"; };
 		5846FE17277B2AA100CAEE3F /* WideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WideButton.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				58F7BB2C2779FE9800AB47AC /* Movie.swift */,
+				58338BC2277B6C8E008378A7 /* Review.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				58F7BB2B2779FDF200AB47AC /* Utils.swift in Sources */,
 				58F7BB40277A35E900AB47AC /* SectionHeader.swift in Sources */,
 				58F7BB2F277A097400AB47AC /* UIImageView+EXT.swift in Sources */,
+				58338BC3277B6C8E008378A7 /* Review.swift in Sources */,
 				58F7BAEB2779F80F00AB47AC /* SceneDelegate.swift in Sources */,
 				58F7BB2D2779FE9800AB47AC /* Movie.swift in Sources */,
 				58F7BB31277A098C00AB47AC /* UIViewController+EXT.swift in Sources */,

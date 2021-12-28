@@ -17,7 +17,7 @@ class WideButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title: String, image: UIImage) {
+    convenience init(title: String, image: UIImage? = nil) {
         self.init()
         self.setTitle(title, for: .normal)
         self.setImage(image, for: .normal)
