@@ -30,7 +30,7 @@ class NetworkManager {
             return
         }
 
-        var queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+        var queryItems = [URLQueryItem(name: "api_key", value: apiKey), URLQueryItem(name: "append_to_response", value: "runtime")]
         if let parameters = parameters {
             queryItems.append(contentsOf: parameters.map { URLQueryItem(name: $0.key, value: $0.value)})
         }
@@ -40,6 +40,7 @@ class NetworkManager {
             completion(.failure(.invalidEndPoint))
             return
         }
+        print("DEBUG: final url \(finalURL)")
         urlSession.dataTask(with: finalURL) { [weak self] data, response, err in
             guard let self = self else { return }
 

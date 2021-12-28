@@ -17,20 +17,17 @@ class MovieVC: UIViewController {
             self.reloadData()
         }
     }
-
+    
     //MARK: Lifecycle
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .green
-        print("DEBUG: sections ARE \(sections)")
         getMovies(from: .popular)
         getMovies(from: .topRated)
         cofigureCollectionView()
         createDataSource()
         reloadData()
-            }
+    }
     
     //MARK: Helpers
     
@@ -38,8 +35,8 @@ class MovieVC: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.backgroundColor = .black
-        collectionView.delegate = self
         view.addSubview(collectionView)
+        collectionView.delegate = self
         
         collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: PopularMovieCell.reuseID)
         collectionView.register(TopRatedCell.self, forCellWithReuseIdentifier: TopRatedCell.reuseID)
@@ -48,7 +45,7 @@ class MovieVC: UIViewController {
     
     func configure<T: SelfConfiguringCell>(_ cellType: T.Type, with viewmodel: MovieViewModel, for indexPath: IndexPath) -> T {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuseID, for: indexPath) as? T else {
-           fatalError("Unable to dequeue \(cellType)")
+            fatalError("Unable to dequeue \(cellType)")
         }
         cell.configure(with: viewmodel)
         return cell
@@ -83,7 +80,7 @@ class MovieVC: UIViewController {
         }
         dataSource?.apply(snapshot)
     }
-
+    
     
     func createPopularMovieSection(using: Section) -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
@@ -124,7 +121,7 @@ class MovieVC: UIViewController {
     
     func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout {
-                sectionIndex, layoutEnvironment in
+            sectionIndex, layoutEnvironment in
             let section = self.sections[sectionIndex]
             
             switch section.title {
@@ -138,7 +135,7 @@ class MovieVC: UIViewController {
         layout.configuration = config
         return layout
     }
- 
+    
     func getMovies(from endpoint: MovieEndpoing) {
         NetworkManager.shared.fetchMovies(from: endpoint) { [weak self] result  in
             guard let self = self else { return }
@@ -151,17 +148,19 @@ class MovieVC: UIViewController {
                 case .topRated:
                     self.sections.append(Section(title: "Top Rated", movies: movies))
                 }
-                print("DEBUG: \(movies)")
             case .failure(let err):
-                print("DEBUG: error \(err.localizedDescription)")
+                self.presentErrorMessageAlert(title: "Something wrong", message: err.localizedDescription)
             }
         }
     }
 }
 
 extension MovieVC: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print("DEBUG: I am a cell and my indexPath is \(indexPath)")
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let movie = dataSource?.itemIdentifier(for: indexPath) else { return }
+        let viewmodel = MovieViewModel(movie: movie)
+        let vc = MovieDetailViewController(viewmodel: viewmodel)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

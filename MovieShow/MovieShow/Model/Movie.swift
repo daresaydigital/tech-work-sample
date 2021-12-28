@@ -61,7 +61,7 @@ struct Movie: Codable, Hashable {
     
     var durationText: String {
         guard let runtime = runtime, runtime > 0 else {
-            return "n/a"
+            return ""
         }
         return Movie.durationFormatter.string(from: TimeInterval(runtime) * 60) ?? "n/a"
     }

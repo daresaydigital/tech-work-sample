@@ -15,6 +15,7 @@ struct MovieViewModel {
     let durationText: String
     let postureURL: URL
     let backdropURL: URL
+    let overview: String
     
     init(movie: Movie) {
         self.id = movie.id
@@ -24,5 +25,6 @@ struct MovieViewModel {
         self.durationText = movie.durationText
         self.postureURL = movie.postureURL
         self.backdropURL = movie.backdropURL
+        self.overview = movie.overview
     }
 }

@@ -17,6 +17,7 @@ enum SFSymbols {
     static let filmSelected = UIImage(systemName: "film.fill")
     static let downloaded = UIImage(systemName: "arrow.down.circle")
     static let downloadedSelected = UIImage(systemName: "arrow.down.circle.fill")
+    static let dot = UIImage(systemName: "smallcircle.filled.circle.fill")
 }
 
 enum MovieError: Error, CustomNSError {
