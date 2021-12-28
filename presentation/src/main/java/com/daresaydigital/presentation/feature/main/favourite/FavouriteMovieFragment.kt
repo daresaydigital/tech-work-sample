@@ -12,4 +12,5 @@ class FavouriteMovieFragment : BaseFragment<FavouriteMovieViewModel>(){
 
     override fun layoutId(): Int = R.layout.fragment_favourite_movie
 
+
 }
