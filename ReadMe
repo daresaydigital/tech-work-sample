@@ -1,0 +1,16 @@
+Movie application based on provided apis from https://www.themoviedb.org/
+
+
+Technologies Uesd:
+- MVVM architecture.
+- Reposaitry architecture.
+- Coroutines for Threading.
+- Live-data for informing updates.
+- Room for offline savings.
+- Unit test.
+- Pagination.
+- Clean Code.
+
+
+
+
