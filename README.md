@@ -1,44 +1,61 @@
 # Work sample - Application developer
 
-## Assignment
+# Daresay Assignment
 
-- Build an awesome movie app that shows popular and high rated movies.
-- Code it for the platform (Android, iOS, web) you applied for or the one you prefer.
+## About App
+This is an assignment for Daresay.
 
-## Requirements
+## App Architecture
 
-- Use an open https://developers.themoviedb.org/open source API. Please read the API [Authentication section](https://developers.themoviedb.org/3/getting-started/authentication) to get started.
-- Discover most popular and highly rated movies.
-- Display the movies with creative look and feel of an app to meet design guidelines for your platform (Material Design etc.).
-- Launch a detail screen whenever a particular movie is selected.
+I chose the clean architecture for this app. because architecture should be
+scalable i separated layers so i developed multi-module clean app.
+there is modules in application :
+* App Module : application entry point which has Application class and has
+core and presentation module on dependencies.
+* Presentation Module :  represent presentation layer include of android ui
+component (fragments, views, etc) and ViewModels. it has domain and core modules
+on dependencies.
+* Domain Module : represent domain layer of clean architecture and center of
+application logic. it is not an android library module and it only has core module
+on dependencies. this module contains all data layer abstractions and usecases
+that presentation layer use.
+* Data Module : as clean architecture data layer it has all domain abstractions
+implementation. this module contains repository pattern and data sources. also
+it depends on domain and core module.
+* Core module :  shares some util classes and libraries with other modules.
 
-## Examples of bonus features
+## App Patterns
+In this application i used MVVM as architectural pattern. also repository pattern
+in data layer. communication between views and viewModels are observe pattern.
 
-- Allow user to save a favorite movie for offline access.
-- Allow user to read movie reviews.
+## App Implementation
+Application has a single main activity with 2 fragments for popular movies' items and top rated movies, and another activity for movie details.
+application will cache the user favourite movies and also movie details to be offline first, i have used
+room to handle it. i spared the reviews section because the lack of time.
 
-## We expect you to
+## Dependencies and libraries
+This dependencies could be found in versions.gradle file.
 
-- Write clean code.
-- Create a responsive design.
-- Handle error cases.
-- Use the latest libraries and technologies.
-- Tested code is a big plus.
+* Kotlin programming language, core and ktx
+* Google lifecycle extensions as
+* Kotlin coroutines for Threading
+* Hilt for DI
+* Navigation component
+* Retrofit, OkHttp, okHttpLoggingInterceptorVerion, gsonConverterVersion and Gson for networking.
+* Room as local database ORM
+* Junit, mockitoKotlin, mockitoInline, coreTesting for unit testing.
 
-### User experience
+## Unit Testing
+Application has unit test for viewModels, repositories and data sources.
 
-The features of the app might be few, but we expect you to deliver a solution with a high user experience. Imagine this application to be used by real users, with real needs. Make it interesting, fun and intuitive to use. And of course you are allowed to extend your applications functionality.
-
-### Code
-
-We expect that the code is of high quality and under source control. Expect the solution to be continuously worked on by other developers and should therefore be easy to understand, adjust and extend. True beauty starts on the inside!
-
-## Delivery
-
-Fork the repository, code in your fork and make a pull request when done. A nice commit history describing your work is preferred over squashing it into one commit.
-Also send us an e-mail to let us know!
-
-### Good luck!
-
----
+## To Reviewer
+I ran out of time and i know i can do it more better specially in functionality.
+you will see kind of mappers in project. i know that i could rid of it but its important
+to have model for each layer.
+also i only wrote test for some classes because of lack of time. i usually write unit test
+for all usecases, repositories, dataSources and some times converters.
+i hope you accept these few tests.
+i wanted to write gitlab.yml file to have simple pipeline and CI. but i did not have enough time.
+at the end.. i know that documentation is for public Api's not any methods.
+Thanks.
 
