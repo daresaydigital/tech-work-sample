@@ -34,11 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.accent)))
 
-        ViewModelProvider(this).get(MoviesViewModel::class.java).appBarTitle.observe(
-            this,
-            Observer {
-                supportActionBar?.title = it
-            })
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

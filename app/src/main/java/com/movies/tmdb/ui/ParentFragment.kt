@@ -2,6 +2,7 @@ package com.movies.tmdb.ui
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.movies.tmdb.R
@@ -19,11 +20,19 @@ abstract class ParentFragment(val layout: Int) : Fragment(layout) {
     }
 
     abstract fun startViewActions()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
+
         viewModel = ViewModelProvider(this).get(MoviesViewModel::class.java)
         setAppBaeTittle()
         startViewActions()
@@ -33,13 +42,18 @@ abstract class ParentFragment(val layout: Int) : Fragment(layout) {
 
     private fun setAppBaeTittle() {
         when (layout) {
-            R.layout.fragment_movies_listing -> viewModel.appBarTitle.postValue(getString(R.string.most_popular))
-            R.layout.fragment_movie_details -> viewModel.appBarTitle.postValue(getString(R.string.movie_details))
-            R.layout.fragment_reviews_listing -> viewModel.appBarTitle.postValue(getString(R.string.reviews))
-            R.layout.fragment_review_details -> viewModel.appBarTitle.postValue(getString(R.string.review_details))
-            R.layout.fragment_offline_movies -> viewModel.appBarTitle.postValue(getString(R.string.likes))
+            R.layout.fragment_movies_listing ->  setViewTittle(getString(R.string.most_popular))
+            R.layout.fragment_movie_details -> setViewTittle(getString(R.string.movie_details))
+            R.layout.fragment_reviews_listing -> setViewTittle(getString(R.string.reviews))
+            R.layout.fragment_review_details -> setViewTittle(getString(R.string.review_details))
+            R.layout.fragment_offline_movies -> setViewTittle(getString(R.string.likes))
         }
     }
+
+       fun setViewTittle(title:String)
+     {
+         (activity as AppCompatActivity?)!!.supportActionBar!!.title =title
+     }
 
     override fun onPrepareOptionsMenu(menu: Menu) {
         when (layout) {

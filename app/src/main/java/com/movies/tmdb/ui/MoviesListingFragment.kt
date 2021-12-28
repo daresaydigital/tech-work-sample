@@ -57,7 +57,7 @@ class MoviesListingFragment @Inject constructor(
         viewModel.getMoviesListFromWeb(selectedFilter, pageNum)
         isLoading = true
     } else {
-        viewModel.appBarTitle.postValue(getString(R.string.no_internet))
+       setViewTittle(getString(R.string.no_internet))
         requireContext().toast("No Internet connection please check internet connection")
     }
 
@@ -71,7 +71,7 @@ class MoviesListingFragment @Inject constructor(
             }
             R.id.most_popular -> {
                 selectedFilter = Constants.FilterId.MOST_POPULAR.filterId
-                viewModel.appBarTitle.postValue(getString(R.string.most_popular))
+                setViewTittle(getString(R.string.most_popular))
                 allMovies.clear()
                 getMoviesList()
 
@@ -79,7 +79,7 @@ class MoviesListingFragment @Inject constructor(
             }
             R.id.top_rated -> {
                 selectedFilter = Constants.FilterId.TOP_RATED.filterId
-                viewModel.appBarTitle.postValue(getString(R.string.top_rated))
+              setViewTittle(getString(R.string.top_rated))
                 allMovies.clear()
                 getMoviesList()
                 return true

@@ -20,7 +20,6 @@ class MoviesViewModel @ViewModelInject constructor(
     val shoppingItems = repository.observeAllShoppingItems()
     val isConnected = MutableLiveData<Boolean>()
 
-    var appBarTitle = MutableLiveData<String>()
 
     private val _moviesList = MutableLiveData<Event<Resource<MoviesResponse>>>()
     val moviesList: MutableLiveData<Event<Resource<MoviesResponse>>> = _moviesList
