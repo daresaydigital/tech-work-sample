@@ -1,13 +1,13 @@
 package com.daresaydigital.data.features.favorite_movie.util
 
 import com.daresaydigital.data.features.favorite_movie.model.FavMovieLocalEntity
-import com.daresaydigital.domain.features.favourite_movie.model.FavMovie
+import com.daresaydigital.domain.model.Movie
 
 
-fun FavMovieLocalEntity.toDomainModel() = FavMovie(
+fun FavMovieLocalEntity.toDomainModel() = Movie(
     adult,backdrop_path?:"",genre_ids,id,original_language?:"",original_title?:"",overview,popularity,poster_path?:"",release_date,title,video,vote_average?:0.0,vote_count
 )
 
-fun FavMovie.toLocalModel() = FavMovieLocalEntity(
-    adult,backdropPath,genreIds,id,originalLanguage,originalTitle,overview,popularity,posterPath,release_date,title,video,voteAverage,voteCount
+fun Movie.toLocalModel() = FavMovieLocalEntity(
+    adult,backdropPath,genreIds,id,originalLanguage,originalTitle,overview,popularity,posterPath,releaseDate,title,video,voteAverage,voteCount
 )

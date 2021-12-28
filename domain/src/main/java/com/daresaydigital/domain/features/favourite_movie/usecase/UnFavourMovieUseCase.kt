@@ -1,6 +1,5 @@
 package com.daresaydigital.domain.features.favourite_movie.usecase
 
-import com.daresaydigital.domain.features.favourite_movie.model.FavMovie
 import com.daresaydigital.domain.features.favourite_movie.repository.FavouriteMoviesRepository
 import com.daresaydigital.domain.model.usecase.UseCase
 import com.daresaydigital.domain.model.usecase.UseCaseParam

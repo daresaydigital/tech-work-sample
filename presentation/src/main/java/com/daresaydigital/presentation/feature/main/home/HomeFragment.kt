@@ -14,8 +14,9 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.coroutines.InternalCoroutinesApi
 
-
+@InternalCoroutinesApi
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<HomeViewModel>(){
 
@@ -53,6 +54,7 @@ class HomeFragment : BaseFragment<HomeViewModel>(){
 
 }
 
+@InternalCoroutinesApi
 class AdapterTabPager(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 2

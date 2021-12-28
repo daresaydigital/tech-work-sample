@@ -10,7 +10,6 @@ import com.daresaydigital.domain.features.movie_details.usecase.GetMovieDetailsU
 import com.daresaydigital.domain.features.movie_details.usecase.MovieDetailsParams
 import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.domain.model.Result
-import com.daresaydigital.domain.model.toFavMovie
 import com.daresaydigital.presentation.base.BaseViewModel
 import com.daresaydigital.presentation.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -74,7 +73,7 @@ class MovieDetailsViewModel @Inject constructor(
                 unFavourMovieUseCase.execute(UnFavourMovieParams(movie.id))
                 handleMovieFavouriteState(false)
             } else {
-                favouriteMovieByIdUseCase.execute(FavourMovieParams(movie.toFavMovie()))
+                favouriteMovieByIdUseCase.execute(FavourMovieParams(movie))
                 handleMovieFavouriteState(true)
             }
         }
