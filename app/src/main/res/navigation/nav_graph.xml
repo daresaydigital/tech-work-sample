@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moviesListingFragment">
+
+    <fragment
+        android:id="@+id/moviesListingFragment"
+        android:name="com.movies.tmdb.ui.MoviesListingFragment"
+        android:label="MoviesListingFragment">
+        <action
+            android:id="@+id/action_moviesListingFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_moviesListingFragment_to_offlineMoviesListingFragment"
+            app:destination="@id/offlineMoviesListingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.movies.tmdb.ui.MovieDetailsFragment"
+        android:label="MovieDetailsFragment">
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_movieReviewsFragment"
+            app:destination="@id/movieReviewsFragment" />
+
+        <argument
+            android:name="selectedMovie"
+            app:argType="com.movies.tmdb.data.remote.responses.MovieObject" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/movieReviewsFragment"
+        android:name="com.movies.tmdb.ui.MovieReviewsFragment"
+        android:label="MovieReviewsFragment">
+        <argument
+            android:name="selectedMovieId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_movieReviewsFragment_to_movieReviewDetailsFragment"
+            app:destination="@id/movieReviewDetailsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/movieReviewDetailsFragment"
+        android:name="com.movies.tmdb.ui.MovieReviewDetailsFragment"
+        android:label="MovieReviewDetailsFragment">
+        <action
+            android:id="@+id/from_review_details_to_listing"
+            app:destination="@id/movieReviewsFragment" />
+        <argument
+            android:name="selectedReview"
+            app:argType="com.movies.tmdb.data.remote.responses.ReviewObject" />
+    </fragment>
+    <fragment
+        android:id="@+id/offlineMoviesListingFragment"
+        android:name="com.movies.tmdb.ui.OfflineMoviesListingFragment"
+        android:label="OfflineMoviesListingFragment">
+        <action
+            android:id="@+id/action_offlineMoviesListingFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
+    </fragment>
+
+
+</navigation>

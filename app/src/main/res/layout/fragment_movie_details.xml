@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/movieImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_image"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1" />
+
+    <TextView
+        android:id="@+id/movieName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transaprent_bg"
+        android:gravity="center"
+        android:hint="Name"
+        android:padding="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/movieImage"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/percentage_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:src="@drawable/ic_image"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movieName"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5">
+
+        <com.eralp.circleprogressview.CircleProgressView
+            android:id="@+id/circle_progress_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:cpv_background_circle_color="@color/accent"
+            app:cpv_background_circle_width="1dp"
+            app:cpv_circle_color="@color/accent"
+            app:cpv_circle_width="6dp"
+
+            app:cpv_text_color="@android:color/white"
+            app:cpv_text_prefix="%"
+            app:cpv_text_size="40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/like_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:src="@drawable/ic_image"
+
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent=".25"
+        app:layout_constraintStart_toEndOf="@id/percentage_layout"
+        app:layout_constraintTop_toBottomOf="@id/movieName"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.5">
+
+
+        <CheckBox
+            android:id="@+id/saveOfflineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like_selector"
+            android:button="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tv_overview_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/overview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/percentage_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/showViewsButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_overview_title">
+
+        <TextView
+            android:id="@+id/overViewDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:padding="8dp"
+            android:text="LOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremLOremTTTTttedf" />
+    </ScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showViewsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_reviews"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
