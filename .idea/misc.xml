@@ -9,6 +9,7 @@
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4197916666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.4197916666666667" />
         <entry key="presentation/src/main/res/drawable/ic_logo.xml" value="0.4197916666666667" />
+        <entry key="presentation/src/main/res/drawable/item_seperator.xml" value="0.4197916666666667" />
         <entry key="presentation/src/main/res/drawable/progress_loading_background.xml" value="0.4197916666666667" />
         <entry key="presentation/src/main/res/drawable/splash_background.xml" value="0.4197916666666667" />
         <entry key="presentation/src/main/res/drawable/toolbar_dropshadow.xml" value="0.4197916666666667" />

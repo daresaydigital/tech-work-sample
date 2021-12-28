@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.daresaydigital.core.utils.NetworkConstants
@@ -14,13 +15,13 @@ import com.daresaydigital.domain.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.util.ImageLoader
 
-class FavouriteMovieAdapter(private val dataList: MutableList<Movie>, private val onFavClicked: (Movie) -> Unit) :
+class FavouriteMovieAdapter(private val dataList: MutableList<Movie>, private val onFavClicked: (Movie) -> Unit, private val onItemClicked: (Movie) -> Unit) :
     RecyclerView.Adapter<FavouriteMovieAdapter.FavouriteMovieViewHolder>() {
 
     inner class FavouriteMovieViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        private val mainLayout = itemView.findViewById<LinearLayout>(R.id.mainLayout)
+        private val mainLayout = itemView.findViewById<ConstraintLayout>(R.id.mainLayout)
         private val ivCover = itemView.findViewById<ImageView>(R.id.ivCover)
         private val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         private val tvDescription = itemView.findViewById<TextView>(R.id.tvDescription)
@@ -31,6 +32,11 @@ class FavouriteMovieAdapter(private val dataList: MutableList<Movie>, private va
             ibFav.setOnClickListener {
                 if (adapterPosition != RecyclerView.NO_POSITION) {
                     dataList[adapterPosition].let(onFavClicked)
+                }
+            }
+            mainLayout.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    dataList[adapterPosition].let(onItemClicked)
                 }
             }
         }

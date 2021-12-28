@@ -44,6 +44,13 @@ class FavouriteMovieViewModel @Inject constructor(
     fun unFavouriteMovie(id: Int) {
         viewModelScope.launch(globalDispatcher.main) {
             unFavourMoviesUseCase.execute(UnFavourMovieParams(id))
+
+            val temp = _favMoviesLiveData.value?.toMutableList()
+            temp?.indexOfFirst { it.id == id }?.takeIf { it>=0 }?.let{
+                temp.removeAt(it)
+                handleDataSucceed(temp)
+            }
+
         }
     }
 
