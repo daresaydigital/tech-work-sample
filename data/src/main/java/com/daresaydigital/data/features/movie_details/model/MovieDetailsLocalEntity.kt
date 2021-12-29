@@ -26,7 +26,7 @@ data class MovieDetailsLocalEntity(
     val production_companies: List<ProductionCompanyLocal>?,
     val production_countries: List<ProductionCountryLocal>?,
     val release_date: String?,
-    val revenue: Int?,
+    val revenue: Double?,
     val runtime: Int?,
     val spoken_languages: List<SpokenLanguageLocal>?,
     val status: String?,

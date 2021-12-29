@@ -17,7 +17,7 @@ data class MovieDetailsDTO(
     val production_companies: List<ProductionCompanyDTO>?,
     val production_countries: List<ProductionCountryDTO>?,
     val release_date: String?,
-    val revenue: Int?,
+    val revenue: Double?,
     val runtime: Int?,
     val spoken_languages: List<SpokenLanguageDTO>?,
     val status: String?,
