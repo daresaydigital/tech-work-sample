@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/fav"
+        android:icon="@drawable/ic_fav_in_active_white"
+        android:title="@string/likes"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/filter"
+        app:showAsAction="ifRoom"
+
+        >
+        <menu>
+            <item
+                android:id="@+id/most_popular"
+                android:title="@string/most_popular" />
+
+            <item
+                android:id="@+id/top_rated"
+                android:title="@string/top_rated" />
+        </menu>
+    </item>
+
+</menu>

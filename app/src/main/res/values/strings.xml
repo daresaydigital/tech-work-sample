@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="filter">Filter</string>
+    <string name="language">Language</string>
+     <string name="trending">Trending</string>
+    <string name="most_popular">Most Popular Movies</string>
+    <string name="no_internet">No Internet connection</string>
+    <string name="no_reviews">No Reviews for this film</string>
+    <string name="no_saved">No saved movies</string>
+
+
+    <string name="top_rated">High Rated Movies</string>
+    <string name="view_reviews">View reviews</string>
+    <string name="user_score">User Score</string>
+    <string name="reviews">Reviews</string>
+    <string name="author">A review by %1$s.</string>
+    <string name="date">Written by %1$s on %2$s </string>
+    <string name="review_details">Review Details</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="likes">Likes</string>
+    <string name="overview">Overview</string>
+</resources>
