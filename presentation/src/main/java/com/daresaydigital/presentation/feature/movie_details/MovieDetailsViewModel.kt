@@ -58,7 +58,11 @@ class MovieDetailsViewModel @Inject constructor(
 
                     }
                 }
+        }
+    }
 
+    fun checkFavouriteState(id:Int){
+        viewModelScope.launch(globalDispatcher.main) {
             val movieFavState =
                 getFavouriteMovieByIdUseCase.execute(GetFavouriteMovieByIdParams(id))
             handleMovieFavouriteState(movieFavState is Result.Success && movieFavState.value != null)

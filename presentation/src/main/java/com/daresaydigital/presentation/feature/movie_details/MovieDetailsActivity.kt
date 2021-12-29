@@ -50,6 +50,7 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsViewModel>(){
         
         selectedMovie?.id?.let {
             viewModel.getMovieDetails(it)
+            viewModel.checkFavouriteState(it)
         }
     }
 
