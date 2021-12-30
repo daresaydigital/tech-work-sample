@@ -54,8 +54,10 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
             if (it.first){
                 if (it.second == 1) {
                     frmLoading.visibility = View.VISIBLE
+                    bottomProgressbar.visibility = View.GONE
                 } else {
                     bottomProgressbar.visibility = View.VISIBLE
+                    frmLoading.visibility = View.GONE
                 }
             }
             else {
@@ -70,15 +72,8 @@ class PopularMovieFragment : BaseFragment<PopularMovieViewModel>(){
             }
         }
 
-        val currentMovieList = mutableListOf<Movie>()
-        viewModel.movieListLiveData.observeNullSafe(viewLifecycleOwner){ pair ->
-            pair.first?.let {
-                if (pair.second == 1) {
-                    currentMovieList.clear()
-                }
-                currentMovieList.addAll(it)
-                movieAdapter?.setData(currentMovieList)
-            }
+        viewModel.movieListLiveData.observeNullSafe(viewLifecycleOwner){ movies ->
+            movieAdapter?.setData(movies)
         }
     }
 
