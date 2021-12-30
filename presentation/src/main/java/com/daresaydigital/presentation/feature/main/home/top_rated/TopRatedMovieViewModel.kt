@@ -26,8 +26,8 @@ class TopRatedMovieViewModel @Inject constructor(
     private val _failureEventLiveData = SingleLiveEvent<Pair<String?,Int>>()
     val failureEventLiveData: LiveData<Pair<String?, Int>> = _failureEventLiveData
 
-    private val _movieListLiveData = MutableLiveData<Pair<List<Movie>?,Int>>()
-    val movieListLiveData: LiveData<Pair<List<Movie>?, Int>> = _movieListLiveData
+    private val _movieListLiveData = MutableLiveData<List<Movie>>()
+    val movieListLiveData: LiveData<List<Movie>> = _movieListLiveData
 
     private var currentPageNumber = 1
     private var totalPageNumber = 1
@@ -70,7 +70,13 @@ class TopRatedMovieViewModel @Inject constructor(
     }
 
     private fun handleDataSucceed(movies: List<Movie>) {
-        _movieListLiveData.value = Pair(movies,currentPageNumber)
+        if(currentPageNumber == 1) {
+            _movieListLiveData.value = movies
+        } else {
+            val tempMovies = _movieListLiveData.value?.toMutableList() ?: arrayListOf()
+            tempMovies.addAll(movies)
+            _movieListLiveData.value = tempMovies
+        }
     }
 
     fun checkIsLastPage(): Boolean {
