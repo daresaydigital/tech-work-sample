@@ -1,0 +1,1066 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0156ADC328301CF15E15286C00A9C433 /* Deprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2CF163DC0C6018585F38891D3D9561 /* Deprecated.swift */; };
+		02899E62EC5B28EB2E8001C4C25CF9E6 /* Pods-DareMovie-DareMovieUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7301051606B379BCA59969BC25E5E4B7 /* Pods-DareMovie-DareMovieUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05C2BF655A56384064711DE384B0DEC4 /* TaskLoadImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16DDCCB1121C54710471CE69952FCB0 /* TaskLoadImageData.swift */; };
+		171035BDFD70298A503F36832CB3E7BC /* ImageProcessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE82C2859EB94E7610FD1F9561802533 /* ImageProcessing.swift */; };
+		17D6C7DB3C009A9A010051B8B5067582 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6568855E200CF5A9710115F4FC80E9 /* ImagePrefetcher.swift */; };
+		1EA91D5C70C8FFCF31E1080FC2215D6A /* TaskDecodeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC168AFA39FEE84DBD89CFC0DAF80BD0 /* TaskDecodeImage.swift */; };
+		249FCFAE674EE7776F71FBA42449FB8B /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D66225C0460798A412EC30434BFF9B /* LinkedList.swift */; };
+		26F38A4D03F827849F1603EAB633A79A /* Pods-DareMovieTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 26E1A6767B5DE62BF691008C0521CCAA /* Pods-DareMovieTests-dummy.m */; };
+		41292C9F25A7EA73D215A2148536EA0B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		47C8887A5F654876749CF258BF5BE43C /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F91FB9C4CAED65B490B0E0CFF1F1DA1 /* ImageRequest.swift */; };
+		4D45EFCDB5D1C269D721D61178986517 /* ImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87330E3892F6C274D1F2AF24E3C28A /* ImageViewExtensions.swift */; };
+		4F55F686E2D7D384BE183F3742EB42C8 /* TaskLoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC79B7A65762C212641EB917DB7C5A8D /* TaskLoadImage.swift */; };
+		5E793FF967723A78068FAF8A762FB609 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6515115AF24C582A1605CE56892D86AF /* ImageTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7C0008688AD508BCE56609C1659642 /* ImageTask.swift */; };
+		66664D5E14DDBAC707E671A90B996F57 /* Pods-DareMovieTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A00D7402F967B626E797619D95D0434F /* Pods-DareMovieTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7213954300F66E2AC61146F7452181FE /* Pods-DareMovie-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBB87BD6DEB856590C9AC9161A22D97 /* Pods-DareMovie-dummy.m */; };
+		7DE8F7D9B52CA1E835F9A459A7B9EA3F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		7F3088ECBD1F1A5E5824CD865BECD640 /* ImageEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD6F4D137BB8F92265971769542093A /* ImageEncoding.swift */; };
+		7FDBEE4B3FBA9634591ABAEE954DDEFF /* ImagePipelineConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7E0F6988F5A9F3207C5BD36827E16F /* ImagePipelineConfiguration.swift */; };
+		88CF8CD7A6493816C33F3AE8E2222143 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6C70BC2BE15A0F23F040030F5A5EB2 /* Extensions.swift */; };
+		8A8480D80E7132E34F87E26048047EC0 /* ImagePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0B1BF88931C52D308B1C23DF13AD91 /* ImagePipeline.swift */; };
+		8CC0E1C9827C44047A107249F2C49C5E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0819FC34641E832FBF1DE95A4578870 /* ImageCache.swift */; };
+		90778813EABC70552F478BAD1CD79A48 /* TaskProcessImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 648079FE18F36D4F4EFDA01172EAC1D3 /* TaskProcessImage.swift */; };
+		9C49A7EB82BF4458A5C2DDF0E31245FA /* Nuke-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF812F0808E03C8453546BC1DC6554F2 /* Nuke-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EF9F06E1B8C699F3B54685B5B031316 /* RateLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD41E43A3D9441825F6F9627DBB53DDE /* RateLimiter.swift */; };
+		9FCF500435FEBF966F8E9FD5DB8C6113 /* Pods-DareMovie-DareMovieUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E14A98E1F0072AB4F0FE3A859C5B3BE3 /* Pods-DareMovie-DareMovieUITests-dummy.m */; };
+		A2F17A86F6F2E79485A584B12D2BB8AE /* DataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB6CC558EBBFEED42D9A02FB337E7D4 /* DataCache.swift */; };
+		A3D8F9C124756ECF2A838F34B0C60D59 /* Pods-DareMovie-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CD41FDD0D1F9D7AD6DFFE530A58B7FA /* Pods-DareMovie-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A903F9F41BC32AEEDD064D8BA3CBB175 /* Allocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127822514DDFFAD8AB9E59781CB21BB1 /* Allocations.swift */; };
+		AA131EA5987BFBC096102581D81C34CE /* ImageDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F638062D6EC371960CA375CCAA0DB3 /* ImageDecoding.swift */; };
+		BCEFAF1CC7A62FF947BA2E887B428AB6 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049461AC6CAB2B2E20D99AD6EF8431A /* Log.swift */; };
+		C5FCEA66EF33A90E692576CEFC3DC562 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C9ECD9245B4B74448494C97771F33CEC /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C46BDEE47CD2E1B66973A6A46F140D4 /* DataLoader.swift */; };
+		DD611190BBC297D57471865C77B0C8E6 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F6B2D97E29D81B9C8A855FF33208A9 /* Operation.swift */; };
+		EB12463329279B5F9F2AD3E1CD0C2FF2 /* ImagePipelineTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2C925165B8827A74358416510A8F31 /* ImagePipelineTask.swift */; };
+		EBB6E70311ABD43027B74749AEE64103 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1EE24F7FD069BB344EA6590F3AB2A6 /* Task.swift */; };
+		F21C96FADAD1D0A27E1BA2402E053762 /* ResumableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FE56682D3DA931C9AFD51CAC98F37 /* ResumableData.swift */; };
+		F2264C49DB920F728024FF4BE56ECCFC /* Nuke-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F94CCD454CB1868C33AC91AB0D9295B /* Nuke-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71B2DE07AEA10AAF8317313EA8C426FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 062A64896E847A6749F58B6BA9A931B1;
+			remoteInfo = Nuke;
+		};
+		979EE2DA81E304DE0F4D1314BB141593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 062A64896E847A6749F58B6BA9A931B1;
+			remoteInfo = Nuke;
+		};
+		ECA88E074C57B9365270EA0C86B2F99E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B08E70284B8BD6706DD22F65065D15E8;
+			remoteInfo = "Pods-DareMovie";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A03C73B2DF1FB51C31A2B9F387AB817 /* Pods-DareMovieTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DareMovieTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0C5917A9A4D8DD4ADD7E59FBA8548E3D /* Pods-DareMovie-DareMovieUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DareMovie-DareMovieUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0DD6F4D137BB8F92265971769542093A /* ImageEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageEncoding.swift; path = Sources/ImageEncoding.swift; sourceTree = "<group>"; };
+		10C5762E658CB0B7DBC41C39A80C54B1 /* Pods-DareMovie-DareMovieUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DareMovie-DareMovieUITests"; path = Pods_DareMovie_DareMovieUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		127822514DDFFAD8AB9E59781CB21BB1 /* Allocations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Allocations.swift; path = Sources/Internal/Allocations.swift; sourceTree = "<group>"; };
+		205B2C85A51751BDFDA47E10A5CD19D1 /* Pods-DareMovie-DareMovieUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DareMovie-DareMovieUITests.release.xcconfig"; sourceTree = "<group>"; };
+		26E1A6767B5DE62BF691008C0521CCAA /* Pods-DareMovieTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DareMovieTests-dummy.m"; sourceTree = "<group>"; };
+		2BA78FF1EA5EECA51D46FF989620F878 /* Pods-DareMovieTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DareMovieTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		2DAD7D76FC007F48AE48F2FD15BF01BB /* Nuke */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nuke; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F94CCD454CB1868C33AC91AB0D9295B /* Nuke-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nuke-dummy.m"; sourceTree = "<group>"; };
+		357FE56682D3DA931C9AFD51CAC98F37 /* ResumableData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResumableData.swift; path = Sources/Internal/ResumableData.swift; sourceTree = "<group>"; };
+		3C46BDEE47CD2E1B66973A6A46F140D4 /* DataLoader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataLoader.swift; path = Sources/DataLoader.swift; sourceTree = "<group>"; };
+		3CD41FDD0D1F9D7AD6DFFE530A58B7FA /* Pods-DareMovie-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DareMovie-umbrella.h"; sourceTree = "<group>"; };
+		3F91FB9C4CAED65B490B0E0CFF1F1DA1 /* ImageRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageRequest.swift; path = Sources/ImageRequest.swift; sourceTree = "<group>"; };
+		4049461AC6CAB2B2E20D99AD6EF8431A /* Log.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Log.swift; path = Sources/Internal/Log.swift; sourceTree = "<group>"; };
+		4053A93BB4C947997F667932C433847A /* Nuke.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Nuke.modulemap; sourceTree = "<group>"; };
+		44D66225C0460798A412EC30434BFF9B /* LinkedList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Sources/Internal/LinkedList.swift; sourceTree = "<group>"; };
+		44F638062D6EC371960CA375CCAA0DB3 /* ImageDecoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageDecoding.swift; path = Sources/ImageDecoding.swift; sourceTree = "<group>"; };
+		4C62727B677EE6B8CB774CE33A2ED8E8 /* Pods-DareMovieTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DareMovieTests.modulemap"; sourceTree = "<group>"; };
+		4E5BE51DFEC3CC1F7CEBFAA016BFBAA8 /* Pods-DareMovie-DareMovieUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DareMovie-DareMovieUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		54C9720E3F5CA470E5ECABC8C2107475 /* Pods-DareMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DareMovie.debug.xcconfig"; sourceTree = "<group>"; };
+		5BBB87BD6DEB856590C9AC9161A22D97 /* Pods-DareMovie-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DareMovie-dummy.m"; sourceTree = "<group>"; };
+		5D1EE24F7FD069BB344EA6590F3AB2A6 /* Task.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Task.swift; path = Sources/Tasks/Task.swift; sourceTree = "<group>"; };
+		5DB6CC558EBBFEED42D9A02FB337E7D4 /* DataCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCache.swift; path = Sources/DataCache.swift; sourceTree = "<group>"; };
+		5E59670C330F0F7CF2B647B254AB6718 /* Pods-DareMovie-DareMovieUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DareMovie-DareMovieUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5E7E0F6988F5A9F3207C5BD36827E16F /* ImagePipelineConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePipelineConfiguration.swift; path = Sources/ImagePipelineConfiguration.swift; sourceTree = "<group>"; };
+		5F25B1043864037DF4BCC98DF68FFA2E /* Pods-DareMovie.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DareMovie.modulemap"; sourceTree = "<group>"; };
+		625BBFEDB1277C16C88F7AEF94070A8F /* Nuke-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Nuke-Info.plist"; sourceTree = "<group>"; };
+		648079FE18F36D4F4EFDA01172EAC1D3 /* TaskProcessImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskProcessImage.swift; path = Sources/Tasks/TaskProcessImage.swift; sourceTree = "<group>"; };
+		676B5AE9B4A40A97E915BEBD5CE45036 /* Pods-DareMovieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DareMovieTests.debug.xcconfig"; sourceTree = "<group>"; };
+		69F8B209DA379837C7170F2E30D1C045 /* Pods-DareMovie-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DareMovie-frameworks.sh"; sourceTree = "<group>"; };
+		6D9542F26073509ABFF58578D1CDB4A5 /* Pods-DareMovie-DareMovieUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DareMovie-DareMovieUITests-Info.plist"; sourceTree = "<group>"; };
+		725F3A0D30646450E3FE22591BD5CA8A /* Pods-DareMovie-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DareMovie-acknowledgements.plist"; sourceTree = "<group>"; };
+		7301051606B379BCA59969BC25E5E4B7 /* Pods-DareMovie-DareMovieUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DareMovie-DareMovieUITests-umbrella.h"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		73C85DB508FBCD5F052C50FA571B0A71 /* Pods-DareMovie-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DareMovie-acknowledgements.markdown"; sourceTree = "<group>"; };
+		784EA10E67C5681F41706633F6621598 /* Pods-DareMovie-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DareMovie-Info.plist"; sourceTree = "<group>"; };
+		80FB81A282C5D93B47452576A91F85FC /* Pods-DareMovie-DareMovieUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DareMovie-DareMovieUITests-frameworks.sh"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F0B1BF88931C52D308B1C23DF13AD91 /* ImagePipeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePipeline.swift; path = Sources/ImagePipeline.swift; sourceTree = "<group>"; };
+		A00D7402F967B626E797619D95D0434F /* Pods-DareMovieTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DareMovieTests-umbrella.h"; sourceTree = "<group>"; };
+		A2517E8CA9B8608E72C4539FBCFC4C2B /* Nuke-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nuke-prefix.pch"; sourceTree = "<group>"; };
+		A366F68A922711BF6D7AA57CFDC62238 /* Pods-DareMovieTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DareMovieTests"; path = Pods_DareMovieTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80A9DC2B68ABA68DFFC8AE133CCC6BE /* Pods-DareMovieTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DareMovieTests-Info.plist"; sourceTree = "<group>"; };
+		AA87330E3892F6C274D1F2AF24E3C28A /* ImageViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageViewExtensions.swift; path = Sources/ImageViewExtensions.swift; sourceTree = "<group>"; };
+		AB2CF163DC0C6018585F38891D3D9561 /* Deprecated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Deprecated.swift; path = Sources/Deprecated.swift; sourceTree = "<group>"; };
+		AC6568855E200CF5A9710115F4FC80E9 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePrefetcher.swift; path = Sources/ImagePrefetcher.swift; sourceTree = "<group>"; };
+		B0819FC34641E832FBF1DE95A4578870 /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/ImageCache.swift; sourceTree = "<group>"; };
+		B3F6B2D97E29D81B9C8A855FF33208A9 /* Operation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operation.swift; path = Sources/Internal/Operation.swift; sourceTree = "<group>"; };
+		B8C9B025CFDA0477E1E8AA874E453350 /* Pods-DareMovieTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DareMovieTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD41E43A3D9441825F6F9627DBB53DDE /* RateLimiter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RateLimiter.swift; path = Sources/Internal/RateLimiter.swift; sourceTree = "<group>"; };
+		CA2C925165B8827A74358416510A8F31 /* ImagePipelineTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImagePipelineTask.swift; path = Sources/Tasks/ImagePipelineTask.swift; sourceTree = "<group>"; };
+		CB239A19F00A98326A3F79DC0B79B656 /* Pods-DareMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DareMovie.release.xcconfig"; sourceTree = "<group>"; };
+		CC36CDEEEFA591D39E56134BB4A427BA /* Nuke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nuke.debug.xcconfig; sourceTree = "<group>"; };
+		CFB4F12C255964CD493CE58B7FED8B56 /* Nuke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nuke.release.xcconfig; sourceTree = "<group>"; };
+		D16DDCCB1121C54710471CE69952FCB0 /* TaskLoadImageData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskLoadImageData.swift; path = Sources/Tasks/TaskLoadImageData.swift; sourceTree = "<group>"; };
+		D21177C76CCBD69EA68B2D71AA2B3055 /* Pods-DareMovie-DareMovieUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DareMovie-DareMovieUITests.modulemap"; sourceTree = "<group>"; };
+		D9EB0DA5AF251353E2B5A2E54059430B /* Pods-DareMovie */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-DareMovie"; path = Pods_DareMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC168AFA39FEE84DBD89CFC0DAF80BD0 /* TaskDecodeImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDecodeImage.swift; path = Sources/Tasks/TaskDecodeImage.swift; sourceTree = "<group>"; };
+		DC79B7A65762C212641EB917DB7C5A8D /* TaskLoadImage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskLoadImage.swift; path = Sources/Tasks/TaskLoadImage.swift; sourceTree = "<group>"; };
+		DE82C2859EB94E7610FD1F9561802533 /* ImageProcessing.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageProcessing.swift; path = Sources/ImageProcessing.swift; sourceTree = "<group>"; };
+		E14A98E1F0072AB4F0FE3A859C5B3BE3 /* Pods-DareMovie-DareMovieUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DareMovie-DareMovieUITests-dummy.m"; sourceTree = "<group>"; };
+		EA7C0008688AD508BCE56609C1659642 /* ImageTask.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageTask.swift; path = Sources/ImageTask.swift; sourceTree = "<group>"; };
+		EF812F0808E03C8453546BC1DC6554F2 /* Nuke-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nuke-umbrella.h"; sourceTree = "<group>"; };
+		FF6C70BC2BE15A0F23F040030F5A5EB2 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Internal/Extensions.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		425698161DAA1569E32FE03C25FF3188 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5FCEA66EF33A90E692576CEFC3DC562 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA764FFB788E79DCA522AFD9DDA33E7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41292C9F25A7EA73D215A2148536EA0B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0BB0019037E620F28DCE0592B51A00B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DE8F7D9B52CA1E835F9A459A7B9EA3F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDCD06CCD4F602AAB98B09A1246191D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E793FF967723A78068FAF8A762FB609 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		076D983D2D49C9700C66AAE568B718D2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4053A93BB4C947997F667932C433847A /* Nuke.modulemap */,
+				2F94CCD454CB1868C33AC91AB0D9295B /* Nuke-dummy.m */,
+				625BBFEDB1277C16C88F7AEF94070A8F /* Nuke-Info.plist */,
+				A2517E8CA9B8608E72C4539FBCFC4C2B /* Nuke-prefix.pch */,
+				EF812F0808E03C8453546BC1DC6554F2 /* Nuke-umbrella.h */,
+				CC36CDEEEFA591D39E56134BB4A427BA /* Nuke.debug.xcconfig */,
+				CFB4F12C255964CD493CE58B7FED8B56 /* Nuke.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Nuke";
+			sourceTree = "<group>";
+		};
+		53C0FEE60909E2C29EAE6BAEB0C0C537 /* Pods-DareMovie-DareMovieUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D21177C76CCBD69EA68B2D71AA2B3055 /* Pods-DareMovie-DareMovieUITests.modulemap */,
+				0C5917A9A4D8DD4ADD7E59FBA8548E3D /* Pods-DareMovie-DareMovieUITests-acknowledgements.markdown */,
+				5E59670C330F0F7CF2B647B254AB6718 /* Pods-DareMovie-DareMovieUITests-acknowledgements.plist */,
+				E14A98E1F0072AB4F0FE3A859C5B3BE3 /* Pods-DareMovie-DareMovieUITests-dummy.m */,
+				80FB81A282C5D93B47452576A91F85FC /* Pods-DareMovie-DareMovieUITests-frameworks.sh */,
+				6D9542F26073509ABFF58578D1CDB4A5 /* Pods-DareMovie-DareMovieUITests-Info.plist */,
+				7301051606B379BCA59969BC25E5E4B7 /* Pods-DareMovie-DareMovieUITests-umbrella.h */,
+				4E5BE51DFEC3CC1F7CEBFAA016BFBAA8 /* Pods-DareMovie-DareMovieUITests.debug.xcconfig */,
+				205B2C85A51751BDFDA47E10A5CD19D1 /* Pods-DareMovie-DareMovieUITests.release.xcconfig */,
+			);
+			name = "Pods-DareMovie-DareMovieUITests";
+			path = "Target Support Files/Pods-DareMovie-DareMovieUITests";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		704FE0075E362B70E1413FD6B0959267 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				72443AFEB28DF606BD0769365B63FDD1 /* Pods-DareMovie */,
+				53C0FEE60909E2C29EAE6BAEB0C0C537 /* Pods-DareMovie-DareMovieUITests */,
+				AD9BF4D36C49E39E6874DD8C2CB30C4F /* Pods-DareMovieTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		72443AFEB28DF606BD0769365B63FDD1 /* Pods-DareMovie */ = {
+			isa = PBXGroup;
+			children = (
+				5F25B1043864037DF4BCC98DF68FFA2E /* Pods-DareMovie.modulemap */,
+				73C85DB508FBCD5F052C50FA571B0A71 /* Pods-DareMovie-acknowledgements.markdown */,
+				725F3A0D30646450E3FE22591BD5CA8A /* Pods-DareMovie-acknowledgements.plist */,
+				5BBB87BD6DEB856590C9AC9161A22D97 /* Pods-DareMovie-dummy.m */,
+				69F8B209DA379837C7170F2E30D1C045 /* Pods-DareMovie-frameworks.sh */,
+				784EA10E67C5681F41706633F6621598 /* Pods-DareMovie-Info.plist */,
+				3CD41FDD0D1F9D7AD6DFFE530A58B7FA /* Pods-DareMovie-umbrella.h */,
+				54C9720E3F5CA470E5ECABC8C2107475 /* Pods-DareMovie.debug.xcconfig */,
+				CB239A19F00A98326A3F79DC0B79B656 /* Pods-DareMovie.release.xcconfig */,
+			);
+			name = "Pods-DareMovie";
+			path = "Target Support Files/Pods-DareMovie";
+			sourceTree = "<group>";
+		};
+		983DB7299EE0CC72EEAC9CBA193A70E3 /* Nuke */ = {
+			isa = PBXGroup;
+			children = (
+				127822514DDFFAD8AB9E59781CB21BB1 /* Allocations.swift */,
+				5DB6CC558EBBFEED42D9A02FB337E7D4 /* DataCache.swift */,
+				3C46BDEE47CD2E1B66973A6A46F140D4 /* DataLoader.swift */,
+				AB2CF163DC0C6018585F38891D3D9561 /* Deprecated.swift */,
+				FF6C70BC2BE15A0F23F040030F5A5EB2 /* Extensions.swift */,
+				B0819FC34641E832FBF1DE95A4578870 /* ImageCache.swift */,
+				44F638062D6EC371960CA375CCAA0DB3 /* ImageDecoding.swift */,
+				0DD6F4D137BB8F92265971769542093A /* ImageEncoding.swift */,
+				9F0B1BF88931C52D308B1C23DF13AD91 /* ImagePipeline.swift */,
+				5E7E0F6988F5A9F3207C5BD36827E16F /* ImagePipelineConfiguration.swift */,
+				CA2C925165B8827A74358416510A8F31 /* ImagePipelineTask.swift */,
+				AC6568855E200CF5A9710115F4FC80E9 /* ImagePrefetcher.swift */,
+				DE82C2859EB94E7610FD1F9561802533 /* ImageProcessing.swift */,
+				3F91FB9C4CAED65B490B0E0CFF1F1DA1 /* ImageRequest.swift */,
+				EA7C0008688AD508BCE56609C1659642 /* ImageTask.swift */,
+				AA87330E3892F6C274D1F2AF24E3C28A /* ImageViewExtensions.swift */,
+				44D66225C0460798A412EC30434BFF9B /* LinkedList.swift */,
+				4049461AC6CAB2B2E20D99AD6EF8431A /* Log.swift */,
+				B3F6B2D97E29D81B9C8A855FF33208A9 /* Operation.swift */,
+				BD41E43A3D9441825F6F9627DBB53DDE /* RateLimiter.swift */,
+				357FE56682D3DA931C9AFD51CAC98F37 /* ResumableData.swift */,
+				5D1EE24F7FD069BB344EA6590F3AB2A6 /* Task.swift */,
+				DC168AFA39FEE84DBD89CFC0DAF80BD0 /* TaskDecodeImage.swift */,
+				DC79B7A65762C212641EB917DB7C5A8D /* TaskLoadImage.swift */,
+				D16DDCCB1121C54710471CE69952FCB0 /* TaskLoadImageData.swift */,
+				648079FE18F36D4F4EFDA01172EAC1D3 /* TaskProcessImage.swift */,
+				076D983D2D49C9700C66AAE568B718D2 /* Support Files */,
+			);
+			name = Nuke;
+			path = Nuke;
+			sourceTree = "<group>";
+		};
+		A952C7747A9200296A13690AF0ACF253 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				983DB7299EE0CC72EEAC9CBA193A70E3 /* Nuke */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD9BF4D36C49E39E6874DD8C2CB30C4F /* Pods-DareMovieTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C62727B677EE6B8CB774CE33A2ED8E8 /* Pods-DareMovieTests.modulemap */,
+				0A03C73B2DF1FB51C31A2B9F387AB817 /* Pods-DareMovieTests-acknowledgements.markdown */,
+				2BA78FF1EA5EECA51D46FF989620F878 /* Pods-DareMovieTests-acknowledgements.plist */,
+				26E1A6767B5DE62BF691008C0521CCAA /* Pods-DareMovieTests-dummy.m */,
+				A80A9DC2B68ABA68DFFC8AE133CCC6BE /* Pods-DareMovieTests-Info.plist */,
+				A00D7402F967B626E797619D95D0434F /* Pods-DareMovieTests-umbrella.h */,
+				676B5AE9B4A40A97E915BEBD5CE45036 /* Pods-DareMovieTests.debug.xcconfig */,
+				B8C9B025CFDA0477E1E8AA874E453350 /* Pods-DareMovieTests.release.xcconfig */,
+			);
+			name = "Pods-DareMovieTests";
+			path = "Target Support Files/Pods-DareMovieTests";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				A952C7747A9200296A13690AF0ACF253 /* Pods */,
+				EF5016AC3CDAC918AB7292617A6A5F5A /* Products */,
+				704FE0075E362B70E1413FD6B0959267 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF5016AC3CDAC918AB7292617A6A5F5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DAD7D76FC007F48AE48F2FD15BF01BB /* Nuke */,
+				D9EB0DA5AF251353E2B5A2E54059430B /* Pods-DareMovie */,
+				10C5762E658CB0B7DBC41C39A80C54B1 /* Pods-DareMovie-DareMovieUITests */,
+				A366F68A922711BF6D7AA57CFDC62238 /* Pods-DareMovieTests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		148115FE8937BCD559FA99060B3F80C7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02899E62EC5B28EB2E8001C4C25CF9E6 /* Pods-DareMovie-DareMovieUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EC2D8C6A1998FE42F5D4D9E48B11B0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3D8F9C124756ECF2A838F34B0C60D59 /* Pods-DareMovie-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B5AF6617651AC8F8D53935AB81DB726 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66664D5E14DDBAC707E671A90B996F57 /* Pods-DareMovieTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA9ADCC4EB6A670DC9EF3BB188269D97 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C49A7EB82BF4458A5C2DDF0E31245FA /* Nuke-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		062A64896E847A6749F58B6BA9A931B1 /* Nuke */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97D2EBC460B8FC959402A8FB17126C90 /* Build configuration list for PBXNativeTarget "Nuke" */;
+			buildPhases = (
+				AA9ADCC4EB6A670DC9EF3BB188269D97 /* Headers */,
+				87CFBD02B8F209DBD5C57E68EA0E204B /* Sources */,
+				E0BB0019037E620F28DCE0592B51A00B /* Frameworks */,
+				BF07CA0489217FAA6E60081039945FFA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nuke;
+			productName = Nuke;
+			productReference = 2DAD7D76FC007F48AE48F2FD15BF01BB /* Nuke */;
+			productType = "com.apple.product-type.framework";
+		};
+		84CAC6AEC4355219605EDAA2E3C57DE7 /* Pods-DareMovieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D701A04F20B7C07C2A923F09567364A7 /* Build configuration list for PBXNativeTarget "Pods-DareMovieTests" */;
+			buildPhases = (
+				9B5AF6617651AC8F8D53935AB81DB726 /* Headers */,
+				E4785486C08DBC4C37F18B98587009CA /* Sources */,
+				FDCD06CCD4F602AAB98B09A1246191D7 /* Frameworks */,
+				3E47C4C806756C9D34E461DC2B542730 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5394B5F711255FDA92A1AE94879AA210 /* PBXTargetDependency */,
+			);
+			name = "Pods-DareMovieTests";
+			productName = Pods_DareMovieTests;
+			productReference = A366F68A922711BF6D7AA57CFDC62238 /* Pods-DareMovieTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		B08E70284B8BD6706DD22F65065D15E8 /* Pods-DareMovie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A4D242F01221D7166ADB5EFC54755F31 /* Build configuration list for PBXNativeTarget "Pods-DareMovie" */;
+			buildPhases = (
+				36EC2D8C6A1998FE42F5D4D9E48B11B0 /* Headers */,
+				2158A40C28C84F6B8AA83DBFD09A9F42 /* Sources */,
+				BA764FFB788E79DCA522AFD9DDA33E7D /* Frameworks */,
+				CEB69690122A550572AA305D0D22BE63 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09124EDCF079BE10DF07BEF394DDF7D9 /* PBXTargetDependency */,
+			);
+			name = "Pods-DareMovie";
+			productName = Pods_DareMovie;
+			productReference = D9EB0DA5AF251353E2B5A2E54059430B /* Pods-DareMovie */;
+			productType = "com.apple.product-type.framework";
+		};
+		C5B63781CB634EED8D83440F5FF4F0F2 /* Pods-DareMovie-DareMovieUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 746DAB94C0FE0B1AE9B733AF6F70F418 /* Build configuration list for PBXNativeTarget "Pods-DareMovie-DareMovieUITests" */;
+			buildPhases = (
+				148115FE8937BCD559FA99060B3F80C7 /* Headers */,
+				EBCDBD89948C90F654293EDB0D33E9A9 /* Sources */,
+				425698161DAA1569E32FE03C25FF3188 /* Frameworks */,
+				1C7D587882D1F91B68C8F9A87D79A7BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A63727576FA1482A29D266C46090B20 /* PBXTargetDependency */,
+			);
+			name = "Pods-DareMovie-DareMovieUITests";
+			productName = Pods_DareMovie_DareMovieUITests;
+			productReference = 10C5762E658CB0B7DBC41C39A80C54B1 /* Pods-DareMovie-DareMovieUITests */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = EF5016AC3CDAC918AB7292617A6A5F5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				062A64896E847A6749F58B6BA9A931B1 /* Nuke */,
+				B08E70284B8BD6706DD22F65065D15E8 /* Pods-DareMovie */,
+				C5B63781CB634EED8D83440F5FF4F0F2 /* Pods-DareMovie-DareMovieUITests */,
+				84CAC6AEC4355219605EDAA2E3C57DE7 /* Pods-DareMovieTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C7D587882D1F91B68C8F9A87D79A7BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E47C4C806756C9D34E461DC2B542730 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF07CA0489217FAA6E60081039945FFA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB69690122A550572AA305D0D22BE63 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2158A40C28C84F6B8AA83DBFD09A9F42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7213954300F66E2AC61146F7452181FE /* Pods-DareMovie-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87CFBD02B8F209DBD5C57E68EA0E204B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A903F9F41BC32AEEDD064D8BA3CBB175 /* Allocations.swift in Sources */,
+				A2F17A86F6F2E79485A584B12D2BB8AE /* DataCache.swift in Sources */,
+				C9ECD9245B4B74448494C97771F33CEC /* DataLoader.swift in Sources */,
+				0156ADC328301CF15E15286C00A9C433 /* Deprecated.swift in Sources */,
+				88CF8CD7A6493816C33F3AE8E2222143 /* Extensions.swift in Sources */,
+				8CC0E1C9827C44047A107249F2C49C5E /* ImageCache.swift in Sources */,
+				AA131EA5987BFBC096102581D81C34CE /* ImageDecoding.swift in Sources */,
+				7F3088ECBD1F1A5E5824CD865BECD640 /* ImageEncoding.swift in Sources */,
+				8A8480D80E7132E34F87E26048047EC0 /* ImagePipeline.swift in Sources */,
+				7FDBEE4B3FBA9634591ABAEE954DDEFF /* ImagePipelineConfiguration.swift in Sources */,
+				EB12463329279B5F9F2AD3E1CD0C2FF2 /* ImagePipelineTask.swift in Sources */,
+				17D6C7DB3C009A9A010051B8B5067582 /* ImagePrefetcher.swift in Sources */,
+				171035BDFD70298A503F36832CB3E7BC /* ImageProcessing.swift in Sources */,
+				47C8887A5F654876749CF258BF5BE43C /* ImageRequest.swift in Sources */,
+				6515115AF24C582A1605CE56892D86AF /* ImageTask.swift in Sources */,
+				4D45EFCDB5D1C269D721D61178986517 /* ImageViewExtensions.swift in Sources */,
+				249FCFAE674EE7776F71FBA42449FB8B /* LinkedList.swift in Sources */,
+				BCEFAF1CC7A62FF947BA2E887B428AB6 /* Log.swift in Sources */,
+				F2264C49DB920F728024FF4BE56ECCFC /* Nuke-dummy.m in Sources */,
+				DD611190BBC297D57471865C77B0C8E6 /* Operation.swift in Sources */,
+				9EF9F06E1B8C699F3B54685B5B031316 /* RateLimiter.swift in Sources */,
+				F21C96FADAD1D0A27E1BA2402E053762 /* ResumableData.swift in Sources */,
+				EBB6E70311ABD43027B74749AEE64103 /* Task.swift in Sources */,
+				1EA91D5C70C8FFCF31E1080FC2215D6A /* TaskDecodeImage.swift in Sources */,
+				4F55F686E2D7D384BE183F3742EB42C8 /* TaskLoadImage.swift in Sources */,
+				05C2BF655A56384064711DE384B0DEC4 /* TaskLoadImageData.swift in Sources */,
+				90778813EABC70552F478BAD1CD79A48 /* TaskProcessImage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4785486C08DBC4C37F18B98587009CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26F38A4D03F827849F1603EAB633A79A /* Pods-DareMovieTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBCDBD89948C90F654293EDB0D33E9A9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FCF500435FEBF966F8E9FD5DB8C6113 /* Pods-DareMovie-DareMovieUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		09124EDCF079BE10DF07BEF394DDF7D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Nuke;
+			target = 062A64896E847A6749F58B6BA9A931B1 /* Nuke */;
+			targetProxy = 71B2DE07AEA10AAF8317313EA8C426FC /* PBXContainerItemProxy */;
+		};
+		3A63727576FA1482A29D266C46090B20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Nuke;
+			target = 062A64896E847A6749F58B6BA9A931B1 /* Nuke */;
+			targetProxy = 979EE2DA81E304DE0F4D1314BB141593 /* PBXContainerItemProxy */;
+		};
+		5394B5F711255FDA92A1AE94879AA210 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-DareMovie";
+			target = B08E70284B8BD6706DD22F65065D15E8 /* Pods-DareMovie */;
+			targetProxy = ECA88E074C57B9365270EA0C86B2F99E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		256BF1BB392A8E11FC6E75AD67937002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E5BE51DFEC3CC1F7CEBFAA016BFBAA8 /* Pods-DareMovie-DareMovieUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DareMovie-DareMovieUITests/Pods-DareMovie-DareMovieUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DareMovie-DareMovieUITests/Pods-DareMovie-DareMovieUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4214E6946993DF02ED98D89047C64016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		46137EE98597243AA981E900051A179D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8C9B025CFDA0477E1E8AA874E453350 /* Pods-DareMovieTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DareMovieTests/Pods-DareMovieTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DareMovieTests/Pods-DareMovieTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5C2F9309355B67D84B9F6EBE3935A46F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 205B2C85A51751BDFDA47E10A5CD19D1 /* Pods-DareMovie-DareMovieUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DareMovie-DareMovieUITests/Pods-DareMovie-DareMovieUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DareMovie-DareMovieUITests/Pods-DareMovie-DareMovieUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		612102A42ABF32DD2995786FD70051DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB239A19F00A98326A3F79DC0B79B656 /* Pods-DareMovie.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DareMovie/Pods-DareMovie-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DareMovie/Pods-DareMovie.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		74D05F09B82606DA0DA3EF08E749AC55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54C9720E3F5CA470E5ECABC8C2107475 /* Pods-DareMovie.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DareMovie/Pods-DareMovie-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DareMovie/Pods-DareMovie.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8023B0767E7B174FEEEF6DE95F2CA2FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 676B5AE9B4A40A97E915BEBD5CE45036 /* Pods-DareMovieTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-DareMovieTests/Pods-DareMovieTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-DareMovieTests/Pods-DareMovieTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9C1939F083649A88A26761D9A9D94874 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC36CDEEEFA591D39E56134BB4A427BA /* Nuke.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Nuke/Nuke-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Nuke/Nuke-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Nuke/Nuke.modulemap";
+				PRODUCT_MODULE_NAME = Nuke;
+				PRODUCT_NAME = Nuke;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AAE4D6677A689E6FA0475BD7693C3F98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFB4F12C255964CD493CE58B7FED8B56 /* Nuke.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Nuke/Nuke-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Nuke/Nuke-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Nuke/Nuke.modulemap";
+				PRODUCT_MODULE_NAME = Nuke;
+				PRODUCT_NAME = Nuke;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CD85FD90473CFBE797E4264E7BBC70AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4214E6946993DF02ED98D89047C64016 /* Debug */,
+				CD85FD90473CFBE797E4264E7BBC70AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		746DAB94C0FE0B1AE9B733AF6F70F418 /* Build configuration list for PBXNativeTarget "Pods-DareMovie-DareMovieUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				256BF1BB392A8E11FC6E75AD67937002 /* Debug */,
+				5C2F9309355B67D84B9F6EBE3935A46F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97D2EBC460B8FC959402A8FB17126C90 /* Build configuration list for PBXNativeTarget "Nuke" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C1939F083649A88A26761D9A9D94874 /* Debug */,
+				AAE4D6677A689E6FA0475BD7693C3F98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A4D242F01221D7166ADB5EFC54755F31 /* Build configuration list for PBXNativeTarget "Pods-DareMovie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				74D05F09B82606DA0DA3EF08E749AC55 /* Debug */,
+				612102A42ABF32DD2995786FD70051DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D701A04F20B7C07C2A923F09567364A7 /* Build configuration list for PBXNativeTarget "Pods-DareMovieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8023B0767E7B174FEEEF6DE95F2CA2FD /* Debug */,
+				46137EE98597243AA981E900051A179D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
