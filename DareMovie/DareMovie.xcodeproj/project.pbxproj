@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		11BB396A278195F600CD367D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB3969278195F600CD367D /* AppDelegate.swift */; };
 		11BB396C278195F600CD367D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB396B278195F600CD367D /* SceneDelegate.swift */; };
-		11BB396E278195F600CD367D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB396D278195F600CD367D /* ViewController.swift */; };
-		11BB3971278195F600CD367D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11BB396F278195F600CD367D /* Main.storyboard */; };
 		11BB3974278195F600CD367D /* DareMovie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11BB3972278195F600CD367D /* DareMovie.xcdatamodeld */; };
 		11BB3976278195F800CD367D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11BB3975278195F800CD367D /* Assets.xcassets */; };
 		11BB3979278195F800CD367D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11BB3977278195F800CD367D /* LaunchScreen.storyboard */; };
@@ -29,6 +27,9 @@
 		11BB39C427821FB500CD367D /* MovieListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39C327821FB500CD367D /* MovieListType.swift */; };
 		11BB39C627821FC300CD367D /* MovieListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39C527821FC300CD367D /* MovieListViewModelProtocol.swift */; };
 		11BB39C9278224AB00CD367D /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39C8278224AB00CD367D /* UIFont.swift */; };
+		11BB39CB27822A5A00CD367D /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39CA27822A5A00CD367D /* PopularViewController.swift */; };
+		11BB39CD27822A7800CD367D /* PopularViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39CC27822A7800CD367D /* PopularViewModel.swift */; };
+		11BB39D227822AC200CD367D /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39D127822AC200CD367D /* HomeTabBarController.swift */; };
 		1907388862E08808057D769F /* Pods_DareMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 767CEAC83072C1B158988F9A /* Pods_DareMovie.framework */; };
 		6325C883306504C82E5343F1 /* Pods_DareMovieTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D28336C4C1B8F0E852DC7F /* Pods_DareMovieTests.framework */; };
 		6EDC3E7F7D941B9157C152C5 /* Pods_DareMovie_DareMovieUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008B2D0E7C663982D55122FC /* Pods_DareMovie_DareMovieUITests.framework */; };
@@ -57,8 +58,6 @@
 		11BB3966278195F600CD367D /* DareMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DareMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11BB3969278195F600CD367D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11BB396B278195F600CD367D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		11BB396D278195F600CD367D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		11BB3970278195F600CD367D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		11BB3973278195F600CD367D /* DareMovie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DareMovie.xcdatamodel; sourceTree = "<group>"; };
 		11BB3975278195F800CD367D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11BB3978278195F800CD367D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,6 +79,9 @@
 		11BB39C327821FB500CD367D /* MovieListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListType.swift; sourceTree = "<group>"; };
 		11BB39C527821FC300CD367D /* MovieListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModelProtocol.swift; sourceTree = "<group>"; };
 		11BB39C8278224AB00CD367D /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		11BB39CA27822A5A00CD367D /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		11BB39CC27822A7800CD367D /* PopularViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewModel.swift; sourceTree = "<group>"; };
+		11BB39D127822AC200CD367D /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		1DF53D3010C14DEE5C547ECB /* Pods-DareMovieTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DareMovieTests.debug.xcconfig"; path = "Target Support Files/Pods-DareMovieTests/Pods-DareMovieTests.debug.xcconfig"; sourceTree = "<group>"; };
 		21D192A4B43D64D8CDB0993F /* Pods-DareMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DareMovie.debug.xcconfig"; path = "Target Support Files/Pods-DareMovie/Pods-DareMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		767CEAC83072C1B158988F9A /* Pods_DareMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DareMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,9 +148,9 @@
 				11BB39C72782248D00CD367D /* Helpers */,
 				11BB39B52781F9C400CD367D /* Networking */,
 				11BB39B42781F9B800CD367D /* Models */,
+				11BB39D327822ACC00CD367D /* Home */,
 				11BB39B92781FCF500CD367D /* MovieList */,
-				11BB396D278195F600CD367D /* ViewController.swift */,
-				11BB396F278195F600CD367D /* Main.storyboard */,
+				11BB39D027822AA100CD367D /* Popular */,
 				11BB3975278195F800CD367D /* Assets.xcassets */,
 				11BB3977278195F800CD367D /* LaunchScreen.storyboard */,
 				11BB397A278195F800CD367D /* Info.plist */,
@@ -229,6 +231,39 @@
 				11BB39C8278224AB00CD367D /* UIFont.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		11BB39CE27822A8C00CD367D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				11BB39CC27822A7800CD367D /* PopularViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		11BB39CF27822A9500CD367D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				11BB39CA27822A5A00CD367D /* PopularViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		11BB39D027822AA100CD367D /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				11BB39CF27822A9500CD367D /* ViewController */,
+				11BB39CE27822A8C00CD367D /* ViewModel */,
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
+		11BB39D327822ACC00CD367D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				11BB39D127822AC200CD367D /* HomeTabBarController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		334E9A5ED3961E4CCAA9DF8B /* Frameworks */ = {
@@ -365,7 +400,6 @@
 			files = (
 				11BB3979278195F800CD367D /* LaunchScreen.storyboard in Resources */,
 				11BB3976278195F800CD367D /* Assets.xcassets in Resources */,
-				11BB3971278195F600CD367D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,7 +527,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BB39CD27822A7800CD367D /* PopularViewModel.swift in Sources */,
 				11BB39C427821FB500CD367D /* MovieListType.swift in Sources */,
+				11BB39D227822AC200CD367D /* HomeTabBarController.swift in Sources */,
 				11BB39B32781F9AB00CD367D /* PopularResponseModel.swift in Sources */,
 				11BB39BD2781FD1300CD367D /* MovieInfoColumnView.swift in Sources */,
 				11BB39B82781FCD700CD367D /* MovieTableViewCell.swift in Sources */,
@@ -501,13 +537,13 @@
 				11BB39B12781F95F00CD367D /* MovieInfoModel.swift in Sources */,
 				11BB39C627821FC300CD367D /* MovieListViewModelProtocol.swift in Sources */,
 				11BB39AF2781F90800CD367D /* URLRouter.swift in Sources */,
-				11BB396E278195F600CD367D /* ViewController.swift in Sources */,
 				11BB396A278195F600CD367D /* AppDelegate.swift in Sources */,
 				11BB39AD2781F8CD00CD367D /* NetworkManager.swift in Sources */,
 				11BB3974278195F600CD367D /* DareMovie.xcdatamodeld in Sources */,
 				11BB39C9278224AB00CD367D /* UIFont.swift in Sources */,
 				11BB396C278195F600CD367D /* SceneDelegate.swift in Sources */,
 				11BB39BB2781FD0300CD367D /* MovieInfoView.swift in Sources */,
+				11BB39CB27822A5A00CD367D /* PopularViewController.swift in Sources */,
 				11BB39BF2782153300CD367D /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,14 +581,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		11BB396F278195F600CD367D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				11BB3970278195F600CD367D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		11BB3977278195F800CD367D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -693,7 +721,7 @@
 				INFOPLIST_FILE = DareMovie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -722,7 +750,7 @@
 				INFOPLIST_FILE = DareMovie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
