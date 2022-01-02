@@ -97,6 +97,9 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource, M
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: should go to movie detail scene
+        if let movieModel = viewModel.movieInfoModel(at: indexPath.row) {
+            let movieDetailsVC = MovieDetailsViewController(movieModel)
+            navigationController?.pushViewController(movieDetailsVC, animated: true)
+        }
     }
 }
