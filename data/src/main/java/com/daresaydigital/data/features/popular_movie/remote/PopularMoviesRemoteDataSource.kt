@@ -1,6 +1,6 @@
 package com.daresaydigital.data.features.popular_movie.remote
 
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.data.features.popular_movie.model.PopularMoviesDTO
 import com.daresaydigital.data.util.ApiResult
 import com.daresaydigital.data.util.callAwait

@@ -1,8 +1,7 @@
 package com.daresaydigital.data.features.movie_details.local
 
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.data.features.movie_details.model.MovieDetailsLocalEntity
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton

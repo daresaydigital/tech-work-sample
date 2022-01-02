@@ -1,8 +1,8 @@
 package com.daresaydigital.data.favourite_movies
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.daresaydigital.core.di.module.CoreModule
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.di.module.CoreModule
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.data.R
 import com.daresaydigital.data.db.AppDatabase
 import com.daresaydigital.data.di.DatabaseModule

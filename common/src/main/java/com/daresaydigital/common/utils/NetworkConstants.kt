@@ -1,4 +1,4 @@
-package com.daresaydigital.core.utils
+package com.daresaydigital.common.utils
 
 /**
  *  constants for network, we can use gradle fields

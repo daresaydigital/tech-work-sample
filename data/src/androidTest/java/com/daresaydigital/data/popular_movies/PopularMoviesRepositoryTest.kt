@@ -1,8 +1,8 @@
 package com.daresaydigital.data.popular_movies
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.daresaydigital.core.di.module.CoreModule
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.di.module.CoreModule
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.data.db.AppDatabase
 import com.daresaydigital.data.di.DatabaseModule
 import com.daresaydigital.data.di.NetworkModule
@@ -19,8 +19,6 @@ import com.google.gson.Gson
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
 import dagger.hilt.android.testing.UninstallModules
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import javax.inject.Inject

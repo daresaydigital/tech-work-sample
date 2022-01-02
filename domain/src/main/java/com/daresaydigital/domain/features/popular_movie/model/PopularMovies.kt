@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.popular_movie.model
 
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 
 
 data class PopularMovies (

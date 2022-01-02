@@ -1,7 +1,7 @@
 package com.daresaydigital.data.di
 
-import com.daresaydigital.core.utils.NetworkConstants
-import com.daresaydigital.core.utils.NetworkConstants.BASE_URL
+import com.daresaydigital.common.utils.NetworkConstants
+import com.daresaydigital.common.utils.NetworkConstants.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 
@@ -13,7 +13,6 @@ import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.time.Duration
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 

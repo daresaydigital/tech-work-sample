@@ -1,4 +1,4 @@
-package com.daresaydigital.domain.model
+package com.daresaydigital.common.model
 
 import java.io.Serializable
 

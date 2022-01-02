@@ -1,6 +1,6 @@
 package com.daresaydigital.domain.features.favourite_movie.repository
 
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.domain.model.Result
 import kotlinx.coroutines.flow.Flow
 

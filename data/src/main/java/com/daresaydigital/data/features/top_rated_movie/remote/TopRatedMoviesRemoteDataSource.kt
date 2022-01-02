@@ -1,8 +1,7 @@
 package com.daresaydigital.data.features.top_rated_movie.remote
 
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.data.features.top_rated_movie.model.TopRatedMoviesDTO
-import com.daresaydigital.data.model.MovieDTO
 import com.daresaydigital.data.util.ApiResult
 import com.daresaydigital.data.util.callAwait
 import kotlinx.coroutines.withContext

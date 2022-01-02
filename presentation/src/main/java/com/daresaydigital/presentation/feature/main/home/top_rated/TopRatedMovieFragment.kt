@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.base.BaseFragment
 import com.daresaydigital.presentation.feature.main.home.MovieAdapter

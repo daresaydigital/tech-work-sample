@@ -10,10 +10,10 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.domain.features.popular_movie.model.PopularMovies
 import com.daresaydigital.domain.features.popular_movie.usecase.GetPopularMoviesUseCase
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.presentation.feature.main.home.popular_movie.PopularMovieViewModel
 import com.daresaydigital.domain.model.Result
 
