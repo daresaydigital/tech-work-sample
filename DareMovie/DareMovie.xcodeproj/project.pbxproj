@@ -17,6 +17,10 @@
 		11BB3984278195F800CD367D /* DareMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB3983278195F800CD367D /* DareMovieTests.swift */; };
 		11BB398E278195F900CD367D /* DareMovieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB398D278195F900CD367D /* DareMovieUITests.swift */; };
 		11BB3990278195F900CD367D /* DareMovieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB398F278195F900CD367D /* DareMovieUITestsLaunchTests.swift */; };
+		11BB39AD2781F8CD00CD367D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39AC2781F8CD00CD367D /* NetworkManager.swift */; };
+		11BB39AF2781F90800CD367D /* URLRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39AE2781F90800CD367D /* URLRouter.swift */; };
+		11BB39B12781F95F00CD367D /* MovieInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39B02781F95F00CD367D /* MovieInfoModel.swift */; };
+		11BB39B32781F9AB00CD367D /* PopularResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB39B22781F9AB00CD367D /* PopularResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		11BB3989278195F900CD367D /* DareMovieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DareMovieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		11BB398D278195F900CD367D /* DareMovieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DareMovieUITests.swift; sourceTree = "<group>"; };
 		11BB398F278195F900CD367D /* DareMovieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DareMovieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		11BB39AC2781F8CD00CD367D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		11BB39AE2781F90800CD367D /* URLRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRouter.swift; sourceTree = "<group>"; };
+		11BB39B02781F95F00CD367D /* MovieInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoModel.swift; sourceTree = "<group>"; };
+		11BB39B22781F9AB00CD367D /* PopularResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,9 @@
 		11BB3968278195F600CD367D /* DareMovie */ = {
 			isa = PBXGroup;
 			children = (
-				11BB3969278195F600CD367D /* AppDelegate.swift */,
-				11BB396B278195F600CD367D /* SceneDelegate.swift */,
+				11BB39B62781FA0F00CD367D /* Launch */,
+				11BB39B52781F9C400CD367D /* Networking */,
+				11BB39B42781F9B800CD367D /* Models */,
 				11BB396D278195F600CD367D /* ViewController.swift */,
 				11BB396F278195F600CD367D /* Main.storyboard */,
 				11BB3975278195F800CD367D /* Assets.xcassets */,
@@ -128,6 +137,33 @@
 				11BB398F278195F900CD367D /* DareMovieUITestsLaunchTests.swift */,
 			);
 			path = DareMovieUITests;
+			sourceTree = "<group>";
+		};
+		11BB39B42781F9B800CD367D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				11BB39B02781F95F00CD367D /* MovieInfoModel.swift */,
+				11BB39B22781F9AB00CD367D /* PopularResponseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		11BB39B52781F9C400CD367D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				11BB39AC2781F8CD00CD367D /* NetworkManager.swift */,
+				11BB39AE2781F90800CD367D /* URLRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		11BB39B62781FA0F00CD367D /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				11BB3969278195F600CD367D /* AppDelegate.swift */,
+				11BB396B278195F600CD367D /* SceneDelegate.swift */,
+			);
+			path = Launch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11BB39B32781F9AB00CD367D /* PopularResponseModel.swift in Sources */,
+				11BB39B12781F95F00CD367D /* MovieInfoModel.swift in Sources */,
+				11BB39AF2781F90800CD367D /* URLRouter.swift in Sources */,
 				11BB396E278195F600CD367D /* ViewController.swift in Sources */,
 				11BB396A278195F600CD367D /* AppDelegate.swift in Sources */,
+				11BB39AD2781F8CD00CD367D /* NetworkManager.swift in Sources */,
 				11BB3974278195F600CD367D /* DareMovie.xcdatamodeld in Sources */,
 				11BB396C278195F600CD367D /* SceneDelegate.swift in Sources */,
 			);
