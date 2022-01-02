@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.base.BaseFragment
 import com.daresaydigital.presentation.feature.movie_details.MovieDetailsActivity

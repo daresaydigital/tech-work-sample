@@ -5,7 +5,7 @@ import com.daresaydigital.data.features.favorite_movie.util.toDomainModel
 import com.daresaydigital.data.features.favorite_movie.util.toLocalModel
 import com.daresaydigital.domain.model.Result
 import com.daresaydigital.domain.features.favourite_movie.repository.FavouriteMoviesRepository
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

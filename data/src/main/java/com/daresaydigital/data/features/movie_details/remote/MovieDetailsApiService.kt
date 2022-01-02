@@ -1,6 +1,6 @@
 package com.daresaydigital.data.features.movie_details.remote
 
-import com.daresaydigital.core.utils.NetworkConstants
+import com.daresaydigital.common.utils.NetworkConstants
 import com.daresaydigital.data.features.movie_details.model.MovieDetailsDTO
 import retrofit2.Call
 import retrofit2.http.GET

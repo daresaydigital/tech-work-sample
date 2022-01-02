@@ -3,12 +3,12 @@ package com.daresaydigital.presentation.feature.movie_details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.domain.features.favourite_movie.usecase.*
 import com.daresaydigital.domain.features.movie_details.model.MovieDetails
 import com.daresaydigital.domain.features.movie_details.usecase.GetMovieDetailsUseCase
 import com.daresaydigital.domain.features.movie_details.usecase.MovieDetailsParams
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.domain.model.Result
 import com.daresaydigital.presentation.base.BaseViewModel
 import com.daresaydigital.presentation.util.SingleLiveEvent

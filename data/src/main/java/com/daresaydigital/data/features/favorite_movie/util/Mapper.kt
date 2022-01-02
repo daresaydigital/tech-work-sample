@@ -1,7 +1,7 @@
 package com.daresaydigital.data.features.favorite_movie.util
 
 import com.daresaydigital.data.features.favorite_movie.model.FavMovieLocalEntity
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 
 
 fun FavMovieLocalEntity.toDomainModel() = Movie(

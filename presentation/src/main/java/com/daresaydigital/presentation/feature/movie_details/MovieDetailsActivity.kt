@@ -5,9 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
-import com.daresaydigital.core.utils.NetworkConstants
+import com.daresaydigital.common.utils.NetworkConstants
 import com.daresaydigital.domain.features.movie_details.model.MovieDetails
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.base.BaseActivity
 import com.daresaydigital.presentation.util.ImageLoader
@@ -25,7 +25,7 @@ class MovieDetailsActivity : BaseActivity<MovieDetailsViewModel>(){
 
         const val SELECTED_MOVIE = "SELECTED_MOVIE"
 
-        fun getLaunchIntent(context: Context, movie:Movie? = null): Intent {
+        fun getLaunchIntent(context: Context, movie: Movie? = null): Intent {
             return Intent(context, MovieDetailsActivity::class.java).apply {
                 movie?.let {
                     this.putExtra(SELECTED_MOVIE,it)

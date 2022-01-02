@@ -16,5 +16,5 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
 
     // module dependency
-    implementation project(':core')
+    implementation project(':common')
 }

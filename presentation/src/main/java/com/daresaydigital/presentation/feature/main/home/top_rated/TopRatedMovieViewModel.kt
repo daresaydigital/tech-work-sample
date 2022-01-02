@@ -3,10 +3,10 @@ package com.daresaydigital.presentation.feature.main.home.top_rated
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.domain.features.top_rated_movie.usecase.GetTopRatedMoviesParams
 import com.daresaydigital.domain.features.top_rated_movie.usecase.GetTopRatedMoviesUseCase
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.domain.model.Result
 import com.daresaydigital.presentation.base.BaseViewModel
 import com.daresaydigital.presentation.util.SingleLiveEvent

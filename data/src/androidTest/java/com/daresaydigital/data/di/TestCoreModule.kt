@@ -1,6 +1,6 @@
 package com.daresaydigital.data.di
 
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

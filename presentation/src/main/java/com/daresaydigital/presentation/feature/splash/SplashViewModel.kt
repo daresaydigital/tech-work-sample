@@ -2,7 +2,7 @@ package com.daresaydigital.presentation.feature.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.presentation.base.BaseViewModel
 import com.daresaydigital.presentation.util.SingleLiveEvent
 import dagger.hilt.android.lifecycle.HiltViewModel

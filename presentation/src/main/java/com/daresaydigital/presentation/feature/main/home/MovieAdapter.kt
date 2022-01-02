@@ -7,10 +7,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.daresaydigital.core.utils.NetworkConstants
-import com.daresaydigital.domain.model.Movie
+import com.daresaydigital.common.utils.NetworkConstants
+import com.daresaydigital.common.model.Movie
 import com.daresaydigital.presentation.R
 import com.daresaydigital.presentation.util.ImageLoader
 

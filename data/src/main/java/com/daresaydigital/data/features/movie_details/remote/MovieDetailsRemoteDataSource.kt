@@ -1,6 +1,6 @@
 package com.daresaydigital.data.features.movie_details.remote
 
-import com.daresaydigital.core.utils.GlobalDispatcher
+import com.daresaydigital.common.utils.GlobalDispatcher
 import com.daresaydigital.data.features.movie_details.model.MovieDetailsDTO
 import com.daresaydigital.data.util.ApiResult
 import com.daresaydigital.data.util.callAwait

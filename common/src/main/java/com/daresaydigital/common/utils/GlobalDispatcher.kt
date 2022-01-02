@@ -1,4 +1,4 @@
-package com.daresaydigital.core.utils
+package com.daresaydigital.common.utils
 
 import kotlinx.coroutines.CoroutineDispatcher
 
