@@ -8,7 +8,6 @@
 import UIKit
 
 class TopRatedCell: UICollectionViewCell, SelfConfiguringCell {
-    static var reuseID =  "TopRatedCell"
     
     let imageView: UIImageView = {
         let imageView = UIImageView()

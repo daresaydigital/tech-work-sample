@@ -8,7 +8,6 @@
 import UIKit
 
 class PopularMovieCell: UICollectionViewCell, SelfConfiguringCell {
-    static var reuseID = "PopularMovieCellID"
     let imageView = UIImageView()
     
     var viewmodel: MovieViewModel! {

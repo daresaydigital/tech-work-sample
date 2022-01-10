@@ -23,9 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appearance.configureWithOpaqueBackground()
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().tintColor = .white
+            UINavigationBar.appearance().backgroundColor = .black
         } else {
             let appearance = UINavigationBar.appearance()
             appearance.tintColor = .white
+            appearance.backgroundColor = .black
         }
     }
     // MARK: UISceneSession Lifecycle

@@ -68,4 +68,10 @@ extension UIView {
                 bottomAnchor.constraint(equalTo: superView.bottomAnchor)
             ])
     }
+    
+    func setDimensions(width: CGFloat, height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+        heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
 }

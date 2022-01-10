@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextLabel: UILabel {
+class MovieTextLabel: UILabel {
   
     override init(frame: CGRect) {
         super.init(frame: frame)

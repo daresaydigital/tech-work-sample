@@ -18,13 +18,13 @@ class MovieDetailViewController: UIViewController {
     let scrollView = UIScrollView()
     let contentView = UIView()
     lazy var imageView = MovieDetailImageView(viewmodel: viewmodel)
-    let titleLabel = TextLabel(font: 30, weight: .semibold)
-    let releaseYearLabel = TextLabel(font: 18, weight: .regular)
-    let durationLabel = TextLabel(font: 18, weight: .regular)
-    let separatorDot = TextLabel(font: 25, weight: .heavy)
-    let overviewLabel = TextLabel(font: 18, weight: .thin)
-    let downloadButton = WideButton(title: "Download", image: SFSymbols.downloaded)
-    let reviewButton = WideButton(title: "Read Reviews")
+    let titleLabel = MovieTextLabel(font: 30, weight: .semibold)
+    let releaseYearLabel = MovieTextLabel(font: 18, weight: .regular)
+    let durationLabel = MovieTextLabel(font: 18, weight: .regular)
+    let separatorDot = MovieTextLabel(font: 25, weight: .heavy)
+    let overviewLabel = MovieTextLabel(font: 18, weight: .thin)
+    let downloadButton = WideButton(title: "Download", image: SFSymbols.downloaded, target: self, action: #selector(downloadButtonTapped))
+    let reviewButton = WideButton(title: "Read Reviews", target: self, action: #selector(reviewButtonTapped))
 
     //MARK: Lifecycle
     init(viewmodel: MovieViewModel) {
@@ -36,6 +36,10 @@ class MovieDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -43,8 +47,33 @@ class MovieDetailViewController: UIViewController {
         configureUI()
     }
     
+    //MARK: Selectors
+    
+    @objc func downloadButtonTapped() {
+       print("DEBUG: Download button tapped")
+    }
+    
+    @objc func reviewButtonTapped() {
+        let vc = MovieReviewVC()
+        getReviews(vc: vc)
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
     //MARK: Helpers
-    func configure() {
+    
+    private func getReviews(vc: MovieReviewVC) {
+        NetworkManager.shared.fetchReviews(for: viewmodel) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let reviews):
+                vc.reviews = reviews.results
+            case .failure(let err): self.presentErrorMessageAlert(title: "Something wrong", message: err.localizedDescription)
+            }
+        }
+    }
+    
+    
+    private func configure() {
         titleLabel.text = viewmodel.title
         releaseYearLabel.text = viewmodel.releaseYear
         durationLabel.text = viewmodel.durationText
@@ -52,7 +81,7 @@ class MovieDetailViewController: UIViewController {
         separatorDot.text = "•"
     }
     
-    func configureUI() {
+    private func configureUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         scrollView.pinToEdges(of: view)

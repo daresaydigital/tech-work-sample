@@ -17,10 +17,11 @@ class WideButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(title: String, image: UIImage? = nil) {
+    convenience init(title: String, image: UIImage? = nil, target: Any?, action: Selector) {
         self.init()
         self.setTitle(title, for: .normal)
         self.setImage(image, for: .normal)
+        addTarget(target, action: action, for: .touchUpInside)
         configure()
     }
     

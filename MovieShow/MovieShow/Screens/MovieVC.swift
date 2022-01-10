@@ -162,13 +162,7 @@ extension MovieVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let movie = dataSource?.itemIdentifier(for: indexPath) else { return }
         let viewmodel = MovieViewModel(movie: movie)
-        print("DEBUG: movieviewModel = \(viewmodel.id)")
-        NetworkManager.shared.fetchReviews(for: viewmodel) { result in
-            switch result {
-            case .success(let reviews): print("DEBUG: \(reviews)")
-            case .failure(let err): print("DEBUG: found error \(err.localizedDescription)")
-            }
-        }
+        
         let vc = MovieDetailViewController(viewmodel: viewmodel)
         navigationController?.pushViewController(vc, animated: true)
     }
