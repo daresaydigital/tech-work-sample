@@ -5,4 +5,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
 class BookmarkFragment : MovieListFragment() {
+
+    override val movieListViewModel by viewModel<MovieListViewModel>(named("bookmark"))
 }
