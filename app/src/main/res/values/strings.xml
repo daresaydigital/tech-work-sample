@@ -2,5 +2,8 @@
     <string name="app_name">DaresayAssignment</string>
     <string name="popular_movies">Popular</string>
     <string name="top_rated_movies">Top Rated</string>
+    <string name="retry">Retry</string>
     <string name="bookmark_movies">Bookmark</string>
+    <string name="save">Save</string>
+    <string name="bookmard">This movie is added to bookmark!</string>
 </resources>
