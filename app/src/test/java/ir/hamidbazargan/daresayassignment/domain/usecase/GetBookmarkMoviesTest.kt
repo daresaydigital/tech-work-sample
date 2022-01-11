@@ -2,7 +2,9 @@ package ir.hamidbazargan.daresayassignment.domain.usecase
 
 import io.mockk.coEvery
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
+import ir.hamidbazargan.daresayassignment.data.webservice.reponse.MovieResponse
 import ir.hamidbazargan.daresayassignment.domain.entity.MovieEntity
 import ir.hamidbazargan.daresayassignment.domain.repository.Repository
 import kotlinx.coroutines.flow.collect
