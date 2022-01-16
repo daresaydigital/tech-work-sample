@@ -9,7 +9,7 @@ import com.daresaydigital.data.di.NetworkModule
 import com.daresaydigital.data.features.popular_movie.PopularMoviesRepositoryImpl
 import com.daresaydigital.data.features.popular_movie.di.PopularMoviesNetworkModule
 import com.daresaydigital.data.features.popular_movie.di.PopularMoviesRepositoryModule
-import com.daresaydigital.data.features.popular_movie.local.PopularMoviesLocalDataSource
+
 import com.daresaydigital.data.features.popular_movie.remote.PopularMoviesRemoteDataSource
 import com.daresaydigital.data.utils.FakeServer
 import com.daresaydigital.domain.features.popular_movie.model.PopularMovies
@@ -49,8 +49,6 @@ class PopularMoviesRepositoryTest {
     @Inject
     lateinit var globalDispatcher: GlobalDispatcher
 
-    private lateinit var localDataSource: PopularMoviesLocalDataSource
-
     private lateinit var repository: PopularMoviesRepository
 
     @Before
@@ -58,8 +56,7 @@ class PopularMoviesRepositoryTest {
         hiltRule.inject()
 //        fakeServer.start()
 
-        localDataSource = PopularMoviesLocalDataSource(database.popularMoviesDao(),globalDispatcher)
-        repository = PopularMoviesRepositoryImpl(remoteDataSource,localDataSource)
+        repository = PopularMoviesRepositoryImpl(remoteDataSource)
     }
 
     @After

@@ -3,7 +3,6 @@ package com.daresaydigital.data.di
 import androidx.room.Room
 import androidx.test.platform.app.InstrumentationRegistry
 import com.daresaydigital.data.db.AppDatabase
-import com.daresaydigital.data.features.popular_movie.local.PopularMoviesDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,12 +21,6 @@ class TestDatabaseModule {
             "daresay-app-db"
         ).fallbackToDestructiveMigration()
             .build()
-    }
-
-    @Singleton
-    @Provides
-    fun providePopularMoviesDao(appDatabase: AppDatabase): PopularMoviesDao {
-        return appDatabase.popularMoviesDao()
     }
 
 }
