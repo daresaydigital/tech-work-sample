@@ -45,8 +45,8 @@ internal class PopularMovieViewModelTest {
 
     @Test
     fun `should get movies on popular page`() = runBlocking{
-        val observer = mock<Observer<Pair<List<Movie>?,Int>>>()
-        val argumentCaptor = argumentCaptor<Pair<List<Movie>?,Int>>()
+        val observer = mock<Observer<List<Movie>>>()
+        val argumentCaptor = argumentCaptor<List<Movie>>()
 
         val fakeItems = PopularMovies(1,listOf(),100,100)
 
