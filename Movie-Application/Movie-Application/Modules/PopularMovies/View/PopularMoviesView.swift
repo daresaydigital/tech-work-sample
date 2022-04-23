@@ -30,7 +30,7 @@ final class PopularMoviesView: UIViewController, ViewInterface {
 	// MARK: - Theme
 	
 	func applyTheme() {
-		
+        view.backgroundColor = .yellow
 	}
 	
 	

@@ -29,4 +29,16 @@ extension TabBarPresenter: TabBarPresenterViewInterface {
 
     }
 
+    func topRatedMoviesTabDidTap() {
+        
+    }
+    
+    func popularMoviesTabDidTap() {
+        
+    }
+    
+    func favoriteMoviesTabDidTap() {
+        
+    }
+    
 }

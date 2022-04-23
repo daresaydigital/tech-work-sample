@@ -10,4 +10,7 @@ import UIKit
 
 protocol TabBarPresenterViewInterface: PresenterViewInterface {
     func viewDidLoad()
+    func topRatedMoviesTabDidTap()
+    func popularMoviesTabDidTap()
+    func favoriteMoviesTabDidTap()
 }
