@@ -27,17 +27,6 @@
 		1BE985DF2813F2430001DCAB /* TopRatedMoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985D32813F2430001DCAB /* TopRatedMoviesRouter.swift */; };
 		1BE985E02813F2430001DCAB /* TopRatedMoviesRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985D42813F2430001DCAB /* TopRatedMoviesRouterInterface.swift */; };
 		1BE985E22813F2500001DCAB /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985E12813F2500001DCAB /* Interfaces.swift */; };
-		1BE985FC281402F20001DCAB /* TabBarPresenterInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985ED281402F20001DCAB /* TabBarPresenterInteractorInterface.swift */; };
-		1BE985FD281402F20001DCAB /* TabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985EE281402F20001DCAB /* TabBarPresenter.swift */; };
-		1BE985FE281402F20001DCAB /* TabBarPresenterViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985EF281402F20001DCAB /* TabBarPresenterViewInterface.swift */; };
-		1BE985FF281402F20001DCAB /* TabBarPresenterRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F0281402F20001DCAB /* TabBarPresenterRouterInterface.swift */; };
-		1BE98600281402F20001DCAB /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F2281402F20001DCAB /* TabBarView.swift */; };
-		1BE98601281402F20001DCAB /* TabBarViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F3281402F20001DCAB /* TabBarViewInterface.swift */; };
-		1BE98602281402F20001DCAB /* TabBarModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F4281402F20001DCAB /* TabBarModule.swift */; };
-		1BE98603281402F20001DCAB /* TabBarInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F6281402F20001DCAB /* TabBarInteractorInterface.swift */; };
-		1BE98604281402F20001DCAB /* TabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F7281402F20001DCAB /* TabBarInteractor.swift */; };
-		1BE98605281402F20001DCAB /* TabBarRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985F9281402F20001DCAB /* TabBarRouterInterface.swift */; };
-		1BE98606281402F20001DCAB /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985FA281402F20001DCAB /* TabBarRouter.swift */; };
 		1BE9861B28140D070001DCAB /* FavoriteMoviesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9860B28140D070001DCAB /* FavoriteMoviesEntity.swift */; };
 		1BE9861C28140D070001DCAB /* FavoriteMoviesPresenterRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9860D28140D070001DCAB /* FavoriteMoviesPresenterRouterInterface.swift */; };
 		1BE9861D28140D070001DCAB /* FavoriteMoviesPresenterViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9860E28140D070001DCAB /* FavoriteMoviesPresenterViewInterface.swift */; };
@@ -62,6 +51,8 @@
 		1BE9864228140D150001DCAB /* PopularMoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9863528140D150001DCAB /* PopularMoviesInteractor.swift */; };
 		1BE9864328140D150001DCAB /* PopularMoviesRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9863728140D150001DCAB /* PopularMoviesRouterInterface.swift */; };
 		1BE9864428140D150001DCAB /* PopularMoviesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9863828140D150001DCAB /* PopularMoviesRouter.swift */; };
+		1BE9864F2815D49A0001DCAB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9864E2815D49A0001DCAB /* TabBarViewController.swift */; };
+		1BE986522815D5CF0001DCAB /* TestTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE986512815D5CF0001DCAB /* TestTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,17 +97,6 @@
 		1BE985D32813F2430001DCAB /* TopRatedMoviesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedMoviesRouter.swift; sourceTree = "<group>"; };
 		1BE985D42813F2430001DCAB /* TopRatedMoviesRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedMoviesRouterInterface.swift; sourceTree = "<group>"; };
 		1BE985E12813F2500001DCAB /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
-		1BE985ED281402F20001DCAB /* TabBarPresenterInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenterInteractorInterface.swift; sourceTree = "<group>"; };
-		1BE985EE281402F20001DCAB /* TabBarPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenter.swift; sourceTree = "<group>"; };
-		1BE985EF281402F20001DCAB /* TabBarPresenterViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenterViewInterface.swift; sourceTree = "<group>"; };
-		1BE985F0281402F20001DCAB /* TabBarPresenterRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarPresenterRouterInterface.swift; sourceTree = "<group>"; };
-		1BE985F2281402F20001DCAB /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		1BE985F3281402F20001DCAB /* TabBarViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewInterface.swift; sourceTree = "<group>"; };
-		1BE985F4281402F20001DCAB /* TabBarModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarModule.swift; sourceTree = "<group>"; };
-		1BE985F6281402F20001DCAB /* TabBarInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInteractorInterface.swift; sourceTree = "<group>"; };
-		1BE985F7281402F20001DCAB /* TabBarInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarInteractor.swift; sourceTree = "<group>"; };
-		1BE985F9281402F20001DCAB /* TabBarRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarRouterInterface.swift; sourceTree = "<group>"; };
-		1BE985FA281402F20001DCAB /* TabBarRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		1BE9860B28140D070001DCAB /* FavoriteMoviesEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesEntity.swift; sourceTree = "<group>"; };
 		1BE9860D28140D070001DCAB /* FavoriteMoviesPresenterRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesPresenterRouterInterface.swift; sourceTree = "<group>"; };
 		1BE9860E28140D070001DCAB /* FavoriteMoviesPresenterViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteMoviesPresenterViewInterface.swift; sourceTree = "<group>"; };
@@ -141,6 +121,8 @@
 		1BE9863528140D150001DCAB /* PopularMoviesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesInteractor.swift; sourceTree = "<group>"; };
 		1BE9863728140D150001DCAB /* PopularMoviesRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesRouterInterface.swift; sourceTree = "<group>"; };
 		1BE9863828140D150001DCAB /* PopularMoviesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesRouter.swift; sourceTree = "<group>"; };
+		1BE9864E2815D49A0001DCAB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		1BE986512815D5CF0001DCAB /* TestTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +183,7 @@
 		1BE985A82813F0A30001DCAB /* Movie-ApplicationTests */ = {
 			isa = PBXGroup;
 			children = (
+				1BE986502815D5AC0001DCAB /* TabBarViewControllerTest */,
 				1BE985A92813F0A30001DCAB /* Movie_ApplicationTests.swift */,
 			);
 			path = "Movie-ApplicationTests";
@@ -218,7 +201,6 @@
 		1BE985C22813F2350001DCAB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				1BE985E9281402F20001DCAB /* TabBar */,
 				1BE985C32813F2430001DCAB /* TopRatedMovies */,
 				1BE9862728140D150001DCAB /* PopularMovies */,
 				1BE9860928140D070001DCAB /* FavoriteMovies */,
@@ -285,56 +267,6 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		1BE985E9281402F20001DCAB /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				1BE985F4281402F20001DCAB /* TabBarModule.swift */,
-				1BE985EC281402F20001DCAB /* Presenter */,
-				1BE985F1281402F20001DCAB /* View */,
-				1BE985F5281402F20001DCAB /* Interactor */,
-				1BE985F8281402F20001DCAB /* Router */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		1BE985EC281402F20001DCAB /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				1BE985ED281402F20001DCAB /* TabBarPresenterInteractorInterface.swift */,
-				1BE985EE281402F20001DCAB /* TabBarPresenter.swift */,
-				1BE985EF281402F20001DCAB /* TabBarPresenterViewInterface.swift */,
-				1BE985F0281402F20001DCAB /* TabBarPresenterRouterInterface.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		1BE985F1281402F20001DCAB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1BE985F2281402F20001DCAB /* TabBarView.swift */,
-				1BE985F3281402F20001DCAB /* TabBarViewInterface.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		1BE985F5281402F20001DCAB /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				1BE985F6281402F20001DCAB /* TabBarInteractorInterface.swift */,
-				1BE985F7281402F20001DCAB /* TabBarInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		1BE985F8281402F20001DCAB /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				1BE985F9281402F20001DCAB /* TabBarRouterInterface.swift */,
-				1BE985FA281402F20001DCAB /* TabBarRouter.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
 		1BE98607281404650001DCAB /* Supproting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +283,7 @@
 				1BE985E12813F2500001DCAB /* Interfaces.swift */,
 				1BE985922813F0A20001DCAB /* AppDelegate.swift */,
 				1BE985942813F0A20001DCAB /* SceneDelegate.swift */,
+				1BE9864E2815D49A0001DCAB /* TabBarViewController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -471,6 +404,14 @@
 				1BE9863828140D150001DCAB /* PopularMoviesRouter.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		1BE986502815D5AC0001DCAB /* TabBarViewControllerTest */ = {
+			isa = PBXGroup;
+			children = (
+				1BE986512815D5CF0001DCAB /* TestTabBarViewController.swift */,
+			);
+			path = TabBarViewControllerTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -605,7 +546,6 @@
 			files = (
 				1BE9864028140D150001DCAB /* PopularMoviesModule.swift in Sources */,
 				1BE9863928140D150001DCAB /* PopularMoviesEntity.swift in Sources */,
-				1BE98604281402F20001DCAB /* TabBarInteractor.swift in Sources */,
 				1BE9864328140D150001DCAB /* PopularMoviesRouterInterface.swift in Sources */,
 				1BE9862028140D070001DCAB /* FavoriteMoviesView.swift in Sources */,
 				1BE9864428140D150001DCAB /* PopularMoviesRouter.swift in Sources */,
@@ -615,41 +555,32 @@
 				1BE9861B28140D070001DCAB /* FavoriteMoviesEntity.swift in Sources */,
 				1BE985DB2813F2430001DCAB /* TopRatedMoviesViewInterface.swift in Sources */,
 				1BE9862328140D070001DCAB /* FavoriteMoviesInteractorInterface.swift in Sources */,
-				1BE985FE281402F20001DCAB /* TabBarPresenterViewInterface.swift in Sources */,
-				1BE98601281402F20001DCAB /* TabBarViewInterface.swift in Sources */,
 				1BE9861E28140D070001DCAB /* FavoriteMoviesPresenterInteractorInterface.swift in Sources */,
-				1BE98602281402F20001DCAB /* TabBarModule.swift in Sources */,
 				1BE985DE2813F2430001DCAB /* TopRatedMoviesInteractorInterface.swift in Sources */,
 				1BE985D52813F2430001DCAB /* TopRatedMoviesModule.swift in Sources */,
 				1BE9862228140D070001DCAB /* FavoriteMoviesInteractor.swift in Sources */,
-				1BE985FC281402F20001DCAB /* TabBarPresenterInteractorInterface.swift in Sources */,
-				1BE985FD281402F20001DCAB /* TabBarPresenter.swift in Sources */,
-				1BE98600281402F20001DCAB /* TabBarView.swift in Sources */,
 				1BE985DC2813F2430001DCAB /* TopRatedMoviesView.swift in Sources */,
 				1BE985E02813F2430001DCAB /* TopRatedMoviesRouterInterface.swift in Sources */,
-				1BE985FF281402F20001DCAB /* TabBarPresenterRouterInterface.swift in Sources */,
 				1BE9863A28140D150001DCAB /* PopularMoviesPresenterRouterInterface.swift in Sources */,
 				1BE9861C28140D070001DCAB /* FavoriteMoviesPresenterRouterInterface.swift in Sources */,
 				1BE9863F28140D150001DCAB /* PopularMoviesViewInterface.swift in Sources */,
 				1BE985DD2813F2430001DCAB /* TopRatedMoviesInteractor.swift in Sources */,
 				1BE9863D28140D150001DCAB /* PopularMoviesPresenter.swift in Sources */,
 				1BE9862128140D070001DCAB /* FavoriteMoviesViewInterface.swift in Sources */,
-				1BE98603281402F20001DCAB /* TabBarInteractorInterface.swift in Sources */,
 				1BE985932813F0A20001DCAB /* AppDelegate.swift in Sources */,
 				1BE985952813F0A20001DCAB /* SceneDelegate.swift in Sources */,
 				1BE9863B28140D150001DCAB /* PopularMoviesPresenterViewInterface.swift in Sources */,
 				1BE985D92813F2430001DCAB /* TopRatedMoviesPresenter.swift in Sources */,
-				1BE98606281402F20001DCAB /* TabBarRouter.swift in Sources */,
 				1BE9864128140D150001DCAB /* PopularMoviesInteractorInterface.swift in Sources */,
 				1BE985DA2813F2430001DCAB /* TopRatedMoviesPresenterViewInterface.swift in Sources */,
 				1BE9862428140D070001DCAB /* FavoriteMoviesModule.swift in Sources */,
 				1BE9863E28140D150001DCAB /* PopularMoviesView.swift in Sources */,
 				1BE9861F28140D070001DCAB /* FavoriteMoviesPresenter.swift in Sources */,
 				1BE985DF2813F2430001DCAB /* TopRatedMoviesRouter.swift in Sources */,
+				1BE9864F2815D49A0001DCAB /* TabBarViewController.swift in Sources */,
 				1BE9864228140D150001DCAB /* PopularMoviesInteractor.swift in Sources */,
 				1BE9863C28140D150001DCAB /* PopularMoviesPresenterInteractorInterface.swift in Sources */,
 				1BE985D82813F2430001DCAB /* TopRatedMoviesPresenterRouterInterface.swift in Sources */,
-				1BE98605281402F20001DCAB /* TabBarRouterInterface.swift in Sources */,
 				1BE9862528140D070001DCAB /* FavoriteMoviesRouterInterface.swift in Sources */,
 				1BE985E22813F2500001DCAB /* Interfaces.swift in Sources */,
 				1BE9862628140D070001DCAB /* FavoriteMoviesRouter.swift in Sources */,
@@ -660,6 +591,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE986522815D5CF0001DCAB /* TestTabBarViewController.swift in Sources */,
 				1BE985AA2813F0A30001DCAB /* Movie_ApplicationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

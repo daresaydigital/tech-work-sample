@@ -1,54 +1,51 @@
 //
-//  TabBarView.swift
-//  TabBar
+//  TabBarViewController.swift
+//  Movie-Application
 //
-//  Created by mohannazakizadeh on 4/23/22.
+//  Created by Mohanna Zakizadeh on 4/24/22.
 //
 
 import UIKit
 
-final class TabBarView: UITabBarController, ViewInterface {
-	
-	var presenter: TabBarPresenterViewInterface!
-	
-	// MARK: - Properties
+final class TabBarViewContorller: UITabBarController {
+    
+    // MARK: - Properties
     var topRatedMoviesViewController: UIViewController!
     var popularMoviesViewController: UIViewController!
     var favoriteMoviesViewController: UIViewController!
     
-    let topRatedIcon = UIImage(systemName: "arrow.up")
-    let favoriteIcon = UIImage(systemName: "suit.heart.fill")
-    let popularIcon  = UIImage(systemName: "star.fill")
+    let topRatedIcon = UIImage(systemName: "list.number")
+    let favoriteIcon = UIImage(systemName: "star")
+    let popularIcon  = UIImage(systemName: "flame")
     
-	// MARK: - Initialize
     
-	// MARK: - Lifecycle
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
+    // MARK: - Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-		self.applyTheme()
-	}
+        self.applyTheme()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         topRatedMoviesViewController = setupTopRatedMoviesViewController()
         popularMoviesViewController = setupPopularMoviesViewController()
         favoriteMoviesViewController = setupFavoriteMoviesViewController()
         
-        self.viewControllers = [topRatedMoviesViewController, popularMoviesViewController, favoriteMoviesViewController]
+        self.viewControllers = [popularMoviesViewController, topRatedMoviesViewController, favoriteMoviesViewController]
         
         self.toolbarItems = []
         self.selectedIndex = 1
     }
-	
-	// MARK: - Theme
-	
-	func applyTheme() {
+    
+    // MARK: - Theme
+    
+    func applyTheme() {
         view.backgroundColor = .clear
         topRatedIcon?.withTintColor(.yellow)
-	}
-	
-	// MARK: - Private functions
+    }
+    
+    // MARK: - Private functions
     private func setupTopRatedMoviesViewController() -> UIViewController {
         let topRatedViewController = TopRatedMoviesModule().build()
         let tabBarItem = UITabBarItem(title: "Top Rated", image: topRatedIcon, tag: 0)
@@ -58,20 +55,13 @@ final class TabBarView: UITabBarController, ViewInterface {
     
     private func setupPopularMoviesViewController() -> UIViewController {
         let popularViewController = PopularMoviesModule().build()
-        popularViewController.tabBarItem = UITabBarItem(title: "Popular", image: popularIcon, tag: 1)
+        popularViewController.tabBarItem = UITabBarItem(title: "Popular", image: popularIcon, selectedImage: UIImage(systemName: "flame.fill"))
         return popularViewController
     }
     
     private func setupFavoriteMoviesViewController() -> UIViewController {
         let favoriteViewController = FavoriteMoviesModule().build()
-        favoriteViewController.tabBarItem = UITabBarItem(title: "Favorite", image: favoriteIcon, tag: 2)
+        favoriteViewController.tabBarItem = UITabBarItem(title: "Favorite", image: favoriteIcon, selectedImage: UIImage(systemName: "star.fill"))
         return favoriteViewController
     }
-	// MARK: - Actions
-	
-	
-}
-
-extension TabBarView: TabBarViewInterface {
-	
 }
