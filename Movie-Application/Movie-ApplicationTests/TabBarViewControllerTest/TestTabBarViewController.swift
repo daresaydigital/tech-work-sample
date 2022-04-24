@@ -9,28 +9,79 @@ import XCTest
 @testable import Movie_Application
 
 class TestTabBarViewController: XCTestCase {
+    var view: TabBarViewContorller!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        view = TabBarViewContorller()
+        view.loadView()
+        view.viewDidLoad()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        view = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testViewHasTopRatedIcon() throws {
+        XCTAssert(type(of: view.topRatedIcon) == UIImage?.self)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testViewHasFavoriteIcon() throws {
+        XCTAssert(type(of: view.favoriteIcon) == UIImage?.self)
     }
-
+    
+    func testViewHasPopularIcon() throws {
+        XCTAssert(type(of: view.popularIcon) == UIImage?.self)
+    }
+    
+    func testTopRatedMovieViewControllerExists() throws {
+        XCTAssertNotNil(view.topRatedMoviesViewController)
+    }
+    
+    func testPopularMovieViewControllerExists() throws {
+        XCTAssertNotNil(view.popularMoviesViewController)
+    }
+    
+    func testFavoriteMovieViewControllerExists() throws {
+        XCTAssertNotNil(view.favoriteMoviesViewController)
+    }
+    
+    func testViewControllerHasSetupTopRatedMoviesViewControllerMethod() throws {
+        _ = view.setupTopRatedMoviesViewController()
+    }
+    
+    func testViewControllerHasSetupPopularMoviesViewControllerMethod() throws {
+        _ = view.setupPopularMoviesViewController()
+    }
+    
+    func testViewControllerHasSetupFavoritesMoviesViewControllerMethod() throws {
+        _ = view.setupFavoriteMoviesViewController()
+    }
+    
+    func testViewHasClearBackground() throws {
+        XCTAssertEqual(view.view.backgroundColor, .clear)
+    }
+    
+    func testTopRatedMoviesTabBarItemNotNil() throws {
+        let tabBarItem = UITabBarItem(title: "Top Rated", image: UIImage(systemName: "list.number"), tag: 0)
+        let vc = view.setupTopRatedMoviesViewController()
+        XCTAssertEqual(tabBarItem.title, vc.tabBarItem.title)
+        XCTAssertEqual(tabBarItem.image, vc.tabBarItem.image)
+    }
+    
+    func testPopularMoviesTabBarItemNotNil() throws {
+        let tabBarItem = UITabBarItem(title: "Popular", image: UIImage(systemName: "flame"), selectedImage: UIImage(systemName: "flame.fill"))
+        let vc = view.setupPopularMoviesViewController()
+        XCTAssertEqual(tabBarItem.title, vc.tabBarItem.title)
+        XCTAssertEqual(tabBarItem.image, vc.tabBarItem.image)
+        XCTAssertEqual(tabBarItem.selectedImage, vc.tabBarItem.selectedImage)
+    }
+    
+    func testFavoriteMoviesTabBarItemNotNil() throws {
+        let tabBarItem = UITabBarItem(title: "Favorite", image: UIImage(systemName: "star"), selectedImage: UIImage(systemName: "star.fill"))
+        let vc = view.setupFavoriteMoviesViewController()
+        XCTAssertEqual(tabBarItem.title, vc.tabBarItem.title)
+        XCTAssertEqual(tabBarItem.image, vc.tabBarItem.image)
+        XCTAssertEqual(tabBarItem.selectedImage, vc.tabBarItem.selectedImage)
+    }
 }
+
