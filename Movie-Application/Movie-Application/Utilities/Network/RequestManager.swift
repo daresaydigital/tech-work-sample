@@ -54,6 +54,11 @@ extension RequestManager: RequestManagerProtocol {
         performURLRequest(urlRequest, completionHandler: completionHandler)
     }
     
+    func getImageData(url: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let imageURL = URL(string: "https://image.tmdb.org/t/p/original/" + url)!
+        session.dataTask(with: URLRequest(url: imageURL), completionHandler: completion)
+    }
+    
     private func headerBuilder() -> Headers {
         let headers = [
             "Content-Type": "application/json"
