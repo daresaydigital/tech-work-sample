@@ -10,4 +10,7 @@ import UIKit
 
 protocol PopularMoviesPresenterViewInterface: PresenterViewInterface {
     func viewDidLoad()
+    func alertRetryButtonDidTap()
+    
+    var popularMovies: [Movie] { get }
 }

@@ -30,7 +30,7 @@ final class FavoriteMoviesView: UIViewController, ViewInterface {
 	// MARK: - Theme
 	
 	func applyTheme() {
-        view.backgroundColor = .yellow
+        view.backgroundColor = .systemBackground
 	}
 	
 	

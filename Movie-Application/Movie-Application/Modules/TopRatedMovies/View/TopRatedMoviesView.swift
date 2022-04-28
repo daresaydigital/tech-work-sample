@@ -32,7 +32,7 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
 	// MARK: - Theme
 	
 	func applyTheme() {
-        
+        view.backgroundColor = .systemBackground
     }
     
     // MARK: - Private functions
@@ -41,8 +41,8 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
         self.title = "Top Rated"
     }
 	
-    private func configureMoviesCollectionView() {
-        let collectionView = MoviesCollectionModule().build(movies: presenter.topRatedMovies, viewType: .topRated)
+    private func configureMoviesCollectionView(with movies: [Movie]) {
+        let collectionView = MoviesCollectionModule().build(movies: movies, viewType: .topRated)
         self.add(asChildViewController: collectionView, to: self.view)
     }
 	
@@ -52,6 +52,7 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
 }
 
 extension TopRatedMoviesView: TopRatedMoviesViewInterface {
+    
     func showError(with error: RequestError) {
         let errorAlert = UIAlertController(title: "Error Occured", message: error.errorDescription, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Retry", style: .default) { [weak self] action in
@@ -61,7 +62,7 @@ extension TopRatedMoviesView: TopRatedMoviesViewInterface {
         self.present(errorAlert, animated: true, completion: nil)
     }
     
-    func reloadCollectionView() {
-        configureMoviesCollectionView()
+    func loadCollectionView(with movies: [Movie]) {
+        configureMoviesCollectionView(with: movies)
     }
 }

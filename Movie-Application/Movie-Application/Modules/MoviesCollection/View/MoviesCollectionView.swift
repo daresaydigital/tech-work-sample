@@ -91,7 +91,7 @@ final class MoviesCollectionView: UIViewController, ViewInterface {
     // MARK: - Theme
     
     func applyTheme() {
-        
+        self.view.backgroundColor = .systemBackground
     }
     
     

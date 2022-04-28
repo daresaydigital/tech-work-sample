@@ -13,5 +13,9 @@ final class PopularMoviesInteractor: InteractorInterface {
 }
 
 extension PopularMoviesInteractor: PopularMoviesInteractorInterface {
-
+    func getPopularMovies(completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
+        MoviesService.shared.getPopularMovies { result in
+            completionHandler(result)
+        }
+    }
 }

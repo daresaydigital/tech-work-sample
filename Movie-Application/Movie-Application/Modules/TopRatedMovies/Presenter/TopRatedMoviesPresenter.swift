@@ -20,7 +20,7 @@ final class TopRatedMoviesPresenter: PresenterInterface {
             switch result {
             case .success(let moviesData):
                 self.movies = moviesData.results
-                self.view.reloadCollectionView()
+                self.view.loadCollectionView(with: self.movies ?? [])
                 
             case .failure(let error):
                 self.view.showError(with: error)

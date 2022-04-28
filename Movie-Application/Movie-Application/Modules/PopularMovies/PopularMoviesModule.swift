@@ -18,14 +18,16 @@ final class PopularMoviesModule: ModuleInterface {
 
     func build() -> UIViewController {
         let view = View()
+        let navigationController = UINavigationController(rootViewController: view)
+        
         let interactor = Interactor()
         let presenter = Presenter()
         let router = Router()
 
         self.assemble(view: view, presenter: presenter, router: router, interactor: interactor)
 
-        router.viewController = view
+        router.viewController = navigationController
 
-        return view
+        return navigationController
     }
 }
