@@ -9,5 +9,5 @@ import Foundation
 import UIKit
 
 protocol MoviesCollectionInteractorInterface: InteractorPresenterInterface {
-    func getMovieImage(for path: String) -> UIImage
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ())
 }

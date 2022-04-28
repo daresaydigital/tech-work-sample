@@ -11,7 +11,7 @@ import UIKit
 protocol MoviesCollectionPresenterViewInterface: PresenterViewInterface {
     func viewDidLoad()
     func numberOfMovies() -> Int
-    func getMovieImage(index: Int) -> UIImage
+    func getMovieImage(index: Int, completion: @escaping (UIImage) -> ())
     func getMovieTitle(index: Int) -> String
     func showMovieDetails(_ index: Int)
     func addToWatchList(_ index: Int)

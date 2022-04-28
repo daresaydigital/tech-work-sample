@@ -15,13 +15,18 @@ final class MoviesCollectionInteractor: InteractorInterface {
 }
 
 extension MoviesCollectionInteractor: MoviesCollectionInteractorInterface {
-    func getMovieImage(for path: String) -> UIImage {
-        var image = UIImage()
-        MoviesService.shared.getMovieImage(from: path) { data, response, error in
-            guard let data = data, error == nil else { return }
-            image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ()) {
+        
+        DispatchQueue.global(qos: .utility).async {
+            let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
         }
-        return image
+        
     }
     
 }

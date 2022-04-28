@@ -23,7 +23,7 @@ class CoreDataManager: CoreDataManagerProtocol {
             appDelegate.persistentContainer.viewContext
           
           let entity =
-            NSEntityDescription.entity(forEntityName: "Movie",
+            NSEntityDescription.entity(forEntityName: "FavoriteMovie",
                                        in: managedContext)!
           
           let favoriteMovie = NSManagedObject(entity: entity,

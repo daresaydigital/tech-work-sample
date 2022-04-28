@@ -15,12 +15,14 @@ final class MoviesCollectionView: UIViewController, ViewInterface {
     @IBOutlet weak var collectionView: UICollectionView!
     var viewType: ViewType!
     
+    // cache for movies image in order to load image for cell from cache
+    private let movieImagesCache = NSCache<NSNumber, UIImage>()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        setupCollectionView()
         
         self.applyTheme()
         self.presenter.viewDidLoad()
@@ -80,14 +82,11 @@ final class MoviesCollectionView: UIViewController, ViewInterface {
         
     }
     
-//    private func configureCollectionView() {
-//        let layout = UICollectionViewFlowLayout()
-//        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-//        collectionView.register(UINib(nibName: MovieCell.description(), bundle: nil), forCellWithReuseIdentifier: MovieCell.description())
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//        view.addSubview(collectionView)
-//    }
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "MovieCell")
+    }
     
     // MARK: - Theme
     
@@ -108,17 +107,28 @@ extension MoviesCollectionView: MoviesCollectionViewInterface {
 
 // MARK: - collection view methods
 extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfMovies()
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? MovieCell else { return }
+        let cellNumber = NSNumber(value: indexPath.item)
+        
+        if let cachedImage = self.movieImagesCache.object(forKey: cellNumber) {
+            cell.movieImageView.image = cachedImage
+        } else {
+            self.presenter.getMovieImage(index: indexPath.row, completion: { [weak self] (image) in
+                cell.movieImageView.image = image
+                self?.movieImagesCache.setObject(image, forKey: cellNumber)
+            })
+            
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath)
-//        cell.largeContentImage = presenter.getMovieImage(index: indexPath.row)
-//        cell.automaticallyUpdatesContentConfiguration = true
-//        cell.backgroundView = UIImageView(image: <#T##UIImage?#>)
-        cell.backgroundColor = .yellow
-        cell.largeContentTitle = presenter.getMovieTitle(index: indexPath.row)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCell else { return UICollectionViewCell() }
         cell.layer.cornerRadius = 10
         return cell
     }
@@ -133,10 +143,15 @@ extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let noOfCellsInRow = 2
+
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+
         let totalSpace = flowLayout.sectionInset.left
-            + flowLayout.sectionInset.right
-            + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+        + flowLayout.sectionInset.right
+        + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
 
         let size = Int((view.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size + 50)

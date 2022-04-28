@@ -15,6 +15,7 @@ final class MoviesCollectionPresenter: PresenterInterface {
     weak var view: MoviesCollectionViewInterface!
 
     var movies: [Movie]
+    private let cache = NSCache<NSNumber, UIImage>()
     
     init(movies: [Movie]) {
         self.movies = movies
@@ -40,11 +41,12 @@ extension MoviesCollectionPresenter: MoviesCollectionPresenterViewInterface {
     }
     
     // function to get movie image from url that we have
-    func getMovieImage(index: Int) -> UIImage {
+    func getMovieImage(index: Int, completion: @escaping (UIImage) -> ()) {
+        
         if let path = movies[index].poster {
-            return interactor.getMovieImage(for: path)
+            return interactor.getMovieImage(for: path, completion: completion)
         } else {
-            return UIImage(systemName: "film.circle")!
+            completion(UIImage(systemName: "film.circle")!)
         }
         
     }

@@ -14,7 +14,6 @@ protocol MoviesServiceProtocol {
     func getMoviesGeneres(completionHandler: @escaping GeneresCompletionHandler)
     func getTopRatedMovies(completionHandler: @escaping MoviesCompletionHandler)
     func getPopularMovies(completionHandler: @escaping MoviesCompletionHandler)
-    func getMovieImage(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void)
 }
 
 private enum MoviesEndpoint {
@@ -70,12 +69,6 @@ class MoviesService: MoviesServiceProtocol {
             DispatchQueue.main.async {
                 completionHandler(result)
             }
-        }
-    }
-    
-    func getMovieImage(from url: String, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        self.requestManager.getImageData(url: url) { data, response, error in
-            completion(data, response, error)
         }
     }
     
