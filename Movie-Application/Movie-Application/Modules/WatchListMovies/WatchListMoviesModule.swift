@@ -1,20 +1,20 @@
 //
-//  FavoriteMoviesModule.swift
-//  FavoriteMovies
+//  WatchListMoviesModule.swift
+//  WatchListMovies
 //
-//  Created by mohannazakizadeh on 4/23/22.
+//  Created by mohannazakizadeh on 4/28/22.
 //
 
 import UIKit
 
 // MARK: - module builder
 
-final class FavoriteMoviesModule: ModuleInterface {
+final class WatchListMoviesModule: ModuleInterface {
 
-    typealias View = FavoriteMoviesView
-    typealias Presenter = FavoriteMoviesPresenter
-    typealias Router = FavoriteMoviesRouter
-    typealias Interactor = FavoriteMoviesInteractor
+    typealias View = WatchListMoviesView
+    typealias Presenter = WatchListMoviesPresenter
+    typealias Router = WatchListMoviesRouter
+    typealias Interactor = WatchListMoviesInteractor
 
     func build() -> UIViewController {
         let view = View()
