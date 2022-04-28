@@ -8,5 +8,5 @@
 import Foundation
 
 protocol TopRatedMoviesInteractorInterface: InteractorPresenterInterface {
-
+    func getTopRatedMovies(completionHandler: @escaping(Result<[Movie], RequestError>) -> Void)
 }

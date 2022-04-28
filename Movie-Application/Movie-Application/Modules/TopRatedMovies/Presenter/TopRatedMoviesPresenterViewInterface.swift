@@ -10,4 +10,7 @@ import UIKit
 
 protocol TopRatedMoviesPresenterViewInterface: PresenterViewInterface {
     func viewDidLoad()
+    func alertRetryButtonDidTap()
+    
+    var topRatedMovies: [Movie] { get }
 }

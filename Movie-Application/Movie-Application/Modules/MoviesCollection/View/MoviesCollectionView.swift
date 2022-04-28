@@ -7,17 +7,25 @@
 
 import UIKit
 
-final class MoviesCollectionView: UIViewController, ViewInterface {
+final class MoviesCollectionView: UICollectionViewController, ViewInterface {
     
     var presenter: MoviesCollectionPresenterViewInterface!
     
     // MARK: - Properties
-    
     var viewType: ViewType!
+    
+    init() {
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         
         self.applyTheme()
         self.presenter.viewDidLoad()
@@ -77,7 +85,13 @@ final class MoviesCollectionView: UIViewController, ViewInterface {
         
     }
     
-    
+    private func configureCollectionView() {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        view.addSubview(collectionView)
+    }
     
     // MARK: - Theme
     
@@ -97,25 +111,23 @@ extension MoviesCollectionView: MoviesCollectionViewInterface {
 
 
 // MARK: - collection view methods
-extension MoviesCollectionView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension MoviesCollectionView: UICollectionViewDelegateFlowLayout {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfMovies()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //        collectionView.register(UINib(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
-        //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath)
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = UICollectionViewCell()
         cell.largeContentImage = presenter.getMovieImage(index: indexPath.row)
         cell.layer.cornerRadius = 10
         return cell
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
-    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         configureContextMenu(index: indexPath.row)
     }
     
