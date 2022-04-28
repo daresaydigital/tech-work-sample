@@ -17,8 +17,12 @@ final class TopRatedMoviesModule: ModuleInterface {
     typealias Interactor = TopRatedMoviesInteractor
 
     func build() -> UIViewController {
-        let view = View()
-        let navigator = UINavigationController(rootViewController: view)
+        guard let navigationController = UIStoryboard(name: "TopRatedMovies", bundle: nil).instantiateInitialViewController() as? UINavigationController else {
+            return UINavigationController()
+        }
+        guard let view = navigationController.topViewController as? View else {
+            return View()
+        }
         
         let interactor = Interactor()
         let presenter = Presenter()
@@ -26,8 +30,8 @@ final class TopRatedMoviesModule: ModuleInterface {
 
         self.assemble(view: view, presenter: presenter, router: router, interactor: interactor)
 
-        router.viewController = navigator
+        router.viewController = navigationController
 
-        return navigator
+        return navigationController
     }
 }

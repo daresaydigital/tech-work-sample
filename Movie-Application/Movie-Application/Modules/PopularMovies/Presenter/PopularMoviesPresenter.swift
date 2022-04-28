@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class PopularMoviesPresenter: PresenterInterface {
 
@@ -14,18 +15,17 @@ final class PopularMoviesPresenter: PresenterInterface {
     weak var view: PopularMoviesViewInterface!
     
     private var movies: [Movie]?
+    private var currentPage = 1
     
-    private func getPopularMovies() {
-        interactor.getPopularMovies { result in
-            switch result {
-            case .success(let moviesData):
-                self.movies = moviesData.results
-                self.view.loadCollectionView(with: self.movies ?? [])
-                
-            case .failure(let error):
-                self.view.showError(with: error)
-            }
+    init() {
+        // in order to scroll top top when user tapped te tab bar again
+        NotificationCenter.default.addObserver(forName: TabBarViewContorller.tabBarDidTapNotification, object: nil, queue: nil) { notification in
+            self.view.scrollToTop()
         }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
 }
@@ -46,6 +46,61 @@ extension PopularMoviesPresenter: PopularMoviesPresenterViewInterface {
 
     func alertRetryButtonDidTap() {
         getPopularMovies()
+    }
+    
+    func getPopularMovies() {
+        // movie data base gives 500 pages max.
+        if currentPage <= 500 {
+            interactor.getPopularMovies(page: currentPage) { result in
+                switch result {
+                case .success(let moviesData):
+                    
+                    if self.currentPage == 1 {
+                        self.movies = moviesData.results
+                    } else {
+                        self.movies! += moviesData.results
+                    }
+                    
+                    self.view.reloadCollectionView()
+                    self.currentPage += 1
+                    
+                    
+                case .failure(let error):
+                    self.view.showError(with: error)
+                }
+            }
+        }
+    }
+    
+    func getMovieImage(index: Int, completion: @escaping (UIImage) -> ()) {
+        if let movies = movies {
+            if let path = movies[index].poster {
+                return interactor.getMovieImage(for: path, completion: completion)
+            }
+        }
+         else {
+            completion(UIImage(systemName: "film.circle")!)
+        }
+    }
+    
+    func getMovieTitle(index: Int) -> String {
+        movies?[index].title ?? ""
+    }
+    
+    func showMovieDetails(_ index: Int) {
+        if let movies = movies {
+            router.showMovieDetails(id: movies[index].id)
+        }
+    }
+    
+    func addToWatchList(_ index: Int) {
+        if let movies = movies {
+            CoreDataManager().saveNewMovie(movies[index])
+        }
+    }
+    
+    var numberOfMovies: Int {
+        return movies?.count ?? 0
     }
     
     var popularMovies: [Movie] {

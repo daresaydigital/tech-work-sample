@@ -16,4 +16,8 @@ final class PopularMoviesRouter: RouterInterface {
 
 extension PopularMoviesRouter: PopularMoviesRouterInterface {
 
+    func showMovieDetails(id: Int) {
+        
+    }
+    
 }

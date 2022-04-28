@@ -7,29 +7,20 @@
 
 import Foundation
 
-typealias GeneresCompletionHandler = (Result<MoviesGeneres, RequestError>) -> Void
-typealias MoviesCompletionHandler = (Result<Movies, RequestError>) -> Void
-
-protocol MoviesServiceProtocol {
-    func getMoviesGeneres(completionHandler: @escaping GeneresCompletionHandler)
-    func getTopRatedMovies(completionHandler: @escaping MoviesCompletionHandler)
-    func getPopularMovies(completionHandler: @escaping MoviesCompletionHandler)
-}
-
 private enum MoviesEndpoint {
     case generes
-    case topRatedMovies
-    case popularMovies
+    case topRatedMovies(Int)
+    case popularMovies(Int)
     
     var path: String {
         switch self {
         
         case .generes:
-            return "genre/movie/list"
-        case .topRatedMovies:
-            return "movie/top_rated"
-        case .popularMovies:
-            return "movie/popular"
+            return "genre/movie/list?"
+        case .topRatedMovies(let page):
+            return "movie/top_rated?page=\(page)&"
+        case .popularMovies(let page):
+            return "movie/popular?page=\(page)&"
             
         }
     }
@@ -54,8 +45,8 @@ class MoviesService: MoviesServiceProtocol {
         }
     }
     
-    func getTopRatedMovies(completionHandler: @escaping MoviesCompletionHandler) {
-        self.requestManager.performRequestWith(url: MoviesEndpoint.topRatedMovies.path, httpMethod: .get) { (result: Result<Movies, RequestError>) in
+    func getTopRatedMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler) {
+        self.requestManager.performRequestWith(url: MoviesEndpoint.topRatedMovies(page).path, httpMethod: .get) { (result: Result<Movies, RequestError>) in
             // Taking Data to main thread so we can update UI.
             DispatchQueue.main.async {
                 completionHandler(result)
@@ -63,8 +54,8 @@ class MoviesService: MoviesServiceProtocol {
         }
     }
     
-    func getPopularMovies(completionHandler: @escaping MoviesCompletionHandler) {
-        self.requestManager.performRequestWith(url: MoviesEndpoint.popularMovies.path, httpMethod: .get) { (result: Result<Movies, RequestError>) in
+    func getPopularMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler) {
+        self.requestManager.performRequestWith(url: MoviesEndpoint.popularMovies(page).path, httpMethod: .get) { (result: Result<Movies, RequestError>) in
             // Taking Data to main thread so we can update UI.
             DispatchQueue.main.async {
                 completionHandler(result)

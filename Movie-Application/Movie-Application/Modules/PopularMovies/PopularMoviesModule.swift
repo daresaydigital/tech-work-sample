@@ -17,8 +17,12 @@ final class PopularMoviesModule: ModuleInterface {
     typealias Interactor = PopularMoviesInteractor
 
     func build() -> UIViewController {
-        let view = View()
-        let navigationController = UINavigationController(rootViewController: view)
+        guard let navigationController = UIStoryboard(name: "PopularMovies", bundle: nil).instantiateInitialViewController() as? UINavigationController else {
+            return UINavigationController()
+        }
+        guard let view = navigationController.topViewController as? View else {
+            return View()
+        }
         
         let interactor = Interactor()
         let presenter = Presenter()

@@ -13,7 +13,7 @@ typealias CodableResponse<T: Codable> = (Result<T, RequestError>) -> Void
 final class RequestManager: NSObject, URLSessionDelegate {
     
     var baseApi: String = "https://api.themoviedb.org/3/"
-    var api_key: String = "?api_key=496d0a5328d28334263194a131fb242b"
+    var api_key: String = "api_key=496d0a5328d28334263194a131fb242b"
     
     var session: URLSession!
     

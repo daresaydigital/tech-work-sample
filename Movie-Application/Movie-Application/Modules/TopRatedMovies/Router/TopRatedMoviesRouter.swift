@@ -16,4 +16,7 @@ final class TopRatedMoviesRouter: RouterInterface {
 
 extension TopRatedMoviesRouter: TopRatedMoviesRouterInterface {
 
+    func showMovieDetails(id: Int) {
+        
+    }
 }

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 protocol PopularMoviesInteractorInterface: InteractorPresenterInterface {
-    func getPopularMovies(completionHandler: @escaping(Result<Movies, RequestError>) -> Void)
+    func getPopularMovies(page: Int, completionHandler: @escaping(Result<Movies, RequestError>) -> Void)
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ())
 }

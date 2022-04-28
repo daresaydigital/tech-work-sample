@@ -9,5 +9,6 @@ import UIKit
 
 protocol PopularMoviesViewInterface: ViewPresenterInterface {
     func showError(with error: RequestError)
-    func loadCollectionView(with movies: [Movie])
+    func reloadCollectionView()
+    func scrollToTop()
 }

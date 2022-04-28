@@ -8,5 +8,5 @@
 import UIKit
 
 protocol WatchListMoviesViewInterface: ViewPresenterInterface {
-
+//    func loadCollectionView(with movies: [Movie])
 }

@@ -8,6 +8,6 @@
 import UIKit
 
 protocol TopRatedMoviesRouterInterface: RouterPresenterInterface {
-
+    func showMovieDetails(id: Int)
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class TopRatedMoviesInteractor: InteractorInterface {
 
@@ -13,9 +14,23 @@ final class TopRatedMoviesInteractor: InteractorInterface {
 }
 
 extension TopRatedMoviesInteractor: TopRatedMoviesInteractorInterface {
-    func getTopRatedMovies(completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
-        MoviesService.shared.getTopRatedMovies { result in
+    func getTopRatedMovies(page: Int, completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
+        MoviesService.shared.getTopRatedMovies(page: page) { result in
             completionHandler(result)
         }
+    }
+    
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ()) {
+        
+        DispatchQueue.global(qos: .utility).async {
+            let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+        
     }
 }

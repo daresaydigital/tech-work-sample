@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class PopularMoviesInteractor: InteractorInterface {
 
@@ -13,9 +14,24 @@ final class PopularMoviesInteractor: InteractorInterface {
 }
 
 extension PopularMoviesInteractor: PopularMoviesInteractorInterface {
-    func getPopularMovies(completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
-        MoviesService.shared.getPopularMovies { result in
+    func getPopularMovies(page: Int, completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
+        MoviesService.shared.getPopularMovies(page: page) { result in
             completionHandler(result)
         }
     }
+    
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ()) {
+        
+        DispatchQueue.global(qos: .utility).async {
+            let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
+            
+            DispatchQueue.main.async {
+                completion(image)
+            }
+        }
+        
+    }
+    
 }

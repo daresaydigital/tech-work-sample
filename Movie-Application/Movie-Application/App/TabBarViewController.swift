@@ -57,8 +57,18 @@ class TabBarViewContorller: UITabBarController {
     }
     
     func setupFavoriteMoviesViewController() -> UIViewController {
-        let favoriteViewController = FavoriteMoviesModule().build()
-        favoriteViewController.tabBarItem = UITabBarItem(title: "Favorite", image: favoriteIcon, selectedImage: UIImage(systemName: "star.fill"))
+        let favoriteViewController = WatchListMoviesModule().build()
+        favoriteViewController.tabBarItem = UITabBarItem(title: "WatchList", image: favoriteIcon, selectedImage: UIImage(systemName: "star.fill"))
         return favoriteViewController
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        NotificationCenter.default.post(name: TabBarViewContorller.tabBarDidTapNotification, object: nil)
+    }
+}
+
+extension TabBarViewContorller {
+    static var tabBarDidTapNotification: NSNotification.Name {
+        NSNotification.Name(rawValue: "TabBarViewContorller.tabBarDidTapNotification")
     }
 }

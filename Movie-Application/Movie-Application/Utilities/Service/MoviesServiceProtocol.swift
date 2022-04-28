@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+typealias GeneresCompletionHandler = (Result<MoviesGeneres, RequestError>) -> Void
+typealias MoviesCompletionHandler = (Result<Movies, RequestError>) -> Void
+
+protocol MoviesServiceProtocol {
+    func getMoviesGeneres(completionHandler: @escaping GeneresCompletionHandler)
+    func getTopRatedMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler)
+    func getPopularMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler)
+}

@@ -9,4 +9,6 @@ import Foundation
 
 protocol CoreDataManagerProtocol {
     func saveNewMovie(_ movie: Movie)
+    func getSavedMovies() -> [Movie]
+    func deleteMovie(_ movie: Movie)
 }
