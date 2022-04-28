@@ -9,4 +9,5 @@ import UIKit
 
 protocol TopRatedMoviesViewInterface: ViewPresenterInterface {
     func showError(with error: RequestError)
+    func reloadCollectionView()
 }

@@ -39,7 +39,7 @@ class TabBarViewContorller: UITabBarController {
     // MARK: - Theme
     
     func applyTheme() {
-        view.backgroundColor = .clear
+//        view.backgroundColor = .
     }
     
     // MARK: - Private functions

@@ -7,25 +7,20 @@
 
 import UIKit
 
-final class MoviesCollectionView: UICollectionViewController, ViewInterface {
+final class MoviesCollectionView: UIViewController, ViewInterface {
     
     var presenter: MoviesCollectionPresenterViewInterface!
     
     // MARK: - Properties
+    @IBOutlet weak var collectionView: UICollectionView!
     var viewType: ViewType!
     
-    init() {
-        super.init(collectionViewLayout: UICollectionViewFlowLayout())
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         self.applyTheme()
         self.presenter.viewDidLoad()
@@ -85,13 +80,14 @@ final class MoviesCollectionView: UICollectionViewController, ViewInterface {
         
     }
     
-    private func configureCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        view.addSubview(collectionView)
-    }
+//    private func configureCollectionView() {
+//        let layout = UICollectionViewFlowLayout()
+//        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+//        collectionView.register(UINib(nibName: MovieCell.description(), bundle: nil), forCellWithReuseIdentifier: MovieCell.description())
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//        view.addSubview(collectionView)
+//    }
     
     // MARK: - Theme
     
@@ -111,23 +107,27 @@ extension MoviesCollectionView: MoviesCollectionViewInterface {
 
 
 // MARK: - collection view methods
-extension MoviesCollectionView: UICollectionViewDelegateFlowLayout {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension MoviesCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.numberOfMovies()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
-        cell.largeContentImage = presenter.getMovieImage(index: indexPath.row)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath)
+//        cell.largeContentImage = presenter.getMovieImage(index: indexPath.row)
+//        cell.automaticallyUpdatesContentConfiguration = true
+//        cell.backgroundView = UIImageView(image: <#T##UIImage?#>)
+        cell.backgroundColor = .yellow
+        cell.largeContentTitle = presenter.getMovieTitle(index: indexPath.row)
         cell.layer.cornerRadius = 10
         return cell
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
     }
     
-    override func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         configureContextMenu(index: indexPath.row)
     }
     
@@ -140,6 +140,10 @@ extension MoviesCollectionView: UICollectionViewDelegateFlowLayout {
 
         let size = Int((view.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size + 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        presenter.showMovieDetails(indexPath.row)
     }
 }
 

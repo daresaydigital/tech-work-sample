@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TopRatedMoviesView: UICollectionViewController, ViewInterface {
+final class TopRatedMoviesView: UIViewController, ViewInterface {
 	
 	var presenter: TopRatedMoviesPresenterViewInterface!
 	
@@ -26,27 +26,31 @@ final class TopRatedMoviesView: UICollectionViewController, ViewInterface {
 		
 		self.applyTheme()
 		self.presenter.viewDidLoad()
-        
-        configureMoviesCollectionView()
 	}
 	
 	
 	// MARK: - Theme
 	
 	func applyTheme() {
-        view.backgroundColor = .yellow
+//        view.backgroundColor = .yellow
 	}
     
     // MARK: - Private functions
     private func configureNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.title = "Top Rated"
+        self.title = "Top Rated"
     }
 	
     private func configureMoviesCollectionView() {
         let collectionView = MoviesCollectionModule().build(movies: presenter.topRatedMovies, viewType: .topRated)
-        collectionView.view.layoutMargins = self.view.layoutMargins
         view.addSubview(collectionView.view)
+        NSLayoutConstraint.activate([
+            collectionView.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            collectionView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16)
+        ])
+        
         collectionView.didMove(toParent: self)
     }
 	
@@ -65,5 +69,7 @@ extension TopRatedMoviesView: TopRatedMoviesViewInterface {
         self.present(errorAlert, animated: true, completion: nil)
     }
     
-	
+    func reloadCollectionView() {
+        configureMoviesCollectionView()
+    }
 }

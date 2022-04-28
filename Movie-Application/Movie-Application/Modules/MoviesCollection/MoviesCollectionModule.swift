@@ -17,7 +17,9 @@ final class MoviesCollectionModule: ModuleInterface {
     typealias Interactor = MoviesCollectionInteractor
 
     func build(movies: [Movie], viewType: ViewType) -> UIViewController {
-        let view = View()
+        let storyBoard = UIStoryboard(name: "MoviesCollection", bundle: nil)
+        let view = storyBoard.instantiateInitialViewController() as! MoviesCollectionView
+        
         let interactor = Interactor()
         let presenter = Presenter(movies: movies)
         let router = Router()

@@ -3,4 +3,54 @@
    uuid = "7EDAA637-189A-4B08-9700-4333CD4B155D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81CE4603-94ED-483E-85AF-FDE1C55BD7A5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movie-Application/Modules/MoviesCollection/Interactor/MoviesCollectionInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "getMovieImage(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "81CE4603-94ED-483E-85AF-FDE1C55BD7A5 - 37c8182a80b4c46a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Movie_Application.MoviesCollectionInteractor.getMovieImage(for: Swift.String) -&gt; __C.UIImage"
+                  moduleName = "Movie-Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohanna/Documents/Developer/VIPER-Movie-Application/Movie-Application/Movie-Application/Modules/MoviesCollection/Interactor/MoviesCollectionInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "81CE4603-94ED-483E-85AF-FDE1C55BD7A5 - 37c8182a80b4c46a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Movie_Application.MoviesCollectionInteractor.getMovieImage(for: Swift.String) -&gt; __C.UIImage"
+                  moduleName = "Movie-Application"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mohanna/Documents/Developer/VIPER-Movie-Application/Movie-Application/Movie-Application/Modules/MoviesCollection/Interactor/MoviesCollectionInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

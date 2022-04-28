@@ -19,7 +19,8 @@ final class TopRatedMoviesPresenter: PresenterInterface {
         interactor.getTopRatedMovies { result in
             switch result {
             case .success(let moviesData):
-                self.movies = moviesData
+                self.movies = moviesData.results
+                self.view.reloadCollectionView()
                 
             case .failure(let error):
                 self.view.showError(with: error)

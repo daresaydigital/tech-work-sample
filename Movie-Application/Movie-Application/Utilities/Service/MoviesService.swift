@@ -8,7 +8,7 @@
 import Foundation
 
 typealias GeneresCompletionHandler = (Result<MoviesGeneres, RequestError>) -> Void
-typealias MoviesCompletionHandler = (Result<[Movie], RequestError>) -> Void
+typealias MoviesCompletionHandler = (Result<Movies, RequestError>) -> Void
 
 protocol MoviesServiceProtocol {
     func getMoviesGeneres(completionHandler: @escaping GeneresCompletionHandler)
@@ -56,7 +56,7 @@ class MoviesService: MoviesServiceProtocol {
     }
     
     func getTopRatedMovies(completionHandler: @escaping MoviesCompletionHandler) {
-        self.requestManager.performRequestWith(url: MoviesEndpoint.topRatedMovies.path, httpMethod: .get) { (result: Result<[Movie], RequestError>) in
+        self.requestManager.performRequestWith(url: MoviesEndpoint.topRatedMovies.path, httpMethod: .get) { (result: Result<Movies, RequestError>) in
             // Taking Data to main thread so we can update UI.
             DispatchQueue.main.async {
                 completionHandler(result)
@@ -65,7 +65,7 @@ class MoviesService: MoviesServiceProtocol {
     }
     
     func getPopularMovies(completionHandler: @escaping MoviesCompletionHandler) {
-        self.requestManager.performRequestWith(url: MoviesEndpoint.popularMovies.path, httpMethod: .get) { (result: Result<[Movie], RequestError>) in
+        self.requestManager.performRequestWith(url: MoviesEndpoint.popularMovies.path, httpMethod: .get) { (result: Result<Movies, RequestError>) in
             // Taking Data to main thread so we can update UI.
             DispatchQueue.main.async {
                 completionHandler(result)

@@ -13,7 +13,7 @@ final class TopRatedMoviesInteractor: InteractorInterface {
 }
 
 extension TopRatedMoviesInteractor: TopRatedMoviesInteractorInterface {
-    func getTopRatedMovies(completionHandler: @escaping(Result<[Movie], RequestError>) -> Void) {
+    func getTopRatedMovies(completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
         MoviesService.shared.getTopRatedMovies { result in
             completionHandler(result)
         }
