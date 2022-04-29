@@ -104,6 +104,10 @@ extension TopRatedMoviesPresenter: TopRatedMoviesPresenterViewInterface {
         
     }
     
+    func getSavedMovies() -> [CoreDataMovie] {
+        CoreDataManager().getSavedMovies()
+    }
+    
     var numberOfMovies: Int {
         return movies?.count ?? 0
     }

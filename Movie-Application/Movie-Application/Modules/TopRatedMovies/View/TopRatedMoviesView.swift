@@ -53,23 +53,39 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
     
     // function to configure contextMenu for each collectionView cell
     private func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
-        
-        
-        let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
-            
-            let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                self.presenter.showMovieDetails(index)
+        // prevents from adding repititious movies to watch list
+        if !presenter.getSavedMovies().contains(where: {$0.title == presenter.getMovieTitle(index: index)}){
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+                
+                let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                    self.presenter.showMovieDetails(index)
+                }
+                
+                let addToWatchList = UIAction(title: "Add to Watchlist", image: UIImage(systemName: "bookmark"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                    self.presenter.addToWatchList(index: index, imageData: imageData)
+                }
+                
+                return UIMenu(title: self.presenter.getMovieTitle(index: index), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [addToWatchList, viewDetails])
+                
             }
+            return context
             
-            let addToWatchList = UIAction(title: "Add to Watchlist", image: UIImage(systemName: "bookmark"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                self.presenter.addToWatchList(index: index, imageData: imageData)
+        } else {
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
+                
+                let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                    self.presenter.showMovieDetails(index)
+                }
+                
+                let addToWatchList = UIAction(title: "Added to Watchlist", image: UIImage(systemName: "bookmark.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                    
+                }
+                
+                return UIMenu(title: self.presenter.getMovieTitle(index: index), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [addToWatchList, viewDetails])
+                
             }
-            
-            return UIMenu(title: self.presenter.getMovieTitle(index: index), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [addToWatchList, viewDetails])
-            
+            return context
         }
-        return context
-        
     }
     
     private func configurePagination(_ cellRow: Int) {
