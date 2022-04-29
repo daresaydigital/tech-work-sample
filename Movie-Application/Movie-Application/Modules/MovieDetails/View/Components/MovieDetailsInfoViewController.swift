@@ -48,25 +48,31 @@ final class MovieDetailsInfoViewController: UIViewController {
         movieTitleLabel = setupLabel(with: movie.title)
         movieDetailsLabel = setupLabel(with: getMoviesDetails())
         movieTitleStackView = setupStackView(with: [movieTitleLabel, movieDetailsLabel], spacing: 13, axis: .vertical)
+        movieTitleStackView.distribution = .equalSpacing
         
         releaseDateLabel = setupLabel(with: movie.releaseDate.components(separatedBy: "-").first)
         releaseTitleLabel = setupLabel(with: "Release")
         releaseStackView = setupStackView(with: [releaseDateLabel, releaseTitleLabel], spacing: 8, axis: .vertical)
+        releaseStackView.alignment = .center
         
-        userScoreLabel = setupLabel(with: "\(movie.popularity * 100.0)")
+        userScoreLabel = setupLabel(with: String(format: "%.0f", movie.voteAverage*10) + "%")
         userScoreTitleLabel = setupLabel(with: "User Score")
         userScoreStackView = setupStackView(with: [userScoreLabel, userScoreTitleLabel], spacing: 8, axis: .vertical)
+        userScoreStackView.alignment = .center
         
         reviewsLabel = setupLabel(with: "\(movie.reviewsCount)")
         reviewsTitleLabel = setupLabel(with: "Reviews")
         reviewsStackView = setupStackView(with: [reviewsLabel, reviewsTitleLabel], spacing: 8, axis: .vertical)
+        reviewsStackView.alignment = .center
         
         movieInfoStackView = setupStackView(with: [releaseStackView, userScoreStackView, reviewsStackView], spacing: 0, axis: .horizontal)
         movieInfoStackView.layer.cornerRadius = 14
+        movieInfoStackView.alignment = .center
         
         overViewTitleLabel = setupLabel(with: "Overview")
         overViewLabel = setupLabel(with: movie.overview)
         overViewStackView = setupStackView(with: [overViewTitleLabel, overViewLabel], spacing: 16, axis: .vertical)
+        overViewStackView.distribution = .fillProportionally
         
         totalStackView = setupStackView(with: [movieTitleStackView, movieInfoStackView, overViewStackView], spacing: 32, axis: .vertical)
         
@@ -79,25 +85,29 @@ final class MovieDetailsInfoViewController: UIViewController {
     // MARK: - Theme
     
     func applyTheme() {
-        movieTitleLabel.font = UIFont(name: "Title 2", size: 22)
-        movieDetailsLabel.font = UIFont(name: "System", size: 15)
+        view.backgroundColor = .systemBackground
+        view.layer.cornerRadius = 14
+        
+        movieTitleLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        movieDetailsLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 15)
         movieDetailsLabel.textColor = .secondaryLabel
         
         
-        releaseDateLabel.font = UIFont(name: "Title 2", size: 22)
-        releaseTitleLabel.font = UIFont(name: "System", size: 15)
+        releaseDateLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        releaseTitleLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 15)
         releaseTitleLabel.textColor = .secondaryLabel
         
-        reviewsLabel.font = UIFont(name: "Title 2", size: 22)
-        reviewsTitleLabel.font = UIFont(name: "System", size: 15)
+        reviewsLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        reviewsTitleLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 15)
         reviewsTitleLabel.textColor = .secondaryLabel
         
-        userScoreLabel.font = UIFont(name: "Title 2", size: 22)
-        userScoreTitleLabel.font = UIFont(name: "System", size: 15)
+        userScoreLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        userScoreTitleLabel.font = UIFont(descriptor: .preferredFontDescriptor(withTextStyle: .body), size: 15)
         userScoreTitleLabel.textColor = .secondaryLabel
         movieInfoStackView.backgroundColor = .secondarySystemBackground
         
-        overViewTitleLabel.font = UIFont(name: "Title 1", size: 28)
+        
+        overViewTitleLabel.font = UIFont.boldSystemFont(ofSize: 28)
     }
     
     //MARK: - Private functions
@@ -118,20 +128,33 @@ final class MovieDetailsInfoViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: views)
         stackView.axis = axis
         stackView.spacing = spacing
-        stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.alignment = .leading
+        stackView.distribution = .fillProportionally
         return stackView
     }
     
     private func setTotalStackView(in view: UIView? = nil) {
         if let view = view {
             view.addSubview(totalStackView)
+            totalStackView.alignment = .leading
+            totalStackView.translatesAutoresizingMaskIntoConstraints = false
+            totalStackView.layer.cornerRadius = 14
             
             NSLayoutConstraint.activate([
-                totalStackView.topAnchor.constraint(equalTo: view.topAnchor),
-                totalStackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-                totalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                totalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                totalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+                totalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+                totalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+                totalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                
+                movieInfoStackView.heightAnchor.constraint(equalToConstant: 85),
+                movieInfoStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor),
+                movieInfoStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor),
+                
+                movieTitleStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor),
+                movieTitleStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor),
+                
+                overViewStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor),
+                overViewStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor)
             ])
         }
     }

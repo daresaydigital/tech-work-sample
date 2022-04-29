@@ -11,6 +11,7 @@ private enum MoviesEndpoint {
     case generes
     case topRatedMovies(Int)
     case popularMovies(Int)
+    case movie(Int)
     
     var path: String {
         switch self {
@@ -21,7 +22,8 @@ private enum MoviesEndpoint {
             return "movie/top_rated?page=\(page)&"
         case .popularMovies(let page):
             return "movie/popular?page=\(page)&"
-            
+        case .movie(let id):
+            return "movie/\(id)?"
         }
     }
 }
@@ -60,6 +62,12 @@ class MoviesService: MoviesServiceProtocol {
             DispatchQueue.main.async {
                 completionHandler(result)
             }
+        }
+    }
+    
+    func getMovieDetails(id: Int, completionHandler: @escaping MovieDetailsCompletionHandler) {
+        self.requestManager.performRequestWith(url: MoviesEndpoint.movie(id).path, httpMethod: .get) { result in
+            completionHandler(result)
         }
     }
     

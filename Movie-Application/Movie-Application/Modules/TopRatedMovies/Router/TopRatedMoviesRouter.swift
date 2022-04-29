@@ -16,7 +16,8 @@ final class TopRatedMoviesRouter: RouterInterface {
 
 extension TopRatedMoviesRouter: TopRatedMoviesRouterInterface {
 
-    func showMovieDetails(id: Int) {
-        
+    func showMovieDetails(_ movie: MovieDetail) {
+        let vc = MovieDetailsModule().build(movie: movie)
+        viewController?.show(vc, sender: nil)
     }
 }

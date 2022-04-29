@@ -19,14 +19,13 @@ final class MovieDetailsView: BottomSheetContainerViewController
 		super.viewDidLoad()
         
 		self.applyTheme()
-		self.presenter.viewDidLoad()
 	}
 	
 	
 	// MARK: - Theme
 	
 	func applyTheme() {
-		
+        view.backgroundColor = .systemBackground
 	}
 	
 	//MARK: - Private functions

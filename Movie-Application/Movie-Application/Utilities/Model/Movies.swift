@@ -35,7 +35,7 @@ struct MovieDetail: Codable {
     let id: Int
     let genres: [Genres]
     let overview: String?
-    let popularity: Double
+    let voteAverage: Double
     let releaseDate: String
     let reviewsCount: Int
     
@@ -43,6 +43,7 @@ struct MovieDetail: Codable {
         case poster = "poster_path"
         case releaseDate = "release_date"
         case reviewsCount = "vote_count"
-        case title, id, genres, overview, popularity
+        case voteAverage = "vote_average"
+        case title, id, genres, overview
     }
 }

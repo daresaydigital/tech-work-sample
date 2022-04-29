@@ -65,9 +65,17 @@ extension TopRatedMoviesPresenter: TopRatedMoviesPresenterViewInterface {
         movies?[index].title ?? ""
     }
     
-    func showMovieDetails(_ index: Int) {
+    func movieSelected(at index: Int) {
         if let movies = movies {
-            router.showMovieDetails(id: movies[index].id)
+            interactor.getMovieDetails(id: movies[index].id) { [weak self] result in
+                switch result {
+                case .success(let movie):
+                    self?.router.showMovieDetails(movie)
+                    
+                case .failure(let error):
+                    self?.view.showError(with: error)
+                }
+            }
         }
         
     }

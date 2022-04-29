@@ -21,7 +21,7 @@ final class MovieDetailsModule: ModuleInterface {
         let movieDetailsInfoViewController = MovieDetailsInfoViewController()
         movieDetailsInfoViewController.movie = movie
         
-        let view = View(contentViewController: movieInfoContentView , bottomSheetViewController: movieDetailsInfoViewController, bottomSheetConfiguration: .init(height: UIScreen.main.bounds.height * 0.8, initialOffset: 300))
+        let view = View(contentViewController: movieInfoContentView , bottomSheetViewController: movieDetailsInfoViewController, bottomSheetConfiguration: .init(height: UIScreen.main.bounds.height*0.8, initialOffset: UIScreen.main.bounds.height / 2.2))
         
         let navigation = UINavigationController(rootViewController: view)
         

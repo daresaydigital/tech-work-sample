@@ -58,7 +58,7 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
             let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
                 
                 let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                    self.presenter.showMovieDetails(index)
+                    self.presenter.movieSelected(at: index)
                 }
                 
                 let addToWatchList = UIAction(title: "Add to Watchlist", image: UIImage(systemName: "bookmark"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
@@ -74,7 +74,7 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
             let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
                 
                 let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                    self.presenter.showMovieDetails(index)
+                    self.presenter.movieSelected(at: index)
                 }
                 
                 let addToWatchList = UIAction(title: "Added to Watchlist", image: UIImage(systemName: "bookmark.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
@@ -180,6 +180,6 @@ extension TopRatedMoviesView: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.showMovieDetails(indexPath.row)
+        presenter.movieSelected(at: indexPath.row)
     }
 }
