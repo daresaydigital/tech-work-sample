@@ -47,12 +47,6 @@ extension TopRatedMoviesPresenter: TopRatedMoviesPresenterViewInterface {
         getTopRatedMovies()
     }
     
-    var topRatedMovies: [Movie] {
-        get {
-            return movies ?? []
-        }
-    }
-    
     // function to get movie image from url that we have
     func getMovieImage(index: Int, completion: @escaping (UIImage) -> ()) {
         
@@ -78,14 +72,11 @@ extension TopRatedMoviesPresenter: TopRatedMoviesPresenterViewInterface {
         
     }
     
-    func addToWatchList(_ index: Int) {
+    func addToWatchList(index: Int, imageData: Data) {
         if let movies = movies {
-            CoreDataManager().saveNewMovie(movies[index])
+            let savedMovie = CoreDataMovie(title: movies[index].title, poster: imageData, id: movies[index].id)
+            CoreDataManager().saveNewMovie(savedMovie)
         }
-    }
-    
-    var numberOfMovies: Int {
-        return movies?.count ?? 0
     }
     
     func getTopRatedMovies() {
@@ -111,6 +102,16 @@ extension TopRatedMoviesPresenter: TopRatedMoviesPresenterViewInterface {
             }
         }
         
+    }
+    
+    var numberOfMovies: Int {
+        return movies?.count ?? 0
+    }
+    
+    var topRatedMovies: [Movie] {
+        get {
+            return movies ?? []
+        }
     }
 
 }

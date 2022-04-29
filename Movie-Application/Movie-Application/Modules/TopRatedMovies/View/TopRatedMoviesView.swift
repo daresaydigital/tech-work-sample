@@ -52,7 +52,8 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
     }
     
     // function to configure contextMenu for each collectionView cell
-    private func configureContextMenu(_ index: Int) -> UIContextMenuConfiguration {
+    private func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
+        
         
         let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
@@ -61,7 +62,7 @@ final class TopRatedMoviesView: UIViewController, ViewInterface {
             }
             
             let addToWatchList = UIAction(title: "Add to Watchlist", image: UIImage(systemName: "bookmark"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                self.presenter.addToWatchList(index)
+                self.presenter.addToWatchList(index: index, imageData: imageData)
             }
             
             return UIMenu(title: self.presenter.getMovieTitle(index: index), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [addToWatchList, viewDetails])
@@ -95,7 +96,10 @@ extension TopRatedMoviesView: TopRatedMoviesViewInterface {
     }
     
     func scrollToTop() {
-        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        // checks if collection view has cells then scroll to top
+        if collectionView?.numberOfItems(inSection: 0) ?? 0 > 0 {
+            collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
 
@@ -134,7 +138,13 @@ extension TopRatedMoviesView: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        configureContextMenu(indexPath.row)
+        let cellNumber = NSNumber(value: indexPath.item)
+        
+        if let cachedImage = self.movieImagesCache.object(forKey: cellNumber) {
+            return configureContextMenu(index: indexPath.row, imageData: cachedImage.jpegData(compressionQuality: 1.0) ?? Data())
+        }
+        
+        return configureContextMenu(index: indexPath.row, imageData: Data())
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

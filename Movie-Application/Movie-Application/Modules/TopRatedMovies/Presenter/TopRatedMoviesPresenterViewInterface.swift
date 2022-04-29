@@ -14,7 +14,7 @@ protocol TopRatedMoviesPresenterViewInterface: PresenterViewInterface {
     func getMovieImage(index: Int, completion: @escaping (UIImage) -> ())
     func getMovieTitle(index: Int) -> String
     func showMovieDetails(_ index: Int)
-    func addToWatchList(_ index: Int)
+    func addToWatchList(index: Int, imageData: Data)
     func getTopRatedMovies()
     
     var topRatedMovies: [Movie] { get }

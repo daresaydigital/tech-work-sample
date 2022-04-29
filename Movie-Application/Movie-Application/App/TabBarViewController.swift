@@ -15,7 +15,7 @@ class TabBarViewContorller: UITabBarController {
     var favoriteMoviesViewController: UIViewController!
     
     let topRatedIcon = UIImage(systemName: "list.number")
-    let favoriteIcon = UIImage(systemName: "star")
+    let favoriteIcon = UIImage(systemName: "bookmark")
     let popularIcon  = UIImage(systemName: "flame")
     
     
@@ -57,8 +57,8 @@ class TabBarViewContorller: UITabBarController {
     }
     
     func setupFavoriteMoviesViewController() -> UIViewController {
-        let favoriteViewController = WatchListMoviesModule().build()
-        favoriteViewController.tabBarItem = UITabBarItem(title: "WatchList", image: favoriteIcon, selectedImage: UIImage(systemName: "star.fill"))
+        let favoriteViewController = WatchlistMoviesModule().build()
+        favoriteViewController.tabBarItem = UITabBarItem(title: "WatchList", image: favoriteIcon, selectedImage: UIImage(systemName: "bookmark.fill"))
         return favoriteViewController
     }
     

@@ -21,3 +21,9 @@ struct Movie: Codable {
         case title, id
     }
 }
+
+struct CoreDataMovie {
+    let title: String
+    let poster: Data
+    let id: Int
+}

@@ -11,9 +11,7 @@ import UIKit
 
 class CoreDataManager: CoreDataManagerProtocol {
     
-    var watchListMovies: [NSManagedObject] = []
-    
-    func saveNewMovie(_ movie: Movie) {
+    func saveNewMovie(_ movie: CoreDataMovie) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -22,23 +20,23 @@ class CoreDataManager: CoreDataManagerProtocol {
         
         let favoriteMovie = NSManagedObject(entity: entity, insertInto: managedContext)
         
-        favoriteMovie.setValue(movie.title, forKeyPath: "title")
+        favoriteMovie.setValue(movie.title, forKey: "title")
         favoriteMovie.setValue(movie.poster, forKey: "poster")
         favoriteMovie.setValue(movie.id, forKey: "id")
         
         do {
             try managedContext.save()
-            watchListMovies.append(favoriteMovie)
+//            watchListMovies.append(favoriteMovie)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
     
-    func getSavedMovies() -> [Movie] {
+    func getSavedMovies() -> [CoreDataMovie] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return []
         }
-        var movies = [Movie]()
+        var movies = [CoreDataMovie]()
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
@@ -46,7 +44,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         do {
             let objects = try managedContext.fetch(fetchRequest)
             for object in objects {
-                movies.append(Movie(title: object.value(forKey: "title") as! String, poster: object.value(forKey: "poster") as? String, id: object.value(forKey: "id") as! Int))
+                movies.append(CoreDataMovie(title: object.value(forKey: "title") as! String, poster: object.value(forKey: "poster") as! Data, id: object.value(forKey: "id") as! Int))
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
@@ -54,26 +52,68 @@ class CoreDataManager: CoreDataManagerProtocol {
         return movies
     }
     
-    func deleteMovie(_ movie: Movie) {
+    func saveMovies(movies: [CoreDataMovie]) {
+        deleteMovies()
+        for movie in movies {
+            saveNewMovie(movie)
+        }
+    }
+    
+    private func deleteMovies() {
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else { return }
-        
-        let managedContext =
+        let context =
         appDelegate.persistentContainer.viewContext
-        let entity =
-        NSEntityDescription.entity(forEntityName: "FavoriteMovie", in: managedContext)!
-        let deletedMovie = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        deletedMovie.setValue(movie.title, forKeyPath: "title")
-        deletedMovie.setValue(movie.poster, forKey: "poster")
-        deletedMovie.setValue(movie.id, forKey: "id")
-        managedContext.delete(deletedMovie)
-        
+//        var objects = [NSManagedObject]()
+//
+//        for movie in movies {
+//            let object = NSManagedObject()
+//            object.setValue(movie.title, forKey: "title")
+//            object.setValue(movie.poster, forKey: "poster")
+//            object.setValue(movie.id, forKey: "id")
+//            objects.append(object)
+//        }
+//
+//        for object in objects {
+//            context.delete(object)
+//        }
+//
+//        do {
+//            try context.save()
+//        } catch let error {
+//            print("could not delete items \(error.localizedDescription)")
+//        }
+//
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult>
+        fetchRequest = NSFetchRequest(entityName: "FavoriteMovie")
+
+        // Create a batch delete request for the
+        // fetch request
+        let deleteRequest = NSBatchDeleteRequest(
+            fetchRequest: fetchRequest
+        )
+        deleteRequest.resultType = .resultTypeObjectIDs
+
         do {
-            try managedContext.save()
+            let batchDelete = try context.execute(deleteRequest)
+                as? NSBatchDeleteResult
+
+            guard let deleteResult = batchDelete?.result
+                as? [NSManagedObjectID]
+                else { return }
+            let deletedObjects: [AnyHashable: Any] = [
+                NSDeletedObjectsKey: deleteResult
+            ]
+
+            NSManagedObjectContext.mergeChanges(
+                fromRemoteContextSave: deletedObjects,
+                into: [context]
+            )
+
         } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            print("Could not delete. \(error), \(error.userInfo)")
         }
+        
     }
     
     
