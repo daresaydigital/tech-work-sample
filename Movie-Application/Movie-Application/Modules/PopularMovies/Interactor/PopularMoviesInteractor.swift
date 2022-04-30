@@ -2,7 +2,7 @@
 //  PopularMoviesInteractor.swift
 //  PopularMovies
 //
-//  Created by mohannazakizadeh on 4/23/22.
+//  Created by Mohanna Zakizadeh on 4/23/22.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ final class PopularMoviesInteractor: InteractorInterface {
 }
 
 extension PopularMoviesInteractor: PopularMoviesInteractorInterface {
-    func getPopularMovies(page: Int, completionHandler: @escaping(Result<Movies, RequestError>) -> Void) {
+    func getPopularMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler) {
         MoviesService.shared.getPopularMovies(page: page) { result in
             completionHandler(result)
         }
@@ -32,6 +32,12 @@ extension PopularMoviesInteractor: PopularMoviesInteractorInterface {
             }
         }
         
+    }
+    
+    func getMovieDetails(id: Int, completionHandler: @escaping MovieDetailsCompletionHandler) {
+        MoviesService.shared.getMovieDetails(id: id) { result in
+            completionHandler(result)
+        }
     }
     
 }

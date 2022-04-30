@@ -61,7 +61,7 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
             let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
                 
                 let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                    self.presenter.showMovieDetails(index)
+                    self.presenter.movieSelected(at: index)
                 }
                 let remove = UIAction(title: "Remove from Watchlist", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
                     self.presenter.deletefromWatchList(index)
@@ -90,6 +90,15 @@ extension WatchlistMoviesView: WatchlistMoviesViewInterface {
         if collectionView?.numberOfItems(inSection: 0) ?? 0 > 0 {
             collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
+    }
+    
+    func showError(with error: RequestError, index: Int) {
+        let errorAlert = UIAlertController(title: "Error Occured", message: error.errorDescription, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Retry", style: .default) { [weak self] action in
+            self?.presenter.alertRetryButtonDidTap(index)
+        }
+        errorAlert.addAction(alertAction)
+        self.present(errorAlert, animated: true, completion: nil)
     }
 }
 
@@ -131,6 +140,6 @@ extension WatchlistMoviesView: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        presenter.showMovieDetails(indexPath.row)
+        presenter.movieSelected(at: indexPath.row)
     }
 }

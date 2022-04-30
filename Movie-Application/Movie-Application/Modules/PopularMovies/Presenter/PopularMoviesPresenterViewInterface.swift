@@ -13,7 +13,7 @@ protocol PopularMoviesPresenterViewInterface: PresenterViewInterface {
     func alertRetryButtonDidTap()
     func getMovieImage(index: Int, completion: @escaping (UIImage) -> ())
     func getMovieTitle(index: Int) -> String
-    func showMovieDetails(_ index: Int)
+    func movieSelected(at index: Int)
     func addToWatchList(index: Int, imageData: Data)
     func getPopularMovies()
     func getSavedMovies() -> [CoreDataMovie]

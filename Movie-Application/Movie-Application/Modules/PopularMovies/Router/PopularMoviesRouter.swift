@@ -16,8 +16,9 @@ final class PopularMoviesRouter: RouterInterface {
 
 extension PopularMoviesRouter: PopularMoviesRouterInterface {
 
-    func showMovieDetails(id: Int) {
-        
+    func showMovieDetails(_ movie: MovieDetail) {
+        let vc = MovieDetailsModule().build(movie: movie)
+        viewController?.show(vc, sender: nil)
     }
     
 }

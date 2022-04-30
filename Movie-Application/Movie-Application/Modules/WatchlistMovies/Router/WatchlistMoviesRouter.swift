@@ -15,7 +15,9 @@ final class WatchlistMoviesRouter: RouterInterface {
 }
 
 extension WatchlistMoviesRouter: WatchlistMoviesRouterInterface {
-    func showMovieDetails(id: Int) {
-        
+    
+    func showMovieDetails(_ movie: MovieDetail) {
+        let vc = MovieDetailsModule().build(movie: movie)
+        viewController?.show(vc, sender: nil)
     }
 }

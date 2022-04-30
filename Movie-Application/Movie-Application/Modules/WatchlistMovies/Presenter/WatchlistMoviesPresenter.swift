@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 final class WatchlistMoviesPresenter: PresenterInterface {
-
+    
     var router: WatchlistMoviesRouterInterface!
     var interactor: WatchlistMoviesInteractorInterface!
     weak var view: WatchlistMoviesViewInterface!
     
     private var movies: [CoreDataMovie]?
     private var deletedMovies = [CoreDataMovie]()
-
+    
     init() {
         // in order to scroll top top when user tapped te tab bar again
         NotificationCenter.default.addObserver(forName: TabBarViewContorller.tabBarDidTapNotification, object: nil, queue: nil) { notification in
@@ -25,23 +25,23 @@ final class WatchlistMoviesPresenter: PresenterInterface {
     }
     
     
-
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
+    
 }
 
 extension WatchlistMoviesPresenter: WatchlistMoviesPresenterRouterInterface {
-
+    
 }
 
 extension WatchlistMoviesPresenter: WatchlistMoviesPresenterInteractorInterface {
-
+    
 }
 
 extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
-
+    
     func viewDidLoad() {
         getWatchlistMovies()
     }
@@ -57,7 +57,7 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
         if let movies = movies {
             return UIImage(data: movies[index].poster) ??  UIImage(systemName: "film.circle")!
         }
-         else {
+        else {
             return UIImage(systemName: "film.circle")!
         }
         
@@ -67,11 +67,21 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
         movies?[index].title ?? ""
     }
     
-    func showMovieDetails(_ index: Int) {
+    func movieSelected(at index: Int) {
         if let movies = movies {
-            router.showMovieDetails(id: movies[index].id)
+            interactor.getMovieDetails(id: movies[index].id) { [weak self] result in
+                switch result {
+                case .success(let movie):
+                    self?.router.showMovieDetails(movie)
+                    
+                case .failure(let error):
+                    self?.view.showError(with: error, index: index)
+                }
+            }
         }
+        
     }
+    
     
     func deletefromWatchList(_ index: Int) {
         self.movies?.remove(at: index)
@@ -80,6 +90,21 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
     
     func deleteMovies() {
         CoreDataManager().saveMovies(movies: movies ?? [])
+    }
+    
+    func alertRetryButtonDidTap(_ index: Int) {
+        if let movies = movies {
+            interactor.getMovieDetails(id: movies[index].id) { [weak self] result in
+                switch result {
+                case .success(let movie):
+                    self?.router.showMovieDetails(movie)
+                    
+                case .failure(let error):
+                    self?.view.showError(with: error, index: index)
+                }
+                
+            }
+        }
     }
     
     var numberOfMovies: Int {
@@ -91,5 +116,5 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
             return movies ?? []
         }
     }
-
+    
 }

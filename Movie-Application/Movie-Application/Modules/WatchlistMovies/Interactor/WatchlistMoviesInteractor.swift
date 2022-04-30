@@ -15,4 +15,10 @@ final class WatchlistMoviesInteractor: InteractorInterface {
 
 extension WatchlistMoviesInteractor: WatchlistMoviesInteractorInterface {
 
+    func getMovieDetails(id: Int, completionHandler: @escaping MovieDetailsCompletionHandler) {
+        MoviesService.shared.getMovieDetails(id: id) { result in
+            completionHandler(result)
+        }
+    }
+    
 }
