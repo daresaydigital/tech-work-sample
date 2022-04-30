@@ -58,7 +58,7 @@ final class MovieInfoContentView: UIViewController, ViewInterface {
         let button = UIButton()
         button.addTarget(self, action: #selector(addToWatchListTapped), for: .touchUpInside)
         button.setBackgroundImage(UIImage(systemName: "bookmark.circle"), for: .normal)
-        button.layer.cornerRadius = 25
+        button.layer.cornerRadius = 20
         return button
     }
     
@@ -79,8 +79,8 @@ final class MovieInfoContentView: UIViewController, ViewInterface {
             
             addToWatchListButton.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -15),
             addToWatchListButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: -15),
-            addToWatchListButton.heightAnchor.constraint(equalToConstant: 50),
-            addToWatchListButton.widthAnchor.constraint(equalToConstant: 50)
+            addToWatchListButton.heightAnchor.constraint(equalToConstant: 40),
+            addToWatchListButton.widthAnchor.constraint(equalToConstant: 40)
         ])
     }
     

@@ -37,6 +37,8 @@ final class MovieDetailsInfoViewController: UIViewController {
     var overViewStackView: UIStackView!
     
     var totalStackView: UIStackView!
+    var scrollView: UIScrollView!
+    
     var movie: MovieDetail!
     
     // MARK: - Initialize
@@ -76,7 +78,10 @@ final class MovieDetailsInfoViewController: UIViewController {
         
         totalStackView = setupStackView(with: [movieTitleStackView, movieInfoStackView, overViewStackView], spacing: 32, axis: .vertical)
         
-        setTotalStackView(in: self.view)
+        scrollView = setupScrollView()
+        setTotalStackView(in: scrollView)
+        
+        setScrollView(in: self.view)
         
         self.applyTheme()
     }
@@ -133,6 +138,13 @@ final class MovieDetailsInfoViewController: UIViewController {
         return stackView
     }
     
+    private func setupScrollView() -> UIScrollView {
+        let scrollView = UIScrollView()
+        scrollView.contentSize.width = scrollView.frame.size.width
+        scrollView.frame = self.view.bounds
+        return scrollView
+    }
+    
     private func setTotalStackView(in view: UIView? = nil) {
         if let view = view {
             view.addSubview(totalStackView)
@@ -141,20 +153,35 @@ final class MovieDetailsInfoViewController: UIViewController {
             totalStackView.layer.cornerRadius = 14
             
             NSLayoutConstraint.activate([
-                totalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
-                totalStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
-                totalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-                totalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+                totalStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                totalStackView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                totalStackView.widthAnchor.constraint(equalTo: view.widthAnchor),
                 
                 movieInfoStackView.heightAnchor.constraint(equalToConstant: 85),
-                movieInfoStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor),
-                movieInfoStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor),
+                movieInfoStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor, constant: 16),
+                movieInfoStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor, constant: -16),
                 
-                movieTitleStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor),
-                movieTitleStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor),
+                movieTitleStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor, constant: 16),
+                movieTitleStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor, constant: -16),
                 
-                overViewStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor),
-                overViewStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor)
+                overViewStackView.leadingAnchor.constraint(equalTo: totalStackView.leadingAnchor, constant: 16),
+                overViewStackView.trailingAnchor.constraint(equalTo: totalStackView.trailingAnchor, constant: -16)
+            ])
+        }
+    }
+    
+    private func setScrollView(in view: UIView? = nil) {
+        if let view = view {
+            view.addSubview(scrollView)
+            
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32),
+                scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+                scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                scrollView.widthAnchor.constraint(equalTo: view.widthAnchor)
             ])
         }
     }
