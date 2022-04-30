@@ -14,6 +14,12 @@ class CoreDataManager: CoreDataManagerProtocol {
     func saveNewMovie(_ movie: CoreDataMovie) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
+        // prevents core data from saving repititious data
+        let savedMovies = getSavedMovies()
+        if savedMovies.contains(where: {$0.id == movie.id}) {
+            return
+        }
+        
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteMovie", in: managedContext)!
@@ -26,7 +32,6 @@ class CoreDataManager: CoreDataManagerProtocol {
         
         do {
             try managedContext.save()
-//            watchListMovies.append(favoriteMovie)
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
@@ -64,26 +69,6 @@ class CoreDataManager: CoreDataManagerProtocol {
                 UIApplication.shared.delegate as? AppDelegate else { return }
         let context =
         appDelegate.persistentContainer.viewContext
-//        var objects = [NSManagedObject]()
-//
-//        for movie in movies {
-//            let object = NSManagedObject()
-//            object.setValue(movie.title, forKey: "title")
-//            object.setValue(movie.poster, forKey: "poster")
-//            object.setValue(movie.id, forKey: "id")
-//            objects.append(object)
-//        }
-//
-//        for object in objects {
-//            context.delete(object)
-//        }
-//
-//        do {
-//            try context.save()
-//        } catch let error {
-//            print("could not delete items \(error.localizedDescription)")
-//        }
-//
         let fetchRequest: NSFetchRequest<NSFetchRequestResult>
         fetchRequest = NSFetchRequest(entityName: "FavoriteMovie")
 
