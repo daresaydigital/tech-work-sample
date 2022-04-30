@@ -104,7 +104,7 @@ extension PopularMoviesPresenter: PopularMoviesPresenterViewInterface {
     
     func addToWatchList(index: Int, imageData: Data) {
         if let movies = movies {
-            let savedMovie = CoreDataMovie(title: movies[index].title, poster: imageData, id: movies[index].id)
+            let savedMovie = CoreDataMovie(title: movies[index].title, poster: imageData, id: movies[index].id, date: Date.now, voteAverage: movies[index].voteAverage)
             CoreDataManager().saveNewMovie(savedMovie)
         }
     }

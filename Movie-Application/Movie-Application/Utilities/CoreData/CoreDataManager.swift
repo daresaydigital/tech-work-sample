@@ -29,6 +29,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         favoriteMovie.setValue(movie.title, forKey: "title")
         favoriteMovie.setValue(movie.poster, forKey: "poster")
         favoriteMovie.setValue(movie.id, forKey: "id")
+        favoriteMovie.setValue(movie.voteAverage, forKey: "voteAverage")
         
         do {
             try managedContext.save()
@@ -49,7 +50,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         do {
             let objects = try managedContext.fetch(fetchRequest)
             for object in objects {
-                movies.append(CoreDataMovie(title: object.value(forKey: "title") as! String, poster: object.value(forKey: "poster") as! Data, id: object.value(forKey: "id") as! Int))
+                movies.append(CoreDataMovie(title: object.value(forKey: "title") as! String, poster: object.value(forKey: "poster") as! Data, id: object.value(forKey: "id") as! Int, date: Date.now, voteAverage: object.value(forKey: "voteAverage") as! Double))
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")

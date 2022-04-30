@@ -17,6 +17,9 @@ protocol WatchlistMoviesPresenterViewInterface: PresenterViewInterface {
     func getWatchlistMovies()
     func deleteMovies()
     func alertRetryButtonDidTap(_ index: Int)
+    func sortByDate()
+    func sortByName()
+    func sortByUserScore()
     
     var watchlistMovies: [CoreDataMovie] { get }
     var numberOfMovies: Int { get }

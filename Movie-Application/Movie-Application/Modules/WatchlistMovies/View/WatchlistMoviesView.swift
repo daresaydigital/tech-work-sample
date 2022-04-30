@@ -47,6 +47,22 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
     private func configureNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Watchlist"
+        
+        let dateAddedAction = UIAction(title: "Date Added", image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { action in
+            self.presenter.sortByDate()
+        }
+        
+        let nameSortAction = UIAction(title: "Name", image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { action in
+            self.presenter.sortByName()
+        }
+        
+        let userScoreSortAction = UIAction(title: "User Score", image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { action in
+            self.presenter.sortByUserScore()
+        }
+        
+        let sortMenu = UIMenu(title: "", image: nil, identifier: nil, options: .singleSelection, children: [dateAddedAction, nameSortAction, userScoreSortAction])
+    
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", image: nil, primaryAction: nil, menu: sortMenu)
     }
     
     // function to setup and configure collectionView details

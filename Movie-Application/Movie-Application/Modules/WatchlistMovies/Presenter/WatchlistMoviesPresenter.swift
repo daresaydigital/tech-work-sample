@@ -107,6 +107,21 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
         }
     }
     
+    func sortByDate() {
+        movies = movies?.sorted(by: { $0.date > $1.date })
+        view.reloadCollectionView()
+    }
+    
+    func sortByName() {
+        movies = movies?.sorted(by: { $0.title > $1.title })
+        view.reloadCollectionView()
+    }
+    
+    func sortByUserScore() {
+        movies = movies?.sorted(by: { $0.voteAverage > $1.voteAverage })
+        view.reloadCollectionView()
+    }
+    
     var numberOfMovies: Int {
         return movies?.count ?? 0
     }
