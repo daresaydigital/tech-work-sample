@@ -48,6 +48,8 @@
 		1BD032D1281C5A8B00139C3B /* MovieInfoContentInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD032C4281C5A8B00139C3B /* MovieInfoContentInteractorInterface.swift */; };
 		1BD032D2281C5A8B00139C3B /* MovieInfoContentRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD032C6281C5A8B00139C3B /* MovieInfoContentRouterInterface.swift */; };
 		1BD032D3281C5A8B00139C3B /* MovieInfoContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD032C7281C5A8B00139C3B /* MovieInfoContentRouter.swift */; };
+		1BD0330E281F0AB700139C3B /* TestTopRatedMoviesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0330D281F0AB700139C3B /* TestTopRatedMoviesPresenter.swift */; };
+		1BD03310281F14ED00139C3B /* TestTopRatedMoviesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD0330F281F14ED00139C3B /* TestTopRatedMoviesInteractor.swift */; };
 		1BD16F17281AF731003E87B5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD16F16281AF731003E87B5 /* Extensions.swift */; };
 		1BD16F19281AFA81003E87B5 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD16F18281AFA81003E87B5 /* ImageCache.swift */; };
 		1BD16F1F281AFB7C003E87B5 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD16F1D281AFB7C003E87B5 /* MovieCell.swift */; };
@@ -162,6 +164,8 @@
 		1BD032C4281C5A8B00139C3B /* MovieInfoContentInteractorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoContentInteractorInterface.swift; sourceTree = "<group>"; };
 		1BD032C6281C5A8B00139C3B /* MovieInfoContentRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoContentRouterInterface.swift; sourceTree = "<group>"; };
 		1BD032C7281C5A8B00139C3B /* MovieInfoContentRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfoContentRouter.swift; sourceTree = "<group>"; };
+		1BD0330D281F0AB700139C3B /* TestTopRatedMoviesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTopRatedMoviesPresenter.swift; sourceTree = "<group>"; };
+		1BD0330F281F14ED00139C3B /* TestTopRatedMoviesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTopRatedMoviesInteractor.swift; sourceTree = "<group>"; };
 		1BD16F16281AF731003E87B5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1BD16F18281AFA81003E87B5 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		1BD16F1D281AFB7C003E87B5 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -338,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				1B8C5EE028182A970013909D /* TestTopRatedMoviesView.swift */,
+				1BD0330D281F0AB700139C3B /* TestTopRatedMoviesPresenter.swift */,
+				1BD0330F281F14ED00139C3B /* TestTopRatedMoviesInteractor.swift */,
 			);
 			path = TopRatedMoviesTests;
 			sourceTree = "<group>";
@@ -585,10 +591,10 @@
 		1BE985C22813F2350001DCAB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				1BD0328A281C10EF00139C3B /* MovieDetails */,
-				1BE985C32813F2430001DCAB /* TopRatedMovies */,
 				1BE9862728140D150001DCAB /* PopularMovies */,
+				1BE985C32813F2430001DCAB /* TopRatedMovies */,
 				1BD16F65281B5D99003E87B5 /* WatchlistMovies */,
+				1BD0328A281C10EF00139C3B /* MovieDetails */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -968,7 +974,9 @@
 			files = (
 				1BE986522815D5CF0001DCAB /* TestTabBarViewController.swift in Sources */,
 				1B8C5EE128182A980013909D /* TestTopRatedMoviesView.swift in Sources */,
+				1BD0330E281F0AB700139C3B /* TestTopRatedMoviesPresenter.swift in Sources */,
 				1BE985AA2813F0A30001DCAB /* Movie_ApplicationTests.swift in Sources */,
+				1BD03310281F14ED00139C3B /* TestTopRatedMoviesInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

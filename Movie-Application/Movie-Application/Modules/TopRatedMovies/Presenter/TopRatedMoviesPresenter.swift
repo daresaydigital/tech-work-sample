@@ -2,7 +2,7 @@
 //  TopRatedMoviesPresenter.swift
 //  TopRatedMovies
 //
-//  Created by mohannazakizadeh on 4/23/22.
+//  Created by Mohanna Zakizadeh on 4/23/22.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ final class TopRatedMoviesPresenter: PresenterInterface {
     var interactor: TopRatedMoviesInteractorInterface!
     weak var view: TopRatedMoviesViewInterface!
     
-    private var movies: [Movie]?
+    var movies: [Movie]?
     private var currentPage = 1
     
     init() {
