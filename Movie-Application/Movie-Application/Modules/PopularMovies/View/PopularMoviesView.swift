@@ -52,7 +52,7 @@ final class PopularMoviesView: UIViewController, ViewInterface {
     }
     
     // function to configure contextMenu for each collectionView cell
-    private func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
+    func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
         // prevents from adding repititious movies to watch list
         if !presenter.getSavedMovies().contains(where: {$0.title == presenter.getMovieTitle(index: index)}){
             let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
@@ -89,7 +89,7 @@ final class PopularMoviesView: UIViewController, ViewInterface {
     }
 
     
-    private func configurePagination(_ cellRow: Int) {
+    func configurePagination(_ cellRow: Int) {
         if cellRow == presenter.numberOfMovies - 1 {
             presenter.getPopularMovies()
         }

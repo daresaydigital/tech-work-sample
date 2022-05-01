@@ -1,19 +1,19 @@
 //
-//  TestTopRatedMoviesPresenter.swift
+//  TestPopularMoviesPresenter.swift
 //  Movie-ApplicationTests
 //
-//  Created by Mohanna Zakizadeh on 5/1/22.
+//  Created by Mohanna Zakizadeh on 5/2/22.
 //
 
 import XCTest
 @testable import Movie_Application
 
-class TestTopRatedMoviesPresenter: XCTestCase {
+class TestPopularMoviesPresenter: XCTestCase {
     
-    var presenter: TopRatedMoviesPresenter!
+    var presenter: PopularMoviesPresenter!
     
     var notificationCallsViewScrollToTopExpectation: XCTestExpectation?
-    var getTopRatedMoviesCallsInteractorGetTopMoviesExpectation: XCTestExpectation?
+    var getPopularMoviesCallsInteractorGetTopMoviesExpectation: XCTestExpectation?
     var getMovieImageCallsInteractorGetMovieImageExpectation: XCTestExpectation?
     var presenterMovieSelectedCallsInteractorGetMoviesDetails: XCTestExpectation?
 
@@ -41,9 +41,9 @@ class TestTopRatedMoviesPresenter: XCTestCase {
     }
     
     func testGetTopRatedMoviesCallsInteractorGetTopMovies() throws {
-        getTopRatedMoviesCallsInteractorGetTopMoviesExpectation = expectation(description: "expect interactor getTopRatedMovies to fullfill this expectation")
-        presenter.getTopRatedMovies()
-        wait(for: [getTopRatedMoviesCallsInteractorGetTopMoviesExpectation!], timeout: 1)
+        getPopularMoviesCallsInteractorGetTopMoviesExpectation = expectation(description: "expect interactor getTopRatedMovies to fullfill this expectation")
+        presenter.getPopularMovies()
+        wait(for: [getPopularMoviesCallsInteractorGetTopMoviesExpectation!], timeout: 1)
     }
     
     func testGetMovieImageCallsInteractorGetMovieImage() throws {
@@ -73,12 +73,12 @@ class TestTopRatedMoviesPresenter: XCTestCase {
     }
     
     func testPresenterHasTopRatedMovies() throws {
-        XCTAssert(type(of: presenter.topRatedMovies) == [Movie].self)
+        XCTAssert(type(of: presenter.popularMovies) == [Movie].self)
     }
 
 }
 
-extension TestTopRatedMoviesPresenter: TopRatedMoviesViewInterface {
+extension TestPopularMoviesPresenter: PopularMoviesViewInterface {
     func showError(with error: RequestError) {
         
     }
@@ -96,10 +96,10 @@ extension TestTopRatedMoviesPresenter: TopRatedMoviesViewInterface {
     
 }
 
-extension TestTopRatedMoviesPresenter: TopRatedMoviesInteractorInterface {
-    func getTopRatedMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler) {
+extension TestPopularMoviesPresenter: PopularMoviesInteractorInterface {
+    func getPopularMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler) {
         DispatchQueue.main.async {
-            self.getTopRatedMoviesCallsInteractorGetTopMoviesExpectation?.fulfill()
+            self.getPopularMoviesCallsInteractorGetTopMoviesExpectation?.fulfill()
         }
     }
     
@@ -118,8 +118,10 @@ extension TestTopRatedMoviesPresenter: TopRatedMoviesInteractorInterface {
     
 }
 
-extension TestTopRatedMoviesPresenter: TopRatedMoviesRouterInterface {
+extension TestPopularMoviesPresenter: PopularMoviesRouterInterface {
     func showMovieDetails(_ movie: MovieDetail) {
         
     }
+    
+    
 }

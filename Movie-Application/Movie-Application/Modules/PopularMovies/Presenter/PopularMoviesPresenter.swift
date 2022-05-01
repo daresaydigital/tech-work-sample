@@ -2,7 +2,7 @@
 //  PopularMoviesPresenter.swift
 //  PopularMovies
 //
-//  Created by mohannazakizadeh on 4/23/22.
+//  Created by Mohanna Zakizadeh on 4/23/22.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ final class PopularMoviesPresenter: PresenterInterface {
     var interactor: PopularMoviesInteractorInterface!
     weak var view: PopularMoviesViewInterface!
     
-    private var movies: [Movie]?
+    var movies: [Movie]?
     private var currentPage = 1
     
     init() {
