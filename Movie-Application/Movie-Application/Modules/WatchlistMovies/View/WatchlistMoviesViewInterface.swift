@@ -11,4 +11,5 @@ protocol WatchlistMoviesViewInterface: ViewPresenterInterface {
     func reloadCollectionView()
     func scrollToTop()
     func showError(with error: RequestError, index: Int)
+    func setWatchlistEmptyContainerisHidden(to isHidden: Bool)
 }

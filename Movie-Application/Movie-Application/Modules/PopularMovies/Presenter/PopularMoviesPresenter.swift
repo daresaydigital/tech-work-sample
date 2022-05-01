@@ -20,7 +20,9 @@ final class PopularMoviesPresenter: PresenterInterface {
     init() {
         // in order to scroll top top when user tapped te tab bar again
         NotificationCenter.default.addObserver(forName: TabBarViewContorller.tabBarDidTapNotification, object: nil, queue: nil) { notification in
-            self.view.scrollToTop()
+            if let view = self.view {
+                view.scrollToTop()
+            }
         }
     }
 

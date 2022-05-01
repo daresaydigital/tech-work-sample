@@ -9,5 +9,6 @@ import UIKit
 
 protocol WatchlistMoviesRouterInterface: RouterPresenterInterface {
     func showMovieDetails(_ movie: MovieDetail)
+    func showPopularMovies()
 }
 

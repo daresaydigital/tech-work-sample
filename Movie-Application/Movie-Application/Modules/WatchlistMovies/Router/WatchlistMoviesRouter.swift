@@ -20,4 +20,9 @@ extension WatchlistMoviesRouter: WatchlistMoviesRouterInterface {
         let vc = MovieDetailsModule().build(movie: movie)
         viewController?.show(vc, sender: nil)
     }
+    
+    // posted notification to switch to popular tab
+    func showPopularMovies() {
+        NotificationCenter.default.post(name: TabBarViewContorller.selectedTabNotification, object: nil, userInfo: ["selectedTab": 0])
+    }
 }

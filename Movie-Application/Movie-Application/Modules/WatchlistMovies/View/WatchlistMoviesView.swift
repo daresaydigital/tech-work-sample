@@ -14,7 +14,8 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
 	// MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
-	// MARK: - Initialize
+    @IBOutlet weak var emptyWatchlistContainerView: UIStackView!
+    // MARK: - Initialize
 
 	
 	// MARK: - Lifecycle
@@ -91,8 +92,11 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
         }
 	
 	// MARK: - Actions
-	
-	
+    
+    @IBAction func browseMoviesDidTap(_ sender: UIButton) {
+        presenter.browseMoviesDidTap()
+    }
+    
 }
 
 extension WatchlistMoviesView: WatchlistMoviesViewInterface {
@@ -115,6 +119,10 @@ extension WatchlistMoviesView: WatchlistMoviesViewInterface {
         }
         errorAlert.addAction(alertAction)
         self.present(errorAlert, animated: true, completion: nil)
+    }
+    
+    func setWatchlistEmptyContainerisHidden(to isHidden: Bool) {
+        emptyWatchlistContainerView.isHidden = isHidden
     }
 }
 

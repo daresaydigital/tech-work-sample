@@ -20,7 +20,9 @@ final class WatchlistMoviesPresenter: PresenterInterface {
     init() {
         // in order to scroll top top when user tapped te tab bar again
         NotificationCenter.default.addObserver(forName: TabBarViewContorller.tabBarDidTapNotification, object: nil, queue: nil) { notification in
-            self.view.scrollToTop()
+            if let view = self.view {
+                view.scrollToTop()
+            }
         }
     }
     
@@ -48,7 +50,14 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
     
     func getWatchlistMovies() {
         movies = CoreDataManager().getSavedMovies()
-        view.reloadCollectionView()
+        if let movies = movies {
+            if movies.isEmpty {
+                view.setWatchlistEmptyContainerisHidden(to: false)
+            } else {
+                view.setWatchlistEmptyContainerisHidden(to: true)
+                view.reloadCollectionView()
+            }
+        }
     }
     
     // function to get movie image from url that we have
@@ -86,10 +95,16 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
     func deletefromWatchList(_ index: Int) {
         self.movies?.remove(at: index)
         view.reloadCollectionView()
+        
+        if movies!.isEmpty {
+            view.setWatchlistEmptyContainerisHidden(to: false)
+        }
     }
     
     func deleteMovies() {
-        CoreDataManager().saveMovies(movies: movies ?? [])
+        if let movies = movies {
+            CoreDataManager().saveMovies(movies: movies)
+        }
     }
     
     func alertRetryButtonDidTap(_ index: Int) {
@@ -120,6 +135,10 @@ extension WatchlistMoviesPresenter: WatchlistMoviesPresenterViewInterface {
     func sortByUserScore() {
         movies = movies?.sorted(by: { $0.voteAverage > $1.voteAverage })
         view.reloadCollectionView()
+    }
+    
+    func browseMoviesDidTap() {
+        router.showPopularMovies()
     }
     
     var numberOfMovies: Int {

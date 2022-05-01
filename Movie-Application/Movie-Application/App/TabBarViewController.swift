@@ -20,6 +20,10 @@ class TabBarViewContorller: UITabBarController {
     
     
     // MARK: - Lifecycle
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +33,15 @@ class TabBarViewContorller: UITabBarController {
         favoriteMoviesViewController = setupFavoriteMoviesViewController()
         
         self.viewControllers = [popularMoviesViewController, topRatedMoviesViewController, favoriteMoviesViewController]
-        
-        self.toolbarItems = []
         self.selectedIndex = 1
+        self.toolbarItems = []
+        
+        // notification observed in order to swiftch between tabs
+        NotificationCenter.default.addObserver(forName: Self.selectedTabNotification, object: nil, queue: nil) { notification in
+            if notification.userInfo?["selectedTab"] as! Int == 0 {
+                self.selectedIndex = 0
+            }
+        }
         
         self.applyTheme()
     }
@@ -70,5 +80,9 @@ class TabBarViewContorller: UITabBarController {
 extension TabBarViewContorller {
     static var tabBarDidTapNotification: NSNotification.Name {
         NSNotification.Name(rawValue: "TabBarViewContorller.tabBarDidTapNotification")
+    }
+    
+    static var selectedTabNotification: NSNotification.Name {
+        NSNotification.Name("TabBarViewContorller.selectedTabNotification")
     }
 }

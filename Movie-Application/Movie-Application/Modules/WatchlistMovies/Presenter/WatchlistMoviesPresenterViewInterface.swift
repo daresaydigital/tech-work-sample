@@ -20,6 +20,7 @@ protocol WatchlistMoviesPresenterViewInterface: PresenterViewInterface {
     func sortByDate()
     func sortByName()
     func sortByUserScore()
+    func browseMoviesDidTap()
     
     var watchlistMovies: [CoreDataMovie] { get }
     var numberOfMovies: Int { get }
