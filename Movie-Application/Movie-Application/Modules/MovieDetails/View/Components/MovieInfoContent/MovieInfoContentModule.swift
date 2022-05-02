@@ -2,7 +2,7 @@
 //  MovieInfoContentModule.swift
 //  MovieInfoContent
 //
-//  Created by mohannazakizadeh on 4/29/22.
+//  Created by Mohanna Zakizadeh on 4/29/22.
 //
 
 import UIKit
@@ -10,12 +10,12 @@ import UIKit
 // MARK: - module builder
 
 final class MovieInfoContentModule: ModuleInterface {
-
+    
     typealias View = MovieInfoContentView
     typealias Presenter = MovieInfoContentPresenter
     typealias Router = MovieInfoContentRouter
     typealias Interactor = MovieInfoContentInteractor
-
+    
     func build(movie: MovieDetail) -> UIViewController {
         let view = View()
         let interactor = Interactor()
@@ -24,9 +24,9 @@ final class MovieInfoContentModule: ModuleInterface {
         view.movie = movie
         
         self.assemble(view: view, presenter: presenter, router: router, interactor: interactor)
-
+        
         router.viewController = view
-
+        
         return view
     }
 }

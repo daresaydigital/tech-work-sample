@@ -28,12 +28,6 @@ final class MovieDetailsView: BottomSheetContainerViewController
         view.backgroundColor = .systemBackground
 	}
 	
-	//MARK: - Private functions
-    
-    
-	// MARK: - Actions
-	
-	
 }
 
 extension MovieDetailsView: MovieDetailsViewInterface {

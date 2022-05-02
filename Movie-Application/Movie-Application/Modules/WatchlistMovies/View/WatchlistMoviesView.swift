@@ -2,24 +2,22 @@
 //  WatchlistMoviesView.swift
 //  WatchlistMovies
 //
-//  Created by mohannazakizadeh on 4/29/22.
+//  Created by Mohanna Zakizadeh on 4/29/22.
 //
 
 import UIKit
 
 final class WatchlistMoviesView: UIViewController, ViewInterface {
-	
-	var presenter: WatchlistMoviesPresenterViewInterface!
-	
-	// MARK: - Properties
+    
+    var presenter: WatchlistMoviesPresenterViewInterface!
+    
+    // MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var emptyWatchlistContainerView: UIStackView!
-    // MARK: - Initialize
-
-	
-	// MARK: - Lifecycle
-	
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigation()
@@ -62,7 +60,7 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
         }
         
         let sortMenu = UIMenu(title: "", image: nil, identifier: nil, options: .singleSelection, children: [dateAddedAction, nameSortAction, userScoreSortAction])
-    
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", image: nil, primaryAction: nil, menu: sortMenu)
     }
     
@@ -73,25 +71,25 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "MovieCell")
     }
     
-    private func configureContextMenu(_ index: Int) -> UIContextMenuConfiguration {
+    func configureContextMenu(_ index: Int) -> UIContextMenuConfiguration {
+        
+        let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
             
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (action) -> UIMenu? in
-                
-                let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                    self.presenter.movieSelected(at: index)
-                }
-                let remove = UIAction(title: "Remove from Watchlist", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
-                    self.presenter.deletefromWatchList(index)
-                }
-                
-                return UIMenu(title: self.presenter.getMovieTitle(index: index), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [viewDetails, remove])
-                
+            let viewDetails = UIAction(title: "View Details", image: UIImage(systemName: "text.below.photo.fill"), identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
+                self.presenter.movieSelected(at: index)
             }
-            return context
+            let remove = UIAction(title: "Remove from Watchlist", image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil,attributes: .destructive, state: .off) { (_) in
+                self.presenter.deletefromWatchList(index)
+            }
+            
+            return UIMenu(title: self.presenter.getMovieTitle(index: index), image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [viewDetails, remove])
             
         }
-	
-	// MARK: - Actions
+        return context
+        
+    }
+    
+    // MARK: - Actions
     
     @IBAction func browseMoviesDidTap(_ sender: UIButton) {
         presenter.browseMoviesDidTap()
@@ -149,16 +147,16 @@ extension WatchlistMoviesView: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let noOfCellsInRow = 2
-
+        
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-
+        
         let totalSpace = flowLayout.sectionInset.left
         + flowLayout.sectionInset.right
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-
+        
         let size = Int((view.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size + 50)
     }

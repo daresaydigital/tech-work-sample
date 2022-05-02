@@ -2,7 +2,7 @@
 //  WatchlistMoviesPresenter.swift
 //  WatchlistMovies
 //
-//  Created by mohannazakizadeh on 4/29/22.
+//  Created by  Mohanna Zakizadeh on 4/29/22.
 //
 
 import Foundation
@@ -14,7 +14,7 @@ final class WatchlistMoviesPresenter: PresenterInterface {
     var interactor: WatchlistMoviesInteractorInterface!
     weak var view: WatchlistMoviesViewInterface!
     
-    private var movies: [CoreDataMovie]?
+    var movies: [CoreDataMovie]?
     private var deletedMovies = [CoreDataMovie]()
     
     init() {

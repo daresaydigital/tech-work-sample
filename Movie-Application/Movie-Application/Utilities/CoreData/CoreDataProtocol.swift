@@ -10,5 +10,5 @@ import Foundation
 protocol CoreDataManagerProtocol {
     func saveNewMovie(_ movie: CoreDataMovie)
     func getSavedMovies() -> [CoreDataMovie]
-    func saveMovies( movies: [CoreDataMovie])
+    func saveMovies(movies: [CoreDataMovie])
 }

@@ -53,7 +53,7 @@ open class BottomSheetContainerViewController<Content: UIViewController, BottomS
                            initialSpringVelocity: 0.5,
                            options: [.curveEaseOut],
                            animations: {
-                            self.view.layoutIfNeeded()
+                self.view.layoutIfNeeded()
             }, completion: { _ in
                 self.state = .initial
             })
@@ -73,14 +73,21 @@ open class BottomSheetContainerViewController<Content: UIViewController, BottomS
         switch sender.state {
         case .began, .changed:
             if self.state == .full {
+                // Assert that the user scrolls down ward. The bottom sheet is already at its full height; no upward scrolling is allowed
                 guard translation.y > 0 else { return }
                 
+                // Change the topConstraint’s constant to match the current position of the user’s finger
                 topConstraint.constant = -(configuration.height - yTranslationMagnitude)
                 
+                // Update the root view to show the constraint’s change
                 self.view.layoutIfNeeded()
+                
             } else {
+                
+                // Calculate the new constant by using the BottomSheetConfiguration’s initialOffset and the translation magnitude
                 let newConstant = -(configuration.initialOffset + yTranslationMagnitude)
                 
+                // down ward scrollin is allowed
                 guard translation.y < 0 else { return }
                 guard newConstant.magnitude < configuration.height else {
                     self.showBottomSheet()
@@ -121,6 +128,10 @@ open class BottomSheetContainerViewController<Content: UIViewController, BottomS
         default: break
         }
     }
+    // MARK: - Tap Gesture Handler
+    @objc func contentViewTapped() {
+        self.hideBottomSheet()
+    }
     
     // MARK: - Configuration
     public struct BottomSheetConfiguration {
@@ -153,6 +164,15 @@ open class BottomSheetContainerViewController<Content: UIViewController, BottomS
         return pan
     }()
     
+    // MARK: - Tap Gesture
+    
+    lazy var tapGesture: UITapGestureRecognizer = {
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(self, action: #selector(contentViewTapped))
+        tap.delegate = self
+        return tap
+    }()
+    
     // MARK: - UI Setup
     private func setupUI() {
         self.addChild(contentViewController)
@@ -161,6 +181,7 @@ open class BottomSheetContainerViewController<Content: UIViewController, BottomS
         self.view.addSubview(contentViewController.view)
         self.view.addSubview(bottomSheetViewController.view)
         bottomSheetViewController.view.addGestureRecognizer(panGesture)
+        contentViewController.view.addGestureRecognizer(tapGesture)
         
         contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
         bottomSheetViewController.view.translatesAutoresizingMaskIntoConstraints = false

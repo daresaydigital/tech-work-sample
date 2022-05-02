@@ -2,21 +2,21 @@
 //  PopularMoviesView.swift
 //  PopularMovies
 //
-//  Created by mohannazakizadeh on 4/23/22.
+//  Created by Mohanna Zakizadeh on 4/23/22.
 //
 
 import UIKit
 
 final class PopularMoviesView: UIViewController, ViewInterface {
-	
-	var presenter: PopularMoviesPresenterViewInterface!
-	
-	// MARK: - Properties
+    
+    var presenter: PopularMoviesPresenterViewInterface!
+    
+    // MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
     private let movieImagesCache = NSCache<NSNumber, UIImage>()
     // MARK: - Initialize
-
+    
     
     // MARK: - Lifecycle
     
@@ -87,14 +87,14 @@ final class PopularMoviesView: UIViewController, ViewInterface {
             return context
         }
     }
-
+    
     
     func configurePagination(_ cellRow: Int) {
         if cellRow == presenter.numberOfMovies - 1 {
             presenter.getPopularMovies()
         }
     }
-	
+    
 }
 
 extension PopularMoviesView: PopularMoviesViewInterface {
@@ -168,16 +168,16 @@ extension PopularMoviesView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let noOfCellsInRow = 2
-
+        
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.minimumLineSpacing = 10
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-
+        
         let totalSpace = flowLayout.sectionInset.left
         + flowLayout.sectionInset.right
         + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
-
+        
         let size = Int((view.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size + 50)
     }

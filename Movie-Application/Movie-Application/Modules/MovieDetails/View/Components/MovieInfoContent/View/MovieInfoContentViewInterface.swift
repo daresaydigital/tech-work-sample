@@ -2,7 +2,7 @@
 //  MovieInfoContentViewInterface.swift
 //  MovieInfoContent
 //
-//  Created by mohannazakizadeh on 4/29/22.
+//  Created by Mohanna Zakizadeh on 4/29/22.
 //
 
 import UIKit

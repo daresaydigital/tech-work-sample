@@ -36,11 +36,25 @@ class TestTopRatedMoviesView: XCTestCase {
     }
     
     func testViewHasTopRatedTitle() throws {
-        XCTAssert(view.navigationItem.title == "Top Rated")
+        // Given
+        let title = "Top Rated"
+        
+        // When
+        let viewTitle = view.navigationItem.title
+        
+        // Then
+        XCTAssert(viewTitle == title)
     }
     
     func testViewHasLargeTitle() throws {
-        XCTAssert(view.navigationController!.navigationBar.prefersLargeTitles)
+        // Given
+        let prefersLargeTitles = true
+        
+        // When
+        let viewPrefersLargeTitles = view.navigationController!.navigationBar.prefersLargeTitles
+        
+        // Then
+        XCTAssert(prefersLargeTitles == viewPrefersLargeTitles)
     }
     
     func testCollectionViewHasDataSource() throws {
