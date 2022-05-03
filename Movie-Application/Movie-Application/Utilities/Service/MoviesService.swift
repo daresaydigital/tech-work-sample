@@ -38,16 +38,6 @@ class MoviesService: MoviesServiceProtocol {
         self.requestManager = requestManager
     }
 
-    func getMoviesGeneres(completionHandler: @escaping GeneresCompletionHandler) {
-        self.requestManager.performRequestWith(url: MoviesEndpoint.generes.path,
-                                               httpMethod: .get) { (result: Result<MoviesGeneres, RequestError>) in
-            // Taking Data to main thread so we can update UI.
-            DispatchQueue.main.async {
-                completionHandler(result)
-            }
-        }
-    }
-
     func getTopRatedMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler) {
         self.requestManager.performRequestWith(url: MoviesEndpoint.topRatedMovies(page).path,
                                                httpMethod: .get) { (result: Result<Movies, RequestError>) in
@@ -69,8 +59,13 @@ class MoviesService: MoviesServiceProtocol {
     }
 
     func getMovieDetails(id: Int, completionHandler: @escaping MovieDetailsCompletionHandler) {
-        self.requestManager.performRequestWith(url: MoviesEndpoint.movie(id).path, httpMethod: .get) { result in
-            completionHandler(result)
+        self.requestManager.performRequestWith(url: MoviesEndpoint.movie(id).path,
+                                               httpMethod: .get) { (result: Result<MovieDetail, RequestError>) in
+            // Taking Data to main thread so we can update UI.
+            DispatchQueue.main.async {
+                completionHandler(result)
+            }
+
         }
     }
 

@@ -111,6 +111,14 @@
 		1BE9864F2815D49A0001DCAB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE9864E2815D49A0001DCAB /* TabBarViewController.swift */; };
 		1BE986522815D5CF0001DCAB /* TestTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE986512815D5CF0001DCAB /* TestTabBarViewController.swift */; };
 		1BF787CE282127A1004B6D2B /* Movie_ApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE985B32813F0A30001DCAB /* Movie_ApplicationUITests.swift */; };
+		1BF787D128213D9E004B6D2B /* Movies.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BF787D028213D9E004B6D2B /* Movies.json */; };
+		1BF787D328213DDC004B6D2B /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF787D228213DDC004B6D2B /* URLSessionMock.swift */; };
+		1BF787D528213E34004B6D2B /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF787D428213E34004B6D2B /* URLSessionDataTaskMock.swift */; };
+		1BF787D728213E87004B6D2B /* RequestManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF787D628213E87004B6D2B /* RequestManagerMock.swift */; };
+		1BF787D928213EFB004B6D2B /* MockResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF787D828213EFB004B6D2B /* MockResponseValidator.swift */; };
+		1BF787DB28213F32004B6D2B /* UnitTestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF787DA28213F32004B6D2B /* UnitTestError.swift */; };
+		1BF787DF28213FCB004B6D2B /* TestMoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF787DE28213FCB004B6D2B /* TestMoviesService.swift */; };
+		1BF787E528216193004B6D2B /* Movie.json in Resources */ = {isa = PBXBuildFile; fileRef = 1BF787E428216193004B6D2B /* Movie.json */; };
 		2AED66104B329C5D6F3C5FED /* Pods_Movie_Application_Movie_ApplicationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80E20878F6E954381A53AFF4 /* Pods_Movie_Application_Movie_ApplicationUITests.framework */; };
 		662B1788192ABA8C653B70A8 /* Pods_Movie_Application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6CBAB8843523803C510244D /* Pods_Movie_Application.framework */; };
 		E218ED5C6277C8ACD57255B0 /* Pods_Movie_ApplicationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E49B8E9B0BABB57B2DD4C9 /* Pods_Movie_ApplicationTests.framework */; };
@@ -242,6 +250,14 @@
 		1BE9863828140D150001DCAB /* PopularMoviesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMoviesRouter.swift; sourceTree = "<group>"; };
 		1BE9864E2815D49A0001DCAB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1BE986512815D5CF0001DCAB /* TestTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTabBarViewController.swift; sourceTree = "<group>"; };
+		1BF787D028213D9E004B6D2B /* Movies.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Movies.json; sourceTree = "<group>"; };
+		1BF787D228213DDC004B6D2B /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		1BF787D428213E34004B6D2B /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		1BF787D628213E87004B6D2B /* RequestManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerMock.swift; sourceTree = "<group>"; };
+		1BF787D828213EFB004B6D2B /* MockResponseValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponseValidator.swift; sourceTree = "<group>"; };
+		1BF787DA28213F32004B6D2B /* UnitTestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestError.swift; sourceTree = "<group>"; };
+		1BF787DE28213FCB004B6D2B /* TestMoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMoviesService.swift; sourceTree = "<group>"; };
+		1BF787E428216193004B6D2B /* Movie.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Movie.json; sourceTree = "<group>"; };
 		3A782884A39CB8B6B643183D /* Pods-Movie-Application-Movie-ApplicationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-Application-Movie-ApplicationUITests.release.xcconfig"; path = "Target Support Files/Pods-Movie-Application-Movie-ApplicationUITests/Pods-Movie-Application-Movie-ApplicationUITests.release.xcconfig"; sourceTree = "<group>"; };
 		80E20878F6E954381A53AFF4 /* Pods_Movie_Application_Movie_ApplicationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movie_Application_Movie_ApplicationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D2E5DD96CA7A69AA21161C /* Pods-Movie-Application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movie-Application.debug.xcconfig"; path = "Target Support Files/Pods-Movie-Application/Pods-Movie-Application.debug.xcconfig"; sourceTree = "<group>"; };
@@ -375,6 +391,9 @@
 		1B8C5EDD281824D00013909D /* UtilitiesTest */ = {
 			isa = PBXGroup;
 			children = (
+				1BF787DE28213FCB004B6D2B /* TestMoviesService.swift */,
+				1BF787CF28213D76004B6D2B /* Mocks */,
+				1BF787DA28213F32004B6D2B /* UnitTestError.swift */,
 			);
 			path = UtilitiesTest;
 			sourceTree = "<group>";
@@ -805,6 +824,19 @@
 			path = TabBarViewControllerTest;
 			sourceTree = "<group>";
 		};
+		1BF787CF28213D76004B6D2B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				1BF787E428216193004B6D2B /* Movie.json */,
+				1BF787D028213D9E004B6D2B /* Movies.json */,
+				1BF787D228213DDC004B6D2B /* URLSessionMock.swift */,
+				1BF787D428213E34004B6D2B /* URLSessionDataTaskMock.swift */,
+				1BF787D628213E87004B6D2B /* RequestManagerMock.swift */,
+				1BF787D828213EFB004B6D2B /* MockResponseValidator.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		A9B4B8167CDA3F6E56D481F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,6 +980,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF787D128213D9E004B6D2B /* Movies.json in Resources */,
+				1BF787E528216193004B6D2B /* Movie.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1142,10 +1176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF787D728213E87004B6D2B /* RequestManagerMock.swift in Sources */,
+				1BF787D328213DDC004B6D2B /* URLSessionMock.swift in Sources */,
+				1BF787DF28213FCB004B6D2B /* TestMoviesService.swift in Sources */,
 				1B5B0D4E28202124001136BB /* TestWatchlistMoviesView.swift in Sources */,
 				1B5B0D5428202DB3001136BB /* TestWatchlistMoviesRouter.swift in Sources */,
 				1B5B0D5628202F22001136BB /* TestTopRatedMoviesRouter.swift in Sources */,
 				1BE986522815D5CF0001DCAB /* TestTabBarViewController.swift in Sources */,
+				1BF787D528213E34004B6D2B /* URLSessionDataTaskMock.swift in Sources */,
+				1BF787D928213EFB004B6D2B /* MockResponseValidator.swift in Sources */,
 				1BD03313281F1CF000139C3B /* TestPopularMoviesView.swift in Sources */,
 				1B5B0D5828202F83001136BB /* TestPopularMoviesRouter.swift in Sources */,
 				1B5B0D5228202CF0001136BB /* TestWatchlistMoviesInteractor.swift in Sources */,
@@ -1155,6 +1194,7 @@
 				1BD03310281F14ED00139C3B /* TestTopRatedMoviesInteractor.swift in Sources */,
 				1BD03315281F1E8C00139C3B /* TestPopularMoviesPresenter.swift in Sources */,
 				1BD03317281F24A000139C3B /* TestPopularMoviesInteractor.swift in Sources */,
+				1BF787DB28213F32004B6D2B /* UnitTestError.swift in Sources */,
 				1B5B0D50282024C3001136BB /* TestWatchlistMoviesPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
