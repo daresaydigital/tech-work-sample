@@ -14,7 +14,7 @@ final class MovieInfoContentInteractor: InteractorInterface {
 }
 
 extension MovieInfoContentInteractor: MovieInfoContentInteractorInterface {
-    
+
     func getMovieImage(path: String) -> UIImage? {
         let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
         guard let data = try? Data(contentsOf: url) else { return UIImage(systemName: "film.circle") }

@@ -15,14 +15,16 @@ final class WatchlistMoviesRouter: RouterInterface {
 }
 
 extension WatchlistMoviesRouter: WatchlistMoviesRouterInterface {
-    
+
     func showMovieDetails(_ movie: MovieDetail) {
-        let vc = MovieDetailsModule().build(movie: movie)
-        viewController?.show(vc, sender: nil)
+        let movieDetailsViewController = MovieDetailsModule().build(movie: movie)
+        viewController?.show(movieDetailsViewController, sender: nil)
     }
-    
+
     // posted notification to switch to popular tab
     func showPopularMovies() {
-        NotificationCenter.default.post(name: TabBarViewContorller.selectedTabNotification, object: nil, userInfo: ["selectedTab": 0])
+        NotificationCenter.default.post(name: TabBarViewContorller.selectedTabNotification,
+                                        object: nil,
+                                        userInfo: ["selectedTab": 0])
     }
 }

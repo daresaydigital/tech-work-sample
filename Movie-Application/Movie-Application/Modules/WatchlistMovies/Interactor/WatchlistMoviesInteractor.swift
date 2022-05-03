@@ -20,5 +20,5 @@ extension WatchlistMoviesInteractor: WatchlistMoviesInteractorInterface {
             completionHandler(result)
         }
     }
-    
+
 }

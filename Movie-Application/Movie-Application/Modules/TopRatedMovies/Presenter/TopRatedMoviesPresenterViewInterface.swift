@@ -11,13 +11,13 @@ import UIKit
 protocol TopRatedMoviesPresenterViewInterface: PresenterViewInterface {
     func viewDidLoad()
     func alertRetryButtonDidTap()
-    func getMovieImage(index: Int, completion: @escaping (UIImage) -> ())
+    func getMovieImage(index: Int, completion: @escaping (UIImage) -> Void)
     func getMovieTitle(index: Int) -> String
     func movieSelected(at index: Int)
     func addToWatchList(index: Int, imageData: Data)
     func getTopRatedMovies()
     func getSavedMovies() -> [CoreDataMovie]
-    
+
     var topRatedMovies: [Movie] { get }
     var numberOfMovies: Int { get }
 }

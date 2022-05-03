@@ -25,13 +25,13 @@ class TestPopularMoviesInteractor: XCTestCase {
             return
         }
     }
-    
+
     func testInteractorHasGetMovieImage() throws {
         interactor.getMovieImage(for: "") { _ in
             return
         }
     }
-    
+
     func testInteractorHasGetMovieDetails() throws {
         interactor.getMovieDetails(id: 0) { _ in
             return

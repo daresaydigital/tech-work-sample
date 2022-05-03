@@ -11,13 +11,13 @@ import UIKit
 protocol PopularMoviesPresenterViewInterface: PresenterViewInterface {
     func viewDidLoad()
     func alertRetryButtonDidTap()
-    func getMovieImage(index: Int, completion: @escaping (UIImage) -> ())
+    func getMovieImage(index: Int, completion: @escaping (UIImage) -> Void)
     func getMovieTitle(index: Int) -> String
     func movieSelected(at index: Int)
     func addToWatchList(index: Int, imageData: Data)
     func getPopularMovies()
     func getSavedMovies() -> [CoreDataMovie]
-    
+
     var numberOfMovies: Int { get }
     var popularMovies: [Movie] { get }
 }

@@ -9,7 +9,7 @@ import XCTest
 @testable import Movie_Application
 
 class TestWatchlistMoviesRouter: XCTestCase {
-    
+
     var router: WatchlistMoviesRouter!
 
     override func setUpWithError() throws {
@@ -19,11 +19,14 @@ class TestWatchlistMoviesRouter: XCTestCase {
     override func tearDownWithError() throws {
        router = nil
     }
-    
+
     func testRouterHasShowMovieDetailsMethod() throws {
-        router.showMovieDetails(MovieDetail(title: "", poster: "", id: 0, genres: [Genres(id: 0, name: "")], overview: nil, voteAverage: 0, releaseDate: "", reviewsCount: 0))
+        router.showMovieDetails(MovieDetail(title: "", poster: "", id: 0,
+                                            genres: [Genres(id: 0, name: "")],
+                                            overview: nil, voteAverage: 0,
+                                            releaseDate: "", reviewsCount: 0))
     }
-    
+
     func testRouterHasShowPopulerMoviesMethod() throws {
         router.showPopularMovies()
     }

@@ -16,7 +16,7 @@ struct Movie: Codable {
     let poster: String?
     let id: Int
     let voteAverage: Double
-    
+
     enum CodingKeys: String, CodingKey {
         case poster = "poster_path"
         case voteAverage = "vote_average"
@@ -32,7 +32,6 @@ struct CoreDataMovie {
     let voteAverage: Double
 }
 
-
 struct MovieDetail: Codable {
     let title: String
     let poster: String?
@@ -42,7 +41,7 @@ struct MovieDetail: Codable {
     let voteAverage: Double
     let releaseDate: String
     let reviewsCount: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case poster = "poster_path"
         case releaseDate = "release_date"

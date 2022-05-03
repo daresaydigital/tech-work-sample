@@ -10,4 +10,3 @@ import UIKit
 protocol MovieInfoContentRouterInterface: RouterPresenterInterface {
 
 }
-

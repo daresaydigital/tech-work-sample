@@ -17,13 +17,15 @@ final class WatchlistMoviesModule: ModuleInterface {
     typealias Interactor = WatchlistMoviesInteractor
 
     func build() -> UIViewController {
-        guard let navigationController = UIStoryboard(name: "WatchlistMovies", bundle: nil).instantiateInitialViewController() as? UINavigationController else {
+        guard let navigationController = UIStoryboard(name: "WatchlistMovies",
+                                                      bundle: nil).instantiateInitialViewController()
+                as? UINavigationController else {
             return UINavigationController()
         }
         guard let view = navigationController.topViewController as? View else {
             return View()
         }
-        
+
         let interactor = Interactor()
         let presenter = Presenter()
         let router = Router()

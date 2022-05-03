@@ -9,7 +9,7 @@ import XCTest
 @testable import Movie_Application
 
 class TestWatchlistMoviesInteractor: XCTestCase {
-    
+
     var interactor: WatchlistMoviesInteractor!
 
     override func setUpWithError() throws {

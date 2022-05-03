@@ -8,7 +8,7 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    
+    // swiftlint: disable all
     var window: UIWindow?
     
     

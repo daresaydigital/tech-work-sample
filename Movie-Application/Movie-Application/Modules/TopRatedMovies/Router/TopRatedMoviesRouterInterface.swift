@@ -10,4 +10,3 @@ import UIKit
 protocol TopRatedMoviesRouterInterface: RouterPresenterInterface {
     func showMovieDetails(_ movie: MovieDetail)
 }
-

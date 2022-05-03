@@ -8,17 +8,17 @@
 import UIKit
 
 final class PopularMoviesRouter: RouterInterface {
-    
+
     weak var presenter: PopularMoviesPresenterRouterInterface!
-    
+
     weak var viewController: UIViewController?
 }
 
 extension PopularMoviesRouter: PopularMoviesRouterInterface {
-    
+
     func showMovieDetails(_ movie: MovieDetail) {
-        let vc = MovieDetailsModule().build(movie: movie)
-        viewController?.show(vc, sender: nil)
+        let movieDetailsViewController = MovieDetailsModule().build(movie: movie)
+        viewController?.show(movieDetailsViewController, sender: nil)
     }
-    
+
 }

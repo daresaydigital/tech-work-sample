@@ -10,29 +10,34 @@ import UIKit
 // MARK: - module builder
 
 final class MovieDetailsModule: ModuleInterface {
-    
+
     typealias View = MovieDetailsView
     typealias Presenter = MovieDetailsPresenter
     typealias Router = MovieDetailsRouter
     typealias Interactor = MovieDetailsInteractor
-    
+
     func build(movie: MovieDetail) -> UIViewController {
-        let movieInfoContentView = MovieInfoContentModule().build(movie: movie) as! MovieInfoContentView
+        guard let movieInfoContentView = MovieInfoContentModule().build(movie: movie) as? MovieInfoContentView else {
+            return UIViewController()
+        }
         let movieDetailsInfoViewController = MovieDetailsInfoViewController()
         movieDetailsInfoViewController.movie = movie
-        
-        let view = View(contentViewController: movieInfoContentView , bottomSheetViewController: movieDetailsInfoViewController, bottomSheetConfiguration: .init(height: UIScreen.main.bounds.height*0.8, initialOffset: UIScreen.main.bounds.height / 2.2))
-        
+
+        let view = View(contentViewController: movieInfoContentView ,
+                        bottomSheetViewController: movieDetailsInfoViewController,
+                        bottomSheetConfiguration: .init(height: UIScreen.main.bounds.height*0.8,
+                                                        initialOffset: UIScreen.main.bounds.height / 2.2))
+
         let navigation = UINavigationController(rootViewController: view)
-        
+
         let interactor = Interactor()
         let presenter = Presenter()
         let router = Router()
-        
+
         self.assemble(view: view, presenter: presenter, router: router, interactor: interactor)
-        
+
         router.viewController = navigation
-        
+
         return navigation
     }
 }

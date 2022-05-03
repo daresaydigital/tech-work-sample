@@ -10,7 +10,7 @@ import UIKit
 
 protocol PopularMoviesInteractorInterface: InteractorPresenterInterface {
     func getPopularMovies(page: Int, completionHandler: @escaping MoviesCompletionHandler)
-    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ())
-    
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> Void)
+
     func getMovieDetails(id: Int, completionHandler: @escaping MovieDetailsCompletionHandler)
 }

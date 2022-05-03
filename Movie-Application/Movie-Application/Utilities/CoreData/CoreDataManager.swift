@@ -10,61 +10,65 @@ import Foundation
 import UIKit
 
 class CoreDataManager: CoreDataManagerProtocol {
-    
+
     func saveNewMovie(_ movie: CoreDataMovie) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        
+
         // prevents core data from saving repititious data
         let savedMovies = getSavedMovies()
         if savedMovies.contains(where: {$0.id == movie.id}) {
             return
         }
-        
+
         let managedContext = appDelegate.persistentContainer.viewContext
-        
+
         let entity = NSEntityDescription.entity(forEntityName: "FavoriteMovie", in: managedContext)!
-        
+
         let favoriteMovie = NSManagedObject(entity: entity, insertInto: managedContext)
-        
+
         favoriteMovie.setValue(movie.title, forKey: "title")
         favoriteMovie.setValue(movie.poster, forKey: "poster")
         favoriteMovie.setValue(movie.id, forKey: "id")
         favoriteMovie.setValue(movie.voteAverage, forKey: "voteAverage")
-        
+
         do {
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
+
     func getSavedMovies() -> [CoreDataMovie] {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return []
         }
         var movies = [CoreDataMovie]()
         let managedContext = appDelegate.persistentContainer.viewContext
-        
+
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavoriteMovie")
-        
+
         do {
             let objects = try managedContext.fetch(fetchRequest)
             for object in objects {
-                movies.append(CoreDataMovie(title: object.value(forKey: "title") as! String, poster: object.value(forKey: "poster") as! Data, id: object.value(forKey: "id") as! Int, date: Date.now, voteAverage: object.value(forKey: "voteAverage") as! Double))
+                movies.append(CoreDataMovie(title: object.value(forKey: "title") as? String ?? "",
+                                            poster: object.value(forKey: "poster") as? Data ?? Data(),
+                                            id: object.value(forKey: "id") as? Int ?? 0,
+                                            date: Date.now,
+                                            voteAverage: object.value(forKey: "voteAverage") as? Double ?? 0))
             }
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         return movies
     }
-    
+
     func saveMovies(movies: [CoreDataMovie]) {
         deleteMovies()
         for movie in movies {
             saveNewMovie(movie)
         }
     }
-    
+
     private func deleteMovies() {
         guard let appDelegate =
                 UIApplication.shared.delegate as? AppDelegate else { return }
@@ -99,8 +103,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         } catch let error as NSError {
             print("Could not delete. \(error), \(error.userInfo)")
         }
-        
+
     }
-    
-    
+
 }

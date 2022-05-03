@@ -6,7 +6,7 @@
 //
 
 import Foundation
- 
+
 enum RequestError: Error, LocalizedError {
     case unknownError
     case connectionError

@@ -19,25 +19,25 @@ extension PopularMoviesInteractor: PopularMoviesInteractorInterface {
             completionHandler(result)
         }
     }
-    
-    func getMovieImage(for path: String, completion: @escaping (UIImage) -> ()) {
-        
+
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> Void) {
+
         DispatchQueue.global(qos: .utility).async {
             let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
             guard let data = try? Data(contentsOf: url) else { return }
             let image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
-            
+
             DispatchQueue.main.async {
                 completion(image)
             }
         }
-        
+
     }
-    
+
     func getMovieDetails(id: Int, completionHandler: @escaping MovieDetailsCompletionHandler) {
         MoviesService.shared.getMovieDetails(id: id) { result in
             completionHandler(result)
         }
     }
-    
+
 }

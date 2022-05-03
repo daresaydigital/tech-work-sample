@@ -9,7 +9,7 @@ import XCTest
 @testable import Movie_Application
 
 class TestTopRatedMoviesInteractor: XCTestCase {
-    
+
     var interactor: TopRatedMoviesInteractor!
 
     override func setUpWithError() throws {
@@ -25,13 +25,13 @@ class TestTopRatedMoviesInteractor: XCTestCase {
             return
         }
     }
-    
+
     func testInteractorHasGetMovieImage() throws {
         interactor.getMovieImage(for: "") { _ in
             return
         }
     }
-    
+
     func testInteractorHasGetMovieDetails() throws {
         interactor.getMovieDetails(id: 0) { _ in
             return
@@ -39,4 +39,3 @@ class TestTopRatedMoviesInteractor: XCTestCase {
     }
 
 }
-

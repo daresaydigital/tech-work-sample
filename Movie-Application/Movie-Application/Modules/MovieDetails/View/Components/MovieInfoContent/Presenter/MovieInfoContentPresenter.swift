@@ -33,12 +33,16 @@ extension MovieInfoContentPresenter: MovieInfoContentPresenterViewInterface {
     func getMovieImage(path: String) -> UIImage? {
         interactor.getMovieImage(path: path)
     }
-    
+
     func addToWatchListTapped(movie: MovieDetail) {
         let url = URL(string: "https://image.tmdb.org/t/p/original/" + (movie.poster ?? ""))!
         guard let data = try? Data(contentsOf: url) else { return }
-        let coreDataMovie = CoreDataMovie(title: movie.title, poster: data, id: movie.id, date: Date.now, voteAverage: movie.voteAverage)
+        let coreDataMovie = CoreDataMovie(title: movie.title,
+                                          poster: data,
+                                          id: movie.id,
+                                          date: Date.now,
+                                          voteAverage: movie.voteAverage)
         CoreDataManager().saveNewMovie(coreDataMovie)
     }
-    
+
 }

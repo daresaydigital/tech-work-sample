@@ -7,6 +7,7 @@
 
 import XCTest
 
+// swiftlint: disable type_name
 class Movie_ApplicationUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
