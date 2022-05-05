@@ -44,3 +44,11 @@ class MovieCell: UICollectionViewCell {
     }
 
 }
+
+extension MovieCell: MovieCollectionViewCell {
+    func configureCellWith(_ item: Movie) {
+//        MoviesService.shared.getMovieImage(for: item.poster ?? "") { image in
+//            self.movieImageView.image = image
+//        }
+    }
+}

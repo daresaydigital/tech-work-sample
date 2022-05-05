@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 private enum MoviesEndpoint {
     case generes
@@ -66,6 +67,18 @@ class MoviesService: MoviesServiceProtocol {
                 completionHandler(result)
             }
 
+        }
+    }
+    
+    func getMovieImage(for path: String, completion: @escaping (UIImage) -> Void) {
+        DispatchQueue.global(qos: .utility).async {
+            let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
+
+            DispatchQueue.main.async {
+                completion(image)
+            }
         }
     }
 
