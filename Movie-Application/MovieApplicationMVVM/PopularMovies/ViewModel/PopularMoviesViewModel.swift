@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Movie_Application
 
 final class PopularMoviesViewModel {
     var moviesService: MoviesServiceProtocol

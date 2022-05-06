@@ -1,18 +1,19 @@
 //
-//  TestTopRatedMoviesCoordinator.swift
+//  TestPopularMoviesCoordinator.swift
 //  MovieApplicationMVVMTests
 //
-//  Created by Mohanna Zakizadeh on 5/6/22.
+//  Created by Mohanna Zakizadeh on 5/7/22.
 //
 
 import XCTest
 @testable import MovieApplicationMVVM
 
-class TestTopRatedMoviesCoordinator: XCTestCase {
-    var coordinator: TopRatedMoviesCoordinator?
+class TestPopularMoviesCoordinator: XCTestCase {
+
+    var coordinator: PopularMoviesCoordinator?
 
     override func setUpWithError() throws {
-        coordinator = TopRatedMoviesCoordinator(tabBarItem: UITabBarItem(),
+        coordinator = PopularMoviesCoordinator(tabBarItem: UITabBarItem(),
                                                 parentCoordinator: AppCoordinator(window: nil))
 
     }
@@ -23,6 +24,10 @@ class TestTopRatedMoviesCoordinator: XCTestCase {
 
     func testChangeTabBarIndexFunctionExists() throws {
         coordinator?.changeTabBarIndex(to: 0)
+    }
+
+    func testCoordinatorHasNavigationController() throws {
+        XCTAssertNotNil(coordinator?.navigationController)
     }
 
 }
