@@ -11,7 +11,7 @@ import Movie_Application
 final class PopularMoviesViewModel {
     var moviesService: MoviesServiceProtocol
     var movies: (([Movie]) -> Void)?
-    var movieDetails:((MovieDetail) -> Void)?
+    var movieDetails: ((MovieDetail) -> Void)?
     var errorHandler: ((String) -> Void)?
 
     private var currentPage = 1

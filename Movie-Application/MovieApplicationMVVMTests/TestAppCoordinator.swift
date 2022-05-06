@@ -28,22 +28,22 @@ class TestAppCoordinator: XCTestCase {
         guard let coordinator = coordinator else {
             throw UnitTestError()
         }
-        
+
         // when
         coordinator.start()
-        
+
         // then
         XCTAssertNotNil(coordinator.window?.rootViewController)
 
     }
-    
+
     func testChangeTabBarIndex() throws {
         // given
         let index  = 0
-        
+
         // when
         coordinator?.changeTabBarIndex(to: 0)
-        
+
         // then
         XCTAssertEqual(index, coordinator?.tabBarController?.selectedIndex)
     }

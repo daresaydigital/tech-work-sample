@@ -71,7 +71,7 @@ final class WatchlistMoviesViewController: UIViewController, Storyboarded {
         }
 
         viewModel.errorHandler = { [weak self] error in
-            guard let self = self else  { return }
+            guard let self = self else { return }
             let errorAlert = UIAlertController(title: "Error Occured",
                                                message: error,
                                                preferredStyle: .alert)

@@ -10,7 +10,7 @@ import UIKit
 final class WatchlistMoviesViewModel {
     var moviesService: MoviesServiceProtocol
     var movies: (([CoreDataMovie]) -> Void)?
-    var movieDetails:((MovieDetail) -> Void)?
+    var movieDetails: ((MovieDetail) -> Void)?
     var errorHandler: ((String) -> Void)?
 
     private var allMovies: [CoreDataMovie]?

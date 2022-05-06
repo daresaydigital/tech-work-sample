@@ -11,7 +11,7 @@ import UIKit
 final class TopRatedMoviesViewModel {
     var moviesService: MoviesServiceProtocol
     var movies: (([Movie]) -> Void)?
-    var movieDetails:((MovieDetail) -> Void)?
+    var movieDetails: ((MovieDetail) -> Void)?
     var errorHandler: ((String) -> Void)?
 
     private var currentPage = 1
@@ -54,7 +54,6 @@ final class TopRatedMoviesViewModel {
             }
         }
     }
-
 
     func addToWatchList(index: Int, imageData: Data) {
         if let movies = allMovies {

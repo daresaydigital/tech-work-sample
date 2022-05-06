@@ -18,6 +18,7 @@ protocol Coordinator: AnyObject {
 extension Coordinator {
     func showMovieDetails(_ movie: MovieDetail) {
 
+        // swiftlint: disable line_length
         let movieDetailsInfoViewController = MovieDetailsInfoViewController()
         movieDetailsInfoViewController.movie = movie
         let movieContentViewController = MovieInfoContentViewController(movie: movie)

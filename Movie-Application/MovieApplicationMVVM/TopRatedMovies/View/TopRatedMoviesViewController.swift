@@ -84,6 +84,7 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
 
     // function to configure contextMenu for each collectionView cell
     func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
+        // swiftlint: disable line_length
 
         // prevents from adding repititious movies to watch list
         if !topRatedMoviesViewModel.getSavedMovies().contains(where: { $0.title == topRatedMoviesViewModel.getMovieTitle(index: index)}) {

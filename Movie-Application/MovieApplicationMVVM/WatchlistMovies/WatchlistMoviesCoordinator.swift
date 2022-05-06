@@ -8,7 +8,7 @@
 import UIKit
 
 class WatchlistMoviesCoordinator: Coordinator {
-    
+
     var navigationController: UINavigationController?
     var parentCoordinator: Coordinator?
 
@@ -20,11 +20,10 @@ class WatchlistMoviesCoordinator: Coordinator {
         navigationController?.viewControllers = [viewController]
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-    
+
     deinit {
         print("removed \(self) from memory")
     }
-
 
     func changeTabBarIndex(to index: Int) {
         parentCoordinator?.changeTabBarIndex(to: index)

@@ -19,7 +19,7 @@ final class MainTabBarController: UITabBarController {
     let watchlistTabBarItem = UITabBarItem(title: TabBarPage.watchlist.pageTitleValue(),
                                            image: TabBarPage.watchlist.pageIcon(),
                                            selectedImage: TabBarPage.watchlist.pageSelectedIcon())
-    
+
     var topRatedMovies: TopRatedMoviesCoordinator?
     var popularMovies: PopularMoviesCoordinator?
     var watchlistMovies: WatchlistMoviesCoordinator?

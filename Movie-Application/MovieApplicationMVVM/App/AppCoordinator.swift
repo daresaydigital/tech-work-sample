@@ -8,7 +8,7 @@
 import UIKit
 
 class AppCoordinator: NSObject, Coordinator {
-    
+
     var navigationController: UINavigationController?
     // Since AppCoordinator is top of all coordinators of our app, it has no parent and is nil.
     var parentCoordinator: Coordinator?

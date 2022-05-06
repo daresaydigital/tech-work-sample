@@ -12,14 +12,15 @@ class TestTopRatedMoviesCoordinator: XCTestCase {
     var coordinator: TopRatedMoviesCoordinator?
 
     override func setUpWithError() throws {
-        coordinator = TopRatedMoviesCoordinator(tabBarItem: UITabBarItem(), parentCoordinator: AppCoordinator(window: nil))
-        
+        coordinator = TopRatedMoviesCoordinator(tabBarItem: UITabBarItem(),
+                                                parentCoordinator: AppCoordinator(window: nil))
+
     }
 
     override func tearDownWithError() throws {
         coordinator = nil
     }
-    
+
     func testChangeTabBarIndexFunctionExists() throws {
         coordinator?.changeTabBarIndex(to: 0)
     }
