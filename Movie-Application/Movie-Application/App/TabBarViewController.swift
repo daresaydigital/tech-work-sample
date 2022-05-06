@@ -34,7 +34,7 @@ class TabBarViewContorller: UITabBarController {
         self.selectedIndex = 1
         self.toolbarItems = []
 
-        // notification observed in order to swiftch between tabs
+        // notification observed in order to switch between tabs
         NotificationCenter.default.addObserver(forName: Self.selectedTabNotification,
                                                object: nil, queue: nil) { notification in
             if notification.userInfo?["selectedTab"] as? Int == 0 {
@@ -42,13 +42,6 @@ class TabBarViewContorller: UITabBarController {
             }
         }
 
-        self.applyTheme()
-    }
-
-    // MARK: - Theme
-
-    func applyTheme() {
-//        view.backgroundColor = .
     }
 
     // MARK: - Private functions

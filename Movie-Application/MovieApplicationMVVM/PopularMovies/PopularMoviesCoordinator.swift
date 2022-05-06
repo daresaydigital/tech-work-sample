@@ -8,20 +8,20 @@
 import UIKit
 
 class PopularMoviesCoordinator: Coordinator {
-
-    var navigationController = UINavigationController()
+    var navigationController: UINavigationController?
     var parentCoordinator: Coordinator?
 
     init(tabBarItem: UITabBarItem, parentCoordinator: Coordinator) {
+        navigationController = UINavigationController()
         self.parentCoordinator = parentCoordinator
         let viewController = PopularMoviesViewController.instantiate(coordinator: self)
         viewController.tabBarItem = tabBarItem
-        navigationController.viewControllers = [viewController]
-        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController?.viewControllers = [viewController]
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    func showMovieDetails(_ movie: MovieDetail?) {
-        
+    func changeTabBarIndex(to index: Int) {
+        parentCoordinator?.changeTabBarIndex(to: index)
     }
 
 }

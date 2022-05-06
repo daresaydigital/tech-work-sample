@@ -9,5 +9,4 @@ import UIKit
 
 protocol MovieCollectionViewCell: UICollectionViewCell {
     associatedtype CellViewModel
-    func configureCellWith(_ item: CellViewModel)
 }

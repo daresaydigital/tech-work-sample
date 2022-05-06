@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import Movie_Application
 
 final class WatchlistMoviesViewModel {
     var moviesService: MoviesServiceProtocol
     var movies: (([CoreDataMovie]) -> Void)?
+    var movieDetails:((MovieDetail) -> Void)?
     var errorHandler: ((String) -> Void)?
 
-    private var currentPage = 1
     private var allMovies: [CoreDataMovie]?
 
     init(moviesService: MoviesServiceProtocol) {
@@ -32,23 +31,23 @@ final class WatchlistMoviesViewModel {
     }
 
     func getMovieTitle(index: Int) -> String {
-        allMovies?[index].title ?? ""
+        if index <= allMovies?.count ?? 0 {
+            return allMovies?[index].title ?? ""
+        }
+        return ""
     }
 
-    func movieSelected(at index: Int) -> MovieDetail? {
-        var movie: MovieDetail?
+    func movieSelected(at index: Int) {
         if let movies = allMovies {
             moviesService.getMovieDetails(id: movies[index].id) { [weak self] result in
                 switch result {
                 case .success(let movieDetail):
-                    movie = movieDetail
-
+                    self?.movieDetails?(movieDetail)
                 case .failure(let error):
                     self?.errorHandler?(error.errorDescription ?? error.localizedDescription)
                 }
             }
         }
-        return movie
     }
 
     func addToWatchList(index: Int, imageData: Data) {
@@ -62,9 +61,35 @@ final class WatchlistMoviesViewModel {
         }
     }
 
+    func deleteFromWatchlist(_ index: Int) {
+        allMovies?.remove(at: index)
+        movies?(allMovies ?? [])
+    }
+
     func getWatchlistMovies() {
-        movies?(CoreDataManager().getSavedMovies())
         allMovies = CoreDataManager().getSavedMovies()
+        movies?(allMovies ?? [])
+    }
+
+    func sortByDate() {
+        allMovies = allMovies?.sorted(by: { $0.date > $1.date })
+        movies?(allMovies ?? [])
+    }
+
+    func sortByName() {
+        allMovies = allMovies?.sorted(by: { $0.title < $1.title })
+        movies?(allMovies ?? [])
+    }
+
+    func sortByUserScore() {
+        allMovies = allMovies?.sorted(by: { $0.voteAverage > $1.voteAverage })
+        movies?(allMovies ?? [])
+    }
+
+    func deleteMovies() {
+        if let movies = allMovies {
+            CoreDataManager().saveMovies(movies: movies)
+        }
     }
 
     var numberOfMovies: Int {

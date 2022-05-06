@@ -11,8 +11,9 @@ import Movie_Application
 final class PopularMoviesViewModel {
     var moviesService: MoviesServiceProtocol
     var movies: (([Movie]) -> Void)?
+    var movieDetails:((MovieDetail) -> Void)?
     var errorHandler: ((String) -> Void)?
-    
+
     private var currentPage = 1
     private var allMovies: [Movie]?
 
@@ -41,20 +42,17 @@ final class PopularMoviesViewModel {
         allMovies?[index].title ?? ""
     }
 
-    func movieSelected(at index: Int) -> MovieDetail? {
-        var movie: MovieDetail?
+    func movieSelected(at index: Int) {
         if let movies = allMovies {
             moviesService.getMovieDetails(id: movies[index].id) { [weak self] result in
                 switch result {
                 case .success(let movieDetail):
-                    movie = movieDetail
-
+                    self?.movieDetails?(movieDetail)
                 case .failure(let error):
                     self?.errorHandler?(error.errorDescription ?? error.localizedDescription)
                 }
             }
         }
-        return movie
     }
 
     func addToWatchList(index: Int, imageData: Data) {

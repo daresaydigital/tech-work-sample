@@ -8,7 +8,8 @@
 import UIKit
 /*
  
- Insted of setting dependency of ViewController for coordinator, by confirming to Storyboarded protocol we can easily instantiate our ViewControllers
+ Insted of setting dependency of ViewController for coordinator,
+  by confirming to Storyboarded protocol we can easily instantiate our ViewControllers
  
  */
 
@@ -19,11 +20,11 @@ protocol Storyboarded {
 }
 
 extension Storyboarded where Self: UIViewController {
-    
+
     private static var fileName: String {
         NSStringFromClass(self)
     }
- 
+
     private static var className: String {
         fileName.components(separatedBy: ".")[1]
     }
@@ -31,16 +32,16 @@ extension Storyboarded where Self: UIViewController {
     private static var storyboardName: String {
         className.deletingSuffix("ViewController")
     }
-    
+
     private static var storyboard: UIStoryboard {
         UIStoryboard(name: storyboardName, bundle: Bundle.main)
     }
 
     static func instantiate() -> Self {
-        guard let vc = storyboard.instantiateViewController(withIdentifier: className) as? Self else {
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: className) as? Self else {
             fatalError("Could not find View Controller named \(className)")
         }
-        return vc
+        return viewController
     }
 }
 

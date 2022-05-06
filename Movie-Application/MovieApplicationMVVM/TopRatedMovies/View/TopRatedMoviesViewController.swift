@@ -13,7 +13,7 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var collectionView: UICollectionView!
     weak var coordinator: TopRatedMoviesCoordinator?
-    
+
     let topRatedMoviesViewModel = TopRatedMoviesViewModel(moviesService: MoviesService.shared)
     private let movieImagesCache = NSCache<NSNumber, UIImage>()
     // MARK: - Lifecycle
@@ -35,7 +35,7 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
     }
 
     // MARK: - Private functions
-    
+
     // bind view to viewModel
     private func setupBindings() {
         topRatedMoviesViewModel.movies = { [weak self] movies in
@@ -54,22 +54,28 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
             errorAlert.addAction(alertAction)
             self.present(errorAlert, animated: true, completion: nil)
         }
+
+        topRatedMoviesViewModel.movieDetails = { [weak self] movieDetail in
+            guard let self = self else { return }
+            self.coordinator?.showMovieDetails(movieDetail)
+        }
     }
 
     // function to setup and configure navigation details
     private func configureNavigation() {
-        coordinator?.navigationController.navigationBar.prefersLargeTitles = true
         self.title = "Top Rated"
     }
 
     // function to setup and configure collectionView details
     private func setupCollectionView() {
-        moviesCollectionViewDataSource = MovieCollectionViewDataSource(items: [], collectionView: collectionView, delegate: self)
+        moviesCollectionViewDataSource = MovieCollectionViewDataSource(items: [],
+                                                                       collectionView: collectionView,
+                                                                       delegate: self)
         collectionView.delegate = moviesCollectionViewDataSource
         collectionView.dataSource = moviesCollectionViewDataSource
         collectionView.showsHorizontalScrollIndicator = false
     }
-    
+
     func configurePagination(_ cellRow: Int) {
         if cellRow == topRatedMoviesViewModel.numberOfMovies - 1 {
             topRatedMoviesViewModel.getTopRatedMovies()
@@ -87,7 +93,7 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
                                            image: UIImage(systemName: "text.below.photo.fill"),
                                            identifier: nil,
                                            discoverabilityTitle: nil, state: .off) { (_) in
-                    self.coordinator?.showMovieDetails(self.topRatedMoviesViewModel.movieSelected(at: index))
+                    self.topRatedMoviesViewModel.movieSelected(at: index)
                 }
 
                 let addToWatchList = UIAction(title: "Add to Watchlist",
@@ -112,14 +118,14 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
                                            image: UIImage(systemName: "text.below.photo.fill"),
                                            identifier: nil, discoverabilityTitle: nil,
                                            state: .off) { (_) in
-                    self.coordinator?.showMovieDetails(self.topRatedMoviesViewModel.movieSelected(at: index))
+                    self.topRatedMoviesViewModel.movieSelected(at: index)
                 }
 
                 let addToWatchList = UIAction(title: "Added to Watchlist",
                                               image: UIImage(systemName: "bookmark.fill"),
                                               identifier: nil, discoverabilityTitle: nil,
                                               state: .off) { (_) in
-                    
+
                 }
 
                 return UIMenu(title: self.topRatedMoviesViewModel.getMovieTitle(index: index),
@@ -150,12 +156,14 @@ extension TopRatedMoviesViewController: MovieCollectionViewDelegate {
             })
         }
     }
-    
+
     func collection(_ collectionView: UICollectionView, didSelectItem index: IndexPath) {
-        
+        self.topRatedMoviesViewModel.movieSelected(at: index.row)
     }
-    
-    func collection(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+    func collection(_ collectionView: UICollectionView,
+                    layout collectionViewLayout: UICollectionViewLayout,
+                    sizeForItemAt indexPath: IndexPath) -> CGSize {
         let noOfCellsInRow = 2
 
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
@@ -172,8 +180,10 @@ extension TopRatedMoviesViewController: MovieCollectionViewDelegate {
         let size = Int((view.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
         return CGSize(width: size, height: size + 50)
     }
-    
-    func collection(_ collectionView: UICollectionView, contextMenuConfigurationForItemAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+    func collection(_ collectionView: UICollectionView,
+                    contextMenuConfigurationForItemAt indexPath: IndexPath,
+                    point: CGPoint) -> UIContextMenuConfiguration? {
         let cellNumber = NSNumber(value: indexPath.item)
 
         if let cachedImage = self.movieImagesCache.object(forKey: cellNumber) {
@@ -183,6 +193,5 @@ extension TopRatedMoviesViewController: MovieCollectionViewDelegate {
 
         return configureContextMenu(index: indexPath.row, imageData: Data())
     }
-    
-    
+
 }

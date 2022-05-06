@@ -66,6 +66,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Browse Popular Films"/>
+                                        <connections>
+                                            <action selector="browseButtonDidTap:" destination="a86-tX-15e" eventType="touchUpInside" id="Nr1-Kq-HD3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

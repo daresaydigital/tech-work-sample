@@ -43,7 +43,7 @@ final class RequestManager: NSObject, URLSessionDelegate {
 extension RequestManager: RequestManagerProtocol {
 
     var timeOutInterval: Double {
-        return 40
+        return 6
     }
 
     func performRequestWith<T: Codable>(url: String, httpMethod: HTTPMethod,
