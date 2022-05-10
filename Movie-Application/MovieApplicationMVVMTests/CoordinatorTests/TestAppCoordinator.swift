@@ -8,7 +8,7 @@
 import XCTest
 @testable import MovieApplicationMVVM
 
-class TestAppCoordinator: XCTestCase {
+final class TestAppCoordinator: XCTestCase {
 
     var coordinator: AppCoordinator?
     var window: UIWindow?

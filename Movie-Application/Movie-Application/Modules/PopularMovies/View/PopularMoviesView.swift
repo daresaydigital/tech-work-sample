@@ -19,9 +19,7 @@ final class PopularMoviesView: UIViewController, ViewInterface {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigation()
-        setupCollectionView()
-        self.applyTheme()
+        setupView()
         self.presenter.viewDidLoad()
     }
 
@@ -32,6 +30,11 @@ final class PopularMoviesView: UIViewController, ViewInterface {
     }
 
     // MARK: - Private functions
+    private func setupView() {
+        configureNavigation()
+        setupCollectionView()
+        self.applyTheme()
+    }
 
     // function to setup and configure navigation details
     private func configureNavigation() {

@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestPopularMoviesPresenter: XCTestCase {
+final class TestPopularMoviesPresenter: XCTestCase {
 
     var presenter: PopularMoviesPresenter!
     // swiftlint: disable identifier_name

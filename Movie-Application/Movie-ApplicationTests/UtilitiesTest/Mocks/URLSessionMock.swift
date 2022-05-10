@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class URLSessionMock: URLSession {
+final class URLSessionMock: URLSession {
     typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
 
     // Properties that enable us to set exactly what data or error

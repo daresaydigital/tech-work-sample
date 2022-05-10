@@ -25,12 +25,8 @@ final class WatchlistMoviesViewController: UIViewController, Storyboarded {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigation()
-        setupCollectionView()
-        setupBindings()
         viewModel.getWatchlistMovies()
-
-        self.applyTheme()
+        setupView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +43,13 @@ final class WatchlistMoviesViewController: UIViewController, Storyboarded {
     }
 
     // MARK: - Private functions
+
+    private func setupView() {
+        configureNavigation()
+        setupCollectionView()
+        setupBindings()
+        self.applyTheme()
+    }
 
     // bind view to viewModel
     private func setupBindings() {

@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestWatchlistMoviesRouter: XCTestCase {
+final class TestWatchlistMoviesRouter: XCTestCase {
 
     var router: WatchlistMoviesRouter!
 

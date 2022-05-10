@@ -8,7 +8,7 @@
 import XCTest
 @testable import MovieApplicationMVVM
 
-class TestTopRatedMoviesCoordinator: XCTestCase {
+final class TestTopRatedMoviesCoordinator: XCTestCase {
     var coordinator: TopRatedMoviesCoordinator?
 
     override func setUpWithError() throws {

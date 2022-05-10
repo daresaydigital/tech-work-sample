@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestWatchlistMoviesView: XCTestCase {
+final class TestWatchlistMoviesView: XCTestCase {
 
     var view: WatchlistMoviesView!
     // swiftlint: disable identifier_name
@@ -105,6 +105,10 @@ class TestWatchlistMoviesView: XCTestCase {
 }
 
 extension TestWatchlistMoviesView: WatchlistMoviesPresenterViewInterface {
+    func configureContextMenu(_ index: Int) -> UIContextMenuConfiguration {
+        UIContextMenuConfiguration()
+    }
+
     func viewDidLoad() {
 
     }

@@ -20,11 +20,7 @@ final class TopRatedMoviesViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         topRatedMoviesViewModel.getTopRatedMovies()
-        configureNavigation()
-        setupCollectionView()
-        setupBindings()
-
-        self.applyTheme()
+        setupView()
     }
 
     // MARK: - Theme
@@ -34,6 +30,14 @@ final class TopRatedMoviesViewController: UIViewController, Storyboarded {
     }
 
     // MARK: - Private functions
+    
+    private func setupView() {
+        configureNavigation()
+        setupCollectionView()
+        setupBindings()
+
+        self.applyTheme()
+    }
 
     // bind view to viewModel
     private func setupBindings() {

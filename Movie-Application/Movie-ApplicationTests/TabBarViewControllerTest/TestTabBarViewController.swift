@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestTabBarViewController: XCTestCase {
+final class TestTabBarViewController: XCTestCase {
     var view: TabBarViewContorller!
 
     override func setUpWithError() throws {
@@ -57,10 +57,6 @@ class TestTabBarViewController: XCTestCase {
         _ = view.setupFavoriteMoviesViewController()
     }
 
-    func testViewHasClearBackground() throws {
-        XCTAssertEqual(view.view.backgroundColor, .clear)
-    }
-
     func testTopRatedMoviesTabBarItemNotNil() throws {
         let tabBarItem = UITabBarItem(title: "Top Rated", image: UIImage(systemName: "list.number"), tag: 0)
         let viewController = view.setupTopRatedMoviesViewController()
@@ -79,10 +75,15 @@ class TestTabBarViewController: XCTestCase {
     }
 
     func testFavoriteMoviesTabBarItemNotNil() throws {
-        let tabBarItem = UITabBarItem(title: "Favorite",
-                                      image: UIImage(systemName: "star"),
-                                      selectedImage: UIImage(systemName: "star.fill"))
+        // given
+        let tabBarItem = UITabBarItem(title: "WatchList",
+                                      image: UIImage(systemName: "bookmark"),
+                                      selectedImage: UIImage(systemName: "bookmark.fill"))
+
+        // when
         let viewController = view.setupFavoriteMoviesViewController()
+
+        // then
         XCTAssertEqual(tabBarItem.title, viewController.tabBarItem.title)
         XCTAssertEqual(tabBarItem.image, viewController.tabBarItem.image)
         XCTAssertEqual(tabBarItem.selectedImage, viewController.tabBarItem.selectedImage)

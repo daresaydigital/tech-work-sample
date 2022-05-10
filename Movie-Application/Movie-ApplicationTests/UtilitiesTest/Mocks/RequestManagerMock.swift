@@ -8,7 +8,7 @@
 import Foundation
 @testable import Movie_Application
 
-class RequestManagerMock: RequestManagerProtocol {
+final class RequestManagerMock: RequestManagerProtocol {
 
     var session: URLSession!
 

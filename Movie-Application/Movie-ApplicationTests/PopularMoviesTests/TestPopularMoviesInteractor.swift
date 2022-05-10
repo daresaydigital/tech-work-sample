@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestPopularMoviesInteractor: XCTestCase {
+final class TestPopularMoviesInteractor: XCTestCase {
 
     var interactor: PopularMoviesInteractor!
 

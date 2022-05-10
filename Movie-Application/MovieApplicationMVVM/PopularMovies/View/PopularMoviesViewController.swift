@@ -22,11 +22,7 @@ final class PopularMoviesViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         popularMoviesViewModel.getPopularMovies()
-        configureNavigation()
-        setupCollectionView()
-        setupBindings()
-
-        self.applyTheme()
+        setupView()
     }
 
     // MARK: - Theme
@@ -36,6 +32,13 @@ final class PopularMoviesViewController: UIViewController, Storyboarded {
     }
 
     // MARK: - Private functions
+
+    private func setupView() {
+        configureNavigation()
+        setupCollectionView()
+        setupBindings()
+        self.applyTheme()
+    }
 
     // bind view to viewModel
     private func setupBindings() {

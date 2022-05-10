@@ -8,7 +8,7 @@
 import XCTest
 @testable import MovieApplicationMVVM
 
-class TestPopularMoviesCoordinator: XCTestCase {
+final class TestPopularMoviesCoordinator: XCTestCase {
 
     var coordinator: PopularMoviesCoordinator?
 

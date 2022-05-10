@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestTopRatedMoviesView: XCTestCase {
+final class TestTopRatedMoviesView: XCTestCase {
 
     var view: TopRatedMoviesView!
 // swiftlint: disable identifier_name
@@ -97,22 +97,6 @@ class TestTopRatedMoviesView: XCTestCase {
 
         _ = view.collectionView(view.collectionView, numberOfItemsInSection: 0)
         wait(for: [collectionViewNumberOfItemsCallsPresenterNumberOfMoviesExpectation!], timeout: 2)
-    }
-
-    func testConfigureContextMenuCallsPresenterGetSavedMovies() throws {
-        configureContextMenuCallsPresenterGetSavedMoviesExpectation =
-        expectation(description: "expect presenter getSavedMovies fullfill this expectation")
-
-        _ = view.configureContextMenu(index: 0, imageData: Data())
-        wait(for: [configureContextMenuCallsPresenterGetSavedMoviesExpectation!], timeout: 2)
-    }
-
-    func testConfigureContextMenuCallsPresenterGetMovieTitle() throws {
-        configureContextMenuCallsPresenterGetMovieTitleExpectation =
-        expectation(description: "expect presenter getMovieTitle fullfill this expectation")
-
-        _ = view.configureContextMenu(index: 0, imageData: Data())
-        wait(for: [configureContextMenuCallsPresenterGetMovieTitleExpectation!], timeout: 2)
     }
 
     func testConfigurePaginationCallsPresenterNumberOfMovies() throws {

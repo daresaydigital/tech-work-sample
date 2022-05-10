@@ -8,7 +8,7 @@
 import XCTest
 @testable import Movie_Application
 
-class TestMoviesService: XCTestCase {
+final class TestMoviesService: XCTestCase {
 
     var sut: MoviesService?
     var moviesJson: Data?

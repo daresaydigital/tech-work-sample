@@ -7,7 +7,7 @@
 
 import Foundation
 
-class URLSessionDataTaskMock: URLSessionDataTask {
+final class URLSessionDataTaskMock: URLSessionDataTask {
     private let closure: () -> Void
 
     init(closure: @escaping () -> Void) {
