@@ -17,6 +17,7 @@ protocol TopRatedMoviesPresenterViewInterface: PresenterViewInterface {
     func addToWatchList(index: Int, imageData: Data)
     func getTopRatedMovies()
     func getSavedMovies() -> [CoreDataMovie]
+    func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration
 
     var topRatedMovies: [Movie] { get }
     var numberOfMovies: Int { get }

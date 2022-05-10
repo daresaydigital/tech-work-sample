@@ -17,6 +17,7 @@ protocol PopularMoviesPresenterViewInterface: PresenterViewInterface {
     func addToWatchList(index: Int, imageData: Data)
     func getPopularMovies()
     func getSavedMovies() -> [CoreDataMovie]
+    func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration
 
     var numberOfMovies: Int { get }
     var popularMovies: [Movie] { get }

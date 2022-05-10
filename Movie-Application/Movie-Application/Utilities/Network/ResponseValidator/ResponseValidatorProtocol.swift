@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ResponseValidatorProtocol {
-    func validation<T: Codable>(response: HTTPURLResponse?, data: Data?) -> Result<T, RequestError>
+    func validation<T: Decodable>(response: HTTPURLResponse?, data: Data?) -> Result<T, RequestError>
 }

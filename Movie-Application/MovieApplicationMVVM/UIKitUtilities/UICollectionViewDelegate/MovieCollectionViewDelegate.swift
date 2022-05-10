@@ -36,7 +36,7 @@ class MovieCollectionViewDataSource<T: MovieCollectionViewCell>: NSObject, UICol
     init(items: [T.CellViewModel], collectionView: UICollectionView, delegate: MovieCollectionViewDelegate) {
         self.items = items
         self.collectionView = collectionView
-//        // Register cell to collectionView
+        // Register cell to collectionView
         self.collectionView.register(T.self, forCellWithReuseIdentifier: String.init(describing: T.self))
         self.delegate = delegate
     }

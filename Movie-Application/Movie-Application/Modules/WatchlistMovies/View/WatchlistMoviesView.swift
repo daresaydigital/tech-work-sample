@@ -12,9 +12,9 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
     var presenter: WatchlistMoviesPresenterViewInterface!
 
     // MARK: - Properties
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
-    @IBOutlet weak var emptyWatchlistContainerView: UIStackView!
+    @IBOutlet var emptyWatchlistContainerView: UIStackView!
 
     // MARK: - Lifecycle
 
@@ -84,30 +84,7 @@ final class WatchlistMoviesView: UIViewController, ViewInterface {
     }
 
     func configureContextMenu(_ index: Int) -> UIContextMenuConfiguration {
-
-        let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-
-            let viewDetails = UIAction(title: "View Details",
-                                       image: UIImage(systemName: "text.below.photo.fill"),
-                                       identifier: nil,
-                                       discoverabilityTitle: nil, state: .off) { (_) in
-                self.presenter.movieSelected(at: index)
-            }
-            let remove = UIAction(title: "Remove from Watchlist",
-                                  image: UIImage(systemName: "trash"),
-                                  identifier: nil,
-                                  discoverabilityTitle: nil,
-                                  attributes: .destructive, state: .off) { (_) in
-                self.presenter.deletefromWatchList(index)
-            }
-
-            return UIMenu(title: self.presenter.getMovieTitle(index: index),
-                          image: nil, identifier: nil,
-                          options: UIMenu.Options.displayInline, children: [viewDetails, remove])
-
-        }
-        return context
-
+        presenter.configureContextMenu(index)
     }
 
     // MARK: - Actions

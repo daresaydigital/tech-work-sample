@@ -7,15 +7,16 @@
 
 import UIKit
 
-class PopularMoviesViewController: UIViewController, Storyboarded {
+final class PopularMoviesViewController: UIViewController, Storyboarded {
     // MARK: - Properties
     var moviesCollectionViewDataSource: MovieCollectionViewDataSource<MovieCell>!
 
     weak var coordinator: PopularMoviesCoordinator?
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
-    let popularMoviesViewModel = PopularMoviesViewModel(moviesService: MoviesService.shared)
+    var popularMoviesViewModel: PopularMoviesViewModel!
     private let movieImagesCache = NSCache<NSNumber, UIImage>()
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -85,59 +86,7 @@ class PopularMoviesViewController: UIViewController, Storyboarded {
 
     // function to configure contextMenu for each collectionView cell
     func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
-        // swiftlint: disable line_length
-
-        // prevents from adding repititious movies to watch list
-        if !popularMoviesViewModel.getSavedMovies().contains(where: { $0.title == popularMoviesViewModel.getMovieTitle(index: index)}) {
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-
-                let viewDetails = UIAction(title: "View Details",
-                                           image: UIImage(systemName: "text.below.photo.fill"),
-                                           identifier: nil,
-                                           discoverabilityTitle: nil, state: .off) { (_) in
-                    self.popularMoviesViewModel.movieSelected(at: index)
-                }
-
-                let addToWatchList = UIAction(title: "Add to Watchlist",
-                                              image: UIImage(systemName: "bookmark"),
-                                              identifier: nil,
-                                              discoverabilityTitle: nil, state: .off) { (_) in
-                    self.popularMoviesViewModel.addToWatchList(index: index, imageData: imageData)
-                }
-
-                return UIMenu(title: self.popularMoviesViewModel.getMovieTitle(index: index),
-                              image: nil, identifier: nil,
-                              options: UIMenu.Options.displayInline,
-                              children: [addToWatchList, viewDetails])
-
-            }
-            return context
-
-        } else {
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-
-                let viewDetails = UIAction(title: "View Details",
-                                           image: UIImage(systemName: "text.below.photo.fill"),
-                                           identifier: nil, discoverabilityTitle: nil,
-                                           state: .off) { (_) in
-                    self.popularMoviesViewModel.movieSelected(at: index)
-                }
-
-                let addToWatchList = UIAction(title: "Added to Watchlist",
-                                              image: UIImage(systemName: "bookmark.fill"),
-                                              identifier: nil, discoverabilityTitle: nil,
-                                              state: .off) { (_) in
-
-                }
-
-                return UIMenu(title: self.popularMoviesViewModel.getMovieTitle(index: index),
-                              image: nil, identifier: nil,
-                              options: UIMenu.Options.displayInline,
-                              children: [addToWatchList, viewDetails])
-
-            }
-            return context
-        }
+        popularMoviesViewModel.configureContextMenu(index: index, imageData: imageData)
     }
 
 }

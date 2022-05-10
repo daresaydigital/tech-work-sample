@@ -29,7 +29,7 @@ private enum MoviesEndpoint {
     }
 }
 
-class MoviesService: MoviesServiceProtocol {
+final class MoviesService: MoviesServiceProtocol {
 
     private let requestManager: RequestManagerProtocol
 
@@ -72,7 +72,7 @@ class MoviesService: MoviesServiceProtocol {
 
     func getMovieImage(for path: String, completion: @escaping (UIImage) -> Void) {
         DispatchQueue.global(qos: .utility).async {
-            let url = URL(string: "https://image.tmdb.org/t/p/original/" + path)!
+            let url = URL(string: "https://image.tmdb.org/t/p/w300/" + path)!
             guard let data = try? Data(contentsOf: url) else { return }
             let image = UIImage(data: data) ?? UIImage(systemName: "film.circle")!
 

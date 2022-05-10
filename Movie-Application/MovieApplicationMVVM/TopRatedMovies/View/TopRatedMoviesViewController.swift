@@ -7,15 +7,14 @@
 
 import UIKit
 
-class TopRatedMoviesViewController: UIViewController, Storyboarded {
+final class TopRatedMoviesViewController: UIViewController, Storyboarded {
     // MARK: - Properties
     var moviesCollectionViewDataSource: MovieCollectionViewDataSource<MovieCell>!
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
     weak var coordinator: TopRatedMoviesCoordinator?
 
-    let topRatedMoviesViewModel = TopRatedMoviesViewModel(moviesService: MoviesService.shared)
-    private let movieImagesCache = NSCache<NSNumber, UIImage>()
+    var topRatedMoviesViewModel: TopRatedMoviesViewModel!
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -84,63 +83,12 @@ class TopRatedMoviesViewController: UIViewController, Storyboarded {
 
     // function to configure contextMenu for each collectionView cell
     func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
-        // swiftlint: disable line_length
-
-        // prevents from adding repititious movies to watch list
-        if !topRatedMoviesViewModel.getSavedMovies().contains(where: { $0.title == topRatedMoviesViewModel.getMovieTitle(index: index)}) {
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-
-                let viewDetails = UIAction(title: "View Details",
-                                           image: UIImage(systemName: "text.below.photo.fill"),
-                                           identifier: nil,
-                                           discoverabilityTitle: nil, state: .off) { (_) in
-                    self.topRatedMoviesViewModel.movieSelected(at: index)
-                }
-
-                let addToWatchList = UIAction(title: "Add to Watchlist",
-                                              image: UIImage(systemName: "bookmark"),
-                                              identifier: nil,
-                                              discoverabilityTitle: nil, state: .off) { (_) in
-                    self.topRatedMoviesViewModel.addToWatchList(index: index, imageData: imageData)
-                }
-
-                return UIMenu(title: self.topRatedMoviesViewModel.getMovieTitle(index: index),
-                              image: nil, identifier: nil,
-                              options: UIMenu.Options.displayInline,
-                              children: [addToWatchList, viewDetails])
-
-            }
-            return context
-
-        } else {
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-
-                let viewDetails = UIAction(title: "View Details",
-                                           image: UIImage(systemName: "text.below.photo.fill"),
-                                           identifier: nil, discoverabilityTitle: nil,
-                                           state: .off) { (_) in
-                    self.topRatedMoviesViewModel.movieSelected(at: index)
-                }
-
-                let addToWatchList = UIAction(title: "Added to Watchlist",
-                                              image: UIImage(systemName: "bookmark.fill"),
-                                              identifier: nil, discoverabilityTitle: nil,
-                                              state: .off) { (_) in
-
-                }
-
-                return UIMenu(title: self.topRatedMoviesViewModel.getMovieTitle(index: index),
-                              image: nil, identifier: nil,
-                              options: UIMenu.Options.displayInline,
-                              children: [addToWatchList, viewDetails])
-
-            }
-            return context
-        }
+        topRatedMoviesViewModel.configureContextMenu(index: index, imageData: imageData)
     }
 }
 
 extension TopRatedMoviesViewController: MovieCollectionViewDelegate {
+
     func collection(willDisplay cellIndexPath: IndexPath, cell: UICollectionViewCell) {
         configurePagination(cellIndexPath.row)
 
@@ -148,12 +96,14 @@ extension TopRatedMoviesViewController: MovieCollectionViewDelegate {
         guard let cell = cell as? MovieCell else { return }
         let cellNumber = NSNumber(value: cellIndexPath.item)
 
-        if let cachedImage = self.movieImagesCache.object(forKey: cellNumber) {
+        if let cachedImage = self.topRatedMoviesViewModel.movieImagesCache.object(forKey: cellNumber) {
             cell.movieImageView.image = cachedImage
         } else {
             self.topRatedMoviesViewModel.getMovieImage(index: cellIndexPath.row, completion: { [weak self] (image) in
-                cell.movieImageView.image = image
-                self?.movieImagesCache.setObject(image, forKey: cellNumber)
+                if self?.collectionView.indexPath(for: cell) == cellIndexPath {
+                    cell.movieImageView.image = image
+                }
+                self?.topRatedMoviesViewModel.movieImagesCache.setObject(image, forKey: cellNumber)
             })
         }
     }
@@ -187,7 +137,7 @@ extension TopRatedMoviesViewController: MovieCollectionViewDelegate {
                     point: CGPoint) -> UIContextMenuConfiguration? {
         let cellNumber = NSNumber(value: indexPath.item)
 
-        if let cachedImage = self.movieImagesCache.object(forKey: cellNumber) {
+        if let cachedImage = self.topRatedMoviesViewModel.movieImagesCache.object(forKey: cellNumber) {
             return configureContextMenu(index: indexPath.row,
                                         imageData: cachedImage.jpegData(compressionQuality: 1.0) ?? Data())
         }

@@ -35,7 +35,7 @@ extension MovieInfoContentPresenter: MovieInfoContentPresenterViewInterface {
     }
 
     func addToWatchListTapped(movie: MovieDetail) {
-        let url = URL(string: "https://image.tmdb.org/t/p/original/" + (movie.poster ?? ""))!
+        let url = URL(string: "https://image.tmdb.org/t/p/w300/" + (movie.poster ?? ""))!
         guard let data = try? Data(contentsOf: url) else { return }
         let coreDataMovie = CoreDataMovie(title: movie.title,
                                           poster: data,

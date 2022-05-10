@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarViewContorller: UITabBarController {
+final class TabBarViewContorller: UITabBarController {
 
     // MARK: - Properties
     var topRatedMoviesViewController: UIViewController!

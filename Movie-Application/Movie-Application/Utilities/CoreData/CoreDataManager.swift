@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 import UIKit
 
-class CoreDataManager: CoreDataManagerProtocol {
+final class CoreDataManager: CoreDataManagerProtocol {
 
     func saveNewMovie(_ movie: CoreDataMovie) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }

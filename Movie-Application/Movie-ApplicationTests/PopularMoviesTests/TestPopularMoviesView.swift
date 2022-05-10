@@ -109,6 +109,10 @@ class TestPopularMoviesView: XCTestCase {
 
 extension TestPopularMoviesView: PopularMoviesPresenterViewInterface {
 
+    func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
+        UIContextMenuConfiguration()
+    }
+
     func viewDidLoad() {
 
     }

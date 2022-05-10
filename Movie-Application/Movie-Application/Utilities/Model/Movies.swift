@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Movies: Codable {
+struct Movies: Decodable {
     let results: [Movie]
 }
 
-struct Movie: Codable {
+struct Movie: Decodable {
     let title: String
     let poster: String?
     let id: Int
@@ -32,7 +32,7 @@ struct CoreDataMovie {
     let voteAverage: Double
 }
 
-struct MovieDetail: Codable {
+struct MovieDetail: Decodable {
     let title: String
     let poster: String?
     let id: Int

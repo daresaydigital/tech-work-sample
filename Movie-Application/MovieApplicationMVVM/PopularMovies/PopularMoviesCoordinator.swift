@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopularMoviesCoordinator: Coordinator {
+final class PopularMoviesCoordinator: Coordinator {
     var navigationController: UINavigationController?
     var parentCoordinator: Coordinator?
 
@@ -16,6 +16,7 @@ class PopularMoviesCoordinator: Coordinator {
         self.parentCoordinator = parentCoordinator
         let viewController = PopularMoviesViewController.instantiate(coordinator: self)
         viewController.tabBarItem = tabBarItem
+        viewController.popularMoviesViewModel = PopularMoviesViewModel(moviesService: MoviesService.shared)
         navigationController?.viewControllers = [viewController]
         navigationController?.navigationBar.prefersLargeTitles = true
     }

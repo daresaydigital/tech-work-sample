@@ -22,10 +22,6 @@ class TestPopularMoviesCoordinator: XCTestCase {
         coordinator = nil
     }
 
-    func testChangeTabBarIndexFunctionExists() throws {
-        coordinator?.changeTabBarIndex(to: 0)
-    }
-
     func testCoordinatorHasNavigationController() throws {
         XCTAssertNotNil(coordinator?.navigationController)
     }

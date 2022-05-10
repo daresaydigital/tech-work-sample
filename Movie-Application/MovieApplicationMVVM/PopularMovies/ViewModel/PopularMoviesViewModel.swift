@@ -13,11 +13,22 @@ final class PopularMoviesViewModel {
     var movieDetails: ((MovieDetail) -> Void)?
     var errorHandler: ((String) -> Void)?
 
+    // movie data base gives 500 pages max.
+    private var maxPages: Int = 500
+
     private var currentPage = 1
     private var allMovies: [Movie]?
 
     init(moviesService: MoviesServiceProtocol) {
         self.moviesService = moviesService
+    }
+
+    var numberOfMovies: Int {
+        return allMovies?.count ?? 0
+    }
+
+    var topRatedMovies: [Movie] {
+        return allMovies ?? []
     }
 
     func alertRetryButtonDidTap() {
@@ -66,8 +77,8 @@ final class PopularMoviesViewModel {
     }
 
     func getPopularMovies() {
-        // movie data base gives 500 pages max.
-        if currentPage <= 500 {
+
+        if currentPage <= maxPages {
             moviesService.getPopularMovies(page: currentPage) { result in
                 switch result {
                 case .success(let moviesData):
@@ -91,11 +102,57 @@ final class PopularMoviesViewModel {
         CoreDataManager().getSavedMovies()
     }
 
-    var numberOfMovies: Int {
-        return allMovies?.count ?? 0
-    }
+    func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
+        // prevents from adding repititious movies to watch list
+        if !self.getSavedMovies().contains(where: { $0.title == self.getMovieTitle(index: index)}) {
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
 
-    var topRatedMovies: [Movie] {
-        return allMovies ?? []
+                let viewDetails = UIAction(title: "View Details",
+                                           image: UIImage(systemName: "text.below.photo.fill"),
+                                           identifier: nil,
+                                           discoverabilityTitle: nil, state: .off) { (_) in
+                    self.self.movieSelected(at: index)
+                }
+
+                let addToWatchList = UIAction(title: "Add to Watchlist",
+                                              image: UIImage(systemName: "bookmark"),
+                                              identifier: nil,
+                                              discoverabilityTitle: nil, state: .off) { (_) in
+                    self.addToWatchList(index: index, imageData: imageData)
+                }
+
+                return UIMenu(title: self.getMovieTitle(index: index),
+                              image: nil, identifier: nil,
+                              options: UIMenu.Options.displayInline,
+                              children: [addToWatchList, viewDetails])
+
+            }
+            return context
+
+        } else {
+            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
+
+                let viewDetails = UIAction(title: "View Details",
+                                           image: UIImage(systemName: "text.below.photo.fill"),
+                                           identifier: nil, discoverabilityTitle: nil,
+                                           state: .off) { (_) in
+                    self.movieSelected(at: index)
+                }
+
+                let addToWatchList = UIAction(title: "Added to Watchlist",
+                                              image: UIImage(systemName: "bookmark.fill"),
+                                              identifier: nil, discoverabilityTitle: nil,
+                                              state: .off) { (_) in
+
+                }
+
+                return UIMenu(title: self.getMovieTitle(index: index),
+                              image: nil, identifier: nil,
+                              options: UIMenu.Options.displayInline,
+                              children: [addToWatchList, viewDetails])
+
+            }
+            return context
+        }
     }
 }

@@ -29,7 +29,7 @@ class RequestManagerMock: RequestManagerProtocol {
     }
 
     func performRequestWith<T>(url: String, httpMethod: HTTPMethod,
-                               completionHandler: @escaping CodableResponse<T>) where T: Codable {
+                               completionHandler: @escaping DecodableResponse<T>) where T: Decodable {
         guard let url = URL(string: url) else {
             completionHandler(.failure(.invalidRequest))
             return

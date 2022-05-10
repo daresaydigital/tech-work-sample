@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias CodableResponse<T: Codable> = (Result<T, RequestError>) -> Void
+typealias DecodableResponse<T: Decodable> = (Result<T, RequestError>) -> Void
 
 final class RequestManager: NSObject, URLSessionDelegate {
 
@@ -46,8 +46,8 @@ extension RequestManager: RequestManagerProtocol {
         return 6
     }
 
-    func performRequestWith<T: Codable>(url: String, httpMethod: HTTPMethod,
-                                        completionHandler: @escaping CodableResponse<T>) {
+    func performRequestWith<T: Decodable>(url: String, httpMethod: HTTPMethod,
+                                          completionHandler: @escaping DecodableResponse<T>) {
 
         let headers = headerBuilder()
 
@@ -75,7 +75,8 @@ extension RequestManager: RequestManagerProtocol {
         return urlRequest
     }
 
-    private func performURLRequest<T: Codable>(_ request: URLRequest, completionHandler: @escaping CodableResponse<T>) {
+    private func performURLRequest<T: Decodable>(_ request: URLRequest,
+                                                 completionHandler: @escaping DecodableResponse<T>) {
 
         session.dataTask(with: request) { (data, response, error) in
             self.reponseLog?.logResponse(response as? HTTPURLResponse,

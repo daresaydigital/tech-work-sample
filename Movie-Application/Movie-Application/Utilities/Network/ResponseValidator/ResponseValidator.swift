@@ -9,7 +9,7 @@ import Foundation
 
 struct MovieResponseValidator: ResponseValidatorProtocol {
 
-    func validation<T: Codable>(response: HTTPURLResponse?, data: Data?) -> (Result<T, RequestError>) {
+    func validation<T: Decodable>(response: HTTPURLResponse?, data: Data?) -> (Result<T, RequestError>) {
         guard let response = response, let data = data else {
             return .failure(RequestError.invalidRequest)
         }

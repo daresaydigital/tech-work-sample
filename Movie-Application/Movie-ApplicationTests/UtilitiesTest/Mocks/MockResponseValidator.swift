@@ -10,7 +10,7 @@ import Foundation
 
 struct MockResponseValidator: ResponseValidatorProtocol {
 
-    func validation<T: Codable>(response: HTTPURLResponse? = nil, data: Data?) -> (Result<T, RequestError>) {
+    func validation<T: Decodable>(response: HTTPURLResponse? = nil, data: Data?) -> (Result<T, RequestError>) {
         guard let data = data else {
             return .failure(RequestError.invalidRequest)
         }

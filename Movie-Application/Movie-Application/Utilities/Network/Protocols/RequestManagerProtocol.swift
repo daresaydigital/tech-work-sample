@@ -25,10 +25,10 @@ protocol RequestManagerProtocol {
     - Parameter url: url of interest to retrieve data. It should be String
     - Parameter httpMethod: http method with associated value
     
-    - Returns: completionHandler, which is Swift 5 Result Type ,  on Success returns the type which is codable .
+    - Returns: completionHandler, which is Swift 5 Result Type ,  on Success returns the type which is Decodable .
      On failure returns RequestError based on your server RequestError.
     */
-    func performRequestWith<T: Codable>(url: String,
-                                        httpMethod: HTTPMethod,
-                                        completionHandler: @escaping CodableResponse<T>)
+    func performRequestWith<T: Decodable>(url: String,
+                                          httpMethod: HTTPMethod,
+                                          completionHandler: @escaping DecodableResponse<T>)
 }

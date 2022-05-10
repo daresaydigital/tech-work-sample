@@ -92,6 +92,33 @@ final class WatchlistMoviesViewModel {
         }
     }
 
+    func configureContextMenu(index: Int) -> UIContextMenuConfiguration {
+        let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
+
+            let viewDetails = UIAction(title: "View Details",
+                                       image: UIImage(systemName: "text.below.photo.fill"),
+                                       identifier: nil,
+                                       discoverabilityTitle: nil, state: .off) { (_) in
+
+                self.movieSelected(at: index)
+
+            }
+            let remove = UIAction(title: "Remove from Watchlist",
+                                  image: UIImage(systemName: "trash"),
+                                  identifier: nil,
+                                  discoverabilityTitle: nil,
+                                  attributes: .destructive, state: .off) { (_) in
+                self.deleteFromWatchlist(index)
+            }
+
+            return UIMenu(title: self.getMovieTitle(index: index),
+                          image: nil, identifier: nil,
+                          options: UIMenu.Options.displayInline, children: [viewDetails, remove])
+
+        }
+        return context
+    }
+
     var numberOfMovies: Int {
         return allMovies?.count ?? 0
     }

@@ -126,6 +126,15 @@ class TestTopRatedMoviesView: XCTestCase {
 }
 
 extension TestTopRatedMoviesView: TopRatedMoviesPresenterViewInterface {
+
+    func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
+        UIContextMenuConfiguration()
+    }
+
+    var movieImagesCache: NSCache<NSNumber, UIImage> {
+        NSCache<NSNumber, UIImage>()
+    }
+
     func viewDidLoad() {
 
     }

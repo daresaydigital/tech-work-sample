@@ -12,7 +12,7 @@ final class PopularMoviesView: UIViewController, ViewInterface {
     var presenter: PopularMoviesPresenterViewInterface!
 
     // MARK: - Properties
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
     private let movieImagesCache = NSCache<NSNumber, UIImage>()
     // MARK: - Lifecycle
@@ -46,56 +46,8 @@ final class PopularMoviesView: UIViewController, ViewInterface {
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "MovieCell")
     }
 
-    // function to configure contextMenu for each collectionView cell
     func configureContextMenu(index: Int, imageData: Data) -> UIContextMenuConfiguration {
-        // prevents from adding repititious movies to watch list
-        if !presenter.getSavedMovies().contains(where: { $0.title == presenter.getMovieTitle(index: index) }) {
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-                let viewDetails = UIAction(title: "View Details",
-                                           image: UIImage(systemName: "text.below.photo.fill"),
-                                           identifier: nil, discoverabilityTitle: nil,
-                                           state: .off) { (_) in
-                    self.presenter.movieSelected(at: index)
-                }
-
-                let addToWatchList = UIAction(title: "Add to Watchlist",
-                                              image: UIImage(systemName: "bookmark"),
-                                              identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                    self.presenter.addToWatchList(index: index, imageData: imageData)
-                }
-
-                return UIMenu(title: self.presenter.getMovieTitle(index: index),
-                              image: nil, identifier: nil,
-                              options: UIMenu.Options.displayInline,
-                              children: [addToWatchList, viewDetails])
-
-            }
-            return context
-
-        } else {
-            let context = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (_) -> UIMenu? in
-
-                let viewDetails = UIAction(title: "View Details",
-                                           image: UIImage(systemName: "text.below.photo.fill"),
-                                           identifier: nil, discoverabilityTitle: nil,
-                                           state: .off) { (_) in
-                    self.presenter.movieSelected(at: index)
-                }
-
-                let addToWatchList = UIAction(title: "Added to Watchlist",
-                                              image: UIImage(systemName: "bookmark.fill"),
-                                              identifier: nil, discoverabilityTitle: nil,
-                                              state: .off) { (_) in
-                }
-
-                return UIMenu(title: self.presenter.getMovieTitle(index: index),
-                              image: nil, identifier: nil,
-                              options: UIMenu.Options.displayInline,
-                              children: [addToWatchList, viewDetails])
-
-            }
-            return context
-        }
+        presenter.configureContextMenu(index: index, imageData: imageData)
     }
 
     func configurePagination(_ cellRow: Int) {
@@ -150,7 +102,9 @@ extension PopularMoviesView: UICollectionViewDelegate, UICollectionViewDataSourc
             cell.movieImageView.image = cachedImage
         } else {
             self.presenter.getMovieImage(index: indexPath.row, completion: { [weak self] (image) in
-                cell.movieImageView.image = image
+                if collectionView.indexPath(for: cell) == indexPath {
+                    cell.movieImageView.image = image
+                }
                 self?.movieImagesCache.setObject(image, forKey: cellNumber)
             })
         }
