@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -37,6 +36,4 @@ dependencies {
     api lib.get("coroutines")
     implementation lib.get("retrofit")
     implementation project(":core:base_domain")
-    implementation lib.get("hilt")
-    kapt kaptLibs.get("hilt")
 }
