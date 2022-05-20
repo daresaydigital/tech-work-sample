@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import ir.sass.base_ui.databinding.FragmentBaseBinding
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -40,11 +41,27 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
         binding()
     }
 
+    fun connectForError(viewModel: MotherViewModel){
+        coroutinesLauncher(Lifecycle.State.STARTED){
+            viewModel.error.collect {
+                 // todo show error
+            }
+        }
+    }
+
+    fun connectForLoading(viewModel: MotherViewModel){
+        coroutinesLauncher(Lifecycle.State.RESUMED){
+            viewModel.loading.collect {
+                if(it) loadingOn() else loadingOff()
+            }
+        }
+    }
+
     /*you will write your code here by overriding this function*/
     abstract fun binding()
 
 
-    /*2 functions for handling loading*/
+    /*2 functions for handling loading manual*/
     fun loadingOn(){
         dataBindingOuter.loading = true
     }
