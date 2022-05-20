@@ -1,7 +1,7 @@
 package ir.sass.navigator.flow
 
-abstract class NavigationAction(
-    var navigationFlow: NavigationFlow
-) {
-    abstract fun navigate()
+import androidx.navigation.NavController
+
+abstract class NavigationAction{
+    abstract fun navigate(navController: NavController)
 }
