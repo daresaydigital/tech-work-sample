@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/app/src/main/res/layout/activity_main.xml" value="0.29583333333333334" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/back_img.xml" value="0.1135" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/sd.xml" value="0.1135" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/layout/fragment_base.xml" value="0.2" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/layout/lottie_image_view.xml" value="0.328125" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/home/ui/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/fragment_movie_list.xml" value="0.328125" />
-        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/item_movie_list.xml" value="0.328125" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/item_movie_list.xml" value="0.2" />
       </map>
     </option>
   </component>

@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ir.sass.data.datasource.remote.DiscoverMovieApi
+import ir.sass.data.utils.API_BASE_URL
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -33,7 +34,7 @@ object DataSourceModule {
     @Provides
     @Singleton
     fun provideRetrofit(httpClient : OkHttpClient) : Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/")
+        .baseUrl(API_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(httpClient)
         .build()

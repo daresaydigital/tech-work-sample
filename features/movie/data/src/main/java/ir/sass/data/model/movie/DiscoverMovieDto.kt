@@ -2,6 +2,8 @@ package ir.sass.data.model.movie
 
 import com.google.gson.annotations.SerializedName
 import ir.sass.basedomain.model.Mapper
+import ir.sass.data.utils.IMAGE_BASE_URL
+import ir.sass.data.utils.SAMPLE_MOVIE_IMAGE_URL
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
 
@@ -59,9 +61,17 @@ data class ResultDto(
     @SerializedName("vote_count")
     val vote_count: Int
 ) : Mapper<ResultModel>{
-    override fun cast(): ResultModel = ResultModel(
-        adult,backdrop_path,genre_ids,id,original_language,original_title,overview,
-        popularity,poster_path,release_date,title,video,vote_average,vote_count
-    )
+    override fun cast(): ResultModel{
+        val finalUrlForImage = if(poster_path == null){
+            SAMPLE_MOVIE_IMAGE_URL
+        }else{
+            IMAGE_BASE_URL+poster_path
+        }
+
+        return ResultModel(
+            adult,backdrop_path,genre_ids,id,original_language,original_title,overview,
+            popularity,finalUrlForImage,release_date,title,video,vote_average,vote_count
+        )
+    }
 
 }

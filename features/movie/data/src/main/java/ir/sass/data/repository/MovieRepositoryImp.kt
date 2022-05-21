@@ -17,6 +17,13 @@ class MovieRepositoryImp @Inject constructor(
     override fun discoverMovies(): Flow<Domain<DiscoverMovieModel>> = flow {
         emit(Domain.Progress())
         val response = safeApi { discoverMovieApi.discoverMovies() }
-        emit(Domain.Data(response))
+
+        if(response.isSuccess && response.getOrNull() != null && response.getOrThrow().results != null){
+            emit(Domain.Data(response))
+        }else{
+            val errorMessage = response.getOrNull()?.status_message?:"Error"
+            emit(Domain.Data(Result.failure(Throwable(errorMessage))))
+        }
+
     }.flowOn(IO)
 }
