@@ -6,6 +6,8 @@
       <module name="daresay.core.base_data" target="11" />
       <module name="daresay.core.base_ui" target="11" />
       <module name="daresay.core.navigator" target="11" />
+      <module name="daresay.features.movie.data" target="11" />
+      <module name="daresay.features.movie.ui" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

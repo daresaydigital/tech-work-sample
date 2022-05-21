@@ -1,6 +1,7 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
@@ -9,13 +10,11 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "ir.sass.daresay"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -38,11 +37,20 @@ android {
 }
 
 dependencies {
+    api project(":core:base_ui")
+    implementation project(":features:movie:data")
+    implementation project(":features:movie:domain")
     implementation lib.get("hilt")
     kapt kaptLibs.get("hilt")
 
-    implementation project(":core:base_ui")
-    api project(":core:navigator")
-
-    implementation project(":features:movie:ui")
+    testImplementation testLib.get("mockito")
+    testImplementation testLib.get("coroutinesTest")
+    testImplementation testLib.get("coreTest")
+    testImplementation testLib.get("turbine")
+    testImplementation testLib.get("junit")
+    testImplementation testLib.get("robolectric")
+    testImplementation testLib.get("hilt")
+    kaptTest katpTestLib.get("hilt")
+    debugImplementation testLib.get("fragmentTest")
+    testImplementation testLib.get("espresso")
 }

@@ -16,6 +16,12 @@
             <option value="$PROJECT_DIR$/core/base_domain" />
             <option value="$PROJECT_DIR$/core/base_ui" />
             <option value="$PROJECT_DIR$/core/navigator" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/home" />
+            <option value="$PROJECT_DIR$/features/movie" />
+            <option value="$PROJECT_DIR$/features/movie/data" />
+            <option value="$PROJECT_DIR$/features/movie/domain" />
+            <option value="$PROJECT_DIR$/features/movie/ui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
