@@ -2,7 +2,9 @@ package ir.sass.movie.ui.fragments.mainList
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import ir.sass.base_data.model.toJsonString
 import ir.sass.base_ui.MotherAdapter
 import ir.sass.base_ui.MotherFragment
 import ir.sass.base_ui.MotherFragmentSetting
@@ -26,7 +28,9 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
         RecyclerItemWrapper(R.layout.item_movie_list){ binding, item, pos ->
             binding.movie = item
             binding.navigate = {
-
+                findNavController().navigate(MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(
+                    toJsonString(item)
+                ))
             }
         }
     )

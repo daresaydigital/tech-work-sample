@@ -17,6 +17,6 @@ class MapperTest {
     fun `check if the mapper can cast json string to the type of A`(){
         val json = "{\"number\":1,\"word\":\"google\"}"
         val casted = toReal<A>(json)
-        assert(casted.number == 1 && casted.word == "google")
+        assert(casted!!.number == 1 && casted.word == "google")
     }
 }
