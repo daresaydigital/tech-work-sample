@@ -34,6 +34,7 @@ android {
 dependencies {
     api project(":core:base_data")
     api project(":core:base_domain")
+    implementation project(":features:movie:domain")
 
     implementation lib.get("hilt")
     kapt kaptLibs.get("hilt")
