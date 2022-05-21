@@ -12,6 +12,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import ir.sass.base_ui.databinding.FragmentBaseBinding
+import ir.sass.navigator.flow.features.NavcontrollerFinder
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -86,6 +87,8 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
             }
         }
     }
+
+    fun getParentNavController() = (requireActivity() as NavcontrollerFinder).getGlobalNavcontroller()
 }
 
 class MotherFragmentSetting(

@@ -13,7 +13,7 @@ class HomeFragment : MotherFragment<FragmentHomeBinding>(
 ) {
     override fun binding() {
         dataBinding.navigate = {
-            navigateToFlow(findNavController(), MovieNavigationAction())
+            navigateToFlow(getParentNavController(), MovieNavigationAction())
         }
     }
 }

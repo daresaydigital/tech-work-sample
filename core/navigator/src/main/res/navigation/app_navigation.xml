@@ -8,7 +8,7 @@
 
     <include app:graph="@navigation/movie_navigation" />
 
-    <action android:id="@+id/navigate_to_movie" app:destination="@id/navigate_to_movie"/>
+    <action android:id="@+id/navigate_to_movie" app:destination="@id/movie_navigation"/>
 
     <action android:id="@+id/navigate_to_home" app:destination="@id/home_navigation"/>
 
