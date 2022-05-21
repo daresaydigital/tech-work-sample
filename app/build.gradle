@@ -45,4 +45,5 @@ dependencies {
     api project(":core:navigator")
 
     implementation project(":features:movie:ui")
+    implementation project(":features:home:ui")
 }
