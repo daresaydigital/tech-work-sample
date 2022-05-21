@@ -1,10 +1,10 @@
-package ir.sass.data.model.di
+package ir.sass.data.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ir.sass.data.model.datasource.remote.DiscoverMovieApi
+import ir.sass.data.datasource.remote.DiscoverMovieApi
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient
 import okhttp3.Request

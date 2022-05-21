@@ -1,10 +1,10 @@
-package ir.sass.data.model.di
+package ir.sass.data.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ir.sass.data.model.repository.MovieRepositoryImp
+import ir.sass.data.repository.MovieRepositoryImp
 import ir.sass.domain.repository.MovieRepository
 
 @Module

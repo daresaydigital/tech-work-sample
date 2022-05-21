@@ -1,4 +1,4 @@
-package ir.sass.data.model.datasource.remote
+package ir.sass.data.datasource.remote
 
 import ir.sass.data.model.movie.DiscoverMovieDto
 import retrofit2.http.GET

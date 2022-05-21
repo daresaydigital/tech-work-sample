@@ -1,8 +1,8 @@
-package ir.sass.data.model.repository
+package ir.sass.data.repository
 
 import ir.sass.base_data.model.safeApi
 import ir.sass.basedomain.model.Domain
-import ir.sass.data.model.datasource.remote.DiscoverMovieApi
+import ir.sass.data.datasource.remote.DiscoverMovieApi
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers.IO

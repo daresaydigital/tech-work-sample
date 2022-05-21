@@ -36,4 +36,8 @@ dependencies {
     api lib.get("coroutines")
     api lib.get("retrofit")
     implementation project(":core:base_domain")
+
+    implementation testLib.get("mockito")
+    implementation testLib.get("coroutinesTest")
+    implementation testLib.get("coreTest")
 }
