@@ -21,11 +21,7 @@ class MovieListFragmentViewModel @Inject constructor(
     fun getMovies(){
         action(discoverMovieUseCase(),true){
             viewModelScope.launch {
-                if(it.success && it.results != null){
-                    _movies.emit(it)
-                }else{
-                    handleError(Throwable(it.status_message?:"Error"))
-                }
+                _movies.emit(it)
             }
         }
     }

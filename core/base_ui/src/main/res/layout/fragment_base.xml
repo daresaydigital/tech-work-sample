@@ -12,32 +12,46 @@
             type="String" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/sienna"
             android:gravity="center"
             android:padding="10dp"
+            android:text='@{title}'
             android:textColor="@color/white"
-            android:background="@color/sienna"
-            android:text='@{title}'/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/lin_add"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/dark_salmon"
+            android:orientation="vertical"
             android:padding="12dp"
-            android:orientation="vertical"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
         <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="loading.json"
+            android:layout_height="80dp"
+            android:background="@color/dark_salmon"
             android:visibility='@{loading ? View.VISIBLE :View.GONE }'
-            />
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="loading.json" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

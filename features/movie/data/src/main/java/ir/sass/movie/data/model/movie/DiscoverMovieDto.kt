@@ -6,6 +6,7 @@ import ir.sass.movie.data.utils.IMAGE_BASE_URL
 import ir.sass.movie.data.utils.SAMPLE_MOVIE_IMAGE_URL
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
+import ir.sass.movie.data.utils.LARGE_IMAGE_BASE_URL
 
 data class DiscoverMovieDto(
     @SerializedName("page")
@@ -68,9 +69,15 @@ data class ResultDto(
             IMAGE_BASE_URL+poster_path
         }
 
+        val finalLargeUrlForImage = if(poster_path == null){
+            SAMPLE_MOVIE_IMAGE_URL
+        }else{
+            LARGE_IMAGE_BASE_URL+poster_path
+        }
+
         return ResultModel(
             adult,backdrop_path,genre_ids,id,original_language,original_title,overview,
-            popularity,finalUrlForImage,release_date,title,video,vote_average,vote_count
+            popularity,finalUrlForImage,finalLargeUrlForImage,release_date,title,video,vote_average,vote_count
         )
     }
 

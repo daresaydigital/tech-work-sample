@@ -34,6 +34,12 @@ android {
     buildFeatures {
         dataBinding true
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -49,8 +55,8 @@ dependencies {
     testImplementation testLib.get("turbine")
     testImplementation testLib.get("junit")
     testImplementation testLib.get("robolectric")
-    testImplementation testLib.get("hilt")
-    kaptTest katpTestLib.get("hilt")
+    testImplementation testLib.get("hiltTest")
+    kaptTest katpTestLib.get("hiltTest")
     debugImplementation testLib.get("fragmentTest")
     testImplementation testLib.get("espresso")
 }

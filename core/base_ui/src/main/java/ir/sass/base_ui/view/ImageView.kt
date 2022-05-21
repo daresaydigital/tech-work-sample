@@ -22,12 +22,9 @@ constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ): FrameLayout(context,attrs,defStyleAttr){
-    val binding : LottieImageViewBinding
-    init {
-        binding = LottieImageViewBinding.inflate(
-            LayoutInflater.from(context),this,true
-        )
-    }
+    val binding : LottieImageViewBinding = LottieImageViewBinding.inflate(
+        LayoutInflater.from(context),this,true
+    )
 }
 
 @BindingAdapter("ext:url")

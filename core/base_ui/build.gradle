@@ -47,4 +47,5 @@ dependencies {
 
     implementation lib.get("lottie")
     implementation lib.get("glide")
+
 }

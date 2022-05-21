@@ -7,10 +7,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import ir.sass.daresay.databinding.ActivityMainBinding
-import ir.sass.navigator.flow.features.NavcontrollerFinder
+import ir.sass.navigator.flow.NavigationAction
+import ir.sass.navigator.flow.features.NavcontrollerHelper
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() , NavcontrollerFinder {
+class MainActivity : AppCompatActivity() , NavcontrollerHelper {
 
     lateinit var dataBinding : ActivityMainBinding
 
@@ -22,9 +23,11 @@ class MainActivity : AppCompatActivity() , NavcontrollerFinder {
         setContentView(dataBinding.root)
     }
 
-    override fun getGlobalNavcontroller(): NavController {
+
+    override fun navigate(action: NavigationAction) {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        return navHostFragment.navController
+        val controller = navHostFragment.navController
+        action.navigate(controller)
     }
 
 }

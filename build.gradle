@@ -81,7 +81,7 @@ ext{
     ]
 
     testLib = [
-            hilt:"com.google.dagger:hilt-android-testing:${lib_version.hilt}",
+            hiltTest:"com.google.dagger:hilt-android-testing:${lib_version.hilt}",
             robolectric:"org.robolectric:robolectric:${lib_version.robolectric}",
             junit:"junit:junit:${lib_version.junit}",
             androidTest:"androidx.test.ext:junit-ktx:${lib_version.androidTest}",
@@ -97,6 +97,6 @@ ext{
 
     ]
     katpTestLib = [
-            hilt:"com.google.dagger:hilt-android-compiler:${lib_version.hilt}"
+            hiltTest:"com.google.dagger:hilt-android-compiler:${lib_version.hilt}"
     ]
 }
