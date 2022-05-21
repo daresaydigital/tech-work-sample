@@ -24,7 +24,7 @@ data class DiscoverMovieDto(
     override fun cast(): DiscoverMovieModel = DiscoverMovieModel(
         page,results?.map {
             it.cast()
-        },total_pages,total_results,status_code,status_message,success
+        },total_pages,total_results,status_code,status_message,success?:true
     )
 
 }

@@ -8,7 +8,7 @@ data class DiscoverMovieModel(
     val total_results: Int?,
     val status_code: Int?,
     val status_message: String?,
-    val success: Boolean?
+    val success: Boolean
 )
 
 data class ResultModel(

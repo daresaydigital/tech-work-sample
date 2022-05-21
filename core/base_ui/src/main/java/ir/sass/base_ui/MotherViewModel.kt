@@ -37,7 +37,7 @@ open class MotherViewModel : ViewModel() {
         }
     }
 
-    private fun handleError(t : Throwable){
+    protected fun handleError(t : Throwable){
         viewModelScope.launch {
             _error.emit(t.message?:"Error")
         }
