@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:ext="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="kotlin.jvm.functions.Function0"/>
+        <import type="kotlin.Unit"/>
+        <variable
+            name="navigate"
+            type="Function0&lt;Unit>"/>
+    </data>
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -18,6 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@color/old_rose"
             android:textColor="@color/white"
-            android:text="Discover Movies"/>
+            android:text="Discover Movies"
+            ext:click='@{navigate}'/>
     </LinearLayout>
 </layout>
