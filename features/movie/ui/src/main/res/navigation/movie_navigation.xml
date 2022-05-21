@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/movieListFragment"
-        android:name="ir.sass.ui.fragments.mainList.MovieListFragment"
+        android:name="ir.sass.movie.ui.fragments.mainList.MovieListFragment"
         android:label="MovieListFragment" />
 </navigation>
