@@ -34,6 +34,6 @@ dependencies {
     api lib.get("androidCore")
     api lib.get("appcompat")
     api lib.get("coroutines")
-    implementation lib.get("retrofit")
+    api lib.get("retrofit")
     implementation project(":core:base_domain")
 }
