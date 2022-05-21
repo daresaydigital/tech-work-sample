@@ -41,7 +41,12 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
         binding()
     }
 
-    fun connectForError(viewModel: MotherViewModel){
+    fun connectViewModelForLoadingAndError(viewModel: MotherViewModel){
+        connectViewModelForError(viewModel)
+        connectViewModelForLoading(viewModel)
+    }
+
+    fun connectViewModelForError(viewModel: MotherViewModel){
         coroutinesLauncher(Lifecycle.State.STARTED){
             viewModel.error.collect {
                  // todo show error
@@ -49,7 +54,7 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
         }
     }
 
-    fun connectForLoading(viewModel: MotherViewModel){
+    fun connectViewModelForLoading(viewModel: MotherViewModel){
         coroutinesLauncher(Lifecycle.State.RESUMED){
             viewModel.loading.collect {
                 if(it) loadingOn() else loadingOff()

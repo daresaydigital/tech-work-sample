@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MotherViewModel : ViewModel() {
+open class MotherViewModel : ViewModel() {
     private val _loading : MutableSharedFlow<Boolean> = MutableSharedFlow()
     val loading : SharedFlow<Boolean> = _loading
 
