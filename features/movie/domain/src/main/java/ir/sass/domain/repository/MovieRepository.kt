@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
     fun discoverMovies() : Flow<Domain<DiscoverMovieModel>>
+
+    fun discoverMoviesFromLocal(): Flow<Domain<DiscoverMovieModel>>
 }
