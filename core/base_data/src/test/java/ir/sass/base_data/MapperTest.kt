@@ -19,4 +19,11 @@ class MapperTest {
         val casted = toReal<A>(json)
         assert(casted!!.number == 1 && casted.word == "google")
     }
+
+    @Test
+    fun `check if the mapper return null when there is a problem in casting json String`(){
+        val json = "{wtsdgshgshsfh}"
+        val casted = toReal<A>(json)
+        assert(casted == null)
+    }
 }
