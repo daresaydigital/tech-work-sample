@@ -16,6 +16,6 @@ interface MovieDao {
     @Insert
     fun insertNewResult(input : ResultEntity)
 
-    @Delete
-    fun deleteAResult(input : ResultEntity)
+    @Query("DELETE FROM $RESULT_TABLE_NAME WHERE id = :id")
+    fun deleteAResult(id : Int)
 }
