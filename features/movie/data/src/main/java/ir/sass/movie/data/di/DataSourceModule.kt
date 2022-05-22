@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DataSourceModule {
     @Provides
-    fun provideOkHttpClient() : OkHttpClient {
+    fun provideOkHttpClient(): OkHttpClient {
         val okClient = OkHttpClient.Builder()
             .addInterceptor { chain ->
                 var request: Request = chain.request()
@@ -33,7 +33,7 @@ object DataSourceModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(httpClient : OkHttpClient) : Retrofit = Retrofit.Builder()
+    fun provideRetrofit(httpClient: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl(API_BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(httpClient)
@@ -41,7 +41,7 @@ object DataSourceModule {
 
     @Provides
     @Singleton
-    fun provideDiscoverMovieApi(retrofit: Retrofit) : DiscoverMovieApi = retrofit
+    fun provideDiscoverMovieApi(retrofit: Retrofit): DiscoverMovieApi = retrofit
         .create(DiscoverMovieApi::class.java)
 
 }

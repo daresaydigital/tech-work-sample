@@ -7,19 +7,19 @@ import kotlinx.coroutines.flow.Flow
 but it won't return any value and sometimes it has output without any input
 sometimes it has both  and sometimes it has not neither of them*/
 
-abstract class MotherUseCase<in Input, Output>{
-    abstract operator fun invoke(input : Input) : Flow<Domain<Output>>
+abstract class MotherUseCase<in Input, Output> {
+    abstract operator fun invoke(input: Input): Flow<Domain<Output>>
 }
 
-abstract class MotherUseCaseWithOnlyInput<in Input>(){
-    abstract operator fun invoke(input : Input)
+abstract class MotherUseCaseWithOnlyInput<in Input>() {
+    abstract operator fun invoke(input: Input)
 }
 
-abstract class MotherUseCaseWithOnlyOutput<Output>{
-    abstract operator fun invoke() : Flow<Domain<Output>>
+abstract class MotherUseCaseWithOnlyOutput<Output> {
+    abstract operator fun invoke(): Flow<Domain<Output>>
 }
 
-abstract class MotherUseCaseEmpty{
+abstract class MotherUseCaseEmpty {
     abstract operator fun invoke()
 }
 

@@ -21,26 +21,26 @@ import kotlinx.coroutines.launch
  */
 
 open class MotherViewModel : ViewModel() {
-    private val _loading : MutableSharedFlow<Boolean> = MutableSharedFlow()
-    val loading : SharedFlow<Boolean> = _loading
+    private val _loading: MutableSharedFlow<Boolean> = MutableSharedFlow()
+    val loading: SharedFlow<Boolean> = _loading
 
-    private val _error : MutableSharedFlow<String> = MutableSharedFlow()
-    val error : SharedFlow<String> = _error
+    private val _error: MutableSharedFlow<String> = MutableSharedFlow()
+    val error: SharedFlow<String> = _error
 
-    fun <T>action(result : Flow<Domain<T>>, loading : Boolean, action : (T) -> Unit){
+    fun <T> action(result: Flow<Domain<T>>, loading: Boolean, action: (T) -> Unit) {
         viewModelScope.launch {
             result.collect { it ->
-                if(loading && it is Domain.Progress){
+                if (loading && it is Domain.Progress) {
                     loading(true)
-                }else{
+                } else {
                     loading(false)
-                    if(it is Domain.Data){
-                        if(it.data.isSuccess){
+                    if (it is Domain.Data) {
+                        if (it.data.isSuccess) {
                             it.data.getOrNull()?.let {
                                 action.invoke(it)
                             }
-                        }else{
-                            handleError(it.data.exceptionOrNull()?: Throwable("Error"))
+                        } else {
+                            handleError(it.data.exceptionOrNull() ?: Throwable("Error"))
                         }
                     }
                 }
@@ -48,12 +48,13 @@ open class MotherViewModel : ViewModel() {
         }
     }
 
-    protected fun handleError(t : Throwable){
+    protected fun handleError(t: Throwable) {
         viewModelScope.launch {
-            _error.emit(t.message?:"Error")
+            _error.emit(t.message ?: "Error")
         }
     }
-    private fun loading(active : Boolean){
+
+    private fun loading(active: Boolean) {
         viewModelScope.launch {
             _loading.emit(active)
         }

@@ -7,10 +7,10 @@ import androidx.room.RoomDatabase
 import ir.sass.shared_data.db.model.ResultEntity
 
 @Database(entities = [ResultEntity::class], version = 1)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -20,15 +20,14 @@ abstract class AppDatabase: RoomDatabase() {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context,
-                    AppDatabase::class.java, DB_NAME)
+                    AppDatabase::class.java, DB_NAME
+                )
                     .build()
                 INSTANCE = instance
                 instance
             }
         }
     }
-
-
 
 
 }

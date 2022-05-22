@@ -21,7 +21,7 @@ open class BaseViewModelTest {
 
     @ExperimentalCoroutinesApi
     @Before
-    fun setUp(){
+    fun setUp() {
         Dispatchers.setMain(testDispatcher)
     }
 }

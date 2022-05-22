@@ -14,29 +14,31 @@ class MovieListFragmentViewModelTest : BaseViewModelTest() {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `in online mode check if calling getMovies() method would get data from usecase`() = testScope.runTest{
-        val useCaseOnline = DiscoverMovieUseCase(fakeRepoSuccess())
-        val useCaseOffline = DiscoverMyFavoriteMoviesOfflineUseCase(fakeRepoSuccess())
-        val viewModel = MovieListFragmentViewModel(useCaseOnline,useCaseOffline)
-        viewModel.getMovies(false)
-        viewModel.movies.test {
-            delay(1)
-            assert(expectMostRecentItem()!!.results!![0].title == "fake title")
+    fun `in online mode check if calling getMovies() method would get data from usecase`() =
+        testScope.runTest {
+            val useCaseOnline = DiscoverMovieUseCase(fakeRepoSuccess())
+            val useCaseOffline = DiscoverMyFavoriteMoviesOfflineUseCase(fakeRepoSuccess())
+            val viewModel = MovieListFragmentViewModel(useCaseOnline, useCaseOffline)
+            viewModel.getMovies(false)
+            viewModel.movies.test {
+                delay(1)
+                assert(expectMostRecentItem()!!.results!![0].title == "fake title")
+            }
         }
-    }
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `in offline mode check if calling getMovies() method would get data from usecase`() = testScope.runTest{
-        val useCaseOnline = DiscoverMovieUseCase(fakeRepoSuccess())
-        val useCaseOffline = DiscoverMyFavoriteMoviesOfflineUseCase(fakeRepoSuccess())
-        val viewModel = MovieListFragmentViewModel(useCaseOnline,useCaseOffline)
-        viewModel.getMovies(true)
-        viewModel.movies.test {
-            delay(1)
-            assert(expectMostRecentItem()!!.results!![0].title == "fake db title")
+    fun `in offline mode check if calling getMovies() method would get data from usecase`() =
+        testScope.runTest {
+            val useCaseOnline = DiscoverMovieUseCase(fakeRepoSuccess())
+            val useCaseOffline = DiscoverMyFavoriteMoviesOfflineUseCase(fakeRepoSuccess())
+            val viewModel = MovieListFragmentViewModel(useCaseOnline, useCaseOffline)
+            viewModel.getMovies(true)
+            viewModel.movies.test {
+                delay(1)
+                assert(expectMostRecentItem()!!.results!![0].title == "fake db title")
+            }
         }
-    }
 
 
 }

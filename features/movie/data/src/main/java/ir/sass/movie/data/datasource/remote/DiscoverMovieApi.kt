@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface DiscoverMovieApi {
     @GET("/3/discover/movie")
-    suspend fun discoverMovies() : DiscoverMovieDto
+    suspend fun discoverMovies(): DiscoverMovieDto
 }

@@ -13,7 +13,7 @@ extension function for clicking in dataBinding
 */
 
 @BindingAdapter("ext:click")
-fun setClick(view : View,action : () ->  Unit){
+fun setClick(view: View, action: () -> Unit) {
     view.setOnClickListener {
         CoroutineScope(Dispatchers.Main).launch {
             it.isClickable = false
@@ -29,11 +29,11 @@ extension function for making a view disabled in dataBinding
 */
 
 @BindingAdapter("ext:active")
-fun active(view : View,active : Boolean){
-    if(active){
+fun active(view: View, active: Boolean) {
+    if (active) {
         view.isEnabled = true
         view.alpha = 1f
-    }else{
+    } else {
         view.isEnabled = false
         view.alpha = 0.7f
     }

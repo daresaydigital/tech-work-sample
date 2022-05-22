@@ -23,7 +23,7 @@ class MovieDetailFragment : MotherFragment<FragmentMovieDetailBinding>(
 
     private val args by navArgs<MovieDetailFragmentArgs>()
 
-    private val viewModel : MovieDetailFragmentViewModel by viewModels()
+    private val viewModel: MovieDetailFragmentViewModel by viewModels()
 
     override fun binding() {
         toReal<ResultModel>(args.data)?.let {
@@ -35,16 +35,16 @@ class MovieDetailFragment : MotherFragment<FragmentMovieDetailBinding>(
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = viewLifecycleOwner
 
-        coroutinesLauncher(Lifecycle.State.STARTED){
-            viewModel.message.collect{
+        coroutinesLauncher(Lifecycle.State.STARTED) {
+            viewModel.message.collect {
                 requireContext().toast(it)
             }
         }
 
-        coroutinesLauncher(Lifecycle.State.STARTED){
-            viewModel.navigateBack.collect{
+        coroutinesLauncher(Lifecycle.State.STARTED) {
+            viewModel.navigateBack.collect {
                 it?.let {
-                    if(it)
+                    if (it)
                         findNavController().popBackStack()
                 }
             }

@@ -38,16 +38,16 @@ fun fakeRepoSuccess() = object : MovieRepository {
                         1,
                         listOf(
                             ResultModel(
-                                true,"fake path", listOf(),1,
-                                "En","fake title","fake overview",1.0,
-                                "fake path","fake path","fake date","fake title",true,
-                                1.0,1
+                                true, "fake path", listOf(), 1,
+                                "En", "fake title", "fake overview", 1.0,
+                                "fake path", "fake path", "fake date", "fake title", true,
+                                1.0, 1
                             )
-                        )
-                        ,1,1,200,null,true)
+                        ), 1, 1, 200, null, true
                     )
                 )
             )
+        )
     }
 
     override fun discoverMoviesFromLocal(): Flow<Domain<DiscoverMovieModel>> = flow {
@@ -58,13 +58,24 @@ fun fakeRepoSuccess() = object : MovieRepository {
                         1,
                         listOf(
                             ResultModel(
-                                true,"fake db path", listOf(),1,
-                                "En","fake db title","fake db overview",1.0,
-                                "fake db path","fake db path","fake db date","fake db title",true,
-                                1.0,1
+                                true,
+                                "fake db path",
+                                listOf(),
+                                1,
+                                "En",
+                                "fake db title",
+                                "fake db overview",
+                                1.0,
+                                "fake db path",
+                                "fake db path",
+                                "fake db date",
+                                "fake db title",
+                                true,
+                                1.0,
+                                1
                             )
-                        )
-                        ,1,1,200,null,true)
+                        ), 1, 1, 200, null, true
+                    )
                 )
             )
         )

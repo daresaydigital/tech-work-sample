@@ -6,6 +6,6 @@ will send Domain.Progress, after that repository will send Domain.Data, the data
 a Result class so it can be a success request or failure */
 
 sealed class Domain<T> {
-    class Progress<T>(val message : String = "Loading") : Domain<T>()
-    class Data<T>(val data : kotlin.Result<T>) : Domain<T>()
+    class Progress<T>(val message: String = "Loading") : Domain<T>()
+    class Data<T>(val data: kotlin.Result<T>) : Domain<T>()
 }

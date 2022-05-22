@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="adapter"
             type="ir.sass.base_ui.MotherAdapter" />
+
         <variable
             name="empty_state"
             type="boolean" />
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
     </data>
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adapter='@{adapter}'
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
         <TextView
             android:id="@+id/txt_empty_state"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="No Item !!!"
+            android:textColor="@color/white"
             android:textSize="32sp"
-            android:visibility='@{empty_state?View.VISIBLE:View.GONE}'
-            android:textColor="@color/white"/>
+            android:visibility='@{empty_state?View.VISIBLE:View.GONE}' />
     </RelativeLayout>
 </layout>

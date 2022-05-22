@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 const val RESULT_TABLE_NAME = "result_entity"
 
 @Entity(tableName = RESULT_TABLE_NAME)
-data class ResultEntity (
+data class ResultEntity(
     @ColumnInfo(name = "adult")
     val adult: Boolean,
     @PrimaryKey

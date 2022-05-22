@@ -13,22 +13,22 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieListFragmentViewModel @Inject constructor(
-    private val discoverMovieUseCase : DiscoverMovieUseCase,
-    private val discoverMyFavoriteMoviesOfflineUseCase : DiscoverMyFavoriteMoviesOfflineUseCase
-): MotherViewModel() {
+    private val discoverMovieUseCase: DiscoverMovieUseCase,
+    private val discoverMyFavoriteMoviesOfflineUseCase: DiscoverMyFavoriteMoviesOfflineUseCase
+) : MotherViewModel() {
 
-    private val _movies : MutableStateFlow<DiscoverMovieModel?> = MutableStateFlow(null)
-    val movies : StateFlow<DiscoverMovieModel?> = _movies
+    private val _movies: MutableStateFlow<DiscoverMovieModel?> = MutableStateFlow(null)
+    val movies: StateFlow<DiscoverMovieModel?> = _movies
 
-    fun getMovies(isFavorite : Boolean){
-        if(isFavorite){
-            action(discoverMyFavoriteMoviesOfflineUseCase(),true){
+    fun getMovies(isFavorite: Boolean) {
+        if (isFavorite) {
+            action(discoverMyFavoriteMoviesOfflineUseCase(), true) {
                 viewModelScope.launch {
                     _movies.emit(it)
                 }
             }
-        }else{
-            action(discoverMovieUseCase(),true){
+        } else {
+            action(discoverMovieUseCase(), true) {
                 viewModelScope.launch {
                     _movies.emit(it)
                 }

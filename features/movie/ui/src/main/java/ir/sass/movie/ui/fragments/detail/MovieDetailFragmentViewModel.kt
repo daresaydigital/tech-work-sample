@@ -15,35 +15,35 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieDetailFragmentViewModel @Inject constructor(
-    private val saveMovieToLocalUseCase : SaveMovieToLocalUseCase,
-    private val deleteMovieFromLocalUseCase : DeleteMovieFromLocalUseCase,
-    ): MotherViewModel() {
+    private val saveMovieToLocalUseCase: SaveMovieToLocalUseCase,
+    private val deleteMovieFromLocalUseCase: DeleteMovieFromLocalUseCase,
+) : MotherViewModel() {
 
-    lateinit var resultModel : ResultModel
+    lateinit var resultModel: ResultModel
     var isFavorite = false
 
-    private val _message : MutableSharedFlow<String> = MutableSharedFlow()
-    val message : SharedFlow<String> = _message
+    private val _message: MutableSharedFlow<String> = MutableSharedFlow()
+    val message: SharedFlow<String> = _message
 
-    private val _active : MutableStateFlow<Boolean> = MutableStateFlow(true)
-    val active : StateFlow<Boolean> = _active
+    private val _active: MutableStateFlow<Boolean> = MutableStateFlow(true)
+    val active: StateFlow<Boolean> = _active
 
-    private val _navigateBack : MutableStateFlow<Boolean?> = MutableStateFlow(null)
-    val navigateBack : StateFlow<Boolean?> = _navigateBack
+    private val _navigateBack: MutableStateFlow<Boolean?> = MutableStateFlow(null)
+    val navigateBack: StateFlow<Boolean?> = _navigateBack
 
-    private fun saveToLocal(input : ResultModel){
+    private fun saveToLocal(input: ResultModel) {
         saveMovieToLocalUseCase(input)
     }
 
-    private fun deleteFromLocal(input : ResultModel){
+    private fun deleteFromLocal(input: ResultModel) {
         deleteMovieFromLocalUseCase(input)
     }
 
-    fun saveOrDelete(){
-        val message = if(isFavorite){
+    fun saveOrDelete() {
+        val message = if (isFavorite) {
             deleteFromLocal(resultModel)
             "Deleted !"
-        }else{
+        } else {
             saveToLocal(resultModel)
             "Saved !"
         }
@@ -51,12 +51,11 @@ class MovieDetailFragmentViewModel @Inject constructor(
         viewModelScope.launch {
             _message.emit(message)
             _active.emit(false)
-            if(isFavorite){
+            if (isFavorite) {
                 _navigateBack.emit(true)
             }
         }
     }
-
 
 
 }

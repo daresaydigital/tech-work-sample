@@ -28,16 +28,16 @@ import kotlinx.coroutines.launch
  * @property loadingOn will manually show loading
  * @property loadingOff will manually dismiss loading
  * @property coroutinesLauncher you can handle your suspend functions here,it takes one parameter which is named
-    state and that's from Lifecycle.State, you will pass your action and the
-    action will be invoked
+state and that's from Lifecycle.State, you will pass your action and the
+action will be invoked
  */
 
 abstract class MotherFragment<DataBinding : ViewDataBinding>(
-    private val setting : MotherFragmentSetting
+    private val setting: MotherFragmentSetting
 ) : Fragment(R.layout.fragment_base) {
 
-    private lateinit var dataBindingOuter : FragmentBaseBinding
-    protected lateinit var dataBinding : DataBinding
+    private lateinit var dataBindingOuter: FragmentBaseBinding
+    protected lateinit var dataBinding: DataBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,28 +52,28 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dataBinding = DataBindingUtil.inflate(
-            LayoutInflater.from(requireContext()),setting.layout,dataBindingOuter.linAdd,true
+            LayoutInflater.from(requireContext()), setting.layout, dataBindingOuter.linAdd, true
         )
         binding()
     }
 
-    fun connectViewModelForLoadingAndError(viewModel: MotherViewModel){
+    fun connectViewModelForLoadingAndError(viewModel: MotherViewModel) {
         connectViewModelForError(viewModel)
         connectViewModelForLoading(viewModel)
     }
 
-    fun connectViewModelForError(viewModel: MotherViewModel){
-        coroutinesLauncher(Lifecycle.State.STARTED){
+    fun connectViewModelForError(viewModel: MotherViewModel) {
+        coroutinesLauncher(Lifecycle.State.STARTED) {
             viewModel.error.collect {
-                 // todo show error
+                // todo show error
             }
         }
     }
 
-    fun connectViewModelForLoading(viewModel: MotherViewModel){
-        coroutinesLauncher(Lifecycle.State.RESUMED){
+    fun connectViewModelForLoading(viewModel: MotherViewModel) {
+        coroutinesLauncher(Lifecycle.State.RESUMED) {
             viewModel.loading.collect {
-                if(it) loadingOn() else loadingOff()
+                if (it) loadingOn() else loadingOff()
             }
         }
     }
@@ -81,17 +81,17 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
     abstract fun binding()
 
 
-    fun loadingOn(){
+    fun loadingOn() {
         dataBindingOuter.loading = true
     }
 
-    fun loadingOff(){
+    fun loadingOff() {
         dataBindingOuter.loading = false
     }
 
-    fun coroutinesLauncher(state : Lifecycle.State, action :suspend () -> Unit){
+    fun coroutinesLauncher(state: Lifecycle.State, action: suspend () -> Unit) {
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(state){
+            viewLifecycleOwner.repeatOnLifecycle(state) {
                 action.invoke()
             }
         }
@@ -108,6 +108,6 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
 
 class MotherFragmentSetting(
     @LayoutRes
-    val layout : Int,
-    val title : String
+    val layout: Int,
+    val title: String
 )

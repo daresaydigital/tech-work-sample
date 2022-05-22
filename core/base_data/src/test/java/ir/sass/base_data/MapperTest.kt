@@ -5,23 +5,24 @@ import ir.sass.base_data.model.toReal
 import org.junit.Test
 
 class MapperTest {
-    data class A(val number : Int,val word : String)
+    data class A(val number: Int, val word: String)
+
     @Test
-    fun `check if the mapper can cast class A to jsonString`(){
-        val a = A(1,"google")
+    fun `check if the mapper can cast class A to jsonString`() {
+        val a = A(1, "google")
         val jsonString = toJsonString(a)
         assert(jsonString.equals("{\"number\":1,\"word\":\"google\"}"))
     }
 
     @Test
-    fun `check if the mapper can cast json string to the type of A`(){
+    fun `check if the mapper can cast json string to the type of A`() {
         val json = "{\"number\":1,\"word\":\"google\"}"
         val casted = toReal<A>(json)
         assert(casted!!.number == 1 && casted.word == "google")
     }
 
     @Test
-    fun `check if the mapper return null when there is a problem in casting json String`(){
+    fun `check if the mapper return null when there is a problem in casting json String`() {
         val json = "{wtsdgshgshsfh}"
         val casted = toReal<A>(json)
         assert(casted == null)

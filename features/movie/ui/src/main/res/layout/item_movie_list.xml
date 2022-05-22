@@ -1,61 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:ext="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="movie"
             type="ir.sass.domain.model.ResultModel" />
-        <import type="kotlin.jvm.functions.Function0"/>
-        <import type="kotlin.Unit"/>
+
+        <import type="kotlin.jvm.functions.Function0" />
+
+        <import type="kotlin.Unit" />
+
         <variable
             name="navigate"
-            type="Function0&lt;Unit>"/>
+            type="Function0&lt;Unit>" />
     </data>
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
-        ext:click='@{navigate}'
-        android:padding="4dp">
+        android:orientation="vertical"
+        android:padding="4dp"
+        ext:click='@{navigate}'>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 ext:cardCornerRadius="12dp">
+
                 <ir.sass.base_ui.view.LottieImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    ext:url='@{movie.poster_path}'/>
+                    ext:url='@{movie.poster_path}' />
             </androidx.cardview.widget.CardView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/txt_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='@{"Title : "+movie.title}'
                     android:gravity="center|start"
-                    android:textColor="@color/white"/>
+                    android:text='@{"Title : "+movie.title}'
+                    android:textColor="@color/white" />
+
                 <TextView
                     android:id="@+id/txt_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='@{"Release date : "+movie.release_date}'
                     android:gravity="center|start"
-                    android:textColor="@color/white"/>
+                    android:text='@{"Release date : "+movie.release_date}'
+                    android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/dark_olive_green"
-            android:layout_marginTop="4dp"/>
+            android:layout_marginTop="4dp"
+            android:background="@color/dark_olive_green" />
     </LinearLayout>
 </layout>

@@ -26,9 +26,9 @@ constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-): FrameLayout(context,attrs,defStyleAttr){
-    val binding : LottieImageViewBinding = LottieImageViewBinding.inflate(
-        LayoutInflater.from(context),this,true
+) : FrameLayout(context, attrs, defStyleAttr) {
+    val binding: LottieImageViewBinding = LottieImageViewBinding.inflate(
+        LayoutInflater.from(context), this, true
     )
 }
 
@@ -43,15 +43,23 @@ fun setImageUrl(img: LottieImageView, url: String?) {
         Glide.with(img.context)
             .load(url)
             .centerCrop()
-            .addListener(imageLoadingListener(img.binding.lottie,img.binding.img))
+            .addListener(imageLoadingListener(img.binding.lottie, img.binding.img))
             .into(img.binding.img)
     }
 }
 
 
-fun imageLoadingListener(pendingImage: LottieAnimationView,img : ImageView): RequestListener<Drawable?> {
+fun imageLoadingListener(
+    pendingImage: LottieAnimationView,
+    img: ImageView
+): RequestListener<Drawable?> {
     return object : RequestListener<Drawable?> {
-        override fun onLoadFailed(e: GlideException?, model: Any?, target: com.bumptech.glide.request.target.Target<Drawable?>?, isFirstResource: Boolean): Boolean {
+        override fun onLoadFailed(
+            e: GlideException?,
+            model: Any?,
+            target: com.bumptech.glide.request.target.Target<Drawable?>?,
+            isFirstResource: Boolean
+        ): Boolean {
             pendingImage.pauseAnimation()
             pendingImage.visibility = View.GONE
             CoroutineScope(Main).launch {

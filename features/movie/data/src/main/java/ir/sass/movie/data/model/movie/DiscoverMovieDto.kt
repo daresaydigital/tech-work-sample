@@ -2,11 +2,11 @@ package ir.sass.movie.data.model.movie
 
 import com.google.gson.annotations.SerializedName
 import ir.sass.base_domain.model.Mapper
-import ir.sass.movie.data.utils.IMAGE_BASE_URL
-import ir.sass.movie.data.utils.SAMPLE_MOVIE_IMAGE_URL
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
+import ir.sass.movie.data.utils.IMAGE_BASE_URL
 import ir.sass.movie.data.utils.LARGE_IMAGE_BASE_URL
+import ir.sass.movie.data.utils.SAMPLE_MOVIE_IMAGE_URL
 
 data class DiscoverMovieDto(
     @SerializedName("page")
@@ -25,9 +25,9 @@ data class DiscoverMovieDto(
     val success: Boolean?
 ) : Mapper<DiscoverMovieModel> {
     override fun cast(): DiscoverMovieModel = DiscoverMovieModel(
-        page,results?.map {
+        page, results?.map {
             it.cast()
-        },total_pages,total_results,status_code,status_message,success?:true
+        }, total_pages, total_results, status_code, status_message, success ?: true
     )
 
 
@@ -63,22 +63,35 @@ data class ResultDto(
     @SerializedName("vote_count")
     val vote_count: Int
 ) : Mapper<ResultModel> {
-    override fun cast(): ResultModel{
-        val finalUrlForImage = if(poster_path == null){
+    override fun cast(): ResultModel {
+        val finalUrlForImage = if (poster_path == null) {
             SAMPLE_MOVIE_IMAGE_URL
-        }else{
-            IMAGE_BASE_URL+poster_path
+        } else {
+            IMAGE_BASE_URL + poster_path
         }
 
-        val finalLargeUrlForImage = if(poster_path == null){
+        val finalLargeUrlForImage = if (poster_path == null) {
             SAMPLE_MOVIE_IMAGE_URL
-        }else{
-            LARGE_IMAGE_BASE_URL+poster_path
+        } else {
+            LARGE_IMAGE_BASE_URL + poster_path
         }
 
         return ResultModel(
-            adult,backdrop_path,genre_ids,id,original_language,original_title,overview,
-            popularity,finalUrlForImage,finalLargeUrlForImage,release_date,title,video,vote_average,vote_count
+            adult,
+            backdrop_path,
+            genre_ids,
+            id,
+            original_language,
+            original_title,
+            overview,
+            popularity,
+            finalUrlForImage,
+            finalLargeUrlForImage,
+            release_date,
+            title,
+            video,
+            vote_average,
+            vote_count
         )
     }
 

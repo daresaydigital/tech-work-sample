@@ -1,7 +1,6 @@
 package ir.sass.shared_data.db
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import ir.sass.shared_data.db.model.RESULT_TABLE_NAME
@@ -14,8 +13,8 @@ interface MovieDao {
     fun getAllResults(): Flow<List<ResultEntity>>
 
     @Insert
-    fun insertNewResult(input : ResultEntity)
+    fun insertNewResult(input: ResultEntity)
 
     @Query("DELETE FROM $RESULT_TABLE_NAME WHERE id = :id")
-    fun deleteAResult(id : Int)
+    fun deleteAResult(id: Int)
 }

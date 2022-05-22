@@ -22,17 +22,19 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
         "Movies"
     )
 ) {
-    private val viewModel : MovieListFragmentViewModel by viewModels()
+    private val viewModel: MovieListFragmentViewModel by viewModels()
 
     private val args by navArgs<MovieListFragmentArgs>()
 
     private val adapter = MotherAdapter<ItemMovieListBinding, ResultModel>(
-        RecyclerItemWrapper(R.layout.item_movie_list){ binding, item, pos ->
+        RecyclerItemWrapper(R.layout.item_movie_list) { binding, item, pos ->
             binding.movie = item
             binding.navigate = {
-                findNavController().navigate(MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(
-                    toJsonString(item),args.isFavorite
-                ))
+                findNavController().navigate(
+                    MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(
+                        toJsonString(item), args.isFavorite
+                    )
+                )
             }
         }
     )
@@ -44,10 +46,10 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
 
         dataBinding.adapter = adapter
 
-        coroutinesLauncher(Lifecycle.State.STARTED){
-            viewModel.movies.collect{
+        coroutinesLauncher(Lifecycle.State.STARTED) {
+            viewModel.movies.collect {
                 it?.let {
-                    it.results?.let{
+                    it.results?.let {
                         dataBinding.emptyState = it.isEmpty()
                         adapter.changeList(it)
                     }

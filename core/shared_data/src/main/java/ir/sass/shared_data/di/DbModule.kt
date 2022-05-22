@@ -14,7 +14,7 @@ import javax.inject.Singleton
 object DbModule {
     @Provides
     @Singleton
-    fun provideMovieDao(application: Application) : MovieDao{
+    fun provideMovieDao(application: Application): MovieDao {
         return AppDatabase.getDatabase(application).movieDao()
     }
 }

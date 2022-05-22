@@ -6,11 +6,11 @@ import ir.sass.domain.model.ResultModel
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
-    fun discoverMovies() : Flow<Domain<DiscoverMovieModel>>
+    fun discoverMovies(): Flow<Domain<DiscoverMovieModel>>
 
     fun discoverMoviesFromLocal(): Flow<Domain<DiscoverMovieModel>>
 
-    fun saveToLocal(model : ResultModel)
+    fun saveToLocal(model: ResultModel)
 
     fun deleteFromLocal(model: ResultModel)
 }
