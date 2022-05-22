@@ -3,6 +3,7 @@ package ir.sass.movie.ui.fragments.mainList
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import dagger.hilt.android.AndroidEntryPoint
 import ir.sass.base_data.model.toJsonString
 import ir.sass.base_ui.MotherAdapter
@@ -23,6 +24,8 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
 ) {
 
     private val viewModel : MovieListFragmentViewModel by viewModels()
+
+    val args by navArgs<MovieListFragmentArgs>()
 
     private val adapter = MotherAdapter<ItemMovieListBinding, ResultModel>(
         RecyclerItemWrapper(R.layout.item_movie_list){ binding, item, pos ->

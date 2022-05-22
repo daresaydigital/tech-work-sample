@@ -8,6 +8,8 @@
         android:id="@+id/movieListFragment"
         android:name="ir.sass.movie.ui.fragments.mainList.MovieListFragment"
         android:label="MovieListFragment" >
+        <argument android:name="isFavorite" app:argType="boolean"/>
+
         <action
             android:id="@+id/action_movieListFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment" />
