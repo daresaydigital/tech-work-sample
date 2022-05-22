@@ -46,7 +46,10 @@ class MovieDetailFragment : MotherFragment<FragmentMovieDetailBinding>(
 
         coroutinesLauncher(Lifecycle.State.STARTED){
             viewModel.navigateBack.collect{
-                findNavController().popBackStack()
+                it?.let {
+                    if(it)
+                        findNavController().popBackStack()
+                }
             }
         }
     }

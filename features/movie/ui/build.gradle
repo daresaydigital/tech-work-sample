@@ -46,7 +46,9 @@ dependencies {
     api project(":core:base_ui")
     implementation project(":features:movie:data")
     implementation project(":features:movie:domain")
+    implementation project(":core:shared_data")
     implementation lib.get("hilt")
+    implementation 'androidx.room:room-ktx:2.4.2'
     kapt kaptLibs.get("hilt")
 
     testImplementation testLib.get("mockito")

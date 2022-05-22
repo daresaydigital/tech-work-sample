@@ -8,6 +8,7 @@ import ir.sass.base_data.test.BaseDataTest
 import ir.sass.basedomain.model.Domain
 import ir.sass.movie.data.datasource.remote.DiscoverMovieApi
 import ir.sass.movie.data.model.movie.DiscoverMovieDto
+import ir.sass.shared_data.db.MovieDao
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
@@ -15,9 +16,11 @@ import org.junit.Test
 class MovieRepositoryImpTest : BaseDataTest() {
 
     private val apiService: DiscoverMovieApi = mock()
-    val discoverMovieDto : DiscoverMovieDto = mock()
-    val repository = MovieRepositoryImp(apiService)
+    private val discoverMovieDto : DiscoverMovieDto = mock()
+    private val movieDao : MovieDao = mock()
+    private val repository = MovieRepositoryImp(apiService,movieDao)
 
+    // db test is on androidTest
 
     @ExperimentalCoroutinesApi
     @Test
@@ -44,4 +47,7 @@ class MovieRepositoryImpTest : BaseDataTest() {
             }
         }
     }
+
+
+
 }

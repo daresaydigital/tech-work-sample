@@ -7,6 +7,7 @@ import ir.sass.movie.data.utils.SAMPLE_MOVIE_IMAGE_URL
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
 import ir.sass.movie.data.utils.LARGE_IMAGE_BASE_URL
+import ir.sass.shared_data.db.model.ResultEntity
 
 data class DiscoverMovieDto(
     @SerializedName("page")
@@ -29,6 +30,7 @@ data class DiscoverMovieDto(
             it.cast()
         },total_pages,total_results,status_code,status_message,success?:true
     )
+
 
 }
 

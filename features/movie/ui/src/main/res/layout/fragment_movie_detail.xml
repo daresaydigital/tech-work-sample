@@ -35,7 +35,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/txt_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text='@{"Title : "+ data.title}'
@@ -48,72 +48,73 @@
                     app:layout_constraintTop_toBottomOf="@+id/lottieImageView" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/txt_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='@{"Release data : "+ data.release_date}'
+                    android:text='@{"Release date : "+ data.release_date}'
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:padding="8dp"
-                    app:layout_constraintStart_toStartOf="@+id/textView2"
-                    app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                    app:layout_constraintStart_toStartOf="@+id/txt_title"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_title" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txt_lang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text='@{"Language : "+ data.original_language}'
                     android:padding="8dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                    app:layout_constraintStart_toStartOf="@+id/txt_date"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_date" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/txt_adult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='@{data.adult?"Not sutable for kids":"Sutable for kids"}'
+                    android:text='@{data.adult?"Suitable for kids":"Not suitable for kids"}'
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:padding="8dp"
-                    app:layout_constraintStart_toStartOf="@+id/textView4"
-                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                    app:layout_constraintStart_toStartOf="@+id/txt_lang"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_lang" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/txt_vote_count"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text='@{"Vote count : "+ data.vote_count}'
                     android:padding="8dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                    app:layout_constraintStart_toStartOf="@+id/txt_adult"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_adult" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/txt_vote_avg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='@{"Vote avarage : "+ data.vote_average}'
+                    android:text='@{"Vote average : "+ data.vote_average}'
                     android:padding="8dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="@+id/textView6"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                    app:layout_constraintStart_toStartOf="@+id/txt_vote_count"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_vote_count" />
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/txt_overview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:text='@{"Overview : "+ data.overview}'
-                    app:layout_constraintStart_toStartOf="@+id/textView7"
-                    app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                    app:layout_constraintStart_toStartOf="@+id/txt_vote_avg"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_vote_avg" />
 
                 <TextView
+                    android:id="@+id/btn"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:gravity="center"
@@ -121,8 +122,8 @@
                     android:textColor="@color/white"
                     android:layout_marginTop="12dp"
                     ext:click='@{() -> viewModel.saveOrDelete()}'
-                    app:layout_constraintStart_toStartOf="@+id/textView8"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+                    app:layout_constraintStart_toStartOf="@+id/txt_overview"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_overview"
                     ext:active='@{viewModel.active}'
                     android:text='@{viewModel.isFavorite?"Delete":"Save"}'/>
 
