@@ -6,6 +6,10 @@ import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import org.junit.Rule
 
+/*this is the parent class for any unit test that exist on data layers
+we can not put this class on test folder because of the framework policy
+so I added this class here intentionally*/
+
 open class BaseDataTest {
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
