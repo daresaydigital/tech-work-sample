@@ -4,8 +4,10 @@ import ir.sass.base_data.model.safeApi
 import ir.sass.basedomain.model.Domain
 import ir.sass.movie.data.datasource.remote.DiscoverMovieApi
 import ir.sass.domain.model.DiscoverMovieModel
+import ir.sass.domain.model.ResultModel
 import ir.sass.domain.repository.MovieRepository
 import ir.sass.movie.data.model.movie.cast
+import ir.sass.movie.data.model.movie.castToEntity
 import ir.sass.shared_data.db.MovieDao
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.*
@@ -38,5 +40,13 @@ class MovieRepositoryImp @Inject constructor(
 
             )
         )
+    }
+
+    override fun saveToLocal(model: ResultModel) {
+        dao.insertNewResult(model.castToEntity())
+    }
+
+    override fun deleteFromLocal(model: ResultModel) {
+        dao.deleteAResult(model.id)
     }
 }
