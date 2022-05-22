@@ -1,7 +1,7 @@
 package ir.sass.movie.data.repository
 
 import ir.sass.base_data.model.safeApi
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import ir.sass.movie.data.datasource.remote.DiscoverMovieApi
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel

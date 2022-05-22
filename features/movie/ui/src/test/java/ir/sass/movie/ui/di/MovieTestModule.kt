@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
 import ir.sass.domain.repository.MovieRepository

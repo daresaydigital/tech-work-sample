@@ -1,7 +1,7 @@
 package ir.sass.base_data
 
 import ir.sass.base_data.test.BaseDataTest
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test

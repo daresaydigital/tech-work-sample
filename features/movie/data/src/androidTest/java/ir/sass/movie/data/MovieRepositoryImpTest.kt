@@ -5,11 +5,8 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.times
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.whenever
 import ir.sass.base_data.test.BaseDataTest
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import ir.sass.movie.data.datasource.remote.DiscoverMovieApi
 import ir.sass.movie.data.model.movie.DiscoverMovieDto
 import ir.sass.movie.data.repository.MovieRepositoryImp
@@ -17,7 +14,6 @@ import ir.sass.shared_data.db.AppDatabase
 import ir.sass.shared_data.db.MovieDao
 import ir.sass.shared_data.db.model.ResultEntity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
@@ -25,7 +21,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
 class MovieRepositoryImpTest : BaseDataTest() {

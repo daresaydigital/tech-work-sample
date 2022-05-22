@@ -1,6 +1,6 @@
 package ir.sass.domain.repository
 
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
 import kotlinx.coroutines.flow.Flow

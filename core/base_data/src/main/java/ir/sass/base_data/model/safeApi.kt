@@ -1,6 +1,6 @@
 package ir.sass.base_data.model
 
-import ir.sass.basedomain.model.Mapper
+import ir.sass.base_domain.model.Mapper
 
 /*safe api is a mediator function, it will invoke the service request
 right now on catch section it returs the Throwable without any changes

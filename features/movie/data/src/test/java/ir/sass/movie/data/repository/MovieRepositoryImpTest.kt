@@ -5,7 +5,7 @@ import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import ir.sass.base_data.test.BaseDataTest
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import ir.sass.movie.data.datasource.remote.DiscoverMovieApi
 import ir.sass.movie.data.model.movie.DiscoverMovieDto
 import ir.sass.shared_data.db.MovieDao

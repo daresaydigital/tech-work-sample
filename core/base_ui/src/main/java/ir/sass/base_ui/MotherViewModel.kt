@@ -2,11 +2,10 @@ package ir.sass.base_ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ir.sass.basedomain.model.Domain
+import ir.sass.base_domain.model.Domain
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 open class MotherViewModel : ViewModel() {

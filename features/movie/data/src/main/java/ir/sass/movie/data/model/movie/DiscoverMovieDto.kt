@@ -1,13 +1,12 @@
 package ir.sass.movie.data.model.movie
 
 import com.google.gson.annotations.SerializedName
-import ir.sass.basedomain.model.Mapper
+import ir.sass.base_domain.model.Mapper
 import ir.sass.movie.data.utils.IMAGE_BASE_URL
 import ir.sass.movie.data.utils.SAMPLE_MOVIE_IMAGE_URL
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
 import ir.sass.movie.data.utils.LARGE_IMAGE_BASE_URL
-import ir.sass.shared_data.db.model.ResultEntity
 
 data class DiscoverMovieDto(
     @SerializedName("page")
@@ -24,7 +23,7 @@ data class DiscoverMovieDto(
     val status_message: String?,
     @SerializedName("success")
     val success: Boolean?
-) : Mapper<DiscoverMovieModel>{
+) : Mapper<DiscoverMovieModel> {
     override fun cast(): DiscoverMovieModel = DiscoverMovieModel(
         page,results?.map {
             it.cast()
@@ -63,7 +62,7 @@ data class ResultDto(
     val vote_average: Double,
     @SerializedName("vote_count")
     val vote_count: Int
-) : Mapper<ResultModel>{
+) : Mapper<ResultModel> {
     override fun cast(): ResultModel{
         val finalUrlForImage = if(poster_path == null){
             SAMPLE_MOVIE_IMAGE_URL
