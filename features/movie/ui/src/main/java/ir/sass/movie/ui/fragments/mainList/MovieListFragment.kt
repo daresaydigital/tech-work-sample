@@ -22,7 +22,6 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
         "Movies"
     )
 ) {
-
     private val viewModel : MovieListFragmentViewModel by viewModels()
 
     val args by navArgs<MovieListFragmentArgs>()
@@ -41,7 +40,8 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
     override fun binding() {
         connectViewModelForLoadingAndError(viewModel)
 
-        viewModel.getMovies()
+        viewModel.getMovies(args.isFavorite)
+
         dataBinding.adapter = adapter
 
         coroutinesLauncher(Lifecycle.State.STARTED){
