@@ -73,7 +73,7 @@
                     android:id="@+id/txt_adult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text='@{data.adult?"Suitable for kids":"Not suitable for kids"}'
+                    android:text='@{data.adult?"Not Suitable for kids":"Suitable for kids"}'
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:padding="8dp"

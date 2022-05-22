@@ -49,7 +49,7 @@ class MovieDetailFragmentTest {
             }
         ){
             (this as MovieDetailFragment).apply {
-                onView(withId(R.id.txt_adult)).check(matches(withText("Suitable for kids")))
+                onView(withId(R.id.txt_adult)).check(matches(withText("Not suitable for kids")))
             }
         }
     }
@@ -68,7 +68,7 @@ class MovieDetailFragmentTest {
                 onView(withId(R.id.txt_title)).check(matches(withText("Title : fake title")))
                 onView(withId(R.id.txt_date)).check(matches(withText("Release date : fake date")))
                 onView(withId(R.id.txt_lang)).check(matches(withText("Language : En")))
-                onView(withId(R.id.txt_adult)).check(matches(withText("Not suitable for kids")))
+                onView(withId(R.id.txt_adult)).check(matches(withText("Suitable for kids")))
                 onView(withId(R.id.txt_vote_count)).check(matches(withText("Vote count : 1")))
                 onView(withId(R.id.txt_vote_avg)).check(matches(withText("Vote average : 1.0")))
                 onView(withId(R.id.txt_overview)).check(matches(withText("Overview : fake overview")))

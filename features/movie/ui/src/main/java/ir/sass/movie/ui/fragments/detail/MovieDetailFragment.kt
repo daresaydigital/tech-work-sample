@@ -35,9 +35,6 @@ class MovieDetailFragment : MotherFragment<FragmentMovieDetailBinding>(
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = viewLifecycleOwner
 
-
-
-
         coroutinesLauncher(Lifecycle.State.STARTED){
             viewModel.message.collect{
                 requireContext().toast(it)
