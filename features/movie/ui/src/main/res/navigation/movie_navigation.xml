@@ -19,5 +19,6 @@
         android:name="ir.sass.movie.ui.fragments.detail.MovieDetailFragment"
         android:label="MovieDetailFragment">
         <argument android:name="data" app:argType="string"/>
+        <argument android:name="isFavorite" app:argType="boolean"/>
     </fragment>
 </navigation>

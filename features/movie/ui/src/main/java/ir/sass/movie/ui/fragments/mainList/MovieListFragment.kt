@@ -31,7 +31,7 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
             binding.movie = item
             binding.navigate = {
                 findNavController().navigate(MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(
-                    toJsonString(item)
+                    toJsonString(item),args.isFavorite
                 ))
             }
         }
