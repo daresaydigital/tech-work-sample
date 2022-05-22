@@ -8,6 +8,18 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 
+/**
+ * this is the base class for all viewModels
+ * @param _loading is for emitting the loading state
+ * @param loading is for collecting the loading state
+ * @param _error is for emitting the error messages
+ * @param error is for collecting the error messages
+ * @property action is a helper function which can run a request and it can
+   handle if the request fail or not, it will emit an error if something is going wrong
+ * @property handleError is a function for emitting error
+ * @property loading is a function for changing loading state
+ * */
+
 open class MotherViewModel : ViewModel() {
     private val _loading : MutableSharedFlow<Boolean> = MutableSharedFlow()
     val loading : SharedFlow<Boolean> = _loading

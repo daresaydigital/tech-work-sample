@@ -8,6 +8,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
+/*
+extension function for clicking in dataBinding
+*/
+
 @BindingAdapter("ext:click")
 fun setClick(view : View,action : () ->  Unit){
     view.setOnClickListener {
@@ -19,6 +23,10 @@ fun setClick(view : View,action : () ->  Unit){
         }
     }
 }
+
+/*
+extension function for making a view disabled in dataBinding
+*/
 
 @BindingAdapter("ext:active")
 fun active(view : View,active : Boolean){

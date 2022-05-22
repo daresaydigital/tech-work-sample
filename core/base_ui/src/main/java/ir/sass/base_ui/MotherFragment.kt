@@ -15,6 +15,22 @@ import ir.sass.base_ui.databinding.FragmentBaseBinding
 import ir.sass.navigator.flow.features.NavcontrollerHelper
 import kotlinx.coroutines.launch
 
+/**
+ * this is the base class for all fragments
+ * @param setting is for setting of the fragment, it holds layout and title
+ * @param DataBinding is generic type for dataBinding
+ * @param DataType is generic type for data type
+ *
+ * @property connectViewModelForError is a function which connect fragment to MotherViewModel for collecting errors
+ * @property connectViewModelForLoading is a function which connect fragment to MotherViewModel for collecting loading states
+ * @property connectViewModelForLoadingAndError is a wrapper function for doing both above functions
+ * @property binding you will write your code here, you must override this function
+ * @property loadingOn will manually show loading
+ * @property loadingOff will manually dismiss loading
+ * @property coroutinesLauncher you can handle your suspend functions here,it takes one parameter which is named
+    state and that's from Lifecycle.State, you will pass your action and the
+    action will be invoked
+ */
 
 abstract class MotherFragment<DataBinding : ViewDataBinding>(
     private val setting : MotherFragmentSetting
@@ -62,11 +78,9 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
         }
     }
 
-    /*you will write your code here by overriding this function*/
     abstract fun binding()
 
 
-    /*2 functions for handling loading manual*/
     fun loadingOn(){
         dataBindingOuter.loading = true
     }
@@ -75,10 +89,6 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
         dataBindingOuter.loading = false
     }
 
-
-    /*you can handle your suspend functions here,it takes one parameter which is named
-    state and that's from Lifecycle.State, you will pass your action and the
-    action will be invoked*/
     fun coroutinesLauncher(state : Lifecycle.State, action :suspend () -> Unit){
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(state){
@@ -89,6 +99,12 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
 
     fun getParentNavControllerHelper() = (requireActivity() as NavcontrollerHelper)
 }
+
+/**
+ * this is the setting class for MotherFragment
+ * @param layout is layout reference
+ * @param title is title of the fragment
+ */
 
 class MotherFragmentSetting(
     @LayoutRes
