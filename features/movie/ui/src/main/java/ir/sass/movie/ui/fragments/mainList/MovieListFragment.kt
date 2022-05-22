@@ -24,7 +24,7 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
 ) {
     private val viewModel : MovieListFragmentViewModel by viewModels()
 
-    val args by navArgs<MovieListFragmentArgs>()
+    private val args by navArgs<MovieListFragmentArgs>()
 
     private val adapter = MotherAdapter<ItemMovieListBinding, ResultModel>(
         RecyclerItemWrapper(R.layout.item_movie_list){ binding, item, pos ->

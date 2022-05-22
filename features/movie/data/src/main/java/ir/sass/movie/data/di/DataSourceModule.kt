@@ -43,4 +43,5 @@ object DataSourceModule {
     @Singleton
     fun provideDiscoverMovieApi(retrofit: Retrofit) : DiscoverMovieApi = retrofit
         .create(DiscoverMovieApi::class.java)
+
 }

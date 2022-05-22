@@ -10,19 +10,25 @@ import ir.sass.shared_data.db.model.ResultEntity
 abstract class AppDatabase: RoomDatabase() {
     abstract fun movieDao(): MovieDao
 
-    @Volatile
-    private var INSTANCE: AppDatabase? = null
+    companion object{
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
 
-    private val DB_NAME = "DARESAY"
+        private const val DB_NAME = "DARESAY"
 
-    fun getDatabase(context: Context): AppDatabase {
-        return INSTANCE ?: synchronized(this) {
-            val instance = Room.databaseBuilder(
-                context,
-                AppDatabase::class.java, DB_NAME)
-                .build()
-            INSTANCE = instance
-            instance
+        fun getDatabase(context: Context): AppDatabase {
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context,
+                    AppDatabase::class.java, DB_NAME)
+                    .build()
+                INSTANCE = instance
+                instance
+            }
         }
     }
+
+
+
+
 }
