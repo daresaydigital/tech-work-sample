@@ -4,8 +4,12 @@
         <variable
             name="adapter"
             type="ir.sass.base_ui.MotherAdapter" />
+        <variable
+            name="empty_state"
+            type="boolean" />
+        <import type="android.view.View"/>
     </data>
-    <LinearLayout
+    <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,5 +19,14 @@
             android:layout_height="match_parent"
             android:adapter='@{adapter}'
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-    </LinearLayout>
+        <TextView
+            android:id="@+id/txt_empty_state"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="No Item !!!"
+            android:textSize="32sp"
+            android:visibility='@{empty_state?View.VISIBLE:View.GONE}'
+            android:textColor="@color/white"/>
+    </RelativeLayout>
 </layout>

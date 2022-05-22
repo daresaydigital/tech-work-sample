@@ -48,6 +48,7 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
             viewModel.movies.collect{
                 it?.let {
                     it.results?.let{
+                        dataBinding.emptyState = it.isEmpty()
                         adapter.changeList(it)
                     }
                 }
