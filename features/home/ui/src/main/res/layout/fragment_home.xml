@@ -4,7 +4,11 @@
         <import type="kotlin.jvm.functions.Function0"/>
         <import type="kotlin.Unit"/>
         <variable
-            name="navigate"
+            name="navigate_to_remote"
+            type="Function0&lt;Unit>"/>
+
+        <variable
+            name="navigate_to_local"
             type="Function0&lt;Unit>"/>
     </data>
     <LinearLayout
@@ -26,7 +30,17 @@
             android:gravity="center"
             android:background="@color/old_rose"
             android:textColor="@color/white"
+            android:text="Discover Favorite Movies Offline"
+            android:layout_marginBottom="12dp"
+            ext:click='@{navigate_to_local}'/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:background="@color/old_rose"
+            android:textColor="@color/white"
             android:text="Discover Movies"
-            ext:click='@{navigate}'/>
+            ext:click='@{navigate_to_remote}'/>
     </LinearLayout>
 </layout>

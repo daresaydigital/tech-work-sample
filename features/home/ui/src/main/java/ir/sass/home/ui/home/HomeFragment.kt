@@ -12,8 +12,12 @@ class HomeFragment : MotherFragment<FragmentHomeBinding>(
     MotherFragmentSetting(R.layout.fragment_home,"Home")
 ) {
     override fun binding() {
-        dataBinding.navigate = {
+        dataBinding.navigateToRemote = {
             navigateToFlow(getParentNavControllerHelper(), MovieNavigationAction(false))
+        }
+
+        dataBinding.navigateToLocal = {
+            navigateToFlow(getParentNavControllerHelper(), MovieNavigationAction(true))
         }
     }
 }
