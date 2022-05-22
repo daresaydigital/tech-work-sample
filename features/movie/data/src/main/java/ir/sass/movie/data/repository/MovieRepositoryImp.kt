@@ -9,8 +9,10 @@ import ir.sass.domain.repository.MovieRepository
 import ir.sass.movie.data.model.movie.cast
 import ir.sass.movie.data.model.movie.castToEntity
 import ir.sass.shared_data.db.MovieDao
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MovieRepositoryImp @Inject constructor(
@@ -43,10 +45,14 @@ class MovieRepositoryImp @Inject constructor(
     }
 
     override fun saveToLocal(model: ResultModel) {
-        dao.insertNewResult(model.castToEntity())
+        CoroutineScope(IO).launch {
+            dao.insertNewResult(model.castToEntity())
+        }
     }
 
     override fun deleteFromLocal(model: ResultModel) {
-        dao.deleteAResult(model.id)
+        CoroutineScope(IO).launch {
+            dao.deleteAResult(model.id)
+        }
     }
 }

@@ -13,6 +13,6 @@ class DeleteMovieFromLocalUseCase @Inject constructor(
     private val repository: MovieRepository
 ) : MotherUseCaseWithOnlyInput<ResultModel>() {
     override fun invoke(input: ResultModel) {
-        repository.saveToLocal(input)
+        repository.deleteFromLocal(input)
     }
 }

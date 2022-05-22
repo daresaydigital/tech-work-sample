@@ -28,6 +28,9 @@ class MovieDetailFragmentViewModel @Inject constructor(
     private val _active : MutableStateFlow<Boolean> = MutableStateFlow(true)
     val active : StateFlow<Boolean> = _active
 
+    private val _navigateBack : MutableStateFlow<Boolean> = MutableStateFlow(true)
+    val navigateBack : StateFlow<Boolean> = _navigateBack
+
     fun saveToLocal(input : ResultModel){
         saveMovieToLocalUseCase(input)
     }
@@ -38,16 +41,19 @@ class MovieDetailFragmentViewModel @Inject constructor(
 
     fun saveOrDelete(){
         val message = if(isFavorite){
-            deleteMovieFromLocalUseCase(resultModel)
+            deleteFromLocal(resultModel)
             "Deleted !"
         }else{
-            saveMovieToLocalUseCase(resultModel)
+            saveToLocal(resultModel)
             "Saved !"
         }
 
         viewModelScope.launch {
             _message.emit(message)
             _active.emit(false)
+            if(isFavorite){
+                _navigateBack.emit(true)
+            }
         }
     }
 
