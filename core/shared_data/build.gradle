@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -34,17 +33,8 @@ android {
 dependencies {
     api project(":core:base_data")
     api project(":core:base_domain")
-    implementation project(":core:shared_data")
 
-    implementation project(":features:movie:domain")
-
-    implementation lib.get("hilt")
-    kapt kaptLibs.get("hilt")
 
     implementation lib.get("room")
     kapt kaptLibs.get("room")
-
-    testImplementation testLib.get("mockito")
-    testImplementation testLib.get("coroutinesTest")
-    testImplementation testLib.get("coreTest")
 }

@@ -48,7 +48,8 @@ ext{
             coreTest:"2.1.0",
             turbine:"0.7.0",
             fragmentTest:"1.4.1",
-            espresso:"3.4.0"
+            espresso:"3.4.0",
+            room:"2.3.0"
     ]
     lib = [
             appcompat:"androidx.appcompat:appcompat:${lib_version.appcompat}",
@@ -73,11 +74,16 @@ ext{
             inject:"javax.inject:javax.inject:${lib_version.inject}",
             fragment:"androidx.fragment:fragment-ktx:${lib_version.fragment}",
             lottie:"com.airbnb.android:lottie:${lib_version.lottie}",
-            glide:"com.github.bumptech.glide:glide:${lib_version.glide}"
+            glide:"com.github.bumptech.glide:glide:${lib_version.glide}",
+            room:[
+                    "androidx.room:room-runtime:${lib_version.room}",
+                    "androidx.room:room-ktx:${lib_version.room}"
+            ]
     ]
     kaptLibs = [
             glide:"com.github.bumptech.glide:compiler:${lib_version.glide}",
-            hilt:"com.google.dagger:hilt-compiler:${lib_version.hilt}"
+            hilt:"com.google.dagger:hilt-compiler:${lib_version.hilt}",
+            room:"androidx.room:room-compiler:${lib_version.room}"
     ]
 
     testLib = [
