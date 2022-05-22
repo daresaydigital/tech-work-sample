@@ -1,3 +1,5 @@
+![Diagram](diagram.jpg?raw=true "Diagram")
+
 # Work sample - Application developer
 
 ## Assignment
