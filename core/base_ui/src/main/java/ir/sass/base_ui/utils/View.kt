@@ -19,3 +19,14 @@ fun setClick(view : View,action : () ->  Unit){
         }
     }
 }
+
+@BindingAdapter("ext:active")
+fun active(view : View,active : Boolean){
+    if(active){
+        view.isEnabled = true
+        view.alpha = 1f
+    }else{
+        view.isEnabled = false
+        view.alpha = 0.7f
+    }
+}

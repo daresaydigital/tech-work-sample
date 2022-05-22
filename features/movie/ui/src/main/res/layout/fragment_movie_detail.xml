@@ -8,6 +8,9 @@
         <variable
             name="data"
             type="ir.sass.domain.model.ResultModel" />
+        <variable
+            name="viewModel"
+            type="ir.sass.movie.ui.fragments.detail.MovieDetailFragmentViewModel" />
     </data>
 
     <LinearLayout
@@ -100,6 +103,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
                 <TextView
+                    android:id="@+id/textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
@@ -109,6 +113,18 @@
                     app:layout_constraintStart_toStartOf="@+id/textView7"
                     app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center"
+                    android:background="@color/old_rose"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="12dp"
+                    ext:click='@{() -> viewModel.saveOrDelete()}'
+                    app:layout_constraintStart_toStartOf="@+id/textView8"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+                    ext:active='@{viewModel.active}'
+                    android:text='@{viewModel.isFavorite?"Delete":"Save"}'/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
