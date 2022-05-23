@@ -13,6 +13,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
+
 class MovieRepositoryImpTest : BaseDataTest() {
 
     private val apiService: DiscoverMovieApi = mock()
@@ -20,7 +21,6 @@ class MovieRepositoryImpTest : BaseDataTest() {
     private val movieDao : MovieDao = mock()
     private val repository = MovieRepositoryImp(apiService,movieDao)
 
-    // db test is on androidTest
 
     @ExperimentalCoroutinesApi
     @Test
@@ -73,7 +73,5 @@ class MovieRepositoryImpTest : BaseDataTest() {
             }
         }
     }
-
-
 
 }

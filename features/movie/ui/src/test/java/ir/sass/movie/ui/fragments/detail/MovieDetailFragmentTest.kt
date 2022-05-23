@@ -17,6 +17,7 @@ import ir.sass.base_data.model.toJsonString
 import ir.sass.domain.model.ResultModel
 import ir.sass.movie.ui.R
 import ir.sass.movie.ui.base.launchFragmentInHiltContainer
+import ir.sass.shared_domain.MovieListType
 import org.hamcrest.Matchers.not
 import org.junit.Rule
 import org.junit.Test
@@ -39,90 +40,124 @@ class MovieDetailFragmentTest {
     val hiltAndroidRule = HiltAndroidRule(this)
 
     @Test
-    fun `every element in UI must have value`(){
+    fun `every element in UI must have value in TOP_RATED mode`(){
         launchFragmentInHiltContainer<MovieDetailFragment>(
             bundleOf().apply {
                 putString("data", toJsonString(
                     getStubModelWhenItsForJustAdults()
                 ))
-                putBoolean("isFavorite",false)
+                putInt("type",MovieListType.TOP_RATED.ordinal)
             }
         ){
             (this as MovieDetailFragment).apply {
-                onView(withId(R.id.txt_adult)).check(matches(withText("Not suitable for kids")))
+                assertionHandlerForEveryElementInUIHasValue()
             }
         }
     }
 
     @Test
-    fun `check the proper text is shown when adult flag is false`(){
+    fun `every element in UI must have value in FAVORITE mode`(){
         launchFragmentInHiltContainer<MovieDetailFragment>(
             bundleOf().apply {
                 putString("data", toJsonString(
-                    getStubModel()
+                    getStubModelWhenItsForJustAdults()
                 ))
-                putBoolean("isFavorite",false)
+                putInt("type",MovieListType.FAVORITE.ordinal)
             }
         ){
             (this as MovieDetailFragment).apply {
-                onView(withId(R.id.txt_title)).check(matches(withText("Title : fake title")))
-                onView(withId(R.id.txt_date)).check(matches(withText("Release date : fake date")))
-                onView(withId(R.id.txt_lang)).check(matches(withText("Language : En")))
-                onView(withId(R.id.txt_adult)).check(matches(withText("Suitable for kids")))
-                onView(withId(R.id.txt_vote_count)).check(matches(withText("Vote count : 1")))
-                onView(withId(R.id.txt_vote_avg)).check(matches(withText("Vote average : 1.0")))
-                onView(withId(R.id.txt_overview)).check(matches(withText("Overview : fake overview")))
+                assertionHandlerForEveryElementInUIHasValue()
             }
         }
     }
 
     @Test
-    fun `check the button is enables at first`(){
+    fun `every element in UI must have value in POPLUAR mode`(){
         launchFragmentInHiltContainer<MovieDetailFragment>(
             bundleOf().apply {
                 putString("data", toJsonString(
-                    getStubModel()
+                    getStubModelWhenItsForJustAdults()
                 ))
-                putBoolean("isFavorite",false)
+                putInt("type",MovieListType.POPULAR.ordinal)
             }
         ){
             (this as MovieDetailFragment).apply {
-                onView(withId(R.id.btn)).check(matches(isEnabled()))
+                assertionHandlerForEveryElementInUIHasValue()
             }
         }
     }
 
 
+    private fun assertionHandlerForEveryElementInUIHasValue(){
+        onView(withId(R.id.txt_title)).check(matches(withText("fake title")))
+        onView(withId(R.id.txt_date)).check(matches(withText("fake date")))
+        onView(withId(R.id.txt_lang)).check(matches(withText("En")))
+        onView(withId(R.id.txt_adult)).check(matches(withText("No")))
+        onView(withId(R.id.txt_vote_count)).check(matches(withText("1")))
+        onView(withId(R.id.txt_overview)).check(matches(withText("fake overview")))
+    }
 
     @Test
-    fun `the button is enabled at very first step then if we click on it it's going to be disabled`(){
+    fun `check the proper text is shown when adult flag is false in FAVORITE mode`(){
         launchFragmentInHiltContainer<MovieDetailFragment>(
             bundleOf().apply {
                 putString("data", toJsonString(
                     getStubModel()
                 ))
-                putBoolean("isFavorite",false)
+                putInt("type",MovieListType.TOP_RATED.ordinal)
             }
         ){
             (this as MovieDetailFragment).apply {
-                onView(withId(R.id.btn)).check(matches(isEnabled()))
-                onView(withId(R.id.btn)).perform(scrollTo(),click())
-                onView(withId(R.id.btn)).check(matches(not(isEnabled())))
+                onView(withId(R.id.txt_adult)).check(matches(withText("Yes")))
             }
         }
     }
 
-    fun getStubModelWhenItsForJustAdults() = ResultModel(
+    @Test
+    fun `check the proper text is shown when adult flag is false in POPULAR mode`(){
+        launchFragmentInHiltContainer<MovieDetailFragment>(
+            bundleOf().apply {
+                putString("data", toJsonString(
+                    getStubModel()
+                ))
+                putInt("type",MovieListType.POPULAR.ordinal)
+            }
+        ){
+            (this as MovieDetailFragment).apply {
+                onView(withId(R.id.txt_adult)).check(matches(withText("Yes")))
+            }
+        }
+    }
+
+    @Test
+    fun `check the proper text is shown when adult flag is false in TOP_RATED mode`(){
+        launchFragmentInHiltContainer<MovieDetailFragment>(
+            bundleOf().apply {
+                putString("data", toJsonString(
+                    getStubModel()
+                ))
+                putInt("type",MovieListType.TOP_RATED.ordinal)
+            }
+        ){
+            (this as MovieDetailFragment).apply {
+                onView(withId(R.id.txt_adult)).check(matches(withText("Yes")))
+            }
+        }
+    }
+
+
+
+    private fun getStubModelWhenItsForJustAdults() = ResultModel(
         true,"fake path", listOf(),1,
         "En","fake title","fake overview",1.0,
-        "fake path","fake path","fake date","fake title",true,
-        1.0,1
+        "fake path","fake date","fake title",false,1.0,
+        1
     )
 
-    fun getStubModel() = ResultModel(
+    private fun getStubModel() = ResultModel(
         false,"fake path", listOf(),1,
         "En","fake title","fake overview",1.0,
-        "fake path","fake path","fake date","fake title",true,
-        1.0,1
+        "fake path","fake date","fake title",false,1.0,
+        1
     )
 }

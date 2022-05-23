@@ -88,7 +88,7 @@ class MovieRepositoryImpTest : BaseDataTest() {
 
     private fun createEntityStub() = ResultEntity(
         true, 1, "1", "1", "1", 1.0,
-        "1", "1", "1", "1", 1.0, 1
+        "1", "1", "1", 1.0, 1, "1"
     )
 
 

@@ -42,8 +42,7 @@ fun fakeRepoSuccess() = object : MovieRepository {
                             ResultModel(
                                 true, "fake popular path", listOf(), 1,
                                 "En", "fake popular title", "fake popular overview", 1.0,
-                                "fake popular path", "fake popular path", "fake popular date", "fake popular title", true,
-                                1.0, 1
+                                "fake popular path", "fake popular path", "fake popular date", true,1.0, 1
                             )
                         ), 1, 1, 200, null, true
                     )
@@ -62,8 +61,7 @@ fun fakeRepoSuccess() = object : MovieRepository {
                             ResultModel(
                                 true, "fake top path", listOf(), 1,
                                 "En", "fake top title", "fake top overview", 1.0,
-                                "fake top path", "fake path", "fake top date", "fake top title", true,
-                                1.0, 1
+                                "fake top path", "fake path", "fake top date", true,1.0, 1
                             )
                         ), 1, 1, 200, null, true
                     )
@@ -91,7 +89,6 @@ fun fakeRepoSuccess() = object : MovieRepository {
                                 "fake db path",
                                 "fake db path",
                                 "fake db date",
-                                "fake db title",
                                 true,
                                 1.0,
                                 1
@@ -109,5 +106,9 @@ fun fakeRepoSuccess() = object : MovieRepository {
 
     override fun deleteFromLocal(model: ResultModel) {
         // just make sure this method is called
+    }
+
+    override fun isExistOnDb(model: ResultModel): Flow<Domain<Boolean>> = flow {
+        emit(Domain.Data(Result.success(true)))
     }
 }

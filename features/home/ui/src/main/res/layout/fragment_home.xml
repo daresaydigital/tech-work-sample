@@ -30,84 +30,87 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="100dp"
             ext:cardCornerRadius="8dp"
             android:shadowRadius="4"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            ext:cardBackgroundColor="@color/gray_navy_blue"
+            ext:cardBackgroundColor="@color/white"
             ext:click='@{navigate_to_local}'>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:padding="12dp"
-                    android:src="@drawable/bookmark"/>
+                    android:src="@drawable/bookmark_book"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center|start"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_navy_blue"
+                    android:textSize="24sp"
                     android:text="Favorite Movies"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="100dp"
             ext:cardCornerRadius="8dp"
             android:shadowRadius="4"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             ext:click='@{navigate_to_popular}'
-            ext:cardBackgroundColor="@color/gray_navy_blue">
+            ext:cardBackgroundColor="@color/white">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:padding="12dp"
-                    android:src="@drawable/movie"/>
+                    android:src="@drawable/film"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center|start"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_navy_blue"
+                    android:textSize="24sp"
                     android:text="Popular Movies" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="100dp"
             ext:cardCornerRadius="8dp"
             android:shadowRadius="4"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="8dp"
             ext:click='@{navigate_to_top_rated}'
-            ext:cardBackgroundColor="@color/gray_navy_blue"
+            ext:cardBackgroundColor="@color/white"
             android:layout_marginBottom="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:padding="12dp"
-                    android:src="@drawable/movie_star"/>
+                    android:src="@drawable/action"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center|start"
-                    android:textColor="@color/white"
+                    android:textColor="@color/dark_navy_blue"
+                    android:textSize="24sp"
                     android:text="Top-Rated Movies"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

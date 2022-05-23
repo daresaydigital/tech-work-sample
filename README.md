@@ -1,5 +1,10 @@
 ![Diagram](diagram.jpg?raw=true "Diagram")
 
+Here is some sample pictures of the App :
+
+![Sample](sample.jpg?raw=true "Sample")
+
+
 # Work sample - Application developer
 
 ## Assignment

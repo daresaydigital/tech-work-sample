@@ -49,4 +49,5 @@ dependencies {
     testImplementation testLib.get("mockito")
     testImplementation testLib.get("coroutinesTest")
     testImplementation testLib.get("coreTest")
+    testImplementation testLib.get("robolectric")
 }
