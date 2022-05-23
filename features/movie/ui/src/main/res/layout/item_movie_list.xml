@@ -33,6 +33,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                ext:cardBackgroundColor="@color/transparent"
                 ext:cardCornerRadius="12dp">
 
                 <ir.sass.base_ui.view.LottieImageView

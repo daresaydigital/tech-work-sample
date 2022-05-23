@@ -13,6 +13,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import ir.sass.base_ui.databinding.FragmentBaseBinding
+import ir.sass.base_ui.utils.toast
 import ir.sass.navigator.flow.features.NavcontrollerHelper
 import kotlinx.coroutines.launch
 
@@ -61,7 +62,7 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
             override fun handleOnBackPressed() {
                 (requireActivity() as NavcontrollerHelper).onBack()
             }
-        };
+        }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
@@ -73,7 +74,7 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
     fun connectViewModelForError(viewModel: MotherViewModel) {
         coroutinesLauncher(Lifecycle.State.STARTED) {
             viewModel.error.collect {
-                // todo show error
+                requireContext().toast(it)
             }
         }
     }
