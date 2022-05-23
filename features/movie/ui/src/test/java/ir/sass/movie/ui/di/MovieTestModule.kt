@@ -8,7 +8,7 @@ import ir.sass.base_domain.model.Domain
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
 import ir.sass.domain.repository.MovieRepository
-import ir.sass.domain.usecase.DiscoverMovieUseCase
+import ir.sass.domain.usecase.DiscoverPopularMovieUseCase
 import ir.sass.domain.usecase.DiscoverMyFavoriteMoviesOfflineUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.flow
 class MovieTestModule {
     @Provides
     fun provideSearchAmongSongUseCase() =
-        DiscoverMovieUseCase(fakeRepoSuccess())
+        DiscoverPopularMovieUseCase(fakeRepoSuccess())
 
     @Provides
     fun provideDiscoverMyFavoriteMoviesOfflineUseCase() =
@@ -30,7 +30,9 @@ class MovieTestModule {
 
 fun fakeRepoSuccess() = object : MovieRepository {
 
-    override fun discoverMovies(): Flow<Domain<DiscoverMovieModel>> = flow {
+
+
+    override fun discoverPopularMovies(page: Int): Flow<Domain<DiscoverMovieModel>> = flow {
         emit(
             Domain.Data(
                 Result.success(
@@ -38,9 +40,29 @@ fun fakeRepoSuccess() = object : MovieRepository {
                         1,
                         listOf(
                             ResultModel(
-                                true, "fake path", listOf(), 1,
-                                "En", "fake title", "fake overview", 1.0,
-                                "fake path", "fake path", "fake date", "fake title", true,
+                                true, "fake popular path", listOf(), 1,
+                                "En", "fake popular title", "fake popular overview", 1.0,
+                                "fake popular path", "fake popular path", "fake popular date", "fake popular title", true,
+                                1.0, 1
+                            )
+                        ), 1, 1, 200, null, true
+                    )
+                )
+            )
+        )
+    }
+
+    override fun discoverTopMovies(page: Int): Flow<Domain<DiscoverMovieModel>> = flow {
+        emit(
+            Domain.Data(
+                Result.success(
+                    DiscoverMovieModel(
+                        1,
+                        listOf(
+                            ResultModel(
+                                true, "fake top path", listOf(), 1,
+                                "En", "fake top title", "fake top overview", 1.0,
+                                "fake top path", "fake path", "fake top date", "fake top title", true,
                                 1.0, 1
                             )
                         ), 1, 1, 200, null, true
@@ -82,12 +104,10 @@ fun fakeRepoSuccess() = object : MovieRepository {
     }
 
     override fun saveToLocal(model: ResultModel) {
-        print("")
         // just make sure this method is called
     }
 
     override fun deleteFromLocal(model: ResultModel) {
-        print("")
         // just make sure this method is called
     }
 }

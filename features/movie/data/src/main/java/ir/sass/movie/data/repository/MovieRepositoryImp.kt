@@ -22,9 +22,9 @@ class MovieRepositoryImp @Inject constructor(
     private val discoverMovieApi: DiscoverMovieApi,
     private val dao: MovieDao
 ) : MovieRepository {
-    override fun discoverMovies(): Flow<Domain<DiscoverMovieModel>> = flow {
+    override fun discoverPopularMovies(page : Int): Flow<Domain<DiscoverMovieModel>> = flow {
         emit(Domain.Progress())
-        val response = safeApi { discoverMovieApi.discoverMovies() }
+        val response = safeApi { discoverMovieApi.discoverPopularMovies(page) }
 
         if (response.isSuccess && response.getOrNull() != null && response.getOrThrow().results != null) {
             emit(Domain.Data(response))
@@ -32,7 +32,18 @@ class MovieRepositoryImp @Inject constructor(
             val errorMessage = response.getOrNull()?.status_message ?: "Error"
             emit(Domain.Data(Result.failure(Throwable(errorMessage))))
         }
+    }.flowOn(IO)
 
+    override fun discoverTopMovies(page : Int): Flow<Domain<DiscoverMovieModel>> = flow {
+        emit(Domain.Progress())
+        val response = safeApi { discoverMovieApi.discoverTopMovies(page) }
+
+        if (response.isSuccess && response.getOrNull() != null && response.getOrThrow().results != null) {
+            emit(Domain.Data(response))
+        } else {
+            val errorMessage = response.getOrNull()?.status_message ?: "Error"
+            emit(Domain.Data(Result.failure(Throwable(errorMessage))))
+        }
     }.flowOn(IO)
 
     override fun discoverMoviesFromLocal(): Flow<Domain<DiscoverMovieModel>> =

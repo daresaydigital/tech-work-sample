@@ -14,6 +14,7 @@ import ir.sass.domain.model.ResultModel
 import ir.sass.movie.ui.R
 import ir.sass.movie.ui.databinding.FragmentMovieListBinding
 import ir.sass.movie.ui.databinding.ItemMovieListBinding
+import ir.sass.shared_domain.MovieListType
 
 @AndroidEntryPoint
 class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
@@ -25,6 +26,7 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
     private val viewModel: MovieListFragmentViewModel by viewModels()
 
     private val args by navArgs<MovieListFragmentArgs>()
+    lateinit var type : MovieListType
 
     private val adapter = MotherAdapter<ItemMovieListBinding, ResultModel>(
         RecyclerItemWrapper(R.layout.item_movie_list) { binding, item, pos ->
@@ -32,7 +34,7 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
             binding.navigate = {
                 findNavController().navigate(
                     MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(
-                        toJsonString(item), args.isFavorite
+                        toJsonString(item), type.ordinal
                     )
                 )
             }
@@ -40,9 +42,10 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
     )
 
     override fun binding() {
+        type = MovieListType.values()[args.type]
         connectViewModelForLoadingAndError(viewModel)
 
-        viewModel.getMovies(args.isFavorite)
+        viewModel.getMovies(type)
 
         dataBinding.adapter = adapter
 

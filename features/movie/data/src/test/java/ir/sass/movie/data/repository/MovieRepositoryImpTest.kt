@@ -24,18 +24,44 @@ class MovieRepositoryImpTest : BaseDataTest() {
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `api service must call discoverMovies 1 time when we call discoverMovies from Repository`() = testScope.runTest{
-        whenever(apiService.discoverMovies()).thenReturn(discoverMovieDto)
-        repository.discoverMovies().collect {
-            verify(apiService, times(1)).discoverMovies()
+    fun `api service must call discoverPopularMovies 1 time when we call discoverPopularMovies from Repository`() = testScope.runTest{
+        whenever(apiService.discoverPopularMovies(1)).thenReturn(discoverMovieDto)
+        repository.discoverPopularMovies(1).collect {
+            verify(apiService, times(1)).discoverPopularMovies(1)
         }
     }
 
     @ExperimentalCoroutinesApi
     @Test
-    fun `repository must emit a Progress from Domain before emitting the actual data then it must emit Result`() = testScope.runTest{
+    fun `api service must call discoverTopMovies 1 time when we call discoverPopularMovies from Repository`() = testScope.runTest{
+        whenever(apiService.discoverTopMovies(1)).thenReturn(discoverMovieDto)
+        repository.discoverTopMovies(1).collect {
+            verify(apiService, times(1)).discoverTopMovies(1)
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `when you call discoverPopularMovies ,repository must emit a Progress from Domain before emitting the actual data then it must emit Result`() = testScope.runTest{
         var flagHelper = "None"
-        repository.discoverMovies().collect {
+        repository.discoverPopularMovies(1).collect {
+            when(flagHelper){
+                "None"->{
+                    assert(it is Domain.Progress)
+                    flagHelper = "Progress"
+                }
+                "Progress"->{
+                    assert(it is Domain.Data)
+                }
+            }
+        }
+    }
+
+    @ExperimentalCoroutinesApi
+    @Test
+    fun `when you call discoverTopMovies ,repository must emit a Progress from Domain before emitting the actual data then it must emit Result`() = testScope.runTest{
+        var flagHelper = "None"
+        repository.discoverTopMovies(1).collect {
             when(flagHelper){
                 "None"->{
                     assert(it is Domain.Progress)

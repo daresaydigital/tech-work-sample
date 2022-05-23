@@ -8,7 +8,7 @@
         android:id="@+id/movieListFragment"
         android:name="ir.sass.movie.ui.fragments.mainList.MovieListFragment"
         android:label="MovieListFragment" >
-        <argument android:name="isFavorite" app:argType="boolean"/>
+        <argument android:name="type" app:argType="integer"/>
 
         <action
             android:id="@+id/action_movieListFragment_to_movieDetailFragment"
@@ -19,6 +19,6 @@
         android:name="ir.sass.movie.ui.fragments.detail.MovieDetailFragment"
         android:label="MovieDetailFragment">
         <argument android:name="data" app:argType="string"/>
-        <argument android:name="isFavorite" app:argType="boolean"/>
+        <argument android:name="type" app:argType="integer"/>
     </fragment>
 </navigation>

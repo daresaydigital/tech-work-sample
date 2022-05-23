@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/core/base_ui" />
             <option value="$PROJECT_DIR$/core/navigator" />
             <option value="$PROJECT_DIR$/core/shared_data" />
+            <option value="$PROJECT_DIR$/core/shared_domain" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/home" />
             <option value="$PROJECT_DIR$/features/home/ui" />

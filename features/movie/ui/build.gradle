@@ -44,6 +44,7 @@ android {
 
 dependencies {
     api project(":core:base_ui")
+    implementation project(":core:shared_domain")
     implementation project(":features:movie:data")
     implementation project(":features:movie:domain")
     implementation project(":core:shared_data")

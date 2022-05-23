@@ -12,6 +12,7 @@ import dagger.hilt.android.testing.HiltTestApplication
 import ir.sass.movie.ui.R
 import ir.sass.movie.ui.base.launchFragmentInHiltContainer
 import ir.sass.movie.ui.base.withRecyclerView
+import ir.sass.shared_domain.MovieListType
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -37,24 +38,47 @@ class MovieListFragmentTest {
     /*    actually if the items have value in list then we can be sure the list has item too
         so we don't need two write two test for that*/
     @Test
-    fun `in online mode test if all text in list has values and make sure the list has items`() {
+    fun `in online popular mode test if all text in list has values and make sure the list has items`() {
         launchFragmentInHiltContainer<MovieListFragment>(
             bundleOf().apply {
-                putBoolean("isFavorite", false)
+                putInt("type", MovieListType.POPULAR.ordinal)
             }
         ) {
             (this as MovieListFragment).apply {
-                Espresso.onView(
+                onView(
                     withRecyclerView(R.id.recyclerview)
                         .atPositionOnView(0, R.id.txt_title)
                 )
-                    .check(ViewAssertions.matches(ViewMatchers.withText("Title : fake title")))
+                    .check(ViewAssertions.matches(ViewMatchers.withText("Title : fake popular title")))
 
-                Espresso.onView(
+                onView(
                     withRecyclerView(R.id.recyclerview)
                         .atPositionOnView(0, R.id.txt_date)
                 )
-                    .check(ViewAssertions.matches(ViewMatchers.withText("Release date : fake date")))
+                    .check(ViewAssertions.matches(ViewMatchers.withText("Release date : fake popular date")))
+            }
+        }
+    }
+
+    @Test
+    fun `in online top rated mode test if all text in list has values and make sure the list has items`() {
+        launchFragmentInHiltContainer<MovieListFragment>(
+            bundleOf().apply {
+                putInt("type", MovieListType.TOP_RATED.ordinal)
+            }
+        ) {
+            (this as MovieListFragment).apply {
+                onView(
+                    withRecyclerView(R.id.recyclerview)
+                        .atPositionOnView(0, R.id.txt_title)
+                )
+                    .check(ViewAssertions.matches(ViewMatchers.withText("Title : fake top title")))
+
+                onView(
+                    withRecyclerView(R.id.recyclerview)
+                        .atPositionOnView(0, R.id.txt_date)
+                )
+                    .check(ViewAssertions.matches(ViewMatchers.withText("Release date : fake top date")))
             }
         }
     }
@@ -63,7 +87,7 @@ class MovieListFragmentTest {
     fun `in offline mode test if all text in list has values and make sure the list has items`() {
         launchFragmentInHiltContainer<MovieListFragment>(
             bundleOf().apply {
-                putBoolean("isFavorite", true)
+                putInt("type", MovieListType.FAVORITE.ordinal)
             }
         ) {
             (this as MovieListFragment).apply {
