@@ -44,6 +44,7 @@ dependencies {
     implementation project(":core:base_ui")
     api project(":core:navigator")
 
+    implementation project(":core:shared_domain")
     implementation project(":features:movie:ui")
     implementation project(":features:home:ui")
 }

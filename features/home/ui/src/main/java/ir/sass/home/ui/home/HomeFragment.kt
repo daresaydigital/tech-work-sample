@@ -12,14 +12,6 @@ class HomeFragment : MotherFragment<FragmentHomeBinding>(
     MotherFragmentSetting(R.layout.fragment_home, "Home")
 ) {
     override fun binding() {
-        dataBinding.navigateToPopular = {
-            navigateToFlow(getParentNavControllerHelper(), MovieNavigationAction(MovieListType.POPULAR.ordinal))
-        }
-        dataBinding.navigateToTopRated = {
-            navigateToFlow(getParentNavControllerHelper(), MovieNavigationAction(MovieListType.TOP_RATED.ordinal))
-        }
-        dataBinding.navigateToLocal = {
-            navigateToFlow(getParentNavControllerHelper(), MovieNavigationAction(MovieListType.FAVORITE.ordinal))
-        }
+
     }
 }
