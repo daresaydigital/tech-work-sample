@@ -1,5 +1,6 @@
 package ir.sass.base_ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -32,6 +33,8 @@ class MotherAdapter<DB : ViewDataBinding , DataType> (
         position: Int
     ) {
         wrapper.bindingFun.invoke(holder.binding,wrapper.list[position],position)
+        if(position == wrapper.list.size - 1)
+            wrapper.ended.invoke()
     }
 
     override fun getItemCount(): Int = wrapper.list.size
@@ -43,11 +46,26 @@ class MotherAdapter<DB : ViewDataBinding , DataType> (
         wrapper.list.clear()
         wrapper.list.addAll(list)
         diffResult.dispatchUpdatesTo(this)
+        notifyDataSetChanged() // I have to call this , if I won't I get crash
+    }
+
+    fun addToList(list: List<DataType>){
+        val newList = mutableListOf<DataType>()
+        newList.addAll(wrapper.list)
+        newList.addAll(list)
+        val diffCallback = DiffCallback(wrapper.list, newList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        wrapper.list.clear()
+        wrapper.list.addAll(list)
+        diffResult.dispatchUpdatesTo(this)
+        notifyDataSetChanged() // I have to call this , if I won't I get crash
     }
 
     override fun getItemId(position: Int): Long = position.toLong()
 
-    class DiffCallback<DataType>(private val old : List<DataType>,private val new : List<DataType>) : DiffUtil.Callback() {
+    override fun getItemViewType(position: Int): Int = position
+
+    class DiffCallback<DataType>(private val old : List<DataType>, private val new : List<DataType>) : DiffUtil.Callback() {
         override fun getOldListSize(): Int = old.size
 
         override fun getNewListSize(): Int = new.size
@@ -67,12 +85,17 @@ class MotherAdapter<DB : ViewDataBinding , DataType> (
  * this is a wrapper class for holding layout and an alternate function for onBindViewHolder
  * @param layout is layout reference
  * @param bindingFun is an alternate function for onBindViewHolder
+ * @param ended is a callback and it will invoked when you scroll to the end
  */
 
 data class RecyclerItemWrapper<DB : ViewDataBinding, DataType>(
     @LayoutRes
     var layout : Int,
+    val ended : () -> Unit = {},
     val bindingFun : (binding : DB,item : DataType,pos : Int) -> Unit
+
 ){
     internal val list = mutableListOf<DataType>()
 }
+
+

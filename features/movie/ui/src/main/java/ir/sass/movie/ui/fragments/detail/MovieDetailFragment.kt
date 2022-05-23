@@ -12,6 +12,7 @@ import ir.sass.base_ui.utils.toast
 import ir.sass.domain.model.ResultModel
 import ir.sass.movie.ui.R
 import ir.sass.movie.ui.databinding.FragmentMovieDetailBinding
+import ir.sass.shared_domain.MovieListType
 
 @AndroidEntryPoint
 class MovieDetailFragment : MotherFragment<FragmentMovieDetailBinding>(
@@ -29,24 +30,18 @@ class MovieDetailFragment : MotherFragment<FragmentMovieDetailBinding>(
         toReal<ResultModel>(args.data)?.let {
             dataBinding.data = it
             viewModel.resultModel = it
-            viewModel.isFavorite = args.isFavorite
+            viewModel.type = MovieListType.values()[args.type]
         }
 
         dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = viewLifecycleOwner
 
+        viewModel.checkItemExists()
+
+
         coroutinesLauncher(Lifecycle.State.STARTED) {
             viewModel.message.collect {
                 requireContext().toast(it)
-            }
-        }
-
-        coroutinesLauncher(Lifecycle.State.STARTED) {
-            viewModel.navigateBack.collect {
-                it?.let {
-                    if (it)
-                        findNavController().popBackStack()
-                }
             }
         }
     }

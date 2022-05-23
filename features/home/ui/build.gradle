@@ -40,4 +40,5 @@ dependencies {
     api project(":core:base_ui")
     implementation lib.get("hilt")
     kapt kaptLibs.get("hilt")
+    implementation project(":core:shared_domain")
 }

@@ -5,14 +5,21 @@
       <map>
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/app/src/main/res/layout/activity_main.xml" value="0.29583333333333334" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/back_img.xml" value="0.1135" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/bookmark.xml" value="0.161" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/broken_image.xml" value="0.1" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/movie.xml" value="0.136" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/movie_popluar.xml" value="0.136" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/movie_star.xml" value="0.136" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/not_bookmark.xml" value="0.136" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/people.xml" value="0.178" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/drawable/sd.xml" value="0.1135" />
-        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/layout/fragment_base.xml" value="0.12" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/layout/fragment_base.xml" value="0.22" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/core/base_ui/src/main/res/layout/lottie_image_view.xml" value="0.1" />
         <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/home/ui/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/fragment_movie_detail.xml" value="0.16" />
-        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/fragment_movie_list.xml" value="0.328125" />
-        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/item_movie_list.xml" value="0.1" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/fragment_movie_detail.xml" value="0.2" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/fragment_movie_list.xml" value="0.22" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/item_movie_list.xml" value="0.2" />
+        <entry key="..\:/Users/Flake/AndroidStudioProjects/daresay/features/movie/ui/src/main/res/layout/item_movie_list_test.xml" value="0.19384057971014493" />
       </map>
     </option>
   </component>

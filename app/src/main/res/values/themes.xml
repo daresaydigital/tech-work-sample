@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.Daresay" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_salmon</item>
-        <item name="colorPrimaryVariant">@color/old_rose</item>
-        <item name="colorOnPrimary">@color/sienna</item>
+        <item name="colorPrimary">@color/navy_blue</item>
+        <item name="colorPrimaryVariant">@color/dark_navy_blue</item>
+        <item name="colorOnPrimary">@color/light_navy_blue</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/dark_salmon</item>
-        <item name="colorSecondaryVariant">@color/old_rose</item>
-        <item name="colorOnSecondary">@color/sienna</item>
+        <item name="colorSecondary">@color/navy_blue</item>
+        <item name="colorSecondaryVariant">@color/dark_navy_blue</item>
+        <item name="colorOnSecondary">@color/light_navy_blue</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

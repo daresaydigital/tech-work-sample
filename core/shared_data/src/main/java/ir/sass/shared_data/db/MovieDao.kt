@@ -17,4 +17,7 @@ interface MovieDao {
 
     @Query("DELETE FROM $RESULT_TABLE_NAME WHERE id = :id")
     fun deleteAResult(id: Int)
+
+    @Query("SELECT EXISTS (SELECT 1 FROM $RESULT_TABLE_NAME WHERE id = :id)")
+    fun exists(id: Int): Boolean
 }

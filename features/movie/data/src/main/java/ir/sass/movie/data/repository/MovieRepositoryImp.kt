@@ -71,4 +71,10 @@ class MovieRepositoryImp @Inject constructor(
             dao.deleteAResult(model.id)
         }
     }
+
+    override fun isExistOnDb(model: ResultModel): Flow<Domain<Boolean>> = flow<Domain.Data<Boolean>> {
+        emit(Domain.Data(Result.success(
+            dao.exists(model.id)
+        )))
+    }.flowOn(IO)
 }

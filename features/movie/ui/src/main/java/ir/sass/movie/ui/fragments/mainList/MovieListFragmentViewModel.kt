@@ -4,6 +4,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ir.sass.base_ui.MotherViewModel
 import ir.sass.domain.model.DiscoverMovieModel
+import ir.sass.domain.model.ResultModel
 import ir.sass.domain.usecase.DiscoverPopularMovieUseCase
 import ir.sass.domain.usecase.DiscoverMyFavoriteMoviesOfflineUseCase
 import ir.sass.domain.usecase.DiscoverTopMovieUseCase
@@ -37,14 +38,34 @@ class MovieListFragmentViewModel @Inject constructor(
             MovieListType.TOP_RATED->{
                 action(discoverTopMovieUseCase(++page), true) {
                     viewModelScope.launch {
-                        _movies.emit(it)
+                        val newList = mutableListOf<ResultModel>()
+                        _movies.value?.results?.let {
+                            newList.addAll(it)
+                        }
+                        it.results?.let {
+                            newList.addAll(it)
+                        }
+                        val copy = it.copy(
+                            results = newList
+                        )
+                        _movies.emit(copy)
                     }
                 }
             }
             MovieListType.POPULAR->{
                 action(discoverPopularMovieUseCase(++page), true) {
                     viewModelScope.launch {
-                        _movies.emit(it)
+                        val newList = mutableListOf<ResultModel>()
+                        _movies.value?.results?.let {
+                            newList.addAll(it)
+                        }
+                        it.results?.let {
+                            newList.addAll(it)
+                        }
+                        val copy = it.copy(
+                            results = newList
+                        )
+                        _movies.emit(copy)
                     }
                 }
             }

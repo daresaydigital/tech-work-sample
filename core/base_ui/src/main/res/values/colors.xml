@@ -2,9 +2,10 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="dark_salmon">#E9B68C</color>
-    <color name="old_rose">#C54C34</color>
-    <color name="sienna">#97463A</color>
-    <color name="dark_slate_gray">#2A202B</color>
-    <color name="dark_olive_green">#632E2F</color>
+    <color name="navy_blue">#151E27</color>
+    <color name="light_navy_blue">#1D2733</color>
+    <color name="dark_navy_blue">#0F161E</color>
+    <color name="gray_navy_blue">#546A77</color>
+    <color name="transparent">#00000000</color>
+    <color name="orange">#D24A16</color>
 </resources>

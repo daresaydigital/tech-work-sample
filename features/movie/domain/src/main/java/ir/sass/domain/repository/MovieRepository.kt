@@ -15,4 +15,6 @@ interface MovieRepository {
     fun saveToLocal(model: ResultModel)
 
     fun deleteFromLocal(model: ResultModel)
+
+    fun isExistOnDb(model: ResultModel) : Flow<Domain<Boolean>>
 }

@@ -22,9 +22,7 @@ data class ResultEntity(
     @ColumnInfo(name = "popularity")
     val popularity: Double,
     @ColumnInfo(name = "poster_path")
-    val poster_path: String,
-    @ColumnInfo(name = "poster_path_large")
-    val poster_path_large: String,
+    val poster_path : String,
     @ColumnInfo(name = "release_date")
     val release_date: String,
     @ColumnInfo(name = "title")
@@ -32,5 +30,7 @@ data class ResultEntity(
     @ColumnInfo(name = "vote_average")
     val vote_average: Double,
     @ColumnInfo(name = "vote_count")
-    val vote_count: Int
+    val vote_count: Int,
+    @ColumnInfo(name = "backdrop_path")
+    val backdrop_path : String
 )

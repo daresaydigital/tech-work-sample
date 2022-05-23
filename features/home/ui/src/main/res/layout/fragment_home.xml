@@ -4,9 +4,11 @@
         <import type="kotlin.jvm.functions.Function0"/>
         <import type="kotlin.Unit"/>
         <variable
-            name="navigate_to_remote"
+            name="navigate_to_top_rated"
             type="Function0&lt;Unit>"/>
-
+        <variable
+            name="navigate_to_popular"
+            type="Function0&lt;Unit>"/>
         <variable
             name="navigate_to_local"
             type="Function0&lt;Unit>"/>
@@ -23,24 +25,93 @@
             android:gravity="center"
             android:text="!!! Ladies and Gentlemen !!!\nthis is the sample project for Daresay"
             android:textColor="@color/white"
+            android:textSize="20sp"
             android:layout_weight="1"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center"
-            android:background="@color/old_rose"
-            android:textColor="@color/white"
-            android:text="Discover Favorite Movies Offline"
-            android:layout_marginBottom="12dp"
-            ext:click='@{navigate_to_local}'/>
 
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:gravity="center"
-            android:background="@color/old_rose"
-            android:textColor="@color/white"
-            android:text="Discover Movies"
-            ext:click='@{navigate_to_remote}'/>
+            ext:cardCornerRadius="8dp"
+            android:shadowRadius="4"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            ext:cardBackgroundColor="@color/gray_navy_blue"
+            ext:click='@{navigate_to_local}'>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/bookmark"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:text="Favorite Movies"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            ext:cardCornerRadius="8dp"
+            android:shadowRadius="4"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            ext:click='@{navigate_to_popular}'
+            ext:cardBackgroundColor="@color/gray_navy_blue">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/movie"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:text="Popular Movies" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            ext:cardCornerRadius="8dp"
+            android:shadowRadius="4"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="8dp"
+            ext:click='@{navigate_to_top_rated}'
+            ext:cardBackgroundColor="@color/gray_navy_blue"
+            android:layout_marginBottom="20dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:padding="12dp"
+                    android:src="@drawable/movie_star"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|start"
+                    android:textColor="@color/white"
+                    android:text="Top-Rated Movies"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
     </LinearLayout>
 </layout>

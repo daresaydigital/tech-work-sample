@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 import ir.sass.base_domain.model.Mapper
 import ir.sass.domain.model.DiscoverMovieModel
 import ir.sass.domain.model.ResultModel
+import ir.sass.movie.data.utils.BACKGROUND_IMAGE_BASE_URL
 import ir.sass.movie.data.utils.IMAGE_BASE_URL
-import ir.sass.movie.data.utils.LARGE_IMAGE_BASE_URL
 import ir.sass.movie.data.utils.SAMPLE_MOVIE_IMAGE_URL
 
 data class DiscoverMovieDto(
@@ -70,15 +70,16 @@ data class ResultDto(
             IMAGE_BASE_URL + poster_path
         }
 
-        val finalLargeUrlForImage = if (poster_path == null) {
+
+        val finalBackdropPath = if (backdrop_path == null) {
             SAMPLE_MOVIE_IMAGE_URL
         } else {
-            LARGE_IMAGE_BASE_URL + poster_path
+            BACKGROUND_IMAGE_BASE_URL + backdrop_path
         }
 
         return ResultModel(
             adult,
-            backdrop_path,
+            finalBackdropPath,
             genre_ids,
             id,
             original_language,
@@ -86,7 +87,6 @@ data class ResultDto(
             overview,
             popularity,
             finalUrlForImage,
-            finalLargeUrlForImage,
             release_date,
             title,
             video,

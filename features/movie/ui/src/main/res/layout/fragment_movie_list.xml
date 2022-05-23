@@ -22,17 +22,28 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:adapter='@{adapter}'
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:adapter='@{adapter}' />
 
-        <TextView
-            android:id="@+id/txt_empty_state"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="No Item !!!"
-            android:textColor="@color/white"
-            android:textSize="32sp"
-            android:visibility='@{empty_state?View.VISIBLE:View.GONE}' />
+            android:visibility='@{empty_state?View.VISIBLE:View.GONE}'
+            android:gravity="center">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/movie"/>
+            <TextView
+                android:id="@+id/txt_empty_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="No Item !!!"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                 />
+        </LinearLayout>
+
     </RelativeLayout>
 </layout>

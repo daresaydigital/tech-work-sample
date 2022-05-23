@@ -13,7 +13,7 @@ data class DiscoverMovieModel(
 
 data class ResultModel(
     val adult: Boolean,
-    val backdrop_path: String?,
+    val backdrop_path: String,
     val genre_ids: List<Int>,
     val id: Int,
     val original_language: String,
@@ -21,7 +21,6 @@ data class ResultModel(
     val overview: String,
     val popularity: Double,
     val poster_path: String,
-    val poster_path_large: String,
     val release_date: String,
     val title: String,
     val video: Boolean,

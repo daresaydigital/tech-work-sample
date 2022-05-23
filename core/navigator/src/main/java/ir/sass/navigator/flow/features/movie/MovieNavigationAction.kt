@@ -6,11 +6,11 @@ import ir.sass.navigator.R
 import ir.sass.navigator.flow.NavigationAction
 
 class MovieNavigationAction(
-    private val isFavorite : Boolean
+    private val type : Int
 ) : NavigationAction() {
     override fun navigate(navController: NavController) {
         navController.navigate(R.id.navigate_to_movie, bundleOf().apply {
-            this.putBoolean("isFavorite",isFavorite)
+            this.putInt("type",type)
         })
     }
 }
