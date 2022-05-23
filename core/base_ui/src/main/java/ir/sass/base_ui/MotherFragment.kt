@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -55,6 +56,13 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
             LayoutInflater.from(requireContext()), setting.layout, dataBindingOuter.linAdd, true
         )
         binding()
+
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                (requireActivity() as NavcontrollerHelper).onBack()
+            }
+        };
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     fun connectViewModelForLoadingAndError(viewModel: MotherViewModel) {
@@ -98,6 +106,8 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
     }
 
     fun getParentNavControllerHelper() = (requireActivity() as NavcontrollerHelper)
+
+
 }
 
 /**

@@ -11,4 +11,8 @@ class HiltAndroidActivityTest : AppCompatActivity(), NavcontrollerHelper {
     override fun navigate(action: NavigationAction) {
         // nothing
     }
+
+    override fun onBack() {
+        // nothing
+    }
 }

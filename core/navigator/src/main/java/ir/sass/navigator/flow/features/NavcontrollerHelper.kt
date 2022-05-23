@@ -13,4 +13,6 @@ import ir.sass.navigator.flow.NavigationAction
 
 interface NavcontrollerHelper {
     fun navigate(action: NavigationAction)
+
+    fun onBack()
 }

@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity(), NavcontrollerHelper {
             }
             true
         }
+
     }
 
 
@@ -52,4 +53,36 @@ class MainActivity : AppCompatActivity(), NavcontrollerHelper {
         action.navigate(controller)
     }
 
+
+/*    here we have a policy, if we are in any kind of MovieListFragment
+    and we click back, we must return to Home and the stack has to be cleared
+    the reason is MovieListFragment is one the roots so if we click back on any root
+    we should return to the first step which is Home
+    if we pressed back on home even though the back stack is not empty we must
+    close the program
+
+    if we are in neither of those situation we should just pop the stack*/
+
+    override fun onBack() {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val controller = navHostFragment.navController
+
+        when(controller.currentDestination?.label ){
+            "MovieListFragment"->{
+                controller.setGraph(ir.sass.navigator.R.navigation.app_navigation)
+                dataBinding.bottomNavigationView.menu.findItem(R.id.home).setChecked(true)
+            }
+
+            "HomeFragment"->{
+                finish()
+            }
+
+            else->{
+                controller.popBackStack()
+            }
+        }
+
+
+    }
 }

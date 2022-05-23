@@ -6,7 +6,7 @@ import ir.sass.navigator.R
 import ir.sass.navigator.flow.NavigationAction
 
 class MovieNavigationAction(
-    private val type : Int
+    val type : Int
 ) : NavigationAction() {
     override fun navigate(navController: NavController) {
         navController.navigate(R.id.navigate_to_movie, bundleOf().apply {
