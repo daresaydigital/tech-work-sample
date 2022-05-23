@@ -7,7 +7,7 @@
     <item
         android:id="@+id/popular"
         android:title="Popular"
-        android:icon="@drawable/movie_popluar"/>
+        android:icon="@drawable/movie"/>
     <item
         android:id="@+id/top_rated"
         android:title="Tops"
