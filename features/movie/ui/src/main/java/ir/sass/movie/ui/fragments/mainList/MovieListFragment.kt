@@ -33,6 +33,7 @@ class MovieListFragment : MotherFragment<FragmentMovieListBinding>(
             }
             ) { binding, item, pos ->
             binding.movie = item
+            binding.txtTitle.isSelected = true
             binding.navigate = {
                 findNavController().navigate(
                     MovieListFragmentDirections.actionMovieListFragmentToMovieDetailFragment(
