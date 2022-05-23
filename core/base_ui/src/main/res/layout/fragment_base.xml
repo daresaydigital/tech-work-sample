@@ -51,7 +51,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="@color/navy_blue"
-
             android:orientation="vertical"
             android:paddingTop="68dp"
             android:paddingBottom="12dp"
@@ -65,7 +64,7 @@
             android:id="@+id/lottieAnimationView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/light_navy_blue"
+            android:background="@color/transparent"
             android:visibility='@{loading ? View.VISIBLE :View.GONE }'
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
