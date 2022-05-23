@@ -138,7 +138,8 @@
                             <ImageView
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
-                                android:src="@drawable/people" />
+                                android:src="@drawable/people"
+                                android:layout_marginStart="4dp"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -232,26 +233,6 @@
                             android:textSize="12sp" />
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="4dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="120dp"
-                            android:layout_height="wrap_content"
-                            android:text="Suitable for kids"
-                            android:textColor="@color/gray_navy_blue"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text='@{data.adult?"No":"Yes"}'
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
