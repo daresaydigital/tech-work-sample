@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ext="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="button"
+            type="String" />
+        <variable
+            name="message"
+            type="String" />
+
+        <import type="kotlin.jvm.functions.Function0"/>
+        <import type="kotlin.Unit"/>
+        <variable
+            name="action"
+            type="Function0&lt;Unit>" />
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            app:cardCornerRadius="15dp"
+            app:cardBackgroundColor="@color/dark_navy_blue">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text='@{message}'
+                    android:textSize="16sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text='@{button}'
+                    android:textSize="20sp"
+                    ext:click='@{action}'
+                    android:textColor="@color/white"
+                    android:background="@color/light_navy_blue"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

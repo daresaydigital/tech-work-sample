@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ir.sass.movie.ui">
+    <application>
+        <activity
+            android:name=".HiltAndroidActivityTest"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light"/>
+    </application>
+</manifest>

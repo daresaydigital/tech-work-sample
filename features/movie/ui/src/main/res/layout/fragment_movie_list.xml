@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="ir.sass.base_ui.MotherAdapter" />
+
+        <variable
+            name="empty_state"
+            type="boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adapter='@{adapter}' />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility='@{empty_state?View.VISIBLE:View.GONE}'
+            android:gravity="center">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/movie"/>
+            <TextView
+                android:id="@+id/txt_empty_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="No Item !!!"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                 />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

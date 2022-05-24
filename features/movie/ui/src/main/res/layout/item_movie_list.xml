@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:ext="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="ir.sass.domain.model.ResultModel" />
+
+        <import type="kotlin.jvm.functions.Function0" />
+
+        <import type="kotlin.Unit" />
+
+        <variable
+            name="navigate"
+            type="Function0&lt;Unit>" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="4dp"
+        ext:click='@{navigate}'>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ext:cardBackgroundColor="@color/transparent"
+                ext:cardCornerRadius="12dp">
+
+                <ir.sass.base_ui.view.LottieImageView
+                    android:layout_width="150dp"
+                    android:layout_height="266dp"
+                    ext:url='@{movie.poster_path}' />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text='@{movie.title}'
+                android:layout_marginTop="8dp"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

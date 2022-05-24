@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api project(":core:base_data")
+    api project(":core:base_domain")
+    implementation project(":core:shared_data")
+
+    implementation project(":features:movie:domain")
+
+    implementation lib.get("hilt")
+    kapt kaptLibs.get("hilt")
+
+    implementation lib.get("room")
+    kapt kaptLibs.get("room")
+
+    testImplementation testLib.get("mockito")
+    testImplementation testLib.get("mockito")
+    testImplementation testLib.get("coroutinesTest")
+    testImplementation testLib.get("junitExt")
+    testImplementation testLib.get("coreTestExt")
+    testImplementation testLib.get("robolectric")
+}
