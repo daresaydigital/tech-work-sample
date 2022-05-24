@@ -1,8 +1,9 @@
 package ir.sass.base_ui
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -28,10 +29,28 @@ class MotherAdapter<DB : ViewDataBinding , DataType> (
             DataBindingUtil.inflate(LayoutInflater.from(parent.context), wrapper.layout, parent, false)
         )
 
+    private var lastPos = -1
     override fun onBindViewHolder(
         holder: MotherAdapterVH<DB>,
         position: Int
     ) {
+        if(position > lastPos){
+            val anim = ScaleAnimation(
+                0.0f,
+                1.0f,
+                0.0f,
+                1.0f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f
+            ).apply {
+                duration = 500
+            }
+            holder.binding.root.startAnimation(anim)
+        }
+        lastPos = lastPos.coerceAtLeast(position)
+
         wrapper.bindingFun.invoke(holder.binding,wrapper.list[position],position)
         if(position == wrapper.list.size - 1)
             wrapper.ended.invoke()

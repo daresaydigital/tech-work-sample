@@ -74,7 +74,7 @@ abstract class MotherFragment<DataBinding : ViewDataBinding>(
     fun connectViewModelForError(viewModel: MotherViewModel) {
         coroutinesLauncher(Lifecycle.State.STARTED) {
             viewModel.error.collect {
-                requireContext().toast(it)
+                showAlertDialog(requireContext(),AlertPopSetting(it))
             }
         }
     }
