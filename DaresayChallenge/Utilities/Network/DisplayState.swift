@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+enum DisplayState<T> {
+    case loading
+    case success(T)
+    case failure(String)
+}

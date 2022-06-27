@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct ServerRequest {
+    // This is a placeholder to manage different type of requests
+}
