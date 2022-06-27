@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BA0EDD161A27CF4EED7B035 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E787AF38D53058E46BEE1F58 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework */; };
+		62E3D933F6B0C5E62A8D1D03 /* Pods_DaresayChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05394D88F6BA25B777E09AB8 /* Pods_DaresayChallenge.framework */; };
 		A85274072864494000571D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274062864494000571D95 /* AppDelegate.swift */; };
 		A85274092864494000571D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274082864494000571D95 /* SceneDelegate.swift */; };
 		A85274102864494200571D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A852740F2864494200571D95 /* Assets.xcassets */; };
@@ -19,6 +21,7 @@
 		A88EB625286990F7009DBB12 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB624286990F7009DBB12 /* Networking.swift */; };
 		A88EB627286990FE009DBB12 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB626286990FE009DBB12 /* NetworkingError.swift */; };
 		A88EB62928699105009DBB12 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB62828699105009DBB12 /* DisplayState.swift */; };
+		AF1E02F1504DA0A17DA4A6B3 /* Pods_DaresayChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6059B7E103E4803ECDD9EAB9 /* Pods_DaresayChallengeTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05394D88F6BA25B777E09AB8 /* Pods_DaresayChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaresayChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28BC223A2183366830F0C526 /* Pods-DaresayChallenge-DaresayChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge-DaresayChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		46C30D4A7C6E9094D32FD6B2 /* Pods-DaresayChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-DaresayChallengeTests/Pods-DaresayChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6059B7E103E4803ECDD9EAB9 /* Pods_DaresayChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaresayChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71B1456CABA6908339F55112 /* Pods-DaresayChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge/Pods-DaresayChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		7A9F475EECF4C600422EE8D3 /* Pods-DaresayChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge.debug.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge/Pods-DaresayChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		A85274032864494000571D95 /* DaresayChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaresayChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85274062864494000571D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85274082864494000571D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +64,9 @@
 		A88EB624286990F7009DBB12 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		A88EB626286990FE009DBB12 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		A88EB62828699105009DBB12 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
+		CAEA06B6172526332919FE1B /* Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E2A9665CA7689DE9AFAAA91F /* Pods-DaresayChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallengeTests/Pods-DaresayChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		E787AF38D53058E46BEE1F58 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaresayChallenge_DaresayChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62E3D933F6B0C5E62A8D1D03 /* Pods_DaresayChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF1E02F1504DA0A17DA4A6B3 /* Pods_DaresayChallengeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +90,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BA0EDD161A27CF4EED7B035 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299101531392397460625536 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7A9F475EECF4C600422EE8D3 /* Pods-DaresayChallenge.debug.xcconfig */,
+				71B1456CABA6908339F55112 /* Pods-DaresayChallenge.release.xcconfig */,
+				28BC223A2183366830F0C526 /* Pods-DaresayChallenge-DaresayChallengeUITests.debug.xcconfig */,
+				CAEA06B6172526332919FE1B /* Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig */,
+				46C30D4A7C6E9094D32FD6B2 /* Pods-DaresayChallengeTests.debug.xcconfig */,
+				E2A9665CA7689DE9AFAAA91F /* Pods-DaresayChallengeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		3C5BBACFEEDA718FFBB82F1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05394D88F6BA25B777E09AB8 /* Pods_DaresayChallenge.framework */,
+				E787AF38D53058E46BEE1F58 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework */,
+				6059B7E103E4803ECDD9EAB9 /* Pods_DaresayChallengeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A85273FA2864494000571D95 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +127,8 @@
 				A852741C2864494200571D95 /* DaresayChallengeTests */,
 				A85274262864494200571D95 /* DaresayChallengeUITests */,
 				A85274042864494000571D95 /* Products */,
+				299101531392397460625536 /* Pods */,
+				3C5BBACFEEDA718FFBB82F1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,9 +279,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A852742D2864494200571D95 /* Build configuration list for PBXNativeTarget "DaresayChallenge" */;
 			buildPhases = (
+				7D4461EF9300F3007C8D08EF /* [CP] Check Pods Manifest.lock */,
 				A85273FF2864494000571D95 /* Sources */,
 				A85274002864494000571D95 /* Frameworks */,
 				A85274012864494000571D95 /* Resources */,
+				7F9B251B883BDD6CA970F46B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +298,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A85274302864494200571D95 /* Build configuration list for PBXNativeTarget "DaresayChallengeTests" */;
 			buildPhases = (
+				67ABC0EE8DBF64A36C809660 /* [CP] Check Pods Manifest.lock */,
 				A85274152864494200571D95 /* Sources */,
 				A85274162864494200571D95 /* Frameworks */,
 				A85274172864494200571D95 /* Resources */,
@@ -274,9 +317,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A85274332864494200571D95 /* Build configuration list for PBXNativeTarget "DaresayChallengeUITests" */;
 			buildPhases = (
+				9C4B77D5F7BC5C6C18C62CA5 /* [CP] Check Pods Manifest.lock */,
 				A852741F2864494200571D95 /* Sources */,
 				A85274202864494200571D95 /* Frameworks */,
 				A85274212864494200571D95 /* Resources */,
+				0BFF8B728BB78AEA25934576 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -356,6 +401,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BFF8B728BB78AEA25934576 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67ABC0EE8DBF64A36C809660 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DaresayChallengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D4461EF9300F3007C8D08EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DaresayChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F9B251B883BDD6CA970F46B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DaresayChallenge/Pods-DaresayChallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DaresayChallenge/Pods-DaresayChallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DaresayChallenge/Pods-DaresayChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C4B77D5F7BC5C6C18C62CA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DaresayChallenge-DaresayChallengeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A85273FF2864494000571D95 /* Sources */ = {
@@ -532,6 +680,7 @@
 		};
 		A852742E2864494200571D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A9F475EECF4C600422EE8D3 /* Pods-DaresayChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -559,6 +708,7 @@
 		};
 		A852742F2864494200571D95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71B1456CABA6908339F55112 /* Pods-DaresayChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -586,8 +736,9 @@
 		};
 		A85274312864494200571D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46C30D4A7C6E9094D32FD6B2 /* Pods-DaresayChallengeTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -606,8 +757,9 @@
 		};
 		A85274322864494200571D95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2A9665CA7689DE9AFAAA91F /* Pods-DaresayChallengeTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -626,8 +778,9 @@
 		};
 		A85274342864494200571D95 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28BC223A2183366830F0C526 /* Pods-DaresayChallenge-DaresayChallengeUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ZP967T2JH;
@@ -644,8 +797,9 @@
 		};
 		A85274352864494200571D95 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAEA06B6172526332919FE1B /* Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ZP967T2JH;

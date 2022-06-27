@@ -1,0 +1,32 @@
+PODS:
+  - Bagel (1.4.0):
+    - CocoaAsyncSocket
+  - CocoaAsyncSocket (7.6.5)
+  - PromiseKit (6.16.3):
+    - PromiseKit/CorePromise (= 6.16.3)
+    - PromiseKit/Foundation (= 6.16.3)
+    - PromiseKit/UIKit (= 6.16.3)
+  - PromiseKit/CorePromise (6.16.3)
+  - PromiseKit/Foundation (6.16.3):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.16.3):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - Bagel
+  - PromiseKit
+
+SPEC REPOS:
+  trunk:
+    - Bagel
+    - CocoaAsyncSocket
+    - PromiseKit
+
+SPEC CHECKSUMS:
+  Bagel: c3fa6bcbd52db9ca976edbafd7638f0553ded101
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  PromiseKit: ed0e2a8e3f3cd59d5d98ca0a6de481a2c5c59c0b
+
+PODFILE CHECKSUM: 48bf66a8bad07b68dfb43ab0dae940890caeff1c
+
+COCOAPODS: 1.11.2
