@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		A85274072864494000571D95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274062864494000571D95 /* AppDelegate.swift */; };
 		A85274092864494000571D95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274082864494000571D95 /* SceneDelegate.swift */; };
-		A852740B2864494000571D95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852740A2864494000571D95 /* ViewController.swift */; };
-		A852740E2864494000571D95 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A852740C2864494000571D95 /* Main.storyboard */; };
 		A85274102864494200571D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A852740F2864494200571D95 /* Assets.xcassets */; };
 		A85274132864494200571D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85274112864494200571D95 /* LaunchScreen.storyboard */; };
 		A852741E2864494200571D95 /* DaresayChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A852741D2864494200571D95 /* DaresayChallengeTests.swift */; };
 		A85274282864494200571D95 /* DaresayChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274272864494200571D95 /* DaresayChallengeUITests.swift */; };
 		A852742A2864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274292864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift */; };
+		A88EB61F286990C5009DBB12 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB61E286990C5009DBB12 /* Coordinator.swift */; };
+		A88EB623286990EF009DBB12 /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB622286990EF009DBB12 /* ServerRequest.swift */; };
+		A88EB625286990F7009DBB12 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB624286990F7009DBB12 /* Networking.swift */; };
+		A88EB627286990FE009DBB12 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB626286990FE009DBB12 /* NetworkingError.swift */; };
+		A88EB62928699105009DBB12 /* DisplayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB62828699105009DBB12 /* DisplayState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,6 @@
 		A85274032864494000571D95 /* DaresayChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaresayChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85274062864494000571D95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A85274082864494000571D95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A852740A2864494000571D95 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A852740D2864494000571D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A852740F2864494200571D95 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A85274122864494200571D95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A85274142864494200571D95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +50,11 @@
 		A85274232864494200571D95 /* DaresayChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaresayChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85274272864494200571D95 /* DaresayChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaresayChallengeUITests.swift; sourceTree = "<group>"; };
 		A85274292864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaresayChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A88EB61E286990C5009DBB12 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A88EB622286990EF009DBB12 /* ServerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
+		A88EB624286990F7009DBB12 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		A88EB626286990FE009DBB12 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
+		A88EB62828699105009DBB12 /* DisplayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +105,11 @@
 		A85274052864494000571D95 /* DaresayChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				A85274062864494000571D95 /* AppDelegate.swift */,
-				A85274082864494000571D95 /* SceneDelegate.swift */,
-				A852740A2864494000571D95 /* ViewController.swift */,
-				A852740C2864494000571D95 /* Main.storyboard */,
-				A852740F2864494200571D95 /* Assets.xcassets */,
-				A85274112864494200571D95 /* LaunchScreen.storyboard */,
-				A85274142864494200571D95 /* Info.plist */,
+				A852743628648D6700571D95 /* App */,
+				A852743728648D6C00571D95 /* Features */,
+				A852743928648D7B00571D95 /* Utilities */,
+				A852743A28648D8200571D95 /* Extensions */,
+				A852743828648D7300571D95 /* Supporting Files */,
 			);
 			path = DaresayChallenge;
 			sourceTree = "<group>";
@@ -125,6 +129,107 @@
 				A85274292864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift */,
 			);
 			path = DaresayChallengeUITests;
+			sourceTree = "<group>";
+		};
+		A852743628648D6700571D95 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A85274062864494000571D95 /* AppDelegate.swift */,
+				A85274082864494000571D95 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A852743728648D6C00571D95 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A852743828648D7300571D95 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A852740F2864494200571D95 /* Assets.xcassets */,
+				A85274112864494200571D95 /* LaunchScreen.storyboard */,
+				A85274142864494200571D95 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A852743928648D7B00571D95 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A88EB61928698FB8009DBB12 /* Coordinator */,
+				A88EB61A28698FC0009DBB12 /* Network */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A852743A28648D8200571D95 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A88EB61B28698FC6009DBB12 /* UIKit */,
+				A88EB61C28698FD3009DBB12 /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A88EB61928698FB8009DBB12 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A88EB61D286990B7009DBB12 /* Protocols */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A88EB61A28698FC0009DBB12 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				A88EB621286990E1009DBB12 /* HTTP Requests */,
+				A88EB620286990DB009DBB12 /* Server Models */,
+				A88EB622286990EF009DBB12 /* ServerRequest.swift */,
+				A88EB624286990F7009DBB12 /* Networking.swift */,
+				A88EB626286990FE009DBB12 /* NetworkingError.swift */,
+				A88EB62828699105009DBB12 /* DisplayState.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		A88EB61B28698FC6009DBB12 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A88EB61C28698FD3009DBB12 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		A88EB61D286990B7009DBB12 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A88EB61E286990C5009DBB12 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A88EB620286990DB009DBB12 /* Server Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Server Models";
+			sourceTree = "<group>";
+		};
+		A88EB621286990E1009DBB12 /* HTTP Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "HTTP Requests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +338,6 @@
 			files = (
 				A85274132864494200571D95 /* LaunchScreen.storyboard in Resources */,
 				A85274102864494200571D95 /* Assets.xcassets in Resources */,
-				A852740E2864494000571D95 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +362,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A852740B2864494000571D95 /* ViewController.swift in Sources */,
 				A85274072864494000571D95 /* AppDelegate.swift in Sources */,
+				A88EB625286990F7009DBB12 /* Networking.swift in Sources */,
 				A85274092864494000571D95 /* SceneDelegate.swift in Sources */,
+				A88EB623286990EF009DBB12 /* ServerRequest.swift in Sources */,
+				A88EB627286990FE009DBB12 /* NetworkingError.swift in Sources */,
+				A88EB61F286990C5009DBB12 /* Coordinator.swift in Sources */,
+				A88EB62928699105009DBB12 /* DisplayState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +405,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A852740C2864494000571D95 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A852740D2864494000571D95 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A85274112864494200571D95 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,11 +538,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ZP967T2JH;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DaresayChallenge/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "DaresayChallenge/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -466,11 +565,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7ZP967T2JH;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = DaresayChallenge/Info.plist;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "DaresayChallenge/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
