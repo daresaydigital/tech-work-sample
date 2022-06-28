@@ -103,6 +103,7 @@ final class MovieServer: NSObject, ServerProtocol {
                     
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let responseObject = try decoder.decode(T.self, from: responseData)
                     
                     let serverData = ServerData(httpStatus: httpResponse.statusCode, model: responseObject, httpHeaders: httpHeader)
