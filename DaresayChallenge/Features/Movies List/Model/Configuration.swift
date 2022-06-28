@@ -7,8 +7,15 @@
 
 import Foundation
 
-// MARK: - Base
-struct Configuration: Codable {
+extension ServerModels {
+    enum Configuration {
+        struct Request {}
+        
+        typealias Response = ConfigurationModel
+    }
+}
+
+struct ConfigurationModel: Codable {
     var images: ImageConfiguration?
     var changeKeys: [String]?
 }

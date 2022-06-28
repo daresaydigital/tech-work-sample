@@ -11,12 +11,12 @@ extension ServerModels {
     enum Movies {
         struct Request {}
         
-        typealias Response = [Movies]
+        typealias Response = [MoviesModel]
     }
 }
 
 // MARK: - MovieModel
-struct Movies: ServerModel {
+struct MoviesModel: ServerModel {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?

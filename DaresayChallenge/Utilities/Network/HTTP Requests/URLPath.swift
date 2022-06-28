@@ -19,6 +19,9 @@ enum URLPath {
     
     case version
     case pathID(String)
+    case movie
+    case popular
+    case config
     
     var toString: String {
         var result = ""
@@ -27,6 +30,12 @@ enum URLPath {
             result = "3"
         case .pathID(let id):
             result = "\(id)"
+        case .movie:
+            result = "movie"
+        case .popular:
+            result = "popular"
+        case .config:
+            result = "configuration"
         }
         
         return result
