@@ -24,6 +24,12 @@ final class MoviesViewModel {
     private var allMovies: [MoviesModel] = []
     private var configCache: ConfigurationModel?
     
+    public var totalCount: Int = 0
+    
+    public var itemsCount: Int {
+        return allMovies.count
+    }
+    
     private let dispatchGroup: DispatchGroup = DispatchGroup()
     
     // MARK: - Init
@@ -51,6 +57,14 @@ final class MoviesViewModel {
                 self.delegate?.populate(displayState: .failure("Couldn't fetch data."))
             }
         }
+    }
+    
+    public func item(at index: Int) -> MoviesModel {
+        return allMovies[index]
+    }
+    
+    public func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row == itemsCount - 1
     }
     
     // MARK: - Helpers

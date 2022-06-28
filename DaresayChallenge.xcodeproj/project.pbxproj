@@ -42,6 +42,8 @@
 		A8E46569286B1A5100F51994 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46568286B1A5100F51994 /* MoviesViewModel.swift */; };
 		A8E4656C286B1F9200F51994 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4656B286B1F9200F51994 /* UserDefaultsStorage.swift */; };
 		A8E4656E286B1FB300F51994 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4656D286B1FB300F51994 /* UserDefaultsData.swift */; };
+		A8E46572286B2CE200F51994 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46571286B2CE200F51994 /* TableViewDataSource.swift */; };
+		A8E46574286B2CF600F51994 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46573286B2CF600F51994 /* MovieTableViewCell.swift */; };
 		AF1E02F1504DA0A17DA4A6B3 /* Pods_DaresayChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6059B7E103E4803ECDD9EAB9 /* Pods_DaresayChallengeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 		A8E46568286B1A5100F51994 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		A8E4656B286B1F9200F51994 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		A8E4656D286B1FB300F51994 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
+		A8E46571286B2CE200F51994 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
+		A8E46573286B2CF600F51994 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		CAEA06B6172526332919FE1B /* Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E2A9665CA7689DE9AFAAA91F /* Pods-DaresayChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallengeTests/Pods-DaresayChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E787AF38D53058E46BEE1F58 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaresayChallenge_DaresayChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +373,8 @@
 		A88EB6462869AA14009DBB12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A8E46570286B2CD600F51994 /* TableView DataSource */,
+				A8E4656F286B2CCB00F51994 /* List */,
 				A88EB64A2869AA68009DBB12 /* MoviesViewController.swift */,
 			);
 			path = View;
@@ -389,6 +395,22 @@
 				A8E4656D286B1FB300F51994 /* UserDefaultsData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		A8E4656F286B2CCB00F51994 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A8E46573286B2CF600F51994 /* MovieTableViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		A8E46570286B2CD600F51994 /* TableView DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				A8E46571286B2CE200F51994 /* TableViewDataSource.swift */,
+			);
+			path = "TableView DataSource";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -649,6 +671,7 @@
 				A8E4656C286B1F9200F51994 /* UserDefaultsStorage.swift in Sources */,
 				A88EB627286990FE009DBB12 /* NetworkingError.swift in Sources */,
 				A88EB6332869A85D009DBB12 /* URLPath.swift in Sources */,
+				A8E46574286B2CF600F51994 /* MovieTableViewCell.swift in Sources */,
 				A88EB6312869A838009DBB12 /* HTTPConstants.swift in Sources */,
 				A88EB61F286990C5009DBB12 /* Coordinator.swift in Sources */,
 				A88EB6412869A986009DBB12 /* AppCoordinator.swift in Sources */,
@@ -657,6 +680,7 @@
 				A88EB62928699105009DBB12 /* DisplayState.swift in Sources */,
 				A88EB6492869AA31009DBB12 /* MoviesCoordinator.swift in Sources */,
 				A88EB6392869A8D1009DBB12 /* DateFormatter+Extensions.swift in Sources */,
+				A8E46572286B2CE200F51994 /* TableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
