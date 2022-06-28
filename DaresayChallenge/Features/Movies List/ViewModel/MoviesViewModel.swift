@@ -9,6 +9,7 @@ import Foundation
 
 protocol MoviesViewModelDelegate: AnyObject {
     func populate(displayState: DisplayState<[MoviesModel]>)
+    func displayMovies(displayState: DisplayState<[MoviesModel]>)
 }
 
 final class MoviesViewModel {
@@ -30,8 +31,6 @@ final class MoviesViewModel {
         return allMovies.count
     }
     
-    private let dispatchGroup: DispatchGroup = DispatchGroup()
-    
     // MARK: - Init
     init(moviesService: MoviesServiceProtocol) {
         self.moviesService = moviesService
@@ -40,13 +39,15 @@ final class MoviesViewModel {
     // MARK: - Public methods
     public func populate() {
         
+        let dispatchGroup = DispatchGroup()
+        
         delegate?.populate(displayState: .loading)
         
         dispatchGroup.enter()
-        getPopularMovies()
+        getPopularMovies(dispatchGroup: dispatchGroup)
         
         dispatchGroup.enter()
-        getConfigs()
+        getConfigs(dispatchGroup: dispatchGroup)
         
         dispatchGroup.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
@@ -55,6 +56,40 @@ final class MoviesViewModel {
                 self.delegate?.populate(displayState: .success(self.allMovies))
             } else {
                 self.delegate?.populate(displayState: .failure("Couldn't fetch data."))
+            }
+        }
+    }
+    
+    public func getPopularMovies(dispatchGroup: DispatchGroup? = nil) {
+        
+        let httpRequest = ServerRequest.Movies.getMovies(page: currentPage)
+        moviesService.getMovies(httpRequest: httpRequest) { [weak self]  result in
+            defer {
+                if let dispatchGroup = dispatchGroup {
+                    dispatchGroup.leave()
+                }
+            }
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let response):
+                guard let movies = response.results else { return }
+                
+                if movies.isEmpty {
+                    self.isFinished = true
+                }
+                
+                self.allMovies.append(contentsOf: movies)
+                
+                if self.currentPage > 1 {
+                    self.delegate?.displayMovies(displayState: .success(self.allMovies))
+                }
+                
+                self.currentPage += 1
+                
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -68,36 +103,11 @@ final class MoviesViewModel {
     }
     
     // MARK: - Helpers
-    private func getPopularMovies() {
-        
-        let httpRequest = ServerRequest.Movies.getMovies(page: currentPage)
-        moviesService.getMovies(httpRequest: httpRequest) { [weak self]  result in
-            defer { self?.dispatchGroup.leave() }
-            
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let response):
-                self.currentPage += 1
-                
-                guard let movies = response.results else { return }
-                
-                if movies.isEmpty {
-                    self.isFinished = true
-                }
-                
-                self.allMovies.append(contentsOf: movies)
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    private func getConfigs() {
+    private func getConfigs(dispatchGroup: DispatchGroup? = nil) {
         
         let httpRequest = ServerRequest.Configuration.getConfigs()
         moviesService.getConfigs(httpRequest: httpRequest) { [weak self] result in
-            defer { self?.dispatchGroup.leave() }
+            defer { dispatchGroup?.leave() }
             
             guard let self = self else { return }
             

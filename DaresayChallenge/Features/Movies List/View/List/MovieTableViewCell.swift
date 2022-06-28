@@ -10,6 +10,12 @@ import UIKit
 class MovieTableViewCell: UITableViewCell {
     
     // MARK: - Variables
+    private lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,13 +33,16 @@ class MovieTableViewCell: UITableViewCell {
 // MARK: - Helpers
 private extension MovieTableViewCell {
     func setupUI() {
+        contentView.addSubview(titleLabel)
         
+        titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
     }
 }
 
 // MARK: - Configuration
 extension MovieTableViewCell {
     public func configureCell(with movieModel: MoviesModel) {
-        
+        titleLabel.text = movieModel.title
     }
 }

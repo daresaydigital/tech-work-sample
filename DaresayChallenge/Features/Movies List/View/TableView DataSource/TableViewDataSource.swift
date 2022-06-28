@@ -32,8 +32,6 @@ final class TableViewDataSourceProvider: NSObject {
             return
         }
         
-//        self.ads = newItems
-        
         guard viewModel.totalCount != viewModel.itemsCount else { return }
         
         if viewModel.totalCount == 0 {
@@ -55,7 +53,9 @@ final class TableViewDataSourceProvider: NSObject {
 
 // MARK: - UITableView Delegate
 extension TableViewDataSourceProvider: UITableViewDelegate {
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        60.0
+    }
 }
 
 // MARK: - UITableView DataSource
@@ -78,6 +78,16 @@ extension TableViewDataSourceProvider: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableView DataSource Prefetching
+extension TableViewDataSourceProvider: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: viewModel.isLoadingCell) && !viewModel.isFinished {
+            print("==========get new data======")
+            viewModel.getPopularMovies()
+        }
+    }
+}
+
 // MARK: - Helpers
 private extension TableViewDataSourceProvider {
     func generateCell<T: UITableViewCell>(_ cell: T.Type, indexPath: IndexPath) -> T {
@@ -93,6 +103,5 @@ private extension TableViewDataSourceProvider {
         tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: movieCellID)
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.estimatedRowHeight = 60
-        tableView.rowHeight = UITableView.automaticDimension
     }
 }
