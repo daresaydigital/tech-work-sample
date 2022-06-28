@@ -11,8 +11,14 @@ extension ServerModels {
     enum Movies {
         struct Request {}
         
-        typealias Response = [MoviesModel]
+        typealias Response = MovieSchema
     }
+}
+
+struct MovieSchema: ServerModel {
+    let page: UInt?
+    let results: [MoviesModel]?
+    let totalPages, totalResults: UInt?
 }
 
 // MARK: - MovieModel

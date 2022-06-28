@@ -22,7 +22,7 @@ extension ServerRequest {
     enum Movies {
         static func getMovies(page: UInt) -> HTTPRequest {
             var url = RequestURL()
-            url.appendPathComponents([.movie, .popular])
+            url.appendPathComponents([.version, .movie, .popular])
             let headers: [String: String] = baseRequestHeaders
             let params: [String: Any] = ["page": "\(page)"]
             
@@ -33,7 +33,7 @@ extension ServerRequest {
     enum Configuration {
         static func getConfigs() -> HTTPRequest {
             var url = RequestURL()
-            url.appendPathComponents([.config])
+            url.appendPathComponents([.version, .config])
             let headers: [String: String] = baseRequestHeaders
             
             return HTTPRequest(method: .GET, url: url, auth: .otp, parameters: nil, bodyMessage: nil, headers: headers, timeOut: .normal)

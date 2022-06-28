@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviesViewModelDelegate: AnyObject {
-    func populate(displayState: DisplayState<ServerModels.Movies.Response>)
+    func populate(displayState: DisplayState<[MoviesModel]>)
 }
 
 final class MoviesViewModel {
@@ -20,7 +20,7 @@ final class MoviesViewModel {
     
     public var isFinished = false
     
-    private var currentPage: UInt = 0
+    private var currentPage: UInt = 1
     private var allMovies: [MoviesModel] = []
     private var configCache: ConfigurationModel?
     
@@ -66,11 +66,13 @@ final class MoviesViewModel {
             case .success(let response):
                 self.currentPage += 1
                 
-                if response.isEmpty {
+                guard let movies = response.results else { return }
+                
+                if movies.isEmpty {
                     self.isFinished = true
                 }
                 
-                self.allMovies.append(contentsOf: response)
+                self.allMovies.append(contentsOf: movies)
             case .failure(let error):
                 print(error)
             }
@@ -87,6 +89,7 @@ final class MoviesViewModel {
             
             switch result {
             case .success(let response):
+                print(response)
                 self.configCache = response
                 UserDefaultsData.configModel = response
             case .failure(let error):
