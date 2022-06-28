@@ -14,3 +14,7 @@ enum MovieAuth {
   case password
   case custom(String)
 }
+
+enum TokenType: String {
+  case basic, Bearer
+}

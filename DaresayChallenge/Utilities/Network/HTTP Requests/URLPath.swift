@@ -12,33 +12,21 @@ protocol RequestURLProtocol {
 }
 
 private var movieSampleBaseURL: String {
-    "https://secure.closepayment.com"
+    "https://api.themoviedb.org"
 }
 
 enum URLPath {
     
     case version
-    case admin
-    case place
-    case appID
     case pathID(String)
-    case image
     
     var toString: String {
         var result = ""
         switch self {
         case .version:
-            result = "1.0"
+            result = "3"
         case .pathID(let id):
             result = "\(id)"
-        case .admin:
-            result = "close-admin"
-        case .place:
-            result = "place"
-        case .appID:
-            result = "meappid"
-        case .image:
-            result = "image"
         }
         
         return result

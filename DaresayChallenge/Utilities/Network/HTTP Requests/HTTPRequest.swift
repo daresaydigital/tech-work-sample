@@ -53,6 +53,7 @@ struct HTTPRequest {
         }
         result.prepareAcceptHeader(accept: self.accept)
         result.prepareContentTypeHeader(contentType: self.contentType)
+        result.prepareAuthorization(auth: self.auth)
         result.prepareBaseHeaders(headers: headers)
         
         if self.httpMethod == HTTPMethod.GET || self.httpMethod == HTTPMethod.DELETE {
@@ -96,6 +97,29 @@ extension URLRequest {
             .addingPercentEncoding(withAllowedCharacters: characterSet)?
             .replacingOccurrences(of: " ", with: "+")
             .replacingOccurrences(of: " ", with: "+", options: [], range: nil) ?? string
+    }
+    
+    mutating func prepareAuthorization(auth: MovieAuth) {
+        
+        func addAuthHeader(token: String, type: TokenType) {
+            let tokenString = "\(type.rawValue) \(token)"
+            self.setValue(tokenString, forHTTPHeaderField: HTTPHeaders.Authorization)
+        }
+        
+        switch auth {
+        case .none:
+            return
+        case .open:
+            return
+        case .otp:
+            let otpToken = APIKey.readAccessToken.rawValue
+            print("** access token : \(otpToken)")
+            addAuthHeader(token: otpToken, type: .Bearer)
+        case .password:
+            return
+        case .custom(let customToken):
+            addAuthHeader(token: customToken, type: .Bearer)
+        }
     }
     
     mutating func prepareRequestMethod(method: HTTPMethod) {

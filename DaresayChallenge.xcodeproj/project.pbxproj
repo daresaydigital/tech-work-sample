@@ -35,6 +35,7 @@
 		A88EB6412869A986009DBB12 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB6402869A986009DBB12 /* AppCoordinator.swift */; };
 		A88EB6492869AA31009DBB12 /* MoviesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB6482869AA31009DBB12 /* MoviesCoordinator.swift */; };
 		A88EB64B2869AA68009DBB12 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB64A2869AA68009DBB12 /* MoviesViewController.swift */; };
+		A88EB64D2869D370009DBB12 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB64C2869D370009DBB12 /* APIKey.swift */; };
 		AF1E02F1504DA0A17DA4A6B3 /* Pods_DaresayChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6059B7E103E4803ECDD9EAB9 /* Pods_DaresayChallengeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		A88EB6402869A986009DBB12 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A88EB6482869AA31009DBB12 /* MoviesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCoordinator.swift; sourceTree = "<group>"; };
 		A88EB64A2869AA68009DBB12 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		A88EB64C2869D370009DBB12 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		CAEA06B6172526332919FE1B /* Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E2A9665CA7689DE9AFAAA91F /* Pods-DaresayChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallengeTests/Pods-DaresayChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E787AF38D53058E46BEE1F58 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaresayChallenge_DaresayChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +264,7 @@
 				A88EB624286990F7009DBB12 /* Networking.swift */,
 				A88EB626286990FE009DBB12 /* NetworkingError.swift */,
 				A88EB62828699105009DBB12 /* DisplayState.swift */,
+				A88EB64C2869D370009DBB12 /* APIKey.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				A88EB6372869A890009DBB12 /* HTTPAuth.swift in Sources */,
 				A88EB63F2869A967009DBB12 /* UIViewController+Extensions.swift in Sources */,
 				A88EB64B2869AA68009DBB12 /* MoviesViewController.swift in Sources */,
+				A88EB64D2869D370009DBB12 /* APIKey.swift in Sources */,
 				A88EB63D2869A943009DBB12 /* UIImageView+Extensions.swift in Sources */,
 				A88EB6352869A880009DBB12 /* HTTPRequest.swift in Sources */,
 				A88EB625286990F7009DBB12 /* Networking.swift in Sources */,
