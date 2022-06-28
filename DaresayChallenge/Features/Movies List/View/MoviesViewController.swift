@@ -27,7 +27,9 @@ class MoviesViewController: UIViewController {
         setupUI()
         setupBindings()
         
-        populate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.populate()
+        }
     }
 }
 

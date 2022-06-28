@@ -28,11 +28,14 @@ class MovieTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.tintColor = .systemGray
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "film")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
+    private lazy var placeHolderImage: UIImage = {
+        UIImage(systemName: "film")!
+    }()
+    
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -77,8 +80,8 @@ extension MovieTableViewCell {
         titleLabel.text = movieModel.title
         descriptionLabel.text = movieModel.overview
         
-//        let request = ServerRequest.Places.downloadImage(imagePath: iconPath)
-//        let placeholderImage = UIImage(named: "placeholder")
-//        movieImageView.load(url: request.requestURL.url, placeholder: placeholderImage)
+        if let imageURL = movieModel.imageURL {
+            movieImageView.load(url: imageURL, placeholder: placeHolderImage)
+        }
     }
 }

@@ -31,8 +31,8 @@ struct ImageConfiguration: Codable {
     var stillSizes: [String]?
     
     enum CodingKeys: String, CodingKey {
-        case baseURL = "base_url"
-        case secureBaseURL
+        case baseURL = "baseUrl"
+        case secureBaseURL = "secureBaseUrl"
         case backdropSizes
         case logoSizes
         case posterSizes

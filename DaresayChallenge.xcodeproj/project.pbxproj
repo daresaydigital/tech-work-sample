@@ -44,6 +44,7 @@
 		A8E4656E286B1FB300F51994 /* UserDefaultsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E4656D286B1FB300F51994 /* UserDefaultsData.swift */; };
 		A8E46572286B2CE200F51994 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46571286B2CE200F51994 /* TableViewDataSource.swift */; };
 		A8E46574286B2CF600F51994 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46573286B2CF600F51994 /* MovieTableViewCell.swift */; };
+		A8E46577286B42FC00F51994 /* ImageURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46576286B42FC00F51994 /* ImageURLBuilder.swift */; };
 		AF1E02F1504DA0A17DA4A6B3 /* Pods_DaresayChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6059B7E103E4803ECDD9EAB9 /* Pods_DaresayChallengeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		A8E4656D286B1FB300F51994 /* UserDefaultsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsData.swift; sourceTree = "<group>"; };
 		A8E46571286B2CE200F51994 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		A8E46573286B2CF600F51994 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
+		A8E46576286B42FC00F51994 /* ImageURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURLBuilder.swift; sourceTree = "<group>"; };
 		CAEA06B6172526332919FE1B /* Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallenge-DaresayChallengeUITests/Pods-DaresayChallenge-DaresayChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E2A9665CA7689DE9AFAAA91F /* Pods-DaresayChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DaresayChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-DaresayChallengeTests/Pods-DaresayChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E787AF38D53058E46BEE1F58 /* Pods_DaresayChallenge_DaresayChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DaresayChallenge_DaresayChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +250,7 @@
 		A852743928648D7B00571D95 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A8E46575286B42EC00F51994 /* Builders */,
 				A8E4656A286B1F8100F51994 /* Data */,
 				A88EB61928698FB8009DBB12 /* Coordinator */,
 				A88EB61A28698FC0009DBB12 /* Network */,
@@ -411,6 +414,14 @@
 				A8E46571286B2CE200F51994 /* TableViewDataSource.swift */,
 			);
 			path = "TableView DataSource";
+			sourceTree = "<group>";
+		};
+		A8E46575286B42EC00F51994 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				A8E46576286B42FC00F51994 /* ImageURLBuilder.swift */,
+			);
+			path = Builders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -656,6 +667,7 @@
 				A8E4656E286B1FB300F51994 /* UserDefaultsData.swift in Sources */,
 				A85274072864494000571D95 /* AppDelegate.swift in Sources */,
 				A88EB6372869A890009DBB12 /* HTTPAuth.swift in Sources */,
+				A8E46577286B42FC00F51994 /* ImageURLBuilder.swift in Sources */,
 				A88EB63F2869A967009DBB12 /* UIViewController+Extensions.swift in Sources */,
 				A88EB64B2869AA68009DBB12 /* MoviesViewController.swift in Sources */,
 				A8E46565286AE92600F51994 /* Configuration.swift in Sources */,
