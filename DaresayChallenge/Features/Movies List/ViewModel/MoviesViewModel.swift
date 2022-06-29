@@ -7,6 +7,16 @@
 
 import Foundation
 
+protocol ListViewModelable {
+    var totalCount: Int { get set }
+    var itemsCount: Int { get }
+    var isFinished: Bool { get set }
+    
+    func item(at index: Int) -> MoviesModel
+    func isLoadingCell(for indexPath: IndexPath) -> Bool
+    func prefetchData()
+}
+
 protocol MoviesViewModelDelegate: AnyObject {
     func populate(displayState: DisplayState<[MoviesModel]>)
     func displayMovies(displayState: DisplayState<[MoviesModel]>)
@@ -19,15 +29,13 @@ final class MoviesViewModel {
     
     public weak var delegate: MoviesViewModelDelegate?
     
-    public var isFinished = false
-    
     private var currentPage: UInt = 1
     private var allMovies: [MoviesModel] = []
     private var configCache: ConfigurationModel?
     
-    public var totalCount: Int = 0
-    
-    public var itemsCount: Int {
+    var isFinished = false
+    var totalCount: Int = 0
+    var itemsCount: Int {
         return allMovies.count
     }
     
@@ -119,5 +127,11 @@ final class MoviesViewModel {
                 print(error)
             }
         }
+    }
+}
+
+extension MoviesViewModel: ListViewModelable {
+    func prefetchData() {
+        getPopularMovies()
     }
 }

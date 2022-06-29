@@ -25,7 +25,7 @@ struct MovieSchema: ServerModel {
 // Using a reference type here
 // since we are passing it around in the app
 // and modifying it's values.
-class MoviesModel: ServerModel {
+final class MoviesModel: ServerModel {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?

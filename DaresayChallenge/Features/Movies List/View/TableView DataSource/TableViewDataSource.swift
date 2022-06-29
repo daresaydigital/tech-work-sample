@@ -11,7 +11,7 @@ final class TableViewDataSourceProvider: NSObject {
     
     // MARK: - Variables
     private var tableView: UITableView
-    private var viewModel: MoviesViewModel
+    private var viewModel: ListViewModelable
     
     public var didSelectItem: ((_ item: MoviesModel) -> Void)?
     
@@ -104,7 +104,7 @@ extension TableViewDataSourceProvider: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         if indexPaths.contains(where: viewModel.isLoadingCell) && !viewModel.isFinished {
             print("==========get new data======")
-            viewModel.getPopularMovies()
+            viewModel.prefetchData()
         }
     }
 }

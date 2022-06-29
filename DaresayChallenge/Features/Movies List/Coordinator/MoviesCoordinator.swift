@@ -11,7 +11,7 @@ protocol MoviesCoordinatorProtocol: Coordinator {
     func showMoviesViewController(animated: Bool)
 }
 
-class MoviesCoordinator: MoviesCoordinatorProtocol {
+final class MoviesCoordinator: MoviesCoordinatorProtocol {
     
     var navigationController: UINavigationController
     

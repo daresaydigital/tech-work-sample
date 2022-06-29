@@ -11,7 +11,7 @@ protocol AppCoordinatorProtocol: Coordinator {
     func showMainFlow()
 }
 
-class AppCoordinator: NSObject, AppCoordinatorProtocol {
+final class AppCoordinator: NSObject, AppCoordinatorProtocol {
     weak var finishDelegate: CoordinatorFinishDelegate?
     
     weak var parentCoordinator: Coordinator?

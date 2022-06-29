@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController {
+final class MoviesViewController: UIViewController {
 
     // MARK: - Variables
     private let viewModel: MoviesViewModel = MoviesViewModel(moviesService: MoviesService.shared)
@@ -36,6 +36,13 @@ class MoviesViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.tintColor = .systemBlue
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.navigationBar.tintColor = .white
     }
 }
 
@@ -45,6 +52,12 @@ private extension MoviesViewController {
         view.backgroundColor = .systemBackground
         
         navigationItem.title = "MovieDB"
+        
+        let rightBarButton = UIBarButtonItem(title: "Favorites", primaryAction: UIAction(handler: { _ in
+            print("hi")
+        }))
+        
+        navigationItem.rightBarButtonItem = rightBarButton
     }
     
     func populate() {
