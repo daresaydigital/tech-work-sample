@@ -32,13 +32,27 @@ class MoviesCoordinator: MoviesCoordinatorProtocol {
     }
     
     deinit {
-        print("PlacesCoordinator deinit")
+        print("Removed \(self) coordinator from memory")
     }
     
     func showMoviesViewController(animated: Bool = true) {
         let moviesVC: MoviesViewController = .init()
         
+        moviesVC.didSendEventClosure = { [weak self] event in
+            guard let self = self else { return }
+            
+            switch event {
+            case .movieDetail(let selectedMovie):
+                self.showMovieDetailViewController(with: selectedMovie)
+            }
+        }
+        
         navigationController.pushViewController(moviesVC, animated: animated)
     }
+    
+    func showMovieDetailViewController(with movie: MoviesModel, animated: Bool = true) {
+        let movieDetailVC = MovieDetailViewController(selectedMovie: movie)
+        
+        navigationController.pushViewController(movieDetailVC, animated: animated)
+    }
 }
-import Foundation

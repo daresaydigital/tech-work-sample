@@ -20,6 +20,8 @@ class MoviesViewController: UIViewController {
     
     private var dataSourceProvider: TableViewDataSourceProvider!
     
+    public var didSendEventClosure: ((MoviesViewController.Event) -> Void)?
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +62,16 @@ private extension MoviesViewController {
         tableView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        setupTableViewBindings()
+    }
+    
+    func setupTableViewBindings() {
+        dataSourceProvider.didSelectItem = { [weak self] item in
+            guard let self = self else { return }
+            
+            self.didSendEventClosure?(.movieDetail(item))
+        }
     }
 }
 
@@ -86,5 +98,12 @@ extension MoviesViewController: MoviesViewModelDelegate {
         default:
             break
         }
+    }
+}
+
+// MARK: - Events
+extension MoviesViewController {
+    enum Event {
+        case movieDetail(_ selectedMovie: MoviesModel)
     }
 }

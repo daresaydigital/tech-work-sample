@@ -13,6 +13,8 @@ final class TableViewDataSourceProvider: NSObject {
     private var tableView: UITableView
     private var viewModel: MoviesViewModel
     
+    public var didSelectItem: ((_ item: MoviesModel) -> Void)?
+    
     // Reuse identifier
     private let movieCellID = String(describing: MovieTableViewCell.self)
     
@@ -54,6 +56,9 @@ final class TableViewDataSourceProvider: NSObject {
 // MARK: - UITableView Delegate
 extension TableViewDataSourceProvider: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.item(at: indexPath.row)
+        didSelectItem?(item)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

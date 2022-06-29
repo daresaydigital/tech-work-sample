@@ -60,12 +60,12 @@ enum ImageTypes {
         }
     }
 }
-    
-    enum Size {
-        case small
-        case normal
-        case original
-    }
+
+enum Size {
+    case small
+    case normal
+    case original
+}
 
 enum BDSize: String, Codable {
     case w300
