@@ -43,6 +43,9 @@
 		A88F8DD6286C8885001CC78B /* NetworkingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F8DD5286C8885001CC78B /* NetworkingMock.swift */; };
 		A88F8DD8286C88B0001CC78B /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F8DD7286C88B0001CC78B /* CoordinatorTests.swift */; };
 		A88F8DDB286C8984001CC78B /* MoviesCoordinatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F8DDA286C8984001CC78B /* MoviesCoordinatorTest.swift */; };
+		A88F8DDF286C8BAF001CC78B /* MoviesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88F8DDE286C8BAF001CC78B /* MoviesServiceTest.swift */; };
+		A88F8DE1286C8CC1001CC78B /* movies.json in Resources */ = {isa = PBXBuildFile; fileRef = A88F8DE0286C8CC1001CC78B /* movies.json */; };
+		A88F8DE3286C8CDF001CC78B /* configs.json in Resources */ = {isa = PBXBuildFile; fileRef = A88F8DE2286C8CDF001CC78B /* configs.json */; };
 		A8E46563286ADFBB00F51994 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46562286ADFBB00F51994 /* Movies.swift */; };
 		A8E46565286AE92600F51994 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46564286AE92600F51994 /* Configuration.swift */; };
 		A8E46567286AF00400F51994 /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E46566286AF00400F51994 /* MoviesService.swift */; };
@@ -117,6 +120,9 @@
 		A88F8DD5286C8885001CC78B /* NetworkingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMock.swift; sourceTree = "<group>"; };
 		A88F8DD7286C88B0001CC78B /* CoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
 		A88F8DDA286C8984001CC78B /* MoviesCoordinatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCoordinatorTest.swift; sourceTree = "<group>"; };
+		A88F8DDE286C8BAF001CC78B /* MoviesServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServiceTest.swift; sourceTree = "<group>"; };
+		A88F8DE0286C8CC1001CC78B /* movies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = movies.json; sourceTree = "<group>"; };
+		A88F8DE2286C8CDF001CC78B /* configs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = configs.json; sourceTree = "<group>"; };
 		A8E46562286ADFBB00F51994 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		A8E46564286AE92600F51994 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		A8E46566286AF00400F51994 /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 		A852741C2864494200571D95 /* DaresayChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				A88F8DDC286C8B84001CC78B /* MoviesListTest */,
 				A88F8DD9286C8968001CC78B /* CoordinatorsTest */,
 				A88F8DD2286C8854001CC78B /* Mocks */,
 			);
@@ -468,6 +475,16 @@
 			path = CoordinatorsTest;
 			sourceTree = "<group>";
 		};
+		A88F8DDC286C8B84001CC78B /* MoviesListTest */ = {
+			isa = PBXGroup;
+			children = (
+				A88F8DDE286C8BAF001CC78B /* MoviesServiceTest.swift */,
+				A88F8DE0286C8CC1001CC78B /* movies.json */,
+				A88F8DE2286C8CDF001CC78B /* configs.json */,
+			);
+			path = MoviesListTest;
+			sourceTree = "<group>";
+		};
 		A8E4656A286B1F8100F51994 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +636,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A88F8DE1286C8CC1001CC78B /* movies.json in Resources */,
+				A88F8DE3286C8CDF001CC78B /* configs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +802,7 @@
 			files = (
 				A88F8DD8286C88B0001CC78B /* CoordinatorTests.swift in Sources */,
 				A88F8DDB286C8984001CC78B /* MoviesCoordinatorTest.swift in Sources */,
+				A88F8DDF286C8BAF001CC78B /* MoviesServiceTest.swift in Sources */,
 				A88F8DD4286C8875001CC78B /* URLProtocolMock.swift in Sources */,
 				A88F8DD6286C8885001CC78B /* NetworkingMock.swift in Sources */,
 			);

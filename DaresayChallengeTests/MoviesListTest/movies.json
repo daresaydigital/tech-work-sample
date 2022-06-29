@@ -1,0 +1,47 @@
+{
+  "results" : [
+    {
+      "genre_ids" : [
+        14,
+        28,
+        12
+      ],
+      "adult" : false,
+      "backdrop_path" : "/wcKFYIiVDvRURrzglV9kGu7fpfY.jpg",
+      "id" : 453395,
+      "original_title" : "Doctor Strange in the Multiverse of Madness",
+      "vote_average" : 7.5,
+      "popularity" : 12833.993,
+      "poster_path" : "/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg",
+      "overview" : "Doctor Strange, with the help of mystical allies both old and new, traverses the mind-bending and dangerous alternate realities of the Multiverse to confront a mysterious new adversary.",
+      "title" : "Doctor Strange in the Multiverse of Madness",
+      "original_language" : "en",
+      "vote_count" : 3596,
+      "release_date" : "2022-05-04",
+      "video" : false
+    },
+    {
+      "genre_ids" : [
+        14,
+        12,
+        28
+      ],
+      "adult" : false,
+      "backdrop_path" : "/zGLHX92Gk96O1DJvLil7ObJTbaL.jpg",
+      "id" : 338953,
+      "original_title" : "Fantastic Beasts: The Secrets of Dumbledore",
+      "vote_average" : 6.7999999999999998,
+      "popularity" : 3338.797,
+      "poster_path" : "/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg",
+      "overview" : "Professor Albus Dumbledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts magizoologist Newt Scamander to lead an intrepid team of wizards and witches. They soon encounter an array of old and new beasts as they clash with Grindelwald's growing legion of followers.",
+      "title" : "Fantastic Beasts: The Secrets of Dumbledore",
+      "original_language" : "en",
+      "vote_count" : 2067,
+      "release_date" : "2022-04-06",
+      "video" : false
+    }
+  ],
+  "total_pages" : 34107,
+  "total_results" : 682132,
+  "page" : 1
+}
