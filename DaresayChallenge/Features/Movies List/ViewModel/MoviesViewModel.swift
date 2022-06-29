@@ -113,7 +113,6 @@ final class MoviesViewModel {
             
             switch result {
             case .success(let response):
-                print(response)
                 self.configCache = response
                 UserDefaultsData.configModel = response
             case .failure(let error):

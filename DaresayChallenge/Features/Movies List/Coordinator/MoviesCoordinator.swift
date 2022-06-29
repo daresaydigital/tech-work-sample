@@ -23,6 +23,8 @@ class MoviesCoordinator: MoviesCoordinatorProtocol {
     
     var type: CoordinatorType { .movies }
     
+    private var moviesVC: MoviesViewController!
+    
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -36,7 +38,7 @@ class MoviesCoordinator: MoviesCoordinatorProtocol {
     }
     
     func showMoviesViewController(animated: Bool = true) {
-        let moviesVC: MoviesViewController = .init()
+        moviesVC = .init()
         
         moviesVC.didSendEventClosure = { [weak self] event in
             guard let self = self else { return }
@@ -52,6 +54,9 @@ class MoviesCoordinator: MoviesCoordinatorProtocol {
     
     func showMovieDetailViewController(with movie: MoviesModel, animated: Bool = true) {
         let movieDetailVC = MovieDetailViewController(selectedMovie: movie)
+        
+        // Set delegate
+        movieDetailVC.delegate = moviesVC
         
         navigationController.pushViewController(movieDetailVC, animated: animated)
     }

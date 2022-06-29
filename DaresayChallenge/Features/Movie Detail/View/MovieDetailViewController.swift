@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ReloadFavoritesDelegate: AnyObject {
+    func refresh()
+}
+
 final class MovieDetailViewController: UIViewController {
     
     // MARK: - Variables
@@ -21,7 +25,7 @@ final class MovieDetailViewController: UIViewController {
         let label = UILabel()
         label.minimumScaleFactor = 0.5
         label.adjustsFontSizeToFitWidth = true
-        label.font = .boldSystemFont(ofSize: 20)
+        label.font = .boldSystemFont(ofSize: 24)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
         return label
     }()
@@ -49,11 +53,30 @@ final class MovieDetailViewController: UIViewController {
         return view
     }()
     
-    private lazy var placeHolderImage: UIImage = {
-        UIImage(systemName: "film")!
+    private var favoriteButton: UIButton = {
+        var config = UIButton.Configuration.tinted()
+        config.imagePadding = 8
+        
+        let button = UIButton(configuration: config)
+        return button
     }()
     
+    private var isFavorite: Bool! {
+        didSet {
+            selectedMovie.isFavorite = isFavorite
+            favoriteButton.configuration?.image = isFavorite ? favoriteImage : unfavoriteImage
+            favoriteButton.configuration?.title = isFavorite ? removeFavoriteTitle : favoriteTile
+        }
+    }
+    
     private var selectedMovie: MoviesModel
+    private let favoriteTile = "Add to favorites"
+    private let removeFavoriteTitle = "Remove from favorites"
+    private lazy var placeHolderImage: UIImage = { UIImage(systemName: "film")! }()
+    private lazy var unfavoriteImage: UIImage = { UIImage(systemName: "heart")! }()
+    private lazy var favoriteImage: UIImage = { UIImage(systemName: "heart.fill")! }()
+    
+    public weak var delegate: ReloadFavoritesDelegate?
     
     // MARK: - Init
     init(selectedMovie: MoviesModel) {
@@ -75,6 +98,11 @@ final class MovieDetailViewController: UIViewController {
     }
     
     // MARK: - Actions
+    private func favoriteButtonTapped() {
+        isFavorite = !isFavorite
+        isFavorite ? FavoriteMoviesHandler.shared.addToFavorites(selectedMovie) : FavoriteMoviesHandler.shared.removeFromFavorites(selectedMovie)
+        delegate?.refresh()
+    }
 }
 
 // MARK: - Helpers
@@ -84,11 +112,17 @@ private extension MovieDetailViewController {
         
         setupBackgroundImageView()
         setupContainerView()
+        setupButtonAction()
         
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, ratingLabel, descriptionLabel, UIView()])
+        let labelsStackView = UIStackView(arrangedSubviews: [titleLabel, ratingLabel, descriptionLabel])
+        labelsStackView.axis = .vertical
+        labelsStackView.spacing = 16
+        
+        let stackView = UIStackView(arrangedSubviews: [labelsStackView, favoriteButton, UIView()])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.alignment = .center
+        stackView.spacing = 50
         
         containerView.addSubview(stackView)
         
@@ -96,6 +130,9 @@ private extension MovieDetailViewController {
         stackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16).isActive = true
         stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 30).isActive = true
         stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 16).isActive = true
+        
+        favoriteButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
+        favoriteButton.widthAnchor.constraint(equalToConstant: 240).isActive = true
     }
     
     func setupContainerView() {
@@ -120,6 +157,7 @@ private extension MovieDetailViewController {
     func populate() {
         titleLabel.text = selectedMovie.originalTitle
         descriptionLabel.text = selectedMovie.overview
+        isFavorite = selectedMovie.isFavorite
         
         if let rating = selectedMovie.voteAverage {
             ratingLabel.text = "Rating: \(String(describing: rating * 10))%"
@@ -128,5 +166,11 @@ private extension MovieDetailViewController {
         if let imageURL = selectedMovie.backgroundImageURL {
             backgroundImageView.load(url: imageURL, placeholder: placeHolderImage)
         }
+    }
+    
+    func setupButtonAction() {
+        favoriteButton.addAction(UIAction(handler: { _ in
+            self.favoriteButtonTapped()
+        }), for: .touchUpInside)
     }
 }

@@ -12,6 +12,7 @@ class MovieTableViewCell: UITableViewCell {
     // MARK: - Variables
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 2
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
@@ -27,6 +28,14 @@ class MovieTableViewCell: UITableViewCell {
     private lazy var movieImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .systemGray
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var favoriteImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.tintColor = .red
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -61,9 +70,13 @@ private extension MovieTableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stackView)
         contentView.addSubview(movieImageView)
+        contentView.addSubview(favoriteImageView)
+        
+        favoriteImageView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8).isActive = true
+        favoriteImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         
         stackView.leftAnchor.constraint(equalTo: movieImageView.rightAnchor, constant: 8).isActive = true
-        stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8).isActive = true
+        stackView.rightAnchor.constraint(equalTo: favoriteImageView.rightAnchor, constant: -12).isActive = true
         stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8).isActive = true
         
@@ -76,12 +89,18 @@ private extension MovieTableViewCell {
 
 // MARK: - Configuration
 extension MovieTableViewCell {
-    public func configureCell(with movieModel: MoviesModel) {
+    public func configureCell(with movieModel: MoviesModel, isFavorite: Bool) {
         titleLabel.text = movieModel.title
         descriptionLabel.text = movieModel.overview
         
         if let imageURL = movieModel.posterURL {
             movieImageView.load(url: imageURL, placeholder: placeHolderImage)
+        }
+        
+        if isFavorite {
+            favoriteImageView.image = UIImage(systemName: "heart.fill")
+        } else {
+            favoriteImageView.image = UIImage(systemName: "heart")
         }
     }
 }

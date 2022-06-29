@@ -22,7 +22,10 @@ struct MovieSchema: ServerModel {
 }
 
 // MARK: - MovieModel
-struct MoviesModel: ServerModel {
+// Using a reference type here
+// since we are passing it around in the app
+// and modifying it's values.
+class MoviesModel: ServerModel {
     let adult: Bool?
     let backdropPath: String?
     let genreIDS: [Int]?
@@ -35,7 +38,7 @@ struct MoviesModel: ServerModel {
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
-    var isFaved: Bool = false
+    var isFavorite: Bool = false
     
     var posterURL: URL? {
         imageURL(posterPath, typeAndSize: .poster(.w342))
@@ -65,5 +68,12 @@ struct MoviesModel: ServerModel {
         let urlBuilder = ImageBaseUrlBuilder(forTypeAndSize: typeAndSize)
         let fullUrl = urlBuilder.createURL(filePath: url)
         return fullUrl
+    }
+}
+
+// MARK: - Equatable
+extension MoviesModel: Equatable {
+    static func == (lhs: MoviesModel, rhs: MoviesModel) -> Bool {
+        return lhs.movieID == rhs.movieID
     }
 }

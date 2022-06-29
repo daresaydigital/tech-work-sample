@@ -88,7 +88,6 @@ extension MoviesViewController: MoviesViewModelDelegate {
         case .loading:
             view.animateActivityIndicator()
         case .success(let results):
-            print(results)
             setupTableView()
             dataSourceProvider.append(results)
             view.removeActivityIndicator()
@@ -111,5 +110,12 @@ extension MoviesViewController: MoviesViewModelDelegate {
 extension MoviesViewController {
     enum Event {
         case movieDetail(_ selectedMovie: MoviesModel)
+    }
+}
+
+// MARK: - ReloadFavorites Delegate
+extension MoviesViewController: ReloadFavoritesDelegate {
+    func refresh() {
+        dataSourceProvider.refresh()
     }
 }

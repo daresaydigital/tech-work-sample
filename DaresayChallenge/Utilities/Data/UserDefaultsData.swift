@@ -21,8 +21,8 @@ struct UserDefaultsData {
     @UserDefaultsStorage(.configModel, defaultValue: ConfigurationModel())
     static var configModel: ConfigurationModel
     
-//    @UserDefaultsStorage(.favorites, defaultValue: MovieArrayModel())
-//    static var favoriteList: MovieArrayModel
+    @UserDefaultsStorage(.favorites, defaultValue: [MoviesModel]())
+    static var favoriteList: [MoviesModel]
     
     static func clearUserDefaultFor(_ key: UserDefaultsKey) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)

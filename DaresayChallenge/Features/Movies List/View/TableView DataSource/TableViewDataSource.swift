@@ -51,6 +51,10 @@ final class TableViewDataSourceProvider: NSObject {
             
         }
     }
+    
+    public func refresh() {
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableView Delegate
@@ -77,7 +81,19 @@ extension TableViewDataSourceProvider: UITableViewDataSource {
         let cell = generateCell(MovieTableViewCell.self, indexPath: indexPath)
         
         let item = viewModel.item(at: indexPath.row)
-        cell.configureCell(with: item)
+        
+        let favoriteMovies = UserDefaultsData.favoriteList
+        
+        var isFavorite = false
+        for movie in favoriteMovies {
+            if movie.movieID == item.movieID {
+                isFavorite = true
+                item.isFavorite = true 
+                break
+            }
+        }
+        
+        cell.configureCell(with: item, isFavorite: isFavorite)
         
         return cell
     }
