@@ -26,18 +26,18 @@ struct MovieSchema: ServerModel {
 // since we are passing it around in the app
 // and modifying it's values.
 final class MoviesModel: ServerModel {
-    let adult: Bool?
-    let backdropPath: String?
-    let genreIDS: [Int]?
-    let movieID: Int?
-    let originalLanguage, originalTitle, overview: String?
-    let popularity: Double?
-    let posterPath: String?
-    let releaseDate: String?
-    let title: String?
-    let video: Bool?
-    let voteAverage: Double?
-    let voteCount: Int?
+    var adult: Bool?
+    var backdropPath: String?
+    var genreIDS: [Int]?
+    var movieID: Int?
+    var originalLanguage, originalTitle, overview: String?
+    var popularity: Double?
+    var posterPath: String?
+    var releaseDate: String?
+    var title: String?
+    var video: Bool?
+    var voteAverage: Double?
+    var voteCount: Int?
     var isFavorite: Bool = false
     
     var posterURL: URL? {
@@ -62,6 +62,8 @@ final class MoviesModel: ServerModel {
         case voteAverage
         case voteCount
     }
+    
+    init() { }
     
     private func imageURL(_ url: String?, typeAndSize: ImageTypes) -> URL? {
         guard let url = url else { return nil }
