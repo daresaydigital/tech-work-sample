@@ -19,7 +19,7 @@ final class TableViewDataSourceProvider: NSObject {
     private let movieCellID = String(describing: MovieTableViewCell.self)
     
     // MARK: - Init
-    init(tableView: UITableView, viewModel: MoviesViewModel) {
+    init(tableView: UITableView, viewModel: ListViewModelable) {
         self.tableView = tableView
         self.viewModel = viewModel
         super.init()

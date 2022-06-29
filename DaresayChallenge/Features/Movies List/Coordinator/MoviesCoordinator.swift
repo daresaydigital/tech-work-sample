@@ -24,6 +24,7 @@ final class MoviesCoordinator: MoviesCoordinatorProtocol {
     var type: CoordinatorType { .movies }
     
     private var moviesVC: MoviesViewController!
+    private var favoritesVC: FavoriteMoviesViewController!
     
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -46,6 +47,8 @@ final class MoviesCoordinator: MoviesCoordinatorProtocol {
             switch event {
             case .movieDetail(let selectedMovie):
                 self.showMovieDetailViewController(with: selectedMovie)
+            case .favorites:
+                self.showFavoriteMoviesViewController()
             }
         }
         
@@ -57,7 +60,14 @@ final class MoviesCoordinator: MoviesCoordinatorProtocol {
         
         // Set delegate
         movieDetailVC.delegate = moviesVC
+        movieDetailVC.delegate = favoritesVC
         
         navigationController.pushViewController(movieDetailVC, animated: animated)
+    }
+    
+    func showFavoriteMoviesViewController(animated: Bool = true) {
+        favoritesVC = FavoriteMoviesViewController()
+        
+        navigationController.pushViewController(favoritesVC, animated: animated)
     }
 }

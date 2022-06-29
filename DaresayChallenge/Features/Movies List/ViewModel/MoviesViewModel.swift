@@ -102,14 +102,6 @@ final class MoviesViewModel {
         }
     }
     
-    public func item(at index: Int) -> MoviesModel {
-        return allMovies[index]
-    }
-    
-    public func isLoadingCell(for indexPath: IndexPath) -> Bool {
-        return indexPath.row == itemsCount - 1
-    }
-    
     // MARK: - Helpers
     private func getConfigs(dispatchGroup: DispatchGroup? = nil) {
         
@@ -130,7 +122,16 @@ final class MoviesViewModel {
     }
 }
 
+// MARK: - ListViewModelable
 extension MoviesViewModel: ListViewModelable {
+    func item(at index: Int) -> MoviesModel {
+        return allMovies[index]
+    }
+    
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row == itemsCount - 1
+    }
+    
     func prefetchData() {
         getPopularMovies()
     }

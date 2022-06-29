@@ -97,6 +97,12 @@ final class MovieDetailViewController: UIViewController {
         populate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
     // MARK: - Actions
     private func favoriteButtonTapped() {
         isFavorite = !isFavorite
@@ -169,7 +175,8 @@ private extension MovieDetailViewController {
     }
     
     func setupButtonAction() {
-        favoriteButton.addAction(UIAction(handler: { _ in
+        favoriteButton.addAction(UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
             self.favoriteButtonTapped()
         }), for: .touchUpInside)
     }

@@ -38,12 +38,6 @@ final class MoviesViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.tintColor = .systemBlue
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.navigationBar.tintColor = .white
-    }
 }
 
 // MARK: - Helpers
@@ -53,8 +47,9 @@ private extension MoviesViewController {
         
         navigationItem.title = "MovieDB"
         
-        let rightBarButton = UIBarButtonItem(title: "Favorites", primaryAction: UIAction(handler: { _ in
-            print("hi")
+        let rightBarButton = UIBarButtonItem(title: "Favorites", primaryAction: UIAction(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.didSendEventClosure?(.favorites)
         }))
         
         navigationItem.rightBarButtonItem = rightBarButton
@@ -123,6 +118,7 @@ extension MoviesViewController: MoviesViewModelDelegate {
 extension MoviesViewController {
     enum Event {
         case movieDetail(_ selectedMovie: MoviesModel)
+        case favorites
     }
 }
 
