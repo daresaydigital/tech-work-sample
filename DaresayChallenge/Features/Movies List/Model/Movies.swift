@@ -37,8 +37,12 @@ struct MoviesModel: ServerModel {
     let voteCount: Int?
     var isFaved: Bool = false
     
-    var imageURL: URL? {
-        imageURL(posterPath)
+    var posterURL: URL? {
+        imageURL(posterPath, typeAndSize: .poster(.w342))
+    }
+    
+    var backgroundImageURL: URL? {
+        imageURL(posterPath, typeAndSize: .backDrop(.w780))
     }
     
     enum CodingKeys: String, CodingKey {
@@ -56,9 +60,9 @@ struct MoviesModel: ServerModel {
         case voteCount
     }
     
-    private func imageURL(_ url: String?) -> URL? {
+    private func imageURL(_ url: String?, typeAndSize: ImageTypes) -> URL? {
         guard let url = url else { return nil }
-        let urlBuilder = ImageBaseUrlBuilder(forTypeAndSize: .poster(.w342))
+        let urlBuilder = ImageBaseUrlBuilder(forTypeAndSize: typeAndSize)
         let fullUrl = urlBuilder.createURL(filePath: url)
         return fullUrl
     }

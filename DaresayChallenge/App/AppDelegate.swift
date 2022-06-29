@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Bagel.start()
         #endif
         
+        let barAppearance =
+            UINavigationBar.appearance(whenContainedInInstancesOf: [UINavigationController.self])
+        barAppearance.tintColor = .white
+        
         return true
     }
 

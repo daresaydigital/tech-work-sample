@@ -29,9 +29,13 @@ class MoviesViewController: UIViewController {
         setupUI()
         setupBindings()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.populate()
-        }
+        populate()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
 
@@ -39,6 +43,8 @@ class MoviesViewController: UIViewController {
 private extension MoviesViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
+        
+        navigationItem.title = "MovieDB"
     }
     
     func populate() {

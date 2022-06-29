@@ -80,7 +80,7 @@ extension MovieTableViewCell {
         titleLabel.text = movieModel.title
         descriptionLabel.text = movieModel.overview
         
-        if let imageURL = movieModel.imageURL {
+        if let imageURL = movieModel.posterURL {
             movieImageView.load(url: imageURL, placeholder: placeHolderImage)
         }
     }
