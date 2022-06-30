@@ -88,8 +88,8 @@ private extension MovieTableViewCell {
         
         movieImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         movieImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8).isActive = true
-        movieImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        movieImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        movieImageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        movieImageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
 }
 
