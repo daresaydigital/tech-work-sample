@@ -15,6 +15,7 @@ final class MoviesViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.accessibilityIdentifier = AccessibilityIdentifiers.moviesTableView.rawValue
         return tableView
     }()
     
@@ -53,6 +54,7 @@ private extension MoviesViewController {
         }))
         
         navigationItem.rightBarButtonItem = rightBarButton
+        rightBarButton.accessibilityIdentifier = AccessibilityIdentifiers.favoriteBarButton.rawValue
     }
     
     func populate() {

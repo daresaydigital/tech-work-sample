@@ -18,6 +18,7 @@ final class MovieDetailViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.accessibilityIdentifier = AccessibilityIdentifiers.movieDetailBackgroundImageView.rawValue
         return imageView
     }()
     
@@ -27,6 +28,7 @@ final class MovieDetailViewController: UIViewController {
         label.adjustsFontSizeToFitWidth = true
         label.font = .boldSystemFont(ofSize: 24)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.accessibilityIdentifier = AccessibilityIdentifiers.movieDetailTitleLabel.rawValue
         return label
     }()
     
@@ -35,6 +37,7 @@ final class MovieDetailViewController: UIViewController {
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 16, weight: .light)
         label.setContentHuggingPriority(.defaultLow, for: .vertical)
+        label.accessibilityIdentifier = AccessibilityIdentifiers.movieDetailDescLabel.rawValue
         return label
     }()
     
@@ -42,6 +45,7 @@ final class MovieDetailViewController: UIViewController {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        label.accessibilityIdentifier = AccessibilityIdentifiers.movieDetailRatingLabel.rawValue
         return label
     }()
     
@@ -50,6 +54,7 @@ final class MovieDetailViewController: UIViewController {
         view.layer.cornerRadius = 15
         view.backgroundColor = .systemBackground
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.accessibilityIdentifier = AccessibilityIdentifiers.movieDetailContainerView.rawValue
         return view
     }()
     
@@ -58,6 +63,7 @@ final class MovieDetailViewController: UIViewController {
         config.imagePadding = 8
         
         let button = UIButton(configuration: config)
+        button.accessibilityIdentifier = AccessibilityIdentifiers.movieDetailFavoriteButton.rawValue
         return button
     }()
     

@@ -14,6 +14,7 @@ class MovieTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 2
         label.font = .boldSystemFont(ofSize: 16)
+        label.accessibilityIdentifier = AccessibilityIdentifiers.movieTitleLabel.rawValue
         return label
     }()
     
@@ -22,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
         label.numberOfLines = 4
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 14)
+        label.accessibilityIdentifier = AccessibilityIdentifiers.movieDescriptionLabel.rawValue
         return label
     }()
     
@@ -30,6 +32,7 @@ class MovieTableViewCell: UITableViewCell {
         imageView.tintColor = .systemGray
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.accessibilityIdentifier = AccessibilityIdentifiers.movieImageView.rawValue
         return imageView
     }()
     
@@ -38,6 +41,7 @@ class MovieTableViewCell: UITableViewCell {
         imageView.tintColor = .red
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.accessibilityIdentifier = AccessibilityIdentifiers.movieFavoriteImageView.rawValue
         return imageView
     }()
 
@@ -48,6 +52,8 @@ class MovieTableViewCell: UITableViewCell {
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        accessibilityIdentifier = AccessibilityIdentifiers.moviesTableViewCell.rawValue
         
         setupUI()
     }

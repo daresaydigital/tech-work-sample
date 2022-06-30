@@ -51,6 +51,8 @@ class MoviesViewModelTest: XCTestCase {
         XCTAssertNotNil(self.movies)
     }
 }
+
+// MARK: - MoviesViewModel Delegate
 extension MoviesViewModelTest: MoviesViewModelDelegate {
     func populate(displayState: DisplayState<[MoviesModel]>) {
         switch displayState {
