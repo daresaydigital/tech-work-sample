@@ -90,7 +90,9 @@ final class MoviesViewModel {
                 
                 self.allMovies.append(contentsOf: movies)
                 
-                if self.currentPage > 1 {
+                // This delegate should only be called when
+                // aren't using a dispatchGroup
+                if dispatchGroup == nil {
                     self.delegate?.displayMovies(displayState: .success(self.allMovies))
                 }
                 

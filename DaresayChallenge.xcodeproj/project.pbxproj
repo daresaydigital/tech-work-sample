@@ -15,6 +15,7 @@
 		A85274132864494200571D95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A85274112864494200571D95 /* LaunchScreen.storyboard */; };
 		A85274282864494200571D95 /* DaresayChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274272864494200571D95 /* DaresayChallengeUITests.swift */; };
 		A852742A2864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85274292864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift */; };
+		A863D534286D7BEE007B67BF /* MoviesViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A863D533286D7BEE007B67BF /* MoviesViewModelTest.swift */; };
 		A88EB61F286990C5009DBB12 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB61E286990C5009DBB12 /* Coordinator.swift */; };
 		A88EB623286990EF009DBB12 /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB622286990EF009DBB12 /* ServerRequest.swift */; };
 		A88EB625286990F7009DBB12 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88EB624286990F7009DBB12 /* Networking.swift */; };
@@ -92,6 +93,7 @@
 		A85274232864494200571D95 /* DaresayChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaresayChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85274272864494200571D95 /* DaresayChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaresayChallengeUITests.swift; sourceTree = "<group>"; };
 		A85274292864494200571D95 /* DaresayChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaresayChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A863D533286D7BEE007B67BF /* MoviesViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModelTest.swift; sourceTree = "<group>"; };
 		A88EB61E286990C5009DBB12 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A88EB622286990EF009DBB12 /* ServerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		A88EB624286990F7009DBB12 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				A88F8DDE286C8BAF001CC78B /* MoviesServiceTest.swift */,
+				A863D533286D7BEE007B67BF /* MoviesViewModelTest.swift */,
 				A88F8DE0286C8CC1001CC78B /* movies.json */,
 				A88F8DE2286C8CDF001CC78B /* configs.json */,
 			);
@@ -803,6 +806,7 @@
 				A88F8DD8286C88B0001CC78B /* CoordinatorTests.swift in Sources */,
 				A88F8DDB286C8984001CC78B /* MoviesCoordinatorTest.swift in Sources */,
 				A88F8DDF286C8BAF001CC78B /* MoviesServiceTest.swift in Sources */,
+				A863D534286D7BEE007B67BF /* MoviesViewModelTest.swift in Sources */,
 				A88F8DD4286C8875001CC78B /* URLProtocolMock.swift in Sources */,
 				A88F8DD6286C8885001CC78B /* NetworkingMock.swift in Sources */,
 			);
