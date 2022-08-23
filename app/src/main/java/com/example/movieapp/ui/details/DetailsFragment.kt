@@ -1,4 +1,4 @@
-package com.example.movieapp.ui.notifications
+package com.example.movieapp.ui.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.movieapp.databinding.FragmentNotificationsBinding
+import com.example.movieapp.databinding.FragmentDetailsBinding
 
-class NotificationsFragment : Fragment() {
+class DetailsFragment : Fragment() {
 
-    private var _binding: FragmentNotificationsBinding? = null
+    private var _binding: FragmentDetailsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        val detailsViewModel =
+            ViewModelProvider(this).get(DetailsViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
+        val textView: TextView = binding.textDetails
+        detailsViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
