@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,8 +28,7 @@ class FavoriteFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val favoriteViewModel =
-            ViewModelProvider(this).get(FavoriteViewModel::class.java)
+        val favoriteViewModel: FavoriteViewModel by viewModels()
 
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         val root: View = binding.root

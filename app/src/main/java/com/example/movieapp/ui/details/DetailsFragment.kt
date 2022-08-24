@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.databinding.FragmentDetailsBinding
 
@@ -22,8 +23,7 @@ class DetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val detailsViewModel =
-            ViewModelProvider(this).get(DetailsViewModel::class.java)
+        val detailsViewModel: DetailsViewModel by viewModels()
 
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root

@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.databinding.MovieItemBinding
+import com.example.movieapp.model.Movie
 
-class MovieRecyclerViewAdapter(private val movieList: List<String>) : RecyclerView.Adapter<MovieRecyclerViewAdapter.MovieViewHolder>() {
+class MovieRecyclerViewAdapter(private val movieList: List<Movie>) : RecyclerView.Adapter<MovieRecyclerViewAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val binding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,7 +19,7 @@ class MovieRecyclerViewAdapter(private val movieList: List<String>) : RecyclerVi
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         with(holder) {
-            binding.movieItemName.text = movieList[position]
+            binding.movieItemName.text = movieList[position].title
         }
     }
 
