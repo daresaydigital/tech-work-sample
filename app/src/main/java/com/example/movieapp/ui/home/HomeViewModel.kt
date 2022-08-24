@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModel
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+    private val _movieList = MutableLiveData<List<String>>().apply {
+        value = listOf("Movie 1", "Movie 2", "Movie 3")
     }
-    val text: LiveData<String> = _text
+
+    val movieList: LiveData<List<String>> = _movieList
 }

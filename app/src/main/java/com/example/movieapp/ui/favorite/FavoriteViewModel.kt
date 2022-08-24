@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModel
 
 class FavoriteViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is favorite Fragment"
+    private val _movieList = MutableLiveData<List<String>>().apply {
+        value = emptyList()
     }
-    val text: LiveData<String> = _text
+
+    val movieList: LiveData<List<String>> = _movieList
 }

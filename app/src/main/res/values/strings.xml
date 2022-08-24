@@ -3,4 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_favorite">Favorite</string>
     <string name="title_details">Details</string>
+    <string name="empty_movie_list_text">There is no movies loaded</string>
+    <string name="empty_favorite_movie_list_text">There is no movies added to favorite</string>
 </resources>
