@@ -1,8 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
-import Results from './components/Results';
+import MovieGrid from './components/MovieGrid';
 
+import Container from '@mui/material/Container';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           Learn React
         </a>
       </header>
-      <Results />
+      <Container>
+        <MovieGrid />
+      </Container>
     </div>
   );
 }
