@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getImages } from '../api';
+import { getMovies } from '../api';
 
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -10,7 +10,7 @@ const MovieGrid = () => {
     const [movies, setMovies] = useState();
 
     async function requestMovies() {
-        const moviesResponse = await getImages();
+        const moviesResponse = await getMovies();
         setMovies(moviesResponse);
     }
 

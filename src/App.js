@@ -1,9 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 
+import ErrorPage from "./components/ErrorPage";
+import MovieDetailed from "./components/MovieDetailed";
 import MovieGrid from './components/MovieGrid';
 
 import Container from '@mui/material/Container';
+
+import {
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MovieGrid />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "movie/:movieTitle",
+    element: <MovieDetailed />,
+  },
+]);
 
 function App() {
   return (
@@ -23,7 +42,7 @@ function App() {
         </a>
       </header>
       <Container>
-        <MovieGrid />
+        <RouterProvider router={router} />
       </Container>
     </div>
   );
