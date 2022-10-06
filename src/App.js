@@ -1,16 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 import ErrorPage from "./components/ErrorPage";
 import MovieDetailed from "./components/MovieDetailed";
-import MovieGrid from './components/MovieGrid';
+import { MovieGrid } from "./components/MovieGrid";
 
-import Container from '@mui/material/Container';
+import Container from "@mui/material/Container";
 
-import {
-  createBrowserRouter,
-  RouterProvider
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
