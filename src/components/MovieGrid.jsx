@@ -54,7 +54,7 @@ export const MovieGrid = () => {
       {loading && (pageNumber !== 1 || pageNumber <= maxPageNumber) && (
         <CircularProgress size={40} thickness={4} value={100} disableShrink />
       )}
-      {pageNumber <= maxPageNumber && (
+      {pageNumber <= maxPageNumber && !loading && (
         <Button variant="contained" onClick={loadMore}>
           Load more
         </Button>
