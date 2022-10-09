@@ -1,12 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+import GlobalStyles from "@mui/material/GlobalStyles";
+
+const inputGlobalStyles = (
+  <GlobalStyles
+    styles={{
+      body: {
+        margin: "0",
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
+      },
+      code: {
+        fontFamily:
+          "source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace",
+      },
+    }}
+  />
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    {inputGlobalStyles}
     <App />
   </React.StrictMode>
 );
