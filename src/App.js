@@ -1,4 +1,5 @@
-import "./App.css";
+import { getMovies } from "./api/";
+
 import ErrorPage from "./components/ErrorPage";
 import MovieDetailed from "./components/MovieDetailed";
 import { LoadingIndicator } from "./components/LoadingIndicator";
@@ -14,11 +15,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MovieGrid />,
+        element: <MovieGrid fetchMovies={getMovies} fetchMoviePath="popular" />,
       },
       {
         path: "movie/:movieTitle",
         element: <MovieDetailed />,
+      },
+      {
+        path: "/top_rated",
+        element: (
+          <MovieGrid fetchMovies={getMovies} fetchMoviePath="top_rated" />
+        ),
       },
     ],
   },
