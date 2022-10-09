@@ -37,7 +37,9 @@ export const MovieGrid = ({ fetchMovies, fetchMoviePath }) => {
   return (
     <Box sx={{ flexGrow: 1, mt: 7 }}>
       {loading && pageNumber === 1 ? (
-        <CircularProgress size={40} thickness={4} value={100} disableShrink />
+        <Grid container justifyContent="center">
+          <CircularProgress size={50} thickness={4} value={100} disableShrink />
+        </Grid>
       ) : (
         <Grid container spacing={{ xs: 2, md: 3 }}>
           {movies &&
@@ -54,12 +56,20 @@ export const MovieGrid = ({ fetchMovies, fetchMoviePath }) => {
       )}
 
       {loading && (pageNumber !== 1 || pageNumber <= maxPageNumber) && (
-        <CircularProgress size={40} thickness={4} value={100} disableShrink />
+        <Grid container justifyContent="center" sx={{ m: 5, mb: 7 }}>
+          <CircularProgress size={50} thickness={4} value={100} disableShrink />
+        </Grid>
       )}
       {pageNumber <= maxPageNumber && !loading && (
-        <Button variant="contained" onClick={loadMore}>
-          Load more
-        </Button>
+        <Grid container justifyContent="center" sx={{ m: 5, mb: 7 }}>
+          <Button
+            variant="contained"
+            onClick={loadMore}
+            sx={{ fontSize: "20px" }}
+          >
+            Load more
+          </Button>
+        </Grid>
       )}
     </Box>
   );
