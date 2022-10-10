@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Tools
+
+Node v16.17.1
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -69,9 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-
-
 # Work sample - Application developer
 
 ## Assignment
@@ -115,4 +116,3 @@ Also send us an e-mail to let us know!
 ### Good luck!
 
 ---
-
