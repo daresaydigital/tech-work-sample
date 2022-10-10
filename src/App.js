@@ -1,11 +1,11 @@
-import { getMovies } from "./api/";
-
 import ErrorPage from "./components/ErrorPage";
 import MovieDetailed from "./components/MovieDetailed";
+import { getMovies } from "./api";
 import { LoadingIndicator } from "./components/LoadingIndicator";
 import { PageLayout } from "./components/PageLayout";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MovieGrid } from "./components/MovieGrid";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
