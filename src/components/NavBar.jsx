@@ -1,5 +1,10 @@
+import React from "react";
+
+import MobileMenu from "./MobileMenu";
+
 import { AppBar, Box } from "@mui/material";
 import { Container } from "@mui/system";
+import Typography from "@mui/material/Typography";
 
 import { NavLink } from "react-router-dom";
 
@@ -21,7 +26,7 @@ export const NavBar = () => {
     a: {
       textDecoration: "none",
       color: "white",
-      padding: "10px",
+      margin: "10px",
       fontSize: { xs: "20px", md: "26px" },
 
       "&:hover": {
@@ -38,17 +43,38 @@ export const NavBar = () => {
   return (
     <Box sx={navBarStyling}>
       <AppBar position="static" color="primary">
-        <Container sx={{ mt: 4, mb: 4 }}>
-          {headerData.map(({ label, path, index }) => (
-            <NavLink
-              key={index}
-              to={path}
-              style={({ isActive }) => (isActive ? activeStyle : undefined)}
-              end
-            >
-              {label}
-            </NavLink>
-          ))}
+        <Container sx={{ mt: 4, mb: 4, display: "flex" }}>
+          <Typography
+            variant="h5"
+            noWrap
+            sx={{ flexGrow: 1, color: "#032541" }}
+          >
+            The movie db
+          </Typography>
+          <Box
+            sx={{
+              display: { xs: "none", md: "block" },
+            }}
+          >
+            {headerData.map(({ label, path }) => (
+              <React.Fragment key={path}>
+                <NavLink
+                  to={path}
+                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                  end
+                >
+                  {label}
+                </NavLink>
+              </React.Fragment>
+            ))}
+          </Box>
+          <Box
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+          >
+            <MobileMenu headerListData={headerData} />
+          </Box>
         </Container>
       </AppBar>
     </Box>
