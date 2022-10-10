@@ -6,4 +6,8 @@ const getMovies = async (pageNumber = 1, fetchMoviePath) => {
   return await client(`${BASE_URL}movie/${fetchMoviePath}?page=${pageNumber}`);
 };
 
-export { getMovies };
+const getSpecificMovie = async (movieId) => {
+  return await client(`${BASE_URL}movie/${movieId}`);
+};
+
+export { getMovies, getSpecificMovie };
