@@ -2,19 +2,20 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-
 import { CardActionArea } from "@mui/material";
 
 import { Link } from "react-router-dom";
 
 const MovieCard = ({ movieInformation }) => {
-  const { poster_path, original_title } = movieInformation;
+  const { poster_path, title } = movieInformation;
 
   const linkStyling = {
     height: "100%",
 
     a: {
+      height: "100%",
       textDecoration: "none",
+      color: "black",
       "&:hover": {
         textDecoration: "underline",
       },
@@ -23,19 +24,25 @@ const MovieCard = ({ movieInformation }) => {
 
   return (
     <Card sx={linkStyling}>
-      <Link to={`/movie/${original_title}`} state={movieInformation}>
-        <CardActionArea>
+      <CardActionArea
+        component="div"
+        disableRipple
+        sx={{
+          height: "100%",
+        }}
+      >
+        <Link to={`/movie/${title}`} state={movieInformation}>
           <CardMedia
             component="img"
             height="auto"
             image={`https://image.tmdb.org/t/p/original${poster_path}`}
-            alt={`${original_title} poster`}
+            alt={`${title} poster`}
           />
           <CardContent>
-            <Typography variant="h4">{original_title}</Typography>
+            <Typography variant="h4">{title}</Typography>
           </CardContent>
-        </CardActionArea>
-      </Link>
+        </Link>
+      </CardActionArea>
     </Card>
   );
 };
