@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+//    id 'androidx.navigation.safeargs.kotlin' version '2.4.1' apply false
+    id 'androidx.navigation.safeargs'
 }
 
 android {

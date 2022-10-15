@@ -2,6 +2,7 @@ package com.github.hramogin.movieapp
 
 import android.app.Application
 import com.github.hramogin.movieapp.di.modules.applicationModule
+import com.github.hramogin.movieapp.di.modules.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
 
@@ -18,6 +19,7 @@ class App : Application() {
             modules(
                 listOf(
                     applicationModule,
+                    viewModelModule,
                 )
             )
         }
