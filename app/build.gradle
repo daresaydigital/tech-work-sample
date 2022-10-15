@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -29,15 +30,86 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.0'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.kotlinStdLib
+    implementation libraries.kotlinStdLib
+    implementation libraries.appCompat
+    implementation libraries.constraintLayout
+
+    //AndroidX
+    implementation libraries.coreKtx
+    implementation libraries.coreX
+    implementation libraries.legacySupport
+    implementation 'androidx.databinding:viewbinding:4.2.2'
+    testImplementation libraries.coreTestX
+
+    //junit
+    testImplementation libraries.junit
+    androidTestImplementation libraries.junitExtention
+
+    //espresso
+    androidTestImplementation libraries.espresso
+
+    //Material components
+    implementation libraries.material
+
+    //leakcanary
+    implementation libraries.leakcanary
+
+    //lifecycle
+    implementation libraries.lifecycleViewModelKtx
+    implementation libraries.lifecycleLiveDataKtx
+
+    //Navigation
+    implementation libraries.navigation
+    implementation libraries.navigationKtx
+
+    //Timber
+    implementation libraries.timber
+
+    //Retrofit
+    implementation libraries.retrofit
+    implementation libraries.retrofitConverterGson
+    implementation libraries.okhttp
+    implementation libraries.okhttpLoggingInterceptor
+
+    //koin
+    implementation libraries.koinCore
+    implementation libraries.koinAndroid
+//    implementation libraries.koinViewModel
+//    implementation libraries.koinTest
+
+    //graphQL
+    implementation libraries.apolloRuntime
+    implementation libraries.apolloSupport
+    implementation libraries.apolloCoroutine
+
+    //firebase
+    implementation libraries.firebaseCrashlytics
+    implementation libraries.firebaseCloudMessaging
+
+    //Glide
+    implementation libraries.glide
+    kapt libraries.glideCompiler
+
+    //lottie
+    implementation libraries.lottie
+    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+
+
+    //browser
+    implementation libraries.browser
+
+    //soketIO
+    implementation(libraries.socketIO) {
+        // excluding org.json which is provided by Android
+        exclude group: 'org.json', module: 'json'
+    }
 }
