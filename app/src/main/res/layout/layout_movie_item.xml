@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_movie_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="1:1.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/logo" />
+
+    <View
+        android:id="@+id/v_title_container"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/under_image_space_height"
+        android:background="@drawable/bg_gray_rounded_bottom"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_movie_image"
+        app:layout_constraintEnd_toEndOf="@+id/iv_movie_image"
+        app:layout_constraintStart_toStartOf="@+id/iv_movie_image" />
+
+    <TextView
+        android:id="@+id/tv_movie_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/base_margi"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        android:textSize="@dimen/base_text_size"
+        android:transitionName="title"
+        android:visibility="invisible"
+        app:autoSizeMaxTextSize="@dimen/upper_base_text_size"
+        app:autoSizeMinTextSize="@dimen/minimal_text_size"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="@+id/v_title_container"
+        app:layout_constraintEnd_toEndOf="@+id/v_title_container"
+        app:layout_constraintStart_toStartOf="@+id/v_title_container"
+        app:layout_constraintTop_toTopOf="@+id/v_title_container"
+        tools:text="The GodFather" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

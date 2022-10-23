@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.MovieApp.Splash" parent="AppTheme.MovieApp">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="background">@color/black</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="TextAppearance.Expanded" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="maxLines">2</item>
+        <item name="android:textColor">@color/pale_white</item>
+    </style>
+
+    <style name="TextAppearance.Collapsed" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/pale_white</item>
+    </style>
+</resources>

@@ -1,0 +1,129 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.github.hramogin.movieapp"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            debuggable true
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+
+            buildConfigField "String", "REST_BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_TOKEN", "\"499865c4f3d665373c5f8c17c40d55e3\""
+            buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
+        }
+        stage {
+            applicationIdSuffix ".stage"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+
+            buildConfigField "String", "REST_BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_TOKEN", "\"499865c4f3d665373c5f8c17c40d55e3\""
+            buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+
+            buildConfigField "String", "REST_BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_TOKEN", "\"499865c4f3d665373c5f8c17c40d55e3\""
+            buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libraries.kotlinStdLib
+    implementation libraries.kotlinStdLib
+    implementation libraries.appCompat
+    implementation libraries.constraintLayout
+
+    //AndroidX
+    implementation libraries.coreKtx
+    implementation libraries.coreX
+    implementation libraries.legacySupport
+    testImplementation libraries.coreTestX
+
+    //junit
+    testImplementation libraries.junit
+    androidTestImplementation libraries.junitExtention
+
+    //espresso
+    androidTestImplementation libraries.espresso
+
+    //Material components
+    implementation libraries.material
+
+    //leakcanary
+    implementation libraries.leakcanary
+
+    //lifecycle
+    implementation libraries.lifecycleViewModelKtx
+    implementation libraries.lifecycleLiveDataKtx
+
+    //Navigation
+    implementation libraries.navigation
+    implementation libraries.navigationKtx
+
+    //Timber
+    implementation libraries.timber
+
+    //Retrofit
+    implementation libraries.retrofit
+    implementation libraries.retrofitConverterGson
+    implementation libraries.okhttp
+    implementation libraries.okhttpLoggingInterceptor
+
+    //koin
+    implementation libraries.koinCore
+    implementation libraries.koinAndroid
+
+    //firebase
+    implementation libraries.firebaseCrashlytics
+    implementation libraries.firebaseCloudMessaging
+
+    //Glide
+    implementation libraries.glide
+    kapt libraries.glideCompiler
+
+    //room
+    implementation libraries.room
+    implementation libraries.roomKtx
+    kapt libraries.annotationProcessorRoom
+
+    testImplementation libraries.mockotlin
+    testImplementation libraries.coroutinesTest
+    testImplementation libraries.androidXCoreTesting
+}

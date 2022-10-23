@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/base_margi"
+    android:layout_marginStart="@dimen/review_left_margin"
+    android:layout_marginEnd="@dimen/base_margi"
+    android:background="@drawable/bg_gray_rounded"
+    android:padding="@dimen/double_base_margin">
+
+    <TextView
+        android:id="@+id/tv_review_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/pale_white"
+        android:textSize="@dimen/base_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="jshjkgnfsgsjwrap_contentsdfsdf ds sdf sdf sdfs wrap_contentfsd fs dfds fsd f" />
+
+    <TextView
+        android:id="@+id/tv_reviewer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_base_margin"
+        android:textColor="@color/pale_white"
+        android:textSize="@dimen/minimal_text_size"
+        app:layout_constraintEnd_toStartOf="@+id/tv_review_date"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_content"
+        tools:text="Kiolk" />
+
+    <TextView
+        android:id="@+id/tv_review_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/double_base_margin"
+        android:textColor="@color/pale_white"
+        android:textSize="@dimen/minimal_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toEndOf="@id/tv_reviewer_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_content"
+        tools:text="23-1-2000" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

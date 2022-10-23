@@ -1,0 +1,172 @@
+ext.androidConfig = [
+        compileSdkVersion            : 30,
+        buildToolsVersion            : '30.0.2',
+        minSdkVersion                : 21,
+        targetSdkVersion             : 30,
+]
+
+ext.versions = [
+        kotlinVersion         : '1.7.0',
+
+        legacySupport         : '1.0.0',
+
+        // Coroutines
+        coroutines            : '1.6.4',
+
+        // Design
+        appCompat             : '1.1.0',
+        constraintLayout      : '1.1.3',
+        recyclerView          : '1.0.0',
+        cardView              : '1.0.0',
+        material              : '1.2.1',
+
+        // ViewModel
+        lifecycleKtx          : '2.2.0-beta01',
+
+        lifecycle             : '2.1.0',
+
+        glide                 : '4.10.0',
+        glideTransformations  : '4.0.0',
+
+        timber                : '4.7.1',
+
+        // Common
+        coreKtx               : '1.2.0',
+        coreX                 : '1.2.0',
+
+        koin                  : '3.2.2',
+
+        crashlytics           : '2.10.1@aar',
+
+        // Retrofit
+        retrofit              : '2.6.2',
+        okhttp                : '4.2.2',
+        gson                  : '2.8.6',
+
+        // Test
+        junit                 : '4.12',
+        junitExtention        : '1.1.1',
+        runner                : '1.2.0',
+        espresso              : '3.2.0',
+
+        swipeLayout           : '1.2.0@aar',
+
+        socketIO              : '1.0.0',
+
+        chromeTabs            : '2.0.3',
+        browser               : '1.3.0',
+
+        firebaseAnalytics     : '18.0.0',
+        firebaseCloudMessaging: '20.1.0',
+        firebaseCrashlytics   : '17.3.0',
+
+        stetho                : '1.5.1',
+        leakcanary            : '2.2',
+
+        room                  : '2.4.2',
+
+        navigation            : '2.3.0-alpha05',
+
+        imageCrop             : '2.8.0',
+        paging                : '2.1.0-alpha01',
+
+        jsoup                 : '1.11.2',
+
+        apollo                : '2.5.2',
+
+        lottie                : '3.6.0',
+
+        worldCountryData      : '1.5.2',
+
+        mockotlin             : '2.2.0',
+        coreTestX             : '2.1.0',
+]
+
+ext.libraries = [
+        kotlinStdLib            : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlinVersion",
+        legacySupport           : "androidx.legacy:legacy-support-v4:$versions.legacySupport",
+
+        coroutinesCore          : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
+        coroutinesAndroid       : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines",
+        coroutinesTest          : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutines",
+        androidXCoreTesting     : "androidx.arch.core:core-testing:$versions.coreTestX",
+
+        appCompat               : "androidx.appcompat:appcompat:$versions.appCompat",
+        constraintLayout        : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+        recyclerView            : "androidx.recyclerview:recyclerview:$versions.recyclerView",
+        cardView                : "androidx.cardview:cardview:$versions.cardView",
+        material                : "com.google.android.material:material:$versions.material",
+
+        lifecycleViewModelKtx   : "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleKtx",
+        lifecycleLiveDataKtx    : "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecycleKtx",
+
+        lifecycleRuntime        : "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle",
+        lifecycleCompiler       : "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle",
+
+        coreKtx                 : "androidx.core:core-ktx:$versions.coreKtx",
+        coreX                   : "androidx.core:core:$versions.coreX",
+        coreTestX               : "androidx.test:core:$versions.coreX",
+
+        glide                   : "com.github.bumptech.glide:glide:$versions.glide",
+        glideCompiler           : "com.github.bumptech.glide:compiler:$versions.glide",
+        glideTransformations    : "jp.wasabeef:glide-transformations:$versions.glideTransformations",
+
+        timber                  : "com.jakewharton.timber:timber:$versions.timber",
+
+        koinCore                : "io.insert-koin:koin-core:$versions.koin",
+        koinAndroid             : "io.insert-koin:koin-android:$versions.koin",
+        koinViewModel           : "io.insert-koin:koin-androidx-viewmodel:$versions.koin",
+        koinTest                : "io.insert-koiio.insert-koin:koin-androidx-navigationn:koin-test:$versions.koin",
+        koinNavigation          : "io.insert-koin:koin-androidx-navigation:$versions.koin",
+
+        retrofit                : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitConverterGson   : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        okhttp                  : "com.squareup.okhttp3:okhttp:$versions.okhttp",
+        okhttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$versions.okhttp",
+
+        gson                    : "com.google.code.gson:gson:$versions.gson",
+
+        crashlytics             : "com.crashlytics.sdk.android:crashlytics:$versions.crashlytics",
+
+        junit                   : "junit:junit:$versions.junit",
+        junitExtention          : "androidx.test.ext:junit:$versions.junitExtention",
+        runner                  : "androidx.test:runner:$versions.runner",
+        espresso                : "androidx.test.espresso:espresso-core:$versions.espresso",
+
+        swipeLayout             : "com.daimajia.swipelayout:library:$versions.swipeLayout",
+
+        socketIO                : "io.socket:socket.io-client:$versions.socketIO",
+
+        chromeTabs              : "saschpe.android:customtabs:$versions.chromeTabs",
+        browser                 : "androidx.browser:browser:$versions.browser",
+
+        firebaseAnalytics       : "com.google.firebase:firebase-analytics:$versions.firebaseAnalytics",
+        firebaseCloudMessaging  : "com.google.firebase:firebase-messaging:$versions.firebaseCloudMessaging",
+        firebaseCrashlytics     : "com.google.firebase:firebase-crashlytics:$versions.firebaseCrashlytics",
+
+        stetho                  : "com.facebook.stetho:stetho-okhttp3:$versions.stetho",
+
+        leakcanary              : "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary",
+
+        room                    : "androidx.room:room-runtime:$versions.room",
+        annotationProcessorRoom : "androidx.room:room-compiler:$versions.room",
+        roomKtx                 : "androidx.room:room-ktx:$versions.room",
+        roomTesting             : "androidx.room:room-testing:$versions.room",
+
+        navigation              : "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+        navigationKtx           : "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+
+        imageCrop               : "com.theartofdev.edmodo:android-image-cropper:$versions.imageCrop",
+        paging                  : "androidx.paging:paging-runtime:$versions.paging",
+
+        jsoup                   : "org.jsoup:jsoup:$versions.jsoup",
+
+        apolloRuntime           : "com.apollographql.apollo:apollo-runtime:$versions.apollo",
+        apolloSupport           : "com.apollographql.apollo:apollo-android-support:$versions.apollo",
+        apolloCoroutine         : "com.apollographql.apollo:apollo-coroutines-support:$versions.apollo",
+
+        lottie                  : "com.airbnb.android:lottie:$versions.lottie",
+
+        worldCountryData        : "com.github.blongho:worldCountryData:$versions.worldCountryData",
+        mockotlin               : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockotlin",
+]
