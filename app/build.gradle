@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-//    id 'androidx.navigation.safeargs.kotlin' version '2.4.1' apply false
     id 'androidx.navigation.safeargs'
 }
 
@@ -20,11 +19,37 @@ android {
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+            debuggable true
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+
+            buildConfigField "String", "REST_BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_TOKEN", "\"499865c4f3d665373c5f8c17c40d55e3\""
+            buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
+        }
+        stage {
+            applicationIdSuffix ".stage"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+
+            buildConfigField "String", "REST_BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_TOKEN", "\"499865c4f3d665373c5f8c17c40d55e3\""
+            buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+
+            buildConfigField "String", "REST_BASE_URL", "\"https://api.themoviedb.org/3/\""
+            buildConfigField "String", "API_TOKEN", "\"499865c4f3d665373c5f8c17c40d55e3\""
+            buildConfigField "String", "BASE_IMAGE_URL", "\"https://image.tmdb.org/t/p/original\""
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -49,7 +74,6 @@ dependencies {
     implementation libraries.coreKtx
     implementation libraries.coreX
     implementation libraries.legacySupport
-    implementation 'androidx.databinding:viewbinding:4.2.2'
     testImplementation libraries.coreTestX
 
     //junit
@@ -85,13 +109,6 @@ dependencies {
     //koin
     implementation libraries.koinCore
     implementation libraries.koinAndroid
-//    implementation libraries.koinViewModel
-//    implementation libraries.koinTest
-
-    //graphQL
-    implementation libraries.apolloRuntime
-    implementation libraries.apolloSupport
-    implementation libraries.apolloCoroutine
 
     //firebase
     implementation libraries.firebaseCrashlytics
@@ -101,17 +118,12 @@ dependencies {
     implementation libraries.glide
     kapt libraries.glideCompiler
 
-    //lottie
-    implementation libraries.lottie
-    implementation 'org.conscrypt:conscrypt-android:2.2.1'
+    //room
+    implementation libraries.room
+    implementation libraries.roomKtx
+    kapt libraries.annotationProcessorRoom
 
-
-    //browser
-    implementation libraries.browser
-
-    //soketIO
-    implementation(libraries.socketIO) {
-        // excluding org.json which is provided by Android
-        exclude group: 'org.json', module: 'json'
-    }
+    testImplementation libraries.mockotlin
+    testImplementation libraries.coroutinesTest
+    testImplementation libraries.androidXCoreTesting
 }

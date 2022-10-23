@@ -26,10 +26,6 @@ class SplashFragment : BaseFragment<SplashViewModel, FragmentSplashBinding>() {
             FragmentSplashBinding.inflate(localInflater, container, attached)
         }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
