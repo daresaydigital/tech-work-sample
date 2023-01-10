@@ -21,4 +21,11 @@ enum APIEnvironment {
                 return "api.themoviedb.org"
         }
     }
+
+    func apiKey() -> String {
+        switch self {
+            case .development, .production:
+                return "16094d8ca19f9c0407db3d0b5203bd21"
+        }
+    }
 }

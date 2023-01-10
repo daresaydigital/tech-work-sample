@@ -17,7 +17,13 @@ let baseURL = environment.baseURL()
 
 struct APIPath {
     func fetchTrending(mediaType: String, timeWindow: String) -> String {
-        return "\(baseURL)/\(apiVersion())/trending/\(mediaType)/\(timeWindow)"
+        let url = "\(baseURL)/\(apiVersion())/trending/\(mediaType)/\(timeWindow)"
+
+        return url
+    }
+
+    private func applyApiKey(_ url: String) -> String {
+        return "\(url)?api_key=\(environment.apiKey())"
     }
 
     private func apiVersion() -> String {

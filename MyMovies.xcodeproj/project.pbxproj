@@ -23,6 +23,9 @@
 		7D35A440296E29280054954E /* ResponseHandler+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A43F296E29280054954E /* ResponseHandler+Extension.swift */; };
 		7D35A442296E293D0054954E /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A441296E293D0054954E /* ServiceError.swift */; };
 		7D35A444296E29950054954E /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A443296E29950054954E /* APILoader.swift */; };
+		7D35A447296E2A390054954E /* TrendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A446296E2A390054954E /* TrendingAPI.swift */; };
+		7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44A296E2C920054954E /* TrendingDTO.swift */; };
+		7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44C296E2CA80054954E /* TrendingResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		7D35A43F296E29280054954E /* ResponseHandler+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResponseHandler+Extension.swift"; sourceTree = "<group>"; };
 		7D35A441296E293D0054954E /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		7D35A443296E29950054954E /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
+		7D35A446296E2A390054954E /* TrendingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPI.swift; sourceTree = "<group>"; };
+		7D35A44A296E2C920054954E /* TrendingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingDTO.swift; sourceTree = "<group>"; };
+		7D35A44C296E2CA80054954E /* TrendingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +119,8 @@
 		7D35A402296E22430054954E /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7D35A448296E2BDB0054954E /* Model */,
+				7D35A445296E2A250054954E /* Service */,
 				7D35A438296E27930054954E /* Network */,
 				7D35A433296E232E0054954E /* Coordinator */,
 				7D35A403296E22430054954E /* AppDelegate.swift */,
@@ -162,6 +170,31 @@
 				7D35A443296E29950054954E /* APILoader.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7D35A445296E2A250054954E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A446296E2A390054954E /* TrendingAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7D35A448296E2BDB0054954E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A449296E2C870054954E /* DTO */,
+				7D35A44C296E2CA80054954E /* TrendingResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D35A449296E2C870054954E /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A44A296E2C920054954E /* TrendingDTO.swift */,
+			);
+			path = DTO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,12 +328,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D35A442296E293D0054954E /* ServiceError.swift in Sources */,
+				7D35A447296E2A390054954E /* TrendingAPI.swift in Sources */,
 				7D35A408296E22430054954E /* ViewController.swift in Sources */,
 				7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */,
+				7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */,
 				7D35A43A296E27AE0054954E /* APIEnvironment.swift in Sources */,
 				7D35A43E296E29000054954E /* APIHandler.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
 				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
+				7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */,
 				7D35A444296E29950054954E /* APILoader.swift in Sources */,
 				7D35A440296E29280054954E /* ResponseHandler+Extension.swift in Sources */,
 				7D35A404296E22430054954E /* AppDelegate.swift in Sources */,
