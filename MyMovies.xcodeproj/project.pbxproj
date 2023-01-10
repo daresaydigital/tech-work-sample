@@ -22,6 +22,7 @@
 		7D35A43E296E29000054954E /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A43D296E29000054954E /* APIHandler.swift */; };
 		7D35A440296E29280054954E /* ResponseHandler+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A43F296E29280054954E /* ResponseHandler+Extension.swift */; };
 		7D35A442296E293D0054954E /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A441296E293D0054954E /* ServiceError.swift */; };
+		7D35A444296E29950054954E /* APILoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A443296E29950054954E /* APILoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		7D35A43D296E29000054954E /* APIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHandler.swift; sourceTree = "<group>"; };
 		7D35A43F296E29280054954E /* ResponseHandler+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResponseHandler+Extension.swift"; sourceTree = "<group>"; };
 		7D35A441296E293D0054954E /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		7D35A443296E29950054954E /* APILoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				7D35A43D296E29000054954E /* APIHandler.swift */,
 				7D35A43F296E29280054954E /* ResponseHandler+Extension.swift */,
 				7D35A441296E293D0054954E /* ServiceError.swift */,
+				7D35A443296E29950054954E /* APILoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				7D35A43E296E29000054954E /* APIHandler.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
 				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
+				7D35A444296E29950054954E /* APILoader.swift in Sources */,
 				7D35A440296E29280054954E /* ResponseHandler+Extension.swift in Sources */,
 				7D35A404296E22430054954E /* AppDelegate.swift in Sources */,
 				7D35A406296E22430054954E /* SceneDelegate.swift in Sources */,
