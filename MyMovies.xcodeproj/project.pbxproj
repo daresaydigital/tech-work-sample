@@ -17,6 +17,8 @@
 		7D35A427296E22450054954E /* MyMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A426296E22450054954E /* MyMoviesUITestsLaunchTests.swift */; };
 		7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A434296E233F0054954E /* MainCoordinator.swift */; };
 		7D35A437296E23740054954E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A436296E23740054954E /* Coordinator.swift */; };
+		7D35A43A296E27AE0054954E /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A439296E27AE0054954E /* APIEnvironment.swift */; };
+		7D35A43C296E28490054954E /* APIPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A43B296E28490054954E /* APIPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		7D35A426296E22450054954E /* MyMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7D35A434296E233F0054954E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7D35A436296E23740054954E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		7D35A439296E27AE0054954E /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		7D35A43B296E28490054954E /* APIPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		7D35A402296E22430054954E /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7D35A438296E27930054954E /* Network */,
 				7D35A433296E232E0054954E /* Coordinator */,
 				7D35A403296E22430054954E /* AppDelegate.swift */,
 				7D35A405296E22430054954E /* SceneDelegate.swift */,
@@ -136,6 +141,15 @@
 				7D35A436296E23740054954E /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7D35A438296E27930054954E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A439296E27AE0054954E /* APIEnvironment.swift */,
+				7D35A43B296E28490054954E /* APIPath.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +284,9 @@
 			files = (
 				7D35A408296E22430054954E /* ViewController.swift in Sources */,
 				7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */,
+				7D35A43A296E27AE0054954E /* APIEnvironment.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
+				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
 				7D35A404296E22430054954E /* AppDelegate.swift in Sources */,
 				7D35A406296E22430054954E /* SceneDelegate.swift in Sources */,
 			);
