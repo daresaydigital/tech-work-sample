@@ -10,12 +10,13 @@
 		7D35A404296E22430054954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A403296E22430054954E /* AppDelegate.swift */; };
 		7D35A406296E22430054954E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A405296E22430054954E /* SceneDelegate.swift */; };
 		7D35A408296E22430054954E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A407296E22430054954E /* ViewController.swift */; };
-		7D35A40B296E22430054954E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D35A409296E22430054954E /* Main.storyboard */; };
 		7D35A40D296E22450054954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D35A40C296E22450054954E /* Assets.xcassets */; };
 		7D35A410296E22450054954E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D35A40E296E22450054954E /* LaunchScreen.storyboard */; };
 		7D35A41B296E22450054954E /* MyMoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A41A296E22450054954E /* MyMoviesTests.swift */; };
 		7D35A425296E22450054954E /* MyMoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A424296E22450054954E /* MyMoviesUITests.swift */; };
 		7D35A427296E22450054954E /* MyMoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A426296E22450054954E /* MyMoviesUITestsLaunchTests.swift */; };
+		7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A434296E233F0054954E /* MainCoordinator.swift */; };
+		7D35A437296E23740054954E /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A436296E23740054954E /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,6 @@
 		7D35A403296E22430054954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D35A405296E22430054954E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7D35A407296E22430054954E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7D35A40A296E22430054954E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D35A40C296E22450054954E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D35A40F296E22450054954E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D35A411296E22450054954E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		7D35A420296E22450054954E /* MyMoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D35A424296E22450054954E /* MyMoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesUITests.swift; sourceTree = "<group>"; };
 		7D35A426296E22450054954E /* MyMoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D35A434296E233F0054954E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		7D35A436296E23740054954E /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,10 @@
 		7D35A402296E22430054954E /* MyMovies */ = {
 			isa = PBXGroup;
 			children = (
+				7D35A433296E232E0054954E /* Coordinator */,
 				7D35A403296E22430054954E /* AppDelegate.swift */,
 				7D35A405296E22430054954E /* SceneDelegate.swift */,
 				7D35A407296E22430054954E /* ViewController.swift */,
-				7D35A409296E22430054954E /* Main.storyboard */,
 				7D35A40C296E22450054954E /* Assets.xcassets */,
 				7D35A40E296E22450054954E /* LaunchScreen.storyboard */,
 				7D35A411296E22450054954E /* Info.plist */,
@@ -125,6 +127,15 @@
 				7D35A426296E22450054954E /* MyMoviesUITestsLaunchTests.swift */,
 			);
 			path = MyMoviesUITests;
+			sourceTree = "<group>";
+		};
+		7D35A433296E232E0054954E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A434296E233F0054954E /* MainCoordinator.swift */,
+				7D35A436296E23740054954E /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +244,6 @@
 			files = (
 				7D35A410296E22450054954E /* LaunchScreen.storyboard in Resources */,
 				7D35A40D296E22450054954E /* Assets.xcassets in Resources */,
-				7D35A40B296E22430054954E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D35A408296E22430054954E /* ViewController.swift in Sources */,
+				7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */,
+				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
 				7D35A404296E22430054954E /* AppDelegate.swift in Sources */,
 				7D35A406296E22430054954E /* SceneDelegate.swift in Sources */,
 			);
@@ -297,14 +309,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7D35A409296E22430054954E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D35A40A296E22430054954E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7D35A40E296E22450054954E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,7 +446,6 @@
 				INFOPLIST_FILE = MyMovies/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +473,6 @@
 				INFOPLIST_FILE = MyMovies/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
