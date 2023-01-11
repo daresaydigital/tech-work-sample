@@ -15,6 +15,10 @@ enum APIEnvironment {
         return "https://\(domain())"
     }
 
+    func baseImageURL() -> String {
+        return "https://image.tmdb.org/t/p"
+    }
+
     func domain() -> String {
         switch self {
             case .development, .production:

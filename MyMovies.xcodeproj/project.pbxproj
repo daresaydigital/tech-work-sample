@@ -26,6 +26,9 @@
 		7D35A447296E2A390054954E /* TrendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A446296E2A390054954E /* TrendingAPI.swift */; };
 		7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44A296E2C920054954E /* TrendingDTO.swift */; };
 		7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44C296E2CA80054954E /* TrendingResult.swift */; };
+		7D35A450296E31C30054954E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44F296E31C30054954E /* HomeViewController.swift */; };
+		7D35A453296E32EE0054954E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A452296E32EE0054954E /* TrendingViewController.swift */; };
+		7D35A458296E35D70054954E /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A457296E35D70054954E /* TopRatedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		7D35A446296E2A390054954E /* TrendingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPI.swift; sourceTree = "<group>"; };
 		7D35A44A296E2C920054954E /* TrendingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingDTO.swift; sourceTree = "<group>"; };
 		7D35A44C296E2CA80054954E /* TrendingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResult.swift; sourceTree = "<group>"; };
+		7D35A44F296E31C30054954E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7D35A452296E32EE0054954E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		7D35A457296E35D70054954E /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				7D35A448296E2BDB0054954E /* Model */,
+				7D35A44E296E318E0054954E /* View */,
 				7D35A445296E2A250054954E /* Service */,
 				7D35A438296E27930054954E /* Network */,
 				7D35A433296E232E0054954E /* Coordinator */,
@@ -195,6 +202,32 @@
 				7D35A44A296E2C920054954E /* TrendingDTO.swift */,
 			);
 			path = DTO;
+			sourceTree = "<group>";
+		};
+		7D35A44E296E318E0054954E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A456296E35C60054954E /* TopRatedViewController */,
+				7D35A451296E32DC0054954E /* TrendingViewController */,
+				7D35A44F296E31C30054954E /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D35A451296E32DC0054954E /* TrendingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A452296E32EE0054954E /* TrendingViewController.swift */,
+			);
+			path = TrendingViewController;
+			sourceTree = "<group>";
+		};
+		7D35A456296E35C60054954E /* TopRatedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7D35A457296E35D70054954E /* TopRatedViewController.swift */,
+			);
+			path = TopRatedViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,13 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D35A442296E293D0054954E /* ServiceError.swift in Sources */,
+				7D35A453296E32EE0054954E /* TrendingViewController.swift in Sources */,
 				7D35A447296E2A390054954E /* TrendingAPI.swift in Sources */,
 				7D35A408296E22430054954E /* ViewController.swift in Sources */,
 				7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */,
 				7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */,
+				7D35A450296E31C30054954E /* HomeViewController.swift in Sources */,
 				7D35A43A296E27AE0054954E /* APIEnvironment.swift in Sources */,
 				7D35A43E296E29000054954E /* APIHandler.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
+				7D35A458296E35D70054954E /* TopRatedViewController.swift in Sources */,
 				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
 				7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */,
 				7D35A444296E29950054954E /* APILoader.swift in Sources */,
