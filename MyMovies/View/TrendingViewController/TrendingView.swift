@@ -12,6 +12,7 @@ class TrendingView: UIView {
     private lazy var trendingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Trending"
         label.textColor = .label
         label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
@@ -22,8 +23,27 @@ class TrendingView: UIView {
         let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
         let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: listLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .red
         collectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "TrendingCollectionViewCell")
         return collectionView
+    }()
+
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.hidesWhenStopped = true
+        return activityIndicator
+    }()
+
+    private lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.font = UIFont.systemFont(ofSize: 28)
+        label.text = "Error when loading Trending information"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
     }()
 
     weak var collectionViewDelegate: UICollectionViewDelegate? {
@@ -63,8 +83,8 @@ class TrendingView: UIView {
         addSubview(trendingLabel)
 
         NSLayoutConstraint.activate([
-            trendingLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            trendingLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
+            trendingLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            trendingLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10)
         ])
 
         setupTrendingCollectionView()
@@ -79,5 +99,49 @@ class TrendingView: UIView {
             trendingCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             trendingCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
+
+        setupActivityIndicator()
+    }
+
+    private func setupActivityIndicator() {
+        addSubview(activityIndicator)
+
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+        ])
+
+        setupErrorLabel()
+    }
+
+    private func setupErrorLabel() {
+        addSubview(errorLabel)
+
+        NSLayoutConstraint.activate([
+            errorLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            errorLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            errorLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            errorLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+        ])
+    }
+
+    func renderLoadingState() {
+        self.trendingCollectionView.isHidden = true
+        self.errorLabel.isHidden = true
+        self.activityIndicator.startAnimating()
+    }
+
+    func renderErrorState() {
+        self.activityIndicator.stopAnimating()
+        self.trendingCollectionView.isHidden = true
+        self.trendingLabel.isHidden = true
+        self.errorLabel.isHidden = false
+    }
+
+    func renderSuccessState() {
+        self.activityIndicator.stopAnimating()
+        self.errorLabel.isHidden = true
+        self.trendingCollectionView.isHidden = false
+        self.trendingCollectionView.reloadData()
     }
 }

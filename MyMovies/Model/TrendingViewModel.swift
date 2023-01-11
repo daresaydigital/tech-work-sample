@@ -10,8 +10,12 @@ import Foundation
 class TrendingViewModel {
     private var trending: TrendingResult
 
-    var posterImageURL: String {
-        APIPath().fetchImage(width: "w154", imagePath: trending.posterPath ?? "")
+    var title: String {
+        trending.title ?? ""
+    }
+
+    var posterImageURL: URL? {
+        URL(string: APIPath().fetchImage(width: "w154", imagePath: trending.posterPath ?? ""))
     }
 
     init(trending: TrendingResult) {

@@ -23,13 +23,28 @@ class TrendingViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     override func loadView() {
         self.trendingView = TrendingView()
-        self.trendingView?.collectionViewDelegate = self
         self.trendingView?.collectionDataSource = self
+        self.trendingView?.collectionViewDelegate = self
         view = trendingView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        trendingView?.renderLoadingState()
+
+        trendingListViewModel.fetchTrendings(of: (MediaType.all, TimeWindow.day)) { [weak self] trendingListViewModel, error in
+            guard let self = self else {
+                return
+            }
+
+            if error != nil {
+                self.trendingView?.renderErrorState()
+            } else if let trendingListViewModel = trendingListViewModel {
+                self.trendingListViewModel = trendingListViewModel
+                self.trendingView?.renderSuccessState()
+            }
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
