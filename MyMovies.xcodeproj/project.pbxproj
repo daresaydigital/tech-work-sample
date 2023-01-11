@@ -29,6 +29,8 @@
 		7D35A453296E32EE0054954E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A452296E32EE0054954E /* TrendingViewController.swift */; };
 		7D35A458296E35D70054954E /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A457296E35D70054954E /* TopRatedViewController.swift */; };
 		7D35A45B296E36DD0054954E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45A296E36DD0054954E /* HomeView.swift */; };
+		7D35A45F296E3D360054954E /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45E296E3D360054954E /* TrendingView.swift */; };
+		7D35A461296E3D5F0054954E /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		7D35A452296E32EE0054954E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
 		7D35A457296E35D70054954E /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		7D35A45A296E36DD0054954E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7D35A45E296E3D360054954E /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
+		7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				7D35A452296E32EE0054954E /* TrendingViewController.swift */,
+				7D35A45E296E3D360054954E /* TrendingView.swift */,
+				7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */,
 			);
 			path = TrendingViewController;
 			sourceTree = "<group>";
@@ -375,6 +381,8 @@
 				7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */,
 				7D35A450296E31C30054954E /* HomeViewController.swift in Sources */,
 				7D35A43A296E27AE0054954E /* APIEnvironment.swift in Sources */,
+				7D35A461296E3D5F0054954E /* TrendingCollectionViewCell.swift in Sources */,
+				7D35A45F296E3D360054954E /* TrendingView.swift in Sources */,
 				7D35A43E296E29000054954E /* APIHandler.swift in Sources */,
 				7D35A45B296E36DD0054954E /* HomeView.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,

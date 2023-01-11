@@ -9,7 +9,7 @@ import UIKit
 
 class TrendingViewController: UIViewController {
 
-//    private var trendingView: TrendingView? = nil
+    private var trendingView: TrendingView? = nil
 //    private var trendingViewModel: TrendingViewModel
 
     init(/*trendingViewModel: TrendingViewModel*/) {
@@ -22,9 +22,10 @@ class TrendingViewController: UIViewController {
     }
 
     override func loadView() {
-//        self.trendingView = TrendingView()
-//        self.trendingView?.delegate = self
-//        view = trendingView
+        self.trendingView = TrendingView()
+//        self.trendingView?.collectionViewDelegate = trendingViewModel
+//        self.trendingView?.collectionDataSource = trendingViewModel
+        view = trendingView
     }
 
     override func viewDidLoad() {
