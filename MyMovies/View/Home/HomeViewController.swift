@@ -12,7 +12,7 @@ class HomeViewController: UIViewController {
     private var trendingViewController: TrendingViewController
     private var topRatedViewController: TopRatedViewController
 
-//    private var homeView: HomeView? = nil
+    private var homeView: HomeView? = nil
 
     init(trendingViewController: TrendingViewController, topRatedViewController: TopRatedViewController) {
         self.trendingViewController = trendingViewController
@@ -25,9 +25,11 @@ class HomeViewController: UIViewController {
     }
 
     override func loadView() {
-//        self.homeView = HomeView(trendingViewController, topRatedViewController)
-//        self.homeView?.delegate = self
-//        view = homeView
+        self.homeView = HomeView(
+            trendingViewController: trendingViewController,
+            topRatedViewController: topRatedViewController
+        )
+        view = homeView
     }
 
     override func viewDidLoad() {

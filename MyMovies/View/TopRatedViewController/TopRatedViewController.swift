@@ -12,10 +12,10 @@ class TopRatedViewController: UIViewController {
 //    private var topRatedView: TopRatedView? = nil
 //    private var topRatedViewModel: TopRatedViewModel
 
-//    init(topRatedViewModel: TopRatedViewModel) {
+    init(/*topRatedViewModel: TopRatedViewModel*/) {
 //        self.topRatedViewModel = topRatedViewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
+        super.init(nibName: nil, bundle: nil)
+    }
 
     required init?(coder: NSCoder) {
         fatalError()

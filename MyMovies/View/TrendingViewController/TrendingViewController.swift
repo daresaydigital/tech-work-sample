@@ -12,10 +12,10 @@ class TrendingViewController: UIViewController {
 //    private var trendingView: TrendingView? = nil
 //    private var trendingViewModel: TrendingViewModel
 
-//    init(trendingViewModel: TrendingViewModel) {
+    init(/*trendingViewModel: TrendingViewModel*/) {
 //        self.trendingViewModel = trendingViewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
+        super.init(nibName: nil, bundle: nil)
+    }
 
     required init?(coder: NSCoder) {
         fatalError()

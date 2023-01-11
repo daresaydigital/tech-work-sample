@@ -11,7 +11,12 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController?
 
     func start() {
-        let viewController = ViewController()
+        let trendingViewController = TrendingViewController()
+        let topRatedViewController = TopRatedViewController()
+        let viewController = HomeViewController(
+            trendingViewController: trendingViewController,
+            topRatedViewController: topRatedViewController
+        )
 
         navigationController?.setViewControllers([viewController], animated: false)
     }
