@@ -194,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				7D35A449296E2C870054954E /* DTO */,
-				7D35A44C296E2CA80054954E /* TrendingResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +201,7 @@
 		7D35A449296E2C870054954E /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				7D35A44C296E2CA80054954E /* TrendingResult.swift */,
 				7D35A44A296E2C920054954E /* TrendingDTO.swift */,
 			);
 			path = DTO;
