@@ -11,8 +11,13 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController?
 
     func start() {
-        let trendingViewController = TrendingViewController()
+        let api = TrendingAPI()
+        let apiLoader = APILoader(apiHandler: api)
+        let trendingViewModel = TrendingListViewModel(apiLoader: apiLoader)
+        let trendingViewController = TrendingViewController(trendingListViewModel: trendingViewModel)
+
         let topRatedViewController = TopRatedViewController()
+
         let viewController = HomeViewController(
             trendingViewController: trendingViewController,
             topRatedViewController: topRatedViewController

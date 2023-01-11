@@ -8,5 +8,8 @@
 import UIKit
 
 class TrendingCollectionViewCell: UICollectionViewCell {
-    
+
+    func setupData(model: TrendingViewModel) {
+
+    }
 }

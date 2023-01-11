@@ -14,6 +14,8 @@ let environment = APIEnvironment.production
 #endif
 
 let baseURL = environment.baseURL()
+let baseImageURL = environment.baseImageURL()
+let apiKey = environment.apiKey()
 
 struct APIPath {
     func fetchTrending(mediaType: String, timeWindow: String) -> String {
@@ -21,8 +23,13 @@ struct APIPath {
         return applyApiKey(url)
     }
 
+    func fetchImage(width: String, imagePath: String) -> String {
+        let url = "\(baseImageURL)/\(width)/\(imagePath)"
+        return applyApiKey(url)
+    }
+
     private func applyApiKey(_ url: String) -> String {
-        return "\(url)?api_key=\(environment.apiKey())"
+        return "\(url)?api_key=\(apiKey)"
     }
 
     private func apiVersion() -> String {

@@ -7,13 +7,13 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController {
+class TrendingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     private var trendingView: TrendingView? = nil
-//    private var trendingViewModel: TrendingViewModel
+    private var trendingListViewModel: TrendingListViewModel
 
-    init(/*trendingViewModel: TrendingViewModel*/) {
-//        self.trendingViewModel = trendingViewModel
+    init(trendingListViewModel: TrendingListViewModel) {
+        self.trendingListViewModel = trendingListViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -23,12 +23,25 @@ class TrendingViewController: UIViewController {
 
     override func loadView() {
         self.trendingView = TrendingView()
-//        self.trendingView?.collectionViewDelegate = trendingViewModel
-//        self.trendingView?.collectionDataSource = trendingViewModel
+        self.trendingView?.collectionViewDelegate = self
+        self.trendingView?.collectionDataSource = self
         view = trendingView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.trendingListViewModel.numberOfRowsInSection
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let trending = trendingListViewModel.getTrending(indexPath.row)
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrendingCollectionViewCell", for: indexPath) as? TrendingCollectionViewCell
+        cell?.setupData(model: trending)
+
+        return cell ?? UICollectionViewCell()
     }
 }
