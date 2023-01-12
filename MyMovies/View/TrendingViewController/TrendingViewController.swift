@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class TrendingViewController: UIViewController {
 
     private var trendingView: TrendingView? = nil
     private var trendingListViewModel: TrendingListViewModel
@@ -48,7 +48,9 @@ class TrendingViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         }
     }
+}
 
+extension TrendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.trendingListViewModel.numberOfRowsInSection
     }
