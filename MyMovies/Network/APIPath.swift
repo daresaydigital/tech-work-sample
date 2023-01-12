@@ -7,17 +7,25 @@
 
 import Foundation
 
-#if DEBUG
-let environment = APIEnvironment.development
-#else
-let environment = APIEnvironment.production
-#endif
-
-let baseURL = environment.baseURL()
-let baseImageURL = environment.baseImageURL()
-let apiKey = environment.apiKey()
-
 struct APIPath {
+
+    let environment: APIEnvironment
+    let baseURL: String
+    let baseImageURL: String
+    let apiKey: String
+
+    init() {
+        #if DEBUG
+        environment = APIEnvironment.development
+        #else
+        environment = APIEnvironment.production
+        #endif
+
+        baseURL = environment.baseURL()
+        baseImageURL = environment.baseImageURL()
+        apiKey = environment.apiKey()
+    }
+
     func fetchTrending(mediaType: String, timeWindow: String) -> String {
         let url = "\(baseURL)/\(apiVersion())/trending/\(mediaType)/\(timeWindow)"
         return applyApiKey(url)

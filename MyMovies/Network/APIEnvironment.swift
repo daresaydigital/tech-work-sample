@@ -12,24 +12,23 @@ enum APIEnvironment {
     case production
 
     func baseURL() -> String {
-        return "https://\(domain())"
+        switch self {
+            case .development, .production:
+                return Bundle.main.infoDictionary?["BASE_URL"] as? String ?? ""
+        }
     }
 
     func baseImageURL() -> String {
-        return "https://image.tmdb.org/t/p"
-    }
-
-    func domain() -> String {
         switch self {
             case .development, .production:
-                return "api.themoviedb.org"
+                return Bundle.main.infoDictionary?["BASE_IMAGE_URL"] as? String ?? ""
         }
     }
 
     func apiKey() -> String {
         switch self {
             case .development, .production:
-                return "16094d8ca19f9c0407db3d0b5203bd21"
+                return Bundle.main.infoDictionary?["BASE_API_KEY"] as? String ?? ""
         }
     }
 }
