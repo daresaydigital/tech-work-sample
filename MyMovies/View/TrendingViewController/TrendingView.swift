@@ -22,6 +22,8 @@ class TrendingView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: 154, height: 310)
+        layout.minimumLineSpacing = 4
+        layout.minimumInteritemSpacing = 4
         let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false

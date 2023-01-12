@@ -11,7 +11,13 @@ class TrendingViewModel {
     private var trending: TrendingResult
 
     var title: String {
-        trending.title ?? ""
+        if let title = trending.originalTitle {
+            return title
+        } else if let name = trending.name {
+            return name
+        } else {
+            return ""
+        }
     }
 
     var posterImageURL: URL? {

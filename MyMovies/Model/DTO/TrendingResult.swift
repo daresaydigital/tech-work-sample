@@ -15,8 +15,10 @@ struct TrendingResult: Decodable {
     let genreId: [Int]?
     let id: Int64?
     let originalTitle: String?
+    let originalName: String?
     let originalLanguage: String?
     let title: String?
+    let name: String?
     let backdropPath: String?
     let popularity: Double?
     let voteCount: Int64?
