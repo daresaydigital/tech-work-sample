@@ -29,7 +29,7 @@ class TrendingListViewModel {
     // MARK: - Functions
 
     func fetchTrendings(
-        of param: (mediaType: MediaType, timeWindow: TimeWindow),
+        of param: TrendingParams,
         completion: @escaping (TrendingListViewModel?, ServiceError?) -> ()
     ) {
         apiLoader.loadAPIRequest(requestData: param) { [weak self] trendingResponse, error in

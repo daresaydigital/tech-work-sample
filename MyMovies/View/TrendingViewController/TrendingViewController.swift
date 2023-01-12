@@ -33,7 +33,9 @@ class TrendingViewController: UIViewController, UICollectionViewDelegate, UIColl
 
         trendingView?.renderLoadingState()
 
-        trendingListViewModel.fetchTrendings(of: (MediaType.all, TimeWindow.day)) { [weak self] trendingListViewModel, error in
+        trendingListViewModel.fetchTrendings(
+            of: TrendingParams(mediaType: .all, timeWindow: .day)
+        ) { [weak self] trendingListViewModel, error in
             guard let self = self else {
                 return
             }

@@ -19,9 +19,14 @@ enum TimeWindow: String {
     case week = "week"
 }
 
+struct TrendingParams {
+    let mediaType: MediaType
+    let timeWindow: TimeWindow
+}
+
 struct TrendingAPI: APIHandler {
-    func makeRequest(from params: (mediaType: MediaType, timeWindow: TimeWindow)) -> URLRequest? {
-        let urlString = APIPath().fetchTrending(mediaType: params.mediaType.rawValue, timeWindow: params.timeWindow.rawValue)
+    func makeRequest(from params: TrendingParams) -> URLRequest? {
+        let urlString = APIPath().fetchTrending(with: params)
         if let url = URL(string: urlString) {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "GET"
