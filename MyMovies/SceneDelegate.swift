@@ -19,8 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let navigationController = UINavigationController()
 
-        let coordinator = MainCoordinator()
-        coordinator.navigationController = navigationController
+        let coordinator = MainCoordinator(navigationController: navigationController)
 
         let window = UIWindow(frame: windowScene.coordinateSpace.bounds)
 

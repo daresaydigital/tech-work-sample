@@ -8,7 +8,12 @@
 import UIKit
 
 class MainCoordinator: Coordinator {
-    var navigationController: UINavigationController?
+
+    let navigationController: UINavigationController
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
 
     func start() {
         let api = TrendingAPI()
@@ -23,6 +28,6 @@ class MainCoordinator: Coordinator {
             topRatedViewController: topRatedViewController
         )
 
-        navigationController?.setViewControllers([viewController], animated: false)
+        navigationController.setViewControllers([viewController], animated: false)
     }
 }
