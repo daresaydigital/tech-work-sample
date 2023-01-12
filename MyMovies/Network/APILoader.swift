@@ -17,35 +17,39 @@ struct APILoader<T: APIHandler> {
     }
 
     func loadAPIRequest(requestData: T.RequestDataType, completion: @escaping (T.ResponseDataType?, ServiceError?) -> ()) {
-        if let urlRequest = apiHandler.makeRequest(from: requestData) {
-            urlSession.dataTask(with: urlRequest) { data, response, error in
-                if let httpResponse = response as? HTTPURLResponse {
-                    guard error == nil,
-                          let responseData = data else {
-                        completion(
-                            nil,
-                            ServiceError(message: "Service Error: \(error?.localizedDescription ?? "Unknow Error")")
-                        )
-                        return
-                    }
-
-                    do {
-                        let parsedResponse = try self.apiHandler.parseResponse(data: responseData, response: httpResponse)
-                        completion(parsedResponse, nil)
-                    } catch {
-                        if let error = error as? ServiceError {
-                            completion(nil, error)
-                        } else {
-                            completion(
-                                nil,
-                                ServiceError(message: "Error when decoding json: \(error.localizedDescription)")
-                            )
-                        }
-                    }
-                } else {
-                    completion(nil, ServiceError(message: "Error when performing request"))
-                }
-            }.resume()
+        guard let urlRequest = apiHandler.makeRequest(from: requestData) else {
+            completion(nil, ServiceError(message: "Error when performing request"))
+            return
         }
+
+        urlSession.dataTask(with: urlRequest) { data, response, error in
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(nil, ServiceError(message: "Error when performing request"))
+                return
+            }
+
+            guard error == nil,
+                  let responseData = data else {
+                    completion(
+                        nil,
+                        ServiceError(message: "Service Error: \(error?.localizedDescription ?? "Unknow Error")")
+                    )
+                    return
+                }
+
+            do {
+                let parsedResponse = try self.apiHandler.parseResponse(data: responseData, response: httpResponse)
+                completion(parsedResponse, nil)
+            } catch {
+                if error is ServiceError {
+                    completion(nil, error as? ServiceError)
+                } else {
+                    completion(
+                        nil,
+                        ServiceError(message: "Error when decoding json: \(error.localizedDescription)")
+                    )
+                }
+            }
+        }.resume()
     }
 }
