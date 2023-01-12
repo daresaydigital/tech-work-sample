@@ -19,12 +19,13 @@ class TrendingView: UIView {
     }()
 
     private lazy var trendingCollectionView: UICollectionView = {
-        let layoutConfig = UICollectionLayoutListConfiguration(appearance: UICollectionLayoutListConfiguration.Appearance.insetGrouped)
-        let listLayout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
-        let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: listLayout)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 154, height: 310)
+        let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .red
-        collectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: "TrendingCollectionViewCell")
+        collectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: TrendingCollectionViewCell.identifier)
         return collectionView
     }()
 

@@ -39,7 +39,7 @@ class HomeView: UIView {
             trendingView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             trendingView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             trendingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            trendingView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            trendingView.heightAnchor.constraint(equalToConstant: 300)
         ])
 
 //        setupTopRatedView()

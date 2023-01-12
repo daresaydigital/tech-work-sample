@@ -9,6 +9,8 @@ import UIKit
 
 class TrendingCollectionViewCell: UICollectionViewCell {
 
+    static let identifier = "TrendingCollectionViewCell"
+
     private lazy var posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -20,7 +22,8 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.numberOfLines = 3
         return label
     }()
 
@@ -44,9 +47,9 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         addSubview(posterImageView)
 
         NSLayoutConstraint.activate([
-            posterImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            posterImageView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            posterImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            posterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            posterImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             posterImageView.widthAnchor.constraint(equalToConstant: 154),
             posterImageView.heightAnchor.constraint(equalToConstant: 231)
         ])
@@ -58,10 +61,10 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         addSubview(titleLabel)
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 5),
-            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -5),
-            titleLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 5),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
 
