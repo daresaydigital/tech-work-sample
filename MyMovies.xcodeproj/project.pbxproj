@@ -27,7 +27,6 @@
 		7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44C296E2CA80054954E /* TrendingResult.swift */; };
 		7D35A450296E31C30054954E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44F296E31C30054954E /* HomeViewController.swift */; };
 		7D35A453296E32EE0054954E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A452296E32EE0054954E /* TrendingViewController.swift */; };
-		7D35A458296E35D70054954E /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A457296E35D70054954E /* TopRatedViewController.swift */; };
 		7D35A45B296E36DD0054954E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45A296E36DD0054954E /* HomeView.swift */; };
 		7D35A45F296E3D360054954E /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45E296E3D360054954E /* TrendingView.swift */; };
 		7D35A461296E3D5F0054954E /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */; };
@@ -36,6 +35,8 @@
 		7D35A467296E4C170054954E /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A466296E4C170054954E /* UIImageLoader.swift */; };
 		7D35A46A296E4C820054954E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A469296E4C820054954E /* ImageLoader.swift */; };
 		7D35A46C296E4D090054954E /* UIImageView+ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A46B296E4D090054954E /* UIImageView+ImageLoader.swift */; };
+		7D35A46E296F98C00054954E /* TopRatedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A46D296F98C00054954E /* TopRatedListViewModel.swift */; };
+		7D35A470296F99430054954E /* TopRatedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A46F296F99430054954E /* TopRatedAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +81,6 @@
 		7D35A44C296E2CA80054954E /* TrendingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResult.swift; sourceTree = "<group>"; };
 		7D35A44F296E31C30054954E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7D35A452296E32EE0054954E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
-		7D35A457296E35D70054954E /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		7D35A45A296E36DD0054954E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7D35A45E296E3D360054954E /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 		7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -89,6 +89,8 @@
 		7D35A466296E4C170054954E /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
 		7D35A469296E4C820054954E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		7D35A46B296E4D090054954E /* UIImageView+ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageLoader.swift"; sourceTree = "<group>"; };
+		7D35A46D296F98C00054954E /* TopRatedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedListViewModel.swift; sourceTree = "<group>"; };
+		7D35A46F296F99430054954E /* TopRatedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			children = (
 				7D35A468296E4C1E0054954E /* ImageLoader */,
 				7D35A446296E2A390054954E /* TrendingAPI.swift */,
+				7D35A46F296F99430054954E /* TopRatedAPI.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				7D35A449296E2C870054954E /* DTO */,
 				7D35A462296E3E410054954E /* TrendingListViewModel.swift */,
 				7D35A464296E45170054954E /* TrendingViewModel.swift */,
+				7D35A46D296F98C00054954E /* TopRatedListViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				7D35A459296E36C60054954E /* Home */,
-				7D35A456296E35C60054954E /* TopRatedViewController */,
 				7D35A451296E32DC0054954E /* TrendingViewController */,
 			);
 			path = View;
@@ -238,14 +241,6 @@
 				7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */,
 			);
 			path = TrendingViewController;
-			sourceTree = "<group>";
-		};
-		7D35A456296E35C60054954E /* TopRatedViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7D35A457296E35D70054954E /* TopRatedViewController.swift */,
-			);
-			path = TopRatedViewController;
 			sourceTree = "<group>";
 		};
 		7D35A459296E36C60054954E /* Home */ = {
@@ -410,7 +405,6 @@
 				7D35A465296E45170054954E /* TrendingViewModel.swift in Sources */,
 				7D35A45B296E36DD0054954E /* HomeView.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
-				7D35A458296E35D70054954E /* TopRatedViewController.swift in Sources */,
 				7D35A463296E3E410054954E /* TrendingListViewModel.swift in Sources */,
 				7D35A46A296E4C820054954E /* ImageLoader.swift in Sources */,
 				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
@@ -421,6 +415,8 @@
 				7D35A440296E29280054954E /* ResponseHandler+Extension.swift in Sources */,
 				7D35A404296E22430054954E /* AppDelegate.swift in Sources */,
 				7D35A406296E22430054954E /* SceneDelegate.swift in Sources */,
+				7D35A46E296F98C00054954E /* TopRatedListViewModel.swift in Sources */,
+				7D35A470296F99430054954E /* TopRatedAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
