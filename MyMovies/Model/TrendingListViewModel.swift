@@ -53,7 +53,7 @@ class TrendingListViewModel {
                 }
             } else {
                 DispatchQueue.main.async {
-                    completion(nil, ServiceError(message: "Service ErrorL Unknow Error"))
+                    completion(nil, ServiceError(message: "Service Error: Unknow Error"))
                 }
             }
         }
