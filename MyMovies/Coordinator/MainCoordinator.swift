@@ -16,12 +16,15 @@ class MainCoordinator: Coordinator {
     }
 
     func start() {
-        let api = TrendingAPI()
-        let apiLoader = APILoader(apiHandler: api)
-        let trendingViewModel = TrendingListViewModel(apiLoader: apiLoader)
+        let apiTrending = TrendingAPI()
+        let apiLoaderTrending = APILoader(apiHandler: apiTrending)
+        let trendingViewModel = TrendingListViewModel(apiLoader: apiLoaderTrending)
         let trendingViewController = TrendingViewController(trendingListViewModel: trendingViewModel)
 
-        let topRatedViewController = TopRatedViewController()
+        let apiTopRated = TopRatedAPI()
+        let apiLoaderTopRated = APILoader(apiHandler: apiTopRated)
+        let topRatedListViewModel = TopRatedListViewModel(apiLoader: apiLoaderTopRated)
+        let topRatedViewController = TrendingViewController(topRatedListViewModel: topRatedListViewModel)
 
         let viewController = HomeViewController(
             trendingViewController: trendingViewController,

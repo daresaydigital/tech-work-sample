@@ -10,11 +10,14 @@ import UIKit
 class HomeViewController: UIViewController {
 
     private var trendingViewController: TrendingViewController
-    private var topRatedViewController: TopRatedViewController
+    private var topRatedViewController: TrendingViewController
 
     private var homeView: HomeView? = nil
 
-    init(trendingViewController: TrendingViewController, topRatedViewController: TopRatedViewController) {
+    init(
+        trendingViewController: TrendingViewController,
+        topRatedViewController: TrendingViewController
+    ) {
         self.trendingViewController = trendingViewController
         self.topRatedViewController = topRatedViewController
         super.init(nibName: nil, bundle: nil)

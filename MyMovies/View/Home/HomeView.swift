@@ -10,11 +10,14 @@ import UIKit
 class HomeView: UIView {
 
     private var trendingView: UIView
-//    private var topRatedView: UIView
+    private var topRatedView: UIView
 
-    init(trendingViewController: TrendingViewController, topRatedViewController: TopRatedViewController) {
+    init(
+        trendingViewController: TrendingViewController,
+        topRatedViewController: TrendingViewController
+    ) {
         self.trendingView = trendingViewController.view
-//        self.topRatedView = topRatedViewController.view
+        self.topRatedView = topRatedViewController.view
         super.init(frame: CGRect())
 
         setup()
@@ -42,17 +45,19 @@ class HomeView: UIView {
             trendingView.heightAnchor.constraint(equalToConstant: 300)
         ])
 
-//        setupTopRatedView()
+        setupTopRatedView()
     }
 
-//    private func setupTopRatedView() {
-//        addSubview(topRatedView)
-//
-//        NSLayoutConstraint.activate([
-//            topRatedView.topAnchor.constraint(equalTo: trendingView.bottomAnchor, constant: 20),
-//            topRatedView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-//            topRatedView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-//            topRatedView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
-//        ])
-//    }
+    private func setupTopRatedView() {
+        addSubview(topRatedView)
+
+        topRatedView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            topRatedView.topAnchor.constraint(equalTo: trendingView.bottomAnchor, constant: 20),
+            topRatedView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 4),
+            topRatedView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -4),
+            topRatedView.heightAnchor.constraint(equalToConstant: 300)
+        ])
+    }
 }
