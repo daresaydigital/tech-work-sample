@@ -12,7 +12,6 @@ class TrendingView: UIView {
     private lazy var trendingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Trending"
         label.textColor = .label
         label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
@@ -141,9 +140,11 @@ class TrendingView: UIView {
         self.errorLabel.isHidden = false
     }
 
-    func renderSuccessState() {
+    func renderSuccessState(with title: String) {
         self.activityIndicator.stopAnimating()
         self.errorLabel.isHidden = true
+        self.trendingLabel.isHidden = false
+        self.trendingLabel.text = title
         self.trendingCollectionView.isHidden = false
         self.trendingCollectionView.reloadData()
     }

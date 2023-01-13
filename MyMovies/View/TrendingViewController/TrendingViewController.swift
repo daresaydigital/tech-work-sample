@@ -10,10 +10,12 @@ import UIKit
 class TrendingViewController: UIViewController {
 
     private var trendingView: TrendingView? = nil
-    private var trendingListViewModel: TrendingListViewModel
+    private var trendingListViewModel: TrendingListViewModel?
+    private var topRatedListViewModel: TopRatedListViewModel?
 
-    init(trendingListViewModel: TrendingListViewModel) {
+    init(trendingListViewModel: TrendingListViewModel? = nil, topRatedListViewModel: TopRatedListViewModel? = nil) {
         self.trendingListViewModel = trendingListViewModel
+        self.topRatedListViewModel = topRatedListViewModel
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -33,7 +35,7 @@ class TrendingViewController: UIViewController {
 
         trendingView?.renderLoadingState()
 
-        trendingListViewModel.fetchTrendings(
+        trendingListViewModel?.fetchTrendings(
             of: TrendingParams(mediaType: .all, timeWindow: .day)
         ) { [weak self] trendingListViewModel, error in
             guard let self = self else {
@@ -44,7 +46,20 @@ class TrendingViewController: UIViewController {
                 self.trendingView?.renderErrorState()
             } else if let trendingListViewModel = trendingListViewModel {
                 self.trendingListViewModel = trendingListViewModel
-                self.trendingView?.renderSuccessState()
+                self.trendingView?.renderSuccessState(with: trendingListViewModel.titlePage)
+            }
+        }
+
+        topRatedListViewModel?.fetchTopRated { [weak self] topRatedListViewModel, error in
+            guard let self = self else {
+                return
+            }
+
+            if error != nil {
+                self.trendingView?.renderErrorState()
+            } else if let topRatedListViewModel = topRatedListViewModel {
+                self.topRatedListViewModel = topRatedListViewModel
+                self.trendingView?.renderSuccessState(with: topRatedListViewModel.titlePage)
             }
         }
     }
@@ -52,11 +67,13 @@ class TrendingViewController: UIViewController {
 
 extension TrendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.trendingListViewModel.numberOfRowsInSection
+        return self.trendingListViewModel?.numberOfRowsInSection ??
+                self.topRatedListViewModel?.numberOfRowsInSection ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let trending = trendingListViewModel.getTrending(indexPath.row)
+        guard let trending = trendingListViewModel?.getTrending(indexPath.row) ??
+                topRatedListViewModel?.getTrending(indexPath.row) else { return UICollectionViewCell() }
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as? TrendingCollectionViewCell
         cell?.setupData(model: trending)
