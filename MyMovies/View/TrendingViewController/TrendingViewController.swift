@@ -36,7 +36,7 @@ class TrendingViewController: UIViewController {
         trendingView?.renderLoadingState()
 
         trendingListViewModel?.fetchTrendings(
-            of: TrendingParams(mediaType: .all, timeWindow: .day)
+            of: TrendingParams(mediaType: .movie, timeWindow: .day)
         ) { [weak self] trendingListViewModel, error in
             guard let self = self else {
                 return
