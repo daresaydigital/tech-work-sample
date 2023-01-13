@@ -36,6 +36,11 @@ struct APIPath {
         return applyApiKey(url)
     }
 
+    func fetchTopRated() -> String {
+        let url = "\(baseURL)/\(apiVersion())/movie/top_rated"
+        return applyApiKey(url)
+    }
+
     private func applyApiKey(_ url: String) -> String {
         return "\(url)?api_key=\(apiKey)"
     }
