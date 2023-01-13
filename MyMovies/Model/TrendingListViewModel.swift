@@ -20,6 +20,8 @@ class TrendingListViewModel {
         self.trendings.count
     }
 
+    var titlePage: String = "Trending"
+
     // MARK: - Initializer
 
     init(apiLoader: APILoader<TrendingAPI>) {
