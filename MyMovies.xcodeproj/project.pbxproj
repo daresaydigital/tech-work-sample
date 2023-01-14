@@ -55,6 +55,8 @@
 		7DF3DD1B2972E23B007BF9A3 /* TrendingViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1A2972E23B007BF9A3 /* TrendingViewModelSpec.swift */; };
 		7DF3DD1E2972E3A7007BF9A3 /* trending-result.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */; };
 		7DF3DD202972E641007BF9A3 /* trending-result-nullable.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */; };
+		7DF3DD232972E725007BF9A3 /* MainCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD222972E725007BF9A3 /* MainCoordinatorSpec.swift */; };
+		7DF3DD252972E7AC007BF9A3 /* MainCoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		7DF3DD1A2972E23B007BF9A3 /* TrendingViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModelSpec.swift; sourceTree = "<group>"; };
 		7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "trending-result.json"; sourceTree = "<group>"; };
 		7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "trending-result-nullable.json"; sourceTree = "<group>"; };
+		7DF3DD222972E725007BF9A3 /* MainCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorSpec.swift; sourceTree = "<group>"; };
+		7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 		7D35A419296E22450054954E /* MyMoviesTests */ = {
 			isa = PBXGroup;
 			children = (
+				7DF3DD212972E6EE007BF9A3 /* Coordinator */,
 				7DF3DD012972DB63007BF9A3 /* Model */,
 				7D35A4822972D5B00054954E /* Mocks */,
 			);
@@ -321,6 +326,7 @@
 				7DF3DD0E2972DEDE007BF9A3 /* TopRated */,
 				7D35A4832972D5BE0054954E /* Trending */,
 				7D35A4862972D6D40054954E /* MockURLProtocol.swift */,
+				7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -370,6 +376,14 @@
 				7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */,
 			);
 			path = TrendingResult;
+			sourceTree = "<group>";
+		};
+		7DF3DD212972E6EE007BF9A3 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7DF3DD222972E725007BF9A3 /* MainCoordinatorSpec.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,7 +566,9 @@
 				7DF3DD0D2972DE25007BF9A3 /* TopRatedListViewModelSpec.swift in Sources */,
 				7DF3DD1B2972E23B007BF9A3 /* TrendingViewModelSpec.swift in Sources */,
 				7DF3DD142972DF75007BF9A3 /* MovieViewModelSpec.swift in Sources */,
+				7DF3DD232972E725007BF9A3 /* MainCoordinatorSpec.swift in Sources */,
 				7D35A4872972D6D40054954E /* MockURLProtocol.swift in Sources */,
+				7DF3DD252972E7AC007BF9A3 /* MainCoordinatorMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
