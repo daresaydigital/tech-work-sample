@@ -7,15 +7,22 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController {
+class TrendingViewController: UIViewController, Coordinating {
+
+    var coordinator: Coordinator?
 
     private var trendingView: TrendingView? = nil
     private var trendingListViewModel: TrendingListViewModel?
     private var topRatedListViewModel: TopRatedListViewModel?
 
-    init(trendingListViewModel: TrendingListViewModel? = nil, topRatedListViewModel: TopRatedListViewModel? = nil) {
+    init(
+        trendingListViewModel: TrendingListViewModel? = nil,
+        topRatedListViewModel: TopRatedListViewModel? = nil,
+        coordinator: Coordinator
+    ) {
         self.trendingListViewModel = trendingListViewModel
         self.topRatedListViewModel = topRatedListViewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -79,5 +86,13 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
         cell?.setupData(model: trending)
 
         return cell ?? UICollectionViewCell()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let trending = trendingListViewModel?.getTrending(indexPath.row) ??
+                topRatedListViewModel?.getTrending(indexPath.row),
+        let movieId = trending.movieId else { return }
+
+        coordinator?.eventOccurred(with: .movieClicked, parameters: movieId)
     }
 }

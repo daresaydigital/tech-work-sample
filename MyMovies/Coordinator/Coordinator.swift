@@ -10,6 +10,7 @@ import UIKit
 protocol Coordinator {
     var navigationController: UINavigationController { get }
 
+    func eventOccurred(with type: Event, parameters params: Any?)
     func start()
 }
 

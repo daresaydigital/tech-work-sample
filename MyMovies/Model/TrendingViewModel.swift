@@ -11,17 +11,15 @@ class TrendingViewModel {
     private var trending: TrendingResult
 
     var title: String {
-        if let title = trending.originalTitle {
-            return title
-        } else if let name = trending.name {
-            return name
-        } else {
-            return ""
-        }
+        self.trending.originalTitle ?? self.trending.name ?? ""
     }
 
     var posterImageURL: URL? {
         URL(string: APIPath().fetchImage(width: "w154", imagePath: trending.posterPath ?? ""))
+    }
+
+    var movieId: Int64? {
+        self.trending.id
     }
 
     init(trending: TrendingResult) {

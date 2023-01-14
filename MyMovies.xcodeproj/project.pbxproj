@@ -40,6 +40,7 @@
 		7D35A476297207C20054954E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A475297207C20054954E /* Movie.swift */; };
 		7D35A478297209250054954E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A477297209250054954E /* MovieViewModel.swift */; };
 		7D35A47A29720A810054954E /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A47929720A810054954E /* MovieAPI.swift */; };
+		7D35A47C29720CD40054954E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A47B29720CD40054954E /* Event.swift */; };
 		7D35A47F29720DB50054954E /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A47E29720DB50054954E /* MovieViewController.swift */; };
 		7D35A48129720F0E0054954E /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A48029720F0E0054954E /* MovieView.swift */; };
 /* End PBXBuildFile section */
@@ -99,6 +100,7 @@
 		7D35A475297207C20054954E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		7D35A477297209250054954E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		7D35A47929720A810054954E /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
+		7D35A47B29720CD40054954E /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7D35A47E29720DB50054954E /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		7D35A48029720F0E0054954E /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +189,7 @@
 			children = (
 				7D35A434296E233F0054954E /* MainCoordinator.swift */,
 				7D35A436296E23740054954E /* Coordinator.swift */,
+				7D35A47B29720CD40054954E /* Event.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				7D35A463296E3E410054954E /* TrendingListViewModel.swift in Sources */,
 				7D35A46A296E4C820054954E /* ImageLoader.swift in Sources */,
 				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
+				7D35A47C29720CD40054954E /* Event.swift in Sources */,
 				7D35A46C296E4D090054954E /* UIImageView+ImageLoader.swift in Sources */,
 				7D35A467296E4C170054954E /* UIImageLoader.swift in Sources */,
 				7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */,
