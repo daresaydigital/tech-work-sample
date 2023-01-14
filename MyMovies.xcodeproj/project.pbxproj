@@ -38,6 +38,7 @@
 		7D35A46E296F98C00054954E /* TopRatedListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A46D296F98C00054954E /* TopRatedListViewModel.swift */; };
 		7D35A470296F99430054954E /* TopRatedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A46F296F99430054954E /* TopRatedAPI.swift */; };
 		7D35A476297207C20054954E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A475297207C20054954E /* Movie.swift */; };
+		7D35A478297209250054954E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A477297209250054954E /* MovieViewModel.swift */; };
 		7D35A47A29720A810054954E /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A47929720A810054954E /* MovieAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		7D35A46D296F98C00054954E /* TopRatedListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedListViewModel.swift; sourceTree = "<group>"; };
 		7D35A46F296F99430054954E /* TopRatedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedAPI.swift; sourceTree = "<group>"; };
 		7D35A475297207C20054954E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7D35A477297209250054954E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		7D35A47929720A810054954E /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +218,7 @@
 				7D35A462296E3E410054954E /* TrendingListViewModel.swift */,
 				7D35A464296E45170054954E /* TrendingViewModel.swift */,
 				7D35A46D296F98C00054954E /* TopRatedListViewModel.swift */,
+				7D35A477297209250054954E /* MovieViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				7D35A465296E45170054954E /* TrendingViewModel.swift in Sources */,
 				7D35A45B296E36DD0054954E /* HomeView.swift in Sources */,
 				7D35A437296E23740054954E /* Coordinator.swift in Sources */,
+				7D35A478297209250054954E /* MovieViewModel.swift in Sources */,
 				7D35A47A29720A810054954E /* MovieAPI.swift in Sources */,
 				7D35A463296E3E410054954E /* TrendingListViewModel.swift in Sources */,
 				7D35A46A296E4C820054954E /* ImageLoader.swift in Sources */,
