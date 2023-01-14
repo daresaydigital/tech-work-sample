@@ -52,6 +52,9 @@
 		7DF3DD142972DF75007BF9A3 /* MovieViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD132972DF75007BF9A3 /* MovieViewModelSpec.swift */; };
 		7DF3DD182972E12C007BF9A3 /* movie-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD162972E12C007BF9A3 /* movie-success.json */; };
 		7DF3DD192972E12C007BF9A3 /* movie-error.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD172972E12C007BF9A3 /* movie-error.json */; };
+		7DF3DD1B2972E23B007BF9A3 /* TrendingViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1A2972E23B007BF9A3 /* TrendingViewModelSpec.swift */; };
+		7DF3DD1E2972E3A7007BF9A3 /* trending-result.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */; };
+		7DF3DD202972E641007BF9A3 /* trending-result-nullable.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,9 @@
 		7DF3DD132972DF75007BF9A3 /* MovieViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModelSpec.swift; sourceTree = "<group>"; };
 		7DF3DD162972E12C007BF9A3 /* movie-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "movie-success.json"; sourceTree = "<group>"; };
 		7DF3DD172972E12C007BF9A3 /* movie-error.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "movie-error.json"; sourceTree = "<group>"; };
+		7DF3DD1A2972E23B007BF9A3 /* TrendingViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModelSpec.swift; sourceTree = "<group>"; };
+		7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "trending-result.json"; sourceTree = "<group>"; };
+		7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "trending-result-nullable.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -310,6 +316,7 @@
 		7D35A4822972D5B00054954E /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				7DF3DD1C2972E36E007BF9A3 /* TrendingResult */,
 				7DF3DD152972E0F6007BF9A3 /* Movie */,
 				7DF3DD0E2972DEDE007BF9A3 /* TopRated */,
 				7D35A4832972D5BE0054954E /* Trending */,
@@ -333,6 +340,7 @@
 				7D35A4882972D70E0054954E /* TrendingListViewModelSpec.swift */,
 				7DF3DD0C2972DE25007BF9A3 /* TopRatedListViewModelSpec.swift */,
 				7DF3DD132972DF75007BF9A3 /* MovieViewModelSpec.swift */,
+				7DF3DD1A2972E23B007BF9A3 /* TrendingViewModelSpec.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +361,15 @@
 				7DF3DD162972E12C007BF9A3 /* movie-success.json */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		7DF3DD1C2972E36E007BF9A3 /* TrendingResult */ = {
+			isa = PBXGroup;
+			children = (
+				7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */,
+				7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */,
+			);
+			path = TrendingResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,8 +485,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DF3DD202972E641007BF9A3 /* trending-result-nullable.json in Resources */,
 				7DF3DD0B2972DC3B007BF9A3 /* trending-success.json in Resources */,
 				7DF3DD102972DEED007BF9A3 /* top-rated-success.json in Resources */,
+				7DF3DD1E2972E3A7007BF9A3 /* trending-result.json in Resources */,
 				7DF3DD182972E12C007BF9A3 /* movie-success.json in Resources */,
 				7DF3DD192972E12C007BF9A3 /* movie-error.json in Resources */,
 				7DF3DD092972DC32007BF9A3 /* trending-error.json in Resources */,
@@ -531,6 +550,7 @@
 			files = (
 				7D35A4892972D70E0054954E /* TrendingListViewModelSpec.swift in Sources */,
 				7DF3DD0D2972DE25007BF9A3 /* TopRatedListViewModelSpec.swift in Sources */,
+				7DF3DD1B2972E23B007BF9A3 /* TrendingViewModelSpec.swift in Sources */,
 				7DF3DD142972DF75007BF9A3 /* MovieViewModelSpec.swift in Sources */,
 				7D35A4872972D6D40054954E /* MockURLProtocol.swift in Sources */,
 			);

@@ -32,7 +32,7 @@ struct APIPath {
     }
 
     func fetchImage(width: String, imagePath: String) -> String {
-        let url = "\(baseImageURL)/\(width)/\(imagePath)"
+        let url = "\(baseImageURL)/\(width)\(imagePath)"
         return applyApiKey(url)
     }
 
