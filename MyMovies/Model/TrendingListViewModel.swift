@@ -14,6 +14,7 @@ class TrendingListViewModel {
     private var trendings: [TrendingViewModel] = []
     private var selected = 0
 
+    private let favoriteRepository: FavoriteRepository
     private let apiLoader: APILoader<TrendingAPI>
 
     var numberOfRowsInSection: Int {
@@ -24,8 +25,9 @@ class TrendingListViewModel {
 
     // MARK: - Initializer
 
-    init(apiLoader: APILoader<TrendingAPI>) {
+    init(apiLoader: APILoader<TrendingAPI>, favoriteRepository: FavoriteRepository = FavoriteRepository()) {
         self.apiLoader = apiLoader
+        self.favoriteRepository = favoriteRepository
     }
 
     // MARK: - Functions
@@ -61,5 +63,11 @@ class TrendingListViewModel {
 
     func getTrending(_ index: Int) -> TrendingViewModel {
         return self.trendings[index]
+    }
+
+    func insertFavorite(for movieId: Int64) {
+        guard let trending = self.trendings.first(where: { $0.movieId == movieId }) else { return }
+        favoriteRepository.insetOrUpdateMovie(for: movieId, trending)
+        print(favoriteRepository.getAllFavorites())
     }
 }

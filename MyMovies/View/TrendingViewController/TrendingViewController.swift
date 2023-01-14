@@ -85,6 +85,10 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as? TrendingCollectionViewCell
         cell?.setupData(model: trending)
 
+        let swipeUpsideDown = UISwipeGestureRecognizer(target: self, action: #selector(favorite(_:)))
+        swipeUpsideDown.direction = .down
+        cell?.addGestureRecognizer(swipeUpsideDown)
+
         return cell ?? UICollectionViewCell()
     }
 
@@ -94,5 +98,16 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
         let movieId = trending.movieId else { return }
 
         coordinator?.eventOccurred(with: Event.movieClicked, parameters: movieId)
+    }
+
+    @objc func favorite(_ sender: UISwipeGestureRecognizer) {
+        guard let cell = sender.view as? TrendingCollectionViewCell else {
+            return
+        }
+
+        cell.animateFavorite()
+
+        self.trendingListViewModel?.insertFavorite(for: cell.getMovieId())
+        self.topRatedListViewModel?.insertFavorite(for: cell.getMovieId())
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrendingResult: Decodable {
+struct TrendingResult: Codable {
     let posterPath: String?
     let adult: Bool?
     let overview: String?

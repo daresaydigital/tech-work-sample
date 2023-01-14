@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FavoriteDelegate: AnyObject {
+    func favorite(_ row: Int)
+}
+
 class TrendingView: UIView {
 
     private lazy var trendingLabel: UILabel = {
@@ -145,5 +149,10 @@ class TrendingView: UIView {
         self.trendingLabel.text = title
         self.trendingCollectionView.isHidden = false
         self.trendingCollectionView.reloadData()
+    }
+
+    func favoriteTrending(for row: Int) {
+        print("Yaaay!")
+//        self.delegate.favorite(row)
     }
 }

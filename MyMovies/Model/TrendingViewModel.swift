@@ -25,4 +25,8 @@ class TrendingViewModel {
     init(trending: TrendingResult) {
         self.trending = trending
     }
+
+    func getTrendingResult() -> TrendingResult {
+        return trending
+    }
 }
