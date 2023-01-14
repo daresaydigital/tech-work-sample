@@ -22,8 +22,8 @@ final class TrendingListViewModelSpec: XCTestCase {
         expectation = expectation(description: "Expectation")
     }
 
-    func testSuccessCall() {
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: "trending-success", ofType: "json") else {
+    private func getMockData(for path: String) -> Data? {
+        guard let pathString = Bundle(for: type(of: self)).path(forResource: path, ofType: "json") else {
             fatalError("Mock json not found")
         }
 
@@ -31,7 +31,11 @@ final class TrendingListViewModelSpec: XCTestCase {
             fatalError("Mock json can not be converted to String")
         }
 
-        let data = jsonString.data(using: .utf8)
+        return jsonString.data(using: .utf8)
+    }
+
+    func testSuccessCall() {
+        let data = getMockData(for: "trending-success")
 
         MockURLProtocol.requestHandler = { request in
             guard let url = request.url, url == self.apiURL else {
@@ -45,9 +49,32 @@ final class TrendingListViewModelSpec: XCTestCase {
         let viewModel = TrendingListViewModel(apiLoader: self.apiLoader)
 
         viewModel.fetchTrendings(of: TrendingParams(mediaType: .movie, timeWindow: .day)) { viewModel, error in
+            XCTAssertNotNil(viewModel)
             XCTAssertEqual(viewModel?.numberOfRowsInSection, 20)
             XCTAssertEqual(viewModel?.titlePage, "Trending")
             XCTAssertEqual(viewModel?.getTrending(2).title, "Avatar: The Way of Water")
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 100.0)
+    }
+
+    func testErrorCall() {
+        let data = getMockData(for: "trending-error")
+
+        MockURLProtocol.requestHandler = { request in
+            guard let url = request.url, url == self.apiURL else {
+                fatalError("Trying to test a different URL")
+            }
+
+            let response = HTTPURLResponse(url: self.apiURL, statusCode: 400, httpVersion: nil, headerFields: nil)!
+            return (response, data)
+        }
+
+        let viewModel = TrendingListViewModel(apiLoader: self.apiLoader)
+
+        viewModel.fetchTrendings(of: TrendingParams(mediaType: .movie, timeWindow: .day)) { viewModel, error in
+            XCTAssertNotNil(error)
+            XCTAssertEqual(error?.message, "Error when communicating with API")
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: 100.0)
