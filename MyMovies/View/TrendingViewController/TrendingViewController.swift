@@ -93,6 +93,6 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
                 topRatedListViewModel?.getTrending(indexPath.row),
         let movieId = trending.movieId else { return }
 
-        coordinator?.eventOccurred(with: .movieClicked, parameters: movieId)
+        coordinator?.eventOccurred(with: Event.movieClicked, parameters: movieId)
     }
 }
