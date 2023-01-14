@@ -59,6 +59,8 @@
 		7DF3DD252972E7AC007BF9A3 /* MainCoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */; };
 		7DF3DD282972F5A4007BF9A3 /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD272972F5A4007BF9A3 /* FavoriteRepository.swift */; };
 		7DF3DD2B29730F28007BF9A3 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD2A29730F28007BF9A3 /* FavoriteViewModel.swift */; };
+		7DF3DD2E29731AAD007BF9A3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD2D29731AAD007BF9A3 /* Button.swift */; };
+		7DF3DD3129731FFE007BF9A3 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD3029731FFE007BF9A3 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorMock.swift; sourceTree = "<group>"; };
 		7DF3DD272972F5A4007BF9A3 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		7DF3DD2A29730F28007BF9A3 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		7DF3DD2D29731AAD007BF9A3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		7DF3DD3029731FFE007BF9A3 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,21 +282,23 @@
 		7D35A44E296E318E0054954E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7DF3DD2F29731FE1007BF9A3 /* Favorite */,
+				7DF3DD2C29731AA3007BF9A3 /* Button */,
 				7D35A459296E36C60054954E /* Home */,
-				7D35A47D29720D900054954E /* MovieViewController */,
-				7D35A451296E32DC0054954E /* TrendingViewController */,
+				7D35A47D29720D900054954E /* Movie */,
+				7D35A451296E32DC0054954E /* Trending */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		7D35A451296E32DC0054954E /* TrendingViewController */ = {
+		7D35A451296E32DC0054954E /* Trending */ = {
 			isa = PBXGroup;
 			children = (
 				7D35A452296E32EE0054954E /* TrendingViewController.swift */,
 				7D35A45E296E3D360054954E /* TrendingView.swift */,
 				7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */,
 			);
-			path = TrendingViewController;
+			path = Trending;
 			sourceTree = "<group>";
 		};
 		7D35A459296E36C60054954E /* Home */ = {
@@ -314,13 +320,13 @@
 			path = ImageLoader;
 			sourceTree = "<group>";
 		};
-		7D35A47D29720D900054954E /* MovieViewController */ = {
+		7D35A47D29720D900054954E /* Movie */ = {
 			isa = PBXGroup;
 			children = (
 				7D35A47E29720DB50054954E /* MovieViewController.swift */,
 				7D35A48029720F0E0054954E /* MovieView.swift */,
 			);
-			path = MovieViewController;
+			path = Movie;
 			sourceTree = "<group>";
 		};
 		7D35A4822972D5B00054954E /* Mocks */ = {
@@ -396,6 +402,22 @@
 			children = (
 				7DF3DD272972F5A4007BF9A3 /* FavoriteRepository.swift */,
 				7DF3DD2A29730F28007BF9A3 /* FavoriteViewModel.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		7DF3DD2C29731AA3007BF9A3 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				7DF3DD2D29731AAD007BF9A3 /* Button.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		7DF3DD2F29731FE1007BF9A3 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				7DF3DD3029731FFE007BF9A3 /* FavoriteViewController.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -562,6 +584,7 @@
 				7DF3DD2B29730F28007BF9A3 /* FavoriteViewModel.swift in Sources */,
 				7D35A43C296E28490054954E /* APIPath.swift in Sources */,
 				7D35A47C29720CD40054954E /* Event.swift in Sources */,
+				7DF3DD3129731FFE007BF9A3 /* FavoriteViewController.swift in Sources */,
 				7D35A46C296E4D090054954E /* UIImageView+ImageLoader.swift in Sources */,
 				7D35A467296E4C170054954E /* UIImageLoader.swift in Sources */,
 				7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */,
@@ -571,6 +594,7 @@
 				7D35A406296E22430054954E /* SceneDelegate.swift in Sources */,
 				7D35A46E296F98C00054954E /* TopRatedListViewModel.swift in Sources */,
 				7D35A470296F99430054954E /* TopRatedAPI.swift in Sources */,
+				7DF3DD2E29731AAD007BF9A3 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

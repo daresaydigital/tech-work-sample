@@ -125,7 +125,9 @@ class TrendingView: UIView {
 
         NSLayoutConstraint.activate([
             errorLabel.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
-            errorLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
+            errorLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            errorLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
     }
 
@@ -149,6 +151,35 @@ class TrendingView: UIView {
         self.trendingLabel.text = title
         self.trendingCollectionView.isHidden = false
         self.trendingCollectionView.reloadData()
+    }
+
+    func renderFavoriteState(with viewModel: FavoriteViewModel) {
+        self.activityIndicator.stopAnimating()
+        if viewModel.numberOfRowsInSection == 0 {
+            self.errorLabel.text = "You do not have any favorite, to select one just swipe down in a movie"
+
+            self.trendingCollectionView.isHidden = true
+            self.trendingLabel.isHidden = true
+            self.errorLabel.isHidden = false
+        } else {
+            self.errorLabel.isHidden = true
+            self.trendingLabel.isHidden = false
+            self.trendingLabel.text = viewModel.titlePage
+            self.trendingCollectionView.isHidden = false
+            self.trendingCollectionView.reloadData()
+
+            NSLayoutConstraint.activate([
+                self.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+                self.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+            ])
+
+            if let layout = self.trendingCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                layout.scrollDirection = .vertical
+                self.trendingCollectionView.collectionViewLayout = layout
+            }
+
+            self.layoutIfNeeded()
+        }
     }
 
     func favoriteTrending(for row: Int) {

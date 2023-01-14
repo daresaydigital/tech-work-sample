@@ -7,7 +7,9 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Coordinating {
+
+    var coordinator: Coordinator?
 
     private var trendingViewController: TrendingViewController
     private var topRatedViewController: TrendingViewController
@@ -16,10 +18,12 @@ class HomeViewController: UIViewController {
 
     init(
         trendingViewController: TrendingViewController,
-        topRatedViewController: TrendingViewController
+        topRatedViewController: TrendingViewController,
+        coordinator: Coordinator
     ) {
         self.trendingViewController = trendingViewController
         self.topRatedViewController = topRatedViewController
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -32,6 +36,7 @@ class HomeViewController: UIViewController {
             trendingViewController: trendingViewController,
             topRatedViewController: topRatedViewController
         )
+        self.homeView?.delegate = self
         view = homeView
     }
 
@@ -43,5 +48,11 @@ class HomeViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
+    }
+}
+
+extension HomeViewController: FavoriteButtonDelegate {
+    func favoriteMoviesButtonClicked() {
+        self.coordinator?.eventOccurred(with: .favoriteClicked, parameters: nil)
     }
 }

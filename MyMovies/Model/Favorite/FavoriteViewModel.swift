@@ -14,9 +14,11 @@ class FavoriteViewModel {
     private let favoriteRepository: FavoriteRepository
     private var favorites: [TrendingViewModel] = []
 
-    var numberOfRows: Int {
+    var numberOfRowsInSection: Int {
         self.favorites.count
     }
+
+    let titlePage: String = "Favorites"
 
     // MARK: - Initializer
 
@@ -35,5 +37,9 @@ class FavoriteViewModel {
                 completion(self)
             }
         }
+    }
+
+    func getTrending(_ index: Int) -> TrendingViewModel {
+        return self.favorites[index]
     }
 }

@@ -14,14 +14,17 @@ class TrendingViewController: UIViewController, Coordinating {
     private var trendingView: TrendingView? = nil
     private var trendingListViewModel: TrendingListViewModel?
     private var topRatedListViewModel: TopRatedListViewModel?
+    private var favoriteViewModel: FavoriteViewModel?
 
     init(
         trendingListViewModel: TrendingListViewModel? = nil,
         topRatedListViewModel: TopRatedListViewModel? = nil,
+        favoriteViewModel: FavoriteViewModel? = nil,
         coordinator: Coordinator
     ) {
         self.trendingListViewModel = trendingListViewModel
         self.topRatedListViewModel = topRatedListViewModel
+        self.favoriteViewModel = favoriteViewModel
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
@@ -69,18 +72,31 @@ class TrendingViewController: UIViewController, Coordinating {
                 self.trendingView?.renderSuccessState(with: topRatedListViewModel.titlePage)
             }
         }
+
+        favoriteViewModel?.fetchFavorites { [weak self] favoriteViewModel in
+            guard let self = self else {
+                return
+            }
+
+            if let favoriteViewModel = favoriteViewModel {
+                self.favoriteViewModel = favoriteViewModel
+                self.trendingView?.renderFavoriteState(with: favoriteViewModel)
+            }
+        }
     }
 }
 
 extension TrendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.trendingListViewModel?.numberOfRowsInSection ??
-                self.topRatedListViewModel?.numberOfRowsInSection ?? 0
+                self.topRatedListViewModel?.numberOfRowsInSection ??
+                self.favoriteViewModel?.numberOfRowsInSection ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let trending = trendingListViewModel?.getTrending(indexPath.row) ??
-                topRatedListViewModel?.getTrending(indexPath.row) else { return UICollectionViewCell() }
+                topRatedListViewModel?.getTrending(indexPath.row) ??
+                favoriteViewModel?.getTrending(indexPath.row) else { return UICollectionViewCell() }
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as? TrendingCollectionViewCell
         cell?.setupData(model: trending)
@@ -109,5 +125,6 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
 
         self.trendingListViewModel?.insertFavorite(for: cell.getMovieId())
         self.topRatedListViewModel?.insertFavorite(for: cell.getMovieId())
+//        self.favoriteViewModel?.removeFavorite(for: cell.getMovieId())
     }
 }

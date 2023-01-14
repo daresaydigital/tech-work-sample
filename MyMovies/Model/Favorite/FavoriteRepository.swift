@@ -26,7 +26,9 @@ class FavoriteRepository {
         if keys == nil {
             keys = [movieIdString]
         } else {
-            keys?.append(movieIdString)
+            if !keys!.contains(movieIdString) {
+                keys?.append(movieIdString)
+            }
         }
 
         saveValue(for: movieIdString, value: encoded)
@@ -36,7 +38,7 @@ class FavoriteRepository {
     func deleteMovie(for movieId: Int64) {
         let movieIdString = String(movieId)
 
-        var keys: [String]? = readValue(for: Key.keys.rawValue)
+        let keys: [String]? = readValue(for: Key.keys.rawValue)
         if var keys = keys,
            keys.contains(movieIdString) {
             keys.removeAll(where: { $0 == movieIdString })

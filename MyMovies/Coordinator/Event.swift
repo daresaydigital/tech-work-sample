@@ -8,5 +8,5 @@
 import Foundation
 
 enum Event {
-    case movieClicked
+    case movieClicked, favoriteClicked
 }

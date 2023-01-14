@@ -26,6 +26,13 @@ class MainCoordinator: Coordinator {
                 let viewController = MovieViewController(movieId: movieId, movieViewModel: viewModel)
 
                 navigationController.pushViewController(viewController, animated: true)
+
+            case .favoriteClicked:
+                let repository = FavoriteRepository()
+                let viewModel = FavoriteViewModel(favoriteRepository: repository)
+                let viewController = TrendingViewController(favoriteViewModel: viewModel, coordinator: self)
+
+                navigationController.pushViewController(viewController, animated: true)
         }
     }
 
@@ -48,7 +55,8 @@ class MainCoordinator: Coordinator {
 
         let viewController = HomeViewController(
             trendingViewController: trendingViewController,
-            topRatedViewController: topRatedViewController
+            topRatedViewController: topRatedViewController,
+            coordinator: self
         )
 
         navigationController.setViewControllers([viewController], animated: false)

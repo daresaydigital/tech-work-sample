@@ -7,10 +7,24 @@
 
 import UIKit
 
+protocol FavoriteButtonDelegate: AnyObject {
+    func favoriteMoviesButtonClicked()
+}
+
 class HomeView: UIView {
 
     private var trendingView: UIView
     private var topRatedView: UIView
+
+    private lazy var favoritesButton: Button = {
+        let button = Button()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Favorite Movies", for: .normal)
+        button.addTarget(self, action: #selector(favoriteMoviesButtonClicked), for: .touchUpInside)
+        return button
+    }()
+
+    weak var delegate: FavoriteButtonDelegate?
 
     init(
         trendingViewController: TrendingViewController,
@@ -30,6 +44,18 @@ class HomeView: UIView {
     private func setup() {
         self.backgroundColor = .systemBackground
 
+        setupFavoriteButton()
+    }
+
+    private func setupFavoriteButton() {
+        addSubview(favoritesButton)
+
+        NSLayoutConstraint.activate([
+            favoritesButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            favoritesButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            favoritesButton.widthAnchor.constraint(equalToConstant: 160)
+        ])
+
         setupTrendingView()
     }
 
@@ -39,7 +65,7 @@ class HomeView: UIView {
         trendingView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            trendingView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            trendingView.topAnchor.constraint(equalTo: favoritesButton.bottomAnchor, constant: 20),
             trendingView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 4),
             trendingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -4),
             trendingView.heightAnchor.constraint(equalToConstant: 300)
@@ -59,5 +85,9 @@ class HomeView: UIView {
             topRatedView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -4),
             topRatedView.heightAnchor.constraint(equalToConstant: 300)
         ])
+    }
+
+    @objc func favoriteMoviesButtonClicked() {
+        delegate?.favoriteMoviesButtonClicked()
     }
 }
