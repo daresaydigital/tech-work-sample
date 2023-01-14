@@ -45,7 +45,7 @@
 		7D35A48129720F0E0054954E /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A48029720F0E0054954E /* MovieView.swift */; };
 		7D35A4852972D6A00054954E /* trending-success.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D35A4842972D6A00054954E /* trending-success.json */; };
 		7D35A4872972D6D40054954E /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A4862972D6D40054954E /* MockURLProtocol.swift */; };
-		7D35A4892972D70E0054954E /* TrendingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A4882972D70E0054954E /* TrendingTests.swift */; };
+		7D35A4892972D70E0054954E /* TrendingListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A4882972D70E0054954E /* TrendingListViewModelSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,7 @@
 		7D35A48029720F0E0054954E /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		7D35A4842972D6A00054954E /* trending-success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "trending-success.json"; path = "../../../../../Documentos/trending-success.json"; sourceTree = "<group>"; };
 		7D35A4862972D6D40054954E /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
-		7D35A4882972D70E0054954E /* TrendingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTests.swift; sourceTree = "<group>"; };
+		7D35A4882972D70E0054954E /* TrendingListViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingListViewModelSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 			children = (
 				7D35A4822972D5B00054954E /* Mocks */,
 				7D35A41A296E22450054954E /* MyMoviesTests.swift */,
-				7D35A4882972D70E0054954E /* TrendingTests.swift */,
+				7D35A4882972D70E0054954E /* TrendingListViewModelSpec.swift */,
 			);
 			path = MyMoviesTests;
 			sourceTree = "<group>";
@@ -482,7 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D35A4892972D70E0054954E /* TrendingTests.swift in Sources */,
+				7D35A4892972D70E0054954E /* TrendingListViewModelSpec.swift in Sources */,
 				7D35A41B296E22450054954E /* MyMoviesTests.swift in Sources */,
 				7D35A4872972D6D40054954E /* MockURLProtocol.swift in Sources */,
 			);

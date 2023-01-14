@@ -8,7 +8,7 @@
 import XCTest
 @testable import MyMovies
 
-final class TrendingTests: XCTestCase {
+final class TrendingListViewModelSpec: XCTestCase {
     var apiLoader: APILoader<TrendingAPI>!
     var expectation: XCTestExpectation!
     let apiURL = URL(string: APIPath().fetchTrending(with: TrendingParams(mediaType: .movie, timeWindow: .day)))!
