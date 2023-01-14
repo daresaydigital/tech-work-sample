@@ -52,7 +52,7 @@ final class MovieViewModelSpec: XCTestCase {
         viewModel.fetchMovie(for: movieId) { viewModel, error in
             XCTAssertNotNil(viewModel)
             XCTAssertEqual(viewModel?.title, "The Godfather")
-            XCTAssertEqual(viewModel?.imageUrl, URL(string: "https://image.tmdb.org/t/p/w185//3bhkrj58Vtu7enYsRolD1fZdja1.jpg?api_key=16094d8ca19f9c0407db3d0b5203bd21"))
+            XCTAssertEqual(viewModel?.imageUrl, URL(string: "https://image.tmdb.org/t/p/w185/3bhkrj58Vtu7enYsRolD1fZdja1.jpg?api_key=16094d8ca19f9c0407db3d0b5203bd21"))
             XCTAssertEqual(viewModel?.genres, ["Drama", "Crime"])
             XCTAssertEqual(viewModel?.overview, "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.")
             XCTAssertEqual(viewModel?.rate, "8.71")
