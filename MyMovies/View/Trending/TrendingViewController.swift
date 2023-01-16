@@ -129,6 +129,12 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
 
         self.trendingListViewModel?.insertFavorite(for: cell.getMovieId())
         self.topRatedListViewModel?.insertFavorite(for: cell.getMovieId())
-        self.favoriteViewModel?.removeFavorite(for: cell.getMovieId())
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
+            self.favoriteViewModel?.removeFavorite(for: cell.getMovieId())
+            if let favoriteViewModel = self.favoriteViewModel {
+                self.trendingView?.renderFavoriteState(with: favoriteViewModel)
+            }
+        }
     }
 }

@@ -38,13 +38,17 @@ class FavoriteRepository {
     func deleteMovie(for movieId: Int64) {
         let movieIdString = String(movieId)
 
-        let keys: [String]? = readValue(for: Key.keys.rawValue)
-        if var keys = keys,
-           keys.contains(movieIdString) {
+        var keys: [String]? = readValue(for: Key.keys.rawValue)
+        if var keys {
             keys.removeAll(where: { $0 == movieIdString })
+            if keys.count > 0 {
+                saveValue(for: Key.keys.rawValue, value: keys)
+            } else {
+                removeValue(for: Key.keys.rawValue)
+            }
         }
 
-        removeValue(for: String(movieId))
+        removeValue(for: movieIdString)
     }
 
     func getAllFavorites() -> [TrendingViewModel] {

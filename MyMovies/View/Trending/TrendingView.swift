@@ -163,6 +163,8 @@ class TrendingView: UIView {
 
     func renderFavoriteState(with viewModel: FavoriteViewModel) {
         self.activityIndicator.stopAnimating()
+        self.trendingCollectionView.reloadData()
+
         if viewModel.numberOfRowsInSection == 0 {
             self.errorLabel.text = "You do not have any favorite, to select one just swipe down in a movie"
 
@@ -174,7 +176,6 @@ class TrendingView: UIView {
             self.trendingLabel.isHidden = false
             self.trendingLabel.text = viewModel.titlePage
             self.trendingCollectionView.isHidden = false
-            self.trendingCollectionView.reloadData()
 
             collectionViewLeadingContraint?.constant = 10
             collectionViewTrailingContraint?.constant = -10

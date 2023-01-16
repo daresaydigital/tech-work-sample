@@ -68,6 +68,5 @@ class TrendingListViewModel {
     func insertFavorite(for movieId: Int64) {
         guard let trending = self.trendings.first(where: { $0.movieId == movieId }) else { return }
         favoriteRepository.insetOrUpdateMovie(for: movieId, trending)
-        print(favoriteRepository.getAllFavorites())
     }
 }

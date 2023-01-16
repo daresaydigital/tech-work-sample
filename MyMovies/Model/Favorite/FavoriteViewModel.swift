@@ -44,6 +44,7 @@ class FavoriteViewModel {
     }
 
     func removeFavorite(for movieId: Int64) {
-
+        self.favorites.removeAll(where: { $0.movieId == movieId })
+        favoriteRepository.deleteMovie(for: movieId)
     }
 }
