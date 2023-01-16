@@ -29,9 +29,10 @@ class MovieView: UIView {
     private lazy var genresStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.spacing = 8
         stackView.alignment = .center
+        stackView.distribution = .fillEqually
         return stackView
     }()
 
@@ -47,10 +48,10 @@ class MovieView: UIView {
     private lazy var rateAndReleaseDateStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.spacing = 8
         stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         return stackView
     }()
 
@@ -143,20 +144,7 @@ class MovieView: UIView {
         NSLayoutConstraint.activate([
             genresStackView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 20),
             genresStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            genresStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
-        ])
-
-        setupOverviewTextView()
-    }
-
-    private func setupOverviewTextView() {
-        addSubview(overviewTextView)
-
-        NSLayoutConstraint.activate([
-            overviewTextView.topAnchor.constraint(equalTo: genresStackView.bottomAnchor, constant: 20),
-            overviewTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            overviewTextView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            overviewTextView.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
+            genresStackView.widthAnchor.constraint(equalToConstant: 120)
         ])
 
         setupRateAndReleaseDateStackView()
@@ -169,9 +157,23 @@ class MovieView: UIView {
         rateAndReleaseDateStackView.addArrangedSubview(releaseDateLabel)
 
         NSLayoutConstraint.activate([
-            rateAndReleaseDateStackView.topAnchor.constraint(equalTo: overviewTextView.bottomAnchor, constant: 20),
-            rateAndReleaseDateStackView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            rateAndReleaseDateStackView.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 20),
+            rateAndReleaseDateStackView.leadingAnchor.constraint(equalTo: genresStackView.trailingAnchor, constant: 10),
             rateAndReleaseDateStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10)
+        ])
+
+        setupOverviewTextView()
+    }
+
+    private func setupOverviewTextView() {
+        addSubview(overviewTextView)
+
+        NSLayoutConstraint.activate([
+            overviewTextView.topAnchor.constraint(equalTo: genresStackView.bottomAnchor, constant: 20),
+            overviewTextView.topAnchor.constraint(equalTo: rateAndReleaseDateStackView.bottomAnchor, constant: 20),
+            overviewTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            overviewTextView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            overviewTextView.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
         ])
 
         setupActivityIndicator()
@@ -240,7 +242,7 @@ class MovieView: UIView {
         }
         self.overviewTextView.text = viewModel.overview
         self.rateLabel.text = "\(viewModel.rate)/10"
-        self.totalVoteCountLabel.text = "Total Vote Count: \(viewModel.totalVoteCount)"
-        self.releaseDateLabel.text = viewModel.releaseDate
+        self.totalVoteCountLabel.text = "\(viewModel.totalVoteCount) votes"
+        self.releaseDateLabel.text = "Released in \(viewModel.releaseDate)"
     }
 }
