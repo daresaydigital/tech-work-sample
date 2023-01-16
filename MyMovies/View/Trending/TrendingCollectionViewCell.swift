@@ -18,6 +18,7 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
+        imageView.isHidden = true
         return imageView
     }()
 
@@ -134,6 +135,7 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         var frame = containerView.frame
 
         frame.origin.y += 75.0
+        self.favoriteImageView.isHidden = false
 
         UIView.animate(withDuration: 0.30) {
             self.containerView.frame = frame
@@ -147,6 +149,10 @@ class TrendingCollectionViewCell: UICollectionViewCell {
             self.containerView.frame = frame
             self.favoriteBackground.frame.size.height = 0
             self.favoriteImageView.frame.origin.y = 0
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            self.favoriteImageView.isHidden = true
         }
     }
 

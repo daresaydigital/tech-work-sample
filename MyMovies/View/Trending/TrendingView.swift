@@ -96,14 +96,22 @@ class TrendingView: UIView {
         setupTrendingCollectionView()
     }
 
+    var collectionViewLeadingContraint: NSLayoutConstraint? = nil
+    var collectionViewTrailingContraint: NSLayoutConstraint? = nil
+    var collectionViewBottomContraint: NSLayoutConstraint? = nil
+
     private func setupTrendingCollectionView() {
         addSubview(trendingCollectionView)
 
+        collectionViewLeadingContraint = trendingCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
+        collectionViewTrailingContraint = trendingCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+        collectionViewBottomContraint = trendingCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+
         NSLayoutConstraint.activate([
             trendingCollectionView.topAnchor.constraint(equalTo: trendingLabel.bottomAnchor, constant: 10),
-            trendingCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            trendingCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            trendingCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            collectionViewLeadingContraint!,
+            collectionViewTrailingContraint!,
+            collectionViewBottomContraint!
         ])
 
         setupActivityIndicator()
@@ -168,10 +176,9 @@ class TrendingView: UIView {
             self.trendingCollectionView.isHidden = false
             self.trendingCollectionView.reloadData()
 
-            NSLayoutConstraint.activate([
-                self.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-                self.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
-            ])
+            collectionViewLeadingContraint?.constant = 10
+            collectionViewTrailingContraint?.constant = -10
+            collectionViewBottomContraint?.constant = -20
 
             if let layout = self.trendingCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
                 layout.scrollDirection = .vertical

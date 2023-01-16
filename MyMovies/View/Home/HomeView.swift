@@ -65,10 +65,10 @@ class HomeView: UIView {
         trendingView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            trendingView.topAnchor.constraint(equalTo: favoritesButton.bottomAnchor, constant: 20),
+            trendingView.topAnchor.constraint(equalTo: favoritesButton.bottomAnchor, constant: 10),
             trendingView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 4),
             trendingView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -4),
-            trendingView.heightAnchor.constraint(equalToConstant: 300)
+            trendingView.heightAnchor.constraint(equalToConstant: 350)
         ])
 
         setupTopRatedView()
@@ -80,10 +80,10 @@ class HomeView: UIView {
         topRatedView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            topRatedView.topAnchor.constraint(equalTo: trendingView.bottomAnchor, constant: 20),
+            topRatedView.topAnchor.constraint(equalTo: trendingView.bottomAnchor),
             topRatedView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 4),
             topRatedView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -4),
-            topRatedView.heightAnchor.constraint(equalToConstant: 300)
+            topRatedView.heightAnchor.constraint(equalToConstant: 350)
         ])
     }
 
