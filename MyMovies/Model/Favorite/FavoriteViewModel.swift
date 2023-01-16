@@ -42,4 +42,8 @@ class FavoriteViewModel {
     func getTrending(_ index: Int) -> TrendingViewModel {
         return self.favorites[index]
     }
+
+    func removeFavorite(for movieId: Int64) {
+
+    }
 }

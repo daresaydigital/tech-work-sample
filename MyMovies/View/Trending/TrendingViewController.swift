@@ -105,6 +105,10 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
         swipeUpsideDown.direction = .down
         cell?.addGestureRecognizer(swipeUpsideDown)
 
+        let swipeLeftToRight = UISwipeGestureRecognizer(target: self, action: #selector(favorite(_:)))
+        swipeLeftToRight.direction = .right
+        cell?.addGestureRecognizer(swipeLeftToRight)
+
         return cell ?? UICollectionViewCell()
     }
 
@@ -121,10 +125,10 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
             return
         }
 
-        cell.animateFavorite()
+        cell.animateFavorite(for: sender.direction)
 
         self.trendingListViewModel?.insertFavorite(for: cell.getMovieId())
         self.topRatedListViewModel?.insertFavorite(for: cell.getMovieId())
-//        self.favoriteViewModel?.removeFavorite(for: cell.getMovieId())
+        self.favoriteViewModel?.removeFavorite(for: cell.getMovieId())
     }
 }

@@ -22,7 +22,23 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
+    private lazy var removeImageView: UIImageView = {
+        let image = UIImage(systemName: "trash.fill")
+        let imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.tintColor = .systemYellow
+        imageView.isHidden = true
+        return imageView
+    }()
+
     private lazy var favoriteBackground: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemRed
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private lazy var removeBackground: UIView = {
         let view = UIView()
         view.backgroundColor = .systemRed
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -117,6 +133,21 @@ class TrendingCollectionViewCell: UICollectionViewCell {
             favoriteImageView.centerXAnchor.constraint(equalTo: favoriteBackground.centerXAnchor),
             favoriteImageView.centerYAnchor.constraint(equalTo: favoriteBackground.centerYAnchor)
         ])
+
+        setupRemoveButton()
+    }
+
+    private func setupRemoveButton() {
+        removeBackground.addSubview(removeImageView)
+        addSubview(removeBackground)
+
+        NSLayoutConstraint.activate([
+            removeBackground.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            removeBackground.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            removeBackground.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor),
+            removeImageView.centerXAnchor.constraint(equalTo: removeBackground.centerXAnchor),
+            removeImageView.centerYAnchor.constraint(equalTo: removeBackground.centerYAnchor)
+        ])
     }
 
     func setupData(model: TrendingViewModel) {
@@ -131,28 +162,54 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         return movieId ?? 0
     }
 
-    func animateFavorite() {
+    func animateFavorite(for direction: UISwipeGestureRecognizer.Direction) {
         var frame = containerView.frame
 
-        frame.origin.y += 75.0
-        self.favoriteImageView.isHidden = false
+        if direction == .down {
 
-        UIView.animate(withDuration: 0.30) {
-            self.containerView.frame = frame
-            self.favoriteBackground.frame.size.height = 75
-            self.favoriteImageView.frame.origin.y = 50
-        }
+            frame.origin.y += 75.0
+            self.favoriteImageView.isHidden = false
 
-        frame.origin.y -= 75.0
+            UIView.animate(withDuration: 0.30) {
+                self.containerView.frame = frame
+                self.favoriteBackground.frame.size.height = 75
+                self.favoriteImageView.frame.origin.y = 40
+            }
 
-        UIView.animate(withDuration: 0.30, delay: 0.30) {
-            self.containerView.frame = frame
-            self.favoriteBackground.frame.size.height = 0
-            self.favoriteImageView.frame.origin.y = 0
-        }
+            frame.origin.y -= 75.0
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            self.favoriteImageView.isHidden = true
+            UIView.animate(withDuration: 0.30, delay: 0.30) {
+                self.containerView.frame = frame
+                self.favoriteBackground.frame.size.height = 0
+                self.favoriteImageView.frame.origin.y = 0
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
+                self.favoriteImageView.isHidden = true
+            }
+
+        } else {
+            frame.origin.x += 75.0
+            self.removeImageView.isHidden = false
+
+            UIView.animate(withDuration: 0.30) {
+                self.containerView.frame = frame
+                self.removeBackground.frame.size.width = 75
+                self.removeImageView.frame.origin.x = 50
+            }
+
+
+            frame.origin.x -= 75.0
+
+            UIView.animate(withDuration: 0.30, delay: 0.30) {
+                self.containerView.frame = frame
+                self.removeBackground.frame.size.width = 0
+                self.removeImageView.frame.origin.x = 0
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.50) {
+                self.removeImageView.isHidden = true
+            }
         }
     }
 
