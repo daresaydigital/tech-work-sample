@@ -54,24 +54,19 @@ class FavoriteRepository {
     func getAllFavorites() -> [TrendingViewModel] {
         let favorites: [String]? = readValue(for: Key.keys.rawValue)
 
-        guard let favorites = favorites else {
+        guard let favorites else {
             return []
         }
 
-        var result: [TrendingViewModel] = []
-
-
-        favorites.forEach { movieId in
-            guard let data: String = readValue(for: String(movieId)) else { return }
+        return favorites.compactMap { movieId in
+            guard let data: String = self.readValue(for: movieId) else { return nil }
             do {
-                let trendingViewModel = try decode(Data(data.utf8))
-                result.append(trendingViewModel)
+                let trendingViewModel = try self.decode(Data(data.utf8))
+                return trendingViewModel
             } catch {
-                return
+                return nil
             }
         }
-
-        return result
     }
 
     private func encode(_ value: TrendingViewModel) -> String {
