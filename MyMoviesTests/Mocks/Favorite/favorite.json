@@ -1,0 +1,418 @@
+[
+    {
+        "adult": false,
+        "backdrop_path": "/r9PkFnRUIthgBp2JZZzD380MWZy.jpg",
+        "id": 315162,
+        "title": "Puss in Boots: The Last Wish",
+        "original_language": "en",
+        "original_title": "Puss in Boots: The Last Wish",
+        "overview": "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
+        "poster_path": "/1NqwE6LP9IEdOZ57NCT51ftHtWT.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            16,
+            28,
+            12,
+            35,
+            10751,
+            14
+        ],
+        "popularity": 9724.995,
+        "release_date": "2022-12-21",
+        "video": false,
+        "vote_average": 8.6,
+        "vote_count": 1400
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/ng9a2oVoZuohU0Mzls9GAVH0MCn.jpg",
+        "id": 858408,
+        "title": "Dog Gone",
+        "original_language": "en",
+        "original_title": "Dog Gone",
+        "overview": "When his beloved dog goes missing, a young man embarks on an incredible search with his parents to find him and give him life-saving medication.",
+        "poster_path": "/eYWdLZCS9W1Xli9bynzFSddLx02.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            10751,
+            12,
+            18
+        ],
+        "popularity": 51.754,
+        "release_date": "2023-01-13",
+        "video": false,
+        "vote_average": 6.7,
+        "vote_count": 6
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/s16H6tpK2utvwDtzZ8Qy4qm5Emw.jpg",
+        "id": 76600,
+        "title": "Avatar: The Way of Water",
+        "original_language": "en",
+        "original_title": "Avatar: The Way of Water",
+        "overview": "Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
+        "poster_path": "/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            878,
+            12,
+            28
+        ],
+        "popularity": 3003.545,
+        "release_date": "2022-12-16",
+        "video": false,
+        "vote_average": 7.7,
+        "vote_count": 4094
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/lacnOoTHyS8g0eSu7cyQ8TgdGtv.jpg",
+        "id": 872954,
+        "title": "The Old Way",
+        "original_language": "en",
+        "original_title": "The Old Way",
+        "overview": "An old gunslinger and his daughter must face the consequences of his past, when the son of a man he murdered years ago arrives to take his revenge.",
+        "poster_path": "/8HCCYAIocXxMKn7J9yQfDX1vBM5.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            37
+        ],
+        "popularity": 24.751,
+        "release_date": "2023-01-06",
+        "video": false,
+        "vote_average": 5.375,
+        "vote_count": 8
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/5kAGbi9MFAobQTVfK4kWPnIfnP0.jpg",
+        "id": 536554,
+        "title": "M3GAN",
+        "original_language": "en",
+        "original_title": "M3GAN",
+        "overview": "A brilliant toy company roboticist uses artificial intelligence to develop M3GAN, a life-like doll programmed to emotionally bond with her newly orphaned niece. But when the doll's programming works too well, she becomes overprotective of her new friend with terrifying results.",
+        "poster_path": "/7CNCv9uhqdwK7Fv4bR4nmDysnd9.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            878,
+            27,
+            35
+        ],
+        "popularity": 2067,
+        "release_date": "2023-01-06",
+        "video": false,
+        "vote_average": 7.208,
+        "vote_count": 209
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/b08BDQPq42AoLMfhi7DtTOoYqVu.jpg",
+        "id": 800815,
+        "title": "The Pale Blue Eye",
+        "original_language": "en",
+        "original_title": "The Pale Blue Eye",
+        "overview": "West Point, New York, 1830. When a cadet at the burgeoning military academy is found hanged with his heart cut out, the top brass summons former New York City constable Augustus Landor to investigate. While attempting to solve this grisly mystery, the reluctant detective engages the help of one of the cadets: a strange but brilliant young fellow by the name of Edgar Allan Poe",
+        "poster_path": "/9xkGlFRqrN8btTLU0KQvOfn2PHr.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            9648,
+            53,
+            27,
+            80
+        ],
+        "popularity": 637.882,
+        "release_date": "2022-12-23",
+        "video": false,
+        "vote_average": 7.138,
+        "vote_count": 508
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/mSyQoValhBsJdq3JNGXJww2Q5yL.jpg",
+        "id": 593643,
+        "title": "The Menu",
+        "original_language": "en",
+        "original_title": "The Menu",
+        "overview": "A young couple travels to a remote island to eat at an exclusive restaurant where the chef has prepared a lavish menu, with some shocking surprises.",
+        "poster_path": "/fPtUgMcLIboqlTlPrq0bQpKK8eq.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            35,
+            27,
+            53
+        ],
+        "popularity": 500.984,
+        "release_date": "2022-11-18",
+        "video": false,
+        "vote_average": 7.306,
+        "vote_count": 1335
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/e1cC9muSRtAHVtF5GJtKAfATYIT.jpg",
+        "id": 1063242,
+        "title": "Disconnect: The Wedding Planner",
+        "original_language": "fr",
+        "original_title": "Disconnect: The Wedding Planner",
+        "overview": "After falling victim to a scam, a desperate man races the clock as he attempts to plan a luxurious destination wedding for an important investor.",
+        "poster_path": "/tGmCxGkVMOqig2TrbXAsE9dOVvX.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            10749,
+            35
+        ],
+        "popularity": 40.16,
+        "release_date": "2023-01-13",
+        "video": false,
+        "vote_average": 2,
+        "vote_count": 1
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/bTqmsKOr9cSdYptFhbFEOmP3qCm.jpg",
+        "id": 640146,
+        "title": "Ant-Man and the Wasp: Quantumania",
+        "original_language": "en",
+        "original_title": "Ant-Man and the Wasp: Quantumania",
+        "overview": "Super-Hero partners Scott Lang and Hope van Dyne, along with with Hope's parents Janet van Dyne and Hank Pym, and Scott's daughter Cassie Lang, find themselves exploring the Quantum Realm, interacting with strange new creatures and embarking on an adventure that will push them beyond the limits of what they thought possible.",
+        "poster_path": "/ynWwsafy7ib7hitxImQ8Lso3lvI.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            12,
+            878,
+            35
+        ],
+        "popularity": 156.416,
+        "release_date": "2023-02-17",
+        "video": false,
+        "vote_average": 0,
+        "vote_count": 0
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/5pMy5LF2JAleBNBtuzizfCMWM7k.jpg",
+        "id": 653851,
+        "title": "Devotion",
+        "original_language": "en",
+        "original_title": "Devotion",
+        "overview": "The harrowing true story of two elite US Navy fighter pilots during the Korean War. Their heroic sacrifices would ultimately make them the Navy's most celebrated wingmen.",
+        "poster_path": "/26yQPXymbWeCLKwcmyL8dRjAzth.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            10752,
+            36,
+            18
+        ],
+        "popularity": 207.761,
+        "release_date": "2022-11-23",
+        "video": false,
+        "vote_average": 6.653,
+        "vote_count": 49
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/aROq5hpE1WgDMjwIxxmk42kFFQZ.jpg",
+        "id": 829410,
+        "title": "Sick",
+        "original_language": "en",
+        "original_title": "Sick",
+        "overview": "In the midst of the pandemic, college student Parker and her best friend Miri decide to self-quarantine at her family's lake house, where they will be alone — or so they think...",
+        "poster_path": "/yisnA4KdZOfJeDve3DekgUpeCe9.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            27,
+            53
+        ],
+        "popularity": 15.085,
+        "release_date": "2023-01-13",
+        "video": false,
+        "vote_average": 6.4,
+        "vote_count": 9
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/dKqa850uvbNSCaQCV4Im1XlzEtQ.jpg",
+        "id": 661374,
+        "title": "Glass Onion: A Knives Out Mystery",
+        "original_language": "en",
+        "original_title": "Glass Onion: A Knives Out Mystery",
+        "overview": "World-famous detective Benoit Blanc heads to Greece to peel back the layers of a mystery surrounding a tech billionaire and his eclectic crew of friends.",
+        "poster_path": "/vDGr1YdrlfbU9wxTOdpf3zChmv9.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            9648,
+            53,
+            35
+        ],
+        "popularity": 1656.736,
+        "release_date": "2022-11-23",
+        "video": false,
+        "vote_average": 7.072,
+        "vote_count": 2576
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/tt79dbOPd9Z9ykEOpvckttgYXwH.jpg",
+        "id": 545611,
+        "title": "Everything Everywhere All at Once",
+        "original_language": "en",
+        "original_title": "Everything Everywhere All at Once",
+        "overview": "An aging Chinese immigrant is swept up in an insane adventure, where she alone can save what's important to her by connecting with the lives she could have led in other universes.",
+        "poster_path": "/w3LxiVYdWWRvEVdn5RYq6jIqkb1.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            12,
+            878
+        ],
+        "popularity": 224.437,
+        "release_date": "2022-03-24",
+        "video": false,
+        "vote_average": 8.067,
+        "vote_count": 2648
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+        "id": 436270,
+        "title": "Black Adam",
+        "original_language": "en",
+        "original_title": "Black Adam",
+        "overview": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.",
+        "poster_path": "/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            14,
+            28,
+            878
+        ],
+        "popularity": 1876.042,
+        "release_date": "2022-10-21",
+        "video": false,
+        "vote_average": 7.218,
+        "vote_count": 3656
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/iBEs4PnQLkL4BbsAGvsuBgeTCM3.jpg",
+        "id": 960519,
+        "title": "Noise",
+        "original_language": "es",
+        "original_title": "Ruido",
+        "overview": "Julia is a mother, or rather, one of many mothers, sisters, daughters, colleagues, who have had their lives torn apart by the widespread violence in a country waging a war against its women. Julia is searching for Ger, her daughter. And in her search, she will weave through the stories and struggles of the different women she will meet.",
+        "poster_path": "/6GemI78Ge0ABs5qM6CnvCPduKEU.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            18
+        ],
+        "popularity": 122.966,
+        "release_date": "2022-10-13",
+        "video": false,
+        "vote_average": 7.429,
+        "vote_count": 7
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/8I37NtDffNV7AZlDa7uDvvqhovU.jpg",
+        "id": 19995,
+        "title": "Avatar",
+        "original_language": "en",
+        "original_title": "Avatar",
+        "overview": "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
+        "poster_path": "/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            12,
+            14,
+            878
+        ],
+        "popularity": 1552.689,
+        "release_date": "2009-12-15",
+        "video": false,
+        "vote_average": 7.561,
+        "vote_count": 27754
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/AaV1YIdWKnjAIAOe8UUKBFm327v.jpg",
+        "id": 361743,
+        "title": "Top Gun: Maverick",
+        "original_language": "en",
+        "original_title": "Top Gun: Maverick",
+        "overview": "After more than thirty years of service as one of the Navy’s top aviators, and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell finds himself training a detachment of TOP GUN graduates for a specialized mission the likes of which no living pilot has ever seen.",
+        "poster_path": "/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            18
+        ],
+        "popularity": 519.672,
+        "release_date": "2022-05-27",
+        "video": false,
+        "vote_average": 8.3,
+        "vote_count": 5597
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
+        "id": 505642,
+        "title": "Black Panther: Wakanda Forever",
+        "original_language": "en",
+        "original_title": "Black Panther: Wakanda Forever",
+        "overview": "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death. As the Wakandans strive to embrace their next chapter, the heroes must band together with the help of War Dog Nakia and Everett Ross and forge a new path for the kingdom of Wakanda.",
+        "poster_path": "/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            28,
+            12,
+            878
+        ],
+        "popularity": 1180.588,
+        "release_date": "2022-11-11",
+        "video": false,
+        "vote_average": 7.47,
+        "vote_count": 1604
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/9Md4CqzUGDtK5oEkRRvozLkGc9d.jpg",
+        "id": 674324,
+        "title": "The Banshees of Inisherin",
+        "original_language": "en",
+        "original_title": "The Banshees of Inisherin",
+        "overview": "Two lifelong friends find themselves at an impasse when one abruptly ends their relationship, with alarming consequences for both of them.",
+        "poster_path": "/dpeR3ue0Q93Rk8jhE2DzVPMRGIm.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            18,
+            35
+        ],
+        "popularity": 203.388,
+        "release_date": "2022-10-21",
+        "video": false,
+        "vote_average": 7.474,
+        "vote_count": 463
+    },
+    {
+        "adult": false,
+        "backdrop_path": "/6RCf9jzKxyjblYV4CseayK6bcJo.jpg",
+        "id": 804095,
+        "title": "The Fabelmans",
+        "original_language": "en",
+        "original_title": "The Fabelmans",
+        "overview": "Growing up in post-World War II era Arizona, young Sammy Fabelman aspires to become a filmmaker as he reaches adolescence, but soon discovers a shattering family secret and explores how the power of films can help him see the truth.",
+        "poster_path": "/xId9zoiv5WPQOuxqykUDrlpmrUz.jpg",
+        "media_type": "movie",
+        "genre_ids": [
+            18
+        ],
+        "popularity": 161.117,
+        "release_date": "2022-11-11",
+        "video": false,
+        "vote_average": 8.018,
+        "vote_count": 420
+    }
+]
