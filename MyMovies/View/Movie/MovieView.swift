@@ -9,6 +9,8 @@ import UIKit
 
 class MovieView: UIView {
 
+    // MARK: - SubViews
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -97,6 +99,8 @@ class MovieView: UIView {
         return label
     }()
 
+    // MARK: - Initializer
+
     override init(frame: CGRect) {
         super.init(frame: CGRect())
 
@@ -106,6 +110,8 @@ class MovieView: UIView {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Setup
 
     private func setup() {
         self.backgroundColor = .systemBackground
@@ -198,6 +204,8 @@ class MovieView: UIView {
             errorLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
         ])
     }
+
+    // MARK: - Renders
 
     func renderLoadingState() {
         self.titleLabel.isHidden = true

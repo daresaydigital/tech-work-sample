@@ -13,6 +13,8 @@ protocol FavoriteButtonDelegate: AnyObject {
 
 class HomeView: UIView {
 
+    // MARK: - SubViews
+
     private var trendingView: UIView
     private var topRatedView: UIView
 
@@ -24,7 +26,11 @@ class HomeView: UIView {
         return button
     }()
 
+    // MARK: - Properties
+
     weak var delegate: FavoriteButtonDelegate?
+
+    // MARK: - Initializer
 
     init(
         trendingViewController: TrendingViewController,
@@ -40,6 +46,8 @@ class HomeView: UIView {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Setup
 
     private func setup() {
         self.backgroundColor = .systemBackground
@@ -86,6 +94,8 @@ class HomeView: UIView {
             topRatedView.heightAnchor.constraint(equalToConstant: 350)
         ])
     }
+
+    // MARK: - Selectors
 
     @objc func favoriteMoviesButtonClicked() {
         delegate?.favoriteMoviesButtonClicked()

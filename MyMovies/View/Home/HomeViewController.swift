@@ -9,12 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController, Coordinating {
 
+    // MARK: - Properties
+
     var coordinator: Coordinator?
 
     private var trendingViewController: TrendingViewController
     private var topRatedViewController: TrendingViewController
 
     private var homeView: HomeView? = nil
+
+    // MARK: - Initializer
 
     init(
         trendingViewController: TrendingViewController,
@@ -30,6 +34,8 @@ class HomeViewController: UIViewController, Coordinating {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Lifecycle
 
     override func loadView() {
         self.homeView = HomeView(
@@ -50,6 +56,8 @@ class HomeViewController: UIViewController, Coordinating {
         self.navigationController?.isNavigationBarHidden = false
     }
 }
+
+// MARK: - FavoriteButtonDelegate implementation
 
 extension HomeViewController: FavoriteButtonDelegate {
     func favoriteMoviesButtonClicked() {

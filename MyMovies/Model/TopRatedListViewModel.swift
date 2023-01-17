@@ -12,7 +12,6 @@ class TopRatedListViewModel {
     // MARK: - Properties
 
     private var topRated: [TrendingViewModel] = []
-    private var selected = 0
 
     private let favoriteRepository: FavoriteRepository
     private let apiLoader: APILoader<TopRatedAPI>

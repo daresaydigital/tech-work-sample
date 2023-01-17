@@ -9,12 +9,16 @@ import UIKit
 
 class TrendingViewController: UIViewController, Coordinating {
 
+    // MARK: - Properties
+
     var coordinator: Coordinator?
 
     private var trendingView: TrendingView? = nil
     private var trendingListViewModel: TrendingListViewModel?
     private var topRatedListViewModel: TopRatedListViewModel?
     private var favoriteViewModel: FavoriteViewModel?
+
+    // MARK: - Initializer
 
     init(
         trendingListViewModel: TrendingListViewModel? = nil,
@@ -32,6 +36,8 @@ class TrendingViewController: UIViewController, Coordinating {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Lifecycle
 
     override func loadView() {
         self.trendingView = TrendingView()
@@ -85,6 +91,8 @@ class TrendingViewController: UIViewController, Coordinating {
         }
     }
 }
+
+// MARK: - UICollectionViewDelegate and UICollectionViewDataSource implementation
 
 extension TrendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

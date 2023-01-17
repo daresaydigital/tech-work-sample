@@ -8,6 +8,9 @@
 import Foundation
 
 class TrendingViewModel {
+
+    // MARK: - Properties
+
     private var trending: TrendingResult
 
     var title: String {
@@ -22,9 +25,13 @@ class TrendingViewModel {
         self.trending.id
     }
 
+    // MARK: - Initializer
+
     init(trending: TrendingResult) {
         self.trending = trending
     }
+
+    // MARK: - Functions
 
     func getTrendingResult() -> TrendingResult {
         return trending

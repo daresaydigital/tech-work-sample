@@ -9,6 +9,8 @@ import UIKit
 
 class TrendingCollectionViewCell: UICollectionViewCell {
 
+    // MARK: - SubViews
+
     static let identifier = "TrendingCollectionViewCell"
 
     private var movieId: Int64?
@@ -67,6 +69,8 @@ class TrendingCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    // MARK: - Initializer
+
     override init(frame: CGRect) {
         super.init(frame: CGRect())
 
@@ -76,6 +80,8 @@ class TrendingCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Setup
 
     private func setup() {
         self.backgroundColor = .systemBackground
@@ -149,6 +155,8 @@ class TrendingCollectionViewCell: UICollectionViewCell {
             removeImageView.centerYAnchor.constraint(equalTo: removeBackground.centerYAnchor)
         ])
     }
+
+    // MARK: - Public Functions
 
     func setupData(model: TrendingViewModel) {
         titleLabel.text = model.title

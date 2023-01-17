@@ -9,8 +9,12 @@ import UIKit
 
 class MovieViewController: UIViewController {
 
+    // MARK: - Properties
+
     private var movieView: MovieView? = nil
     private var movieViewModel: MovieViewModel
+
+    // MARK: - Initializer
 
     init(
         movieViewModel: MovieViewModel
@@ -22,6 +26,8 @@ class MovieViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Lifecycle
 
     override func loadView() {
         self.movieView = MovieView()

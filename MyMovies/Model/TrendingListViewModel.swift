@@ -12,7 +12,6 @@ class TrendingListViewModel {
     // MARK: - Properties
 
     private var trendings: [TrendingViewModel] = []
-    private var selected = 0
 
     private let favoriteRepository: FavoriteRepository
     private let apiLoader: APILoader<TrendingAPI>

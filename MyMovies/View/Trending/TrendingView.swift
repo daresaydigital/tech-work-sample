@@ -13,6 +13,8 @@ protocol FavoriteDelegate: AnyObject {
 
 class TrendingView: UIView {
 
+    // MARK: - SubViews
+
     private lazy var trendingLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -52,6 +54,8 @@ class TrendingView: UIView {
         return label
     }()
 
+    // MARK: - Properties
+
     weak var collectionViewDelegate: UICollectionViewDelegate? {
         get {
             self.trendingCollectionView.delegate
@@ -70,6 +74,12 @@ class TrendingView: UIView {
         }
     }
 
+    var collectionViewLeadingContraint: NSLayoutConstraint? = nil
+    var collectionViewTrailingContraint: NSLayoutConstraint? = nil
+    var collectionViewBottomContraint: NSLayoutConstraint? = nil
+
+    // MARK: - Initializer
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -78,6 +88,8 @@ class TrendingView: UIView {
     required init?(coder: NSCoder) {
         fatalError()
     }
+
+    // MARK: - View Setup
 
     private func setup() {
         self.backgroundColor = .systemBackground
@@ -95,10 +107,6 @@ class TrendingView: UIView {
 
         setupTrendingCollectionView()
     }
-
-    var collectionViewLeadingContraint: NSLayoutConstraint? = nil
-    var collectionViewTrailingContraint: NSLayoutConstraint? = nil
-    var collectionViewBottomContraint: NSLayoutConstraint? = nil
 
     private func setupTrendingCollectionView() {
         addSubview(trendingCollectionView)
@@ -138,6 +146,8 @@ class TrendingView: UIView {
             errorLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
         ])
     }
+
+    // MARK: - Renders
 
     func renderLoadingState() {
         self.trendingCollectionView.isHidden = true
@@ -188,10 +198,5 @@ class TrendingView: UIView {
 
             self.layoutIfNeeded()
         }
-    }
-
-    func favoriteTrending(for row: Int) {
-        print("Yaaay!")
-//        self.delegate.favorite(row)
     }
 }
