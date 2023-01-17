@@ -30,7 +30,7 @@ class MainCoordinator: Coordinator {
             case .favoriteClicked:
                 let repository = FavoriteRepository()
                 let viewModel = FavoriteViewModel(favoriteRepository: repository)
-                let viewController = TrendingViewController(favoriteViewModel: viewModel, coordinator: self)
+                let viewController = MovieListViewController(favoriteViewModel: viewModel, coordinator: self)
 
                 navigationController.pushViewController(viewController, animated: true)
         }
@@ -40,7 +40,7 @@ class MainCoordinator: Coordinator {
         let apiTrending = TrendingAPI()
         let apiLoaderTrending = APILoader(apiHandler: apiTrending)
         let trendingViewModel = TrendingListViewModel(apiLoader: apiLoaderTrending)
-        let trendingViewController = TrendingViewController(
+        let trendingViewController = MovieListViewController(
             trendingListViewModel: trendingViewModel,
             coordinator: self
         )
@@ -48,7 +48,7 @@ class MainCoordinator: Coordinator {
         let apiTopRated = TopRatedAPI()
         let apiLoaderTopRated = APILoader(apiHandler: apiTopRated)
         let topRatedListViewModel = TopRatedListViewModel(apiLoader: apiLoaderTopRated)
-        let topRatedViewController = TrendingViewController(
+        let topRatedViewController = MovieListViewController(
             topRatedListViewModel: topRatedListViewModel,
             coordinator: self
         )

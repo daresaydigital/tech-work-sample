@@ -38,6 +38,6 @@ final class MainCoordinatorSpec: XCTestCase {
         mainCoordinator.eventOccurred(with: .favoriteClicked, parameters: nil)
 
         XCTAssertTrue(navigationController.pushViewControllerCalled)
-        XCTAssertTrue(navigationController.controllers[0] is TrendingViewController)
+        XCTAssertTrue(navigationController.controllers[0] is MovieListViewController)
     }
 }

@@ -1,5 +1,5 @@
 //
-//  TrendingViewController.swift
+//  MovieListViewController.swift
 //  MyMovies
 //
 //  Created by Caio dos Santos Ambrosio on 1/10/23.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-class TrendingViewController: UIViewController, Coordinating {
+class MovieListViewController: UIViewController, Coordinating {
 
     // MARK: - Properties
 
     var coordinator: Coordinator?
 
-    private var trendingView: TrendingView? = nil
+    private var trendingView: MovieListView? = nil
     private var trendingListViewModel: TrendingListViewModel?
     private var topRatedListViewModel: TopRatedListViewModel?
     private var favoriteViewModel: FavoriteViewModel?
@@ -40,7 +40,7 @@ class TrendingViewController: UIViewController, Coordinating {
     // MARK: - View Lifecycle
 
     override func loadView() {
-        self.trendingView = TrendingView()
+        self.trendingView = MovieListView()
         self.trendingView?.collectionDataSource = self
         self.trendingView?.collectionViewDelegate = self
         view = trendingView
@@ -94,7 +94,7 @@ class TrendingViewController: UIViewController, Coordinating {
 
 // MARK: - UICollectionViewDelegate and UICollectionViewDataSource implementation
 
-extension TrendingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.trendingListViewModel?.numberOfRowsInSection ??
                 self.topRatedListViewModel?.numberOfRowsInSection ??
@@ -106,7 +106,7 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
                 topRatedListViewModel?.getTrending(indexPath.row) ??
                 favoriteViewModel?.getTrending(indexPath.row) else { return UICollectionViewCell() }
 
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCollectionViewCell.identifier, for: indexPath) as? TrendingCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieListCollectionViewCell.identifier, for: indexPath) as? MovieListCollectionViewCell
         cell?.setupData(model: trending)
 
         let swipeUpsideDown = UISwipeGestureRecognizer(target: self, action: #selector(favorite(_:)))
@@ -129,7 +129,7 @@ extension TrendingViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     @objc func favorite(_ sender: UISwipeGestureRecognizer) {
-        guard let cell = sender.view as? TrendingCollectionViewCell else {
+        guard let cell = sender.view as? MovieListCollectionViewCell else {
             return
         }
 

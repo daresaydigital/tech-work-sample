@@ -28,10 +28,10 @@
 		7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44A296E2C920054954E /* TrendingDTO.swift */; };
 		7D35A44D296E2CA80054954E /* TrendingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44C296E2CA80054954E /* TrendingResult.swift */; };
 		7D35A450296E31C30054954E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A44F296E31C30054954E /* HomeViewController.swift */; };
-		7D35A453296E32EE0054954E /* TrendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A452296E32EE0054954E /* TrendingViewController.swift */; };
+		7D35A453296E32EE0054954E /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A452296E32EE0054954E /* MovieListViewController.swift */; };
 		7D35A45B296E36DD0054954E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45A296E36DD0054954E /* HomeView.swift */; };
-		7D35A45F296E3D360054954E /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45E296E3D360054954E /* TrendingView.swift */; };
-		7D35A461296E3D5F0054954E /* TrendingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */; };
+		7D35A45F296E3D360054954E /* MovieListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A45E296E3D360054954E /* MovieListView.swift */; };
+		7D35A461296E3D5F0054954E /* MovieListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A460296E3D5F0054954E /* MovieListCollectionViewCell.swift */; };
 		7D35A463296E3E410054954E /* TrendingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A462296E3E410054954E /* TrendingListViewModel.swift */; };
 		7D35A465296E45170054954E /* TrendingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A464296E45170054954E /* TrendingViewModel.swift */; };
 		7D35A467296E4C170054954E /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A466296E4C170054954E /* UIImageLoader.swift */; };
@@ -109,10 +109,10 @@
 		7D35A44A296E2C920054954E /* TrendingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingDTO.swift; sourceTree = "<group>"; };
 		7D35A44C296E2CA80054954E /* TrendingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResult.swift; sourceTree = "<group>"; };
 		7D35A44F296E31C30054954E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7D35A452296E32EE0054954E /* TrendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewController.swift; sourceTree = "<group>"; };
+		7D35A452296E32EE0054954E /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		7D35A45A296E36DD0054954E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		7D35A45E296E3D360054954E /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
-		7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCollectionViewCell.swift; sourceTree = "<group>"; };
+		7D35A45E296E3D360054954E /* MovieListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListView.swift; sourceTree = "<group>"; };
+		7D35A460296E3D5F0054954E /* MovieListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7D35A462296E3E410054954E /* TrendingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingListViewModel.swift; sourceTree = "<group>"; };
 		7D35A464296E45170054954E /* TrendingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingViewModel.swift; sourceTree = "<group>"; };
 		7D35A466296E4C170054954E /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
@@ -308,9 +308,9 @@
 		7D35A451296E32DC0054954E /* Trending */ = {
 			isa = PBXGroup;
 			children = (
-				7D35A452296E32EE0054954E /* TrendingViewController.swift */,
-				7D35A45E296E3D360054954E /* TrendingView.swift */,
-				7D35A460296E3D5F0054954E /* TrendingCollectionViewCell.swift */,
+				7D35A452296E32EE0054954E /* MovieListViewController.swift */,
+				7D35A45E296E3D360054954E /* MovieListView.swift */,
+				7D35A460296E3D5F0054954E /* MovieListCollectionViewCell.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -579,15 +579,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D35A442296E293D0054954E /* ServiceError.swift in Sources */,
-				7D35A453296E32EE0054954E /* TrendingViewController.swift in Sources */,
+				7D35A453296E32EE0054954E /* MovieListViewController.swift in Sources */,
 				7D35A447296E2A390054954E /* TrendingAPI.swift in Sources */,
 				7D35A435296E233F0054954E /* MainCoordinator.swift in Sources */,
 				7D35A44B296E2C920054954E /* TrendingDTO.swift in Sources */,
 				7D35A450296E31C30054954E /* HomeViewController.swift in Sources */,
 				7D35A43A296E27AE0054954E /* APIEnvironment.swift in Sources */,
-				7D35A461296E3D5F0054954E /* TrendingCollectionViewCell.swift in Sources */,
+				7D35A461296E3D5F0054954E /* MovieListCollectionViewCell.swift in Sources */,
 				7D35A476297207C20054954E /* Movie.swift in Sources */,
-				7D35A45F296E3D360054954E /* TrendingView.swift in Sources */,
+				7D35A45F296E3D360054954E /* MovieListView.swift in Sources */,
 				7D35A48129720F0E0054954E /* MovieView.swift in Sources */,
 				7D35A43E296E29000054954E /* APIHandler.swift in Sources */,
 				7D35A47F29720DB50054954E /* MovieViewController.swift in Sources */,

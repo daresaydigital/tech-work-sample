@@ -1,5 +1,5 @@
 //
-//  TrendingCollectionViewCell.swift
+//  MovieListCollectionViewCell.swift
 //  MyMovies
 //
 //  Created by Caio dos Santos Ambrosio on 1/10/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class TrendingCollectionViewCell: UICollectionViewCell {
+class MovieListCollectionViewCell: UICollectionViewCell {
 
     // MARK: - SubViews
 
-    static let identifier = "TrendingCollectionViewCell"
+    static let identifier = "MovieListCollectionViewCell"
 
     private var movieId: Int64?
 

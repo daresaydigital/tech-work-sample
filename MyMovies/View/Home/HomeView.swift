@@ -33,8 +33,8 @@ class HomeView: UIView {
     // MARK: - Initializer
 
     init(
-        trendingViewController: TrendingViewController,
-        topRatedViewController: TrendingViewController
+        trendingViewController: MovieListViewController,
+        topRatedViewController: MovieListViewController
     ) {
         self.trendingView = trendingViewController.view
         self.topRatedView = topRatedViewController.view

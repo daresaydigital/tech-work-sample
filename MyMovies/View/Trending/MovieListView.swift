@@ -1,5 +1,5 @@
 //
-//  TrendingView.swift
+//  MovieListView.swift
 //  MyMovies
 //
 //  Created by Caio dos Santos Ambrosio on 1/10/23.
@@ -11,7 +11,7 @@ protocol FavoriteDelegate: AnyObject {
     func favorite(_ row: Int)
 }
 
-class TrendingView: UIView {
+class MovieListView: UIView {
 
     // MARK: - SubViews
 
@@ -32,7 +32,7 @@ class TrendingView: UIView {
         let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(TrendingCollectionViewCell.self, forCellWithReuseIdentifier: TrendingCollectionViewCell.identifier)
+        collectionView.register(MovieListCollectionViewCell.self, forCellWithReuseIdentifier: MovieListCollectionViewCell.identifier)
         return collectionView
     }()
 

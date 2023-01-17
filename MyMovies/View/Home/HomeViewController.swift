@@ -13,16 +13,16 @@ class HomeViewController: UIViewController, Coordinating {
 
     var coordinator: Coordinator?
 
-    private var trendingViewController: TrendingViewController
-    private var topRatedViewController: TrendingViewController
+    private var trendingViewController: MovieListViewController
+    private var topRatedViewController: MovieListViewController
 
     private var homeView: HomeView? = nil
 
     // MARK: - Initializer
 
     init(
-        trendingViewController: TrendingViewController,
-        topRatedViewController: TrendingViewController,
+        trendingViewController: MovieListViewController,
+        topRatedViewController: MovieListViewController,
         coordinator: Coordinator
     ) {
         self.trendingViewController = trendingViewController
