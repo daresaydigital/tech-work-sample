@@ -22,20 +22,8 @@ final class TrendingListViewModelSpec: XCTestCase {
         expectation = expectation(description: "Expectation")
     }
 
-    private func getMockData(for path: String) -> Data? {
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: path, ofType: "json") else {
-            fatalError("Mock json not found")
-        }
-
-        guard let jsonString = try? String(contentsOfFile: pathString, encoding: .utf8) else {
-            fatalError("Mock json can not be converted to String")
-        }
-
-        return jsonString.data(using: .utf8)
-    }
-
     func testSuccessCall() {
-        let data = getMockData(for: "trending-success")
+        let data = JsonHelper().getMockData(for: "trending-success")
 
         MockURLProtocol.requestHandler = { request in
             guard let url = request.url, url == self.apiURL else {
@@ -59,7 +47,7 @@ final class TrendingListViewModelSpec: XCTestCase {
     }
 
     func testErrorCall() {
-        let data = getMockData(for: "trending-error")
+        let data = JsonHelper().getMockData(for: "trending-error")
 
         MockURLProtocol.requestHandler = { request in
             guard let url = request.url, url == self.apiURL else {

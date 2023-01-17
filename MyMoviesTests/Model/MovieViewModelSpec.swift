@@ -23,20 +23,8 @@ final class MovieViewModelSpec: XCTestCase {
         expectation = expectation(description: "Expectation")
     }
 
-    private func getMockData(for path: String) -> Data? {
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: path, ofType: "json") else {
-            fatalError("Mock json not found")
-        }
-
-        guard let jsonString = try? String(contentsOfFile: pathString, encoding: .utf8) else {
-            fatalError("Mock json can not be converted to String")
-        }
-
-        return jsonString.data(using: .utf8)
-    }
-
     func testSuccessCall() {
-        let data = getMockData(for: "movie-success")
+        let data = JsonHelper().getMockData(for: "movie-success")
 
         MockURLProtocol.requestHandler = { request in
             guard let url = request.url, url == self.apiURL else {
@@ -47,9 +35,9 @@ final class MovieViewModelSpec: XCTestCase {
             return (response, data)
         }
 
-        let viewModel = MovieViewModel(apiLoader: self.apiLoader)
+        let viewModel = MovieViewModel(apiLoader: self.apiLoader, movieId: movieId)
 
-        viewModel.fetchMovie(for: movieId) { viewModel, error in
+        viewModel.fetchMovie { viewModel, error in
             XCTAssertNotNil(viewModel)
             XCTAssertEqual(viewModel?.title, "The Godfather")
             XCTAssertEqual(viewModel?.imageUrl, URL(string: "https://image.tmdb.org/t/p/w185/3bhkrj58Vtu7enYsRolD1fZdja1.jpg?api_key=16094d8ca19f9c0407db3d0b5203bd21"))
@@ -64,7 +52,7 @@ final class MovieViewModelSpec: XCTestCase {
     }
 
     func testErrorCall() {
-        let data = getMockData(for: "movie-error")
+        let data = JsonHelper().getMockData(for: "movie-error")
 
         MockURLProtocol.requestHandler = { request in
             guard let url = request.url, url == self.apiURL else {
@@ -75,9 +63,9 @@ final class MovieViewModelSpec: XCTestCase {
             return (response, data)
         }
 
-        let viewModel = MovieViewModel(apiLoader: self.apiLoader)
+        let viewModel = MovieViewModel(apiLoader: self.apiLoader, movieId: movieId)
 
-        viewModel.fetchMovie(for: movieId) { viewModel, error in
+        viewModel.fetchMovie { viewModel, error in
             XCTAssertNotNil(error)
             XCTAssertEqual(error?.message, "Error when communicating with API")
             self.expectation.fulfill()
