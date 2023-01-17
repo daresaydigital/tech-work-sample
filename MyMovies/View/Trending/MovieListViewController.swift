@@ -122,7 +122,8 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDat
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let trending = trendingListViewModel?.getTrending(indexPath.row) ??
-                topRatedListViewModel?.getTrending(indexPath.row),
+                topRatedListViewModel?.getTrending(indexPath.row) ??
+              favoriteViewModel?.getTrending(indexPath.row),
         let movieId = trending.movieId else { return }
 
         coordinator?.eventOccurred(with: Event.movieClicked, parameters: movieId)
