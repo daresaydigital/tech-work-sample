@@ -39,7 +39,6 @@ class ImageLoader {
         }
         task.resume()
 
-            // 6
         runningRequests[uuid] = task
         return uuid
     }
