@@ -38,7 +38,7 @@ class FavoriteRepository {
     func deleteMovie(for movieId: Int64) {
         let movieIdString = String(movieId)
 
-        var keys: [String]? = readValue(for: Key.keys.rawValue)
+        let keys: [String]? = readValue(for: Key.keys.rawValue)
         if var keys {
             keys.removeAll(where: { $0 == movieIdString })
             if keys.count > 0 {
