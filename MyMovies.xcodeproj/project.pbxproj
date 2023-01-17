@@ -57,7 +57,7 @@
 		7DF3DD1E2972E3A7007BF9A3 /* trending-result.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */; };
 		7DF3DD202972E641007BF9A3 /* trending-result-nullable.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */; };
 		7DF3DD232972E725007BF9A3 /* MainCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD222972E725007BF9A3 /* MainCoordinatorSpec.swift */; };
-		7DF3DD252972E7AC007BF9A3 /* MainCoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */; };
+		7DF3DD252972E7AC007BF9A3 /* MockUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD242972E7AC007BF9A3 /* MockUINavigationController.swift */; };
 		7DF3DD282972F5A4007BF9A3 /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD272972F5A4007BF9A3 /* FavoriteRepository.swift */; };
 		7DF3DD2B29730F28007BF9A3 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD2A29730F28007BF9A3 /* FavoriteViewModel.swift */; };
 		7DF3DD2E29731AAD007BF9A3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3DD2D29731AAD007BF9A3 /* Button.swift */; };
@@ -135,7 +135,7 @@
 		7DF3DD1D2972E3A7007BF9A3 /* trending-result.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "trending-result.json"; sourceTree = "<group>"; };
 		7DF3DD1F2972E641007BF9A3 /* trending-result-nullable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "trending-result-nullable.json"; sourceTree = "<group>"; };
 		7DF3DD222972E725007BF9A3 /* MainCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorSpec.swift; sourceTree = "<group>"; };
-		7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorMock.swift; sourceTree = "<group>"; };
+		7DF3DD242972E7AC007BF9A3 /* MockUINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUINavigationController.swift; sourceTree = "<group>"; };
 		7DF3DD272972F5A4007BF9A3 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		7DF3DD2A29730F28007BF9A3 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		7DF3DD2D29731AAD007BF9A3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -337,7 +337,7 @@
 				7DF3DD0E2972DEDE007BF9A3 /* TopRated */,
 				7D35A4832972D5BE0054954E /* Trending */,
 				7D35A4862972D6D40054954E /* MockURLProtocol.swift */,
-				7DF3DD242972E7AC007BF9A3 /* MainCoordinatorMock.swift */,
+				7DF3DD242972E7AC007BF9A3 /* MockUINavigationController.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -608,7 +608,7 @@
 				7DF3DD142972DF75007BF9A3 /* MovieViewModelSpec.swift in Sources */,
 				7DF3DD232972E725007BF9A3 /* MainCoordinatorSpec.swift in Sources */,
 				7D35A4872972D6D40054954E /* MockURLProtocol.swift in Sources */,
-				7DF3DD252972E7AC007BF9A3 /* MainCoordinatorMock.swift in Sources */,
+				7DF3DD252972E7AC007BF9A3 /* MockUINavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

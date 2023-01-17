@@ -9,24 +9,35 @@ import XCTest
 @testable import MyMovies
 
 final class MainCoordinatorSpec: XCTestCase {
-    private var mainCoordinator: MainCoordinatorMock!
+    private var mainCoordinator: MainCoordinator!
+    private var navigationController: MockUINavigationController!
 
     override func setUp() {
         super.setUp()
 
-        let navigationController = UINavigationController(rootViewController: UIViewController())
-        mainCoordinator = MainCoordinatorMock(navigationController: navigationController)
+        navigationController = MockUINavigationController()
+        mainCoordinator = MainCoordinator(navigationController: navigationController)
     }
 
     func testMainCoordinatorStart() {
         mainCoordinator.start()
 
-        XCTAssertTrue(mainCoordinator.startCalled)
+        XCTAssertTrue(navigationController.setViewControllersCalled)
+        XCTAssertTrue(navigationController.controllers[0] is HomeViewController)
     }
 
-    func testEventOccurred() {
-        mainCoordinator.eventOccurred(with: .movieClicked, parameters: nil)
+    func testEventMovieClicked() {
+        let movieId: Int64 = 238
+        mainCoordinator.eventOccurred(with: .movieClicked, parameters: movieId)
 
-        XCTAssertTrue(mainCoordinator.eventOccurredCalled)
+        XCTAssertTrue(navigationController.pushViewControllerCalled)
+        XCTAssertTrue(navigationController.controllers[0] is MovieViewController)
+    }
+
+    func testEventFavoritesClicked() {
+        mainCoordinator.eventOccurred(with: .favoriteClicked, parameters: nil)
+
+        XCTAssertTrue(navigationController.pushViewControllerCalled)
+        XCTAssertTrue(navigationController.controllers[0] is TrendingViewController)
     }
 }
