@@ -12,6 +12,7 @@ class MovieViewModel {
     // MARK: - Properties
 
     private var movie: Movie? = nil
+    private var movieId: Int64
 
     private let apiLoader: APILoader<MovieAPI>
 
@@ -51,14 +52,14 @@ class MovieViewModel {
 
     // MARK: - Initializer
 
-    init(apiLoader: APILoader<MovieAPI>) {
+    init(apiLoader: APILoader<MovieAPI>, movieId: Int64) {
         self.apiLoader = apiLoader
+        self.movieId = movieId
     }
 
     // MARK: - Functions
 
     func fetchMovie(
-        for movieId: Int64,
         completion: @escaping (MovieViewModel?, ServiceError?) -> ()
     ) {
         apiLoader.loadAPIRequest(requestData: movieId) { [weak self] movieResponse, error in

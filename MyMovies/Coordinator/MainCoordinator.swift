@@ -22,8 +22,8 @@ class MainCoordinator: Coordinator {
 
                 let api = MovieAPI()
                 let apiLoader = APILoader(apiHandler: api)
-                let viewModel = MovieViewModel(apiLoader: apiLoader)
-                let viewController = MovieViewController(movieId: movieId, movieViewModel: viewModel)
+                let viewModel = MovieViewModel(apiLoader: apiLoader, movieId: movieId)
+                let viewController = MovieViewController(movieViewModel: viewModel)
 
                 navigationController.pushViewController(viewController, animated: true)
 

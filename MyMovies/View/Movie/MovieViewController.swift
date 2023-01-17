@@ -11,13 +11,10 @@ class MovieViewController: UIViewController {
 
     private var movieView: MovieView? = nil
     private var movieViewModel: MovieViewModel
-    private var movieId: Int64
 
     init(
-        movieId: Int64,
         movieViewModel: MovieViewModel
     ) {
-        self.movieId = movieId
         self.movieViewModel = movieViewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,7 +33,7 @@ class MovieViewController: UIViewController {
 
         movieView?.renderLoadingState()
 
-        movieViewModel.fetchMovie(for: self.movieId) { [weak self] movieViewModel, error in
+        movieViewModel.fetchMovie { [weak self] movieViewModel, error in
             guard let self = self else {
                 return
             }
