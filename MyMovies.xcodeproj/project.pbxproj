@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0D8686297623AE00BCD50D /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D8685297623AE00BCD50D /* MockUserDefaults.swift */; };
+		7D0D8688297624D300BCD50D /* FavoriteRepositorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D8687297624D300BCD50D /* FavoriteRepositorySpec.swift */; };
+		7D0D868B2976260200BCD50D /* favorite.json in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D868A2976260200BCD50D /* favorite.json */; };
 		7D35A404296E22430054954E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A403296E22430054954E /* AppDelegate.swift */; };
 		7D35A406296E22430054954E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D35A405296E22430054954E /* SceneDelegate.swift */; };
 		7D35A40D296E22450054954E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D35A40C296E22450054954E /* Assets.xcassets */; };
@@ -81,6 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D0D8685297623AE00BCD50D /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		7D0D8687297624D300BCD50D /* FavoriteRepositorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepositorySpec.swift; sourceTree = "<group>"; };
+		7D0D868A2976260200BCD50D /* favorite.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = favorite.json; sourceTree = "<group>"; };
 		7D35A400296E22430054954E /* MyMovies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMovies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D35A403296E22430054954E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D35A405296E22430054954E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +172,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D0D8689297625C600BCD50D /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				7D0D868A2976260200BCD50D /* favorite.json */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		7D35A3F7296E22430054954E = {
 			isa = PBXGroup;
 			children = (
@@ -332,12 +346,14 @@
 		7D35A4822972D5B00054954E /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				7D0D8689297625C600BCD50D /* Favorite */,
 				7DF3DD1C2972E36E007BF9A3 /* TrendingResult */,
 				7DF3DD152972E0F6007BF9A3 /* Movie */,
 				7DF3DD0E2972DEDE007BF9A3 /* TopRated */,
 				7D35A4832972D5BE0054954E /* Trending */,
 				7D35A4862972D6D40054954E /* MockURLProtocol.swift */,
 				7DF3DD242972E7AC007BF9A3 /* MockUINavigationController.swift */,
+				7D0D8685297623AE00BCD50D /* MockUserDefaults.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -366,6 +382,7 @@
 				7DF3DD0C2972DE25007BF9A3 /* TopRatedListViewModelSpec.swift */,
 				7DF3DD132972DF75007BF9A3 /* MovieViewModelSpec.swift */,
 				7DF3DD1A2972E23B007BF9A3 /* TrendingViewModelSpec.swift */,
+				7D0D8687297624D300BCD50D /* FavoriteRepositorySpec.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -536,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DF3DD202972E641007BF9A3 /* trending-result-nullable.json in Resources */,
+				7D0D868B2976260200BCD50D /* favorite.json in Resources */,
 				7DF3DD0B2972DC3B007BF9A3 /* trending-success.json in Resources */,
 				7DF3DD102972DEED007BF9A3 /* top-rated-success.json in Resources */,
 				7DF3DD1E2972E3A7007BF9A3 /* trending-result.json in Resources */,
@@ -606,6 +624,8 @@
 				7DF3DD0D2972DE25007BF9A3 /* TopRatedListViewModelSpec.swift in Sources */,
 				7DF3DD1B2972E23B007BF9A3 /* TrendingViewModelSpec.swift in Sources */,
 				7DF3DD142972DF75007BF9A3 /* MovieViewModelSpec.swift in Sources */,
+				7D0D8686297623AE00BCD50D /* MockUserDefaults.swift in Sources */,
+				7D0D8688297624D300BCD50D /* FavoriteRepositorySpec.swift in Sources */,
 				7DF3DD232972E725007BF9A3 /* MainCoordinatorSpec.swift in Sources */,
 				7D35A4872972D6D40054954E /* MockURLProtocol.swift in Sources */,
 				7DF3DD252972E7AC007BF9A3 /* MockUINavigationController.swift in Sources */,

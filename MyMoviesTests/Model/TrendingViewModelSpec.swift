@@ -14,7 +14,7 @@ final class TrendingViewModelSpec: XCTestCase {
             fatalError("Mock json can not be converted to Data")
         }
 
-        let trending = JsonHelper().getMockJson(for: data)
+        let trending: TrendingResult = JsonHelper().getMockJson(for: data)
         let viewModel = TrendingViewModel(trending: trending)
 
         XCTAssertEqual(viewModel.title, trending.originalTitle)
@@ -27,7 +27,7 @@ final class TrendingViewModelSpec: XCTestCase {
             fatalError("Mock json can not be converted to Data")
         }
 
-        let trending = JsonHelper().getMockJson(for: data)
+        let trending: TrendingResult = JsonHelper().getMockJson(for: data)
         let viewModel = TrendingViewModel(trending: trending)
 
         XCTAssertEqual(viewModel.title, "")

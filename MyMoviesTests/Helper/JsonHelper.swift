@@ -21,11 +21,11 @@ class JsonHelper {
         return jsonString.data(using: .utf8)
     }
 
-    func getMockJson(for data: Data) -> TrendingResult {
+    func getMockJson<T: Decodable>(for data: Data) -> T {
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
         do {
-            let body = try jsonDecoder.decode(TrendingResult.self, from: data)
+            let body = try jsonDecoder.decode(T.self, from: data)
             return body
         } catch {
             fatalError("Error when decoding json")
