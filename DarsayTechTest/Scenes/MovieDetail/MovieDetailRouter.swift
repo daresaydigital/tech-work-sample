@@ -1,25 +1,18 @@
 //
-//  MovieListRouter.swift
+//  MovieDetailRouter.swift
 //  DarsayTechTest
 //
 //  Created by Farzaneh on 11/8/1401 AP.
 
 import UIKit
 
-protocol MovieListRouterProtocol: AnyObject {
-    func routeToDetail(movieID: Int)
+protocol MovieDetailRouterProtocol: AnyObject {
     func showErrorAlert(message: String)
 }
 
-class MovieListRouter: MovieListRouterProtocol {
+final class MovieDetailRouter: MovieDetailRouterProtocol {
     
-    weak var viewController: MovieListViewController?
-    
-    func routeToDetail(movieID: Int) {
-        let destination = MovieDetailBuilder.build(with: .init(movieID: movieID, movieNetworkAPIManager: MovieNetworkAPIManager.shared))
-        
-        self.viewController?.navigationController?.pushViewController(destination, animated: true)
-    }
+    weak var viewController: MovieDetailViewController?
     
     func showErrorAlert(message: String) {
         let alertController = UIAlertController(title: "Error",
