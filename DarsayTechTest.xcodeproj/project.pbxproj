@@ -245,6 +245,7 @@
 				EEB43AD429850E4000DF5CAD /* Sources */,
 				EEB43AD529850E4000DF5CAD /* Frameworks */,
 				EEB43AD629850E4000DF5CAD /* Resources */,
+				EEB43B232985179900DF5CAD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -363,6 +364,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EEB43B232985179900DF5CAD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Scripts/swiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EEB43AD429850E4000DF5CAD /* Sources */ = {
