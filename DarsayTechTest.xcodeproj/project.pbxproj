@@ -16,6 +16,12 @@
 		EE1A9EB929851B4E00E4F9EF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EB829851B4E00E4F9EF /* Movie.swift */; };
 		EE1A9EBB29851B6900E4F9EF /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EBA29851B6900E4F9EF /* Review.swift */; };
 		EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EBC29851CAB00E4F9EF /* MockService.swift */; };
+		EE1A9EBF29851D7900E4F9EF /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EBE29851D7900E4F9EF /* Publisher.swift */; };
+		EE1A9EC129851D9100E4F9EF /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EC029851D9100E4F9EF /* URL.swift */; };
+		EE1A9EC329851E3000E4F9EF /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EC229851E3000E4F9EF /* Constant.swift */; };
+		EE1A9EC529851E5700E4F9EF /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EC429851E5700E4F9EF /* Layout.swift */; };
+		EE1A9EC729851E8300E4F9EF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EC629851E8300E4F9EF /* Image.swift */; };
+		EE1A9ECA29851F9800E4F9EF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EC929851F9800E4F9EF /* ImageLoader.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -58,6 +64,12 @@
 		EE1A9EB829851B4E00E4F9EF /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		EE1A9EBA29851B6900E4F9EF /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		EE1A9EBC29851CAB00E4F9EF /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		EE1A9EBE29851D7900E4F9EF /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		EE1A9EC029851D9100E4F9EF /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		EE1A9EC229851E3000E4F9EF /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		EE1A9EC429851E5700E4F9EF /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		EE1A9EC629851E8300E4F9EF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		EE1A9EC929851F9800E4F9EF /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,8 +146,17 @@
 				EE1A9EB629851B3800E4F9EF /* ResultList.swift */,
 				EE1A9EB829851B4E00E4F9EF /* Movie.swift */,
 				EE1A9EBA29851B6900E4F9EF /* Review.swift */,
+				EE1A9EC629851E8300E4F9EF /* Image.swift */,
 			);
 			path = "Networking Models";
+			sourceTree = "<group>";
+		};
+		EE1A9EC829851F8D00E4F9EF /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EE1A9EC929851F9800E4F9EF /* ImageLoader.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		EEB43ACF29850E4000DF5CAD = {
@@ -164,6 +185,7 @@
 				EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */,
 				EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */,
 				EEB43B0B29850E9E00DF5CAD /* Scenes */,
+				EE1A9EC829851F8D00E4F9EF /* Helper */,
 				EEB43B0C29850EAC00DF5CAD /* Networking */,
 				EEB43B0D29850EB800DF5CAD /* Models */,
 				EEB43B0E29850EC200DF5CAD /* Extension */,
@@ -226,6 +248,8 @@
 		EEB43B0E29850EC200DF5CAD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EE1A9EBE29851D7900E4F9EF /* Publisher.swift */,
+				EE1A9EC029851D9100E4F9EF /* URL.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -242,6 +266,8 @@
 		EEB43B1029850EFF00DF5CAD /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				EE1A9EC229851E3000E4F9EF /* Constant.swift */,
+				EE1A9EC429851E5700E4F9EF /* Layout.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -449,16 +475,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE1A9EBF29851D7900E4F9EF /* Publisher.swift in Sources */,
 				EEB43B222985126D00DF5CAD /* Error.swift in Sources */,
+				EE1A9EC529851E5700E4F9EF /* Layout.swift in Sources */,
 				EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */,
 				EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */,
 				EE1A9EB729851B3800E4F9EF /* ResultList.swift in Sources */,
 				EE1A9EB929851B4E00E4F9EF /* Movie.swift in Sources */,
 				EE1A9EB029851A6200E4F9EF /* MovieServiceEndPoint.swift in Sources */,
+				EE1A9EC329851E3000E4F9EF /* Constant.swift in Sources */,
+				EE1A9EC729851E8300E4F9EF /* Image.swift in Sources */,
 				EE1A9EBB29851B6900E4F9EF /* Review.swift in Sources */,
+				EE1A9ECA29851F9800E4F9EF /* ImageLoader.swift in Sources */,
 				EE1A9EB229851A8100E4F9EF /* MovieNetworkAPI.swift in Sources */,
 				EE1A9EAE29851A1200E4F9EF /* NetworkExecuter.swift in Sources */,
 				EE1A9EB429851A8D00E4F9EF /* MovieNetworkAPIManager.swift in Sources */,
+				EE1A9EC129851D9100E4F9EF /* URL.swift in Sources */,
 				EE1A9EAC298519F600E4F9EF /* EndPointTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
