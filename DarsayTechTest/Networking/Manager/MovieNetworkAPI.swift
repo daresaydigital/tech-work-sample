@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import Combine
+
+protocol MovieNetworkAPI {
+    func getPopularMovies() -> AnyPublisher<ResultList<Movie>, Error>
+    func getTopRatedMovies() -> AnyPublisher<ResultList<Movie>, Error>
+    func getMovieDetail(movieID: String) -> AnyPublisher<Movie, Error>
+    func getMovieReviews(movieID: String) -> AnyPublisher<ResultList<Review>, Error>
+}
