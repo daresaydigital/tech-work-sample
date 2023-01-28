@@ -10,13 +10,14 @@ import Foundation
 import Combine
 
 final class MockAllFailureHTTPRequestExecuter: HTTPRequestProtocol {
-    func performRequest<T: Codable>(endpoint: EndPointTarget, responseModel: T.Type) -> AnyPublisher<T, Error> {
+    
+    func performRequest<T: Codable>(endpoint: EndPointTarget, responseModel: T.Type, cachedResponseOnError: Bool) -> AnyPublisher<T, Error> {
         Fail(outputType: T.self, failure: NetworkError.generalError).eraseToAnyPublisher()
     }
 }
 
 final class MockHTTPRequestExecuter: HTTPRequestProtocol {
-    func performRequest<T: Codable>(endpoint: EndPointTarget, responseModel: T.Type) -> AnyPublisher<T, Error> {
+    func performRequest<T: Codable>(endpoint: EndPointTarget, responseModel: T.Type, cachedResponseOnError: Bool) -> AnyPublisher<T, Error> {
         
         guard let endpoint = endpoint as? MovieServiceEndPoint else {
             return Fail(outputType: T.self, failure: NetworkError.badURL).eraseToAnyPublisher()

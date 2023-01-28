@@ -19,18 +19,18 @@ class MovieNetworkAPIManager: MovieNetworkAPI {
     static let shared = MovieNetworkAPIManager(executer: HTTPRequestExecuter())
     
     func getPopularMovies() -> AnyPublisher<ResultList<Movie>, Error> {
-        return executer.performRequest(endpoint: MovieServiceEndPoint.getMostPopular, responseModel: ResultList<Movie>.self)
+        return executer.performRequest(endpoint: MovieServiceEndPoint.getMostPopular, responseModel: ResultList<Movie>.self, cachedResponseOnError: true)
     }
     
     func getTopRatedMovies() -> AnyPublisher<ResultList<Movie>, Error> {
-        return executer.performRequest(endpoint: MovieServiceEndPoint.getTopRated, responseModel: ResultList<Movie>.self)
+        return executer.performRequest(endpoint: MovieServiceEndPoint.getTopRated, responseModel: ResultList<Movie>.self, cachedResponseOnError: true)
     }
     
     func getMovieDetail(movieID: String) -> AnyPublisher<Movie, Error> {
-        return executer.performRequest(endpoint: MovieServiceEndPoint.getDetail(movieID), responseModel: Movie.self)
+        return executer.performRequest(endpoint: MovieServiceEndPoint.getDetail(movieID), responseModel: Movie.self, cachedResponseOnError: true)
     }
     
     func getMovieReviews(movieID: String) -> AnyPublisher<ResultList<Review>, Error> {
-        return executer.performRequest(endpoint: MovieServiceEndPoint.getReviews(movieID), responseModel: ResultList<Review>.self)
+        return executer.performRequest(endpoint: MovieServiceEndPoint.getReviews(movieID), responseModel: ResultList<Review>.self, cachedResponseOnError: true)
     }
 }
