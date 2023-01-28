@@ -16,16 +16,18 @@ protocol HTTPRequestProtocol {
 class HTTPRequestExecuter: HTTPRequestProtocol {
  
     var urlSession: URLSession
+    var timeoutInterval: Double
     
-    init(urlSession: URLSession = URLSession.shared) {
+    init(urlSession: URLSession = URLSession.shared, timeoutInterval: Double) {
         self.urlSession = urlSession
+        self.timeoutInterval = timeoutInterval
     }
     
     func performRequest<T: Codable>(endpoint: EndPointTarget, responseModel: T.Type, cachedResponseOnError: Bool) -> AnyPublisher<T, Error> {
      
         guard let url = endpoint.getURL() else { return Fail(error: NetworkError.badURL).eraseToAnyPublisher() }
         
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url, timeoutInterval: timeoutInterval)
         request.httpMethod = endpoint.method.rawValue
         request.allHTTPHeaderFields = endpoint.headers
         

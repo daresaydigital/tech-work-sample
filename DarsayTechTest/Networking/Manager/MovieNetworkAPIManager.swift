@@ -16,7 +16,7 @@ class MovieNetworkAPIManager: MovieNetworkAPI {
         self.executer = executer
     }
     
-    static let shared = MovieNetworkAPIManager(executer: HTTPRequestExecuter())
+    static let shared = MovieNetworkAPIManager(executer: HTTPRequestExecuter(timeoutInterval: 40))
     
     func getPopularMovies() -> AnyPublisher<ResultList<Movie>, Error> {
         return executer.performRequest(endpoint: MovieServiceEndPoint.getMostPopular, responseModel: ResultList<Movie>.self, cachedResponseOnError: true)
