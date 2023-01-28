@@ -31,21 +31,17 @@ final class StorageTest: XCTestCase {
             case .success(let list):
                 XCTAssertEqual(list.results.count, 1)
 
-                guard let firstMovie = list.results.first else {
-                    return XCTFail("load json failed")
-                }
+                FavoriteStorage.shared.setObject(for: "popular", object: list.results)
                 
-                FavoriteStorage.shared.setObject(for: "popular", object: firstMovie)
+                var retreivedList = FavoriteStorage.shared.getObject(by: "popular")
                 
-                var retreivedObject = FavoriteStorage.shared.getObject(by: "popular")
-                
-                XCTAssertEqual(firstMovie, retreivedObject)
+                XCTAssertEqual(list.results, retreivedList)
                 
                 FavoriteStorage.shared.remove(key: "popular")
                  
-                retreivedObject = FavoriteStorage.shared.getObject(by: "popular")
+                retreivedList = FavoriteStorage.shared.getObject(by: "popular")
                 
-                XCTAssertNil(retreivedObject)
+                XCTAssertNil(retreivedList)
                 
             case .failure(let error):
                 XCTFail(error.localizedDescription)

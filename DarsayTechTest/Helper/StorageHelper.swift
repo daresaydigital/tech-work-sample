@@ -38,7 +38,7 @@ extension StorageProtocol {
 }
 
 final class FavoriteStorage: StorageProtocol {
-    typealias StoredObject = Movie
+    typealias StoredObject = [Movie]
     
     static let shared = FavoriteStorage()
     
