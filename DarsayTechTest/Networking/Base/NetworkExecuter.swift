@@ -40,15 +40,16 @@ class HTTPRequestExecuter: HTTPRequestProtocol {
                 guard let urlCache = self?.urlSession.configuration.urlCache, let cachedResponse = urlCache.cachedResponse(for: request) else {
                         throw NetworkError.serverError
                       }
-                
+               LoggerHelper.shared.log(data: data)
                return cachedResponse.data
             }
-            
+            LoggerHelper.shared.log(httpResponse, data: data)
             return data
         }
         .decode(type: T.self, decoder: JSONDecoder())
         .mapError { error in
-            AppError(reason: error.localizedDescription)
+            LoggerHelper.shared.log(error: error)
+            return AppError(reason: error.localizedDescription)
         }
         .eraseToAnyPublisher()
     }
