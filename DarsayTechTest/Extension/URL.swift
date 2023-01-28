@@ -17,7 +17,7 @@ extension URL {
             nestedURLString
         ].joined(separator: "")
         
-        guard let url = URL(string: urlString) else { throw  AppError(reason: "URL creation failed") }
+        guard let url = URL(string: urlString) else { throw  AppError(reason: LocalizeHelper.shared.lookup(.urlCreationFailed)) }
         return url
     }
 }

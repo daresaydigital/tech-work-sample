@@ -41,6 +41,8 @@
 		EE1A9EED298529A300E4F9EF /* LoadableJSONTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */; };
 		EE1A9EEF29852A7300E4F9EF /* ExecuterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */; };
 		EE1A9EF129852AD200E4F9EF /* MockExecuter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EF029852AD200E4F9EF /* MockExecuter.swift */; };
+		EE2293C12985855E0077B40D /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = EE2293C02985855E0077B40D /* Localizable.stringsdict */; };
+		EE2293C32985859F0077B40D /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C22985859F0077B40D /* LocalizeHelper.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -107,6 +109,8 @@
 		EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadableJSONTest.swift; sourceTree = "<group>"; };
 		EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuterTest.swift; sourceTree = "<group>"; };
 		EE1A9EF029852AD200E4F9EF /* MockExecuter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExecuter.swift; sourceTree = "<group>"; };
+		EE2293C02985855E0077B40D /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
+		EE2293C22985859F0077B40D /* LocalizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				EE1A9EC929851F9800E4F9EF /* ImageLoader.swift */,
+				EE2293C22985859F0077B40D /* LocalizeHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			children = (
 				EEB43AE629850E4100DF5CAD /* LaunchScreen.storyboard */,
 				EEB43AE429850E4100DF5CAD /* Assets.xcassets */,
+				EE2293C02985855E0077B40D /* Localizable.stringsdict */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 			files = (
 				EEB43AE829850E4100DF5CAD /* LaunchScreen.storyboard in Resources */,
 				EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */,
+				EE2293C12985855E0077B40D /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +559,7 @@
 				EE1A9EB029851A6200E4F9EF /* MovieServiceEndPoint.swift in Sources */,
 				EE1A9ED8298520D600E4F9EF /* MovieListViewModel.swift in Sources */,
 				EE1A9ECC2985206000E4F9EF /* BaseProtocols.swift in Sources */,
+				EE2293C32985859F0077B40D /* LocalizeHelper.swift in Sources */,
 				EE1A9EE7298522EB00E4F9EF /* MovieDetailBuilder.swift in Sources */,
 				EE1A9EC329851E3000E4F9EF /* Constant.swift in Sources */,
 				EE1A9EC729851E8300E4F9EF /* Image.swift in Sources */,
