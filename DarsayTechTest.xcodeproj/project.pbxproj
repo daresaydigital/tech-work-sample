@@ -45,6 +45,8 @@
 		EE2293C32985859F0077B40D /* LocalizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C22985859F0077B40D /* LocalizeHelper.swift */; };
 		EE2293C5298594AA0077B40D /* LoggerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C4298594AA0077B40D /* LoggerHelper.swift */; };
 		EE2293C7298595F20077B40D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C6298595F20077B40D /* Data.swift */; };
+		EE2293C929859F100077B40D /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C829859F100077B40D /* StorageHelper.swift */; };
+		EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CA2985AA330077B40D /* StorageTest.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -115,6 +117,8 @@
 		EE2293C22985859F0077B40D /* LocalizeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizeHelper.swift; sourceTree = "<group>"; };
 		EE2293C4298594AA0077B40D /* LoggerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerHelper.swift; sourceTree = "<group>"; };
 		EE2293C6298595F20077B40D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		EE2293C829859F100077B40D /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
+		EE2293CA2985AA330077B40D /* StorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTest.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				EE1A9EC929851F9800E4F9EF /* ImageLoader.swift */,
 				EE2293C22985859F0077B40D /* LocalizeHelper.swift */,
 				EE2293C4298594AA0077B40D /* LoggerHelper.swift */,
+				EE2293C829859F100077B40D /* StorageHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */,
 				EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */,
 				EEB43AF229850E4100DF5CAD /* ViewControllerTest.swift */,
+				EE2293CA2985AA330077B40D /* StorageTest.swift */,
 			);
 			path = DarsayTechTestTests;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 				EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */,
 				EE1A9EB729851B3800E4F9EF /* ResultList.swift in Sources */,
 				EE1A9EB929851B4E00E4F9EF /* Movie.swift in Sources */,
+				EE2293C929859F100077B40D /* StorageHelper.swift in Sources */,
 				EE1A9EDA2985210700E4F9EF /* MovieTopRatedView.swift in Sources */,
 				EE1A9EB029851A6200E4F9EF /* MovieServiceEndPoint.swift in Sources */,
 				EE1A9ED8298520D600E4F9EF /* MovieListViewModel.swift in Sources */,
@@ -596,6 +603,7 @@
 				EE1A9EEF29852A7300E4F9EF /* ExecuterTest.swift in Sources */,
 				EE1A9EF129852AD200E4F9EF /* MockExecuter.swift in Sources */,
 				EEB43AF329850E4100DF5CAD /* ViewControllerTest.swift in Sources */,
+				EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */,
 				EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */,
 				EE1A9EED298529A300E4F9EF /* LoadableJSONTest.swift in Sources */,
 			);
