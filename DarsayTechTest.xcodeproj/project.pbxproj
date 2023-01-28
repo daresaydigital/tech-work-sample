@@ -45,7 +45,7 @@
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
 		EEB43AE829850E4100DF5CAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE629850E4100DF5CAD /* LaunchScreen.storyboard */; };
-		EEB43AF329850E4100DF5CAD /* DarsayTechTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43AF229850E4100DF5CAD /* DarsayTechTestTests.swift */; };
+		EEB43AF329850E4100DF5CAD /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43AF229850E4100DF5CAD /* ViewControllerTest.swift */; };
 		EEB43AFD29850E4100DF5CAD /* DarsayTechTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43AFC29850E4100DF5CAD /* DarsayTechTestUITests.swift */; };
 		EEB43AFF29850E4100DF5CAD /* DarsayTechTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43AFE29850E4100DF5CAD /* DarsayTechTestUITestsLaunchTests.swift */; };
 		EEB43B182985116100DF5CAD /* review_json.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB43B172985116100DF5CAD /* review_json.json */; };
@@ -114,7 +114,7 @@
 		EEB43AE729850E4100DF5CAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEB43AE929850E4100DF5CAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEB43AEE29850E4100DF5CAD /* DarsayTechTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarsayTechTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEB43AF229850E4100DF5CAD /* DarsayTechTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarsayTechTestTests.swift; sourceTree = "<group>"; };
+		EEB43AF229850E4100DF5CAD /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
 		EEB43AF829850E4100DF5CAD /* DarsayTechTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DarsayTechTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43AFC29850E4100DF5CAD /* DarsayTechTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarsayTechTestUITests.swift; sourceTree = "<group>"; };
 		EEB43AFE29850E4100DF5CAD /* DarsayTechTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarsayTechTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -238,12 +238,12 @@
 			isa = PBXGroup;
 			children = (
 				EEB43B162985112000DF5CAD /* JSON */,
-				EEB43AF229850E4100DF5CAD /* DarsayTechTestTests.swift */,
 				EEB43B1F298511E800DF5CAD /* JSONLoader.swift */,
 				EE1A9EBC29851CAB00E4F9EF /* MockService.swift */,
-				EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */,
 				EE1A9EF029852AD200E4F9EF /* MockExecuter.swift */,
+				EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */,
 				EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */,
+				EEB43AF229850E4100DF5CAD /* ViewControllerTest.swift */,
 			);
 			path = DarsayTechTestTests;
 			sourceTree = "<group>";
@@ -326,11 +326,11 @@
 			isa = PBXGroup;
 			children = (
 				EEB43B1329850F7D00DF5CAD /* Views */,
-				EE1A9ECF298520D600E4F9EF /* MovieListRouter.swift */,
-				EE1A9ED0298520D600E4F9EF /* MovieListViewController.swift */,
 				EE1A9ED1298520D600E4F9EF /* MovieListBuilder.swift */,
 				EE1A9ED2298520D600E4F9EF /* MovieListModel.swift */,
 				EE1A9ED3298520D600E4F9EF /* MovieListViewModel.swift */,
+				EE1A9ED0298520D600E4F9EF /* MovieListViewController.swift */,
+				EE1A9ECF298520D600E4F9EF /* MovieListRouter.swift */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -348,11 +348,11 @@
 			isa = PBXGroup;
 			children = (
 				EEB43B1529850F8B00DF5CAD /* Views */,
-				EE1A9EE0298522EB00E4F9EF /* MovieDetailRouter.swift */,
-				EE1A9EE1298522EB00E4F9EF /* MovieDetailViewController.swift */,
 				EE1A9EE2298522EB00E4F9EF /* MovieDetailBuilder.swift */,
 				EE1A9EE3298522EB00E4F9EF /* MovieDetailModel.swift */,
 				EE1A9EE4298522EB00E4F9EF /* MovieDetailViewModel.swift */,
+				EE1A9EE1298522EB00E4F9EF /* MovieDetailViewController.swift */,
+				EE1A9EE0298522EB00E4F9EF /* MovieDetailRouter.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -579,7 +579,7 @@
 				EEB43B20298511E800DF5CAD /* JSONLoader.swift in Sources */,
 				EE1A9EEF29852A7300E4F9EF /* ExecuterTest.swift in Sources */,
 				EE1A9EF129852AD200E4F9EF /* MockExecuter.swift in Sources */,
-				EEB43AF329850E4100DF5CAD /* DarsayTechTestTests.swift in Sources */,
+				EEB43AF329850E4100DF5CAD /* ViewControllerTest.swift in Sources */,
 				EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */,
 				EE1A9EED298529A300E4F9EF /* LoadableJSONTest.swift in Sources */,
 			);
