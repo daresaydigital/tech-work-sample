@@ -15,6 +15,7 @@
 		EE1A9EB729851B3800E4F9EF /* ResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EB629851B3800E4F9EF /* ResultList.swift */; };
 		EE1A9EB929851B4E00E4F9EF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EB829851B4E00E4F9EF /* Movie.swift */; };
 		EE1A9EBB29851B6900E4F9EF /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EBA29851B6900E4F9EF /* Review.swift */; };
+		EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EBC29851CAB00E4F9EF /* MockService.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		EE1A9EB629851B3800E4F9EF /* ResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultList.swift; sourceTree = "<group>"; };
 		EE1A9EB829851B4E00E4F9EF /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		EE1A9EBA29851B6900E4F9EF /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		EE1A9EBC29851CAB00E4F9EF /* MockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				EEB43B162985112000DF5CAD /* JSON */,
 				EEB43AF229850E4100DF5CAD /* DarsayTechTestTests.swift */,
 				EEB43B1F298511E800DF5CAD /* JSONLoader.swift */,
+				EE1A9EBC29851CAB00E4F9EF /* MockService.swift */,
 			);
 			path = DarsayTechTestTests;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 			files = (
 				EEB43B20298511E800DF5CAD /* JSONLoader.swift in Sources */,
 				EEB43AF329850E4100DF5CAD /* DarsayTechTestTests.swift in Sources */,
+				EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
