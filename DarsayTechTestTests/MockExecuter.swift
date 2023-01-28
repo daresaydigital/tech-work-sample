@@ -3,7 +3,7 @@
 //  DarsayTechTestTests
 //
 //  Created by Farzaneh on 11/8/1401 AP.
-//
+//swiftlint:disable force_cast
 
 import Foundation
 @testable import DarsayTechTest

@@ -90,4 +90,83 @@ final class ExecuterTest: XCTestCase {
             }
         }.store(in: &cancellables)
     }
+    
+    //================================ Test FailExecuter ====================================//
+    
+    func testFailExecuterWithMovieListVCForFetchPopular() {
+        let allFailure = MockAllFailureHTTPRequestExecuter()
+        
+        let mockNetworkManager = MovieNetworkAPIManager(executer: allFailure)
+        
+        let viewController = MovieListBuilder.build(with: .init(movieNetworkAPIManager: mockNetworkManager))
+        
+        viewController.viewModel.handle(action: .fetchPopularMovies)
+        let expectation = expectation(description: "Fetch data from service")
+
+        viewController.releadList {
+            expectation.fulfill()
+        }
+   
+        wait(for: [expectation], timeout: 10.0)
+
+        XCTAssertNotNil(viewController.viewModel.state.error)
+    }
+    
+    func testFailExecuterWithMovieListVCForFetchTopRated() {
+        let allFailure = MockAllFailureHTTPRequestExecuter()
+        
+        let mockNetworkManager = MovieNetworkAPIManager(executer: allFailure)
+        
+        let viewController = MovieListBuilder.build(with: .init(movieNetworkAPIManager: mockNetworkManager))
+        
+        viewController.viewModel.handle(action: .fetchTopRatedMovies)
+        let expectation = expectation(description: "Fetch data from service")
+
+        viewController.releadList {
+            expectation.fulfill()
+        }
+   
+        wait(for: [expectation], timeout: 10.0)
+
+        XCTAssertNotNil(viewController.viewModel.state.error)
+    }
+    
+    func testFailExecuterWithDetailVCForFetchDetail() {
+        let allFailure = MockAllFailureHTTPRequestExecuter()
+        
+        let mockNetworkManager = MovieNetworkAPIManager(executer: allFailure)
+        
+        let viewController = MovieDetailBuilder.build(with: .init(movieID: 0, movieNetworkAPIManager: mockNetworkManager))
+        
+        viewController.viewModel.handle(action: .fetchDetail)
+        let expectation = expectation(description: "Fetch data from service")
+
+        viewController.releadList {
+            expectation.fulfill()
+        }
+   
+        wait(for: [expectation], timeout: 10.0)
+
+        XCTAssertNotNil(viewController.viewModel.state.error)
+    }
+    
+    func testFailExecuterWithDetailVCForFetchReviews() {
+        let allFailure = MockAllFailureHTTPRequestExecuter()
+        
+        let mockNetworkManager = MovieNetworkAPIManager(executer: allFailure)
+        
+        let viewController = MovieDetailBuilder.build(with: .init(movieID: 0, movieNetworkAPIManager: mockNetworkManager))
+        
+        viewController.viewModel.handle(action: .fetchReviews)
+        let expectation = expectation(description: "Fetch data from service")
+
+        viewController.releadList {
+            expectation.fulfill()
+        }
+   
+        wait(for: [expectation], timeout: 10.0)
+
+        XCTAssertNotNil(viewController.viewModel.state.error)
+    }
+    
 }
