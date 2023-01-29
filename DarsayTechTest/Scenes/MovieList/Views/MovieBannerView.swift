@@ -153,9 +153,7 @@ class MovieBannerView: UIView, UIContentView {
     private func getProperImage() -> UIImage {
         guard let configuration = configuration as? Configuration else { return UIImage() }
        
-        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 20)
-        
-        let image = (configuration.movie.isFaved ?? false) ? UIImage(systemName: "heart.fill", withConfiguration: symbolConfiguration) : UIImage(systemName: "heart", withConfiguration: symbolConfiguration)
+        let image = (configuration.movie.isFaved ?? false) ? UIImage(symbolicName: .filledFavorite, pointSize: 20) : UIImage(symbolicName: .favorite, pointSize: 20)
         
         return image ?? UIImage()
     }

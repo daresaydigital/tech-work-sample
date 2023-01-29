@@ -101,9 +101,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     func prepareUI() {
         view.backgroundColor = .background
         
-         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 22)
-         
-         let image = UIImage(systemName: "heart.text.square.fill", withConfiguration: symbolConfiguration)
+        let image = UIImage(symbolicName: .favoriteList, pointSize: 22)
         
         let barButtonItem =  UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(favoriteButtonTapped))
         barButtonItem.tintColor = .positiveGreen
