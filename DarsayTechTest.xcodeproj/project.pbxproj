@@ -29,9 +29,7 @@
 		EE1A9ED6298520D600E4F9EF /* MovieListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9ED1298520D600E4F9EF /* MovieListBuilder.swift */; };
 		EE1A9ED7298520D600E4F9EF /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9ED2298520D600E4F9EF /* MovieListModel.swift */; };
 		EE1A9ED8298520D600E4F9EF /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9ED3298520D600E4F9EF /* MovieListViewModel.swift */; };
-		EE1A9EDA2985210700E4F9EF /* MovieTopRatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9ED92985210700E4F9EF /* MovieTopRatedView.swift */; };
 		EE1A9EDC2985212300E4F9EF /* MovieBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EDB2985212300E4F9EF /* MovieBannerView.swift */; };
-		EE1A9EDF298521CD00E4F9EF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EE1A9EDE298521CD00E4F9EF /* SnapKit */; };
 		EE1A9EE5298522EB00E4F9EF /* MovieDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EE0298522EB00E4F9EF /* MovieDetailRouter.swift */; };
 		EE1A9EE6298522EB00E4F9EF /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EE1298522EB00E4F9EF /* MovieDetailViewController.swift */; };
 		EE1A9EE7298522EB00E4F9EF /* MovieDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1A9EE2298522EB00E4F9EF /* MovieDetailBuilder.swift */; };
@@ -53,6 +51,7 @@
 		EE2293D6298666EB0077B40D /* FavoriteListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */; };
 		EE2293D7298666EB0077B40D /* FavoriteListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D2298666EB0077B40D /* FavoriteListModel.swift */; };
 		EE2293D8298666EB0077B40D /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */; };
+		EE2293DC2986A7640077B40D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DB2986A7640077B40D /* UIButton.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -108,7 +107,6 @@
 		EE1A9ED1298520D600E4F9EF /* MovieListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListBuilder.swift; sourceTree = "<group>"; };
 		EE1A9ED2298520D600E4F9EF /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
 		EE1A9ED3298520D600E4F9EF /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
-		EE1A9ED92985210700E4F9EF /* MovieTopRatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTopRatedView.swift; sourceTree = "<group>"; };
 		EE1A9EDB2985212300E4F9EF /* MovieBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBannerView.swift; sourceTree = "<group>"; };
 		EE1A9EE0298522EB00E4F9EF /* MovieDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRouter.swift; sourceTree = "<group>"; };
 		EE1A9EE1298522EB00E4F9EF /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +129,7 @@
 		EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListBuilder.swift; sourceTree = "<group>"; };
 		EE2293D2298666EB0077B40D /* FavoriteListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListModel.swift; sourceTree = "<group>"; };
 		EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
+		EE2293DB2986A7640077B40D /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,7 +154,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE1A9EDF298521CD00E4F9EF /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +333,7 @@
 				EE1A9EBE29851D7900E4F9EF /* Publisher.swift */,
 				EE1A9EC029851D9100E4F9EF /* URL.swift */,
 				EE2293C6298595F20077B40D /* Data.swift */,
+				EE2293DB2986A7640077B40D /* UIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -382,7 +381,6 @@
 		EEB43B1329850F7D00DF5CAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EE1A9ED92985210700E4F9EF /* MovieTopRatedView.swift */,
 				EE1A9EDB2985212300E4F9EF /* MovieBannerView.swift */,
 			);
 			path = Views;
@@ -438,7 +436,6 @@
 			);
 			name = DarsayTechTest;
 			packageProductDependencies = (
-				EE1A9EDE298521CD00E4F9EF /* SnapKit */,
 			);
 			productName = DarsayTechTest;
 			productReference = EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */;
@@ -513,7 +510,6 @@
 			);
 			mainGroup = EEB43ACF29850E4000DF5CAD;
 			packageReferences = (
-				EE1A9EDD298521CD00E4F9EF /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EEB43AD929850E4000DF5CAD /* Products */;
 			projectDirPath = "";
@@ -593,11 +589,11 @@
 				EE2293D5298666EB0077B40D /* FavoriteListViewController.swift in Sources */,
 				EE1A9ED6298520D600E4F9EF /* MovieListBuilder.swift in Sources */,
 				EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */,
+				EE2293DC2986A7640077B40D /* UIButton.swift in Sources */,
 				EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */,
 				EE1A9EB729851B3800E4F9EF /* ResultList.swift in Sources */,
 				EE1A9EB929851B4E00E4F9EF /* Movie.swift in Sources */,
 				EE2293C929859F100077B40D /* StorageHelper.swift in Sources */,
-				EE1A9EDA2985210700E4F9EF /* MovieTopRatedView.swift in Sources */,
 				EE1A9EB029851A6200E4F9EF /* MovieServiceEndPoint.swift in Sources */,
 				EE1A9ED8298520D600E4F9EF /* MovieListViewModel.swift in Sources */,
 				EE1A9ECC2985206000E4F9EF /* BaseProtocols.swift in Sources */,
@@ -955,25 +951,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EE1A9EDD298521CD00E4F9EF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EE1A9EDE298521CD00E4F9EF /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EE1A9EDD298521CD00E4F9EF /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EEB43AD029850E4000DF5CAD /* Project object */;
 }

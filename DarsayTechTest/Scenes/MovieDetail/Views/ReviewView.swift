@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SnapKit
 import UIKit
 import Combine
 
@@ -26,6 +25,8 @@ class ReviewView: UIView, UIContentView {
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         view.backgroundColor = .lightGray
+        view.translatesAutoresizingMaskIntoConstraints = false
+
         return view
     }()
     
@@ -33,6 +34,8 @@ class ReviewView: UIView, UIContentView {
         let label = UILabel()
         label.textColor = .black
         label.font.withSize(16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
     
@@ -42,6 +45,8 @@ class ReviewView: UIView, UIContentView {
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.font.withSize(6)
+        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
     
@@ -64,21 +69,32 @@ class ReviewView: UIView, UIContentView {
         containerView.addSubview(authorLabel)
         containerView.addSubview(descriptionLabel)
 
-        containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-      
-        authorLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(4)
-            make.horizontalEdges.equalToSuperview().inset(4)
-        }
+        let containerViewConstraints = [
+            containerView.topAnchor.constraint(equalTo: self.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ]
 
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(authorLabel.snp.bottom).offset(4)
-            make.horizontalEdges.equalToSuperview().inset(4)
-            make.bottom.equalToSuperview().offset(-4)
-        }
-        
+        NSLayoutConstraint.activate(containerViewConstraints)
+    
+        let authorLabelConstraints = [
+            authorLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 4),
+            authorLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4),
+            authorLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -4)
+        ]
+
+        NSLayoutConstraint.activate(authorLabelConstraints)
+       
+        let descriptionLabelConstraints = [
+            descriptionLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 4),
+            descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 4),
+            descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -4),
+            descriptionLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -4)
+        ]
+
+        NSLayoutConstraint.activate(descriptionLabelConstraints)
+    
         updateData()
     }
     

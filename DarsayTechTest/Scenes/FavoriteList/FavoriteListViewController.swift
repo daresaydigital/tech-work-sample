@@ -3,14 +3,9 @@
 //  DarsayTechTest
 //
 //  Created by Farzaneh on 11/9/1401 AP.
-//  Copyright (c) 1401 AP ___ORGANIZATIONNAME___. All rights reserved.
-//
-//  This file was generated based on the Clean Swift and MVVM Architecture
-//
 
 import Combine
 import Foundation
-import SnapKit
 import UIKit
 
 fileprivate extension Layout {
@@ -56,6 +51,7 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
         collectionView.contentInset.bottom = Layout.contentScrollViewContentInsetBottom
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         let cellReuseIdentifiers = [
             PageSection.favoriteSection.cellReuseIdentifier ]
@@ -66,6 +62,7 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
         
         return collectionView
     }()
+    
     // MARK: - Prepare Layout
     
     func collectionViewLayout() -> UICollectionViewLayout {
@@ -84,12 +81,12 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
     
     private func getFavoriteCollectionLayoutSection() -> NSCollectionLayoutSection {
 
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(130))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(130))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
     
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
@@ -122,11 +119,15 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
     // MARK: - Constraints
     
     func setConstraints() {
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-        }
+        
+        let constraints = [
+            collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
     
     // MARK: - Life Cycle
@@ -195,7 +196,7 @@ extension FavoriteListViewController: UICollectionViewDataSource {
         case .favoriteSection:
             guard let movieList = self.viewModel.state.favoriteList else { return UICollectionViewCell() }
             
-            cell.contentConfiguration = MovieTopRatedView.Configuration(title: movieList[indexPath.row].title, voteRate: movieList[indexPath.row].voteAverage, nestedURLString: movieList[indexPath.row].backdropPath)
+            cell.contentConfiguration = MovieBannerView.Configuration(movie: movieList[indexPath.row], hasFavoriteButton: false)
         default:
             return UICollectionViewCell()
         }

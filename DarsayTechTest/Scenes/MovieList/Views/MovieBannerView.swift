@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SnapKit
 import UIKit
 import Combine
 
@@ -26,6 +25,7 @@ class MovieBannerView: UIView, UIContentView {
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         view.backgroundColor = .placeholderText
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -33,6 +33,7 @@ class MovieBannerView: UIView, UIContentView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -45,22 +46,29 @@ class MovieBannerView: UIView, UIContentView {
         label.backgroundColor = .lightText
         label.alpha = 0.7
         label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var popularityRateLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .darkGray
-        label.font.withSize(14)
-        return label
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(getProperImage(), for: [])
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
-    
+
     // MARK: - Initialization
     
     init(configuration: Configuration) {
         self.configuration = configuration
         super.init(frame: .zero)
         setupView()
+        
+        favoriteButton.addAction(.init(handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.handleFavoriteAction()
+        }), for: .primaryActionTriggered)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -68,39 +76,91 @@ class MovieBannerView: UIView, UIContentView {
     }
     
     private func setupView() {
-
+        guard let configuration = configuration as? Configuration else { return }
+       
         // add subviews here
         self.addSubview(containerView)
         containerView.addSubview(imageView)
         containerView.addSubview(titleLabel)
-        containerView.addSubview(popularityRateLabel)
         
-        containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        let containerViewConstraints = [
+            containerView.topAnchor.constraint(equalTo: self.topAnchor),
+            containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(containerViewConstraints)
         
-        imageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        let imageViewConstraints = [
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(imageViewConstraints)
         
-        titleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.bottom.equalToSuperview()
+        let titleConstraints = [
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(titleConstraints)
+        
+        if configuration.hasFavoriteButton {
+            addFavorteButton()
         }
         
         updateData()
     }
     
+    private func addFavorteButton() {
+        containerView.addSubview(favoriteButton)
+       
+        let favoriteConstraints = [
+            favoriteButton.widthAnchor.constraint(equalToConstant: 40),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 40),
+            favoriteButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 8),
+            favoriteButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(favoriteConstraints)
+    }
+    
     private func updateData() {
-        guard let configuration = configuration as? Configuration else { return }
-        titleLabel.text = configuration.title
-        popularityRateLabel.text = String(format: "%.2f", configuration.popularityRate/100.0)
         
-        updateImageView(nestedURLString: configuration.nestedURLString)
+        guard let configuration = configuration as? Configuration else { return }
+       
+        titleLabel.text = configuration.movie.title
+        updateImageView(nestedURLString: configuration.movie.backdropPath)
+        favoriteButton.setImage(getProperImage(), for: [])
+    }
+    
+    private func handleFavoriteAction() {
+        guard let configuration = configuration as? Configuration else { return }
+        
+        configuration.movie.isFaved = !(configuration.movie.isFaved ?? false)
+        
+        (configuration.movie.isFaved ?? false) ? FavoriteStorage.append(movie: configuration.movie) :
+        FavoriteStorage.remove(movie: configuration.movie)
+        
+        favoriteButton.setImage(getProperImage(), for: [])
+    }
+    
+    private func getProperImage() -> UIImage {
+        guard let configuration = configuration as? Configuration else { return UIImage() }
+       
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 20)
+        let image = (configuration.movie.isFaved ?? false) ? UIImage(systemName: "heart.fill", withConfiguration: symbolConfiguration) : UIImage(systemName: "heart", withConfiguration: symbolConfiguration)
+              
+        return image ?? UIImage()
     }
     
     private func updateImageView(nestedURLString: String?) {
         do {
+            imageView.image = nil
             let url = try URL.getFullPath(sizeType: .backDrop(.w300), nestedURLString: nestedURLString ?? "")
             
             ImageLoader.shared.loadImage(from: url).sinkToResult { result in
@@ -119,18 +179,16 @@ class MovieBannerView: UIView, UIContentView {
     
     // MARK: - Configuration
     
-    struct Configuration: UIContentConfiguration {
+    final class Configuration: UIContentConfiguration {
         
-        var title: String
-        var popularityRate: Double
-        var nestedURLString: String?
+        var movie: Movie
+        var hasFavoriteButton: Bool
         
-        init(title: String, popularityRate: Double, nestedURLString: String?) {
-            self.title = title
-            self.popularityRate = popularityRate
-            self.nestedURLString = nestedURLString
+        init(movie: Movie, hasFavoriteButton: Bool = true) {
+            self.movie = movie
+            self.hasFavoriteButton = hasFavoriteButton
         }
-        
+    
         func makeContentView() -> UIView & UIContentView {
             MovieBannerView(configuration: self)
         }

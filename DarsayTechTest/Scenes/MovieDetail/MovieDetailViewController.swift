@@ -6,7 +6,6 @@
 
 import Combine
 import Foundation
-import SnapKit
 import UIKit
 
 fileprivate extension Layout {
@@ -36,6 +35,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -43,6 +43,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         let label = UILabel()
         label.textColor = .darkGray
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -50,6 +51,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         let label = UILabel()
         label.textColor = .green
         label.font.withSize(12)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -58,6 +60,8 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         label.textColor = .black
         label.font.withSize(10)
         label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
     
@@ -70,6 +74,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         collectionView.backgroundColor = .white
         collectionView.contentInset.bottom = Layout.contentScrollViewContentInsetBottom
         collectionView.dataSource = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         let cellReuseIdentifiers = [ PageSection.reviewSection.cellReuseIdentifier ]
 
@@ -159,32 +164,49 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     // MARK: - Constraints
     
     func setConstraints() {
-        imageView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(4)
-            make.leading.trailing.equalToSuperview()
-            make.height.equalTo(160)
-        }
+     
+        let imageViewConstraints = [
+            imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 4),
+            imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 160)
+        ]
+
+        NSLayoutConstraint.activate(imageViewConstraints)
         
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(8)
-            make.horizontalEdges.equalToSuperview().inset(16)
-        }
+        let titleLabelConstraints = [
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+        ]
+
+        NSLayoutConstraint.activate(titleLabelConstraints)
         
-        popularityLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.horizontalEdges.equalToSuperview().inset(16)
-        }
+        let popularityLabelConstraints = [
+            popularityLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            popularityLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            popularityLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+        ]
+
+        NSLayoutConstraint.activate(popularityLabelConstraints)
         
-        overviewLabel.snp.makeConstraints { make in
-            make.top.equalTo(popularityLabel.snp.bottom).offset(8)
-            make.horizontalEdges.equalToSuperview().inset(16)
-        }
+        let overviewLabelConstraints = [
+            overviewLabel.topAnchor.constraint(equalTo: popularityLabel.bottomAnchor, constant: 8),
+            overviewLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            overviewLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+        ]
+
+        NSLayoutConstraint.activate(overviewLabelConstraints)
         
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(overviewLabel.snp.bottom).offset(16)
-            make.leading.trailing.equalToSuperview().inset(8)
-            make.bottom.equalToSuperview().offset(8)
-        }
+        let collectionViewConstraints = [
+            collectionView.topAnchor.constraint(equalTo: overviewLabel.bottomAnchor, constant: 16),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 8),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(collectionViewConstraints)
+        
     }
     
     // MARK: - Bind
@@ -194,7 +216,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
             guard let self else { return }
          
             self.titleLabel.text = movie.title
-            let formattedText = String(format: "%.2f", movie.popularity/100.0)
+            let formattedText = String(format: "%.2f", movie.popularity)
             self.popularityLabel.text = "Popularity: \(formattedText)%"
             self.overviewLabel.text = movie.overview
             self.setImageView(nestedURL: movie.backdropPath)

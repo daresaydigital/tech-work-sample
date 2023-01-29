@@ -55,6 +55,9 @@ final class FavoriteStorage: StorageProtocol {
     }
     
     static func append(movie: Movie) {
+        
+        guard currentList.filter({ $0.id == movie.id }).isEmpty else { return }
+        
         var tempList = currentList
         tempList.append(movie)
         currentList = tempList

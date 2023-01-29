@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Movie: Codable, Hashable {
+class Movie: Codable, Equatable {
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     let adult: Bool
     let backdropPath: String
     let genreIDS: [Int]?
@@ -24,6 +28,7 @@ struct Movie: Codable, Hashable {
     let voteCount: Int
     let imdbID: String?
     let tagline: String?
+    var isFaved: Bool?
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -42,5 +47,30 @@ struct Movie: Codable, Hashable {
         case voteCount = "vote_count"
         case imdbID = "imdb_id"
         case tagline
+        case isFaved
+    }
+    
+    init(adult: Bool, backdropPath: String, genreIDS: [Int]?, id: Int,
+         originalLanguage: String, originalTitle: String,
+         overview: String, popularity: Double, posterPath: String?,
+         releaseDate: String, title: String, video: Bool, voteAverage: Double,
+         voteCount: Int, imdbID: String?, tagline: String?, isFaved: Bool? = nil) {
+        self.adult = adult
+        self.backdropPath = backdropPath
+        self.genreIDS = genreIDS
+        self.id = id
+        self.originalLanguage = originalLanguage
+        self.originalTitle = originalTitle
+        self.overview = overview
+        self.popularity = popularity
+        self.posterPath = posterPath
+        self.releaseDate = releaseDate
+        self.title = title
+        self.video = video
+        self.voteAverage = voteAverage
+        self.voteCount = voteCount
+        self.imdbID = imdbID
+        self.tagline = tagline
+        self.isFaved = isFaved
     }
 }

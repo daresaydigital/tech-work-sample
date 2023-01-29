@@ -6,7 +6,6 @@
 
 import Combine
 import Foundation
-import SnapKit
 import UIKit
 
 fileprivate extension Layout {
@@ -58,6 +57,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         collectionView.contentInset.bottom = Layout.contentScrollViewContentInsetBottom
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         let cellReuseIdentifiers = [
             PageSection.topRatedSection.cellReuseIdentifier,
@@ -101,7 +101,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     func prepareUI() {
         view.backgroundColor = .white
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.text.square.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
         // add subviews
         view.addSubview(collectionView)
         setConstraints()
@@ -144,12 +144,12 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     
     private func getTopRatedCollectionLayoutSection() -> NSCollectionLayoutSection {
 
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(130))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(130))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
     
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
@@ -160,11 +160,16 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     // MARK: - Constraints
     
     func setConstraints() {
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom)
-        }
+        
+        let constraints = [
+            collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    
     }
     
     // MARK: - Life Cycle
@@ -248,11 +253,12 @@ extension MovieListViewController: UICollectionViewDataSource {
         case .popularSection:
             guard let movieList = self.viewModel.state.popularList else { return UICollectionViewCell() }
             
-            cell.contentConfiguration = MovieBannerView.Configuration(title: movieList[indexPath.row].title, popularityRate: movieList[indexPath.row].popularity, nestedURLString: movieList[indexPath.row].posterPath)
+            cell.contentConfiguration = MovieBannerView.Configuration(movie: movieList[indexPath.row])
         case .topRatedSection:
             guard let movieList = self.viewModel.state.topRatedList else { return UICollectionViewCell() }
             
-            cell.contentConfiguration = MovieTopRatedView.Configuration(title: movieList[indexPath.row].title, voteRate: movieList[indexPath.row].voteAverage, nestedURLString: movieList[indexPath.row].backdropPath)
+            cell.contentConfiguration = MovieBannerView.Configuration(movie: movieList[indexPath.row])
+            
         default:
             return UICollectionViewCell()
         }
