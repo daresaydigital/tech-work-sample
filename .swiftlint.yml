@@ -1,0 +1,39 @@
+disabled_rules: # rule identifiers to exclude from running
+
+ - trailing_whitespace
+ - function_parameter_count
+ - colon
+ - comma
+ - comment_spacing
+
+excluded:
+- Pods
+- Package.swift
+
+
+  
+line_length:
+    warning: 300
+    error: 400
+
+identifier_name:
+  min_length: 1
+  max_length: 50
+
+type_name:
+  min_length: 2
+  max_length:
+    warning: 50
+
+nesting:
+    type_level: 3
+
+type_body_length:
+    warning: 300
+
+force_try: warning
+force_cast: warning
+
+reporter: "xcode"
+
+
