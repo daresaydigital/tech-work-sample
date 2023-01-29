@@ -15,6 +15,7 @@ fileprivate extension Layout {
     static let popularSectionContentInsetBottom: CGFloat = 20
     static let topRatedGroupHeight: CGFloat = 150
     static let popularGroupHeight: CGFloat = 220
+    static let headerHeight: CGFloat = 40
     static let headerReuseIdentifier = "header-identifier"
 }
 
@@ -146,7 +147,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         group.contentInsets.top = 8
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(40))
+                                                heightDimension: .absolute(Layout.headerHeight))
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
@@ -171,7 +172,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-            heightDimension: .absolute(40))
+                                                heightDimension: .absolute(Layout.headerHeight))
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
             elementKind: UICollectionView.elementKindSectionHeader,
