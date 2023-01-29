@@ -12,7 +12,10 @@ fileprivate extension Layout {
     
     static let bannersSectionGroupWidthInset: CGFloat = 48
     static let contentScrollViewContentInsetBottom: CGFloat = 100
-    static let topRatedSectionGroupHeight: CGFloat = 72
+    static let popularSectionContentInsetBottom: CGFloat = 40
+    static let topRatedGroupHeight: CGFloat = 150
+    static let popularGroupHeight: CGFloat = 220
+    
 }
 
 fileprivate extension PageSection {
@@ -135,25 +138,25 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(width), heightDimension: .absolute(220))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(width), heightDimension: .absolute(Layout.popularGroupHeight))
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         group.contentInsets.trailing = 16
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
-        section.contentInsets.bottom = 40
+        section.contentInsets.bottom = Layout.popularSectionContentInsetBottom
         return section
     }
     
     private func getTopRatedCollectionLayoutSection() -> NSCollectionLayoutSection {
 
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Layout.topRatedGroupHeight))
     
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
@@ -173,7 +176,6 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         ]
 
         NSLayoutConstraint.activate(constraints)
-    
     }
     
     // MARK: - Life Cycle

@@ -11,6 +11,10 @@ import UIKit
 fileprivate extension Layout {
     static let bannersSectionGroupWidthInset: CGFloat = 48
     static let contentScrollViewContentInsetBottom: CGFloat = 100
+    static let reviewSectionContentInsetBottom: CGFloat = 40
+    static let reviewGroupHeight: CGFloat = 200
+    static let bannerHeight: CGFloat = 160
+    
 }
 
 fileprivate extension PageSection {
@@ -149,7 +153,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .absolute(width),
-            heightDimension: .absolute(200)
+            heightDimension: .absolute(Layout.reviewGroupHeight)
         )
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 1)
@@ -157,7 +161,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPaging
-        section.contentInsets.bottom = 40
+        section.contentInsets.bottom = Layout.reviewSectionContentInsetBottom
         return section
     }
     
@@ -169,7 +173,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
             imageView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 4),
             imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 160)
+            imageView.heightAnchor.constraint(equalToConstant: Layout.bannerHeight)
         ]
 
         NSLayoutConstraint.activate(imageViewConstraints)

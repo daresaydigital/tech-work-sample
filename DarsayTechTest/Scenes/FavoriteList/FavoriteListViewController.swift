@@ -10,6 +10,7 @@ import UIKit
 
 fileprivate extension Layout {
     static let contentScrollViewContentInsetBottom: CGFloat = 100
+    static let favoriteGroupHeight: CGFloat = 150
 }
 
 fileprivate extension PageSection {
@@ -81,12 +82,12 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
     
     private func getFavoriteCollectionLayoutSection() -> NSCollectionLayoutSection {
 
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 8, leading: 16, bottom: 8, trailing: 16)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(150))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Layout.favoriteGroupHeight))
     
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
