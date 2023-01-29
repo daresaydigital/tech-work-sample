@@ -144,8 +144,8 @@ class MovieBannerView: UIView, UIContentView {
         
         configuration.movie.isFaved = !(configuration.movie.isFaved ?? false)
         
-        (configuration.movie.isFaved ?? false) ? FavoriteStorage.append(movie: configuration.movie) :
-        FavoriteStorage.remove(movie: configuration.movie)
+        (configuration.movie.isFaved ?? false) ? FavoriteStorage.shared.append(movie: configuration.movie) :
+        FavoriteStorage.shared.remove(movie: configuration.movie)
         
         favoriteButton.setImage(getProperImage(), for: .normal)
     }

@@ -29,7 +29,7 @@ class FavoriteListViewModel: SubjectedViewModel {
     private func fetchFavoriteMovies() {
         
         self.stateSubject.value.update({
-            $0.favoriteList = FavoriteStorage.currentList
+            $0.favoriteList = FavoriteStorage.shared.currentList
         })
     }
 }

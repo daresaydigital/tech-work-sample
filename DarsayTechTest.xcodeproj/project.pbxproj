@@ -45,13 +45,11 @@
 		EE2293C7298595F20077B40D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C6298595F20077B40D /* Data.swift */; };
 		EE2293C929859F100077B40D /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C829859F100077B40D /* StorageHelper.swift */; };
 		EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CA2985AA330077B40D /* StorageTest.swift */; };
-		EE2293CD29864CBF0077B40D /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CC29864CBF0077B40D /* MockStorage.swift */; };
 		EE2293D4298666EB0077B40D /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CF298666EB0077B40D /* FavoriteListRouter.swift */; };
 		EE2293D5298666EB0077B40D /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D0298666EB0077B40D /* FavoriteListViewController.swift */; };
 		EE2293D6298666EB0077B40D /* FavoriteListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */; };
 		EE2293D7298666EB0077B40D /* FavoriteListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D2298666EB0077B40D /* FavoriteListModel.swift */; };
 		EE2293D8298666EB0077B40D /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */; };
-		EE2293DC2986A7640077B40D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DB2986A7640077B40D /* UIButton.swift */; };
 		EE2293DE2986CF070077B40D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DD2986CF070077B40D /* UIColor.swift */; };
 		EE2293E02986DBC00077B40D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DF2986DBC00077B40D /* UIImage.swift */; };
 		EE2293E22986E1EE0077B40D /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293E12986E1EE0077B40D /* ViewModelTest.swift */; };
@@ -127,13 +125,11 @@
 		EE2293C6298595F20077B40D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		EE2293C829859F100077B40D /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		EE2293CA2985AA330077B40D /* StorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTest.swift; sourceTree = "<group>"; };
-		EE2293CC29864CBF0077B40D /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 		EE2293CF298666EB0077B40D /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
 		EE2293D0298666EB0077B40D /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListBuilder.swift; sourceTree = "<group>"; };
 		EE2293D2298666EB0077B40D /* FavoriteListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListModel.swift; sourceTree = "<group>"; };
 		EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
-		EE2293DB2986A7640077B40D /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		EE2293DD2986CF070077B40D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EE2293DF2986DBC00077B40D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		EE2293E12986E1EE0077B40D /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
@@ -286,7 +282,6 @@
 				EEB43B1F298511E800DF5CAD /* JSONLoader.swift */,
 				EE1A9EBC29851CAB00E4F9EF /* MockService.swift */,
 				EE1A9EF029852AD200E4F9EF /* MockExecuter.swift */,
-				EE2293CC29864CBF0077B40D /* MockStorage.swift */,
 				EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */,
 				EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */,
 				EE2293E12986E1EE0077B40D /* ViewModelTest.swift */,
@@ -343,7 +338,6 @@
 				EE1A9EBE29851D7900E4F9EF /* Publisher.swift */,
 				EE1A9EC029851D9100E4F9EF /* URL.swift */,
 				EE2293C6298595F20077B40D /* Data.swift */,
-				EE2293DB2986A7640077B40D /* UIButton.swift */,
 				EE2293DD2986CF070077B40D /* UIColor.swift */,
 				EE2293DF2986DBC00077B40D /* UIImage.swift */,
 			);
@@ -602,7 +596,6 @@
 				EE2293D5298666EB0077B40D /* FavoriteListViewController.swift in Sources */,
 				EE1A9ED6298520D600E4F9EF /* MovieListBuilder.swift in Sources */,
 				EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */,
-				EE2293DC2986A7640077B40D /* UIButton.swift in Sources */,
 				EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */,
 				EE1A9EB729851B3800E4F9EF /* ResultList.swift in Sources */,
 				EE1A9EB929851B4E00E4F9EF /* Movie.swift in Sources */,
@@ -645,7 +638,6 @@
 				EE2293E42986E6EA0077B40D /* XCTest+Extension.swift in Sources */,
 				EE1A9EF129852AD200E4F9EF /* MockExecuter.swift in Sources */,
 				EE2293E22986E1EE0077B40D /* ViewModelTest.swift in Sources */,
-				EE2293CD29864CBF0077B40D /* MockStorage.swift in Sources */,
 				EEB43AF329850E4100DF5CAD /* ViewControllerTest.swift in Sources */,
 				EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */,
 				EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */,

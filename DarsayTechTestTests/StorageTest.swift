@@ -25,7 +25,7 @@ final class StorageTest: XCTestCase {
         let mockService = MockService()
         var cancellables = Set<AnyCancellable>()
         
-        let mockStorage = MockStorage.shared
+        let mockStorage = FavoriteStorage.shared
         
         mockService.getPopularMovies().sinkToResult { result in
             
@@ -33,15 +33,15 @@ final class StorageTest: XCTestCase {
             case .success(let list):
                 XCTAssertEqual(list.results.count, 1)
 
-                mockStorage.setObject(for: "popular", object: list.results)
+                mockStorage.setObject(object: list.results)
                 
-                var retreivedList = mockStorage.getObject(by: "popular")
+                var retreivedList = mockStorage.getObject()
                 
                 XCTAssertEqual(list.results, retreivedList)
                 
-                mockStorage.remove(key: "popular")
+                mockStorage.remove()
                  
-                retreivedList = mockStorage.getObject(by: "popular")
+                retreivedList = mockStorage.getObject()
                 
                 XCTAssertNil(retreivedList)
                 

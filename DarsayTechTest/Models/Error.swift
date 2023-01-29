@@ -12,7 +12,7 @@ struct AppError: Error, LocalizedError {
     let reason: String?
     
     var errorDescription: String? {
-        reason ?? "Unknown Error"
+        reason ?? LocalizeHelper.shared.lookup(.unknownError)
     }
 }
 

@@ -34,7 +34,8 @@ final class MovieDetailViewModel: SubjectedViewModel {
     }
     
     private func fetchDetail() {
-        networkManager.getMovieDetail(movieID: "\(self.movieID)").sinkToResult { result in
+        networkManager.getMovieDetail(movieID: "\(self.movieID)").sinkToResult { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let movie):
                 self.stateSubject.value.update({
@@ -49,7 +50,8 @@ final class MovieDetailViewModel: SubjectedViewModel {
     }
     
     private func fetchReviews() {
-        networkManager.getMovieReviews(movieID: "\(self.movieID)").sinkToResult { result in
+        networkManager.getMovieReviews(movieID: "\(self.movieID)").sinkToResult { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let list):
                 self.stateSubject.value.update({

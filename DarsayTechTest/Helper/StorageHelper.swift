@@ -11,30 +11,9 @@ protocol StorageProtocol {
     
     associatedtype StoredObject: Codable
     
-    func setObject(for key: String, object: StoredObject)
-    func getObject(by key: String) -> StoredObject?
-    func remove(key: String)
-}
-
-extension StorageProtocol {
-    
-    func setObject(for key: String, object: StoredObject) {
-        let data = try? JSONEncoder().encode(object)
-        UserDefaults.standard.set(data, forKey: key)
-    }
-    
-    func getObject(by key: String) -> StoredObject? {
-        guard let data = UserDefaults.standard.object(forKey: key) as? Data else {
-            return nil
-        }
-
-        let value = try? JSONDecoder().decode(StoredObject.self, from: data)
-        return value
-    }
-    
-    func remove(key: String) {
-        UserDefaults.standard.removeObject(forKey: key)
-    }
+    func setObject(object: StoredObject)
+    func getObject() -> StoredObject?
+    func remove()
 }
 
 final class FavoriteStorage: StorageProtocol {
@@ -42,28 +21,28 @@ final class FavoriteStorage: StorageProtocol {
     
     private static let favoriteListKey = "favoriteListKey"
 
-    private static let shared = FavoriteStorage()
+    static let shared = FavoriteStorage()
     
-    static var currentList: [Movie] {
+    var currentList: [Movie] {
         get {
-            return shared.getObject(by: favoriteListKey) ?? []
+            return getObject() ?? []
         }
         
         set {
-            return shared.setObject(for: favoriteListKey, object: newValue)
+            return setObject(object: newValue)
         }
     }
     
-    static func append(movie: Movie) {
+    func append(movie: Movie) {
         
-        guard currentList.filter({ $0.id == movie.id }).isEmpty else { return }
+        guard !currentList.contains(where: { $0.id == movie.id }) else { return }
         
         var tempList = currentList
         tempList.append(movie)
         currentList = tempList
     }
     
-    static func remove(movie: Movie) {
+    func remove(movie: Movie) {
         var tempList = currentList
         
         if let index = tempList.firstIndex(of: movie) {
@@ -71,8 +50,22 @@ final class FavoriteStorage: StorageProtocol {
             currentList = tempList
         }
     }
+ 
+    func setObject(object: StoredObject) {
+        let data = try? JSONEncoder().encode(object)
+        UserDefaults.standard.set(data, forKey: Self.favoriteListKey)
+    }
     
-    static func removeAll() {
-        shared.remove(key: favoriteListKey)
+    func getObject() -> StoredObject? {
+        guard let data = UserDefaults.standard.object(forKey: Self.favoriteListKey) as? Data else {
+            return nil
+        }
+
+        let value = try? JSONDecoder().decode(StoredObject.self, from: data)
+        return value
+    }
+    
+    func remove() {
+        UserDefaults.standard.removeObject(forKey: Self.favoriteListKey)
     }
 }

@@ -32,11 +32,12 @@ class MovieListViewModel: SubjectedViewModel {
     }
     
     private func fetchTopRatedMovies() {
-        networkManager.getTopRatedMovies().sinkToResult { result in
+        networkManager.getTopRatedMovies().sinkToResult { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let movieList):
                 self.stateSubject.value.update({
-                    $0.topRatedList = movieList.results
+                    $0.topRatedList = self.syncFavoritMovies(list: movieList.results)
                 })
             case .failure(let error):
                 self.stateSubject.value.update({
@@ -48,12 +49,13 @@ class MovieListViewModel: SubjectedViewModel {
     
     private func fetchPopularMovies(completion: (() -> Void)? = nil) {
         
-        networkManager.getPopularMovies().sinkToResult { result in
+        networkManager.getPopularMovies().sinkToResult { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let movieList):
             
                 self.stateSubject.value.update({
-                    $0.popularList = movieList.results
+                    $0.popularList = self.syncFavoritMovies(list: movieList.results)
                 })
             case .failure(let error):
                 self.stateSubject.value.update({
@@ -62,5 +64,13 @@ class MovieListViewModel: SubjectedViewModel {
             }
             completion?()
         }.store(in: &cancellables)
+    }
+    
+    func syncFavoritMovies(list: [Movie]) -> [Movie] {
+        
+        for item in list {
+            item.isFaved = FavoriteStorage.shared.currentList.contains(item)
+        }
+        return list
     }
 }

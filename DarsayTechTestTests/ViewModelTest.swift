@@ -22,7 +22,7 @@ final class ViewModelTest: XCTestCase {
         
         let favoriteViewModel = FavoriteListViewModel(configuration: .init())
         
-        if FavoriteStorage.currentList.isEmpty {
+        if FavoriteStorage.shared.currentList.isEmpty {
             XCTAssertEqual(favoriteViewModel.state.favoriteList, nil)
         } else {
             XCTAssertEqual(favoriteViewModel.state.favoriteList?.count, favoriteViewModel.state.favoriteList?.count)
