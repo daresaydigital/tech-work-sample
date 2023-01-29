@@ -14,7 +14,6 @@ fileprivate extension Layout {
     static let reviewSectionContentInsetBottom: CGFloat = 40
     static let reviewGroupHeight: CGFloat = 200
     static let bannerHeight: CGFloat = 160
-    
 }
 
 fileprivate extension PageSection {
@@ -54,7 +53,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     lazy var popularityLabel: UILabel = {
         let label = UILabel()
         label.textColor = .positiveGreen
-        label.font.withSize(12)
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -220,8 +219,8 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
             guard let self else { return }
          
             self.titleLabel.text = movie.title
-            let formattedText = String(format: "%.2f", movie.popularity)
-            self.popularityLabel.text = "Popularity: \(formattedText)%"
+            let formattedText = String(format: "%.2f", movie.voteAverage)
+            self.popularityLabel.text = "Vote Average: \(formattedText)"
             self.overviewLabel.text = movie.overview
             self.setImageView(nestedURL: movie.backdropPath)
           
