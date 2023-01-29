@@ -41,7 +41,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkGray
+        label.textColor = .onBackgroundPrimary
         label.font = UIFont.boldSystemFont(ofSize: 16.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -49,7 +49,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     
     lazy var popularityLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .green
+        label.textColor = .positiveGreen
         label.font.withSize(12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,7 +57,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     
     lazy var overviewLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .onBackground
         label.font.withSize(10)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.semanticContentAttribute = .forceLeftToRight
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .background
         collectionView.contentInset.bottom = Layout.contentScrollViewContentInsetBottom
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -113,7 +113,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     // MARK: - Prepare UI
     
     func prepareUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         // add subviews
         view.addSubview(imageView)
         view.addSubview(titleLabel)

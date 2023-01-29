@@ -53,7 +53,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.semanticContentAttribute = .forceLeftToRight
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .background
         collectionView.contentInset.bottom = Layout.contentScrollViewContentInsetBottom
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -99,9 +99,15 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     // MARK: - Prepare UI
     
     func prepareUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "heart.text.square.fill"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
+         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 22)
+         
+         let image = UIImage(systemName: "heart.text.square.fill", withConfiguration: symbolConfiguration)
+        
+        let barButtonItem =  UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(favoriteButtonTapped))
+        barButtonItem.tintColor = .positiveGreen
+        navigationItem.leftBarButtonItem = barButtonItem
         // add subviews
         view.addSubview(collectionView)
         setConstraints()

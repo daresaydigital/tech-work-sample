@@ -30,7 +30,7 @@ class MovieBannerView: UIView, UIContentView {
     }()
     
     lazy var imageView: UIImageView = {
-        let imageView = UIImageView()
+        var imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +52,8 @@ class MovieBannerView: UIView, UIContentView {
     
     lazy var favoriteButton: UIButton = {
         let button = UIButton()
-        button.setImage(getProperImage(), for: [])
+        button.setImage(getProperImage(), for: .normal)
+        button.tintColor = .negative
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -135,7 +136,7 @@ class MovieBannerView: UIView, UIContentView {
        
         titleLabel.text = configuration.movie.title
         updateImageView(nestedURLString: configuration.movie.backdropPath)
-        favoriteButton.setImage(getProperImage(), for: [])
+        favoriteButton.setImage(getProperImage(), for: .normal)
     }
     
     private func handleFavoriteAction() {
@@ -146,15 +147,16 @@ class MovieBannerView: UIView, UIContentView {
         (configuration.movie.isFaved ?? false) ? FavoriteStorage.append(movie: configuration.movie) :
         FavoriteStorage.remove(movie: configuration.movie)
         
-        favoriteButton.setImage(getProperImage(), for: [])
+        favoriteButton.setImage(getProperImage(), for: .normal)
     }
     
     private func getProperImage() -> UIImage {
         guard let configuration = configuration as? Configuration else { return UIImage() }
        
         let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 20)
+        
         let image = (configuration.movie.isFaved ?? false) ? UIImage(systemName: "heart.fill", withConfiguration: symbolConfiguration) : UIImage(systemName: "heart", withConfiguration: symbolConfiguration)
-              
+        
         return image ?? UIImage()
     }
     

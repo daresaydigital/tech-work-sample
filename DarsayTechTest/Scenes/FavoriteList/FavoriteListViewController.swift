@@ -47,7 +47,7 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.semanticContentAttribute = .forceLeftToRight
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .background
         collectionView.contentInset.bottom = Layout.contentScrollViewContentInsetBottom
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -109,7 +109,7 @@ class FavoriteListViewController: UIViewController, BaseSceneViewController {
     
     func prepareUI() {
         
-        view.backgroundColor = .white
+        view.backgroundColor = .background
         title = LocalizeHelper.shared.lookup(.favoriteListTitle)
         // add subviews
         view.addSubview(collectionView)

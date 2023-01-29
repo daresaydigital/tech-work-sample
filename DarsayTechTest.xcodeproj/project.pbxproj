@@ -52,6 +52,7 @@
 		EE2293D7298666EB0077B40D /* FavoriteListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D2298666EB0077B40D /* FavoriteListModel.swift */; };
 		EE2293D8298666EB0077B40D /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */; };
 		EE2293DC2986A7640077B40D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DB2986A7640077B40D /* UIButton.swift */; };
+		EE2293DE2986CF070077B40D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DD2986CF070077B40D /* UIColor.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -130,6 +131,7 @@
 		EE2293D2298666EB0077B40D /* FavoriteListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListModel.swift; sourceTree = "<group>"; };
 		EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		EE2293DB2986A7640077B40D /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		EE2293DD2986CF070077B40D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				EE1A9EC029851D9100E4F9EF /* URL.swift */,
 				EE2293C6298595F20077B40D /* Data.swift */,
 				EE2293DB2986A7640077B40D /* UIButton.swift */,
+				EE2293DD2986CF070077B40D /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1A9EBF29851D7900E4F9EF /* Publisher.swift in Sources */,
+				EE2293DE2986CF070077B40D /* UIColor.swift in Sources */,
 				EEB43B222985126D00DF5CAD /* Error.swift in Sources */,
 				EE1A9ED7298520D600E4F9EF /* MovieListModel.swift in Sources */,
 				EE1A9EC529851E5700E4F9EF /* Layout.swift in Sources */,

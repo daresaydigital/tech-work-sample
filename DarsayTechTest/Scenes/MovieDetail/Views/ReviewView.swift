@@ -24,7 +24,7 @@ class ReviewView: UIView, UIContentView {
         let view = UIView()
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .highlightPositive
         view.translatesAutoresizingMaskIntoConstraints = false
 
         return view
@@ -32,7 +32,7 @@ class ReviewView: UIView, UIContentView {
     
     lazy var authorLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .onBackgroundPrimary
         label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -41,7 +41,7 @@ class ReviewView: UIView, UIContentView {
     
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .darkGray
+        label.textColor = .onHighlightPositive
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.font.withSize(6)
