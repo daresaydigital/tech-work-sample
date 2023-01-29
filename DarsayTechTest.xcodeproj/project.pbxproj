@@ -47,6 +47,7 @@
 		EE2293C7298595F20077B40D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C6298595F20077B40D /* Data.swift */; };
 		EE2293C929859F100077B40D /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C829859F100077B40D /* StorageHelper.swift */; };
 		EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CA2985AA330077B40D /* StorageTest.swift */; };
+		EE2293CD29864CBF0077B40D /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CC29864CBF0077B40D /* MockStorage.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -119,6 +120,7 @@
 		EE2293C6298595F20077B40D /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		EE2293C829859F100077B40D /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		EE2293CA2985AA330077B40D /* StorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTest.swift; sourceTree = "<group>"; };
+		EE2293CC29864CBF0077B40D /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				EEB43B1F298511E800DF5CAD /* JSONLoader.swift */,
 				EE1A9EBC29851CAB00E4F9EF /* MockService.swift */,
 				EE1A9EF029852AD200E4F9EF /* MockExecuter.swift */,
+				EE2293CC29864CBF0077B40D /* MockStorage.swift */,
 				EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */,
 				EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */,
 				EEB43AF229850E4100DF5CAD /* ViewControllerTest.swift */,
@@ -602,6 +605,7 @@
 				EEB43B20298511E800DF5CAD /* JSONLoader.swift in Sources */,
 				EE1A9EEF29852A7300E4F9EF /* ExecuterTest.swift in Sources */,
 				EE1A9EF129852AD200E4F9EF /* MockExecuter.swift in Sources */,
+				EE2293CD29864CBF0077B40D /* MockStorage.swift in Sources */,
 				EEB43AF329850E4100DF5CAD /* ViewControllerTest.swift in Sources */,
 				EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */,
 				EE1A9EBD29851CAB00E4F9EF /* MockService.swift in Sources */,

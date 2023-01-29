@@ -40,6 +40,36 @@ extension StorageProtocol {
 final class FavoriteStorage: StorageProtocol {
     typealias StoredObject = [Movie]
     
-    static let shared = FavoriteStorage()
+    private static let favoriteListKey = "favoriteListKey"
+
+    private static let shared = FavoriteStorage()
     
+    static var currentList: [Movie] {
+        get {
+            return shared.getObject(by: favoriteListKey) ?? []
+        }
+        
+        set {
+            return shared.setObject(for: favoriteListKey, object: newValue)
+        }
+    }
+    
+    static func append(movie: Movie) {
+        var tempList = currentList
+        tempList.append(movie)
+        currentList = tempList
+    }
+    
+    static func remove(movie: Movie) {
+        var tempList = currentList
+        
+        if let index = tempList.firstIndex(of: movie) {
+            tempList.remove(at: index)
+            currentList = tempList
+        }
+    }
+    
+    static func removeAll() {
+        shared.remove(key: favoriteListKey)
+    }
 }

@@ -25,24 +25,68 @@ final class StorageTest: XCTestCase {
         let mockService = MockService()
         var cancellables = Set<AnyCancellable>()
         
+        let mockStorage = MockStorage.shared
+        
         mockService.getPopularMovies().sinkToResult { result in
             
             switch result {
             case .success(let list):
                 XCTAssertEqual(list.results.count, 1)
 
-                FavoriteStorage.shared.setObject(for: "popular", object: list.results)
+                mockStorage.setObject(for: "popular", object: list.results)
                 
-                var retreivedList = FavoriteStorage.shared.getObject(by: "popular")
+                var retreivedList = mockStorage.getObject(by: "popular")
                 
                 XCTAssertEqual(list.results, retreivedList)
                 
-                FavoriteStorage.shared.remove(key: "popular")
+                mockStorage.remove(key: "popular")
                  
-                retreivedList = FavoriteStorage.shared.getObject(by: "popular")
+                retreivedList = mockStorage.getObject(by: "popular")
                 
                 XCTAssertNil(retreivedList)
                 
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }.store(in: &cancellables)
+    }
+    
+    func testFavoriteStorage() {
+        
+        let mockService = MockService()
+        var cancellables = Set<AnyCancellable>()
+        
+        // Store previous data
+        var previousList = FavoriteStorage.currentList
+        FavoriteStorage.removeAll()
+        
+        XCTAssertEqual(FavoriteStorage.currentList.count, 0)
+        
+        mockService.getPopularMovies().sinkToResult { result in
+
+            switch result {
+            case .success(let list):
+
+                XCTAssertEqual(list.results.count, 1)
+
+                if let firstMovie = list.results.first {
+                    FavoriteStorage.append(movie: firstMovie)
+
+                    XCTAssertEqual(FavoriteStorage.currentList.count, 1)
+                    
+                    let retreivedList = FavoriteStorage.currentList
+                    
+                    XCTAssertEqual(retreivedList.count, 1)
+
+                    if let firstMovie = retreivedList.first {
+                        FavoriteStorage.remove(movie: firstMovie)
+                        XCTAssertEqual(FavoriteStorage.currentList.count, 0)
+                       
+                    }
+                    // set previous data
+                    FavoriteStorage.currentList = previousList
+                }
+
             case .failure(let error):
                 XCTFail(error.localizedDescription)
             }
