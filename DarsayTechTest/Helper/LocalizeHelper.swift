@@ -18,6 +18,8 @@ final class LocalizeHelper {
         case unknownError
         case urlCreationFailed
         case favoriteListTitle
+        case popularListTitle
+        case topRatedListTitle
     }
     
     func lookup(_ key: Localizedkey, _ args: CVarArg...) -> String {

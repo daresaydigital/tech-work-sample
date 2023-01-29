@@ -61,7 +61,7 @@ final class MovieDetailViewController: UIViewController, BaseSceneViewController
     lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.textColor = .onBackground
-        label.font.withSize(10)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
 

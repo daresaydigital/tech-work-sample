@@ -12,10 +12,10 @@ fileprivate extension Layout {
     
     static let bannersSectionGroupWidthInset: CGFloat = 48
     static let contentScrollViewContentInsetBottom: CGFloat = 100
-    static let popularSectionContentInsetBottom: CGFloat = 40
+    static let popularSectionContentInsetBottom: CGFloat = 20
     static let topRatedGroupHeight: CGFloat = 150
     static let popularGroupHeight: CGFloat = 220
-    
+    static let headerReuseIdentifier = "header-identifier"
 }
 
 fileprivate extension PageSection {
@@ -71,6 +71,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         }
         
+        collectionView.register(SupplementaryHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Layout.headerReuseIdentifier)
         return collectionView
     }()
     
@@ -142,10 +143,19 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, repeatingSubitem: item, count: 1)
         group.contentInsets.trailing = 16
+        group.contentInsets.top = 8
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(40))
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         section.contentInsets.bottom = Layout.popularSectionContentInsetBottom
+        section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -159,8 +169,16 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(Layout.topRatedGroupHeight))
     
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(40))
+        
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        
         let section = NSCollectionLayoutSection(group: group)
-
+        section.boundarySupplementaryItems = [header]
         return section
     }
     
@@ -269,5 +287,30 @@ extension MovieListViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let section = self.sections[indexPath.section]
+        if kind == UICollectionView.elementKindSectionHeader {
+            
+            switch section {
+            case .popularSection:
+                if let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Layout.headerReuseIdentifier, for: indexPath) as? SupplementaryHeaderView {
+                    view.setText(LocalizeHelper.shared.lookup(.popularListTitle))
+                    return view
+                }
+            case .topRatedSection:
+                if let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Layout.headerReuseIdentifier, for: indexPath) as? SupplementaryHeaderView {
+                    view.setText(LocalizeHelper.shared.lookup(.topRatedListTitle))
+                    return view
+                }
+                
+            default:
+                return UICollectionViewCell()
+            }
+            
+        }
+        return UICollectionReusableView()
     }
 }

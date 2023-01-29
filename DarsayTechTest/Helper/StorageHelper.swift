@@ -21,6 +21,8 @@ final class FavoriteStorage: StorageProtocol {
     
     private static let favoriteListKey = "favoriteListKey"
 
+    private init() {}
+    
     static let shared = FavoriteStorage()
     
     var currentList: [Movie] {

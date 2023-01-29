@@ -54,6 +54,7 @@
 		EE2293E02986DBC00077B40D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DF2986DBC00077B40D /* UIImage.swift */; };
 		EE2293E22986E1EE0077B40D /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293E12986E1EE0077B40D /* ViewModelTest.swift */; };
 		EE2293E42986E6EA0077B40D /* XCTest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293E32986E6EA0077B40D /* XCTest+Extension.swift */; };
+		EE2293E629870F1B0077B40D /* SupplementaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293E529870F1B0077B40D /* SupplementaryHeaderView.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -134,6 +135,7 @@
 		EE2293DF2986DBC00077B40D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		EE2293E12986E1EE0077B40D /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
 		EE2293E32986E6EA0077B40D /* XCTest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extension.swift"; sourceTree = "<group>"; };
+		EE2293E529870F1B0077B40D /* SupplementaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplementaryHeaderView.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				EE1A9EDB2985212300E4F9EF /* MovieBannerView.swift */,
+				EE2293E529870F1B0077B40D /* SupplementaryHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				EE1A9ECA29851F9800E4F9EF /* ImageLoader.swift in Sources */,
 				EE1A9EB229851A8100E4F9EF /* MovieNetworkAPI.swift in Sources */,
 				EE1A9EAE29851A1200E4F9EF /* NetworkExecuter.swift in Sources */,
+				EE2293E629870F1B0077B40D /* SupplementaryHeaderView.swift in Sources */,
 				EE2293C5298594AA0077B40D /* LoggerHelper.swift in Sources */,
 				EE1A9EB429851A8D00E4F9EF /* MovieNetworkAPIManager.swift in Sources */,
 				EE1A9ED5298520D600E4F9EF /* MovieListViewController.swift in Sources */,

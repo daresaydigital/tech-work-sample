@@ -55,5 +55,29 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>popularListTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Popular Movies</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>topRatedListTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Top Rated Movies</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+	</dict>
 </dict>
 </plist>
