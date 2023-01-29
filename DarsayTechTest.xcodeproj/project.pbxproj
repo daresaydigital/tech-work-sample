@@ -54,6 +54,8 @@
 		EE2293DC2986A7640077B40D /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DB2986A7640077B40D /* UIButton.swift */; };
 		EE2293DE2986CF070077B40D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DD2986CF070077B40D /* UIColor.swift */; };
 		EE2293E02986DBC00077B40D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293DF2986DBC00077B40D /* UIImage.swift */; };
+		EE2293E22986E1EE0077B40D /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293E12986E1EE0077B40D /* ViewModelTest.swift */; };
+		EE2293E42986E6EA0077B40D /* XCTest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293E32986E6EA0077B40D /* XCTest+Extension.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -134,6 +136,8 @@
 		EE2293DB2986A7640077B40D /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		EE2293DD2986CF070077B40D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EE2293DF2986DBC00077B40D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		EE2293E12986E1EE0077B40D /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
+		EE2293E32986E6EA0077B40D /* XCTest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTest+Extension.swift"; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -285,8 +289,10 @@
 				EE2293CC29864CBF0077B40D /* MockStorage.swift */,
 				EE1A9EEC298529A300E4F9EF /* LoadableJSONTest.swift */,
 				EE1A9EEE29852A7300E4F9EF /* ExecuterTest.swift */,
+				EE2293E12986E1EE0077B40D /* ViewModelTest.swift */,
 				EEB43AF229850E4100DF5CAD /* ViewControllerTest.swift */,
 				EE2293CA2985AA330077B40D /* StorageTest.swift */,
+				EE2293E32986E6EA0077B40D /* XCTest+Extension.swift */,
 			);
 			path = DarsayTechTestTests;
 			sourceTree = "<group>";
@@ -636,7 +642,9 @@
 			files = (
 				EEB43B20298511E800DF5CAD /* JSONLoader.swift in Sources */,
 				EE1A9EEF29852A7300E4F9EF /* ExecuterTest.swift in Sources */,
+				EE2293E42986E6EA0077B40D /* XCTest+Extension.swift in Sources */,
 				EE1A9EF129852AD200E4F9EF /* MockExecuter.swift in Sources */,
+				EE2293E22986E1EE0077B40D /* ViewModelTest.swift in Sources */,
 				EE2293CD29864CBF0077B40D /* MockStorage.swift in Sources */,
 				EEB43AF329850E4100DF5CAD /* ViewControllerTest.swift in Sources */,
 				EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */,
