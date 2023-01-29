@@ -101,6 +101,7 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     func prepareUI() {
         view.backgroundColor = .white
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector(favoriteButtonTapped))
         // add subviews
         view.addSubview(collectionView)
         setConstraints()
@@ -184,6 +185,10 @@ class MovieListViewController: UIViewController, BaseSceneViewController {
     func releadList(completion: (() -> Void)? = nil) {
         collectionView.reloadData()
         completion?()
+    }
+    
+    @objc func favoriteButtonTapped() {
+        self.router?.routeToFavoriteList()
     }
 }
 

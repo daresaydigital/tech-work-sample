@@ -15,11 +15,11 @@ final class MovieDetailRouter: MovieDetailRouterProtocol {
     weak var viewController: MovieDetailViewController?
     
     func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "Error",
+        let alertController = UIAlertController(title: LocalizeHelper.shared.lookup(.errorTitle),
                                     message: message,
                                     preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: LocalizeHelper.shared.lookup(.ok), style: .default, handler: nil))
         self.viewController?.present(alertController, animated: true)
     }
 }

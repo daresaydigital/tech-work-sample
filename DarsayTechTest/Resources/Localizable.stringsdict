@@ -19,5 +19,41 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>favoriteListTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Favorite List</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>ok</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>OK</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+	</dict>
+	<key>errorTitle</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>Error!</string>
+		<key>Variable</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>other</key>
+			<string></string>
+		</dict>
+	</dict>
 </dict>
 </plist>

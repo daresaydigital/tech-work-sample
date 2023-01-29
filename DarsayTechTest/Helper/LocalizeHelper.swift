@@ -13,8 +13,11 @@ final class LocalizeHelper {
 
     enum Localizedkey: String {
         
+        case ok
+        case errorTitle
         case unknownError
         case urlCreationFailed
+        case favoriteListTitle
     }
     
     func lookup(_ key: Localizedkey, _ args: CVarArg...) -> String {

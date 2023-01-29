@@ -9,6 +9,7 @@ import UIKit
 protocol MovieListRouterProtocol: AnyObject {
     func routeToDetail(movieID: Int)
     func showErrorAlert(message: String)
+    func routeToFavoriteList()
 }
 
 class MovieListRouter: MovieListRouterProtocol {
@@ -22,11 +23,17 @@ class MovieListRouter: MovieListRouterProtocol {
     }
     
     func showErrorAlert(message: String) {
-        let alertController = UIAlertController(title: "Error",
+        let alertController = UIAlertController(title: LocalizeHelper.shared.lookup(.errorTitle),
                                     message: message,
                                     preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: LocalizeHelper.shared.lookup(.ok), style: .default, handler: nil))
         self.viewController?.present(alertController, animated: true)
+    }
+    
+    func routeToFavoriteList() {
+        let destination = FavoriteListBuilder.build(with: .init())
+        
+        self.viewController?.navigationController?.pushViewController(destination, animated: true)
     }
 }

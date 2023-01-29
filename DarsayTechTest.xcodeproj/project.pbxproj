@@ -48,6 +48,11 @@
 		EE2293C929859F100077B40D /* StorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293C829859F100077B40D /* StorageHelper.swift */; };
 		EE2293CB2985AA330077B40D /* StorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CA2985AA330077B40D /* StorageTest.swift */; };
 		EE2293CD29864CBF0077B40D /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CC29864CBF0077B40D /* MockStorage.swift */; };
+		EE2293D4298666EB0077B40D /* FavoriteListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293CF298666EB0077B40D /* FavoriteListRouter.swift */; };
+		EE2293D5298666EB0077B40D /* FavoriteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D0298666EB0077B40D /* FavoriteListViewController.swift */; };
+		EE2293D6298666EB0077B40D /* FavoriteListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */; };
+		EE2293D7298666EB0077B40D /* FavoriteListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D2298666EB0077B40D /* FavoriteListModel.swift */; };
+		EE2293D8298666EB0077B40D /* FavoriteListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */; };
 		EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */; };
 		EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */; };
 		EEB43AE529850E4100DF5CAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB43AE429850E4100DF5CAD /* Assets.xcassets */; };
@@ -121,6 +126,11 @@
 		EE2293C829859F100077B40D /* StorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHelper.swift; sourceTree = "<group>"; };
 		EE2293CA2985AA330077B40D /* StorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTest.swift; sourceTree = "<group>"; };
 		EE2293CC29864CBF0077B40D /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
+		EE2293CF298666EB0077B40D /* FavoriteListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListRouter.swift; sourceTree = "<group>"; };
+		EE2293D0298666EB0077B40D /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
+		EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListBuilder.swift; sourceTree = "<group>"; };
+		EE2293D2298666EB0077B40D /* FavoriteListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListModel.swift; sourceTree = "<group>"; };
+		EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewModel.swift; sourceTree = "<group>"; };
 		EEB43AD829850E4000DF5CAD /* DarsayTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DarsayTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB43ADB29850E4000DF5CAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEB43ADD29850E4000DF5CAD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +224,18 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		EE2293CE298666D60077B40D /* FavoriteList */ = {
+			isa = PBXGroup;
+			children = (
+				EE2293D1298666EB0077B40D /* FavoriteListBuilder.swift */,
+				EE2293D2298666EB0077B40D /* FavoriteListModel.swift */,
+				EE2293D3298666EB0077B40D /* FavoriteListViewModel.swift */,
+				EE2293D0298666EB0077B40D /* FavoriteListViewController.swift */,
+				EE2293CF298666EB0077B40D /* FavoriteListRouter.swift */,
+			);
+			path = FavoriteList;
+			sourceTree = "<group>";
+		};
 		EEB43ACF29850E4000DF5CAD = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +304,7 @@
 				EEB43B1129850F5F00DF5CAD /* Base */,
 				EEB43B1229850F6900DF5CAD /* MovieList */,
 				EEB43B1429850F8300DF5CAD /* MovieDetail */,
+				EE2293CE298666D60077B40D /* FavoriteList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -565,6 +588,9 @@
 				EE1A9EC529851E5700E4F9EF /* Layout.swift in Sources */,
 				EE1A9EE6298522EB00E4F9EF /* MovieDetailViewController.swift in Sources */,
 				EE1A9ECE298520B400E4F9EF /* PageSection.swift in Sources */,
+				EE2293D8298666EB0077B40D /* FavoriteListViewModel.swift in Sources */,
+				EE2293D6298666EB0077B40D /* FavoriteListBuilder.swift in Sources */,
+				EE2293D5298666EB0077B40D /* FavoriteListViewController.swift in Sources */,
 				EE1A9ED6298520D600E4F9EF /* MovieListBuilder.swift in Sources */,
 				EEB43ADC29850E4000DF5CAD /* AppDelegate.swift in Sources */,
 				EEB43ADE29850E4000DF5CAD /* SceneDelegate.swift in Sources */,
@@ -584,9 +610,11 @@
 				EE2293C7298595F20077B40D /* Data.swift in Sources */,
 				EE1A9EDC2985212300E4F9EF /* MovieBannerView.swift in Sources */,
 				EE1A9EE9298522EB00E4F9EF /* MovieDetailViewModel.swift in Sources */,
+				EE2293D4298666EB0077B40D /* FavoriteListRouter.swift in Sources */,
 				EE1A9EE5298522EB00E4F9EF /* MovieDetailRouter.swift in Sources */,
 				EE1A9ED4298520D600E4F9EF /* MovieListRouter.swift in Sources */,
 				EE1A9EEB298523C100E4F9EF /* ReviewView.swift in Sources */,
+				EE2293D7298666EB0077B40D /* FavoriteListModel.swift in Sources */,
 				EE1A9ECA29851F9800E4F9EF /* ImageLoader.swift in Sources */,
 				EE1A9EB229851A8100E4F9EF /* MovieNetworkAPI.swift in Sources */,
 				EE1A9EAE29851A1200E4F9EF /* NetworkExecuter.swift in Sources */,
